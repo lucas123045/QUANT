@@ -16,6 +16,28 @@ export function reais(valor, casas = 0) {
     minimumFractionDigits: casas, maximumFractionDigits: casas });
 }
 
+/** Curva cúbica monótona: suaviza sem inventar picos ou vales entre os pontos reais. */
+export function caminhoSuave(pontos) {
+  if (pontos.length < 3) return `M${pontos.map((p) => p.join(",")).join(" L")}`;
+  const n = pontos.length;
+  const inclinacoes = [];
+  for (let i = 0; i < n - 1; i++) {
+    inclinacoes.push((pontos[i + 1][1] - pontos[i][1]) / (pontos[i + 1][0] - pontos[i][0]));
+  }
+  const tangentes = pontos.map((_, i) => {
+    if (i === 0) return inclinacoes[0];
+    if (i === n - 1) return inclinacoes[n - 2];
+    const [a, b] = [inclinacoes[i - 1], inclinacoes[i]];
+    return a * b <= 0 ? 0 : (2 * a * b) / (a + b);  // média harmônica: não ultrapassa os vizinhos
+  });
+  let d = `M${pontos[0][0]},${pontos[0][1]}`;
+  for (let i = 0; i < n - 1; i++) {
+    const h = (pontos[i + 1][0] - pontos[i][0]) / 3;
+    d += ` C${pontos[i][0] + h},${pontos[i][1] + tangentes[i] * h} ${pontos[i + 1][0] - h},${pontos[i + 1][1] - tangentes[i + 1] * h} ${pontos[i + 1][0]},${pontos[i + 1][1]}`;
+  }
+  return d;
+}
+
 function marcas(min, max, quantidade = 4) {
   const passoBruto = (max - min) / quantidade || 1;
   const potencia = 10 ** Math.floor(Math.log10(passoBruto));
@@ -85,12 +107,28 @@ export default function GraficoPatrimonio({ serie, capital }) {
           </text>
         ))}
 
-        {/* A estratégia é desenhada por último, por cima das referências. */}
+        <defs>
+          <linearGradient id="area-estrategia" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="var(--serie-1)" stopOpacity="0.32" />
+            <stop offset="100%" stopColor="var(--serie-1)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {/* A estratégia é desenhada por último, por cima das referências, com área em degradê. */}
         {[...SERIES].reverse().map((s) => {
-          const pontos = serie.map((p, i) => (p[s.chave] == null ? null : `${x(i)},${y(p[s.chave])}`)).filter(Boolean);
-          return pontos.length > 1
-            ? <polyline key={s.chave} points={pontos.join(" ")} fill="none" stroke={s.cor} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-            : pontos.length === 1 && <circle key={s.chave} cx={pontos[0].split(",")[0]} cy={pontos[0].split(",")[1]} r="4" fill={s.cor} />;
+          const pontos = serie.map((p, i) => (p[s.chave] == null ? null : [x(i), y(p[s.chave])])).filter(Boolean);
+          if (pontos.length === 1) return <circle key={s.chave} cx={pontos[0][0]} cy={pontos[0][1]} r="4" fill={s.cor} />;
+          if (pontos.length < 2) return null;
+          const linha = caminhoSuave(pontos);
+          return (
+            <g key={s.chave}>
+              {s.chave === "estrategia" && (
+                <path d={`${linha} L${pontos[pontos.length - 1][0]},${ALTURA - MARGEM.base} L${pontos[0][0]},${ALTURA - MARGEM.base} Z`}
+                  fill="url(#area-estrategia)" />
+              )}
+              <path d={linha} fill="none" stroke={s.cor} strokeWidth={s.chave === "estrategia" ? 2.5 : 2}
+                strokeLinejoin="round" strokeLinecap="round" />
+            </g>
+          );
         })}
 
         {rotulos.map((r) => (

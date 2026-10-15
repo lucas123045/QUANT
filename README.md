@@ -287,9 +287,15 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
 
-Visual de terminal financeiro: escuro por padrão, com tema claro (tom de papel) no botão do topo e fontes IBM Plex incluídas no projeto, sem depender de internet. Quando um arquivo `.py` em `src/` muda, a API reinicia sozinha.
+Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
+- barra lateral com ícones e cartões arredondados;
+- saldo em destaque e gráficos com curvas suaves;
+- escuro por padrão, com tema claro (tom de papel) na barra lateral;
+- fontes IBM Plex incluídas no projeto, sem depender de internet.
 
-O seletor "Real / Teste", no topo, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
+A página inicial é **Minha carteira** (a simulação). Quando um arquivo `.py` em `src/` muda, a API reinicia sozinha.
+
+O seletor "Dados: Reais / Teste", na barra lateral, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
 
 **Garantias:**
 - A API escuta só em 127.0.0.1.
@@ -305,7 +311,9 @@ A aba **Simulação** mantém uma carteira fictícia de R$ 100.000 (`CAPITAL_INI
 - **Preços:** fechamentos reais do Yahoo Finance, ajustados por proventos. São salvos em `data/simulacao/precos/`, um download por dia. Antes das 18h30 (horário de São Paulo), o preço do dia é considerado parcial e não é usado.
 A aba tem a forma de um painel de banco:
 
-- **Saldo total** em destaque, com variação desde o início, divisão entre investido, caixa e rendimento das posições, e um botão para esconder os valores.
+- **Saldo total** em destaque, com variação desde o início, cartões de investido, caixa e rendimento das posições, e um botão para esconder os valores.
+- **Maturidade da simulação:** selo "muito cedo / histórico curto / histórico razoável", com barras de progresso de dias de pregão (meta de 126) e de decisões (meta de 30). Serve para que ninguém conclua "é seguro" com poucas semanas de dados fictícios.
+- **Produtos que você está testando:** Estratégia QUANT, Seguir toda notícia e Ibovespa. Cada um mostra rentabilidade, oscilação (baixa < 10%, média < 25%, alta ≥ 25% ao ano), pior queda e % de dias no positivo, e um selo marca o de maior rendimento.
 - **Onde está o dinheiro:** rosca de alocação por ação e caixa.
 - **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro 7D, 30D ou Tudo e cursor.
 - **Rendimento comparado:** barras com o retorno de cada carteira e uma explicação em texto.

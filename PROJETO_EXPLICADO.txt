@@ -5,7 +5,7 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 215, todos passando, sem rede e sem LLM real.
+Testes: 226, todos passando, sem rede e sem LLM real.
 Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 
 
@@ -227,9 +227,9 @@ quant/
     ├── test_funil_avaliacao.py    5 testes
     ├── test_main.py               5 testes
     ├── test_web_api.py            8 testes
-    └── test_simulacao.py          8 testes
+    └── test_simulacao.py         19 testes
                                  ----
-                                 215 testes
+                                 226 testes
 
 
 ================================================================================
@@ -855,7 +855,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (215)
+14. TESTES AUTOMATIZADOS (226)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -951,7 +951,7 @@ em todos os testes.
     diário; relatório vazio não chama o LLM; auditoria append-only; campos e
     trecho_fonte obrigatórios.
 
-  test_simulacao.py (8)
+  test_simulacao.py (19)
     Resultado conhecido com preços sintéticos (compra de PETR4 a 10 que
     vai a 13: patrimônio 106.000; Ibovespa 103.000); ordem pendente até o
     próximo pregão; preço parcial do dia ignorado antes das 18h30; base sem
@@ -959,7 +959,9 @@ em todos os testes.
     (alocação 80.000 caixa + 26.000 PETR4, cartões dos 5 ativos com preço,
     variações, minigráfico e última decisão com motivo, extrato, histórico
     da regra sem margem com 1 decisão); ativos com "compra agendada" e
-    "venda agendada" antes do primeiro pregão.
+    "venda agendada" antes do primeiro pregão; produtos (dias no positivo,
+    oscilação) e maturidade; limites dos níveis de maturidade e de
+    oscilação.
 
   test_web_api.py (8)
     Status não expõe a chave; configuração somente leitura (POST → 405);
@@ -994,7 +996,7 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 215 testes
+  python -m pytest                       roda os 226 testes
   npm run dev                            interface web (seção 23)
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
@@ -1171,6 +1173,7 @@ Fora esses, todo o resto está implementado e testado.
   (commit) Visual de terminal financeiro
   (commit) Simulação (paper trading)
   (commit) Simulação no formato de painel de banco
+  (commit) Visual fintech, produtos e maturidade da simulação
 
 
 ================================================================================
@@ -1374,6 +1377,22 @@ O que a aba mostra (formato de painel de banco/fintech):
 Não há previsão de rendimento: ninguém sabe quanto uma ação vai render, e
 mostrar isso seria inventar um número. A aba mostra o que já aconteceu e a
 incerteza disso.
+
+Proposta de uso (do autor): quem tem medo de investir dinheiro real testa
+primeiro com dinheiro fictício e acompanha quais "produtos" rendem e quanto
+oscilam. Para isso a aba (agora a página inicial, "Minha carteira") tem:
+  - PRODUTOS: Estratégia QUANT / Seguir toda notícia / Ibovespa, cada um
+    com rentabilidade, oscilação (baixa < 10%, média < 25%, alta >= 25% de
+    volatilidade anualizada), pior queda e % de dias no positivo;
+  - MATURIDADE: selo "muito cedo" (< 60 pregões ou < 10 decisões),
+    "histórico curto" (até 126 pregões / 30 decisões) e "histórico
+    razoável", com barras de progresso. Impede a conclusão apressada de
+    que "é seguro" com poucas semanas de dados fictícios — e lembra que
+    rendimento passado não garante rendimento futuro.
+
+Visual: painel de banco/fintech nas cores do projeto — barra lateral com
+ícones, cartões arredondados, saldo em destaque com degradê âmbar, ícones
+em círculos, curvas suaves com área em degradê, rótulos sem caixa alta.
 
 Por que é útil para o trabalho: é uma validação PROSPECTIVA. A decisão é
 registrada antes de o resultado existir; não há como ajustar nada olhando o

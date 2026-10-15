@@ -135,3 +135,29 @@ def test_ativos_aparecem_mesmo_aguardando_pregao(dados):
     ativos = {a["ticker"]: a for a in r["ativos"]}
     assert ativos["PETR4"]["situacao"] == "compra_agendada"
     assert ativos["VALE3"]["situacao"] == "venda_agendada"
+
+
+def test_produtos_e_maturidade(dados):
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar,
+                           capital=100_000.0)
+    ibov = r["carteiras"]["ibovespa"]
+    assert ibov["dias_positivos_pct"] == 1.0          # 100→100→101→102→103: só subiu
+    assert ibov["volatilidade_anualizada"] is not None
+    assert ibov["oscilacao"] in ("baixa", "média", "alta")
+    m = r["maturidade"]
+    assert (m["pregoes"], m["decisoes"], m["nivel"]) == (5, 1, "muito_cedo")
+    assert "quase só sorte" in m["texto"]
+
+
+@pytest.mark.parametrize("pregoes,decisoes,nivel", [
+    (5, 1, "muito_cedo"), (60, 9, "muito_cedo"), (60, 10, "inicial"),
+    (126, 29, "inicial"), (126, 30, "razoavel"),
+])
+def test_niveis_de_maturidade(pregoes, decisoes, nivel):
+    assert simulacao.maturidade(pregoes, decisoes)["nivel"] == nivel
+
+
+@pytest.mark.parametrize("vol,nivel", [(None, None), (0.05, "baixa"), (0.10, "média"),
+                                       (0.249, "média"), (0.25, "alta")])
+def test_nivel_oscilacao(vol, nivel):
+    assert simulacao.nivel_oscilacao(vol) == nivel

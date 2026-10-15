@@ -32,6 +32,12 @@ FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 HORARIO_FECHAMENTO_CONFIAVEL = time(18, 30)
 # Dias corridos de preços antes do início, só para os minigráficos dos ativos.
 DIAS_CONTEXTO = 60
+# Faixas de oscilação (volatilidade anualizada) para a leitura de leigos.
+LIMITES_OSCILACAO = (0.10, 0.25)
+# Maturidade da simulação: (pregões, decisões) para "inicial" e "razoável".
+# Referência grosseira: ~3 meses e ~6 meses de pregões, com amostra mínima.
+MATURIDADE_INICIAL = (60, 10)
+MATURIDADE_RAZOAVEL = (126, 30)
 
 
 def _ler(caminho: Path, padrao):
@@ -186,6 +192,49 @@ def _historico_regra(operacoes: list[dict]) -> dict:
     }
 
 
+def nivel_oscilacao(volatilidade_anualizada: float | None) -> str | None:
+    """Classificação simples para leigos (volatilidade anualizada do patrimônio).
+
+    Referência: o Ibovespa costuma oscilar em torno de 20% a 25% ao ano.
+    """
+    if volatilidade_anualizada is None:
+        return None
+    if volatilidade_anualizada < LIMITES_OSCILACAO[0]:
+        return "baixa"
+    return "média" if volatilidade_anualizada < LIMITES_OSCILACAO[1] else "alta"
+
+
+def _produto(patrimonio: pd.Series, metricas: dict) -> dict:
+    """Números de uma carteira apresentada como 'produto' de investimento."""
+    diarios = patrimonio.pct_change().dropna()
+    movimentos = diarios[diarios != 0]
+    vol = metricas["volatilidade_anualizada"] if len(diarios) > 1 else None
+    return {
+        "patrimonio": float(patrimonio.iloc[-1]),
+        "retorno_acumulado": metricas["retorno_acumulado"],
+        "drawdown_maximo": metricas["drawdown_maximo"],
+        "volatilidade_anualizada": vol,
+        "oscilacao": nivel_oscilacao(vol),
+        # Dias com variação: fração em que o patrimônio subiu (dias parados não contam).
+        "dias_positivos_pct": float((movimentos > 0).mean()) if len(movimentos) else None,
+    }
+
+
+def maturidade(pregoes: int, decisoes: int) -> dict:
+    """Quão cedo é para tirar conclusões da simulação (não é teste estatístico)."""
+    if pregoes >= MATURIDADE_RAZOAVEL[0] and decisoes >= MATURIDADE_RAZOAVEL[1]:
+        nivel, texto = "razoavel", ("Já há histórico razoável, mas resultado passado, mesmo real, "
+                                     "não garante resultado futuro.")
+    elif pregoes >= MATURIDADE_INICIAL[0] and decisoes >= MATURIDADE_INICIAL[1]:
+        nivel, texto = "inicial", ("Histórico ainda curto: os números já dizem algo, mas podem mudar "
+                                    "bastante com mais algumas semanas.")
+    else:
+        nivel, texto = "muito_cedo", ("Com tão poucos dias e decisões, lucro ou prejuízo ainda é "
+                                       "quase só sorte. Continue acompanhando antes de confiar.")
+    return {"pregoes": pregoes, "decisoes": decisoes, "nivel": nivel, "texto": texto,
+            "meta": {"pregoes": MATURIDADE_RAZOAVEL[0], "decisoes": MATURIDADE_RAZOAVEL[1]}}
+
+
 def calcular(dir_data: Path | None = None, agora: datetime | None = None,
              baixar=None, capital: float | None = None) -> dict:
     """Estado da carteira simulada até o último fechamento confiável."""
@@ -251,18 +300,16 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
     for nome, sim in simulacoes.items():
         metricas = backtest.calcular_metricas(sim.patrimonio, sim.operacoes, sim.exposicao)
         resultado["carteiras"][nome] = {
-            "patrimonio": float(sim.patrimonio.iloc[-1]),
+            **_produto(sim.patrimonio, metricas),
             "caixa_investido_pct": float(sim.exposicao.iloc[-1]),
-            **{k: metricas[k] for k in ("retorno_acumulado", "drawdown_maximo", "n_operacoes",
-                                        "taxa_acerto", "exposicao_media")},
+            **{k: metricas[k] for k in ("n_operacoes", "taxa_acerto", "exposicao_media")},
         }
-    metricas_ibov = backtest.calcular_metricas(ibov)
     resultado["carteiras"]["ibovespa"] = {
-        "patrimonio": float(ibov.iloc[-1]), "caixa_investido_pct": 1.0,
-        "retorno_acumulado": metricas_ibov["retorno_acumulado"],
-        "drawdown_maximo": metricas_ibov["drawdown_maximo"],
-        "n_operacoes": None, "taxa_acerto": None, "exposicao_media": 1.0,
+        **_produto(ibov, backtest.calcular_metricas(ibov)),
+        "caixa_investido_pct": 1.0, "n_operacoes": None, "taxa_acerto": None, "exposicao_media": 1.0,
     }
+    n_decisoes = len(simulacoes["estrategia"].operacoes)
+    resultado["maturidade"] = maturidade(len(precos), n_decisoes)
 
     operacoes = [_posicao(op, precos) for op in simulacoes["estrategia"].operacoes]
     resultado["posicoes_abertas"] = [o for o in operacoes if o["aberta"]]
