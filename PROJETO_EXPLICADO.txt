@@ -440,8 +440,8 @@ validar a hipótese.
   ou None, se não houver classificação válida.
   classificar_jev(): NotImplementedError("API do Jev não especificada no
     repositório.").
-  classificar_llm(): PROMPT_CLASSIFICACAO_V1, temperatura 0, 1 nova
-    tentativa, saída validada por padronizar() (sentimento válido;
+  classificar_llm(): PROMPT_CLASSIFICACAO_V1, temperatura 0 pedida (não
+    aplicada com Claude), 1 nova tentativa, saída validada por padronizar() (sentimento válido;
     probabilidade numérica entre 0 e 1).
   Fallback: Jev indisponível (NotImplementedError) ou com saída inválida →
   usa o LLM.
@@ -499,7 +499,7 @@ validar a hipótese.
 ------------------------------------------------------------------------------
   gerar_justificativa(decisao, evento, classificacao)
     Cabeçalho fixo vindo da regra + explicação do LLM (PROMPT_EXPLICACAO_V1,
-    temperatura 0), que é instruído a não alterar nem questionar a decisão.
+    temperatura 0 pedida, não aplicada com Claude), que é instruído a não alterar nem questionar a decisão.
   gerar_relatorio_diario(decisoes, data)
     A lista de operações e os motivos são montados SEM o LLM. O LLM só
     escreve o parágrafo de resumo (PROMPT_RELATORIO_V1).
@@ -866,7 +866,7 @@ em todos os testes.
     teste; .env não sobrescreve variáveis existentes.
 
   test_extract.py (18)
-    JSON válido; temperatura 0 e identificador do prompt; JSON inválido com
+    JSON válido; temperatura 0 pedida e identificador do prompt; JSON inválido com
     retry bem-sucedido; JSON inválido nas 2 tentativas → descarte (e no
     máximo 2 chamadas); cerca markdown; tipo inválido (levanta erro e é
     descartado); ticker fora da carteira; impacto inválido; confirmado não
@@ -916,7 +916,7 @@ em todos os testes.
   test_explain_auditoria.py (10)
     A decisão não depende da resposta do LLM (3 respostas hostis); decisões
     idênticas com LLMs diferentes; o prompt correto chega ao LLM com
-    temperatura 0; LLM fora do ar → só o cabeçalho da regra; relatório
+    temperatura 0 pedida; LLM fora do ar → só o cabeçalho da regra; relatório
     diário; relatório vazio não chama o LLM; auditoria append-only; campos e
     trecho_fonte obrigatórios.
 
@@ -947,7 +947,7 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 156 testes
+  python -m pytest                       roda os 192 testes
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
                                          (sem rede, LLM falso, grava em data/teste/)
@@ -1121,12 +1121,26 @@ Fora esses, todo o resto está implementado e testado.
   Append-only     arquivo que só recebe linhas novas; nada é apagado ou editado.
   Backtest        simulação da estratégia sobre preços históricos.
   Baseline        estratégia simples de referência para comparação.
+  Brier (escore)  média de (probabilidade − acerto)²; quanto menor, melhor a
+                  calibração.
+  Calibração      quanto a probabilidade declarada corresponde à taxa de
+                  acerto observada (0,8 calibrado = acerta 80% das vezes).
+  Contaminação    o LLM "saber" o desfecho de um período por ter sido
+  (look-ahead     treinado com textos posteriores a ele.
+  via modelo)
   B3              bolsa de valores brasileira.
   Congelamento    momento a partir do qual regra, parâmetros, prompts e modelo
                   não mudam mais; só então o período de teste pode ser usado.
   CVM             Comissão de Valores Mobiliários; publica os fatos relevantes.
   Drawdown        queda do patrimônio a partir de um pico anterior.
   Erro padrão     desvio-padrão / √n; mede a incerteza da média.
+  Excesso por     retorno da operação menos o retorno do Ibovespa entre a
+  operação        entrada e a saída da mesma operação.
+  Exposição       fração do patrimônio investida em ações (o resto é caixa).
+  Fallback        reexecução automática em outro modelo quando o primeiro
+                  recusa a requisição.
+  Funil           quantos itens sobrevivem a cada etapa: notícias → menções
+                  → eventos → operações.
   Fato relevante  comunicado oficial obrigatório de uma companhia aberta.
   Ibovespa        principal índice da B3 (^BVSP).
   Jev             classificador opcional de sentimento; API ainda não
@@ -1134,10 +1148,20 @@ Fora esses, todo o resto está implementado e testado.
   JSONL           arquivo de texto com um objeto JSON por linha.
   LLM             modelo de linguagem generativo.
   Matching        casamento de texto com os tickers da carteira.
+  Precisão        dos itens marcados pelo sistema, a fração correta.
   Pregão          dia de negociação na bolsa.
+  p-valor         probabilidade de ver um resultado tão bom quanto o
+                  observado se não houvesse sinal; abaixo de alfa (0,05) =
+                  significativo.
+  Revocação       dos itens corretos, a fração que o sistema encontrou.
   RSS             formato de feed usado pelos portais de notícias.
   Seed/semente    número que torna um sorteio reproduzível.
+  SHA-256 (hash)  impressão digital de um arquivo; muda se o conteúdo mudar.
   Slippage        diferença entre o preço esperado e o preço executado.
+  Teste t         compara a média com zero levando em conta a variação e o
+                  número de observações (t = média / erro padrão).
+  Teste de Welch  teste t para comparar as médias de dois grupos com
+                  variâncias diferentes.
   Ticker          código da ação (ex.: PETR4).
   trecho_fonte    trecho literal do texto que comprova o evento extraído.
   Viés de         distorção por escolher hoje empresas que "sobreviveram".
