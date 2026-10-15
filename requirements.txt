@@ -1,2 +1,9 @@
-# Dependências são adicionadas conforme cada fase precisar delas.
+# Testes
 pytest>=8.0
+# Coleta de notícias (RSS)
+feedparser>=6.0
+# Preços históricos e manipulação de séries
+yfinance>=0.2
+pandas>=2.0
+# Base de fusos horários (necessária para zoneinfo no Windows)
+tzdata>=2024.1
