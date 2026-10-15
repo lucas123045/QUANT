@@ -1,0 +1,12 @@
+# Credenciais
+.env
+
+# Dados baixados ou coletados (não versionados)
+data/precos/
+data/arquivo/
+
+# Ambiente e cache Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
