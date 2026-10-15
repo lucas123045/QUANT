@@ -28,21 +28,34 @@ Uma regra calibrada em uma fonte **não é automaticamente válida** na outra. N
 
 ## 3. Critério de decisão
 
-A estratégia só é considerada **útil** se, no período de teste, cumprir as três condições abaixo:
+**Versão vigente: `CRITERIO_V2`** (`backtest.avaliar_criterio`), com nível de significância `ALFA_CRITERIO = 0,05`.
 
-1. superar o baseline "comprar qualquer notícia positiva";
-2. superar o Ibovespa (comprar e segurar);
-3. ter as duas diferenças, já descontados os custos, maiores que o erro padrão da média do retorno por operação.
+A estratégia só é considerada **útil** se, no período de teste e já descontados os custos, cumprir as três condições:
 
-Se não superar, o trabalho conclui que **o sinal não foi demonstrado**. Esse é um resultado válido e será reportado como tal.
+1. **Direção:** o retorno acumulado é maior que o do baseline 1 ("comprar qualquer notícia positiva") **e** maior que o do Ibovespa.
+2. **Contra o Ibovespa:** teste t unilateral do **excesso por operação**, com p < 0,05. O excesso de uma operação é o retorno dela menos o retorno do Ibovespa na mesma janela, e t = média ÷ (desvio ÷ √n).
+3. **Contra o baseline 1:** teste de Welch unilateral entre os excessos por operação da estratégia e os do baseline 1, com p < 0,05.
+
+Se o teste for indefinido (menos de 2 operações ou variância zero), o resultado é "não demonstrado". Se não superar, o trabalho conclui que **o sinal não foi demonstrado**. Esse é um resultado válido e será reportado como tal.
+
+Controle adicional, que não entra no critério: o baseline 2 (sorteio) dá a fração de sorteios que empatam com a estratégia ou a superam, um p-valor empírico.
+
+> **Por que o critério mudou (V1 → V2, antes de qualquer congelamento).** O `CRITERIO_V1` exigia "diferença de retorno acumulado > erro padrão do retorno médio por operação". Essas grandezas são diferentes. Com sizing de 20%, a diferença cresce com n e o erro padrão cai com √n, então a razão cresce como n^1,5. Com 50 operações de média 0,2% e desvio 3%, o V1 aprovaria com t ≈ 0,5, que não é significativo. O teste `test_criterio_v2_corrige_o_defeito_do_v1` reproduz esse caso.
 
 > Os custos são os configurados em `src/config.py`. Hoje estão zerados (ver seção 8), então o resultado "líquido" é igual ao bruto até que valores de custo sejam aprovados.
+
+> **Limitação do teste de Welch:** as operações da estratégia costumam ser um subconjunto das do baseline 1, então as amostras não são independentes. O teste é aproximado e tende a ser conservador nesse caso.
 
 ## 4. Métricas
 
 - **Primária:** retorno acumulado líquido da estratégia contra o Ibovespa no período de teste.
-- **Secundárias:** volatilidade e drawdown máximo.
-- **Apoio ao critério:** erro padrão da média do retorno por operação (desvio-padrão ÷ √número de operações).
+- **Secundárias:**
+  - volatilidade (diária e anualizada) e drawdown máximo;
+  - retorno anualizado por unidade de volatilidade;
+  - exposição média: a fração do patrimônio investida;
+  - **Ibovespa com a mesma exposição diária da estratégia**. A estratégia investe no máximo 20% por ação e deixa o resto em caixa, enquanto o Ibovespa comprado e segurado fica 100% investido. Comparar com o Ibovespa na mesma exposição separa a seleção do simples fato de estar mais ou menos investido.
+- **Do critério:** excesso médio por operação, estatística t e p-valor (seção 3).
+- **De apoio:** número de operações, taxa de acerto e erro padrão do retorno médio por operação.
 
 ## 5. Data de congelamento da regra
 
@@ -54,19 +67,43 @@ Antes de olhar qualquer resultado do período de teste, a regra é congelada. A 
 - lógica da função `decidir` (`src/strategy.py`, `REGRA_V1`)
 - prompt de extração (`PROMPT_EXTRACAO_V1`, `src/extract.py`)
 - prompt de classificação (`PROMPT_CLASSIFICACAO_V1`, `src/classify.py`)
-- versão do modelo de LLM usado (`LLM_PROVEDOR` e `LLM_MODELO`)
+- versão do modelo de LLM usado (`LLM_PROVEDOR` e `LLM_MODELO`) e sua data de corte de conhecimento (`DATA_CORTE_CONHECIMENTO_MODELO`)
+- esforço do modelo (`ESFORCO = "medium"`, `src/provedores.py`)
+- critério de decisão (`CRITERIO_V2`, `ALFA_CRITERIO = 0,05`)
 - carteira, aliases e exclusões do casamento de tickers (`src/config.py`)
 - semente do baseline 2 (`SEMENTE_BASELINE_2 = 20261015`)
+- hash de `requirements.txt` e hash dos preços (`backtest.hash_dos_precos()`)
 
 O código impede rodar o período de teste enquanto `DATA_CONGELAMENTO` for `None`: `periodo_do_config("teste")` levanta `CongelamentoPendente`.
+
+O teste `test_parametros_congelaveis_nao_foram_alterados` **falha de propósito** se algum parâmetro congelável mudar ou se `DATA_CONGELAMENTO` for preenchida. Atualizá-lo é um ato deliberado, que entra no mesmo commit da mudança aprovada.
 
 | Campo | Valor |
 |---|---|
 | Data de congelamento | _PENDENTE_ |
-| Hash do commit | _PENDENTE_ |
+| Hash do commit (e tag `regra-congelada-v1`) | _PENDENTE_ |
+| Hash dos preços (`hash_dos_precos`) | _PENDENTE_ |
+| Hash de `requirements.txt` | _PENDENTE_ |
+| Data de corte de conhecimento do modelo | _PENDENTE_ |
 | Aprovação | _PENDENTE_ |
 
 Esses campos são preenchidos apenas pelo autor.
+
+## 5.1 Riscos metodológicos (revisão de 2026-10-15)
+
+- **Contaminação por conhecimento do LLM (look-ahead via modelo).** Se o modelo foi treinado com textos posteriores ao início de um período histórico, ele pode "saber" o desfecho ao extrair e classificar eventos daquele período. Nenhum corte temporal do backtest detecta isso.
+  - Cada resultado de backtest traz o campo `contaminacao_llm`: `NAO_AVALIADO` enquanto `DATA_CORTE_CONHECIMENTO_MODELO` for `None`; `RISCO` se o período começa antes do corte; `OK` se é inteiramente posterior.
+  - Só períodos posteriores ao corte valem como evidência. Isso enfraquece sobretudo o teste de conceito histórico com fatos relevantes da CVM. A validação com notícias arquivadas a partir de agora é menos afetada.
+  - A data de corte deve vir da documentação oficial do provedor. Ela não está registrada no repositório e não foi inventada.
+- **A probabilidade do LLM não é calibrada.** O valor 0,85 declarado pelo modelo não significa 85% de acerto, então o limiar de 0,7 funciona como um corte de *ranking*, não como uma probabilidade.
+  - A calibração deve ser medida no **período de validação** com `estatistica.tabela_calibracao` (faixas e escore de Brier), usando `backtest.acerto_direcional` como desfecho.
+  - Se for preciso ajustar o limiar, isso se faz com dados de validação e antes do congelamento.
+- **Poder estatístico.** A cadeia de filtros (menção → evento → confirmado → probabilidade > 0,7 → sem evento oposto) reduz muito o número de operações. Antes do teste, o funil deve ser medido com `python -m src.funil`.
+  - Primeira medição, em 2026-10-15, com um dia de coleta e sem LLM: 20 notícias, das quais 2 mencionam a carteira (10%). Não é possível estimar operações sem o provedor configurado.
+  - O resultado mais provável, com poucas operações, é "sinal não demonstrado", e o trabalho deve ser enquadrado assim desde já.
+- **Preços ajustados mudam com o tempo.** O ajuste por proventos (`auto_adjust=True`) é retroativo. O SHA-256 de cada CSV é registrado no download, e o carregamento recusa (`PrecosAlterados`) um cache adulterado ou um novo download diferente do registrado.
+- **Qualidade do casamento e da extração não medida.** `python -m src.avaliacao` exporta amostras (semente fixa) para rotular à mão e calcula precisão e revocação do casamento e precisão da extração. Meta: 50 a 100 notícias rotuladas, só com dados de treino ou validação, antes do congelamento.
+- **Temperatura.** Os modelos Claude atuais não aceitam parâmetros de amostragem, então a extração não pode rodar com temperatura 0. Cada saída registra `temperatura: null` e o modelo que de fato respondeu. A reprodutibilidade vem de outro lado: cada resposta do LLM fica gravada e nunca é pedida de novo.
 
 ## 6. Posição sobre o Jev
 
@@ -82,6 +119,7 @@ Esses campos são preenchidos apenas pelo autor.
 - **Regra:** uma notícia ou um fato relevante publicado **após o fechamento do pregão da B3** entra no **pregão do dia seguinte**.
 - **Regra de implementação:** um evento publicado em qualquer horário do dia D, no fuso de referência, é executado no **fechamento do primeiro pregão estritamente posterior a D**. Isso cumpre a regra acima e também trata da mesma forma os eventos publicados **durante** o pregão. Como o backtest usa apenas preços de fechamento, executar no fechamento do próprio dia D poderia usar um preço que já refletia a notícia (olhar o futuro).
 - Com essa regra, o horário exato de fechamento da B3, que muda ao longo do ano, não afeta a execução.
+- **Custo da escolha:** a reação intradiária, que costuma ser a parte mais informativa do movimento, fica de fora. A regra é conservadora: pode subestimar o sinal, mas não o inflar com informação futura.
 - Fins de semana e feriados: o calendário de pregões é o do Ibovespa (`^BVSP`) no yfinance, então o evento vai para o próximo dia com negociação.
 
 ## 8. Escopo e limitações
@@ -95,8 +133,10 @@ Esses campos são preenchidos apenas pelo autor.
   - ações fracionárias são permitidas;
   - não há venda a descoberto (VENDA só zera uma posição existente);
   - os preços são fechamentos ajustados por proventos (yfinance, `auto_adjust=True`);
-  - posições abertas no fim do período são liquidadas teoricamente no último fechamento;
-  - o erro padrão é calculado por operação, enquanto as diferenças do critério são de retorno acumulado. É uma comparação conservadora e simples, adotada como foi especificada.
+  - posições abertas no fim do período são liquidadas teoricamente no último fechamento.
+- **Exposição desigual:** a estratégia fica parcialmente em caixa e o Ibovespa, 100% investido. Por isso existem as métricas secundárias de retorno por volatilidade e de Ibovespa com a mesma exposição (seção 4).
+- **Contaminação, calibração e poder estatístico:** ver a seção 5.1.
+- **Modo de teste:** a saída de `--teste` usa notícias de exemplo e um LLM falso por palavras-chave. O relatório gerado traz um aviso e não pode ser usado em nenhuma conclusão.
 - **Arquivo de notícias:** só existe a partir da data de início da coleta. Os feeds RSS trazem apenas itens recentes, então não há histórico retroativo de notícias de portal.
 
 ### Carteira provisória
@@ -130,7 +170,13 @@ Em `src/config.py`, os períodos ficam como `None` até a aprovação. Nenhum ba
 - [ ] Aprovar datas de treino, validação e teste
 - [ ] Definir a data de congelamento da regra
 - [ ] Confirmar acesso à API do Jev. Enquanto isso, o LLM é o classificador e `USAR_JEV = False`.
-- [ ] Definir o provedor e o modelo do LLM, e registrar o provedor em `src/llm.py`. Sem isso, o pipeline real arquiva as notícias, mas não extrai eventos.
+- [x] Implementar um provedor real de LLM: `anthropic`, com `claude-opus-5-5` por padrão (`src/provedores.py`).
+- [ ] Configurar a chave (`LLM_API_KEY` no `.env`) e rodar o pipeline real com o LLM. Até lá, a IA só foi exercitada com o provedor falso.
+- [ ] Registrar `DATA_CORTE_CONHECIMENTO_MODELO` a partir da documentação oficial do modelo escolhido (seção 5.1).
+- [ ] Medir o funil depois de alguns dias de coleta com LLM e estimar o número de operações por período (`python -m src.funil`).
+- [ ] Rotular 50 a 100 notícias (dados de validação) e medir o casamento e a extração (`python -m src.avaliacao`).
+- [ ] Medir a calibração da probabilidade no período de validação.
+- [ ] Aprovar `JANELA_EVENTO_RECENTE_DIAS = 5` e `ALFA_CRITERIO = 0,05` antes de qualquer validação.
 - [ ] Confirmar "tempo real" com o professor
 - [ ] Confirmar a carteira
 - [ ] Verificar aspectos tributários com contador (não modelar alíquotas sem verificação)
@@ -149,12 +195,16 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | `src/matching.py` | Decide se um texto menciona uma empresa da carteira. Usa o ticker com fronteira de palavra, o nome e os aliases; "vale" isolado nunca casa; casas de análise como "Itaú BBA" são excluídas |
 | `src/news.py` | Coleta RSS (InfoMoney e Money Times) das últimas 24 h, tolerando falhas por fonte. A CVM está bloqueada |
 | `src/archive.py` | Arquivo append-only em `data/arquivo/AAAA-MM-DD.jsonl` (data da coleta), com deduplicação por URL |
-| `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso |
-| `src/extract.py` | Extração com `PROMPT_EXTRACAO_V1` e temperatura 0. Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
+| `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso. Registra o modelo que respondeu e a temperatura efetiva |
+| `src/provedores.py` | Provedor `anthropic` (SDK oficial): `claude-opus-5-5`, esforço `medium`, fallback do servidor, recusa tratada |
+| `src/extract.py` | Extração com `PROMPT_EXTRACAO_V1` (temperatura 0 pedida; null quando o modelo não aceita). Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
 | `src/classify.py` | Interface única que devolve sentimento e probabilidade. O Jev é `NotImplementedError` e o LLM é o caminho normal |
 | `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo (`REGRA_V1`) |
 | `src/baselines.py` | Baseline 1 (qualquer notícia positiva) e baseline 2 (sorteio com 1000 simulações e semente fixa) |
-| `src/backtest.py` | Execução no próximo pregão, simulação, preços do yfinance com cache, métricas, critério e travas de período |
+| `src/backtest.py` | Execução no próximo pregão, simulação com exposição, preços do yfinance com cache e SHA-256, métricas, `CRITERIO_V2`, aviso de contaminação e travas de período |
+| `src/estatistica.py` | Teste t, teste de Welch (distribuição t sem dependências externas), tabela de calibração e escore de Brier |
+| `src/funil.py` | Mede o funil notícias → menções → eventos → operações e projeta as operações por semestre |
+| `src/avaliacao.py` | Amostras para rotulagem manual; precisão e revocação do casamento e precisão da extração |
 | `src/explain.py` | Justificativa por operação e relatório diário. O cabeçalho vem da regra e o LLM só descreve |
 | `src/auditoria.py` | Log append-only `data/operacoes.jsonl` |
 | `src/main.py` | Pipeline retomável. Cada etapa grava em `data/execucoes/AAAA-MM-DD/` |
@@ -184,11 +234,11 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
    ```
 3. Chave de API: copie `.env.example` para `.env` e preencha os valores. O `.env` está no `.gitignore`, e a chave **nunca** vai para o código nem para o git.
    ```
-   LLM_API_KEY=...
-   LLM_PROVEDOR=...   # nome de um provedor registrado com llm.registrar_provedor
-   LLM_MODELO=...     # identificador do modelo, registrado em cada saída
+   LLM_API_KEY=...          # chave da API da Anthropic
+   LLM_PROVEDOR=anthropic
+   LLM_MODELO=              # opcional; padrão claude-opus-5-5
    ```
-   Nenhum provedor real está implementado ainda (ver Pendências). Para rodar sem LLM real, use o modo de teste.
+   Para rodar sem LLM real, use o modo de teste.
 
 ## 13. Como rodar
 
@@ -198,6 +248,10 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | Coletar e arquivar notícias uma vez | `python -m src.archive --coletar` |
 | Pipeline completo, modo de teste (sem rede, LLM falso, grava em `data/teste/`) | `python -m src.main --teste` ou `QUANT_MODO_TESTE=1 python -m src.main` |
 | Pipeline completo, real | `python -m src.main` |
+| Medir o funil | `python -m src.funil` (ou `--data-dir data/teste`) |
+| Amostra para rotular o casamento | `python -m src.avaliacao exportar-matching --n 100` e, depois de rotular, `python -m src.avaliacao medir-matching amostra_matching.csv` |
+| Amostra para rotular a extração | `python -m src.avaliacao exportar-eventos` e `python -m src.avaliacao medir-extracao amostra_eventos.csv` |
+| Hash dos preços (congelamento) | `python -c "from src import backtest; print(backtest.hash_dos_precos())"` |
 | Backtest | Ainda não pode ser executado: os períodos estão pendentes de aprovação. Depois de aprovados: `backtest.rodar_backtest(eventos, backtest.carregar_precos(inicio, fim), backtest.periodo_do_config("treino"), "noticia")` |
 
 O pipeline pode ser retomado. Se for interrompido, rodar de novo no mesmo dia reaproveita a coleta, a extração, a classificação e as explicações já gravadas, sem novas chamadas ao LLM, e não duplica registros no log de auditoria.
@@ -207,4 +261,4 @@ Saídas em `data/` (fora do git):
 - `arquivo/AAAA-MM-DD.jsonl`: notícias arquivadas;
 - `execucoes/AAAA-MM-DD/`: um arquivo JSON por etapa, mais `relatorio.txt` e `resumo.json`;
 - `operacoes.jsonl`: log de auditoria;
-- `precos/`: cache de preços, com `downloads.jsonl` registrando a data de cada download.
+- `precos/`: cache de preços, com `downloads.jsonl` registrando a data e o SHA-256 de cada download.

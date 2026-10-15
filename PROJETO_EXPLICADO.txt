@@ -2,9 +2,10 @@
                     PROJETO QUANT — DOCUMENTO EXPLICATIVO COMPLETO
 ================================================================================
 
-Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8.
-Repositório: pasta quant/ (git local, 9 commits, sem push).
-Testes: 156, todos passando, sem rede e sem LLM real.
+Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
+a revisão metodológica (seção 22).
+Repositório: pasta quant/ (git local, 12 commits, sem push).
+Testes: 192, todos passando, sem rede e sem LLM real.
 
 
 ÍNDICE
@@ -30,6 +31,7 @@ Testes: 156, todos passando, sem rede e sem LLM real.
 19. Limitações conhecidas
 20. Histórico de commits
 21. Glossário
+22. Revisão metodológica: o que mudou e por quê
 
 
 ================================================================================
@@ -88,18 +90,28 @@ As fontes têm hipóteses separadas:
   isso cada evento carrega o campo "tipo_fonte" ("noticia" ou
   "fato_relevante"), e o backtest recusa misturar as duas.
 
-Critério de decisão, definido antes de qualquer resultado:
-  A estratégia só é considerada ÚTIL se, no período de teste, superar
-    (a) o baseline 1 ("comprar qualquer notícia positiva") e
-    (b) o Ibovespa (comprar e segurar),
-  já descontados os custos, e com as duas diferenças MAIORES que o erro padrão
-  da média do retorno por operação.
-  Se não superar, a conclusão é "sinal não demonstrado". Esse é um resultado
-  válido do trabalho, não um fracasso a ser escondido.
+Critério de decisão (CRITERIO_V2), definido antes de qualquer resultado:
+  A estratégia só é considerada ÚTIL se, no período de teste e já
+  descontados os custos, cumprir as TRÊS condições:
+    (1) direção: retorno acumulado maior que o do baseline 1 ("comprar
+        qualquer notícia positiva") E maior que o do Ibovespa;
+    (2) contra o Ibovespa: teste t unilateral do EXCESSO POR OPERAÇÃO
+        (retorno da operação − retorno do Ibovespa na mesma janela),
+        p < 0,05;
+    (3) contra o baseline 1: teste de Welch unilateral entre os excessos
+        por operação da estratégia e os do baseline 1, p < 0,05.
+  Teste indefinido (menos de 2 operações ou variância zero) → não
+  demonstrado. Se não superar, a conclusão é "sinal não demonstrado". Esse é
+  um resultado válido do trabalho, não um fracasso a ser escondido.
+  (O critério anterior, V1, tinha um erro e foi trocado antes de qualquer
+  congelamento. Ver seção 22.)
 
 Métricas:
   - Primária: retorno acumulado líquido contra o Ibovespa no período de teste.
-  - Secundárias: volatilidade (diária e anualizada) e drawdown máximo.
+  - Secundárias: volatilidade (diária e anualizada), drawdown máximo,
+    retorno por volatilidade, exposição média e Ibovespa com a mesma
+    exposição diária da estratégia.
+  - Do critério: excesso médio por operação, estatística t e p-valor.
   - De apoio: número de operações, taxa de acerto, retorno médio por operação
     e erro padrão.
 
@@ -145,6 +157,12 @@ igual a "bruto".
   P11. Todo evento aceito tem um trecho_fonte que existe literalmente no texto
        original. Isso impede o LLM de "inventar" um evento.
 
+  P12. Cada saída do LLM registra o modelo que DE FATO respondeu (inclusive
+       após fallback) e a temperatura efetivamente aplicada.
+
+  P13. Os preços usados ficam presos a um hash: um cache adulterado ou um
+       novo download diferente é recusado.
+
 
 ================================================================================
 4. ESTRUTURA DE PASTAS E ARQUIVOS
@@ -153,8 +171,8 @@ igual a "bruto".
 quant/
 ├── README.md               Documentação principal (13 seções)
 ├── PROJETO_EXPLICADO.txt   Este documento
-├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata
-├── .env.example            Modelo do .env (LLM_API_KEY=), sem valores
+├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata, anthropic
+├── .env.example            Modelo do .env (LLM_API_KEY, LLM_PROVEDOR, LLM_MODELO), sem valores
 ├── .gitignore              Ignora .env, .venv/, caches e as saídas em data/
 ├── data/
 │   ├── .gitkeep            Mantém a pasta no git
@@ -170,11 +188,15 @@ quant/
 │   ├── news.py             Coleta RSS; interface (bloqueada) da CVM
 │   ├── archive.py          Arquivo append-only de notícias + comando de coleta
 │   ├── llm.py              Adaptador único do LLM (chave, provedor, modo de teste)
+│   ├── provedores.py       Provedor real: Anthropic (Claude), SDK oficial
 │   ├── extract.py          LLM → eventos estruturados, com validação
 │   ├── classify.py         Sentimento e probabilidade (Jev opcional | LLM)
 │   ├── strategy.py         decidir(): a ÚNICA fonte de compra e venda
 │   ├── baselines.py        Baselines 1 e 2
 │   ├── backtest.py         Simulação, preços, métricas, critério, travas
+│   ├── estatistica.py      Testes t e de Welch, calibração (sem dependências)
+│   ├── funil.py            Mede notícias → menções → eventos → operações
+│   ├── avaliacao.py        Rotulagem manual: precisão/revocação
 │   ├── explain.py          Justificativas e relatório diário (LLM descreve)
 │   ├── auditoria.py        Log data/operacoes.jsonl
 │   └── main.py             Pipeline diário completo e retomável
@@ -182,16 +204,19 @@ quant/
     ├── conftest.py         Isola o ambiente: não lê .env nem variáveis de LLM
     ├── test_matching.py          42 testes
     ├── test_llm.py                5 testes
+    ├── test_provedores.py         6 testes
     ├── test_extract.py           18 testes
     ├── test_news_archive.py      10 testes
     ├── test_classify.py          10 testes
     ├── test_strategy.py          19 testes
     ├── test_baselines.py         16 testes
-    ├── test_backtest.py          21 testes
+    ├── test_backtest.py          35 testes
+    ├── test_estatistica.py       11 testes
     ├── test_explain_auditoria.py 10 testes
+    ├── test_funil_avaliacao.py    5 testes
     └── test_main.py               5 testes
                                  ----
-                                 156 testes
+                                 192 testes
 
 
 ================================================================================
@@ -216,14 +241,16 @@ dividendos extraordinários".
  PASSO 3 — EXTRAIR (extract.py + llm.py)
    Só notícias com pelo menos um ticker vão ao LLM, o que economiza chamadas.
    O prompt PROMPT_EXTRACAO_V1 pede JSON com ticker, tipo_evento, resumo,
-   impacto_declarado, confirmado e trecho_fonte, com temperatura 0.
+   impacto_declarado, confirmado e trecho_fonte. A temperatura 0 é pedida,
+   mas os modelos Claude atuais não aceitam o parâmetro; a saída registra
+   temperatura = null.
    O código então:
      - tenta interpretar o JSON; se falhar, faz no máximo UMA nova tentativa;
      - valida cada evento contra o esquema e descarta, com log, os inválidos;
      - confere se trecho_fonte existe no texto (ignorando acentos, maiúsculas
        e espaços extras); se não existir, descarta com log;
-     - anota o modelo, a versão do prompt, a temperatura e a origem (URL,
-       fonte, tipo_fonte, horário).
+     - anota o modelo que respondeu, a versão do prompt, a temperatura
+       efetiva e a origem (URL, fonte, tipo_fonte, horário).
 
  PASSO 4 — CLASSIFICAR (classify.py)
    Devolve {sentimento, probabilidade}, por exemplo positivo com 0,85.
@@ -347,9 +374,13 @@ validar a hipótese.
     Único ponto de contato com o LLM em todo o sistema.
   Como escolhe o provedor:
     - QUANT_MODO_TESTE=1 → provedor "falso" (sem rede);
-    - senão, a variável LLM_PROVEDOR → precisa ter sido registrado com
-      registrar_provedor(nome, funcao);
+    - senão, a variável LLM_PROVEDOR. O provedor "anthropic"
+      (src/provedores.py) vem registrado; outros podem ser registrados com
+      registrar_provedor(nome, funcao, aceita_temperatura);
     - provedor não registrado → NotImplementedError explicando o que fazer.
+  modelo_da_ultima_chamada(): o modelo que de fato respondeu (o provedor
+  informa, por exemplo, após um fallback).
+  temperatura_efetiva(t): t, ou None se o provedor não aceita temperatura.
   Chave: lida de LLM_API_KEY. carregar_env() lê um .env local sem
   sobrescrever variáveis já definidas. Sem chave → RuntimeError.
   modelo_atual() → "provedor:modelo", gravado em cada evento e em cada
@@ -359,14 +390,27 @@ validar a hipótese.
   determinística. Usa palavras-chave simples ("dividendo", "lucro" →
   positivo; "investigação", "multa" → negativo) só para que o modo de teste
   passe por todos os ramos. NÃO tem valor como classificador.
-  Nenhum provedor real (OpenAI, Anthropic etc.) está implementado, porque não
-  foi definido qual usar.
+
+------------------------------------------------------------------------------
+6.5b provedores.py — provedor real (Anthropic / Claude)
+------------------------------------------------------------------------------
+  provedor_anthropic(prompt, temperatura, chave, modelo)
+    - SDK oficial "anthropic"; modelo padrão claude-opus-5-5 (LLM_MODELO
+      troca);
+    - output_config effort = "medium" (explícito, para ficar congelável);
+    - fallback do servidor: fallbacks="default" com o beta
+      server-side-fallback-2026-07-01. Se o modelo recusar por um
+      classificador de segurança, a API reexecuta em outro modelo, e o
+      modelo que respondeu é gravado;
+    - stop_reason == "refusal" (inclusive do fallback) → RecusaDoModelo;
+    - não envia temperature: os modelos atuais não aceitam parâmetros de
+      amostragem, e o SDK 1.x nem expõe esse parâmetro.
 
 ------------------------------------------------------------------------------
 6.6 extract.py — extração de eventos
 ------------------------------------------------------------------------------
   Constantes: PROMPT_EXTRACAO_V1 (o prompt exato), VERSAO_PROMPT_EXTRACAO,
-  TEMPERATURA_EXTRACAO = 0.0, TIPOS_EVENTO, IMPACTOS.
+  TEMPERATURA_EXTRACAO = 0.0 (pedida), TIPOS_EVENTO, IMPACTOS.
   Tipos de evento (lista fechada): dividendo, resultado, guidance,
   troca_executivo, investigacao, fusao_aquisicao, outro.
   extrair_eventos(texto, metadados, chamar)
@@ -383,7 +427,8 @@ validar a hipótese.
     - trecho_existe(trecho, texto): comparação após normalizar acentos,
       maiúsculas e espaços. "ANUNCIOU nesta  quinta-feira" é aceito;
       paráfrase é rejeitada;
-    - acrescenta modelo, versao_prompt, temperatura e origem (metadados).
+    - acrescenta o modelo que respondeu, versao_prompt, a temperatura
+      efetiva (null com Claude) e a origem (metadados).
 
 ------------------------------------------------------------------------------
 6.7 classify.py — sentimento e probabilidade
@@ -422,13 +467,32 @@ validar a hipótese.
   Sinais:      sinais_da_estrategia (aplica decidir em ordem cronológica),
                sinais_para_ordens (data a execução no próximo pregão)
   Simulação:   simular(ordens, precos, capital, custo) -> Simulacao
-               (série de patrimônio, operações, ordens ignoradas)
+               (patrimônio, exposição diária, operações, ordens ignoradas)
   Baseline 3:  comprar_e_segurar(serie)
-  Preços:      carregar_precos(inicio, fim) com yfinance e cache
-  Métricas:    calcular_metricas, avaliar_criterio
+  Exposição:   ibovespa_mesma_exposicao(serie, exposicao)
+  Excesso:     anotar_excesso(operacoes, ibov): retorno_ibovespa e excesso
+               de cada operação na mesma janela
+  Preços:      carregar_precos(inicio, fim) com yfinance, cache e SHA-256;
+               hash_dos_precos() para o congelamento; PrecosAlterados
+  Métricas:    calcular_metricas, avaliar_criterio (CRITERIO_V2)
+  Riscos:      verificar_contaminacao(inicio), acerto_direcional(evento)
   Travas:      validar_periodo, periodo_do_config, PeriodoPendente,
                CongelamentoPendente
   Tudo junto:  rodar_backtest(eventos, precos, periodo, tipo_fonte)
+
+------------------------------------------------------------------------------
+6.10b estatistica.py — testes estatísticos e calibração
+------------------------------------------------------------------------------
+  p_valor_t_unilateral(t, gl)   P(T > t) pela função beta incompleta
+                                regularizada (sem scipy); conferido contra
+                                valores de tabela nos testes
+  teste_t_uma_amostra(valores)  H1: média > 0; devolve n, média, erro
+                                padrão, t, gl e p_valor (None se indefinido)
+  teste_welch(a, b)             H1: média(a) > média(b), variâncias
+                                desiguais, gl de Welch-Satterthwaite
+  tabela_calibracao(probs, acertos, n_faixas)
+                                faixas de probabilidade × taxa de acerto
+                                observada, e escore de Brier
 
 ------------------------------------------------------------------------------
 6.11 explain.py — explicações
@@ -475,6 +539,32 @@ validar a hipótese.
   pendentes.
   Ordem efetiva: explicar vem ANTES de registrar, porque o log exige o
   campo "explicacao".
+  No modo de teste, o relatório começa com o aviso "MODO DE TESTE ... NÃO
+  USAR ESTE RELATÓRIO EM NENHUMA CONCLUSÃO DO TRABALHO".
+
+------------------------------------------------------------------------------
+6.14 funil.py — quantas notícias viram operação
+------------------------------------------------------------------------------
+  python -m src.funil [--data-dir data/teste]
+  Conta: dias de coleta, notícias arquivadas, notícias com menção (com as
+  regras ATUAIS de casamento), menções por ticker, eventos extraídos,
+  classificados, confirmados, sentimentos, eventos acima do limiar,
+  operações, operações por dia e projeção por semestre (126 pregões).
+  Primeira medição real (15/10/2026, 1 dia, sem LLM): 20 notícias, 2 com
+  menção (ITUB4 1, VALE3 1), etapas seguintes em zero.
+
+------------------------------------------------------------------------------
+6.15 avaliacao.py — qualidade do casamento e da extração
+------------------------------------------------------------------------------
+  python -m src.avaliacao exportar-matching --n 100
+    CSV com amostra sorteada (semente 20261015) e a coluna tickers_corretos
+    em branco, para preencher à mão.
+  python -m src.avaliacao medir-matching amostra_matching.csv
+    Verdadeiros/falsos positivos, falsos negativos, precisão e revocação,
+    por ticker e no total.
+  python -m src.avaliacao exportar-eventos / medir-extracao
+    Eventos extraídos com a coluna evento_correto (sim/nao) → precisão.
+  Usar só dados de treino/validação, nunca do teste.
 
 
 ================================================================================
@@ -503,9 +593,9 @@ validar a hipótese.
   "impacto_declarado": "positivo",
   "confirmado": true,
   "trecho_fonte": "aprovou dividendos de R$ 2,00",
-  "modelo": "provedor:modelo",
+  "modelo": "anthropic:claude-opus-5-5",         (o que de fato respondeu)
   "versao_prompt": "PROMPT_EXTRACAO_V1",
-  "temperatura": 0.0,
+  "temperatura": null,                           (Claude não aceita; 0.0 no modo de teste)
   "origem": {"id": "...", "tipo_fonte": "noticia", "fonte": "...",
              "url": "...", "timestamp_publicacao": "..."},
   "id": "0ac03e989d9b10bc-0"                     (id da notícia + índice)
@@ -527,7 +617,7 @@ validar a hipótese.
 
 7.6 Preços (data/precos/)
   <SIMBOLO>_<inicio>_<fim>.csv, por exemplo PETR4.SA_2025-01-01_2025-12-31.csv
-  downloads.jsonl: símbolo, período, arquivo, fonte e data_download.
+  downloads.jsonl: símbolo, período, arquivo, sha256, fonte e data_download.
 
 
 ================================================================================
@@ -551,12 +641,17 @@ validar a hipótese.
   PERIODO_VALIDACAO            None                        PENDENTE DE APROVAÇÃO
   PERIODO_TESTE                None                        PENDENTE DE APROVAÇÃO
   DATA_CONGELAMENTO            None                        só o autor preenche
+  ALFA_CRITERIO                0.05                        congela; nível dos testes t
+  DATA_CORTE_CONHECIMENTO_     None                        PENDENTE: da documentação
+    MODELO                                                 oficial do modelo
   FUSO_REFERENCIA              America/Sao_Paulo
   SEMENTE_BASELINE_2           20261015
   N_SIMULACOES_BASELINE_2      1000
   FONTES_RSS                   InfoMoney, Money Times      URLs .../feed/, testadas
   JANELA_COLETA_HORAS          24
   USAR_JEV                     False                       acesso não confirmado
+  (provedores.py) MODELO_PADRAO_ANTHROPIC = claude-opus-5-5; ESFORCO = medium
+  (ambiente) LLM_PROVEDOR, LLM_MODELO, LLM_API_KEY
   ALIASES / PADROES_CONTEXTO /                             ver seção 6.2
   EXCLUSOES
 
@@ -674,30 +769,43 @@ Simulação (backtest.simular):
 
 Métricas (calcular_metricas):
   retorno_acumulado        patrimônio_final / patrimônio_inicial − 1
+  retorno_anualizado       (1 + retorno)^(252 / dias) − 1
   volatilidade_diaria      desvio-padrão amostral dos retornos diários
   volatilidade_anualizada  volatilidade diária × √252
   drawdown_maximo          pior queda desde um pico (número negativo)
+  retorno_por_volatilidade retorno anualizado / volatilidade anualizada
+  exposicao_media          fração média do patrimônio investida
   n_operacoes              operações completas (ida e volta) + abertas
   taxa_acerto              fração das operações com retorno > 0
   retorno_medio_operacao   média dos retornos por operação
   erro_padrao_operacao     desvio-padrão amostral / √n (None se n < 2)
 
-Critério (avaliar_criterio):
-  diferenca_vs_baseline_1 = retorno da estratégia − retorno do baseline 1
-  diferenca_vs_ibovespa   = retorno da estratégia − retorno do Ibovespa
-  sinal_demonstrado = as DUAS diferenças > erro padrão
-  Com menos de 2 operações, o erro padrão é indefinido e o resultado é "sinal
-  não demonstrado".
+Critério (avaliar_criterio, CRITERIO_V2, alfa = 0,05):
+  excesso de cada operação = retorno da operação − retorno do Ibovespa
+                             entre a entrada e a saída da operação
+  direcao_ok            = retorno acumulado > baseline 1 E > Ibovespa
+  teste_vs_ibovespa     = teste t (uma amostra) dos excessos da estratégia
+  teste_vs_baseline_1   = Welch: excessos da estratégia × do baseline 1
+  sinal_demonstrado     = direcao_ok E p(Ibovespa) < 0,05 E p(baseline 1) < 0,05
+  Teste indefinido (n < 2 ou variância zero) → "sinal não demonstrado".
+  Limitação: as operações da estratégia costumam estar contidas nas do
+  baseline 1, então as amostras do Welch não são independentes; o teste é
+  aproximado.
 
 rodar_backtest(eventos, precos, periodo, tipo_fonte) devolve as métricas da
-estratégia, do baseline 1 e do Ibovespa, o critério, as operações, o período,
-a fonte, o capital e o custo usados. Só entram ordens executadas dentro do
-período. O histórico anterior serve apenas para o filtro de evento recente.
+estratégia, do baseline 1, do Ibovespa e do Ibovespa com a mesma exposição,
+o critério, contaminacao_llm (NAO_AVALIADO / RISCO / OK), as operações (com
+excesso), o período, a fonte, o capital e o custo usados. Só entram ordens
+executadas dentro do período. O histórico anterior serve apenas para o
+filtro de evento recente.
 
 Preços (carregar_precos): fechamento ajustado por proventos (yfinance,
 auto_adjust=True). A data final é incluída (o "end" do yfinance é
 exclusivo, então o código soma 1 dia). O índice fica sem fuso. Se o CSV já
-existe, não baixa de novo, e cada download fica registrado com data e hora.
+existe, não baixa de novo, e cada download fica registrado com data, hora e
+SHA-256. Ao reler o cache, o hash é conferido; um novo download com
+conteúdo diferente do registrado (ajuste retroativo por proventos) também é
+recusado com PrecosAlterados.
 
 
 ================================================================================
@@ -713,13 +821,16 @@ existe, não baixa de novo, e cada download fica registrado com data e hora.
   - Período com início depois do fim → erro.
   - rodar_backtest com eventos de outra fonte → erro "fontes misturadas".
   - Sinal sem tipo_fonte → erro.
-  - Um teste confere que LIMIAR_PROBABILIDADE = 0.7, MAX_POSICAO_PCT = 0.20,
-    CAPITAL_INICIAL = 100000, custos = 0 e DATA_CONGELAMENTO = None. Se
-    alguém mudar esses valores sem querer, o teste falha.
+  - Um teste confere LIMIAR_PROBABILIDADE = 0.7, MAX_POSICAO_PCT = 0.20,
+    CAPITAL_INICIAL = 100000, JANELA_EVENTO_RECENTE_DIAS = 5,
+    ALFA_CRITERIO = 0.05, SEMENTE_BASELINE_2 = 20261015, custos = 0 e
+    DATA_CONGELAMENTO = None. Ele FALHA DE PROPÓSITO no dia do congelamento;
+    atualizá-lo é um ato deliberado, no mesmo commit da mudança aprovada.
+  - Preços com hash diferente do registrado → PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (156)
+14. TESTES AUTOMATIZADOS (192)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -733,6 +844,21 @@ em todos os testes.
     → não casa. Ticker com fronteira, ticker dentro de outra palavra, sufixo
     F, nomes e aliases, Itaúsa/Bradespar não casam, Itaú BBA e Bradesco BBI
     excluídos.
+
+  test_provedores.py (6)
+    Provedor Anthropic com cliente falso: modelo padrão, effort, fallback,
+    sem temperature; modelo configurável; fallback grava o modelo que
+    respondeu; recusa → erro; extração grava modelo servido e temperatura
+    null; sem chave → erro.
+
+  test_estatistica.py (11)
+    p-valor t contra valores de tabela; beta incompleta; teste t e Welch com
+    resultados calculados à mão; casos indefinidos; calibração e Brier.
+
+  test_funil_avaliacao.py (5)
+    Funil após o pipeline de teste; funil sem dados; precisão/revocação do
+    casamento com rótulos simulados; precisão da extração; amostra
+    reprodutível.
 
   test_llm.py (5)
     Provedor não definido → NotImplementedError; provedor registrado recebe
@@ -774,15 +900,18 @@ em todos os testes.
     constante → 0), com valores possíveis exatos (+4,2% / −3,8%) e usando a
     semente do config; baseline 3.
 
-  test_backtest.py (21)
+  test_backtest.py (35)
     Período None recusado; os 3 períodos do config pendentes; teste exige
     congelamento; treino não exige; período invertido; parâmetros
-    congeláveis inalterados; métricas de uma série conhecida (retorno,
-    drawdown, volatilidade, taxa de acerto, erro padrão); erro padrão com
-    n < 2; 4 cenários do critério; backtest completo com resultado conhecido
-    (estratégia +10%, baseline 1 +6%, Ibovespa +10%); custo reduz o retorno;
-    fontes misturadas recusadas; só executa dentro do período; cache de
-    preços (não baixa de novo e registra o download).
+    congeláveis inalterados; métricas de uma série conhecida; erro padrão
+    com n < 2; critério V2 (aprovação e 6 motivos de reprovação); o
+    contraexemplo do V1 (50 operações, t ≈ 0,47: V1 aprovaria, V2 não);
+    contaminação NAO_AVALIADO/RISCO/OK; backtest completo com resultado
+    conhecido; excesso por operação (+50% − 5% = 45 p.p.), exposição e
+    Ibovespa com a mesma exposição; custo reduz o retorno; fontes misturadas
+    recusadas; só executa dentro do período; cache de preços; hash
+    registrado, cache adulterado recusado, novo download diferente recusado;
+    hash_dos_precos; acerto direcional.
 
   test_explain_auditoria.py (10)
     A decisão não depende da resposta do LLM (3 respostas hostis); decisões
@@ -793,7 +922,8 @@ em todos os testes.
 
   test_main.py (5)
     Ponta a ponta em modo de teste (sem rede, todos os arquivos de etapa,
-    2 operações no log); retomada sem novas chamadas ao LLM e sem duplicar
+    2 operações no log, aviso de modo de teste no relatório); retomada sem
+    novas chamadas ao LLM e sem duplicar
     o log; retomada após falha parcial na extração; todas as fontes fora do
     ar + CVM bloqueada sem derrubar o pipeline; histórico de dias anteriores
     bloqueando uma compra.
@@ -811,9 +941,9 @@ Instalação (Windows; Python 3.12.10 já instalado nesta máquina):
 
 Configuração da chave:
   copie .env.example para .env e preencha:
-    LLM_API_KEY=...
-    LLM_PROVEDOR=...   (precisa estar registrado em src/llm.py)
-    LLM_MODELO=...
+    LLM_API_KEY=...          (chave da API da Anthropic)
+    LLM_PROVEDOR=anthropic
+    LLM_MODELO=              (opcional; padrão claude-opus-5-5)
   O .env nunca vai para o git.
 
 Comandos:
@@ -822,12 +952,16 @@ Comandos:
   python -m src.main --teste             pipeline completo simulado
                                          (sem rede, LLM falso, grava em data/teste/)
   python -m src.main                     pipeline real
+  python -m src.funil                    mede o funil
+  python -m src.avaliacao exportar-matching --n 100
+  python -m src.avaliacao medir-matching amostra_matching.csv
+  python -m src.avaliacao exportar-eventos / medir-extracao <csv>
 
 O que acontece hoje no pipeline real: ele coleta e arquiva normalmente (a
-primeira coleta real, em 15/10/2026, arquivou 20 notícias). A extração
-falha item a item, com erro registrado, porque não há provedor de LLM. A
-CVM aparece como bloqueio documentado. O pipeline termina normalmente com 0
-operações.
+primeira coleta real, em 15/10/2026, arquivou 20 notícias). Sem LLM_API_KEY
+no .env, a extração falha item a item com erro registrado. Com a chave e
+LLM_PROVEDOR=anthropic, o Claude passa a extrair e classificar (ainda não
+foi executado com chave real). A CVM aparece como bloqueio documentado.
 
 Backtest: ainda não pode rodar (períodos pendentes). Quando aprovados:
   from src import backtest
@@ -866,11 +1000,21 @@ README.)
  15. Explicar antes de registrar (o log exige a explicação).
  16. Preços ajustados por proventos; ações fracionárias; liquidação teórica
      de posições abertas no fim.
- 17. Nenhum provedor real de LLM implementado (não foi definido qual).
+ 17. (Substituída na revisão) Provedor real: Anthropic, claude-opus-5-5,
+      effort medium, fallback "default" do servidor.
  18. Uma falha de classificação gera None → decisão "manter".
  19. Git com identidade local (lucas123045 / lucaveiga12@gmail.com), sem push.
      O .git vazio da pasta de cima (com remote no GitHub) não foi alterado.
  20. Dependência tzdata incluída (necessária para fusos no Windows).
+ 21. (Revisão) Critério V2 com testes t e alfa = 0,05 (novo parâmetro,
+      PRECISA DE APROVAÇÃO).
+ 22. (Revisão) Temperatura registrada como null: Claude atual não aceita.
+ 23. (Revisão) Testes estatísticos implementados sem scipy (sem nova
+      dependência), conferidos contra tabela.
+ 24. (Revisão) Contaminação é aviso no resultado, não trava: o teste de
+      conceito histórico continua possível, mas marcado como RISCO.
+ 25. (Revisão) Acerto direcional para calibração: fechamento do último
+      pregão antes do dia da publicação → fechamento do pregão seguinte.
 
 
 ================================================================================
@@ -884,10 +1028,11 @@ README.)
                                          especificação da API
   news.coletar_fatos_relevantes          "verificar formato e cobertura antes de
                                          implementar" → falta verificar a CVM
-  llm.chamar_llm (provedor não           "Provedor de LLM '...' não implementado"
-  registrado)                            → falta definir o provedor e o modelo
+  llm.chamar_llm (LLM_PROVEDOR com       "Provedor de LLM '...' não implementado"
+  nome não registrado)                   → só acontece com provedor desconhecido;
+                                         "anthropic" está implementado
 
-Fora esses três, todo o resto está implementado e testado.
+Fora esses, todo o resto está implementado e testado.
 
 
 ================================================================================
@@ -902,10 +1047,16 @@ Fora esses três, todo o resto está implementado e testado.
   [ ] 4. Definir a data de congelamento da regra (+ hash do commit +
          aprovação).
   [ ] 5. Confirmar o acesso à API do Jev e a data limite para desistir dele.
-  [ ] 6. Definir o provedor e o modelo do LLM.
+  [x] 6. Provedor real implementado (Anthropic, claude-opus-5-5).
+  [ ] 6a. Pôr a chave no .env e rodar o pipeline real com o LLM.
+  [ ] 6b. Registrar DATA_CORTE_CONHECIMENTO_MODELO (documentação oficial).
+  [ ] 6c. Medir o funil com alguns dias de coleta + LLM (python -m src.funil).
+  [ ] 6d. Rotular 50 a 100 notícias de validação (python -m src.avaliacao).
+  [ ] 6e. Medir a calibração no período de validação.
   [ ] 7. Confirmar "tempo real" com o professor (hoje: lote diário).
   [ ] 8. Confirmar a carteira.
-  [ ] 9. Aprovar ou alterar JANELA_EVENTO_RECENTE_DIAS = 5.
+  [ ] 9. Aprovar ou alterar JANELA_EVENTO_RECENTE_DIAS = 5 e
+         ALFA_CRITERIO = 0,05 ANTES de qualquer validação.
   [ ] 10. Custos reais e tributação (com contador). Até lá, zero e não
           modelado.
 
@@ -922,9 +1073,19 @@ Fora esses três, todo o resto está implementado e testado.
   - Poder estatístico baixo: poucas operações → erro padrão grande.
   - O histórico de notícias de portal só existe a partir do início do
     arquivamento (o RSS não traz notícias antigas).
-  - O critério compara diferença de retorno acumulado com o erro padrão por
-    operação. É uma comparação simples e conservadora, adotada como foi
-    especificada.
+  - Contaminação por conhecimento do LLM: em períodos anteriores ao corte de
+    conhecimento do modelo, o LLM pode conhecer o desfecho. Só períodos
+    posteriores valem como evidência (campo contaminacao_llm).
+  - A probabilidade declarada pelo LLM não é calibrada: o limiar 0,7 é um
+    corte de ranking até a calibração ser medida na validação.
+  - Exposição desigual: a estratégia fica em parte em caixa. Ver as métricas
+    de retorno por volatilidade e de Ibovespa com a mesma exposição.
+  - Executar no fechamento do dia seguinte perde a reação intradiária
+    (conservador).
+  - Sem temperatura 0 nos modelos atuais: a reprodutibilidade vem de gravar
+    as respostas, não do modelo.
+  - Welch com amostras não independentes (estratégia ⊂ baseline 1):
+    aproximado.
   - O casamento de tickers é por regras; casos ambíguos ("Vale anuncia...")
     ficam de fora.
   - Os 20 registros da primeira coleta real têm tickers calculados antes da
@@ -946,6 +1107,11 @@ Fora esses três, todo o resto está implementado e testado.
   59963c0  Fase 6: explicação e log de auditoria
   421b172  Fase 7: pipeline
   c4af0b1  Fase 8: documentação final
+  2c88bf0  Revisão: critério V2 com testes t, exposição, hash de preços,
+           contaminação e calibração
+  5d8dca1  Revisão: provedor Anthropic, funil, avaliação com rótulos e aviso
+           no modo de teste
+  (+ commit desta atualização de documentação)
 
 
 ================================================================================
@@ -977,6 +1143,56 @@ Fora esses três, todo o resto está implementado e testado.
   Viés de         distorção por escolher hoje empresas que "sobreviveram".
   sobrevivência
   yfinance        biblioteca que baixa preços do Yahoo Finance.
+
+================================================================================
+22. REVISÃO METODOLÓGICA: O QUE MUDOU E POR QUÊ
+================================================================================
+
+Uma revisão externa apontou 9 problemas. Situação de cada um:
+
+  1. CRITÉRIO DIMENSIONALMENTE INCONSISTENTE (crítico) — CORRIGIDO
+     V1: "diferença de retorno acumulado > erro padrão por operação".
+     Com sizing de 20%: diferença ≈ 0,2·n·μ e erro padrão ≈ σ/√n, então a
+     razão cresce com n^1,5. Exemplo: 50 operações, μ = 0,2%, σ = 3% → V1
+     aprova com t ≈ 0,5 (não significativo).
+     V2: direção + teste t do excesso por operação vs Ibovespa + Welch vs
+     baseline 1, alfa 0,05. Trocado ANTES de qualquer congelamento ou
+     resultado. Teste: test_criterio_v2_corrige_o_defeito_do_v1.
+
+  2. CONTAMINAÇÃO POR CONHECIMENTO DO LLM (alto) — TRATADO COMO AVISO
+     Campo contaminacao_llm em cada backtest; DATA_CORTE_CONHECIMENTO_MODELO
+     pendente (não consta da documentação disponível aqui e não foi
+     inventada). Declarado como limitação.
+
+  3. PROBABILIDADE NÃO CALIBRADA (alto) — FERRAMENTA PRONTA
+     tabela_calibracao + Brier + acerto_direcional. A medição depende do
+     período de validação (pendente de aprovação).
+
+  4. PODER ESTATÍSTICO (alto) — FERRAMENTA PRONTA, MEDIÇÃO INICIAL
+     python -m src.funil. Primeira medição: 20 notícias, 2 com menção (10%),
+     1 dia, sem LLM. Estimativa de operações depende do LLM real.
+
+  5. PREÇOS AJUSTADOS MUDAM (médio) — CORRIGIDO
+     SHA-256 por CSV, recusa de cache adulterado e de novo download
+     diferente; hash_dos_precos() para o congelamento.
+
+  6. SEM MEDIÇÃO DE CASAMENTO/EXTRAÇÃO (médio) — FERRAMENTA PRONTA
+     python -m src.avaliacao. Falta a rotulagem manual (trabalho humano).
+
+  7. SEM EXECUÇÃO COM LLM REAL (médio) — PROVEDOR IMPLEMENTADO
+     Anthropic/Claude pelo SDK oficial. Falta a chave no .env e a primeira
+     execução real.
+
+  8. EXPOSIÇÃO DESIGUAL (médio) — CORRIGIDO
+     Exposição média, retorno por volatilidade e Ibovespa com a mesma
+     exposição diária como métricas secundárias.
+
+  9. MENORES — CORRIGIDOS
+     - Teste de parâmetros congeláveis documentado como "falha de
+       propósito"; agora inclui JANELA, ALFA e semente.
+     - Perda da reação intradiária declarada no README.
+     - Relatório do modo de teste marcado como inutilizável.
+     - Inconsistências de documentação (seções 2, 12, 13 e 19) corrigidas.
 
 ================================================================================
                                 FIM DO DOCUMENTO
