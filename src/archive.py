@@ -1,0 +1,113 @@
+"""Arquivo append-only de notícias e fatos relevantes coletados.
+
+Cada item vira uma linha JSON em data/arquivo/AAAA-MM-DD.jsonl, onde a data é
+a da COLETA no fuso de referência (assim um dia já fechado nunca é reaberto).
+Nada é sobrescrito nem apagado. Deduplicação por URL em todo o arquivo.
+
+Uso: python -m src.archive --coletar   (roda uma vez; não agenda nada)
+"""
+
+import argparse
+import hashlib
+import json
+import logging
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+from src import config
+from src.matching import identificar_tickers
+
+logger = logging.getLogger(__name__)
+
+FUSO = ZoneInfo(config.FUSO_REFERENCIA)
+CAMPOS_OBRIGATORIOS = ("tipo_fonte", "fonte", "url", "titulo", "texto",
+                       "timestamp_publicacao", "timestamp_coleta")
+TIPOS_FONTE = {"noticia", "fato_relevante"}
+
+
+def _sha256(texto: str) -> str:
+    return hashlib.sha256(texto.encode("utf-8")).hexdigest()
+
+
+def carregar_arquivo(pasta: Path | None = None) -> list[dict]:
+    """Lê todos os registros arquivados, em ordem de arquivo e de linha."""
+    pasta = Path(pasta or config.DIR_ARQUIVO)
+    registros = []
+    for caminho in sorted(pasta.glob("*.jsonl")):
+        with open(caminho, encoding="utf-8") as f:
+            registros.extend(json.loads(linha) for linha in f if linha.strip())
+    return registros
+
+
+def montar_registro(item: dict) -> dict:
+    """Completa o item com id, hash do conteúdo e tickers identificados."""
+    faltando = [c for c in CAMPOS_OBRIGATORIOS if c not in item]
+    if faltando:
+        raise ValueError(f"item sem campos obrigatórios: {faltando}")
+    if item["tipo_fonte"] not in TIPOS_FONTE:
+        raise ValueError(f"tipo_fonte inválido: {item['tipo_fonte']!r}")
+    return {
+        "id": _sha256(item["url"])[:16],
+        "timestamp_publicacao": item["timestamp_publicacao"],
+        "timestamp_coleta": item["timestamp_coleta"],
+        "tipo_fonte": item["tipo_fonte"],
+        "fonte": item["fonte"],
+        "url": item["url"],
+        "titulo": item["titulo"],
+        "texto": item["texto"],
+        "tickers": identificar_tickers(f"{item['titulo']}\n{item['texto']}"),
+        "hash_conteudo": _sha256(f"{item['titulo']}\n{item['texto']}"),
+    }
+
+
+def arquivar(itens: list[dict], pasta: Path | None = None, agora: datetime | None = None) -> list[dict]:
+    """Acrescenta ao arquivo os itens cuja URL ainda não foi arquivada.
+
+    Devolve apenas os registros novos. Itens sem URL são descartados com log,
+    porque a URL é a chave de deduplicação.
+    """
+    pasta = Path(pasta or config.DIR_ARQUIVO)
+    pasta.mkdir(parents=True, exist_ok=True)
+    agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
+    urls_vistas = {r["url"] for r in carregar_arquivo(pasta)}
+
+    novos = []
+    for item in itens:
+        if not item.get("url"):
+            logger.warning("Item sem URL descartado: %r", item.get("titulo"))
+            continue
+        if item["url"] in urls_vistas:
+            continue
+        registro = montar_registro(item)
+        urls_vistas.add(item["url"])
+        novos.append(registro)
+
+    if novos:
+        caminho = pasta / f"{agora.date().isoformat()}.jsonl"
+        with open(caminho, "a", encoding="utf-8") as f:  # "a": nunca sobrescreve
+            for registro in novos:
+                f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+    logger.info("Arquivados %d novos de %d coletados", len(novos), len(itens))
+    return novos
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Arquivo de notícias (append-only).")
+    parser.add_argument("--coletar", action="store_true", help="coleta os feeds uma vez e arquiva")
+    args = parser.parse_args(argv)
+    if not args.coletar:
+        parser.print_help()
+        return 1
+
+    from src import news
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    novos = arquivar(news.coletar_noticias())
+    com_ticker = sum(bool(r["tickers"]) for r in novos)
+    print(f"{len(novos)} itens novos arquivados ({com_ticker} mencionam a carteira).")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
