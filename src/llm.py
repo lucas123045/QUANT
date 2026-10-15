@@ -90,27 +90,45 @@ def _secao(prompt: str, nome: str) -> str:
     return m.group(1) if m else ""
 
 
+_PALAVRAS_POSITIVAS = ("dividendo", "lucro", "alta", "recorde", "aprova")
+_PALAVRAS_NEGATIVAS = ("queda", "prejuizo", "investigacao", "multa", "rebaixa")
+
+
 def resposta_falsa(prompt: str) -> str:
-    """Resposta determinística e plausível para cada tipo de prompt."""
-    from src.matching import identificar_tickers  # import local evita ciclo
+    """Resposta determinística e plausível para cada tipo de prompt.
+
+    Usa palavras-chave simples só para exercitar todos os caminhos do
+    pipeline em modo de teste. Não tem valor como classificador.
+    """
+    from src.matching import identificar_tickers, normalizar  # import local evita ciclo
 
     if "PROMPT_EXTRACAO" in prompt:
         texto = _secao(prompt, "TEXTO")
         frase = re.split(r"(?<=[.!?])\s", texto.strip(), maxsplit=1)[0][:200]
+        texto_norm = normalizar(texto)
+        if any(p in texto_norm for p in _PALAVRAS_NEGATIVAS):
+            impacto = "negativo"
+        elif any(p in texto_norm for p in _PALAVRAS_POSITIVAS):
+            impacto = "positivo"
+        else:
+            impacto = "neutro"
         eventos = [
             {
                 "ticker": t,
                 "tipo_evento": "outro",
                 "resumo": "Evento simulado pelo provedor falso.",
-                "impacto_declarado": "neutro",
-                "confirmado": False,
+                "impacto_declarado": impacto,
+                "confirmado": impacto != "neutro",
                 "trecho_fonte": frase,
             }
             for t in identificar_tickers(texto)
         ]
         return json.dumps({"eventos": eventos}, ensure_ascii=False)
     if "PROMPT_CLASSIFICACAO" in prompt:
-        return json.dumps({"sentimento": "neutro", "probabilidade": 0.5})
+        m = re.search(r"impacto declarado pelo texto: (\w+)", prompt)
+        sentimento = m.group(1) if m and m.group(1) in ("positivo", "negativo") else "neutro"
+        return json.dumps({"sentimento": sentimento,
+                           "probabilidade": 0.8 if sentimento != "neutro" else 0.5})
     if "PROMPT_EXPLICACAO" in prompt or "PROMPT_RELATORIO" in prompt:
         return "Texto gerado pelo provedor falso (modo de teste)."
     return ""

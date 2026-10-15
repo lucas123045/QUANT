@@ -98,3 +98,18 @@ def test_identificar_tickers_varias_empresas():
 def test_identificar_tickers_texto_vazio():
     assert identificar_tickers("") == []
     assert identificar_tickers("vale a pena esperar o Copom") == []
+
+
+# --- casas de análise como fonte de opinião ----------------------------------
+
+@pytest.mark.parametrize("frase,ticker", [
+    ("Ação da TIM está barata, diz o Itaú BBA", "ITUB4"),
+    ("Analistas do Bradesco BBI recomendam Azzas", "BBDC4"),
+    ("itau bba eleva preço-alvo da Magalu", "ITUB4"),
+])
+def test_casa_de_analise_nao_conta_como_mencao(frase, ticker):
+    assert not menciona(frase, ticker)
+
+
+def test_banco_citado_tambem_fora_da_casa_de_analise_casa():
+    assert menciona("Itaú BBA vê alta; o Itaú Unibanco reporta lucro", "ITUB4")

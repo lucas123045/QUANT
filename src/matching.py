@@ -5,7 +5,8 @@ Regras:
 - nome completo ou alias de config.ALIASES, sem distinção de maiúsculas/acentos,
   com fronteira de palavra (nunca substring);
 - padrões de contexto de config.PADROES_CONTEXTO, sensíveis a maiúsculas;
-- a palavra "vale" isolada nunca indica VALE3.
+- a palavra "vale" isolada nunca indica VALE3;
+- expressões de config.EXCLUSOES (ex.: "Itaú BBA") são ignoradas antes do casamento.
 """
 
 import re
@@ -26,6 +27,11 @@ def normalizar(texto: str) -> str:
     return re.sub(r"\s+", " ", sem_acento).strip().lower()
 
 
+def _exclusao(ticker: str) -> re.Pattern | None:
+    termos = [re.escape(normalizar(t)).replace(r"\ ", r"\s+") for t in config.EXCLUSOES.get(ticker, [])]
+    return re.compile(_ANTES + "(?:" + "|".join(termos) + ")" + _DEPOIS) if termos else None
+
+
 @lru_cache(maxsize=None)
 def _padroes(ticker: str) -> tuple[list[re.Pattern], list[re.Pattern]]:
     """Devolve (padrões sobre texto normalizado, padrões sobre texto original)."""
@@ -43,6 +49,9 @@ def menciona(texto: str, ticker: str) -> bool:
         return False
     normalizados, originais = _padroes(ticker)
     texto_norm = normalizar(texto)
+    exclusao = _exclusao(ticker)
+    if exclusao is not None:
+        texto_norm = exclusao.sub(" ", texto_norm)
     if any(p.search(texto_norm) for p in normalizados):
         return True
     return any(p.search(texto) for p in originais)

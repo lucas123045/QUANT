@@ -46,6 +46,14 @@ ALIASES = {
     "ABEV3": ["Ambev"],
 }
 
+# Expressões removidas do texto antes do casamento (sem distinção de caixa e
+# acentos). Casas de análise ligadas aos bancos aparecem como FONTE de opinião
+# sobre outras empresas ("segundo o Itaú BBA, ...") e não como notícia do banco.
+EXCLUSOES = {
+    "ITUB4": ["Itaú BBA"],
+    "BBDC4": ["Bradesco BBI"],
+}
+
 # Padrões de contexto (expressões regulares sensíveis a maiúsculas, aplicadas
 # ao texto original). Aceitam "Vale" com V maiúsculo apenas quando precedido
 # de artigo/preposição ("a Vale", "da Vale", "pela Vale"...), e nunca quando

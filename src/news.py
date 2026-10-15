@@ -55,7 +55,7 @@ def coletar_noticias(
     fontes: list[dict] | None = None,
     agora: datetime | None = None,
     janela_horas: int | None = None,
-    baixar: Callable[[str], bytes] = baixar_url,
+    baixar: Callable[[str], bytes] | None = None,
 ) -> list[dict]:
     """Coleta itens dos feeds RSS publicados nas últimas `janela_horas`.
 
@@ -64,6 +64,7 @@ def coletar_noticias(
     porque o corte temporal depende dela.
     """
     fontes = config.FONTES_RSS if fontes is None else fontes
+    baixar = baixar or baixar_url
     agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
     janela = timedelta(hours=config.JANELA_COLETA_HORAS if janela_horas is None else janela_horas)
 
