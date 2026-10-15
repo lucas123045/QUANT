@@ -13,6 +13,8 @@ data/operacoes.jsonl
 __pycache__/
 *.pyc
 .pytest_cache/
+.pytest-tmp/
+.review-tmp/
 
 # Interface web
 node_modules/
