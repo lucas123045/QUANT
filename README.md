@@ -295,7 +295,15 @@ Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 
 A página inicial é **Minha carteira** (a simulação). Ao entrar, uma tela de abertura mostra o logo e o nome, com animação curta. Ela fica no próprio `index.html`, para aparecer antes de o JavaScript carregar, e some quando os primeiros dados chegam: no mínimo 1,2 s e no máximo 6 s. Para quem pede menos movimento no sistema, a animação é desligada.
 
-**No celular:** o layout se adapta à tela. O menu vira uma gaveta, aberta pelo botão ☰, tudo fica em uma coluna e não há rolagem lateral (conferido com emulação de iPhone, 390 px). O site também pode ser **instalado como app**, com manifesto e ícones:
+**No celular** o visual é de app de banco:
+- **Navegação:** barra fixa embaixo (Carteira, Notícias, Análises, Decisões e Mais, que abre o menu completo).
+- **Saldo:** cartão único com investido, caixa e rendimento embutidos.
+- **Atalhos redondos:** Notícias, Análises, Decisões, Rodar e Regras.
+- **Carrosséis de deslizar:** ações, produtos e "Como funciona".
+- **Decisões em cartões:** em vez de tabela, cada decisão vira um cartão com a previsão da IA, a decisão e o motivo.
+- **Botão voltar:** o do celular funciona entre as telas.
+
+Conferido com emulação de iPhone (390 px), sem rolagem lateral. O site também pode ser **instalado como app**, com manifesto e ícones:
 - **Android (Chrome):** menu ⋮ → "Adicionar à tela inicial" / "Instalar app".
 - **iPhone (Safari):** compartilhar → "Adicionar à Tela de Início".
 

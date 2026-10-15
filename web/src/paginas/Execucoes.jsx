@@ -21,7 +21,22 @@ function Detalhe({ base, data }) {
 
           <Cartao titulo="Decisões da regra">
             <Estado vazio={!dados.decisoes.length} mensagemVazio="Nenhum evento avaliado neste dia.">
-              <div className="tabela-rolagem">
+              <ul className="cartoes-decisao so-celular">
+                {dados.decisoes.map(({ evento, decisao }) => (
+                  <li key={evento.id}>
+                    <div className="cartoes-decisao-topo">
+                      <span className="ticker">{decisao.ticker}</span>
+                      <EtiquetaSentimento classificacao={evento.classificacao} />
+                      <EtiquetaDecisao decisao={decisao.decisao} />
+                    </div>
+                    <p>{evento.resumo}</p>
+                    <blockquote>“{evento.trecho_fonte}”</blockquote>
+                    <small className="sutil"><strong>Por quê:</strong> {decisao.motivo}</small>
+                    <small className="sutil">{evento.tipo_evento} · {evento.confirmado ? "confirmado" : "não confirmado"}</small>
+                  </li>
+                ))}
+              </ul>
+              <div className="tabela-rolagem so-desktop">
                 <table>
                   <thead>
                     <tr><th>Ticker</th><th>Decisão</th><th>Classificação</th><th>Evento</th><th>Motivo (regra)</th></tr>

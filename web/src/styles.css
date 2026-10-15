@@ -465,35 +465,122 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .f-maturidade { grid-template-columns: auto 1fr; }
   .f-maturidade-barras { grid-column: 1 / -1; }
 }
+/* Elementos que só existem no celular (e o inverso). */
+.so-celular { display: none; }
+.nav-inferior { display: none; }
+
 @media (max-width: 820px) {
-  .lateral { position: fixed; left: 0; top: 0; transform: translateX(-100%); transition: transform .2s; }
-  .lateral.aberta { transform: none; }
-  .veu { display: block; position: fixed; inset: 0; background: rgb(0 0 0 / .45); z-index: 25; }
-  .menu-botao { display: block; }
-  .topo { padding: 16px 16px 4px; }
-  .topo h1 { font-size: 20px; }
-  .relogio { display: none; }
-  .faixa-teste, .faixa-vitrine { margin: 10px 16px 0; }
-  .conteudo { padding: 16px; }
-  .rodape { padding: 16px; }
-  .grade { grid-template-columns: minmax(0, 1fr); }
+  .so-celular { display: revert; }
+  .so-desktop { display: none !important; }
+  body { font-size: 15px; }
+
+  /* ---- estrutura: menu lateral vira gaveta; navegação principal embaixo ---- */
+  .lateral { position: fixed; left: 0; top: 0; transform: translateX(-100%); transition: transform .22s ease; padding-top: max(22px, env(safe-area-inset-top)); }
+  .lateral.aberta { transform: none; box-shadow: 20px 0 60px rgb(0 0 0 / .4); }
+  .veu { display: block; position: fixed; inset: 0; background: rgb(0 0 0 / .5); z-index: 25; }
+  .nav-inferior {
+    display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: color-mix(in srgb, var(--lateral) 92%, transparent); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--linha); padding: 6px 4px max(8px, env(safe-area-inset-bottom));
+  }
+  .nav-inferior button {
+    border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 3px;
+    padding: 6px 0; color: var(--texto-3); font-size: 11px; font-weight: 500;
+  }
+  .nav-inferior button.ativo { color: var(--acento); }
+
+  .topo { padding: max(14px, env(safe-area-inset-top)) 16px 4px; gap: 12px; }
+  .topo h1 { font-size: 19px; }
+  .topo p, .relogio { display: none; }
+  .topo-logo { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--acento); color: #0b0d0c; flex-shrink: 0; }
+  .topo-perfil {
+    display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--linha); background: var(--painel); color: var(--texto-2);
+  }
+  .faixa-vitrine, .faixa-teste {
+    margin: 8px 16px 0; padding: 7px 12px; border-radius: 999px; font-size: 12px; align-items: center; width: fit-content;
+  }
+  .faixa-vitrine .icone { margin-top: 0; }
+  .conteudo { padding: 14px 16px 24px; }
+  .rodape { padding: 8px 16px calc(84px + env(safe-area-inset-bottom)); font-size: 11px; }
+
+  /* ---- páginas gerais ---- */
+  .grade { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .span-2 { grid-column: auto; }
   .mestre-detalhe { grid-template-columns: minmax(0, 1fr); }
+  .cartao, .f-cartao { padding: 16px; }
+  .indicadores { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .indicador { padding: 12px 14px; }
+  .indicador-valor { font-size: 16px; }
   .funil-col-barra { display: none; }
   .lista-noticias li { grid-template-columns: minmax(0, 1fr); }
   .noticia-meta { grid-row: auto; flex-direction: row; flex-wrap: wrap; gap: 10px; }
   .operacao-linha { grid-template-columns: 1fr auto auto 14px; }
   .operacao-linha > :nth-child(4), .operacao-linha > :nth-child(5) { display: none; }
-  .f-resumo { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .f-saldo-valor { font-size: 30px; }
-  /* No celular, os três números viram linhas baixas: ícone à esquerda, valor e rótulo ao lado. */
-  .f-estat { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 0; padding: 12px 14px; align-items: center; }
-  .f-estat .f-estat-icone { grid-row: span 3; margin: 0; width: 34px; height: 34px; }
-  .f-estat-valor { font-size: 18px; }
-  .f-estat small { display: none; }
-  .topo { padding-top: max(16px, env(safe-area-inset-top)); }
-  .lateral { padding-top: max(22px, env(safe-area-inset-top)); }
-  .f-ativos { grid-template-columns: minmax(0, 1fr); }
-  .f-passos { grid-template-columns: minmax(0, 1fr); }
-  .f-produto-numeros { grid-template-columns: 1fr 1fr; }
+  .lista-dias { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; }
+  .lista-dias li { flex: 0 0 auto; scroll-snap-align: start; }
+  .lista-dias button { background: var(--painel-2); white-space: nowrap; }
+  .relatorio { font: 14px/1.6 var(--sans); }
+  .cartoes-decisao { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .cartoes-decisao li { display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: 14px; background: var(--painel-2); }
+  .cartoes-decisao p { margin: 0; }
+  .cartoes-decisao blockquote { background: var(--painel-3); }
+  .cartoes-decisao-topo { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .cartoes-decisao-topo .ticker { font-size: 15px; margin-right: auto; }
+
+  /* ---- carteira: estilo app de banco ---- */
+  .f-pagina { gap: 20px; }
+  .f-resumo { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .f-estat { display: none; }
+  .f-saldo { padding: 20px; border-radius: 20px; gap: 6px; }
+  .f-saldo-valor { font-size: 34px; }
+  .f-saldo-partes {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgb(127 127 127 / .18); position: relative; z-index: 1;
+  }
+  .f-saldo-partes div { display: flex; flex-direction: column; gap: 2px; font-weight: 600; font-size: 15px; }
+  .f-saldo-partes small { font-weight: 400; color: var(--texto-2) !important; font-size: 12px; }
+
+  .f-atalhos { display: flex; flex-direction: row; justify-content: space-between; gap: 6px; }
+  .f-atalhos button {
+    flex: 1; border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--texto-2); padding: 0;
+  }
+  .f-atalhos button span {
+    width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--painel); border: 1px solid var(--linha); color: var(--acento);
+  }
+  .f-atalhos button:active span { background: var(--acento-fundo); }
+
+  .f-maturidade { grid-template-columns: auto 1fr; padding: 14px 16px; gap: 12px; border-radius: 16px; }
+  .f-maturidade-texto p { font-size: 12px; }
+  .f-maturidade-barras { grid-column: 1 / -1; flex-direction: row; gap: 14px; }
+  .f-maturidade-barras > div { flex: 1; }
+  .f-aviso { border-radius: 16px; font-size: 13px; align-items: flex-start; }
+
+  .f-secao { margin-bottom: 10px; }
+  .f-secao h2 { font-size: 17px; }
+  .f-secao p { font-size: 13px; }
+
+  /* Carrosséis: deslizar com o dedo, um cartão e um pedaço do próximo à vista. */
+  .f-ativos, .f-produtos, .f-passos {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px;
+    margin: 0 -16px; padding: 2px 16px 6px; scrollbar-width: none;
+    scroll-padding-inline: 16px; align-items: flex-start;
+  }
+  .f-ativos::-webkit-scrollbar, .f-produtos::-webkit-scrollbar, .f-passos::-webkit-scrollbar { display: none; }
+  .f-ativos > *, .f-produtos > * { flex: 0 0 84%; scroll-snap-align: start; border-radius: 18px; }
+  .f-passos > * { flex: 0 0 70%; scroll-snap-align: start; }
+  .f-ativo { gap: 12px; padding: 16px; }
+  .f-ativo-analise p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .f-ativo-analise blockquote { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .f-produto { padding: 16px; gap: 14px; }
+  .f-produto-retorno { font-size: 26px; }
+  .f-produto-numeros { grid-template-columns: repeat(3, 1fr); }
+  .f-grade { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .f-span-2 { grid-column: auto; }
+  .f-cartao { border-radius: 18px; }
+  .f-lista li { grid-template-columns: auto 1fr auto; }
+  .f-lista li > .sutil { display: none; }
+  .f-numeros dd { font-size: 18px; }
 }

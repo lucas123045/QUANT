@@ -26,6 +26,14 @@ const PAGINAS = [
     titulo: "Configuração", subtitulo: "Parâmetros da regra (somente leitura)" },
 ];
 
+// Barra inferior do celular (as demais páginas ficam em "Mais").
+const NAV_INFERIOR = [
+  ["carteira", "Carteira", "carteira"],
+  ["noticias", "Notícias", "noticias"],
+  ["execucoes", "Análises", "execucoes"],
+  ["operacoes", "Decisões", "operacoes"],
+];
+
 function lerPreferencia(chave, padrao) {
   try { return localStorage.getItem(chave) || padrao; } catch { return padrao; }
 }
@@ -67,10 +75,14 @@ function FaixaVitrine() {
   return (
     <div className="faixa-vitrine">
       <Icone nome="info" tamanho={16} />
-      <span>
+      <span className="so-desktop">
         <strong>Versão online, somente leitura.</strong>{" "}
         {quando ? `Dados atualizados em ${quando}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
         A coleta de notícias e a análise pela IA rodam no computador do autor.
+      </span>
+      <span className="so-celular">
+        <strong>Somente leitura</strong>
+        {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}` : ""}
       </span>
     </div>
   );
@@ -101,7 +113,19 @@ export default function App() {
   const [tema, setTema] = useState(() => lerPreferencia("quant.tema", "escuro"));
   const [menuAberto, setMenuAberto] = useState(false);
 
-  useEffect(() => { window.location.hash = pagina; }, [pagina]);
+  useEffect(() => {
+    if (window.location.hash.slice(1) !== pagina) window.location.hash = pagina;
+    window.scrollTo(0, 0);
+  }, [pagina]);
+  // Segue o endereço: botão "voltar" do navegador/celular e links com #pagina.
+  useEffect(() => {
+    const aoMudar = () => {
+      const id = window.location.hash.slice(1);
+      if (PAGINAS.some((p) => p.id === id)) setPagina(id);
+    };
+    window.addEventListener("hashchange", aoMudar);
+    return () => window.removeEventListener("hashchange", aoMudar);
+  }, []);
   useEffect(() => gravarPreferencia("quant.base", base), [base]);
   useEffect(() => {
     document.documentElement.dataset.tema = tema;
@@ -151,12 +175,15 @@ export default function App() {
 
       <div className="principal">
         <header className="topo">
-          <button className="menu-botao" onClick={() => setMenuAberto(true)} aria-label="Abrir menu">☰</button>
+          <span className="topo-logo so-celular"><Icone nome="alta" tamanho={16} /></span>
           <div className="topo-titulo">
             <h1>{atual.titulo}</h1>
             <p>{atual.subtitulo}</p>
           </div>
           <Relogio />
+          <button className="topo-perfil so-celular" onClick={() => setMenuAberto(true)} aria-label="Abrir menu">
+            <Icone nome="configuracao" tamanho={18} />
+          </button>
         </header>
 
         {VITRINE && <FaixaVitrine />}
@@ -170,6 +197,17 @@ export default function App() {
         <main className="conteudo">
           <Pagina base={base} irPara={setPagina} />
         </main>
+
+        <nav className="nav-inferior" aria-label="Navegação principal">
+          {NAV_INFERIOR.map(([id, nome, icone]) => (
+            <button key={id} className={id === pagina ? "ativo" : ""} onClick={() => setPagina(id)}>
+              <Icone nome={icone} tamanho={21} /><span>{nome}</span>
+            </button>
+          ))}
+          <button className={NAV_INFERIOR.some(([id]) => id === pagina) ? "" : "ativo"} onClick={() => setMenuAberto(true)}>
+            <Icone nome="painel" tamanho={21} /><span>Mais</span>
+          </button>
+        </nav>
 
         <footer className="rodape">
           A IA lê as notícias e explica as decisões; quem decide comprar ou vender é uma regra fixa e auditável.

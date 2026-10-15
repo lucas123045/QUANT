@@ -77,6 +77,14 @@ function Resumo({ d, oculto, setOculto }) {
           <span>{d.inicio ? `desde ${dia(d.inicio)}` : "começando agora"}</span>
         </div>
         <small>Dinheiro fictício · preços reais{d.ultimo_fechamento ? ` até ${dia(d.ultimo_fechamento)}` : ""}</small>
+        <div className="f-saldo-partes so-celular">
+          <div><small>Investido</small><Dinheiro valor={investido} oculto={oculto} casas={0} /></div>
+          <div><small>Em caixa</small><Dinheiro valor={caixa} oculto={oculto} casas={0} /></div>
+          <div>
+            <small>Rendimento</small>
+            <span className={tom(rendimento)}>{oculto ? "R$ ••••" : `${rendimento >= 0 ? "+" : "−"}${reais(Math.abs(rendimento), 0)}`}</span>
+          </div>
+        </div>
       </section>
       <Estatistica icone="grafico" rotulo="Investido em ações" valor={<Dinheiro valor={investido} oculto={oculto} />}
         detalhe={`${pct(saldo ? investido / saldo : 0, false)} do saldo`} />
@@ -86,6 +94,25 @@ function Resumo({ d, oculto, setOculto }) {
         valor={<span className={tom(rendimento)}>{oculto ? "R$ ••••" : `${rendimento >= 0 ? "+" : "−"}${reais(Math.abs(rendimento), 2)}`}</span>}
         detalhe={`${d.posicoes_abertas?.length || 0} posição(ões) aberta(s)`} />
     </div>
+  );
+}
+
+function Atalhos({ irPara }) {
+  const itens = [
+    ["noticias", "noticias", "Notícias"],
+    ["execucoes", "execucoes", "Análises"],
+    ["operacoes", "operacoes", "Decisões"],
+    ["acoes", "acoes", "Rodar"],
+    ["configuracao", "configuracao", "Regras"],
+  ];
+  return (
+    <nav className="f-atalhos so-celular" aria-label="Atalhos">
+      {itens.map(([id, icone, nome]) => (
+        <button key={id} onClick={() => irPara(id)}>
+          <span><Icone nome={icone} tamanho={20} /></span>{nome}
+        </button>
+      ))}
+    </nav>
   );
 }
 
@@ -415,7 +442,7 @@ function ComoFunciona({ d }) {
 }
 
 /* ---------------------------------------------------------------- página */
-export default function Simulacao({ base }) {
+export default function Simulacao({ base, irPara }) {
   const { dados: d, erro, carregando } = useApi(`/api/simulacao?base=${base}`);
   const [oculto, setOculto] = useState(false);
 
@@ -424,6 +451,7 @@ export default function Simulacao({ base }) {
       {d && (
         <div className="f-pagina">
           <Resumo d={d} oculto={oculto} setOculto={setOculto} />
+          <Atalhos irPara={irPara} />
           {d.maturidade && <Maturidade m={d.maturidade} />}
           {d.estado !== "ok" && (
             <div className="f-aviso"><Icone nome="info" tamanho={16} /> {d.mensagem} A carteira começa com {reais(d.capital_inicial)} fictícios, 100% em caixa.</div>
