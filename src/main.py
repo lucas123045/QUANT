@@ -29,6 +29,9 @@ logger = logging.getLogger(__name__)
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 
+AVISO_MODO_TESTE = ("*** MODO DE TESTE: notícias de exemplo e LLM falso por palavras-chave. "
+                    "NÃO USAR ESTE RELATÓRIO EM NENHUMA CONCLUSÃO DO TRABALHO. ***")
+
 
 # ---------------------------------------------------------------------------
 # Persistência das etapas
@@ -240,6 +243,8 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
                                   dir_data / "operacoes.jsonl", data)
 
     relatorio = explain.gerar_relatorio_diario(decisoes, data)
+    if teste:
+        relatorio = f"{AVISO_MODO_TESTE}\n\n{relatorio}"
     (pasta / "relatorio.txt").write_text(relatorio, encoding="utf-8")
 
     resumo = {

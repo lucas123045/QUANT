@@ -52,6 +52,7 @@ def test_pipeline_modo_teste_ponta_a_ponta(tmp_path, monkeypatch, contador_llm):
 
     relatorio = (pasta / "relatorio.txt").read_text(encoding="utf-8")
     assert "Operações (2):" in relatorio
+    assert relatorio.startswith("*** MODO DE TESTE")
 
 
 def test_pipeline_retomavel_sem_novas_chamadas_ao_llm(tmp_path, contador_llm):

@@ -11,3 +11,4 @@ def ambiente_isolado(monkeypatch):
     for nome in ("QUANT_MODO_TESTE", "LLM_PROVEDOR", "LLM_API_KEY", "LLM_MODELO"):
         monkeypatch.delenv(nome, raising=False)
     monkeypatch.setattr(llm, "carregar_env", lambda caminho=None: None)
+    monkeypatch.setattr(llm, "_ultimo_modelo_servido", None)

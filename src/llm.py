@@ -2,9 +2,11 @@
 
 - A chave vem da variável de ambiente LLM_API_KEY (ou de um arquivo .env local),
   nunca do código.
-- O provedor é um ponto de configuração (LLM_PROVEDOR). Nenhum provedor real
-  está implementado porque ainda não foi definido; para usar um, registre-o
+- O provedor é um ponto de configuração (LLM_PROVEDOR). Provedor real
+  disponível: "anthropic" (src/provedores.py). Outros podem ser registrados
   com `registrar_provedor`.
+- Cada saída registra o modelo que de fato respondeu e a temperatura
+  efetivamente aplicada (None quando o modelo não aceita o parâmetro).
 - Modo de teste (QUANT_MODO_TESTE=1 ou LLM_PROVEDOR=falso): resposta falsa
   determinística, sem rede.
 """
@@ -23,6 +25,8 @@ logger = logging.getLogger(__name__)
 Provedor = Callable[[str, float, str | None, str], str]
 
 _PROVEDORES: dict[str, Provedor] = {}
+_ACEITA_TEMPERATURA: dict[str, bool] = {"falso": True}
+_ultimo_modelo_servido: str | None = None
 
 
 def carregar_env(caminho=None) -> None:
@@ -50,21 +54,55 @@ def provedor_atual() -> str:
     return os.environ.get("LLM_PROVEDOR", "").strip() or "nao_definido"
 
 
+def _modelo_configurado() -> str:
+    modelo = os.environ.get("LLM_MODELO", "").strip()
+    if not modelo and provedor_atual() == "anthropic":
+        from src.provedores import MODELO_PADRAO_ANTHROPIC
+        return MODELO_PADRAO_ANTHROPIC
+    return modelo or "nao_definido"
+
+
 def modelo_atual() -> str:
-    """Identificador do modelo, registrado em cada saída (provedor:modelo)."""
+    """Modelo configurado (provedor:modelo)."""
     if provedor_atual() == "falso":
         return "falso:determinista-v1"
-    return f"{provedor_atual()}:{os.environ.get('LLM_MODELO', 'nao_definido')}"
+    return f"{provedor_atual()}:{_modelo_configurado()}"
 
 
-def registrar_provedor(nome: str, funcao: Provedor) -> None:
+def informar_modelo_servido(modelo: str) -> None:
+    """Chamado pelo provedor quando sabe qual modelo respondeu (ex.: após fallback)."""
+    global _ultimo_modelo_servido
+    _ultimo_modelo_servido = modelo
+
+
+def modelo_da_ultima_chamada() -> str:
+    """Modelo que respondeu à última chamada de chamar_llm (ou o configurado)."""
+    return _ultimo_modelo_servido or modelo_atual()
+
+
+def temperatura_efetiva(temperatura: float) -> float | None:
+    """Temperatura realmente aplicada pelo provedor atual (None se não suportada)."""
+    return temperatura if _ACEITA_TEMPERATURA.get(provedor_atual(), True) else None
+
+
+def registrar_provedor(nome: str, funcao: Provedor, aceita_temperatura: bool = True) -> None:
     """Registra um provedor real de LLM (ponto de extensão)."""
     _PROVEDORES[nome] = funcao
+    _ACEITA_TEMPERATURA[nome] = aceita_temperatura
+
+
+def _registrar_embutidos() -> None:
+    if "anthropic" not in _PROVEDORES:
+        from src import provedores  # import local evita ciclo
+        provedores.registrar_todos()
 
 
 def chamar_llm(prompt: str, temperatura: float = 0.0) -> str:
     """Envia o prompt ao provedor configurado e devolve o texto da resposta."""
+    global _ultimo_modelo_servido
+    _ultimo_modelo_servido = None
     carregar_env()
+    _registrar_embutidos()
     nome = provedor_atual()
     if nome == "falso":
         return resposta_falsa(prompt)
@@ -76,8 +114,9 @@ def chamar_llm(prompt: str, temperatura: float = 0.0) -> str:
     chave = os.environ.get("LLM_API_KEY") or None
     if not chave:
         raise RuntimeError("LLM_API_KEY não definida no ambiente (.env).")
-    modelo = os.environ.get("LLM_MODELO", "")
-    logger.info("Chamando LLM %s (temperatura=%s)", modelo_atual(), temperatura)
+    modelo = _modelo_configurado()
+    logger.info("Chamando LLM %s (temperatura aplicada=%s)", modelo_atual(),
+                temperatura_efetiva(temperatura))
     return _PROVEDORES[nome](prompt, temperatura, chave, modelo)
 
 

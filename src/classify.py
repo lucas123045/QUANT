@@ -69,7 +69,7 @@ def classificar_llm(evento: dict, chamar: Callable[..., str] | None = None) -> d
     for tentativa in (1, 2):
         resposta = chamar(prompt, temperatura=0.0)
         try:
-            return padronizar(json.loads(resposta), "llm", llm.modelo_atual(),
+            return padronizar(json.loads(resposta), "llm", llm.modelo_da_ultima_chamada(),
                               VERSAO_PROMPT_CLASSIFICACAO)
         except (ValueError, TypeError) as erro:
             logger.warning("Classificação LLM inválida (tentativa %d/2): %s", tentativa, erro)

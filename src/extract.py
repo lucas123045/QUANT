@@ -16,7 +16,7 @@ from src.matching import normalizar
 logger = logging.getLogger(__name__)
 
 VERSAO_PROMPT_EXTRACAO = "PROMPT_EXTRACAO_V1"
-TEMPERATURA_EXTRACAO = 0.0
+TEMPERATURA_EXTRACAO = 0.0  # pedida; o efetivamente aplicado vai em cada evento
 MAX_PALAVRAS_RESUMO = 30
 
 TIPOS_EVENTO = {
@@ -133,8 +133,10 @@ def extrair_eventos(
                        (metadados or {}).get("url", "sem url"))
         return []
 
-    modelo = llm.modelo_atual()
-    logger.info("Extração com modelo=%s prompt=%s", modelo, VERSAO_PROMPT_EXTRACAO)
+    modelo = llm.modelo_da_ultima_chamada()
+    temperatura = llm.temperatura_efetiva(TEMPERATURA_EXTRACAO)
+    logger.info("Extração com modelo=%s prompt=%s temperatura=%s", modelo,
+                VERSAO_PROMPT_EXTRACAO, temperatura)
     eventos = []
     for bruto in brutos:
         try:
@@ -149,7 +151,7 @@ def extrair_eventos(
         evento.update({
             "modelo": modelo,
             "versao_prompt": VERSAO_PROMPT_EXTRACAO,
-            "temperatura": TEMPERATURA_EXTRACAO,
+            "temperatura": temperatura,
         })
         if metadados:
             evento["origem"] = dict(metadados)

@@ -7,3 +7,5 @@ yfinance>=0.2
 pandas>=2.0
 # Base de fusos horários (necessária para zoneinfo no Windows)
 tzdata>=2024.1
+# SDK oficial do provedor de LLM (Anthropic/Claude)
+anthropic>=1.0
