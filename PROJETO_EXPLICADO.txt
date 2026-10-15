@@ -4,7 +4,7 @@
 
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
-Repositório: pasta quant/ (git local, 12 commits, sem push).
+Repositório: pasta quant/ (git local, 14 commits, sem push).
 Testes: 192, todos passando, sem rede e sem LLM real.
 
 
@@ -1111,7 +1111,10 @@ Fora esses, todo o resto está implementado e testado.
            contaminação e calibração
   5d8dca1  Revisão: provedor Anthropic, funil, avaliação com rótulos e aviso
            no modo de teste
-  (+ commit desta atualização de documentação)
+  c283a25  Revisão: documentação do critério V2, riscos metodológicos e
+           novas ferramentas
+  bdb4b08  Documentação: temperatura e contagem de testes, glossário
+  (+ commit que atualiza este histórico)
 
 
 ================================================================================
