@@ -1,6 +1,68 @@
 import { useCallback, useEffect, useState } from "react";
 
+/**
+ * Vitrine: a versão publicada (build de produção, ex.: Vercel) não tem a API
+ * Python. Ela lê os arquivos gerados por `npm run vitrine` em /dados/.
+ * Em desenvolvimento (`npm run dev`), tudo vem da API ao vivo.
+ */
+export const VITRINE = import.meta.env.PROD && import.meta.env.VITE_USAR_API !== "1";
+
+export const MENSAGEM_VITRINE =
+  "Esta é a versão online, somente leitura. Para coletar notícias e rodar a IA, use o sistema no computador (npm run dev).";
+
+const cacheVitrine = new Map();
+
+async function lerArquivo(nome) {
+  if (!cacheVitrine.has(nome)) {
+    cacheVitrine.set(nome, fetch(`/dados/${nome}`).then(async (r) => {
+      if (!r.ok) throw new Error(r.status === 404 ? "Dados ainda não publicados (rode npm run vitrine)." : `Erro ${r.status}`);
+      return r.json();
+    }));
+  }
+  const dados = await cacheVitrine.get(nome);
+  if (dados && dados._erro) throw new Error(dados.detail || `Erro ${dados._erro}`);
+  return dados;
+}
+
+async function pedirVitrine(caminho, opcoes) {
+  if (opcoes.method && opcoes.method !== "GET") throw new Error(MENSAGEM_VITRINE);
+  const url = new URL(caminho, window.location.origin);
+  const base = url.searchParams.get("base") === "teste" ? "teste" : "real";
+  const partes = url.pathname.replace(/^\/api\//, "").split("/");
+
+  switch (partes[0]) {
+    case "status": return lerArquivo("status.json");
+    case "config": return lerArquivo("config.json");
+    case "funil": return lerArquivo(`funil-${base}.json`);
+    case "operacoes": return lerArquivo(`operacoes-${base}.json`);
+    case "simulacao": return lerArquivo(`simulacao-${base}.json`);
+    case "tarefas": return [];
+    case "execucoes":
+      if (partes[1]) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(partes[1])) throw new Error("data inválida");
+        return lerArquivo(`execucoes-${base}/${partes[1]}.json`);
+      }
+      return lerArquivo(`execucoes-${base}.json`);
+    case "noticias": {
+      // Mesmos filtros da API, aplicados no navegador.
+      const { itens } = await lerArquivo(`noticias-${base}.json`);
+      const ticker = url.searchParams.get("ticker");
+      const termo = (url.searchParams.get("q") || "").toLowerCase();
+      const soCarteira = url.searchParams.get("so_carteira") === "true";
+      const filtrados = itens.filter((n) =>
+        (!soCarteira || n.tickers_atuais.length)
+        && (!ticker || n.tickers_atuais.includes(ticker))
+        && (!termo || `${n.titulo} ${n.texto}`.toLowerCase().includes(termo)));
+      const limite = Number(url.searchParams.get("limite")) || 300;
+      return { total: filtrados.length, itens: filtrados.slice(0, limite) };
+    }
+    default:
+      throw new Error("Recurso indisponível na versão online.");
+  }
+}
+
 export async function pedir(caminho, opcoes = {}) {
+  if (VITRINE) return pedirVitrine(caminho, opcoes);
   const resposta = await fetch(caminho, {
     headers: { "Content-Type": "application/json" },
     ...opcoes,

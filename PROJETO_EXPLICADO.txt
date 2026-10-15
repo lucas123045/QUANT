@@ -5,7 +5,7 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 226, todos passando, sem rede e sem LLM real.
+Testes: 228, todos passando, sem rede e sem LLM real.
 Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 
 
@@ -35,6 +35,7 @@ Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 22. Revisão metodológica: o que mudou e por quê
 23. Interface web (npm run dev)
 24. Simulação com dinheiro fictício (paper trading)
+25. Versão online (Vercel): vitrine somente leitura
 
 
 ================================================================================
@@ -227,9 +228,10 @@ quant/
     ├── test_funil_avaliacao.py    5 testes
     ├── test_main.py               5 testes
     ├── test_web_api.py            8 testes
-    └── test_simulacao.py         19 testes
+    ├── test_simulacao.py         19 testes
+    └── test_exportar.py           2 testes
                                  ----
-                                 226 testes
+                                 228 testes
 
 
 ================================================================================
@@ -855,7 +857,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (226)
+14. TESTES AUTOMATIZADOS (228)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -996,7 +998,8 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 226 testes
+  python -m pytest                       roda os 228 testes
+  npm run vitrine                        gera a versão online (seção 25)
   npm run dev                            interface web (seção 23)
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
@@ -1174,6 +1177,7 @@ Fora esses, todo o resto está implementado e testado.
   (commit) Simulação (paper trading)
   (commit) Simulação no formato de painel de banco
   (commit) Visual fintech, produtos e maturidade da simulação
+  (commit) Vitrine somente leitura para o Vercel
 
 
 ================================================================================
@@ -1411,6 +1415,34 @@ em 14/10 (+20,6%); estratégia +4,1% (só 20% investido) contra Ibovespa
 Cores do gráfico: paleta categórica validada (azul, laranja, água-marinha)
 contra os fundos escuro e claro, sem conflito com verde/vermelho de
 compra/venda; há rótulos diretos e tabela para quem não distingue cores.
+
+================================================================================
+25. VERSÃO ONLINE (VERCEL): VITRINE SOMENTE LEITURA
+================================================================================
+
+Problema: o Vercel publica só o site (React). A API Python não vai junto,
+então /api/... respondia 404. E o sistema não deve ir inteiro para a
+internet: os dados ficam em arquivos locais (data/), a API não tem login e
+o botão "Pipeline real" gastaria créditos da OpenAI de quem o apertasse.
+
+Solução: o build de produção lê uma "fotografia" estática dos dados.
+  npm run vitrine   → src/web/exportar.py usa a própria API (TestClient) e
+                      grava em web/public/dados/ os JSON de status, config,
+                      funil, notícias, execuções (lista e cada dia),
+                      operações e simulação, para as bases real e teste,
+                      mais meta.json com a data de geração.
+  git add web/public/dados && git commit && git push → o Vercel republica.
+
+No site publicado (web/src/api.js, VITRINE = build de produção):
+  - cada /api/... é atendido pelo arquivo correspondente em /dados/;
+    os filtros de notícias são aplicados no navegador;
+  - faixa "Versão online, somente leitura. Dados atualizados em ...";
+  - botões de "Rodar agora" desativados (POST recusado com aviso).
+No computador (npm run dev) nada muda: tudo vem da API ao vivo.
+
+Segurança: a chave nunca é exportada (a API não a devolve; um teste confere
+que ela não aparece nos arquivos). Ninguém consegue disparar chamadas
+pagas pelo site.
 
 ================================================================================
                                 FIM DO DOCUMENTO

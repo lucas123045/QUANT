@@ -9,7 +9,8 @@
     "dev:api": "node scripts/api.mjs",
     "dev:web": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vitrine": "node scripts/vitrine.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",

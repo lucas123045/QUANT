@@ -329,4 +329,23 @@ A aba tem a forma de um painel de banco:
 
 Código: `src/simulacao.py`, `GET /api/simulacao`, `web/src/paginas/Simulacao.jsx` e `web/src/GraficoPatrimonio.jsx`. As cores das três séries foram validadas para daltonismo e contraste nos dois temas.
 
+### Versão online (vitrine somente leitura)
+
+O site publicado (ex.: Vercel) **não tem a API Python**. Ele mostra uma "fotografia" dos dados, gerada no seu computador:
+
+```powershell
+npm run vitrine                      # gera web/public/dados/ a partir de data/
+git add web/public/dados
+git commit -m "Atualiza vitrine"
+git push                             # o Vercel republica sozinho
+```
+
+Na versão publicada:
+- todas as páginas funcionam em modo leitura, com a faixa "Versão online, somente leitura" e a data dos dados;
+- os botões de "Rodar agora" ficam desativados.
+
+A coleta, a IA e a chave continuam só no seu computador. Assim ninguém consegue disparar chamadas pagas ao LLM pelo site, e a chave nunca sai do `.env`. Um teste confere que ela não aparece nos arquivos exportados.
+
+Para atualizar o site, rode o pipeline normalmente (`npm run dev` → Rodar agora) e depois repita os três comandos acima.
+
 Código: `src/web/api.py` (FastAPI), `web/` (React + Vite), `scripts/api.mjs` (sobe a API com o Python da `.venv`).

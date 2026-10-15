@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Icone from "./icones.jsx";
+import { VITRINE } from "./api.js";
 import Simulacao from "./paginas/Simulacao.jsx";
 import Painel from "./paginas/Painel.jsx";
 import Noticias from "./paginas/Noticias.jsx";
@@ -31,6 +32,26 @@ function lerPreferencia(chave, padrao) {
 
 function gravarPreferencia(chave, valor) {
   try { localStorage.setItem(chave, valor); } catch { /* sem armazenamento: ignora */ }
+}
+
+function FaixaVitrine() {
+  const [meta, setMeta] = useState(null);
+  useEffect(() => {
+    fetch("/dados/meta.json").then((r) => (r.ok ? r.json() : null)).then(setMeta).catch(() => {});
+  }, []);
+  const quando = meta?.gerado_em
+    ? new Date(meta.gerado_em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
+    : null;
+  return (
+    <div className="faixa-vitrine">
+      <Icone nome="info" tamanho={16} />
+      <span>
+        <strong>Versão online, somente leitura.</strong>{" "}
+        {quando ? `Dados atualizados em ${quando}.` : "Dados ainda não publicados."}{" "}
+        A coleta de notícias e a análise pela IA rodam no computador do autor.
+      </span>
+    </div>
+  );
 }
 
 function Relogio() {
@@ -114,6 +135,7 @@ export default function App() {
           <Relogio />
         </header>
 
+        {VITRINE && <FaixaVitrine />}
         {base === "teste" && (
           <div className="faixa-teste">
             <Icone nome="frasco" tamanho={16} />

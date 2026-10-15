@@ -139,6 +139,12 @@ nav { display: flex; flex-direction: column; gap: 2px; }
   display: flex; align-items: center; gap: 10px; margin: 12px 32px 0; padding: 10px 14px; border-radius: 12px;
   background: var(--acento-fundo); color: var(--acento); font-size: 13px;
 }
+.faixa-vitrine {
+  display: flex; align-items: flex-start; gap: 10px; margin: 12px 32px 0; padding: 10px 14px; border-radius: 12px;
+  background: var(--painel); border: 1px solid var(--linha-forte); color: var(--texto-2); font-size: 13px;
+}
+.faixa-vitrine .icone { margin-top: 2px; color: var(--acento); }
+.faixa-vitrine strong { color: var(--texto); }
 .conteudo { padding: 20px 32px 40px; width: 100%; max-width: 1500px; flex: 1; }
 .rodape { padding: 18px 32px 26px; color: var(--texto-3); font-size: 12px; }
 
@@ -467,7 +473,7 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .topo { padding: 16px 16px 4px; }
   .topo h1 { font-size: 20px; }
   .relogio { display: none; }
-  .faixa-teste { margin: 10px 16px 0; }
+  .faixa-teste, .faixa-vitrine { margin: 10px 16px 0; }
   .conteudo { padding: 16px; }
   .rodape { padding: 16px; }
   .grade { grid-template-columns: minmax(0, 1fr); }

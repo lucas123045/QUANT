@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { pedir, useApi, formatarData } from "../api.js";
+import { MENSAGEM_VITRINE, VITRINE, pedir, useApi, formatarData } from "../api.js";
 import { Cartao, Etiqueta } from "../ui.jsx";
 
 const ACOES = [
@@ -63,11 +63,12 @@ export default function Acoes() {
 
   return (
     <div className="pilha">
+      {VITRINE && <div className="aviso tom-alerta">{MENSAGEM_VITRINE}</div>}
       <div className="acoes">
         {ACOES.map((a) => (
           <Cartao key={a.tipo} titulo={a.titulo} className={a.destaque ? "destaque" : ""}>
             <p className="nota">{a.descricao}</p>
-            <button className={`botao ${a.destaque ? "primario" : ""}`} disabled={ocupado} onClick={() => iniciar(a)}>
+            <button className={`botao ${a.destaque ? "primario" : ""}`} disabled={ocupado || VITRINE} onClick={() => iniciar(a)}>
               {ocupado && tarefa.tipo === a.tipo ? "Executando…" : a.rotulo}
             </button>
           </Cartao>
