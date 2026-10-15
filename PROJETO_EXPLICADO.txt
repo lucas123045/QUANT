@@ -1277,7 +1277,9 @@ Arquitetura:
     que já existiam (coletar, pipeline de teste, pipeline real) numa thread,
     uma por vez, capturando o log para mostrar ao vivo.
   - web/: React + Vite. O Vite repassa /api para a porta 8000 (proxy).
-  - scripts/api.mjs: sobe o uvicorn com o Python da .venv (com --reload).
+  - scripts/api.mjs: sobe o uvicorn com o Python da .venv e o reinicia
+    sozinho quando um .py em src/ muda (o --reload do uvicorn não é usado
+    porque, no Windows, o worker antigo às vezes não encerra).
   - package.json: "dev" usa o concurrently para subir os dois juntos.
 
 Páginas:
@@ -1294,8 +1296,13 @@ Páginas:
   Configuração   parâmetros, critério, períodos, custos, fontes, aliases
                  (SOMENTE LEITURA)
 
-Seletor "Dados reais / Modo de teste" no topo; no modo de teste há uma
-faixa avisando que nada dali vale para conclusões.
+Visual: terminal financeiro, escuro por padrão (grafite, acento âmbar,
+verde/vermelho só para compra/venda), cantos retos, sem sombras; fontes
+IBM Plex Sans e Plex Mono incluídas no projeto (funcionam offline); tema
+claro em tom de papel pelo botão no topo; abas numeradas 01–06.
+
+Seletor "Real / Teste" no topo; no modo de teste há uma faixa âmbar
+avisando que nada dali vale para conclusões.
 
 Garantias: escuta só em 127.0.0.1; não altera parâmetros congeláveis; não
 devolve a chave de API; uma ação por vez; tema claro/escuro automático e

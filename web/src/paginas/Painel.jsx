@@ -13,20 +13,30 @@ const ETAPAS_FUNIL = [
 function Funil({ funil }) {
   const maximo = Math.max(1, ...ETAPAS_FUNIL.map(([chave]) => funil[chave] || 0));
   return (
-    <div className="funil">
-      {ETAPAS_FUNIL.map(([chave, rotulo]) => {
-        const valor = funil[chave] || 0;
-        return (
-          <div key={chave} className="funil-linha">
-            <span className="funil-rotulo">{rotulo}</span>
-            <div className="funil-trilho">
-              <div className="funil-barra" style={{ width: `${(valor / maximo) * 100}%` }} />
-            </div>
-            <span className="funil-valor">{valor}</span>
-          </div>
-        );
-      })}
-    </div>
+    <table className="funil">
+      <thead>
+        <tr><th>Etapa</th><th className="funil-col-barra" /><th className="num">Qtd.</th><th className="num">da anterior</th></tr>
+      </thead>
+      <tbody>
+        {ETAPAS_FUNIL.map(([chave, rotulo], i) => {
+          const valor = funil[chave] || 0;
+          const anterior = i ? funil[ETAPAS_FUNIL[i - 1][0]] || 0 : null;
+          const conversao = anterior ? `${Math.round((valor / anterior) * 100)}%` : "—";
+          return (
+            <tr key={chave}>
+              <td>{rotulo}</td>
+              <td className="funil-col-barra">
+                <div className="funil-trilho">
+                  <div className="funil-barra" style={{ width: `${(valor / maximo) * 100}%` }} />
+                </div>
+              </td>
+              <td className="num forte">{valor}</td>
+              <td className="num sutil">{conversao}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 

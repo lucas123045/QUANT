@@ -286,7 +286,9 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
 
-O seletor "Dados reais / Modo de teste", no topo, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
+Visual de terminal financeiro: escuro por padrão, com tema claro (tom de papel) no botão do topo e fontes IBM Plex incluídas no projeto, sem depender de internet. Quando um arquivo `.py` em `src/` muda, a API reinicia sozinha.
+
+O seletor "Real / Teste", no topo, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
 
 **Garantias:**
 - A API escuta só em 127.0.0.1.

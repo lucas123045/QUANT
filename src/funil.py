@@ -60,8 +60,11 @@ def medir_funil(dir_data: Path | None = None) -> dict:
         "operacoes_por_dia_de_coleta": por_dia,
         # Projeção grosseira: supõe que cada dia de coleta equivale a um pregão.
         "projecao_operacoes_por_semestre": por_dia * PREGOES_POR_SEMESTRE if por_dia is not None else None,
-        "aviso": ("Projeção com poucos dias de coleta é muito incerta. Sem provedor de LLM "
-                  "configurado, as etapas a partir da extração ficam em zero."),
+        "aviso": " ".join(filter(None, [
+            "Projeção com poucos dias de coleta é muito incerta." if n_dias < 20 else None,
+            "Nenhum evento extraído ainda: rode o pipeline real com o LLM configurado."
+            if not eventos else None,
+        ])) or None,
     }
 
 

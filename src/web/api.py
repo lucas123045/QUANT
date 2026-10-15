@@ -58,9 +58,10 @@ def status() -> dict:
         pendencias.append("Definir LLM_MODELO no .env")
     if config.DATA_CORTE_CONHECIMENTO_MODELO is None:
         pendencias.append("Registrar DATA_CORTE_CONHECIMENTO_MODELO (documentação do modelo)")
+    rotulos = {"treino": "treino", "validacao": "validação", "teste": "teste"}
     for nome, valor in periodos.items():
         if valor is None:
-            pendencias.append(f"Aprovar o período de {nome}")
+            pendencias.append(f"Aprovar o período de {rotulos[nome]}")
     if config.DATA_CONGELAMENTO is None:
         pendencias.append("Definir a data de congelamento da regra")
     pendencias += ["Verificar a cobertura da CVM (fatos relevantes)",

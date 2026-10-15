@@ -52,9 +52,9 @@ export function Tickers({ lista }) {
   );
 }
 
-export function Estado({ carregando, erro, vazio, mensagemVazio = "Nada por aqui ainda.", children }) {
+export function Estado({ carregando, erro, vazio, mensagemVazio = "Sem registros.", children }) {
   if (erro) return <div className="aviso tom-negativo">Erro: {erro}</div>;
-  if (carregando) return <div className="carregando"><span className="giro" /> Carregando…</div>;
+  if (carregando) return <div className="carregando"><span className="giro" /> carregando</div>;
   if (vazio) return <div className="vazio">{mensagemVazio}</div>;
   return children;
 }
