@@ -5,7 +5,8 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 199, todos passando, sem rede e sem LLM real.
+Testes: 207, todos passando, sem rede e sem LLM real.
+Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 
 
 ÍNDICE
@@ -32,6 +33,7 @@ Testes: 199, todos passando, sem rede e sem LLM real.
 20. Histórico de commits
 21. Glossário
 22. Revisão metodológica: o que mudou e por quê
+23. Interface web (npm run dev)
 
 
 ================================================================================
@@ -171,7 +173,8 @@ igual a "bruto".
 quant/
 ├── README.md               Documentação principal (13 seções)
 ├── PROJETO_EXPLICADO.txt   Este documento
-├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata, anthropic, openai
+├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata, anthropic,
+│                           openai, fastapi, uvicorn, httpx
 ├── .env.example            Modelo do .env (LLM_API_KEY, LLM_PROVEDOR, LLM_MODELO), sem valores
 ├── .gitignore              Ignora .env, .venv/, caches e as saídas em data/
 ├── data/
@@ -199,7 +202,12 @@ quant/
 │   ├── avaliacao.py        Rotulagem manual: precisão/revocação
 │   ├── explain.py          Justificativas e relatório diário (LLM descreve)
 │   ├── auditoria.py        Log data/operacoes.jsonl
-│   └── main.py             Pipeline diário completo e retomável
+│   ├── main.py             Pipeline diário completo e retomável
+│   └── web/api.py          API local (FastAPI) da interface web
+├── web/                    Frontend (React + Vite): páginas em web/src/paginas/
+├── scripts/api.mjs         Sobe a API com o Python da .venv
+├── package.json            npm run dev / build (API + site juntos)
+├── vite.config.js          Porta 5173, proxy /api → 127.0.0.1:8000
 └── tests/
     ├── conftest.py         Isola o ambiente: não lê .env nem variáveis de LLM
     ├── test_matching.py          42 testes
@@ -215,9 +223,10 @@ quant/
     ├── test_estatistica.py       11 testes
     ├── test_explain_auditoria.py 10 testes
     ├── test_funil_avaliacao.py    5 testes
-    └── test_main.py               5 testes
+    ├── test_main.py               5 testes
+    └── test_web_api.py            8 testes
                                  ----
-                                 199 testes
+                                 207 testes
 
 
 ================================================================================
@@ -843,7 +852,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (199)
+14. TESTES AUTOMATIZADOS (207)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -939,6 +948,12 @@ em todos os testes.
     diário; relatório vazio não chama o LLM; auditoria append-only; campos e
     trecho_fonte obrigatórios.
 
+  test_web_api.py (8)
+    Status não expõe a chave; configuração somente leitura (POST → 405);
+    base inválida recusada; leitura de notícias/execuções/operações/funil
+    do modo de teste; execução inexistente; tarefa de pipeline de teste
+    concluída com log; erro de tarefa exibido; uma tarefa por vez.
+
   test_main.py (5)
     Ponta a ponta em modo de teste (sem rede, todos os arquivos de etapa,
     2 operações no log, aviso de modo de teste no relatório); retomada sem
@@ -966,7 +981,8 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 199 testes
+  python -m pytest                       roda os 207 testes
+  npm run dev                            interface web (seção 23)
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
                                          (sem rede, LLM falso, grava em data/teste/)
@@ -1138,6 +1154,7 @@ Fora esses, todo o resto está implementado e testado.
   bdb4b08  Documentação: temperatura e contagem de testes, glossário
   (commit) Documentação: histórico de commits
   (commit) Provedor OpenAI
+  (commit) Interface web
 
 
 ================================================================================
@@ -1243,6 +1260,49 @@ Uma revisão externa apontou 9 problemas. Situação de cada um:
      - Perda da reação intradiária declarada no README.
      - Relatório do modo de teste marcado como inutilizável.
      - Inconsistências de documentação (seções 2, 12, 13 e 19) corrigidas.
+
+================================================================================
+23. INTERFACE WEB (npm run dev)
+================================================================================
+
+Como abrir (PowerShell, na pasta do projeto):
+  cd C:\Users\ricardo\Desktop\QUANT\QUANT\quant
+  npm install          (só na primeira vez)
+  npm run dev          → sobe a API (8000) e o site (5173) e abre o navegador
+  Ctrl+C para parar.   Site: http://127.0.0.1:5173
+                       Documentação da API: http://127.0.0.1:5173/api/docs
+
+Arquitetura:
+  - src/web/api.py: FastAPI. Lê data/ (ou data/teste/) e dispara as ações
+    que já existiam (coletar, pipeline de teste, pipeline real) numa thread,
+    uma por vez, capturando o log para mostrar ao vivo.
+  - web/: React + Vite. O Vite repassa /api para a porta 8000 (proxy).
+  - scripts/api.mjs: sobe o uvicorn com o Python da .venv (com --reload).
+  - package.json: "dev" usa o concurrently para subir os dois juntos.
+
+Páginas:
+  Painel         provedor/modelo, chave configurada (nunca exibida),
+                 períodos, congelamento, corte do modelo, funil, última
+                 execução, carteira, pendências
+  Notícias       arquivo com busca, filtro por empresa e "só carteira"
+  Execuções      por dia: decisões da regra (classificação, trecho, motivo)
+                 e o relatório
+  Operações      log de auditoria, expandível
+  Ações          coletar / pipeline de teste / pipeline real (com
+                 confirmação de custo) e console ao vivo; backtest aparece
+                 bloqueado enquanto os períodos estiverem pendentes
+  Configuração   parâmetros, critério, períodos, custos, fontes, aliases
+                 (SOMENTE LEITURA)
+
+Seletor "Dados reais / Modo de teste" no topo; no modo de teste há uma
+faixa avisando que nada dali vale para conclusões.
+
+Garantias: escuta só em 127.0.0.1; não altera parâmetros congeláveis; não
+devolve a chave de API; uma ação por vez; tema claro/escuro automático e
+layout que funciona no celular.
+
+Se a porta 8000 ficar ocupada (processo antigo da API), feche o terminal
+antigo ou encerre o processo python que está nela e rode npm run dev de novo.
 
 ================================================================================
                                 FIM DO DOCUMENTO

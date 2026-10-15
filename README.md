@@ -263,3 +263,35 @@ Saídas em `data/` (fora do git):
 - `execucoes/AAAA-MM-DD/`: um arquivo JSON por etapa, mais `relatorio.txt` e `resumo.json`;
 - `operacoes.jsonl`: log de auditoria;
 - `precos/`: cache de preços, com `downloads.jsonl` registrando a data e o SHA-256 de cada download.
+
+## 14. Interface web
+
+Interface local para acompanhar o projeto e disparar as ações, sem usar a linha de comando.
+
+**Pré-requisitos:** a `.venv` com `pip install -r requirements.txt` e o Node.js 18 ou superior.
+
+```powershell
+npm install      # só na primeira vez
+npm run dev      # sobe a API (porta 8000) e o site (porta 5173) e abre o navegador
+```
+
+Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A documentação interativa da API fica em http://127.0.0.1:5173/api/docs.
+
+| Página | O que mostra |
+|---|---|
+| Painel | Provedor e modelo do LLM, se a chave está configurada (a chave nunca é exibida), status de períodos, congelamento e corte do modelo, funil, última execução, carteira e pendências |
+| Notícias | Arquivo de notícias, com busca, filtro por empresa e "só as que mencionam a carteira" (pelas regras atuais de casamento) |
+| Execuções | Cada dia do pipeline: decisões da regra com classificação, trecho da fonte e motivo, e o relatório do dia |
+| Operações | Log de auditoria (`operacoes.jsonl`), com motivo, trecho, origem, modelo e explicação |
+| Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
+| Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
+
+O seletor "Dados reais / Modo de teste", no topo, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
+
+**Garantias:**
+- A API escuta só em 127.0.0.1.
+- Ela não altera nenhum parâmetro congelável.
+- Ela não devolve a chave de API.
+- Ela roda uma ação por vez.
+
+Código: `src/web/api.py` (FastAPI), `web/` (React + Vite), `scripts/api.mjs` (sobe a API com o Python da `.venv`).

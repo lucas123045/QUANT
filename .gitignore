@@ -13,3 +13,7 @@ data/operacoes.jsonl
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Interface web
+node_modules/
+dist/
