@@ -48,11 +48,17 @@ Se não superar, o trabalho conclui que **o sinal não foi demonstrado**. Esse �
 
 Antes de olhar qualquer resultado do período de teste, a regra é congelada. A partir daí, os itens abaixo não podem mudar:
 
-- `LIMIAR_PROBABILIDADE`
-- `MAX_POSICAO_PCT`
-- lógica da função `decidir` (`src/strategy.py`)
+- `LIMIAR_PROBABILIDADE` (hoje 0,7)
+- `MAX_POSICAO_PCT` (hoje 0,20)
+- `JANELA_EVENTO_RECENTE_DIAS` (hoje 5), usado pela lógica de `decidir`
+- lógica da função `decidir` (`src/strategy.py`, `REGRA_V1`)
 - prompt de extração (`PROMPT_EXTRACAO_V1`, `src/extract.py`)
-- versão do modelo de LLM usado
+- prompt de classificação (`PROMPT_CLASSIFICACAO_V1`, `src/classify.py`)
+- versão do modelo de LLM usado (`LLM_PROVEDOR` e `LLM_MODELO`)
+- carteira, aliases e exclusões do casamento de tickers (`src/config.py`)
+- semente do baseline 2 (`SEMENTE_BASELINE_2 = 20261015`)
+
+O código impede rodar o período de teste enquanto `DATA_CONGELAMENTO` for `None`: `periodo_do_config("teste")` levanta `CongelamentoPendente`.
 
 | Campo | Valor |
 |---|---|
@@ -74,10 +80,9 @@ Esses campos são preenchidos apenas pelo autor.
 
 - **Fuso de referência:** `America/Sao_Paulo`.
 - **Regra:** uma notícia ou um fato relevante publicado **após o fechamento do pregão da B3** entra no **pregão do dia seguinte**.
-- Fins de semana e feriados da B3: o evento entra no próximo pregão com negociação.
-- _Pendente de definição:_
-  - o horário de fechamento usado como corte, já que a B3 muda o horário do pregão ao longo do ano;
-  - o tratamento de eventos publicados **durante** o pregão.
+- **Regra de implementação:** um evento publicado em qualquer horário do dia D, no fuso de referência, é executado no **fechamento do primeiro pregão estritamente posterior a D**. Isso cumpre a regra acima e também trata da mesma forma os eventos publicados **durante** o pregão. Como o backtest usa apenas preços de fechamento, executar no fechamento do próprio dia D poderia usar um preço que já refletia a notícia (olhar o futuro).
+- Com essa regra, o horário exato de fechamento da B3, que muda ao longo do ano, não afeta a execução.
+- Fins de semana e feriados: o calendário de pregões é o do Ibovespa (`^BVSP`) no yfinance, então o evento vai para o próximo dia com negociação.
 
 ## 8. Escopo e limitações
 
@@ -86,6 +91,13 @@ Esses campos são preenchidos apenas pelo autor.
 - **Impostos não modelados:** não há alíquotas no modelo sem verificação com um contador.
 - **Viés de sobrevivência:** a carteira foi escolhida hoje, com conhecimento de quais empresas continuam grandes e listadas. Isso tende a favorecer os resultados históricos.
 - **Poder estatístico baixo:** com poucas operações, o erro padrão é grande e diferenças pequenas não são distinguíveis de ruído.
+- **Simplificações do backtest:**
+  - ações fracionárias são permitidas;
+  - não há venda a descoberto (VENDA só zera uma posição existente);
+  - os preços são fechamentos ajustados por proventos (yfinance, `auto_adjust=True`);
+  - posições abertas no fim do período são liquidadas teoricamente no último fechamento;
+  - o erro padrão é calculado por operação, enquanto as diferenças do critério são de retorno acumulado. É uma comparação conservadora e simples, adotada como foi especificada.
+- **Arquivo de notícias:** só existe a partir da data de início da coleta. Os feeds RSS trazem apenas itens recentes, então não há histórico retroativo de notícias de portal.
 
 ### Carteira provisória
 
@@ -111,11 +123,88 @@ Em `src/config.py`, os períodos ficam como `None` até a aprovação. Nenhum ba
 
 ## 10. Pendências
 
-- [ ] Arquivar notícias e fatos relevantes com timestamp e fonte (**prioridade 1**). Início do arquivamento: _[data a definir]_
-- [ ] Verificar se a CVM tem histórico utilizável de fatos relevantes para as 5 ações, com data de entrega confiável
+- [ ] Arquivar notícias e fatos relevantes com timestamp e fonte (**prioridade 1**).
+  - **Notícias de portal:** a ferramenta está pronta (`python -m src.archive --coletar`) e a primeira coleta real foi feita em 2026-10-15, com 20 itens. Falta agendar a execução diária; o agendamento só será configurado depois da aprovação. Início oficial do arquivamento: _[data a definir]_.
+  - **Fatos relevantes:** bloqueados até a verificação da CVM (item abaixo).
+- [ ] Verificar se a CVM tem histórico utilizável de fatos relevantes para as 5 ações, com data de entrega confiável. O adaptador `coletar_fatos_relevantes` fica como `NotImplementedError` até lá.
 - [ ] Aprovar datas de treino, validação e teste
 - [ ] Definir a data de congelamento da regra
-- [ ] Confirmar acesso à API do Jev
+- [ ] Confirmar acesso à API do Jev. Enquanto isso, o LLM é o classificador e `USAR_JEV = False`.
+- [ ] Definir o provedor e o modelo do LLM, e registrar o provedor em `src/llm.py`. Sem isso, o pipeline real arquiva as notícias, mas não extrai eventos.
 - [ ] Confirmar "tempo real" com o professor
 - [ ] Confirmar a carteira
 - [ ] Verificar aspectos tributários com contador (não modelar alíquotas sem verificação)
+
+## 11. Arquitetura
+
+```
+coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extract.py, LLM)
+  → classificar (classify.py: Jev opcional | LLM) → decidir (strategy.py, determinístico)
+  → explicar (explain.py, LLM) → registrar (auditoria.py → data/operacoes.jsonl) → relatório
+```
+
+| Módulo | Papel |
+|---|---|
+| `src/config.py` | Carteira, parâmetros da regra, custos, períodos, fontes |
+| `src/matching.py` | Decide se um texto menciona uma empresa da carteira. Usa o ticker com fronteira de palavra, o nome e os aliases; "vale" isolado nunca casa; casas de análise como "Itaú BBA" são excluídas |
+| `src/news.py` | Coleta RSS (InfoMoney e Money Times) das últimas 24 h, tolerando falhas por fonte. A CVM está bloqueada |
+| `src/archive.py` | Arquivo append-only em `data/arquivo/AAAA-MM-DD.jsonl` (data da coleta), com deduplicação por URL |
+| `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso |
+| `src/extract.py` | Extração com `PROMPT_EXTRACAO_V1` e temperatura 0. Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
+| `src/classify.py` | Interface única que devolve sentimento e probabilidade. O Jev é `NotImplementedError` e o LLM é o caminho normal |
+| `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo (`REGRA_V1`) |
+| `src/baselines.py` | Baseline 1 (qualquer notícia positiva) e baseline 2 (sorteio com 1000 simulações e semente fixa) |
+| `src/backtest.py` | Execução no próximo pregão, simulação, preços do yfinance com cache, métricas, critério e travas de período |
+| `src/explain.py` | Justificativa por operação e relatório diário. O cabeçalho vem da regra e o LLM só descreve |
+| `src/auditoria.py` | Log append-only `data/operacoes.jsonl` |
+| `src/main.py` | Pipeline retomável. Cada etapa grava em `data/execucoes/AAAA-MM-DD/` |
+
+### Regra de decisão (`REGRA_V1`)
+
+| Situação | Decisão |
+|---|---|
+| Evento confirmado, positivo, probabilidade **> 0,7**, sem evento negativo do mesmo ticker nos 5 dias anteriores | COMPRA de até 20% do patrimônio |
+| Evento confirmado, negativo, probabilidade **> 0,7**, sem evento positivo do mesmo ticker nos 5 dias anteriores | VENDA (zera a posição, se houver) |
+| Sem classificação, não confirmado, neutro, probabilidade ≤ 0,7 ou evento oposto recente | MANTER |
+
+### Baselines
+
+1. **Comprar qualquer notícia positiva:** usa os mesmos eventos classificados e a mesma execução, e vende em notícia negativa, mas sem os filtros da regra (confirmação, limiar e evento oposto recente). Isola o valor dos filtros.
+2. **Sorteio:** mantém o mesmo número de operações e as mesmas durações da estratégia, com ticker e data de entrada sorteados. Usa 1000 simulações e a semente `20261015`, e devolve a distribuição e a fração de sorteios que empatam com a estratégia ou a superam.
+3. **Comprar e segurar o Ibovespa** (`^BVSP`).
+
+## 12. Configuração
+
+1. Python 3.11 ou superior. O projeto foi desenvolvido com Python 3.12.
+2. Crie o ambiente e instale as dependências:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate          # Windows (Linux/macOS: source .venv/bin/activate)
+   pip install -r requirements.txt
+   ```
+3. Chave de API: copie `.env.example` para `.env` e preencha os valores. O `.env` está no `.gitignore`, e a chave **nunca** vai para o código nem para o git.
+   ```
+   LLM_API_KEY=...
+   LLM_PROVEDOR=...   # nome de um provedor registrado com llm.registrar_provedor
+   LLM_MODELO=...     # identificador do modelo, registrado em cada saída
+   ```
+   Nenhum provedor real está implementado ainda (ver Pendências). Para rodar sem LLM real, use o modo de teste.
+
+## 13. Como rodar
+
+| O quê | Comando |
+|---|---|
+| Testes (sem rede e sem LLM real) | `python -m pytest` |
+| Coletar e arquivar notícias uma vez | `python -m src.archive --coletar` |
+| Pipeline completo, modo de teste (sem rede, LLM falso, grava em `data/teste/`) | `python -m src.main --teste` ou `QUANT_MODO_TESTE=1 python -m src.main` |
+| Pipeline completo, real | `python -m src.main` |
+| Backtest | Ainda não pode ser executado: os períodos estão pendentes de aprovação. Depois de aprovados: `backtest.rodar_backtest(eventos, backtest.carregar_precos(inicio, fim), backtest.periodo_do_config("treino"), "noticia")` |
+
+O pipeline pode ser retomado. Se for interrompido, rodar de novo no mesmo dia reaproveita a coleta, a extração, a classificação e as explicações já gravadas, sem novas chamadas ao LLM, e não duplica registros no log de auditoria.
+
+Saídas em `data/` (fora do git):
+
+- `arquivo/AAAA-MM-DD.jsonl`: notícias arquivadas;
+- `execucoes/AAAA-MM-DD/`: um arquivo JSON por etapa, mais `relatorio.txt` e `resumo.json`;
+- `operacoes.jsonl`: log de auditoria;
+- `precos/`: cache de preços, com `downloads.jsonl` registrando a data de cada download.
