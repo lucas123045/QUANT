@@ -1,0 +1,983 @@
+================================================================================
+                    PROJETO QUANT — DOCUMENTO EXPLICATIVO COMPLETO
+================================================================================
+
+Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8.
+Repositório: pasta quant/ (git local, 9 commits, sem push).
+Testes: 156, todos passando, sem rede e sem LLM real.
+
+
+ÍNDICE
+------
+ 1. O que é o projeto, em uma página
+ 2. Hipóteses e o que conta como sucesso
+ 3. Princípios que o código garante
+ 4. Estrutura de pastas e arquivos
+ 5. Fluxo completo: o caminho de uma notícia até a decisão
+ 6. Explicação de cada módulo (src/)
+ 7. Formatos dos dados gravados (com exemplos)
+ 8. Parâmetros de configuração (config.py)
+ 9. Regra de decisão (REGRA_V1)
+10. Corte temporal: quando um evento vira operação
+11. Baselines
+12. Backtest, métricas e critério de decisão
+13. Travas: períodos, congelamento, fontes e custos
+14. Testes automatizados (o que cada arquivo verifica)
+15. Como instalar, configurar e rodar
+16. Decisões tomadas durante a implementação
+17. O que está bloqueado (NotImplementedError) e por quê
+18. Pendências que dependem do autor
+19. Limitações conhecidas
+20. Histórico de commits
+21. Glossário
+
+
+================================================================================
+1. O QUE É O PROJETO, EM UMA PÁGINA
+================================================================================
+
+O QUANT lê notícias sobre cinco ações da B3, usa um modelo de linguagem
+generativo (LLM) para transformar o texto livre em "eventos" estruturados e
+aplica a eles uma regra fixa, sem IA, que decide comprar, vender ou não fazer
+nada. O resultado é comparado com o Ibovespa e com estratégias simples de
+referência (os baselines).
+
+A carteira provisória é PETR4 (Petrobras), VALE3 (Vale), ITUB4 (Itaú
+Unibanco), BBDC4 (Bradesco) e ABEV3 (Ambev).
+
+O requisito da disciplina é que a IA generativa seja indispensável. Neste
+projeto ela é, porque sem o LLM não existe evento estruturado a partir do
+texto e, portanto, não existe entrada para a regra. A IA, porém, não decide
+nada. Ela tem só dois papéis:
+
+  - EXTRAIR: ler a notícia e devolver tipo de evento, impacto, confirmação e
+    o trecho literal que comprova o evento (src/extract.py);
+  - EXPLICAR: descrever em português uma decisão que a regra já tomou
+    (src/explain.py).
+
+Também há um passo de CLASSIFICAÇÃO (sentimento e probabilidade), feito
+preferencialmente pelo Jev, um classificador opcional cuja API ainda não foi
+especificada. Enquanto o Jev não estiver disponível, o próprio LLM classifica,
+e isso é o caminho normal, não uma exceção.
+
+Em uma linha, o fluxo é:
+
+  notícia → arquivo → LLM extrai evento → classificação → REGRA decide
+          → LLM explica → log de auditoria → relatório do dia
+
+
+================================================================================
+2. HIPÓTESES E O QUE CONTA COMO SUCESSO
+================================================================================
+
+Hipótese central:
+  Notícias e anúncios contêm informação ainda não precificada pelo mercado, e
+  um extrator automático consegue capturá-la com antecedência útil.
+
+As fontes têm hipóteses separadas:
+
+  FATOS RELEVANTES (CVM)
+    O preço reage de forma previsível ao anúncio oficial da companhia nos
+    pregões seguintes à divulgação.
+
+  NOTÍCIAS DE PORTAL (InfoMoney, Money Times)
+    O preço reage de forma previsível à cobertura jornalística sobre a
+    empresa.
+
+  Uma regra calibrada em uma fonte NÃO vale automaticamente para a outra. Por
+  isso cada evento carrega o campo "tipo_fonte" ("noticia" ou
+  "fato_relevante"), e o backtest recusa misturar as duas.
+
+Critério de decisão, definido antes de qualquer resultado:
+  A estratégia só é considerada ÚTIL se, no período de teste, superar
+    (a) o baseline 1 ("comprar qualquer notícia positiva") e
+    (b) o Ibovespa (comprar e segurar),
+  já descontados os custos, e com as duas diferenças MAIORES que o erro padrão
+  da média do retorno por operação.
+  Se não superar, a conclusão é "sinal não demonstrado". Esse é um resultado
+  válido do trabalho, não um fracasso a ser escondido.
+
+Métricas:
+  - Primária: retorno acumulado líquido contra o Ibovespa no período de teste.
+  - Secundárias: volatilidade (diária e anualizada) e drawdown máximo.
+  - De apoio: número de operações, taxa de acerto, retorno médio por operação
+    e erro padrão.
+
+Observação: os custos estão zerados por enquanto, então "líquido" é, hoje,
+igual a "bruto".
+
+
+================================================================================
+3. PRINCÍPIOS QUE O CÓDIGO GARANTE
+================================================================================
+
+  P1. O LLM nunca decide compra ou venda.
+      A função decidir() em src/strategy.py não importa nem chama o LLM. Um
+      teste (tests/test_explain_auditoria.py) dá ao explicador respostas
+      "hostis" do LLM, como "a decisão correta é VENDER", e confirma que a
+      decisão não muda.
+
+  P2. A decisão é determinística e testada.
+      Mesma entrada, mesma saída. 19 testes cobrem todos os ramos da regra,
+      inclusive as bordas do limiar.
+
+  P3. Nenhuma funcionalidade depende do Jev.
+      USAR_JEV = False. Mesmo com True, se o Jev falhar o sistema usa o LLM.
+
+  P4. Nada foi inventado sobre o Jev nem sobre a CVM.
+      Os adaptadores levantam NotImplementedError com mensagem clara.
+
+  P5. Períodos e data de congelamento não foram preenchidos.
+      Estão None, e o código recusa rodar o backtest nessas condições.
+
+  P6. Os custos são parâmetros explícitos e valem zero.
+
+  P7. As fontes não se misturam sem registro de origem.
+
+  P8. Os testes não acessam a rede nem um LLM real (tudo com mocks).
+
+  P9. Não há chave de API no código nem no git.
+      A chave vem de LLM_API_KEY, e o arquivo .env está no .gitignore.
+
+  P10. O arquivo de notícias e o log de auditoria são append-only: só recebem
+       novas linhas, nunca são apagados ou reescritos.
+
+  P11. Todo evento aceito tem um trecho_fonte que existe literalmente no texto
+       original. Isso impede o LLM de "inventar" um evento.
+
+
+================================================================================
+4. ESTRUTURA DE PASTAS E ARQUIVOS
+================================================================================
+
+quant/
+├── README.md               Documentação principal (13 seções)
+├── PROJETO_EXPLICADO.txt   Este documento
+├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata
+├── .env.example            Modelo do .env (LLM_API_KEY=), sem valores
+├── .gitignore              Ignora .env, .venv/, caches e as saídas em data/
+├── data/
+│   ├── .gitkeep            Mantém a pasta no git
+│   ├── arquivo/            (fora do git) notícias arquivadas, 1 arquivo por dia
+│   ├── execucoes/          (fora do git) resultados de cada etapa do pipeline
+│   ├── precos/             (fora do git) cache de preços do yfinance
+│   ├── teste/              (fora do git) saídas do modo de teste
+│   └── operacoes.jsonl     (fora do git) log de auditoria
+├── src/
+│   ├── __init__.py
+│   ├── config.py           Todos os parâmetros do projeto
+│   ├── matching.py         Diz se um texto menciona uma empresa da carteira
+│   ├── news.py             Coleta RSS; interface (bloqueada) da CVM
+│   ├── archive.py          Arquivo append-only de notícias + comando de coleta
+│   ├── llm.py              Adaptador único do LLM (chave, provedor, modo de teste)
+│   ├── extract.py          LLM → eventos estruturados, com validação
+│   ├── classify.py         Sentimento e probabilidade (Jev opcional | LLM)
+│   ├── strategy.py         decidir(): a ÚNICA fonte de compra e venda
+│   ├── baselines.py        Baselines 1 e 2
+│   ├── backtest.py         Simulação, preços, métricas, critério, travas
+│   ├── explain.py          Justificativas e relatório diário (LLM descreve)
+│   ├── auditoria.py        Log data/operacoes.jsonl
+│   └── main.py             Pipeline diário completo e retomável
+└── tests/
+    ├── conftest.py         Isola o ambiente: não lê .env nem variáveis de LLM
+    ├── test_matching.py          42 testes
+    ├── test_llm.py                5 testes
+    ├── test_extract.py           18 testes
+    ├── test_news_archive.py      10 testes
+    ├── test_classify.py          10 testes
+    ├── test_strategy.py          19 testes
+    ├── test_baselines.py         16 testes
+    ├── test_backtest.py          21 testes
+    ├── test_explain_auditoria.py 10 testes
+    └── test_main.py               5 testes
+                                 ----
+                                 156 testes
+
+
+================================================================================
+5. FLUXO COMPLETO: O CAMINHO DE UMA NOTÍCIA ATÉ A DECISÃO
+================================================================================
+
+Exemplo: o InfoMoney publica, às 18h30 de 15/10/2026, "Petrobras aprova
+dividendos extraordinários".
+
+ PASSO 1 — COLETAR (news.py)
+   O feed RSS é baixado com timeout de 20 s. A notícia está nas últimas 24 h,
+   então entra. O horário é convertido para America/Sao_Paulo
+   (2026-10-15T18:30:00-03:00) e o HTML do texto é limpo. Se o portal estiver
+   fora do ar, o erro é registrado e a coleta segue para o próximo portal.
+
+ PASSO 2 — ARQUIVAR (archive.py)
+   Se a URL ainda não está no arquivo, uma linha é acrescentada em
+   data/arquivo/2026-10-15.jsonl. O casamento de tickers (matching.py) marca
+   tickers = ["PETR4"]. Uma notícia "Vale a pena investir em CDB?" também é
+   arquivada, mas com tickers = [], porque "vale" ali é verbo.
+
+ PASSO 3 — EXTRAIR (extract.py + llm.py)
+   Só notícias com pelo menos um ticker vão ao LLM, o que economiza chamadas.
+   O prompt PROMPT_EXTRACAO_V1 pede JSON com ticker, tipo_evento, resumo,
+   impacto_declarado, confirmado e trecho_fonte, com temperatura 0.
+   O código então:
+     - tenta interpretar o JSON; se falhar, faz no máximo UMA nova tentativa;
+     - valida cada evento contra o esquema e descarta, com log, os inválidos;
+     - confere se trecho_fonte existe no texto (ignorando acentos, maiúsculas
+       e espaços extras); se não existir, descarta com log;
+     - anota o modelo, a versão do prompt, a temperatura e a origem (URL,
+       fonte, tipo_fonte, horário).
+
+ PASSO 4 — CLASSIFICAR (classify.py)
+   Devolve {sentimento, probabilidade}, por exemplo positivo com 0,85.
+   Usa o Jev se estiver habilitado e disponível; senão, o LLM, com
+   PROMPT_CLASSIFICACAO_V1.
+
+ PASSO 5 — DECIDIR (strategy.py), SEM IA
+   O evento está confirmado, é positivo, tem probabilidade 0,85 > 0,70 e não
+   houve evento negativo da PETR4 nos 5 dias anteriores. Resultado: COMPRA de
+   até 20% do patrimônio, com o motivo escrito pela própria regra.
+
+ PASSO 6 — EXPLICAR (explain.py)
+   O texto começa com um cabeçalho fixo vindo da regra:
+     "Decisão já tomada pela regra (REGRA_V1): COMPRA PETR4. Motivo: ..."
+   Em seguida vem a explicação do LLM, rotulada como gerada por IA. Se o LLM
+   falhar, fica só o cabeçalho.
+
+ PASSO 7 — REGISTRAR (auditoria.py)
+   Uma linha é acrescentada em data/operacoes.jsonl com data, ticker, evento
+   completo (com trecho_fonte), classificação, modelo, versão do prompt,
+   decisão, motivo e explicação.
+
+ PASSO 8 — RELATÓRIO
+   data/execucoes/2026-10-15/relatorio.txt lista as operações do dia com os
+   motivos da regra e traz um resumo de até 4 frases escrito pelo LLM.
+
+ EXECUÇÃO SIMULADA (backtest)
+   No backtest, essa compra seria executada no FECHAMENTO do próximo pregão
+   (16/10/2026), e não no dia 15. Ver seção 10.
+
+
+================================================================================
+6. EXPLICAÇÃO DE CADA MÓDULO (src/)
+================================================================================
+
+------------------------------------------------------------------------------
+6.1 config.py — parâmetros
+------------------------------------------------------------------------------
+Reúne tudo o que é configurável: caminhos das pastas, carteira, aliases,
+exclusões, parâmetros da regra, custos, períodos, data de congelamento, fuso,
+semente do baseline 2, fontes RSS e a chave USAR_JEV. Valores detalhados na
+seção 8.
+
+------------------------------------------------------------------------------
+6.2 matching.py — "este texto fala desta empresa?"
+------------------------------------------------------------------------------
+Funções públicas:
+  normalizar(texto)              remove acentos, passa para minúsculas e
+                                 colapsa espaços
+  menciona(texto, ticker)        True/False
+  identificar_tickers(texto)     lista os tickers mencionados, na ordem da
+                                 carteira
+
+Como decide:
+  1. Ticker com fronteira de palavra. "PETR4" casa; "XPETR4", "PETR45" e
+     "arquivo_PETR4" não casam. Aceita o sufixo F do mercado fracionário
+     ("PETR4F").
+  2. Nome ou alias, sem diferenciar maiúsculas e acentos, sempre com
+     fronteira de palavra (nunca substring). Exemplos: "Petrobras",
+     "Petróleo Brasileiro", "Itaú Unibanco", "Itaú", "Bradesco", "Ambev".
+     "Itaúsa" não casa com Itaú, nem "Bradespar" com Bradesco, porque são
+     outras empresas.
+  3. Caso especial da Vale. A palavra "vale" sozinha NUNCA casa ("vale a
+     pena", "vale-refeição", "isso vale para..."). VALE3 só casa com:
+       - o ticker VALE3;
+       - os aliases "Vale S.A.", "Vale SA", "Vale do Rio Doce",
+         "mineradora Vale";
+       - "Vale" com V maiúsculo depois de artigo ou preposição: "a Vale",
+         "da Vale", "na Vale", "pela Vale", "com a Vale", "para a Vale".
+         Mesmo assim, "Vale do ..." e "Vale dos ..." ficam de fora, para
+         evitar "Vale do Silício".
+     Caso ambíguo, aceito de propósito como NÃO casando: a manchete "Vale
+     anuncia dividendos", sem nenhum contexto, porque pode ser o verbo.
+  4. Exclusões: "Itaú BBA" e "Bradesco BBI" são removidos do texto antes de
+     casar. Essas casas de análise aparecem como fonte de opinião sobre
+     outras empresas ("ação da TIM está barata, diz Itaú BBA"), e não como
+     notícia do banco. O problema foi descoberto na primeira coleta real.
+
+------------------------------------------------------------------------------
+6.3 news.py — coleta
+------------------------------------------------------------------------------
+  coletar_noticias(fontes, agora, janela_horas, baixar)
+    - Lê os feeds de config.FONTES_RSS (InfoMoney e Money Times).
+    - Mantém só os itens publicados nas últimas 24 h, com tolerância de 5 min
+      para relógios adiantados.
+    - Descarta, com log, itens sem data de publicação, porque o corte
+      temporal depende dela.
+    - Falha de rede ou feed inválido em uma fonte: registra o erro e segue.
+    - Devolve itens com tipo_fonte="noticia", fonte, url, titulo, texto,
+      timestamp_publicacao e timestamp_coleta.
+  coletar_fatos_relevantes()
+    - BLOQUEADO: NotImplementedError("verificar formato e cobertura antes de
+      implementar").
+  Funções auxiliares: baixar_url (urllib com timeout e User-Agent) e
+  limpar_html (remove tags e decodifica entidades).
+
+------------------------------------------------------------------------------
+6.4 archive.py — arquivo de notícias (prioridade 1 do projeto)
+------------------------------------------------------------------------------
+  arquivar(itens, pasta, agora)
+    - Acrescenta cada item em data/arquivo/AAAA-MM-DD.jsonl, pela data da
+      COLETA, e devolve só os registros novos.
+    - Deduplica por URL, considerando todos os dias já arquivados.
+    - Abre o arquivo em modo "a" (append): nunca sobrescreve.
+    - Item sem URL é descartado com log; item com tipo_fonte inválido
+      levanta erro.
+  carregar_arquivo(pasta)    lê todos os registros.
+  montar_registro(item)      acrescenta id, tickers e hash_conteudo.
+  Linha de comando: python -m src.archive --coletar
+    Coleta uma vez, arquiva e informa quantos itens são novos e quantos
+    mencionam a carteira. Não agenda nada.
+
+Por que o arquivo importa: os feeds RSS só mostram as notícias mais
+recentes. Sem arquivar todo dia, não existe histórico de notícias para
+validar a hipótese.
+
+------------------------------------------------------------------------------
+6.5 llm.py — adaptador do LLM
+------------------------------------------------------------------------------
+  chamar_llm(prompt, temperatura=0.0) -> str
+    Único ponto de contato com o LLM em todo o sistema.
+  Como escolhe o provedor:
+    - QUANT_MODO_TESTE=1 → provedor "falso" (sem rede);
+    - senão, a variável LLM_PROVEDOR → precisa ter sido registrado com
+      registrar_provedor(nome, funcao);
+    - provedor não registrado → NotImplementedError explicando o que fazer.
+  Chave: lida de LLM_API_KEY. carregar_env() lê um .env local sem
+  sobrescrever variáveis já definidas. Sem chave → RuntimeError.
+  modelo_atual() → "provedor:modelo", gravado em cada evento e em cada
+  classificação.
+  Provedor falso (resposta_falsa): reconhece o tipo de prompt pelo
+  identificador ([PROMPT_EXTRACAO_V1] etc.) e responde de forma
+  determinística. Usa palavras-chave simples ("dividendo", "lucro" →
+  positivo; "investigação", "multa" → negativo) só para que o modo de teste
+  passe por todos os ramos. NÃO tem valor como classificador.
+  Nenhum provedor real (OpenAI, Anthropic etc.) está implementado, porque não
+  foi definido qual usar.
+
+------------------------------------------------------------------------------
+6.6 extract.py — extração de eventos
+------------------------------------------------------------------------------
+  Constantes: PROMPT_EXTRACAO_V1 (o prompt exato), VERSAO_PROMPT_EXTRACAO,
+  TEMPERATURA_EXTRACAO = 0.0, TIPOS_EVENTO, IMPACTOS.
+  Tipos de evento (lista fechada): dividendo, resultado, guidance,
+  troca_executivo, investigacao, fusao_aquisicao, outro.
+  extrair_eventos(texto, metadados, chamar)
+    - monta o prompt com os tickers da carteira e o texto;
+    - JSON inválido: 1 nova tentativa; depois descarta tudo com log;
+    - tolera a resposta embrulhada em ```json ... ```;
+    - aceita {"eventos": [...]} ou uma lista direta;
+    - valida cada evento (validar_evento):
+        os 6 campos obrigatórios presentes; ticker da carteira; tipo_evento
+        da lista; impacto em positivo/negativo/neutro; confirmado
+        booleano; resumo não vazio com até 30 palavras; trecho_fonte não
+        vazio;
+      evento inválido → EventoInvalido → descartado com log;
+    - trecho_existe(trecho, texto): comparação após normalizar acentos,
+      maiúsculas e espaços. "ANUNCIOU nesta  quinta-feira" é aceito;
+      paráfrase é rejeitada;
+    - acrescenta modelo, versao_prompt, temperatura e origem (metadados).
+
+------------------------------------------------------------------------------
+6.7 classify.py — sentimento e probabilidade
+------------------------------------------------------------------------------
+  classificar(evento, usar_jev, chamar, jev) é a interface única. Sempre
+  devolve o mesmo formato:
+    {sentimento, probabilidade, classificador ("jev"|"llm"), modelo,
+     versao_prompt}
+  ou None, se não houver classificação válida.
+  classificar_jev(): NotImplementedError("API do Jev não especificada no
+    repositório.").
+  classificar_llm(): PROMPT_CLASSIFICACAO_V1, temperatura 0, 1 nova
+    tentativa, saída validada por padronizar() (sentimento válido;
+    probabilidade numérica entre 0 e 1).
+  Fallback: Jev indisponível (NotImplementedError) ou com saída inválida →
+  usa o LLM.
+
+------------------------------------------------------------------------------
+6.8 strategy.py — a regra (ver seção 9)
+------------------------------------------------------------------------------
+  decidir(evento, classificacao, historico) -> Decisao
+  Decisao: ticker, decisao ("compra"|"venda"|"manter"), motivo, fracao_alvo,
+  versao_regra ("REGRA_V1"). Imutável (frozen dataclass).
+
+------------------------------------------------------------------------------
+6.9 baselines.py — referências de comparação (ver seção 11)
+------------------------------------------------------------------------------
+  sinais_baseline_1(eventos)
+  baseline_sorteio(operacoes_estrategia, precos, tickers, n_simulacoes,
+                   semente, retorno_estrategia, ...)
+
+------------------------------------------------------------------------------
+6.10 backtest.py — simulação e avaliação (ver seções 10, 12 e 13)
+------------------------------------------------------------------------------
+  Calendário:  data_local, proximo_pregao
+  Sinais:      sinais_da_estrategia (aplica decidir em ordem cronológica),
+               sinais_para_ordens (data a execução no próximo pregão)
+  Simulação:   simular(ordens, precos, capital, custo) -> Simulacao
+               (série de patrimônio, operações, ordens ignoradas)
+  Baseline 3:  comprar_e_segurar(serie)
+  Preços:      carregar_precos(inicio, fim) com yfinance e cache
+  Métricas:    calcular_metricas, avaliar_criterio
+  Travas:      validar_periodo, periodo_do_config, PeriodoPendente,
+               CongelamentoPendente
+  Tudo junto:  rodar_backtest(eventos, precos, periodo, tipo_fonte)
+
+------------------------------------------------------------------------------
+6.11 explain.py — explicações
+------------------------------------------------------------------------------
+  gerar_justificativa(decisao, evento, classificacao)
+    Cabeçalho fixo vindo da regra + explicação do LLM (PROMPT_EXPLICACAO_V1,
+    temperatura 0), que é instruído a não alterar nem questionar a decisão.
+  gerar_relatorio_diario(decisoes, data)
+    A lista de operações e os motivos são montados SEM o LLM. O LLM só
+    escreve o parágrafo de resumo (PROMPT_RELATORIO_V1).
+  Qualquer falha do LLM aqui é registrada e não derruba nada.
+
+------------------------------------------------------------------------------
+6.12 auditoria.py — log de operações
+------------------------------------------------------------------------------
+  registrar_operacao(registro)
+    Exige os 9 campos e o evento.trecho_fonte, e acrescenta a linha em
+    data/operacoes.jsonl.
+  ler_operacoes()
+
+------------------------------------------------------------------------------
+6.13 main.py — pipeline diário
+------------------------------------------------------------------------------
+  Etapas e arquivos gravados em data/execucoes/AAAA-MM-DD/:
+    01_coleta.json          itens coletados
+    02_arquivo.json         registros novos arquivados
+    03_extracao.json        {id_da_notícia: [eventos]}, gravado item a item
+    04_classificacao.json   {id_do_evento: classificação}, item a item
+    05_decisoes.json        decisões (recalculadas a cada execução; são
+                            baratas e não usam LLM)
+    06_explicacoes.json     {id_do_evento: texto}, só compras e vendas
+    07_registro.json        ids já gravados no log (evita duplicar)
+    relatorio.txt           relatório do dia
+    resumo.json             contagens da execução
+  Retomada: ao rodar de novo no mesmo dia, cada etapa reaproveita o que já
+  está gravado. Se o LLM caiu no meio da extração, só os itens que faltam
+  são processados.
+  Histórico: o filtro de "evento oposto recente" também considera os eventos
+  classificados em execuções de dias anteriores.
+  Modo de teste (--teste ou QUANT_MODO_TESTE=1): usa 3 notícias de exemplo
+  (Petrobras com dividendos, Vale com investigação e "Vale a pena investir em
+  CDB?"), o LLM falso, nenhuma rede, e grava em data/teste/.
+  O backtest NÃO é executado pelo pipeline, porque os períodos estão
+  pendentes.
+  Ordem efetiva: explicar vem ANTES de registrar, porque o log exige o
+  campo "explicacao".
+
+
+================================================================================
+7. FORMATOS DOS DADOS GRAVADOS (COM EXEMPLOS)
+================================================================================
+
+7.1 Registro arquivado (data/arquivo/AAAA-MM-DD.jsonl, uma linha por item)
+{
+  "id": "0ac03e989d9b10bc",                      (16 primeiros caracteres do SHA-256 da URL)
+  "timestamp_publicacao": "2026-10-15T18:30:00-03:00",
+  "timestamp_coleta": "2026-10-15T20:00:00-03:00",
+  "tipo_fonte": "noticia",                       (ou "fato_relevante")
+  "fonte": "Portal A",
+  "url": "https://portal.teste/petrobras-dividendos",
+  "titulo": "Petrobras anuncia dividendos",
+  "texto": "A Petrobras aprovou dividendos de R$ 2,00 por ação.",
+  "tickers": ["PETR4"],                          (casamento no momento da coleta)
+  "hash_conteudo": "fcd8d2f6...4b6c"             (SHA-256 de título + texto)
+}
+
+7.2 Evento extraído (03_extracao.json)
+{
+  "ticker": "PETR4",
+  "tipo_evento": "dividendo",
+  "resumo": "Petrobras anuncia dividendos de R$ 2,00 por ação.",
+  "impacto_declarado": "positivo",
+  "confirmado": true,
+  "trecho_fonte": "aprovou dividendos de R$ 2,00",
+  "modelo": "provedor:modelo",
+  "versao_prompt": "PROMPT_EXTRACAO_V1",
+  "temperatura": 0.0,
+  "origem": {"id": "...", "tipo_fonte": "noticia", "fonte": "...",
+             "url": "...", "timestamp_publicacao": "..."},
+  "id": "0ac03e989d9b10bc-0"                     (id da notícia + índice)
+}
+
+7.3 Classificação (04_classificacao.json)
+{"sentimento": "positivo", "probabilidade": 0.85, "classificador": "llm",
+ "modelo": "provedor:modelo", "versao_prompt": "PROMPT_CLASSIFICACAO_V1"}
+
+7.4 Decisão (05_decisoes.json, campo "decisao")
+{"ticker": "PETR4", "decisao": "compra",
+ "motivo": "evento positivo confirmado (dividendo) com probabilidade 0.85 > 0.70 e sem evento negativo recente",
+ "fracao_alvo": 0.2, "versao_regra": "REGRA_V1"}
+
+7.5 Log de auditoria (data/operacoes.jsonl)
+{"data": "2026-10-15", "ticker": "PETR4", "evento": {...com trecho_fonte...},
+ "classificacao": {...}, "modelo": "...", "versao_prompt": "PROMPT_EXTRACAO_V1",
+ "decisao": "compra", "motivo": "...", "explicacao": "Decisão já tomada pela regra ..."}
+
+7.6 Preços (data/precos/)
+  <SIMBOLO>_<inicio>_<fim>.csv, por exemplo PETR4.SA_2025-01-01_2025-12-31.csv
+  downloads.jsonl: símbolo, período, arquivo, fonte e data_download.
+
+
+================================================================================
+8. PARÂMETROS DE CONFIGURAÇÃO (src/config.py)
+================================================================================
+
+  Parâmetro                    Valor                       Observação
+  ---------------------------  --------------------------  ----------------------------
+  CARTEIRA                     PETR4 VALE3 ITUB4 BBDC4     provisória; só muda com
+                               ABEV3                       aprovação
+  BENCHMARK                    ^BVSP                       Ibovespa
+  SUFIXO_B3                    .SA                         sufixo do yfinance
+  LIMIAR_PROBABILIDADE         0.7                         congela; compra/venda exigem > 0.7
+  MAX_POSICAO_PCT              0.20                        congela; até 20% do patrimônio por ação
+  CAPITAL_INICIAL              100000.0
+  JANELA_EVENTO_RECENTE_DIAS   5                           congela; NOVO, precisa de aprovação
+  CORRETAGEM                   0.0                         fração do valor negociado
+  EMOLUMENTOS                  0.0
+  SLIPPAGE                     0.0
+  PERIODO_TREINO               None                        PENDENTE DE APROVAÇÃO
+  PERIODO_VALIDACAO            None                        PENDENTE DE APROVAÇÃO
+  PERIODO_TESTE                None                        PENDENTE DE APROVAÇÃO
+  DATA_CONGELAMENTO            None                        só o autor preenche
+  FUSO_REFERENCIA              America/Sao_Paulo
+  SEMENTE_BASELINE_2           20261015
+  N_SIMULACOES_BASELINE_2      1000
+  FONTES_RSS                   InfoMoney, Money Times      URLs .../feed/, testadas
+  JANELA_COLETA_HORAS          24
+  USAR_JEV                     False                       acesso não confirmado
+  ALIASES / PADROES_CONTEXTO /                             ver seção 6.2
+  EXCLUSOES
+
+Formato dos períodos quando forem aprovados: ("AAAA-MM-DD", "AAAA-MM-DD").
+
+
+================================================================================
+9. REGRA DE DECISÃO (REGRA_V1)
+================================================================================
+
+Avaliada em ordem. A primeira condição verdadeira define o resultado:
+
+  1. Sem classificação válida              → MANTER
+  2. Evento não confirmado (rumor)          → MANTER
+  3. Sentimento neutro                      → MANTER
+  4. Probabilidade ≤ 0,7                    → MANTER  (0,70 exato = MANTER)
+  5. Positivo, mas houve evento NEGATIVO do mesmo ticker nos 5 dias
+     anteriores                             → MANTER
+  6. Positivo                               → COMPRA (fração 0,20)
+  7. Negativo, mas houve evento POSITIVO do mesmo ticker nos 5 dias
+     anteriores                             → MANTER
+  8. Negativo                               → VENDA
+
+Detalhes:
+  - "Recente" = de (instante do evento − 5 dias) até antes do evento. A
+    borda de 5 dias exatos conta como recente. Eventos POSTERIORES nunca
+    contam (não olhar o futuro). Eventos de outro ticker não contam.
+  - Lógica do filtro: notícias conflitantes em poucos dias indicam sinal
+    confuso, e a regra prefere não operar.
+  - VENDA só zera posição existente. Não há venda a descoberto.
+  - COMPRA de um ticker que já está em carteira é ignorada (sem reforço de
+    posição).
+
+
+================================================================================
+10. CORTE TEMPORAL: QUANDO UM EVENTO VIRA OPERAÇÃO
+================================================================================
+
+Regra pedida: evento publicado após o fechamento da B3 entra no pregão do
+dia seguinte, no fuso America/Sao_Paulo.
+
+Regra implementada, que cumpre a pedida e é mais conservadora: um evento
+publicado em QUALQUER horário do dia D é executado no FECHAMENTO do primeiro
+pregão estritamente posterior a D.
+
+  Publicação                          Execução
+  ----------------------------------  ---------------------------------
+  segunda 10h (durante o pregão)      fechamento de terça
+  segunda 19h (após o fechamento)     fechamento de terça
+  22h30 de segunda em SP (01h30 UTC   fechamento de terça (a data é
+  de terça)                           convertida para o fuso de SP)
+  sábado                              fechamento de segunda
+  sexta, último dia da série          não executa (sem pregão seguinte)
+
+Por que tratar notícias publicadas durante o pregão do mesmo jeito: o
+backtest só tem preços de fechamento. Executar no fechamento do mesmo dia
+usaria um preço que talvez já reflita a notícia, o que seria olhar o futuro.
+Bônus: o horário exato de fechamento da B3, que muda ao longo do ano, deixa
+de importar.
+
+Feriados: o calendário de pregões é o do próprio ^BVSP baixado do yfinance.
+Dia sem Ibovespa não é pregão.
+
+
+================================================================================
+11. BASELINES
+================================================================================
+
+BASELINE 1 — "comprar qualquer notícia positiva"
+  Usa os mesmos eventos classificados que a estratégia: compra em todo
+  evento positivo e vende em todo evento negativo, sem exigir confirmação,
+  sem limiar de probabilidade e sem o filtro de evento oposto recente. A
+  execução (próximo pregão) e o tamanho (20%) são os mesmos.
+  Pergunta que responde: os filtros da regra agregam valor, ou bastaria
+  seguir o sentimento das notícias?
+
+BASELINE 2 — sorteio
+  Para cada operação real da estratégia, sorteia um ticker da carteira e uma
+  data de entrada, mantendo a mesma duração em pregões. Operação que ficou
+  aberta na estratégia também fica aberta no sorteio. Repete 1000 vezes com a
+  semente 20261015.
+  Saída: semente, n_simulacoes, n_operacoes, a lista de retornos, média,
+  desvio, percentis 5/50/95 e "fracao_sorteios_maior_ou_igual" (a fração dos
+  sorteios que empatam com a estratégia ou a superam, um p-valor empírico).
+  Pergunta que responde: o resultado poderia ser sorte, com a mesma
+  quantidade de operações?
+
+  Exemplo com dados SINTÉTICOS (250 pregões aleatórios, 10 operações de 5
+  pregões, estratégia fictícia com +2%):
+    média −0,32%, desvio 2,74%, p05 −4,65%, p50 −0,39%, p95 +4,33%
+    fracao_sorteios_maior_ou_igual = 0,195. Ou seja, 19,5% dos sorteios
+    empatam ou superam +2%, então +2% não seria evidência de sinal.
+
+BASELINE 3 — comprar e segurar o Ibovespa
+  Investe todo o capital no ^BVSP no primeiro dia do período e segura até o
+  fim.
+
+
+================================================================================
+12. BACKTEST, MÉTRICAS E CRITÉRIO DE DECISÃO
+================================================================================
+
+Simulação (backtest.simular):
+  - Patrimônio inicial: CAPITAL_INICIAL.
+  - Em cada pregão, as ordens do dia são executadas no fechamento: primeiro
+    as vendas, depois as compras, em ordem alfabética (determinístico).
+  - Compra: valor = min(fração × patrimônio do dia, caixa disponível).
+    custo = valor × (corretagem + emolumentos + slippage).
+    quantidade = (valor − custo) / preço. Frações de ação são permitidas.
+  - Venda: recebe quantidade × preço × (1 − custo).
+  - Ordem sem preço no dia, venda sem posição, compra repetida ou sem caixa
+    → ignorada, com o motivo registrado.
+  - Posições abertas no fim do período são liquidadas teoricamente no último
+    fechamento, com custo, só para o cálculo do retorno por operação.
+
+Métricas (calcular_metricas):
+  retorno_acumulado        patrimônio_final / patrimônio_inicial − 1
+  volatilidade_diaria      desvio-padrão amostral dos retornos diários
+  volatilidade_anualizada  volatilidade diária × √252
+  drawdown_maximo          pior queda desde um pico (número negativo)
+  n_operacoes              operações completas (ida e volta) + abertas
+  taxa_acerto              fração das operações com retorno > 0
+  retorno_medio_operacao   média dos retornos por operação
+  erro_padrao_operacao     desvio-padrão amostral / √n (None se n < 2)
+
+Critério (avaliar_criterio):
+  diferenca_vs_baseline_1 = retorno da estratégia − retorno do baseline 1
+  diferenca_vs_ibovespa   = retorno da estratégia − retorno do Ibovespa
+  sinal_demonstrado = as DUAS diferenças > erro padrão
+  Com menos de 2 operações, o erro padrão é indefinido e o resultado é "sinal
+  não demonstrado".
+
+rodar_backtest(eventos, precos, periodo, tipo_fonte) devolve as métricas da
+estratégia, do baseline 1 e do Ibovespa, o critério, as operações, o período,
+a fonte, o capital e o custo usados. Só entram ordens executadas dentro do
+período. O histórico anterior serve apenas para o filtro de evento recente.
+
+Preços (carregar_precos): fechamento ajustado por proventos (yfinance,
+auto_adjust=True). A data final é incluída (o "end" do yfinance é
+exclusivo, então o código soma 1 dia). O índice fica sem fuso. Se o CSV já
+existe, não baixa de novo, e cada download fica registrado com data e hora.
+
+
+================================================================================
+13. TRAVAS: PERÍODOS, CONGELAMENTO, FONTES E CUSTOS
+================================================================================
+
+  - validar_periodo(None) → PeriodoPendente, com a mensagem: "O período ...
+    está PENDENTE DE APROVAÇÃO (None em config.py). O backtest não roda sem
+    período aprovado pelo autor, para evitar escolher datas olhando
+    resultados."
+  - periodo_do_config("teste") → além disso exige DATA_CONGELAMENTO
+    preenchida; senão, CongelamentoPendente.
+  - Período com início depois do fim → erro.
+  - rodar_backtest com eventos de outra fonte → erro "fontes misturadas".
+  - Sinal sem tipo_fonte → erro.
+  - Um teste confere que LIMIAR_PROBABILIDADE = 0.7, MAX_POSICAO_PCT = 0.20,
+    CAPITAL_INICIAL = 100000, custos = 0 e DATA_CONGELAMENTO = None. Se
+    alguém mudar esses valores sem querer, o teste falha.
+
+
+================================================================================
+14. TESTES AUTOMATIZADOS (156)
+================================================================================
+
+Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
+tests/conftest.py limpa as variáveis de LLM e impede a leitura do .env real
+em todos os testes.
+
+  test_matching.py (42)
+    "vale a pena", "vale-refeição", "Vale do Silício", "o valor da ação" →
+    não casam. "a Vale divulgou", "Lucro da Vale", "Vale S.A.",
+    "mineradora Vale", "VALE3" → casam. "Vale anuncia dividendos" (ambíguo)
+    → não casa. Ticker com fronteira, ticker dentro de outra palavra, sufixo
+    F, nomes e aliases, Itaúsa/Bradespar não casam, Itaú BBA e Bradesco BBI
+    excluídos.
+
+  test_llm.py (5)
+    Provedor não definido → NotImplementedError; provedor registrado recebe
+    chave, modelo e temperatura do ambiente; sem chave → erro; modo de
+    teste; .env não sobrescreve variáveis existentes.
+
+  test_extract.py (18)
+    JSON válido; temperatura 0 e identificador do prompt; JSON inválido com
+    retry bem-sucedido; JSON inválido nas 2 tentativas → descarte (e no
+    máximo 2 chamadas); cerca markdown; tipo inválido (levanta erro e é
+    descartado); ticker fora da carteira; impacto inválido; confirmado não
+    booleano; resumo com mais de 30 palavras; campo ausente; trecho
+    inexistente; trecho com acento e espaços diferentes (aceito); paráfrase
+    (rejeitada); modo de teste.
+
+  test_news_archive.py (10)
+    Janela de 24 h e conversão de fuso; falha de rede em uma fonte não
+    derruba a coleta; feed inválido; CVM bloqueada; registro completo;
+    deduplicação por URL e append-only (o conteúdo antigo continua idêntico);
+    deduplicação entre dias; item inválido; linha de comando.
+
+  test_classify.py (10)
+    Mesmo formato pelos dois caminhos (LLM e Jev); Jev bloqueado com a
+    mensagem exata; fallback para o LLM; retry; saídas inválidas → None.
+
+  test_strategy.py (19)
+    Compra, venda, sem classificação, não confirmado, neutro; bordas do
+    limiar (0,69 / 0,70 / 0,7000001 / 0,71 / 1,0) na compra e na venda;
+    evento oposto recente bloqueia; fora da janela não bloqueia; borda da
+    janela bloqueia; outro ticker não bloqueia; evento futuro não bloqueia;
+    mesmo sentimento não bloqueia; determinismo.
+
+  test_baselines.py (16)
+    Próximo pregão (durante o pregão, após o fechamento, fuso UTC, sábado,
+    fim da série); sinal sem tipo_fonte; baseline 1 sem filtros e com
+    resultado conhecido (+33,1%); simulação com custo (valor exato
+    calculado à mão); limite de 20%; sem duplicar posição; limite de caixa;
+    baseline 2 reprodutível pela semente, com resultado conhecido (preço
+    constante → 0), com valores possíveis exatos (+4,2% / −3,8%) e usando a
+    semente do config; baseline 3.
+
+  test_backtest.py (21)
+    Período None recusado; os 3 períodos do config pendentes; teste exige
+    congelamento; treino não exige; período invertido; parâmetros
+    congeláveis inalterados; métricas de uma série conhecida (retorno,
+    drawdown, volatilidade, taxa de acerto, erro padrão); erro padrão com
+    n < 2; 4 cenários do critério; backtest completo com resultado conhecido
+    (estratégia +10%, baseline 1 +6%, Ibovespa +10%); custo reduz o retorno;
+    fontes misturadas recusadas; só executa dentro do período; cache de
+    preços (não baixa de novo e registra o download).
+
+  test_explain_auditoria.py (10)
+    A decisão não depende da resposta do LLM (3 respostas hostis); decisões
+    idênticas com LLMs diferentes; o prompt correto chega ao LLM com
+    temperatura 0; LLM fora do ar → só o cabeçalho da regra; relatório
+    diário; relatório vazio não chama o LLM; auditoria append-only; campos e
+    trecho_fonte obrigatórios.
+
+  test_main.py (5)
+    Ponta a ponta em modo de teste (sem rede, todos os arquivos de etapa,
+    2 operações no log); retomada sem novas chamadas ao LLM e sem duplicar
+    o log; retomada após falha parcial na extração; todas as fontes fora do
+    ar + CVM bloqueada sem derrubar o pipeline; histórico de dias anteriores
+    bloqueando uma compra.
+
+
+================================================================================
+15. COMO INSTALAR, CONFIGURAR E RODAR
+================================================================================
+
+Instalação (Windows; Python 3.12.10 já instalado nesta máquina):
+  cd quant
+  python -m venv .venv
+  .venv\Scripts\activate
+  pip install -r requirements.txt
+
+Configuração da chave:
+  copie .env.example para .env e preencha:
+    LLM_API_KEY=...
+    LLM_PROVEDOR=...   (precisa estar registrado em src/llm.py)
+    LLM_MODELO=...
+  O .env nunca vai para o git.
+
+Comandos:
+  python -m pytest                       roda os 156 testes
+  python -m src.archive --coletar        coleta os feeds uma vez e arquiva
+  python -m src.main --teste             pipeline completo simulado
+                                         (sem rede, LLM falso, grava em data/teste/)
+  python -m src.main                     pipeline real
+
+O que acontece hoje no pipeline real: ele coleta e arquiva normalmente (a
+primeira coleta real, em 15/10/2026, arquivou 20 notícias). A extração
+falha item a item, com erro registrado, porque não há provedor de LLM. A
+CVM aparece como bloqueio documentado. O pipeline termina normalmente com 0
+operações.
+
+Backtest: ainda não pode rodar (períodos pendentes). Quando aprovados:
+  from src import backtest
+  precos = backtest.carregar_precos("AAAA-MM-DD", "AAAA-MM-DD")
+  r = backtest.rodar_backtest(eventos, precos,
+                              backtest.periodo_do_config("treino"), "noticia")
+
+
+================================================================================
+16. DECISÕES TOMADAS DURANTE A IMPLEMENTAÇÃO
+================================================================================
+
+(O autor autorizou seguir sem perguntar; todas estão registradas aqui e no
+README.)
+
+  1. Instalação do Python 3.12.10 via winget e criação da venv.
+  2. Execução no fechamento do pregão seguinte para qualquer horário de
+     publicação (seção 10).
+  3. Novo parâmetro JANELA_EVENTO_RECENTE_DIAS = 5 (dias corridos) para
+     "nenhum evento negativo recente". PRECISA DE APROVAÇÃO.
+  4. Limiar estrito: probabilidade exatamente 0,7 → manter.
+  5. Sem venda a descoberto; compra repetida é ignorada.
+  6. Baseline 1 com a mesma saída da estratégia (vende em notícia negativa)
+     e usando a mesma classificação.
+  7. Baseline 2 preserva as durações das operações; semente 20261015.
+  8. Casamento da Vale: aceito com artigo/preposição antes ("a Vale");
+     manchete "Vale anuncia..." sem contexto não casa.
+  9. Exclusão de "Itaú BBA" e "Bradesco BBI" do casamento.
+ 10. Aliases incluem outras classes de ação (PETR3, ITUB3, BBDC3) como
+     menção à mesma empresa.
+ 11. Portais: InfoMoney e Money Times (feeds verificados).
+ 12. Itens de feed sem data de publicação são descartados.
+ 13. Arquivo diário pela data de COLETA, não de publicação.
+ 14. O arquivo guarda TODAS as notícias coletadas, inclusive as sem ticker
+     (assim nada se perde se o casamento mudar no futuro).
+ 15. Explicar antes de registrar (o log exige a explicação).
+ 16. Preços ajustados por proventos; ações fracionárias; liquidação teórica
+     de posições abertas no fim.
+ 17. Nenhum provedor real de LLM implementado (não foi definido qual).
+ 18. Uma falha de classificação gera None → decisão "manter".
+ 19. Git com identidade local (lucas123045 / lucaveiga12@gmail.com), sem push.
+     O .git vazio da pasta de cima (com remote no GitHub) não foi alterado.
+ 20. Dependência tzdata incluída (necessária para fusos no Windows).
+
+
+================================================================================
+17. O QUE ESTÁ BLOQUEADO (NotImplementedError) E POR QUÊ
+================================================================================
+
+  Local                                  Mensagem / bloqueio
+  -------------------------------------  ------------------------------------------
+  classify.classificar_jev               "API do Jev não especificada no
+                                         repositório." → falta acesso e
+                                         especificação da API
+  news.coletar_fatos_relevantes          "verificar formato e cobertura antes de
+                                         implementar" → falta verificar a CVM
+  llm.chamar_llm (provedor não           "Provedor de LLM '...' não implementado"
+  registrado)                            → falta definir o provedor e o modelo
+
+Fora esses três, todo o resto está implementado e testado.
+
+
+================================================================================
+18. PENDÊNCIAS QUE DEPENDEM DO AUTOR
+================================================================================
+
+  [ ] 1. Arquivar notícias todos os dias (PRIORIDADE 1). A ferramenta existe;
+         falta aprovar o agendamento e a data oficial de início.
+  [ ] 2. Verificar a CVM: histórico de fatos relevantes para as 5 ações, com
+         data de entrega confiável.
+  [ ] 3. Aprovar as datas de treino, validação e teste.
+  [ ] 4. Definir a data de congelamento da regra (+ hash do commit +
+         aprovação).
+  [ ] 5. Confirmar o acesso à API do Jev e a data limite para desistir dele.
+  [ ] 6. Definir o provedor e o modelo do LLM.
+  [ ] 7. Confirmar "tempo real" com o professor (hoje: lote diário).
+  [ ] 8. Confirmar a carteira.
+  [ ] 9. Aprovar ou alterar JANELA_EVENTO_RECENTE_DIAS = 5.
+  [ ] 10. Custos reais e tributação (com contador). Até lá, zero e não
+          modelado.
+
+
+================================================================================
+19. LIMITAÇÕES CONHECIDAS
+================================================================================
+
+  - Não é tempo real: é um pipeline diário em lote.
+  - Custos zerados: o resultado líquido hoje é igual ao bruto.
+  - Impostos não modelados.
+  - Viés de sobrevivência: a carteira foi escolhida hoje, sabendo quais
+    empresas continuam grandes.
+  - Poder estatístico baixo: poucas operações → erro padrão grande.
+  - O histórico de notícias de portal só existe a partir do início do
+    arquivamento (o RSS não traz notícias antigas).
+  - O critério compara diferença de retorno acumulado com o erro padrão por
+    operação. É uma comparação simples e conservadora, adotada como foi
+    especificada.
+  - O casamento de tickers é por regras; casos ambíguos ("Vale anuncia...")
+    ficam de fora.
+  - Os 20 registros da primeira coleta real têm tickers calculados antes da
+    exclusão de "Itaú BBA" e "Bradesco BBI" (o arquivo não é reescrito).
+  - O provedor falso do modo de teste usa palavras-chave e não deve ser
+    usado para nenhuma conclusão.
+
+
+================================================================================
+20. HISTÓRICO DE COMMITS
+================================================================================
+
+  332bdf1  Fase 0: estrutura e README
+  33b3ce2  Fase 1: configuração e casamento de tickers
+  574a619  Fase 2: extração com validação
+  c7a4fdf  Fase 3: arquivo de notícias
+  8034ac0  Fase 4: estratégia e baselines
+  9bb5bf9  Fase 5: backtest e métricas
+  59963c0  Fase 6: explicação e log de auditoria
+  421b172  Fase 7: pipeline
+  c4af0b1  Fase 8: documentação final
+
+
+================================================================================
+21. GLOSSÁRIO
+================================================================================
+
+  Append-only     arquivo que só recebe linhas novas; nada é apagado ou editado.
+  Backtest        simulação da estratégia sobre preços históricos.
+  Baseline        estratégia simples de referência para comparação.
+  B3              bolsa de valores brasileira.
+  Congelamento    momento a partir do qual regra, parâmetros, prompts e modelo
+                  não mudam mais; só então o período de teste pode ser usado.
+  CVM             Comissão de Valores Mobiliários; publica os fatos relevantes.
+  Drawdown        queda do patrimônio a partir de um pico anterior.
+  Erro padrão     desvio-padrão / √n; mede a incerteza da média.
+  Fato relevante  comunicado oficial obrigatório de uma companhia aberta.
+  Ibovespa        principal índice da B3 (^BVSP).
+  Jev             classificador opcional de sentimento; API ainda não
+                  especificada.
+  JSONL           arquivo de texto com um objeto JSON por linha.
+  LLM             modelo de linguagem generativo.
+  Matching        casamento de texto com os tickers da carteira.
+  Pregão          dia de negociação na bolsa.
+  RSS             formato de feed usado pelos portais de notícias.
+  Seed/semente    número que torna um sorteio reproduzível.
+  Slippage        diferença entre o preço esperado e o preço executado.
+  Ticker          código da ação (ex.: PETR4).
+  trecho_fonte    trecho literal do texto que comprova o evento extraído.
+  Viés de         distorção por escolher hoje empresas que "sobreviveram".
+  sobrevivência
+  yfinance        biblioteca que baixa preços do Yahoo Finance.
+
+================================================================================
+                                FIM DO DOCUMENTO
+================================================================================

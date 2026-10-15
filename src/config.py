@@ -90,6 +90,20 @@ PERIODO_TESTE = None        # PENDENTE DE APROVAÇÃO (precisa de data final fix
 DATA_CONGELAMENTO = None    # PENDENTE: preenchida só pelo autor ao congelar a regra
 
 # ---------------------------------------------------------------------------
+# Critério de decisão (congela junto com a regra)
+# ---------------------------------------------------------------------------
+# Nível de significância dos testes t unilaterais do critério (seção 3 do README).
+ALFA_CRITERIO = 0.05
+
+# ---------------------------------------------------------------------------
+# Contaminação por conhecimento do LLM
+# ---------------------------------------------------------------------------
+# Data de corte de conhecimento do modelo usado na extração ("AAAA-MM-DD"),
+# tirada da documentação oficial do provedor. PENDENTE: preencher ao escolher
+# o modelo. Períodos que começam antes dela podem ter look-ahead via modelo.
+DATA_CORTE_CONHECIMENTO_MODELO = None
+
+# ---------------------------------------------------------------------------
 # Corte temporal
 # ---------------------------------------------------------------------------
 FUSO_REFERENCIA = "America/Sao_Paulo"

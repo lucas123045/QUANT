@@ -63,9 +63,18 @@ def test_rodar_backtest_recusa_periodo_none():
 
 
 def test_parametros_congelaveis_nao_foram_alterados():
+    """Trava contra alterações acidentais.
+
+    Este teste FALHA DE PROPÓSITO no dia do congelamento (DATA_CONGELAMENTO
+    deixa de ser None) ou se algum parâmetro mudar. Atualizá-lo é um ato
+    deliberado, que deve entrar no mesmo commit da mudança aprovada.
+    """
     assert config.LIMIAR_PROBABILIDADE == 0.7
     assert config.MAX_POSICAO_PCT == 0.20
     assert config.CAPITAL_INICIAL == 100_000.0
+    assert config.JANELA_EVENTO_RECENTE_DIAS == 5
+    assert config.ALFA_CRITERIO == 0.05
+    assert config.SEMENTE_BASELINE_2 == 20261015
     assert (config.CORRETAGEM, config.EMOLUMENTOS, config.SLIPPAGE) == (0.0, 0.0, 0.0)
     assert config.DATA_CONGELAMENTO is None
 
@@ -93,17 +102,63 @@ def test_erro_padrao_indefinido_com_menos_de_duas_operacoes():
     assert calcular_metricas(pd.Series([1.0, 1.0]), [])["taxa_acerto"] is None
 
 
-@pytest.mark.parametrize("estr,b1,ibov,ep,esperado", [
-    (0.20, 0.10, 0.05, 0.02, True),
-    (0.20, 0.19, 0.05, 0.02, False),   # não supera baseline 1 por mais que o EP
-    (0.20, 0.10, 0.19, 0.02, False),   # não supera Ibovespa por mais que o EP
-    (0.20, 0.10, 0.05, None, False),   # EP indefinido: não demonstrado
+FORTE = [0.05, 0.06, 0.04, 0.05, 0.07, 0.03, 0.05, 0.06]     # excessos claramente > 0
+FRACO_B1 = [0.00, 0.01, -0.01, 0.00, 0.02, -0.02, 0.01, -0.01]
+
+
+def criterio(estr=0.20, b1=0.10, ibov=0.05, exc_estr=FORTE, exc_b1=FRACO_B1):
+    return avaliar_criterio({"retorno_acumulado": estr}, {"retorno_acumulado": b1},
+                            {"retorno_acumulado": ibov}, exc_estr, exc_b1, alfa=0.05)
+
+
+def test_criterio_demonstrado_quando_tudo_passa():
+    r = criterio()
+    assert r["sinal_demonstrado"] is True and r["conclusao"] == "sinal demonstrado"
+    assert r["versao"] == "CRITERIO_V2"
+    assert r["teste_vs_ibovespa"]["p_valor"] < 0.05
+    assert r["teste_vs_baseline_1"]["p_valor"] < 0.05
+
+
+@pytest.mark.parametrize("alteracao,motivo", [
+    ({"b1": 0.25}, "direção: perde do baseline 1 no acumulado"),
+    ({"ibov": 0.30}, "direção: perde do Ibovespa no acumulado"),
+    ({"exc_estr": [0.01, -0.01, 0.02, -0.02, 0.01, 0.0]}, "excesso vs Ibovespa não significativo"),
+    ({"exc_b1": FORTE}, "não supera o baseline 1 por operação"),
+    ({"exc_estr": [0.05]}, "uma operação: teste indefinido"),
+    ({"exc_estr": [0.02, 0.02, 0.02]}, "variância zero: teste indefinido"),
 ])
-def test_criterio_de_decisao(estr, b1, ibov, ep, esperado):
-    r = avaliar_criterio({"retorno_acumulado": estr, "erro_padrao_operacao": ep},
-                         {"retorno_acumulado": b1}, {"retorno_acumulado": ibov})
-    assert r["sinal_demonstrado"] is esperado
-    assert r["conclusao"] == ("sinal demonstrado" if esperado else "sinal não demonstrado")
+def test_criterio_nao_demonstrado(alteracao, motivo):
+    assert criterio(**alteracao)["sinal_demonstrado"] is False, motivo
+
+
+def test_criterio_v2_corrige_o_defeito_do_v1():
+    """Contraexemplo da revisão: 50 operações, média 0,2% e desvio 3% por operação.
+
+    O CRITERIO_V1 (diferença de retorno acumulado > erro padrão por operação)
+    aprovaria com t ≈ 0,5, que não é significativo. O V2 não aprova.
+    """
+    import numpy as np
+    gerador = np.random.default_rng(1)
+    bruto = gerador.normal(0, 1, 50)
+    excessos = list(0.002 + 0.03 * (bruto - bruto.mean()) / bruto.std(ddof=1))  # média e desvio exatos
+    retorno_acumulado = 0.2 * 50 * 0.002  # sizing de 20%, ≈ 2%
+    erro_padrao = 0.03 / 50 ** 0.5        # ≈ 0,42%
+
+    criterio_v1_aprovaria = retorno_acumulado - 0.0 > erro_padrao
+    assert criterio_v1_aprovaria
+
+    r = avaliar_criterio({"retorno_acumulado": retorno_acumulado}, {"retorno_acumulado": 0.0},
+                         {"retorno_acumulado": 0.0}, excessos, [0.0, 0.001, -0.001], alfa=0.05)
+    assert r["teste_vs_ibovespa"]["t"] == pytest.approx(0.002 / erro_padrao)  # ≈ 0,47
+    assert r["sinal_demonstrado"] is False
+
+
+def test_contaminacao(monkeypatch):
+    inicio = pd.Timestamp("2025-01-01")
+    assert backtest.verificar_contaminacao(inicio).startswith("NAO_AVALIADO")
+    monkeypatch.setattr(config, "DATA_CORTE_CONHECIMENTO_MODELO", "2025-06-30")
+    assert backtest.verificar_contaminacao(inicio).startswith("RISCO")
+    assert backtest.verificar_contaminacao(pd.Timestamp("2025-07-01")).startswith("OK")
 
 
 # --- backtest completo com série sintética ------------------------------------
@@ -179,3 +234,72 @@ def test_carregar_precos_usa_cache_e_registra_download(tmp_path):
 def test_simbolo_yfinance():
     assert backtest.simbolo_yfinance("PETR4") == "PETR4.SA"
     assert backtest.simbolo_yfinance("^BVSP") == "^BVSP"
+
+
+# --- revisão metodológica: excesso, exposição, hash, calibração ---------------
+
+def test_backtest_anota_excesso_exposicao_e_contaminacao():
+    eventos = [evento("PETR4", "positivo", "2026-03-02T19:00:00-03:00"),
+               evento("PETR4", "negativo", "2026-03-09T12:00:00-03:00")]
+    r = rodar_backtest(eventos, PRECOS, PERIODO, "noticia", capital=100_000.0, custo=0.0)
+    op = r["operacoes_estrategia"][0]
+    # Ibovespa de 03/03 (100) a 10/03 (105): +5%; operação +50% -> excesso 45 p.p.
+    assert op["retorno_ibovespa"] == pytest.approx(0.05)
+    assert op["excesso"] == pytest.approx(0.45)
+    assert 0 < r["estrategia"]["exposicao_media"] < 0.25
+    assert "retorno_por_volatilidade" in r["estrategia"]
+    assert r["ibovespa_mesma_exposicao"]["retorno_acumulado"] < r["ibovespa"]["retorno_acumulado"]
+    assert r["contaminacao_llm"].startswith("NAO_AVALIADO")
+    assert r["criterio"]["versao"] == "CRITERIO_V2"
+
+
+def test_ibovespa_mesma_exposicao_resultado_conhecido():
+    serie = pd.Series([100.0, 110.0, 121.0])
+    exposicao = pd.Series([0.5, 0.5, 0.0])
+    patrimonio = backtest.ibovespa_mesma_exposicao(serie, exposicao, capital=100.0)
+    assert list(patrimonio.round(6)) == [100.0, 105.0, 110.25]
+
+
+def _baixar_fixo(valores):
+    def baixar(simbolo, inicio, fim):
+        return pd.Series(valores, index=pd.DatetimeIndex(["2026-03-02", "2026-03-03"]))
+    return baixar
+
+
+def test_hash_de_precos_registrado_e_conferido(tmp_path):
+    carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([1.0, 2.0]))
+    registro = json.loads((tmp_path / "downloads.jsonl").read_text().splitlines()[0])
+    assert len(registro["sha256"]) == 64
+
+    arquivo = tmp_path / "PETR4.SA_2026-03-02_2026-03-03.csv"
+    arquivo.write_text(arquivo.read_text().replace("2.0", "2.5"))  # cache adulterado
+    with pytest.raises(backtest.PrecosAlterados, match="hash diferente"):
+        carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([1.0, 2.0]))
+
+
+def test_novo_download_diferente_e_recusado(tmp_path):
+    carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([1.0, 2.0]))
+    (tmp_path / "PETR4.SA_2026-03-02_2026-03-03.csv").unlink()
+    # Ajuste retroativo por proventos: o yfinance agora devolve outros números.
+    with pytest.raises(backtest.PrecosAlterados, match="ajuste retroativo"):
+        carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([0.9, 1.8]))
+    # Mesmo conteúdo: aceito.
+    carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([1.0, 2.0]))
+
+
+def test_hash_dos_precos_muda_com_o_conteudo(tmp_path):
+    carregar_precos("2026-03-02", "2026-03-03", ["PETR4"], tmp_path, _baixar_fixo([1.0, 2.0]))
+    antes = backtest.hash_dos_precos(tmp_path)
+    assert antes == backtest.hash_dos_precos(tmp_path)
+    (tmp_path / "PETR4.SA_2026-03-02_2026-03-03.csv").write_text("x")
+    assert backtest.hash_dos_precos(tmp_path) != antes
+
+
+@pytest.mark.parametrize("sentimento,quando,esperado", [
+    ("positivo", "2026-03-03T12:00:00-03:00", True),    # PETR4 de 02/03 (10) a 04/03 (11)
+    ("negativo", "2026-03-03T12:00:00-03:00", False),
+    ("neutro", "2026-03-03T12:00:00-03:00", None),
+    ("positivo", "2026-03-02T12:00:00-03:00", None),    # sem pregão anterior na série
+])
+def test_acerto_direcional(sentimento, quando, esperado):
+    assert backtest.acerto_direcional(evento("PETR4", sentimento, quando), PRECOS) is esperado

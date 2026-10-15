@@ -11,6 +11,7 @@ Convenções:
 - Custos: frações do valor negociado (config.py, zerados por padrão).
 """
 
+import hashlib
 import json
 import logging
 from collections.abc import Callable
@@ -22,6 +23,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from src import config
+from src.estatistica import teste_t_uma_amostra, teste_welch
 from src.strategy import COMPRA, VENDA, decidir
 
 logger = logging.getLogger(__name__)
@@ -111,6 +113,7 @@ class Simulacao:
     patrimonio: pd.Series
     operacoes: list[dict] = field(default_factory=list)   # idas e voltas
     ignoradas: list[dict] = field(default_factory=list)
+    exposicao: pd.Series | None = None  # fração do patrimônio investida no fechamento
 
 
 def simular(
@@ -134,7 +137,7 @@ def simular(
 
     caixa = capital
     posicoes: dict[str, dict] = {}
-    operacoes, ignoradas, patrimonio = [], [], []
+    operacoes, ignoradas, patrimonio, exposicao = [], [], [], []
 
     def valor_carteira(dia) -> float:
         return caixa + sum(p["quantidade"] * precos.at[dia, t] for t, p in posicoes.items())
@@ -169,7 +172,9 @@ def simular(
                 caixa -= valor
                 posicoes[ticker] = {"quantidade": valor * (1 - custo) / preco,
                                     "entrada": dia, "investido": valor}
-        patrimonio.append(valor_carteira(dia))
+        total = valor_carteira(dia)
+        patrimonio.append(total)
+        exposicao.append((total - caixa) / total if total else 0.0)
 
     if len(pregoes):
         ultimo = pregoes[-1]
@@ -179,7 +184,8 @@ def simular(
                               "investido": pos["investido"], "recebido": recebido,
                               "retorno": recebido / pos["investido"] - 1, "aberta": True})
 
-    return Simulacao(pd.Series(patrimonio, index=pregoes, dtype=float), operacoes, ignoradas)
+    return Simulacao(pd.Series(patrimonio, index=pregoes, dtype=float), operacoes, ignoradas,
+                     pd.Series(exposicao, index=pregoes, dtype=float))
 
 
 def comprar_e_segurar(serie: pd.Series, capital: float | None = None) -> pd.Series:
@@ -187,6 +193,28 @@ def comprar_e_segurar(serie: pd.Series, capital: float | None = None) -> pd.Seri
     capital = config.CAPITAL_INICIAL if capital is None else capital
     serie = serie.dropna()
     return capital * serie / serie.iloc[0]
+
+
+def ibovespa_mesma_exposicao(serie: pd.Series, exposicao: pd.Series,
+                             capital: float | None = None) -> pd.Series:
+    """Ibovespa com a mesma fração investida da estratégia a cada dia (resto em caixa).
+
+    O retorno do dia t usa a exposição do fechamento de t-1, como na estratégia.
+    Separa o efeito de seleção do efeito de estar mais ou menos investido.
+    """
+    capital = config.CAPITAL_INICIAL if capital is None else capital
+    retornos = serie.pct_change().fillna(0.0)
+    exposicao_anterior = exposicao.shift(1).fillna(0.0)
+    return capital * (1 + exposicao_anterior * retornos).cumprod()
+
+
+def anotar_excesso(operacoes: list[dict], serie_ibovespa: pd.Series) -> list[dict]:
+    """Acrescenta a cada operação o retorno do Ibovespa na mesma janela e o excesso."""
+    for op in operacoes:
+        ibov = float(serie_ibovespa.at[op["saida"]] / serie_ibovespa.at[op["entrada"]] - 1)
+        op["retorno_ibovespa"] = ibov
+        op["excesso"] = op["retorno"] - ibov
+    return operacoes
 
 
 # ---------------------------------------------------------------------------
@@ -232,6 +260,37 @@ def periodo_do_config(nome: str) -> tuple[pd.Timestamp, pd.Timestamp]:
 # Preços (yfinance com cache em data/precos/)
 # ---------------------------------------------------------------------------
 
+class PrecosAlterados(RuntimeError):
+    """Arquivo de preços diferente do registrado no download."""
+
+
+def _sha256_arquivo(caminho: Path) -> str:
+    return hashlib.sha256(caminho.read_bytes()).hexdigest()
+
+
+def _hashes_registrados(pasta: Path) -> dict[str, str]:
+    registro = pasta / "downloads.jsonl"
+    if not registro.exists():
+        return {}
+    hashes = {}
+    for linha in registro.read_text(encoding="utf-8").splitlines():
+        if linha.strip():
+            item = json.loads(linha)
+            if "sha256" in item:
+                hashes.setdefault(item["arquivo"], item["sha256"])  # vale o primeiro
+    return hashes
+
+
+def hash_dos_precos(pasta: Path | None = None) -> str:
+    """Hash único de todos os CSVs de preços, para registrar no congelamento."""
+    pasta = Path(pasta or config.DIR_PRECOS)
+    combinado = hashlib.sha256()
+    for caminho in sorted(pasta.glob("*.csv")):
+        combinado.update(caminho.name.encode("utf-8"))
+        combinado.update(_sha256_arquivo(caminho).encode("utf-8"))
+    return combinado.hexdigest()
+
+
 def simbolo_yfinance(ticker: str) -> str:
     return ticker if ticker.startswith("^") else ticker + config.SUFIXO_B3
 
@@ -259,27 +318,42 @@ def carregar_precos(
     """Fechamentos ajustados (proventos incluídos) da carteira e do benchmark.
 
     Cada série é salva em data/precos/<simbolo>_<inicio>_<fim>.csv, com a data
-    do download registrada em data/precos/downloads.jsonl. Se o CSV existe,
-    não baixa de novo. O calendário de pregões é o do benchmark.
+    do download e o SHA-256 do arquivo registrados em data/precos/downloads.jsonl.
+    Se o CSV existe, não baixa de novo e confere o hash. Como o ajuste por
+    proventos é retroativo, um novo download pode trazer números diferentes:
+    se o hash não bate com o registrado, levanta PrecosAlterados em vez de
+    seguir com preços diferentes dos usados antes. O calendário de pregões é
+    o do benchmark.
     """
     tickers = (config.CARTEIRA + [config.BENCHMARK]) if tickers is None else tickers
     pasta = Path(pasta or config.DIR_PRECOS)
     pasta.mkdir(parents=True, exist_ok=True)
     baixar = baixar or _baixar_yfinance
+    registrados = _hashes_registrados(pasta)
 
     series = {}
     for ticker in tickers:
         simbolo = simbolo_yfinance(ticker)
         caminho = pasta / f"{simbolo}_{inicio}_{fim}.csv"
         if caminho.exists():
+            atual = _sha256_arquivo(caminho)
+            if caminho.name in registrados and registrados[caminho.name] != atual:
+                raise PrecosAlterados(f"{caminho.name}: hash diferente do registrado no download")
             serie = pd.read_csv(caminho, index_col=0, parse_dates=True).iloc[:, 0]
         else:
             serie = baixar(simbolo, inicio, fim)
             serie.index = pd.DatetimeIndex(serie.index).tz_localize(None).normalize()
-            serie.rename(ticker).to_csv(caminho)
+            conteudo = serie.rename(ticker).to_csv().encode("utf-8")
+            novo = hashlib.sha256(conteudo).hexdigest()
+            if caminho.name in registrados and registrados[caminho.name] != novo:
+                raise PrecosAlterados(
+                    f"{caminho.name}: o novo download difere do registrado (ajuste retroativo "
+                    "por proventos?). Os resultados anteriores usaram outros preços.")
+            caminho.write_bytes(conteudo)
             with open(pasta / "downloads.jsonl", "a", encoding="utf-8") as f:
                 f.write(json.dumps({"simbolo": simbolo, "inicio": inicio, "fim": fim,
-                                    "arquivo": caminho.name, "fonte": "yfinance (auto_adjust=True)",
+                                    "arquivo": caminho.name, "sha256": novo,
+                                    "fonte": "yfinance (auto_adjust=True)",
                                     "data_download": datetime.now(FUSO).isoformat()}) + "\n")
         series[ticker] = serie
 
@@ -293,17 +367,28 @@ def carregar_precos(
 # Métricas e critério de decisão
 # ---------------------------------------------------------------------------
 
-def calcular_metricas(patrimonio: pd.Series, operacoes: list[dict] | None = None) -> dict:
-    """Retorno acumulado, volatilidade, drawdown e estatísticas por operação."""
+def calcular_metricas(patrimonio: pd.Series, operacoes: list[dict] | None = None,
+                      exposicao: pd.Series | None = None) -> dict:
+    """Retorno acumulado, volatilidade, drawdown, retorno por risco e estatísticas por operação."""
     retornos_diarios = patrimonio.pct_change().dropna()
     pico = patrimonio.cummax()
     volatilidade = float(retornos_diarios.std(ddof=1)) if len(retornos_diarios) > 1 else 0.0
+    retorno = float(patrimonio.iloc[-1] / patrimonio.iloc[0] - 1)
+    n_dias = max(len(patrimonio) - 1, 1)
+    retorno_anualizado = (1 + retorno) ** (252 / n_dias) - 1
+    vol_anual = volatilidade * 252 ** 0.5
     metricas = {
-        "retorno_acumulado": float(patrimonio.iloc[-1] / patrimonio.iloc[0] - 1),
+        "retorno_acumulado": retorno,
+        "retorno_anualizado": retorno_anualizado,
         "volatilidade_diaria": volatilidade,
-        "volatilidade_anualizada": volatilidade * 252 ** 0.5,
+        "volatilidade_anualizada": vol_anual,
         "drawdown_maximo": float((patrimonio / pico - 1).min()),
+        # Retorno por unidade de risco (sem taxa livre de risco): compara
+        # carteiras com exposições diferentes de forma mais justa.
+        "retorno_por_volatilidade": retorno_anualizado / vol_anual if vol_anual > 0 else None,
     }
+    if exposicao is not None:
+        metricas["exposicao_media"] = float(exposicao.mean())
     if operacoes is not None:
         retornos = pd.Series([op["retorno"] for op in operacoes], dtype=float)
         n = len(retornos)
@@ -317,19 +402,83 @@ def calcular_metricas(patrimonio: pd.Series, operacoes: list[dict] | None = None
     return metricas
 
 
-def avaliar_criterio(estrategia: dict, baseline_1: dict, ibovespa: dict) -> dict:
-    """Critério do README: superar baseline 1 e Ibovespa por mais que o erro padrão."""
-    erro_padrao = estrategia.get("erro_padrao_operacao")
+def avaliar_criterio(
+    estrategia: dict,
+    baseline_1: dict,
+    ibovespa: dict,
+    excessos_estrategia: list[float],
+    excessos_baseline_1: list[float],
+    alfa: float | None = None,
+) -> dict:
+    """Critério de decisão (CRITERIO_V2, seção 3 do README).
+
+    O sinal é demonstrado só se as três condições valerem:
+    1. direção: retorno acumulado da estratégia maior que o do baseline 1 e
+       maior que o do Ibovespa;
+    2. contra o Ibovespa: teste t unilateral do excesso por operação
+       (retorno da operação − Ibovespa na mesma janela), p < alfa;
+    3. contra o baseline 1: teste de Welch unilateral entre os excessos por
+       operação da estratégia e do baseline 1, p < alfa.
+    Teste indefinido (menos de 2 operações ou variância zero) = não demonstrado.
+
+    Substitui o CRITERIO_V1 (diferença de retorno acumulado > erro padrão
+    por operação), que comparava grandezas diferentes e ficava mais fácil de
+    passar quanto mais operações havia, mesmo sem evidência estatística.
+    """
+    alfa = config.ALFA_CRITERIO if alfa is None else alfa
     dif_b1 = estrategia["retorno_acumulado"] - baseline_1["retorno_acumulado"]
     dif_ibov = estrategia["retorno_acumulado"] - ibovespa["retorno_acumulado"]
-    demonstrado = erro_padrao is not None and dif_b1 > erro_padrao and dif_ibov > erro_padrao
+    teste_ibov = teste_t_uma_amostra(excessos_estrategia)
+    teste_b1 = teste_welch(excessos_estrategia, excessos_baseline_1)
+
+    direcao = dif_b1 > 0 and dif_ibov > 0
+    passa_ibov = teste_ibov["p_valor"] is not None and teste_ibov["p_valor"] < alfa
+    passa_b1 = teste_b1["p_valor"] is not None and teste_b1["p_valor"] < alfa
+    demonstrado = direcao and passa_ibov and passa_b1
     return {
+        "versao": "CRITERIO_V2",
+        "alfa": alfa,
         "diferenca_vs_baseline_1": dif_b1,
         "diferenca_vs_ibovespa": dif_ibov,
-        "erro_padrao": erro_padrao,
+        "direcao_ok": direcao,
+        "teste_vs_ibovespa": teste_ibov,
+        "teste_vs_baseline_1": teste_b1,
         "sinal_demonstrado": demonstrado,
         "conclusao": "sinal demonstrado" if demonstrado else "sinal não demonstrado",
     }
+
+
+def verificar_contaminacao(inicio: pd.Timestamp) -> str:
+    """Situação do período quanto ao corte de conhecimento do LLM (look-ahead via modelo)."""
+    corte = config.DATA_CORTE_CONHECIMENTO_MODELO
+    if corte is None:
+        return ("NAO_AVALIADO: data de corte de conhecimento do modelo não registrada; "
+                "o risco de look-ahead via LLM não foi avaliado")
+    if inicio <= pd.Timestamp(corte):
+        return (f"RISCO: o período começa antes do corte de conhecimento do modelo ({corte}); "
+                "o LLM pode conhecer o desfecho e o resultado não vale como evidência")
+    return f"OK: período inteiramente posterior ao corte de conhecimento do modelo ({corte})"
+
+
+def acerto_direcional(evento: dict, precos: pd.DataFrame) -> bool | None:
+    """O preço andou na direção do sentimento classificado?
+
+    Compara o fechamento do último pregão ANTES do dia da publicação com o
+    fechamento do pregão seguinte à publicação (janela que contém a reação).
+    Usado só para medir calibração no período de validação. None se faltar dado
+    ou se o sentimento for neutro.
+    """
+    sentimento = (evento.get("classificacao") or {}).get("sentimento")
+    instante = instante_do_evento(evento)
+    if sentimento not in ("positivo", "negativo") or not instante:
+        return None
+    dia = data_local(instante)
+    anteriores = precos.index[precos.index < dia]
+    depois = proximo_pregao(instante, precos.index)
+    if not len(anteriores) or depois is None or evento["ticker"] not in precos.columns:
+        return None
+    variacao = precos.at[depois, evento["ticker"]] / precos.at[anteriores[-1], evento["ticker"]] - 1
+    return bool(variacao > 0) if sentimento == "positivo" else bool(variacao < 0)
 
 
 def rodar_backtest(
@@ -368,15 +517,24 @@ def rodar_backtest(
         "capital_inicial": capital,
         "custo_por_operacao": custo_total() if custo is None else custo,
     }
+    ibov = precos_periodo[config.BENCHMARK]
     simulacoes = {}
     for nome, sinais in (("estrategia", sinais_da_estrategia(eventos)),
                          ("baseline_1", sinais_baseline_1(eventos))):
         ordens = sinais_para_ordens(sinais, precos_periodo.index)
-        simulacoes[nome] = simular(ordens, precos_periodo, capital, custo)
-        resultado[nome] = calcular_metricas(simulacoes[nome].patrimonio, simulacoes[nome].operacoes)
-    resultado["ibovespa"] = calcular_metricas(
-        comprar_e_segurar(precos_periodo[config.BENCHMARK], capital))
-    resultado["criterio"] = avaliar_criterio(resultado["estrategia"], resultado["baseline_1"],
-                                             resultado["ibovespa"])
+        sim = simular(ordens, precos_periodo, capital, custo)
+        anotar_excesso(sim.operacoes, ibov)
+        simulacoes[nome] = sim
+        resultado[nome] = calcular_metricas(sim.patrimonio, sim.operacoes, sim.exposicao)
+    resultado["ibovespa"] = calcular_metricas(comprar_e_segurar(ibov, capital))
+    # Secundária: Ibovespa com a mesma exposição diária da estratégia.
+    resultado["ibovespa_mesma_exposicao"] = calcular_metricas(
+        ibovespa_mesma_exposicao(ibov, simulacoes["estrategia"].exposicao, capital))
+    resultado["criterio"] = avaliar_criterio(
+        resultado["estrategia"], resultado["baseline_1"], resultado["ibovespa"],
+        [op["excesso"] for op in simulacoes["estrategia"].operacoes],
+        [op["excesso"] for op in simulacoes["baseline_1"].operacoes],
+    )
+    resultado["contaminacao_llm"] = verificar_contaminacao(inicio)
     resultado["operacoes_estrategia"] = simulacoes["estrategia"].operacoes
     return resultado
