@@ -8,6 +8,7 @@ import Execucoes from "./paginas/Execucoes.jsx";
 import Operacoes from "./paginas/Operacoes.jsx";
 import Acoes from "./paginas/Acoes.jsx";
 import Configuracao from "./paginas/Configuracao.jsx";
+import Estudos from "./paginas/Estudos.jsx";
 
 const PAGINAS = [
   { id: "carteira", nome: "Minha carteira", icone: "carteira", componente: Simulacao,
@@ -24,6 +25,8 @@ const PAGINAS = [
     titulo: "Rodar agora", subtitulo: "Coletar notícias e analisar com a IA" },
   { id: "configuracao", nome: "Configuração", icone: "configuracao", componente: Configuracao,
     titulo: "Configuração", subtitulo: "Parâmetros da regra (somente leitura)" },
+  { id: "estudos", nome: "Estudos", icone: "estudos", componente: Estudos,
+    titulo: "Estudos", subtitulo: "Economia e conceitos por trás do QUANT" },
 ];
 
 // Barra inferior do celular (as demais páginas ficam em "Mais").
@@ -72,17 +75,21 @@ function FaixaVitrine() {
   const quando = meta?.gerado_em
     ? new Date(meta.gerado_em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
     : null;
+  const idadeBruta = meta?.gerado_em ? Date.now() - new Date(meta.gerado_em).getTime() : 0;
+  const idadeMs = Number.isFinite(idadeBruta) ? idadeBruta : 0;
+  const dias = Math.max(0, Math.floor(idadeMs / 86_400_000));
+  const velha = idadeMs > 2 * 86_400_000;
   return (
-    <div className="faixa-vitrine">
+    <div className={`faixa-vitrine ${velha ? "velha" : ""}`}>
       <Icone nome="info" tamanho={16} />
       <span className="so-desktop">
         <strong>Versão online, somente leitura.</strong>{" "}
-        {quando ? `Dados atualizados em ${quando}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
+        {quando ? `Dados atualizados em ${quando}${velha ? ` (há ${dias} dias — desatualizados)` : ""}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
         A coleta de notícias e a análise pela IA rodam no computador do autor.
       </span>
       <span className="so-celular">
         <strong>Somente leitura</strong>
-        {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}` : ""}
+        {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}${velha ? ` (há ${dias} dias)` : ""}` : ""}
       </span>
     </div>
   );

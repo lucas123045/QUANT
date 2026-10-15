@@ -64,6 +64,10 @@ def status() -> dict:
             pendencias.append(f"Aprovar o período de {rotulos[nome]}")
     if config.DATA_CONGELAMENTO is None:
         pendencias.append("Definir a data de congelamento da regra")
+    dir_execucoes = config.DIR_DATA / "execucoes"
+    alertas = [f"A fonte {nome} não trouxe nenhuma notícia nas duas últimas execuções: "
+               "o portal pode ter mudado o feed." for nome in main.fontes_mudas(dir_execucoes)]
+    alertas.extend(main.alertas_backup(dir_execucoes))
     pendencias += ["Verificar a cobertura da CVM (fatos relevantes)",
                    "Confirmar acesso à API do Jev",
                    "Aprovar JANELA_EVENTO_RECENTE_DIAS e ALFA_CRITERIO"]
@@ -77,6 +81,7 @@ def status() -> dict:
         "usar_jev": config.USAR_JEV,
         "carteira": [{"ticker": t, "empresa": config.NOMES_EMPRESAS[t]} for t in config.CARTEIRA],
         "pendencias": pendencias,
+        "alertas": alertas,
         "agora": datetime.now(FUSO).isoformat(),
     }
 

@@ -229,7 +229,11 @@ function Produtos({ d, oculto }) {
                   largura={120} altura={44} />
               </div>
               <dl className="f-produto-numeros">
-                <div><dt>Oscilação</dt><dd><span className={`f-nivel ${c.oscilacao || ""}`}>{c.oscilacao || "—"}</span></dd></div>
+                <div>
+                  <dt>Oscilação</dt>
+                  <dd><span className={`f-nivel ${c.oscilacao || ""}`}>{c.oscilacao || "—"}</span></dd>
+                  <small className="sutil">{Math.round((c.exposicao_media ?? 1) * 100)}% investido</small>
+                </div>
                 <div><dt>Pior queda</dt><dd className={tom(c.drawdown_maximo)}>{pct(c.drawdown_maximo)}</dd></div>
                 <div><dt>Dias no positivo</dt><dd>{c.dias_positivos_pct == null ? "—" : `${Math.round(c.dias_positivos_pct * 100)}%`}</dd></div>
               </dl>
@@ -238,8 +242,9 @@ function Produtos({ d, oculto }) {
         })}
       </div>
       <p className="f-nota">
-        <Icone nome="info" tamanho={14} /> A Estratégia QUANT fica em média {pct(d.carteiras.estrategia.exposicao_media, false)} investida
-        e o resto em caixa; o Ibovespa fica 100% investido. Por isso ela tende a oscilar menos — e, em mercado de alta, a render menos.
+        <Icone nome="info" tamanho={14} /> Atenção: a Estratégia QUANT fica em média {pct(d.carteiras.estrategia.exposicao_media, false)} investida
+        e o resto parado em caixa; o Ibovespa fica 100% investido. Oscilação baixa aqui vem principalmente de estar pouco
+        investido — um colchão também não oscila. Para comparar habilidade, olhe a diferença de rendimento, não só a oscilação.
       </p>
     </section>
   );

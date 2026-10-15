@@ -110,6 +110,12 @@ export default function Painel({ base, irPara }) {
         <p className="nota">Escolhida em 15/10/2026, sujeita a viés de sobrevivência.</p>
       </Cartao>
 
+      {!!s?.alertas?.length && (
+        <div className="largura-total pilha">
+          {s.alertas.map((a) => <div key={a} className="aviso tom-alerta">{a}</div>)}
+        </div>
+      )}
+
       <Cartao titulo="Pendências" className="span-2">
         {s && (
           <ul className="pendencias">

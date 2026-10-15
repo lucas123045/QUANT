@@ -22,7 +22,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from src import archive, auditoria, classify, config, explain, extract, llm, news
+from src import archive, auditoria, backup, classify, config, explain, extract, llm, news
 from src.strategy import MANTER, Decisao, decidir
 
 logger = logging.getLogger(__name__)
@@ -257,9 +257,55 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
         "registrados_no_log": len(registrados),
         "pasta": str(pasta),
         "backtest": "não executado: períodos PENDENTES DE APROVAÇÃO em config.py",
+        "por_fonte": contar_por_fonte(itens, teste),
     }
+    if not teste:
+        resumo["aviso_backup"] = backup.aviso_destino(dir_data, backup.pasta_destino())
+        try:
+            caminho = backup.fazer_backup(dir_data)
+            resumo["backup"] = str(caminho) if caminho else None
+        except Exception as erro:  # backup falhar não pode derrubar o pipeline
+            logger.error("Backup falhou: %s", erro)
+            resumo["backup"] = f"falhou: {erro}"
     _gravar(pasta / "resumo.json", resumo)
     return resumo
+
+
+def contar_por_fonte(itens: list[dict], teste: bool) -> dict[str, int]:
+    """Itens coletados por fonte; fontes configuradas sem itens aparecem com 0."""
+    contagem = {} if teste else {f["nome"]: 0 for f in config.FONTES_RSS}
+    for item in itens:
+        contagem[item["fonte"]] = contagem.get(item["fonte"], 0) + 1
+    return contagem
+
+
+def fontes_mudas(dir_execucoes: Path, seguidas: int = 2) -> list[str]:
+    """Fontes com 0 itens nas últimas `seguidas` execuções (portal mudou ou caiu?)."""
+    resumos = []
+    for pasta in sorted((p for p in dir_execucoes.glob("*") if p.is_dir()), reverse=True):
+        resumo = _ler(pasta / "resumo.json", None)
+        if resumo and resumo.get("por_fonte") and not resumo.get("modo_teste"):
+            resumos.append(resumo["por_fonte"])
+        if len(resumos) == seguidas:
+            break
+    if len(resumos) < seguidas:
+        return []
+    return sorted(nome for nome in resumos[0] if all(r.get(nome, 0) == 0 for r in resumos))
+
+
+def alertas_backup(dir_execucoes: Path) -> list[str]:
+    """Avisos de localidade ou falha do último backup real."""
+    for pasta in sorted((p for p in dir_execucoes.glob("*") if p.is_dir()), reverse=True):
+        resumo = _ler(pasta / "resumo.json", None)
+        if not resumo or resumo.get("modo_teste"):
+            continue
+        alertas = []
+        if resumo.get("aviso_backup"):
+            alertas.append(resumo["aviso_backup"])
+        if isinstance(resumo.get("backup"), str) and resumo["backup"].startswith("falhou:"):
+            alertas.append(f"O último backup automático falhou: {resumo['backup'][8:]}")
+        return alertas
+    return []
 
 
 def main(argv: list[str] | None = None) -> int:

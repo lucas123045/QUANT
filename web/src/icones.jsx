@@ -2,6 +2,7 @@
 const CAMINHOS = {
   carteira: "M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3M4 7.5V17a2 2 0 0 0 2 2h13a1 1 0 0 0 1-1v-3M4 7.5A1.5 1.5 0 0 0 5.5 9H19a1 1 0 0 1 1 1v3m0 0h-3.5a1.5 1.5 0 0 0 0 3H20",
   painel: "M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z",
+  estudos: "M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h8M8 13h5",
   noticias: "M5 5h11v14H6a1 1 0 0 1-1-1zM16 9h3v9a1 1 0 0 1-1 1h-2M8 9h5M8 12h5M8 15h3",
   execucoes: "M5 6h14v13H5zM5 10h14M9 4v4M15 4v4M8.5 14h2M13.5 14h2",
   operacoes: "M7 7h12l-3-3M17 17H5l3 3",

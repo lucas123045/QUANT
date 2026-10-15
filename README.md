@@ -98,6 +98,7 @@ Esses campos são preenchidos apenas pelo autor.
 - **A probabilidade do LLM não é calibrada.** O valor 0,85 declarado pelo modelo não significa 85% de acerto, então o limiar de 0,7 funciona como um corte de *ranking*, não como uma probabilidade.
   - A calibração deve ser medida no **período de validação** com `estatistica.tabela_calibracao` (faixas e escore de Brier), usando `backtest.acerto_direcional` como desfecho.
   - Se for preciso ajustar o limiar, isso se faz com dados de validação e antes do congelamento.
+- **Testes de refutação** (`src/refutacao.py`): `executar(eventos, precos, periodo, tipo_fonte)` reúne placebo (500 embaralhamentos por padrão), defasagens de 0, 1, 2, 5 e 10 pregões e calibração (faixas e Brier). Os três exigem período aprovado; a calibração conta apenas eventos e desfechos dentro do recorte. Execute em treino ou validação. No teste, só depois de congelar a regra. Os resultados são diagnósticos exploratórios: não substituem amostra suficiente nem corrigem viés do LLM.
 - **Poder estatístico.** A cadeia de filtros (menção → evento → confirmado → probabilidade > 0,7 → sem evento oposto) reduz muito o número de operações. Antes do teste, o funil deve ser medido com `python -m src.funil`.
   - Primeira medição, em 2026-10-15, com um dia de coleta e sem LLM: 20 notícias, das quais 2 mencionam a carteira (10%). Não é possível estimar operações sem o provedor configurado.
   - O resultado mais provável, com poucas operações, é "sinal não demonstrado", e o trabalho deve ser enquadrado assim desde já.
@@ -266,6 +267,8 @@ Saídas em `data/` (fora do git):
 
 ## 14. Interface web
 
+**Estudos:** guia de economia do zero com números atuais da simulação e duas calculadoras (juros compostos; queda e recuperação). O agendamento diário do Windows está preparado em `scripts\agendar-windows.ps1`, mas continua inativo até você executá-lo deliberadamente. Cada execução real cria um ZIP de backup. O destino prioriza o OneDrive detectado no Windows; `QUANT_BACKUP_DIR` permite escolher outra pasta. Sem OneDrive, um aviso informa se o destino local está no mesmo disco.
+
 Interface local para acompanhar o projeto e disparar as ações, sem usar a linha de comando.
 
 **Pré-requisitos:** a `.venv` com `pip install -r requirements.txt` e o Node.js 18 ou superior.
@@ -286,6 +289,7 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Simulação | Carteira com dinheiro fictício e preços reais (ver abaixo) |
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
+| Estudos | Economia do zero, exemplos atuais da simulação e duas calculadoras interativas |
 
 Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 - barra lateral com ícones e cartões arredondados;
