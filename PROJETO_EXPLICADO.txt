@@ -5,7 +5,7 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 207, todos passando, sem rede e sem LLM real.
+Testes: 213, todos passando, sem rede e sem LLM real.
 Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 
 
@@ -34,6 +34,7 @@ Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 21. Glossário
 22. Revisão metodológica: o que mudou e por quê
 23. Interface web (npm run dev)
+24. Simulação com dinheiro fictício (paper trading)
 
 
 ================================================================================
@@ -200,6 +201,7 @@ quant/
 │   ├── estatistica.py      Testes t e de Welch, calibração (sem dependências)
 │   ├── funil.py            Mede notícias → menções → eventos → operações
 │   ├── avaliacao.py        Rotulagem manual: precisão/revocação
+│   ├── simulacao.py        Carteira fictícia com preços reais (paper trading)
 │   ├── explain.py          Justificativas e relatório diário (LLM descreve)
 │   ├── auditoria.py        Log data/operacoes.jsonl
 │   ├── main.py             Pipeline diário completo e retomável
@@ -224,9 +226,10 @@ quant/
     ├── test_explain_auditoria.py 10 testes
     ├── test_funil_avaliacao.py    5 testes
     ├── test_main.py               5 testes
-    └── test_web_api.py            8 testes
+    ├── test_web_api.py            8 testes
+    └── test_simulacao.py          6 testes
                                  ----
-                                 207 testes
+                                 213 testes
 
 
 ================================================================================
@@ -852,7 +855,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (207)
+14. TESTES AUTOMATIZADOS (213)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -948,6 +951,12 @@ em todos os testes.
     diário; relatório vazio não chama o LLM; auditoria append-only; campos e
     trecho_fonte obrigatórios.
 
+  test_simulacao.py (6)
+    Resultado conhecido com preços sintéticos (compra de PETR4 a 10 que
+    vai a 13: patrimônio 106.000; Ibovespa 103.000); ordem pendente até o
+    próximo pregão; preço parcial do dia ignorado antes das 18h30; base sem
+    dados; endpoint; falha de rede vira erro 503 com o motivo.
+
   test_web_api.py (8)
     Status não expõe a chave; configuração somente leitura (POST → 405);
     base inválida recusada; leitura de notícias/execuções/operações/funil
@@ -981,7 +990,7 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 207 testes
+  python -m pytest                       roda os 213 testes
   npm run dev                            interface web (seção 23)
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
@@ -1155,6 +1164,8 @@ Fora esses, todo o resto está implementado e testado.
   (commit) Documentação: histórico de commits
   (commit) Provedor OpenAI
   (commit) Interface web
+  (commit) Visual de terminal financeiro
+  (commit) Simulação (paper trading)
 
 
 ================================================================================
@@ -1290,6 +1301,7 @@ Páginas:
   Execuções      por dia: decisões da regra (classificação, trecho, motivo)
                  e o relatório
   Operações      log de auditoria, expandível
+  Simulação      carteira fictícia com preços reais (seção 24)
   Ações          coletar / pipeline de teste / pipeline real (com
                  confirmação de custo) e console ao vivo; backtest aparece
                  bloqueado enquanto os períodos estiverem pendentes
@@ -1310,6 +1322,55 @@ layout que funciona no celular.
 
 Se a porta 8000 ficar ocupada (processo antigo da API), feche o terminal
 antigo ou encerre o processo python que está nela e rode npm run dev de novo.
+
+================================================================================
+24. SIMULAÇÃO COM DINHEIRO FICTÍCIO (PAPER TRADING)
+================================================================================
+
+O que é: uma carteira fictícia de R$ 100.000 que segue, daqui para frente,
+as compras e vendas registradas no log de auditoria. Quem decide é a REGRA
+(strategy.py); o LLM só extraiu e classificou o evento.
+
+Como executa: o mesmo motor do backtest (backtest.simular), sem mudança de
+lógica: fechamento do primeiro pregão estritamente posterior ao dia da
+notícia; até 20% do patrimônio por ação; custos de config.py; VENDA só
+zera posição existente.
+
+Preços: fechamentos reais do Yahoo Finance (ajustados por proventos), em
+data/simulacao/precos/ (um download por dia; separado dos preços que serão
+congelados para o backtest). Antes das 18h30 de São Paulo o preço do dia é
+parcial e é descartado.
+
+Comparação, com o mesmo capital:
+  - Estratégia (log de auditoria);
+  - Baseline 1 (toda notícia positiva, recalculado dos eventos classificados);
+  - Ibovespa comprado e segurado desde o início da simulação.
+O início é o primeiro dia com execução do pipeline.
+
+O que a aba mostra: indicadores (patrimônio e retorno de cada carteira,
+diferença para o Ibovespa, quanto está investido), gráfico de patrimônio
+com cursor e rótulos no fim das linhas, tabela de comparação (retorno, pior
+queda, operações, acerto, exposição média), posições abertas com a notícia
+de origem, calculadora "e se eu tivesse aplicado R$ X em cada decisão",
+ordens aguardando o próximo pregão e ordens não executadas (com motivo).
+
+Por que é útil para o trabalho: é uma validação PROSPECTIVA. A decisão é
+registrada antes de o resultado existir; não há como ajustar nada olhando o
+futuro e não há contaminação pelo conhecimento do LLM.
+
+Limites: enquanto a regra não estiver congelada (DATA_CONGELAMENTO), o
+resultado é EXPLORATÓRIO e não substitui o período de teste. Com poucos
+dias e poucas operações, a diferença entre as carteiras é quase só ruído.
+Não é recomendação de investimento.
+
+Verificação feita: base de demonstração (pipeline de teste em 01/09/2026)
+com preços REAIS do Yahoo: compra de PETR4 a R$ 48,20 em 02/09, a R$ 58,11
+em 14/10 (+20,6%); estratégia +4,1% (só 20% investido) contra Ibovespa
++14,9%. Ilustra exatamente o efeito da exposição desigual.
+
+Cores do gráfico: paleta categórica validada (azul, laranja, água-marinha)
+contra os fundos escuro e claro, sem conflito com verde/vermelho de
+compra/venda; há rótulos diretos e tabela para quem não distingue cores.
 
 ================================================================================
                                 FIM DO DOCUMENTO

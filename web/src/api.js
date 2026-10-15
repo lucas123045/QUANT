@@ -42,8 +42,12 @@ export function formatarData(iso, comHora = true) {
   });
 }
 
-export function formatarNumero(valor, casas = 2) {
+export function formatarNumero(valor, casas = 2, minimo = 0) {
   if (valor === null || valor === undefined) return "—";
   if (typeof valor !== "number") return String(valor);
-  return valor.toLocaleString("pt-BR", { maximumFractionDigits: casas });
+  return valor.toLocaleString("pt-BR", { minimumFractionDigits: minimo, maximumFractionDigits: casas });
+}
+
+export function formatarPreco(valor) {
+  return formatarNumero(valor, 2, 2);
 }

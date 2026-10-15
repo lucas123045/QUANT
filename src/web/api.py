@@ -22,7 +22,7 @@ from zoneinfo import ZoneInfo
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 
-from src import archive, auditoria, config, funil, llm, main, news
+from src import archive, auditoria, config, funil, llm, main, news, simulacao
 from src.matching import identificar_tickers
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
@@ -155,6 +155,16 @@ def execucao(data: str, base: str = "real") -> dict:
         "explicacoes": _ler_json(pasta / "06_explicacoes.json", {}),
         "relatorio": relatorio.read_text(encoding="utf-8") if relatorio.exists() else None,
     }
+
+
+@app.get("/api/simulacao")
+def obter_simulacao(base: str = "real") -> dict:
+    try:
+        return simulacao.calcular(_dir(base))
+    except HTTPException:
+        raise
+    except Exception as erro:  # rede/yfinance fora do ar: a interface mostra o motivo
+        raise HTTPException(503, f"Não foi possível montar a simulação: {type(erro).__name__}: {erro}")
 
 
 @app.get("/api/operacoes")

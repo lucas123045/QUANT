@@ -160,7 +160,8 @@ def simular(
                 caixa += recebido
                 operacoes.append({"ticker": ticker, "entrada": pos["entrada"], "saida": dia,
                                   "investido": pos["investido"], "recebido": recebido,
-                                  "retorno": recebido / pos["investido"] - 1, "aberta": False})
+                                  "retorno": recebido / pos["investido"] - 1, "aberta": False,
+                                  "meta": pos["meta"], "meta_saida": ordem.get("meta")})
             else:
                 if ticker in posicoes:
                     ignoradas.append({**ordem, "razao": "já posicionado"})
@@ -171,7 +172,8 @@ def simular(
                     continue
                 caixa -= valor
                 posicoes[ticker] = {"quantidade": valor * (1 - custo) / preco,
-                                    "entrada": dia, "investido": valor}
+                                    "entrada": dia, "investido": valor,
+                                    "meta": ordem.get("meta")}  # origem, só informativa
         total = valor_carteira(dia)
         patrimonio.append(total)
         exposicao.append((total - caixa) / total if total else 0.0)
@@ -182,7 +184,8 @@ def simular(
             recebido = pos["quantidade"] * precos.at[ultimo, ticker] * (1 - custo)
             operacoes.append({"ticker": ticker, "entrada": pos["entrada"], "saida": ultimo,
                               "investido": pos["investido"], "recebido": recebido,
-                              "retorno": recebido / pos["investido"] - 1, "aberta": True})
+                              "retorno": recebido / pos["investido"] - 1, "aberta": True,
+                              "meta": pos["meta"], "meta_saida": None})
 
     return Simulacao(pd.Series(patrimonio, index=pregoes, dtype=float), operacoes, ignoradas,
                      pd.Series(exposicao, index=pregoes, dtype=float))

@@ -3,6 +3,7 @@ import Painel from "./paginas/Painel.jsx";
 import Noticias from "./paginas/Noticias.jsx";
 import Execucoes from "./paginas/Execucoes.jsx";
 import Operacoes from "./paginas/Operacoes.jsx";
+import Simulacao from "./paginas/Simulacao.jsx";
 import Acoes from "./paginas/Acoes.jsx";
 import Configuracao from "./paginas/Configuracao.jsx";
 
@@ -11,6 +12,7 @@ const PAGINAS = [
   { id: "noticias", nome: "Notícias", componente: Noticias },
   { id: "execucoes", nome: "Execuções", componente: Execucoes },
   { id: "operacoes", nome: "Operações", componente: Operacoes },
+  { id: "simulacao", nome: "Simulação", componente: Simulacao },
   { id: "acoes", nome: "Ações", componente: Acoes },
   { id: "configuracao", nome: "Configuração", componente: Configuracao },
 ];

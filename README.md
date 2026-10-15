@@ -283,6 +283,7 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Notícias | Arquivo de notícias, com busca, filtro por empresa e "só as que mencionam a carteira" (pelas regras atuais de casamento) |
 | Execuções | Cada dia do pipeline: decisões da regra com classificação, trecho da fonte e motivo, e o relatório do dia |
 | Operações | Log de auditoria (`operacoes.jsonl`), com motivo, trecho, origem, modelo e explicação |
+| Simulação | Carteira com dinheiro fictício e preços reais (ver abaixo) |
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
 
@@ -295,5 +296,20 @@ O seletor "Real / Teste", no topo, alterna entre `data/` e `data/teste/`. No mod
 - Ela não altera nenhum parâmetro congelável.
 - Ela não devolve a chave de API.
 - Ela roda uma ação por vez.
+
+### Simulação (paper trading)
+
+A aba **Simulação** mantém uma carteira fictícia de R$ 100.000 (`CAPITAL_INICIAL`) que segue, daqui para frente, as compras e vendas do log de auditoria. Essas decisões são da regra, não do LLM.
+
+- **Execução:** como no backtest, no fechamento do primeiro pregão posterior ao dia da notícia, com até 20% do patrimônio por ação e os custos de `config.py`.
+- **Preços:** fechamentos reais do Yahoo Finance, ajustados por proventos. São salvos em `data/simulacao/precos/`, um download por dia. Antes das 18h30 (horário de São Paulo), o preço do dia é considerado parcial e não é usado.
+- **Comparação:** a estratégia aparece ao lado do baseline 1 (toda notícia positiva) e do Ibovespa, todos com o mesmo capital, num gráfico com cursor e numa tabela com retorno, pior queda, operações, acerto e exposição.
+- **Rastro:** cada posição aberta mostra preço de entrada, preço atual, resultado e a notícia (com o trecho) que a originou.
+- **"E se eu tivesse aplicado…":** você escolhe um valor e vê quanto ele teria virado em cada decisão.
+- **Pendências:** aparecem as ordens que aguardam o próximo pregão e as que não foram executadas, com o motivo (ex.: "sem posição para vender").
+
+É uma **validação prospectiva**: cada decisão é registrada antes de o resultado existir, então não há como ajustar nada olhando o futuro, e não há contaminação pelo conhecimento do LLM. **Enquanto a regra não for congelada, o resultado é exploratório** e não substitui o período de teste. Não é recomendação de investimento.
+
+Código: `src/simulacao.py`, `GET /api/simulacao`, `web/src/paginas/Simulacao.jsx` e `web/src/GraficoPatrimonio.jsx`. As cores das três séries foram validadas para daltonismo e contraste nos dois temas.
 
 Código: `src/web/api.py` (FastAPI), `web/` (React + Vite), `scripts/api.mjs` (sobe a API com o Python da `.venv`).
