@@ -1,5 +1,7 @@
 """Provedores reais de LLM, registrados em src/llm.py.
 
+Disponíveis: "anthropic" e "openai" (escolha com LLM_PROVEDOR no .env).
+
 Anthropic (Claude), pelo SDK oficial `anthropic`:
 - LLM_PROVEDOR=anthropic, LLM_API_KEY=<chave>, LLM_MODELO opcional
   (padrão: claude-opus-5-5).
@@ -53,5 +55,44 @@ def provedor_anthropic(prompt: str, temperatura: float, chave: str | None, model
     return "".join(bloco.text for bloco in resposta.content if bloco.type == "text")
 
 
+def provedor_openai(prompt: str, temperatura: float, chave: str | None, modelo: str) -> str:
+    """OpenAI (Chat Completions), pelo SDK oficial `openai`.
+
+    LLM_MODELO é obrigatório: o modelo depende do que a conta tem acesso.
+    Pede a temperatura solicitada (0 na extração). Se o modelo recusar o
+    parâmetro (alguns modelos de raciocínio só aceitam o padrão), repete a
+    chamada sem ele e registra a temperatura aplicada como None.
+    """
+    import openai  # import local: só é necessário com este provedor
+
+    if not modelo or modelo == "nao_definido":
+        raise RuntimeError("Com LLM_PROVEDOR=openai, defina LLM_MODELO no .env com um modelo "
+                           "da OpenAI ao qual sua conta tem acesso.")
+    cliente = openai.OpenAI(api_key=chave)
+    mensagens = [{"role": "user", "content": prompt}]
+    try:
+        resposta = cliente.chat.completions.create(model=modelo, messages=mensagens,
+                                                   temperature=temperatura)
+        aplicada = temperatura
+    except openai.BadRequestError as erro:
+        if "temperature" not in str(erro).lower():
+            raise
+        logger.warning("Modelo %s não aceita temperature=%s; repetindo sem o parâmetro",
+                       modelo, temperatura)
+        resposta = cliente.chat.completions.create(model=modelo, messages=mensagens)
+        aplicada = None
+    llm.informar_temperatura_aplicada(aplicada)
+
+    escolha = resposta.choices[0]
+    recusa = getattr(escolha.message, "refusal", None)
+    if recusa or escolha.finish_reason == "content_filter":
+        raise RecusaDoModelo(f"o modelo recusou a requisição: {recusa or 'content_filter'}")
+    if escolha.finish_reason == "length":
+        logger.warning("Resposta truncada pelo limite de tokens do modelo")
+    llm.informar_modelo_servido(f"openai:{resposta.model}")
+    return escolha.message.content or ""
+
+
 def registrar_todos() -> None:
     llm.registrar_provedor("anthropic", provedor_anthropic, aceita_temperatura=False)
+    llm.registrar_provedor("openai", provedor_openai, aceita_temperatura=True)

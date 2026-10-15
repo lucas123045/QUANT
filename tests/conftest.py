@@ -12,3 +12,4 @@ def ambiente_isolado(monkeypatch):
         monkeypatch.delenv(nome, raising=False)
     monkeypatch.setattr(llm, "carregar_env", lambda caminho=None: None)
     monkeypatch.setattr(llm, "_ultimo_modelo_servido", None)
+    monkeypatch.setattr(llm, "_temperatura_informada", llm._NAO_INFORMADA)

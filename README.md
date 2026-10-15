@@ -103,7 +103,7 @@ Esses campos são preenchidos apenas pelo autor.
   - O resultado mais provável, com poucas operações, é "sinal não demonstrado", e o trabalho deve ser enquadrado assim desde já.
 - **Preços ajustados mudam com o tempo.** O ajuste por proventos (`auto_adjust=True`) é retroativo. O SHA-256 de cada CSV é registrado no download, e o carregamento recusa (`PrecosAlterados`) um cache adulterado ou um novo download diferente do registrado.
 - **Qualidade do casamento e da extração não medida.** `python -m src.avaliacao` exporta amostras (semente fixa) para rotular à mão e calcula precisão e revocação do casamento e precisão da extração. Meta: 50 a 100 notícias rotuladas, só com dados de treino ou validação, antes do congelamento.
-- **Temperatura.** Os modelos Claude atuais não aceitam parâmetros de amostragem, então a extração não pode rodar com temperatura 0. Cada saída registra `temperatura: null` e o modelo que de fato respondeu. A reprodutibilidade vem de outro lado: cada resposta do LLM fica gravada e nunca é pedida de novo.
+- **Temperatura.** Com `openai`, a extração pede temperatura 0. Se o modelo não aceitar o parâmetro (alguns modelos de raciocínio), a chamada é repetida sem ele. Os modelos Claude atuais não aceitam parâmetros de amostragem. Em todos os casos, cada saída registra a temperatura de fato aplicada (`0.0` ou `null`) e o modelo que respondeu. A reprodutibilidade vem de outro lado: cada resposta do LLM fica gravada e nunca é pedida de novo.
 
 ## 6. Posição sobre o Jev
 
@@ -170,7 +170,7 @@ Em `src/config.py`, os períodos ficam como `None` até a aprovação. Nenhum ba
 - [ ] Aprovar datas de treino, validação e teste
 - [ ] Definir a data de congelamento da regra
 - [ ] Confirmar acesso à API do Jev. Enquanto isso, o LLM é o classificador e `USAR_JEV = False`.
-- [x] Implementar um provedor real de LLM: `anthropic`, com `claude-opus-5-5` por padrão (`src/provedores.py`).
+- [x] Implementar provedores reais de LLM: `openai` e `anthropic` (`src/provedores.py`).
 - [ ] Configurar a chave (`LLM_API_KEY` no `.env`) e rodar o pipeline real com o LLM. Até lá, a IA só foi exercitada com o provedor falso.
 - [ ] Registrar `DATA_CORTE_CONHECIMENTO_MODELO` a partir da documentação oficial do modelo escolhido (seção 5.1).
 - [ ] Medir o funil depois de alguns dias de coleta com LLM e estimar o número de operações por período (`python -m src.funil`).
@@ -196,7 +196,7 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | `src/news.py` | Coleta RSS (InfoMoney e Money Times) das últimas 24 h, tolerando falhas por fonte. A CVM está bloqueada |
 | `src/archive.py` | Arquivo append-only em `data/arquivo/AAAA-MM-DD.jsonl` (data da coleta), com deduplicação por URL |
 | `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso. Registra o modelo que respondeu e a temperatura efetiva |
-| `src/provedores.py` | Provedor `anthropic` (SDK oficial): `claude-opus-5-5`, esforço `medium`, fallback do servidor, recusa tratada |
+| `src/provedores.py` | Provedores reais pelos SDKs oficiais. `openai`: Chat Completions, modelo obrigatório em `LLM_MODELO`, temperatura 0 (repete sem ela se o modelo recusar). `anthropic`: `claude-opus-5-5`, esforço `medium`, fallback do servidor. Recusas tratadas nos dois |
 | `src/extract.py` | Extração com `PROMPT_EXTRACAO_V1` (temperatura 0 pedida; null quando o modelo não aceita). Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
 | `src/classify.py` | Interface única que devolve sentimento e probabilidade. O Jev é `NotImplementedError` e o LLM é o caminho normal |
 | `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo (`REGRA_V1`) |
@@ -234,10 +234,11 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
    ```
 3. Chave de API: copie `.env.example` para `.env` e preencha os valores. O `.env` está no `.gitignore`, e a chave **nunca** vai para o código nem para o git.
    ```
-   LLM_API_KEY=...          # chave da API da Anthropic
-   LLM_PROVEDOR=anthropic
-   LLM_MODELO=              # opcional; padrão claude-opus-5-5
+   LLM_API_KEY=...          # chave da API do provedor escolhido
+   LLM_PROVEDOR=openai      # ou anthropic
+   LLM_MODELO=...           # obrigatório com openai; com anthropic, padrão claude-opus-5-5
    ```
+   Depois de escolher o modelo, registre a data de corte de conhecimento dele em `DATA_CORTE_CONHECIMENTO_MODELO` (seção 5.1), tirada da documentação oficial do provedor.
    Para rodar sem LLM real, use o modo de teste.
 
 ## 13. Como rodar

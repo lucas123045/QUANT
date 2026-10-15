@@ -3,7 +3,7 @@
 - A chave vem da variável de ambiente LLM_API_KEY (ou de um arquivo .env local),
   nunca do código.
 - O provedor é um ponto de configuração (LLM_PROVEDOR). Provedor real
-  disponível: "anthropic" (src/provedores.py). Outros podem ser registrados
+  disponíveis: "anthropic" e "openai" (src/provedores.py). Outros podem ser registrados
   com `registrar_provedor`.
 - Cada saída registra o modelo que de fato respondeu e a temperatura
   efetivamente aplicada (None quando o modelo não aceita o parâmetro).
@@ -27,6 +27,8 @@ Provedor = Callable[[str, float, str | None, str], str]
 _PROVEDORES: dict[str, Provedor] = {}
 _ACEITA_TEMPERATURA: dict[str, bool] = {"falso": True}
 _ultimo_modelo_servido: str | None = None
+_NAO_INFORMADA = object()
+_temperatura_informada: object = _NAO_INFORMADA
 
 
 def carregar_env(caminho=None) -> None:
@@ -80,8 +82,16 @@ def modelo_da_ultima_chamada() -> str:
     return _ultimo_modelo_servido or modelo_atual()
 
 
+def informar_temperatura_aplicada(valor: float | None) -> None:
+    """Chamado pelo provedor quando sabe a temperatura que de fato usou."""
+    global _temperatura_informada
+    _temperatura_informada = valor
+
+
 def temperatura_efetiva(temperatura: float) -> float | None:
-    """Temperatura realmente aplicada pelo provedor atual (None se não suportada)."""
+    """Temperatura realmente aplicada na última chamada (None se não suportada)."""
+    if _temperatura_informada is not _NAO_INFORMADA:
+        return _temperatura_informada
     return temperatura if _ACEITA_TEMPERATURA.get(provedor_atual(), True) else None
 
 
@@ -92,15 +102,16 @@ def registrar_provedor(nome: str, funcao: Provedor, aceita_temperatura: bool = T
 
 
 def _registrar_embutidos() -> None:
-    if "anthropic" not in _PROVEDORES:
+    if "anthropic" not in _PROVEDORES or "openai" not in _PROVEDORES:
         from src import provedores  # import local evita ciclo
         provedores.registrar_todos()
 
 
 def chamar_llm(prompt: str, temperatura: float = 0.0) -> str:
     """Envia o prompt ao provedor configurado e devolve o texto da resposta."""
-    global _ultimo_modelo_servido
+    global _ultimo_modelo_servido, _temperatura_informada
     _ultimo_modelo_servido = None
+    _temperatura_informada = _NAO_INFORMADA
     carregar_env()
     _registrar_embutidos()
     nome = provedor_atual()

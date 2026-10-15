@@ -5,7 +5,7 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 192, todos passando, sem rede e sem LLM real.
+Testes: 199, todos passando, sem rede e sem LLM real.
 
 
 ÍNDICE
@@ -171,7 +171,7 @@ igual a "bruto".
 quant/
 ├── README.md               Documentação principal (13 seções)
 ├── PROJETO_EXPLICADO.txt   Este documento
-├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata, anthropic
+├── requirements.txt        Dependências: pytest, feedparser, yfinance, pandas, tzdata, anthropic, openai
 ├── .env.example            Modelo do .env (LLM_API_KEY, LLM_PROVEDOR, LLM_MODELO), sem valores
 ├── .gitignore              Ignora .env, .venv/, caches e as saídas em data/
 ├── data/
@@ -188,7 +188,7 @@ quant/
 │   ├── news.py             Coleta RSS; interface (bloqueada) da CVM
 │   ├── archive.py          Arquivo append-only de notícias + comando de coleta
 │   ├── llm.py              Adaptador único do LLM (chave, provedor, modo de teste)
-│   ├── provedores.py       Provedor real: Anthropic (Claude), SDK oficial
+│   ├── provedores.py       Provedores reais: OpenAI e Anthropic, SDKs oficiais
 │   ├── extract.py          LLM → eventos estruturados, com validação
 │   ├── classify.py         Sentimento e probabilidade (Jev opcional | LLM)
 │   ├── strategy.py         decidir(): a ÚNICA fonte de compra e venda
@@ -205,6 +205,7 @@ quant/
     ├── test_matching.py          42 testes
     ├── test_llm.py                5 testes
     ├── test_provedores.py         6 testes
+    ├── test_provedor_openai.py    7 testes
     ├── test_extract.py           18 testes
     ├── test_news_archive.py      10 testes
     ├── test_classify.py          10 testes
@@ -216,7 +217,7 @@ quant/
     ├── test_funil_avaliacao.py    5 testes
     └── test_main.py               5 testes
                                  ----
-                                 192 testes
+                                 199 testes
 
 
 ================================================================================
@@ -241,9 +242,9 @@ dividendos extraordinários".
  PASSO 3 — EXTRAIR (extract.py + llm.py)
    Só notícias com pelo menos um ticker vão ao LLM, o que economiza chamadas.
    O prompt PROMPT_EXTRACAO_V1 pede JSON com ticker, tipo_evento, resumo,
-   impacto_declarado, confirmado e trecho_fonte. A temperatura 0 é pedida,
-   mas os modelos Claude atuais não aceitam o parâmetro; a saída registra
-   temperatura = null.
+   impacto_declarado, confirmado e trecho_fonte, pedindo temperatura 0.
+   Com OpenAI ela é aplicada (salvo modelos que recusam o parâmetro); com
+   Claude não é aceita. A saída registra a temperatura de fato aplicada.
    O código então:
      - tenta interpretar o JSON; se falhar, faz no máximo UMA nova tentativa;
      - valida cada evento contra o esquema e descarta, com log, os inválidos;
@@ -406,6 +407,17 @@ validar a hipótese.
     - não envia temperature: os modelos atuais não aceitam parâmetros de
       amostragem, e o SDK 1.x nem expõe esse parâmetro.
 
+  provedor_openai(prompt, temperatura, chave, modelo)
+    - SDK oficial "openai", Chat Completions; LLM_PROVEDOR=openai;
+    - LLM_MODELO é OBRIGATÓRIO (o modelo depende do acesso da conta; não
+      há padrão para não inventar um nome);
+    - envia temperature (0 na extração). Se o modelo recusar o parâmetro
+      (erro 400 mencionando temperature), repete sem ele e registra
+      temperatura = null. Outros erros 400 não são engolidos;
+    - recusa (message.refusal ou finish_reason "content_filter") →
+      RecusaDoModelo; resposta truncada ("length") gera aviso no log;
+    - grava o modelo que respondeu (resposta.model), ex. "openai:<modelo>".
+
 ------------------------------------------------------------------------------
 6.6 extract.py — extração de eventos
 ------------------------------------------------------------------------------
@@ -428,7 +440,8 @@ validar a hipótese.
       maiúsculas e espaços. "ANUNCIOU nesta  quinta-feira" é aceito;
       paráfrase é rejeitada;
     - acrescenta o modelo que respondeu, versao_prompt, a temperatura
-      efetiva (null com Claude) e a origem (metadados).
+      efetiva (0.0 com OpenAI; null com Claude ou modelo que recusa) e a
+      origem (metadados).
 
 ------------------------------------------------------------------------------
 6.7 classify.py — sentimento e probabilidade
@@ -595,7 +608,7 @@ validar a hipótese.
   "trecho_fonte": "aprovou dividendos de R$ 2,00",
   "modelo": "anthropic:claude-opus-5-5",         (o que de fato respondeu)
   "versao_prompt": "PROMPT_EXTRACAO_V1",
-  "temperatura": null,                           (Claude não aceita; 0.0 no modo de teste)
+  "temperatura": 0.0,                            (aplicada; null se o modelo não aceita)
   "origem": {"id": "...", "tipo_fonte": "noticia", "fonte": "...",
              "url": "...", "timestamp_publicacao": "..."},
   "id": "0ac03e989d9b10bc-0"                     (id da notícia + índice)
@@ -830,7 +843,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (192)
+14. TESTES AUTOMATIZADOS (199)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -850,6 +863,12 @@ em todos os testes.
     sem temperature; modelo configurável; fallback grava o modelo que
     respondeu; recusa → erro; extração grava modelo servido e temperatura
     null; sem chave → erro.
+
+  test_provedor_openai.py (7)
+    Provedor OpenAI com cliente falso: temperatura 0 enviada e registrada;
+    modelo que rejeita temperatura → repete sem ela e registra null; outro
+    erro 400 propaga; recusa e content_filter → erro; LLM_MODELO
+    obrigatório; extração grava modelo servido e temperatura.
 
   test_estatistica.py (11)
     p-valor t contra valores de tabela; beta incompleta; teste t e Welch com
@@ -941,13 +960,13 @@ Instalação (Windows; Python 3.12.10 já instalado nesta máquina):
 
 Configuração da chave:
   copie .env.example para .env e preencha:
-    LLM_API_KEY=...          (chave da API da Anthropic)
-    LLM_PROVEDOR=anthropic
-    LLM_MODELO=              (opcional; padrão claude-opus-5-5)
+    LLM_API_KEY=...          (chave da API do provedor)
+    LLM_PROVEDOR=openai      (ou anthropic)
+    LLM_MODELO=...           (obrigatório com openai)
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 192 testes
+  python -m pytest                       roda os 199 testes
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
                                          (sem rede, LLM falso, grava em data/teste/)
@@ -959,8 +978,8 @@ Comandos:
 
 O que acontece hoje no pipeline real: ele coleta e arquiva normalmente (a
 primeira coleta real, em 15/10/2026, arquivou 20 notícias). Sem LLM_API_KEY
-no .env, a extração falha item a item com erro registrado. Com a chave e
-LLM_PROVEDOR=anthropic, o Claude passa a extrair e classificar (ainda não
+no .env, a extração falha item a item com erro registrado. Com a chave,
+LLM_PROVEDOR e LLM_MODELO, o LLM passa a extrair e classificar (ainda não
 foi executado com chave real). A CVM aparece como bloqueio documentado.
 
 Backtest: ainda não pode rodar (períodos pendentes). Quando aprovados:
@@ -1015,6 +1034,8 @@ README.)
       conceito histórico continua possível, mas marcado como RISCO.
  25. (Revisão) Acerto direcional para calibração: fechamento do último
       pregão antes do dia da publicação → fechamento do pregão seguinte.
+ 26. Provedor OpenAI (pedido do autor): Chat Completions, sem modelo
+      padrão, com nova tentativa sem temperatura se o modelo recusar.
 
 
 ================================================================================
@@ -1047,7 +1068,7 @@ Fora esses, todo o resto está implementado e testado.
   [ ] 4. Definir a data de congelamento da regra (+ hash do commit +
          aprovação).
   [ ] 5. Confirmar o acesso à API do Jev e a data limite para desistir dele.
-  [x] 6. Provedor real implementado (Anthropic, claude-opus-5-5).
+  [x] 6. Provedores reais implementados (OpenAI e Anthropic).
   [ ] 6a. Pôr a chave no .env e rodar o pipeline real com o LLM.
   [ ] 6b. Registrar DATA_CORTE_CONHECIMENTO_MODELO (documentação oficial).
   [ ] 6c. Medir o funil com alguns dias de coleta + LLM (python -m src.funil).
@@ -1082,8 +1103,9 @@ Fora esses, todo o resto está implementado e testado.
     de retorno por volatilidade e de Ibovespa com a mesma exposição.
   - Executar no fechamento do dia seguinte perde a reação intradiária
     (conservador).
-  - Sem temperatura 0 nos modelos atuais: a reprodutibilidade vem de gravar
-    as respostas, não do modelo.
+  - Mesmo com temperatura 0 (OpenAI) a saída de um LLM não é garantidamente
+    idêntica entre chamadas; com Claude não há temperatura. A
+    reprodutibilidade vem de gravar as respostas, não do modelo.
   - Welch com amostras não independentes (estratégia ⊂ baseline 1):
     aproximado.
   - O casamento de tickers é por regras; casos ambíguos ("Vale anuncia...")
@@ -1114,7 +1136,8 @@ Fora esses, todo o resto está implementado e testado.
   c283a25  Revisão: documentação do critério V2, riscos metodológicos e
            novas ferramentas
   bdb4b08  Documentação: temperatura e contagem de testes, glossário
-  (+ commit que atualiza este histórico)
+  (commit) Documentação: histórico de commits
+  (commit) Provedor OpenAI
 
 
 ================================================================================
@@ -1207,8 +1230,8 @@ Uma revisão externa apontou 9 problemas. Situação de cada um:
      python -m src.avaliacao. Falta a rotulagem manual (trabalho humano).
 
   7. SEM EXECUÇÃO COM LLM REAL (médio) — PROVEDOR IMPLEMENTADO
-     Anthropic/Claude pelo SDK oficial. Falta a chave no .env e a primeira
-     execução real.
+     OpenAI e Anthropic pelos SDKs oficiais. Falta a chave no .env e a
+     primeira execução real.
 
   8. EXPOSIÇÃO DESIGUAL (médio) — CORRIGIDO
      Exposição média, retorno por volatilidade e Ibovespa com a mesma
