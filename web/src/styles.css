@@ -484,8 +484,15 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .noticia-meta { grid-row: auto; flex-direction: row; flex-wrap: wrap; gap: 10px; }
   .operacao-linha { grid-template-columns: 1fr auto auto 14px; }
   .operacao-linha > :nth-child(4), .operacao-linha > :nth-child(5) { display: none; }
-  .f-resumo { grid-template-columns: minmax(0, 1fr); }
+  .f-resumo { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .f-saldo-valor { font-size: 30px; }
+  /* No celular, os três números viram linhas baixas: ícone à esquerda, valor e rótulo ao lado. */
+  .f-estat { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 0; padding: 12px 14px; align-items: center; }
+  .f-estat .f-estat-icone { grid-row: span 3; margin: 0; width: 34px; height: 34px; }
+  .f-estat-valor { font-size: 18px; }
+  .f-estat small { display: none; }
+  .topo { padding-top: max(16px, env(safe-area-inset-top)); }
+  .lateral { padding-top: max(22px, env(safe-area-inset-top)); }
   .f-ativos { grid-template-columns: minmax(0, 1fr); }
   .f-passos { grid-template-columns: minmax(0, 1fr); }
   .f-produto-numeros { grid-template-columns: 1fr 1fr; }

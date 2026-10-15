@@ -293,7 +293,13 @@ Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 - escuro por padrão, com tema claro (tom de papel) na barra lateral;
 - fontes IBM Plex incluídas no projeto, sem depender de internet.
 
-A página inicial é **Minha carteira** (a simulação). Quando um arquivo `.py` em `src/` muda, a API reinicia sozinha.
+A página inicial é **Minha carteira** (a simulação).
+
+**No celular:** o layout se adapta à tela. O menu vira uma gaveta, aberta pelo botão ☰, tudo fica em uma coluna e não há rolagem lateral (conferido com emulação de iPhone, 390 px). O site também pode ser **instalado como app**, com manifesto e ícones:
+- **Android (Chrome):** menu ⋮ → "Adicionar à tela inicial" / "Instalar app".
+- **iPhone (Safari):** compartilhar → "Adicionar à Tela de Início".
+
+O app abre em tela cheia, sem a barra do navegador. Quando um arquivo `.py` em `src/` muda, a API reinicia sozinha.
 
 O seletor "Dados: Reais / Teste", na barra lateral, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
 

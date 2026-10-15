@@ -1325,6 +1325,12 @@ verde/vermelho só para compra/venda), cantos retos, sem sombras; fontes
 IBM Plex Sans e Plex Mono incluídas no projeto (funcionam offline); tema
 claro em tom de papel pelo botão no topo; abas numeradas 01–06.
 
+Celular: layout responsivo (menu em gaveta pelo botão ☰, uma coluna, sem
+rolagem lateral; conferido com emulação de iPhone 390 px). Pode ser
+instalado como app (web/public/manifest.webmanifest + ícones em
+web/public/icones/): Android → "Adicionar à tela inicial"; iPhone/Safari →
+compartilhar → "Adicionar à Tela de Início". Abre em tela cheia.
+
 Seletor "Real / Teste" no topo; no modo de teste há uma faixa âmbar
 avisando que nada dali vale para conclusões.
 

@@ -35,9 +35,9 @@ function gravarPreferencia(chave, valor) {
 }
 
 function FaixaVitrine() {
-  const [meta, setMeta] = useState(null);
+  const [meta, setMeta] = useState(undefined);  // undefined = carregando; null = não publicado
   useEffect(() => {
-    fetch("/dados/meta.json").then((r) => (r.ok ? r.json() : null)).then(setMeta).catch(() => {});
+    fetch("/dados/meta.json").then((r) => (r.ok ? r.json() : null)).then(setMeta).catch(() => setMeta(null));
   }, []);
   const quando = meta?.gerado_em
     ? new Date(meta.gerado_em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
@@ -47,7 +47,7 @@ function FaixaVitrine() {
       <Icone nome="info" tamanho={16} />
       <span>
         <strong>Versão online, somente leitura.</strong>{" "}
-        {quando ? `Dados atualizados em ${quando}.` : "Dados ainda não publicados."}{" "}
+        {quando ? `Dados atualizados em ${quando}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
         A coleta de notícias e a análise pela IA rodam no computador do autor.
       </span>
     </div>
