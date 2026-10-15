@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Icone from "./icones.jsx";
-import { VITRINE } from "./api.js";
+import { VITRINE, pedir } from "./api.js";
 import Simulacao from "./paginas/Simulacao.jsx";
 import Painel from "./paginas/Painel.jsx";
 import Noticias from "./paginas/Noticias.jsx";
@@ -32,6 +32,28 @@ function lerPreferencia(chave, padrao) {
 
 function gravarPreferencia(chave, valor) {
   try { localStorage.setItem(chave, valor); } catch { /* sem armazenamento: ignora */ }
+}
+
+const TEMPO_MINIMO_ABERTURA = 1200;  // ms: dá tempo de a animação do logo terminar
+
+/** Some com a tela de abertura (index.html) quando os primeiros dados chegam. */
+function useFecharAbertura() {
+  useEffect(() => {
+    const abertura = document.getElementById("abertura");
+    if (!abertura) return undefined;
+    let cancelado = false;
+    const espera = new Promise((r) => setTimeout(r, TEMPO_MINIMO_ABERTURA));
+    const dados = Promise.race([
+      pedir("/api/status").catch(() => null),
+      new Promise((r) => setTimeout(r, 6000)),  // nunca prende a pessoa na abertura
+    ]);
+    Promise.all([espera, dados]).then(() => {
+      if (cancelado) return;
+      abertura.classList.add("saindo");
+      setTimeout(() => abertura.remove(), 600);
+    });
+    return () => { cancelado = true; };
+  }, []);
 }
 
 function FaixaVitrine() {
@@ -85,6 +107,8 @@ export default function App() {
     document.documentElement.dataset.tema = tema;
     gravarPreferencia("quant.tema", tema);
   }, [tema]);
+
+  useFecharAbertura();
 
   const atual = PAGINAS.find((p) => p.id === pagina);
   const Pagina = atual.componente;

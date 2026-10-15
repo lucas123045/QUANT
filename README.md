@@ -293,7 +293,7 @@ Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 - escuro por padrão, com tema claro (tom de papel) na barra lateral;
 - fontes IBM Plex incluídas no projeto, sem depender de internet.
 
-A página inicial é **Minha carteira** (a simulação).
+A página inicial é **Minha carteira** (a simulação). Ao entrar, uma tela de abertura mostra o logo e o nome, com animação curta. Ela fica no próprio `index.html`, para aparecer antes de o JavaScript carregar, e some quando os primeiros dados chegam: no mínimo 1,2 s e no máximo 6 s. Para quem pede menos movimento no sistema, a animação é desligada.
 
 **No celular:** o layout se adapta à tela. O menu vira uma gaveta, aberta pelo botão ☰, tudo fica em uma coluna e não há rolagem lateral (conferido com emulação de iPhone, 390 px). O site também pode ser **instalado como app**, com manifesto e ícones:
 - **Android (Chrome):** menu ⋮ → "Adicionar à tela inicial" / "Instalar app".
