@@ -5,7 +5,7 @@
 Trabalho acadêmico. Situação do projeto em 15/10/2026, após as Fases 0 a 8 e
 a revisão metodológica (seção 22).
 Repositório: pasta quant/ (git local, 14 commits, sem push).
-Testes: 213, todos passando, sem rede e sem LLM real.
+Testes: 215, todos passando, sem rede e sem LLM real.
 Interface web: npm run dev → http://127.0.0.1:5173 (seção 23).
 
 
@@ -227,9 +227,9 @@ quant/
     ├── test_funil_avaliacao.py    5 testes
     ├── test_main.py               5 testes
     ├── test_web_api.py            8 testes
-    └── test_simulacao.py          6 testes
+    └── test_simulacao.py          8 testes
                                  ----
-                                 213 testes
+                                 215 testes
 
 
 ================================================================================
@@ -855,7 +855,7 @@ recusado com PrecosAlterados.
 
 
 ================================================================================
-14. TESTES AUTOMATIZADOS (213)
+14. TESTES AUTOMATIZADOS (215)
 ================================================================================
 
 Rodar: python -m pytest   (cerca de 1,5 s; sem rede; sem LLM real)
@@ -951,11 +951,15 @@ em todos os testes.
     diário; relatório vazio não chama o LLM; auditoria append-only; campos e
     trecho_fonte obrigatórios.
 
-  test_simulacao.py (6)
+  test_simulacao.py (8)
     Resultado conhecido com preços sintéticos (compra de PETR4 a 10 que
     vai a 13: patrimônio 106.000; Ibovespa 103.000); ordem pendente até o
     próximo pregão; preço parcial do dia ignorado antes das 18h30; base sem
-    dados; endpoint; falha de rede vira erro 503 com o motivo.
+    dados; endpoint; falha de rede vira erro 503 com o motivo; painel
+    (alocação 80.000 caixa + 26.000 PETR4, cartões dos 5 ativos com preço,
+    variações, minigráfico e última decisão com motivo, extrato, histórico
+    da regra sem margem com 1 decisão); ativos com "compra agendada" e
+    "venda agendada" antes do primeiro pregão.
 
   test_web_api.py (8)
     Status não expõe a chave; configuração somente leitura (POST → 405);
@@ -990,7 +994,7 @@ Configuração da chave:
   O .env nunca vai para o git.
 
 Comandos:
-  python -m pytest                       roda os 213 testes
+  python -m pytest                       roda os 215 testes
   npm run dev                            interface web (seção 23)
   python -m src.archive --coletar        coleta os feeds uma vez e arquiva
   python -m src.main --teste             pipeline completo simulado
@@ -1166,6 +1170,7 @@ Fora esses, todo o resto está implementado e testado.
   (commit) Interface web
   (commit) Visual de terminal financeiro
   (commit) Simulação (paper trading)
+  (commit) Simulação no formato de painel de banco
 
 
 ================================================================================
@@ -1347,12 +1352,28 @@ Comparação, com o mesmo capital:
   - Ibovespa comprado e segurado desde o início da simulação.
 O início é o primeiro dia com execução do pipeline.
 
-O que a aba mostra: indicadores (patrimônio e retorno de cada carteira,
-diferença para o Ibovespa, quanto está investido), gráfico de patrimônio
-com cursor e rótulos no fim das linhas, tabela de comparação (retorno, pior
-queda, operações, acerto, exposição média), posições abertas com a notícia
-de origem, calculadora "e se eu tivesse aplicado R$ X em cada decisão",
-ordens aguardando o próximo pregão e ordens não executadas (com motivo).
+O que a aba mostra (formato de painel de banco/fintech):
+  - SALDO TOTAL em destaque, variação desde o início, investido / caixa /
+    rendimento das posições, botão para esconder valores;
+  - ONDE ESTÁ O DINHEIRO: rosca de alocação (cada ação tem cor fixa; caixa
+    em cinza);
+  - EVOLUÇÃO DO PATRIMÔNIO: linhas da estratégia, baseline 1 e Ibovespa,
+    filtro 7D / 30D / Tudo, cursor com os três valores;
+  - RENDIMENTO COMPARADO: barras + explicação em texto;
+  - SEUS ATIVOS: um cartão por ação com preço real, variação no dia,
+    minigráfico de 30 dias, situação (na carteira / compra agendada /
+    venda agendada / sem posição), posição e rendimento, e a última
+    notícia analisada (classificação da IA, decisão da regra e motivo);
+  - RENDIMENTO DE CADA DECISÃO: barras divergentes (ganho para cima, perda
+    para baixo) + calculadora "e se eu tivesse aplicado R$ X";
+  - HISTÓRICO DA REGRA: decisões, rendimento médio, acertos, melhor/pior e
+    margem de incerteza da média (média ± 2 erros padrão);
+  - PRÓXIMAS MOVIMENTAÇÕES e EXTRATO; ordens não executadas com motivo;
+  - COMO FUNCIONA: passo a passo e "por que não aparece quanto vai render".
+
+Não há previsão de rendimento: ninguém sabe quanto uma ação vai render, e
+mostrar isso seria inventar um número. A aba mostra o que já aconteceu e a
+incerteza disso.
 
 Por que é útil para o trabalho: é uma validação PROSPECTIVA. A decisão é
 registrada antes de o resultado existir; não há como ajustar nada olhando o

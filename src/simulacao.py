@@ -16,7 +16,7 @@ não substitui o período de teste. Não é recomendação de investimento.
 """
 
 import json
-from datetime import date, datetime, time
+from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -24,11 +24,14 @@ import pandas as pd
 
 from src import auditoria, backtest, config
 from src.baselines import sinais_baseline_1
+from src.estatistica import teste_t_uma_amostra
 from src.strategy import COMPRA
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 # Antes deste horário, o "fechamento" de hoje ainda é um preço parcial.
 HORARIO_FECHAMENTO_CONFIAVEL = time(18, 30)
+# Dias corridos de preços antes do início, só para os minigráficos dos ativos.
+DIAS_CONTEXTO = 60
 
 
 def _ler(caminho: Path, padrao):
@@ -103,6 +106,86 @@ def _posicao(op: dict, precos: pd.DataFrame) -> dict:
     }
 
 
+def ultimas_decisoes(dir_data: Path) -> dict[str, dict]:
+    """Última decisão da regra (inclusive MANTER) para cada ticker, com o evento."""
+    por_ticker: dict[str, dict] = {}
+    for pasta in sorted(p for p in (dir_data / "execucoes").glob("*") if p.is_dir()):
+        for item in _ler(pasta / "05_decisoes.json", []):
+            evento, decisao = item["evento"], item["decisao"]
+            atual = por_ticker.get(decisao["ticker"])
+            instante = backtest.instante_do_evento(evento) or ""
+            if atual is None or instante >= atual["publicado"]:
+                classificacao = evento.get("classificacao") or {}
+                por_ticker[decisao["ticker"]] = {
+                    **_meta(evento),
+                    "decisao": decisao["decisao"], "motivo": decisao["motivo"],
+                    "sentimento": classificacao.get("sentimento"),
+                    "probabilidade": classificacao.get("probabilidade"),
+                    "confirmado": evento.get("confirmado"), "tipo_evento": evento.get("tipo_evento"),
+                    "publicado": instante,
+                }
+    return por_ticker
+
+
+def _ativos(precos: pd.DataFrame, decisoes: dict, abertas: list[dict], pendentes: list[dict]) -> list[dict]:
+    """Cartão de cada ação da carteira: preço, variações, minigráfico e situação."""
+    ativos = []
+    for ticker in config.CARTEIRA:
+        serie = precos[ticker].dropna() if ticker in precos.columns else pd.Series(dtype=float)
+        posicao = next((p for p in abertas if p["ticker"] == ticker), None)
+        pendente = next((p for p in reversed(pendentes) if p["ticker"] == ticker), None)
+        if pendente:
+            situacao = f"{pendente['decisao']}_agendada"
+        elif posicao:
+            situacao = "na_carteira"
+        else:
+            situacao = "sem_posicao"
+        ativo = {"ticker": ticker, "empresa": config.NOMES_EMPRESAS[ticker], "situacao": situacao,
+                 "posicao": posicao, "pendente": pendente, "ultima_decisao": decisoes.get(ticker),
+                 "preco": None, "variacao_dia": None, "variacao_30d": None, "minigrafico": []}
+        if len(serie):
+            ativo["preco"] = float(serie.iloc[-1])
+            if len(serie) >= 2:
+                ativo["variacao_dia"] = float(serie.iloc[-1] / serie.iloc[-2] - 1)
+            janela = serie.iloc[-22:]  # ~30 dias corridos
+            ativo["variacao_30d"] = float(janela.iloc[-1] / janela.iloc[0] - 1) if len(janela) >= 2 else None
+            ativo["minigrafico"] = [{"data": d.date().isoformat(), "preco": float(v)} for d, v in janela.items()]
+        ativos.append(ativo)
+    return ativos
+
+
+def _extrato(operacoes: list[dict], custo: float) -> list[dict]:
+    """Movimentações da carteira simulada, da mais recente para a mais antiga."""
+    linhas = []
+    for o in operacoes:
+        linhas.append({"data": o["entrada"], "tipo": "compra", "ticker": o["ticker"],
+                       "preco": o["preco_entrada"], "valor": o["investido"],
+                       "quantidade": o["investido"] * (1 - custo) / o["preco_entrada"],
+                       "origem": o["origem"]})
+        if not o["aberta"]:
+            linhas.append({"data": o["saida"], "tipo": "venda", "ticker": o["ticker"],
+                           "preco": o["preco_saida"], "valor": o["valor"],
+                           "resultado": o["resultado"], "origem": o["origem_saida"]})
+    return sorted(linhas, key=lambda l: (l["data"], l["tipo"] == "compra"), reverse=True)
+
+
+def _historico_regra(operacoes: list[dict]) -> dict:
+    """O que as decisões da regra renderam até agora (não é previsão)."""
+    retornos = [o["retorno"] for o in operacoes]
+    teste = teste_t_uma_amostra(retornos)
+    intervalo = None
+    if teste["erro_padrao"] is not None:
+        intervalo = [teste["media"] - 2 * teste["erro_padrao"], teste["media"] + 2 * teste["erro_padrao"]]
+    return {
+        "n": len(retornos),
+        "media": teste["media"],
+        "intervalo_aproximado_95": intervalo,
+        "taxa_acerto": sum(r > 0 for r in retornos) / len(retornos) if retornos else None,
+        "melhor": max(retornos) if retornos else None,
+        "pior": min(retornos) if retornos else None,
+    }
+
+
 def calcular(dir_data: Path | None = None, agora: datetime | None = None,
              baixar=None, capital: float | None = None) -> dict:
     """Estado da carteira simulada até o último fechamento confiável."""
@@ -114,6 +197,7 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
     eventos = [e for e in eventos_classificados(dir_data)
                if backtest.tipo_fonte_do_evento(e) == "noticia"]
     sinais_b1 = sinais_baseline_1(eventos)
+    decisoes = ultimas_decisoes(dir_data)
 
     base = {
         "capital_inicial": capital,
@@ -123,22 +207,29 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
                      if config.DATA_CONGELAMENTO else
                      "A regra ainda não foi congelada: resultado exploratório, não substitui o período de teste.")),
         "custo_por_operacao": backtest.custo_total(),
+        "parametros": {"max_posicao_pct": config.MAX_POSICAO_PCT,
+                       "limiar_probabilidade": config.LIMIAR_PROBABILIDADE,
+                       "janela_evento_recente_dias": config.JANELA_EVENTO_RECENTE_DIAS},
     }
     inicio = _inicio(dir_data, sinais)
-    if inicio is None:
-        return {**base, "estado": "sem_dados", "mensagem": "Ainda não há execuções do pipeline."}
+    hoje = agora.date()
+    # Preços com contexto anterior ao início, para os minigráficos dos ativos.
+    precos_todos = backtest.carregar_precos(
+        ((inicio or hoje) - timedelta(days=DIAS_CONTEXTO)).isoformat(), hoje.isoformat(),
+        pasta=dir_data / "simulacao" / "precos", baixar=baixar)
+    precos_todos = _sem_preco_parcial(precos_todos.dropna(how="all"), agora)
+    precos = precos_todos[precos_todos.index >= pd.Timestamp(inicio)] if inicio else precos_todos.iloc[0:0]
 
-    precos = backtest.carregar_precos(inicio.isoformat(), agora.date().isoformat(),
-                                      pasta=dir_data / "simulacao" / "precos", baixar=baixar)
-    precos = _sem_preco_parcial(precos.dropna(how="all"), agora)
     pendentes = [{"ticker": s["ticker"], "decisao": s["decisao"], "publicado": s["instante"],
                   "origem": s["meta"]}
                  for s in sinais if not len(precos) or backtest.proximo_pregao(s["instante"], precos.index) is None]
 
-    if len(precos) < 1:
-        return {**base, "estado": "aguardando_pregao", "inicio": inicio.isoformat(),
-                "pendentes": pendentes,
-                "mensagem": "Ainda não há fechamento de pregão desde o início da simulação."}
+    if inicio is None or len(precos) < 1:
+        return {**base, "estado": "sem_dados" if inicio is None else "aguardando_pregao",
+                "inicio": inicio.isoformat() if inicio else None, "pendentes": pendentes,
+                "ativos": _ativos(precos_todos, decisoes, [], pendentes),
+                "mensagem": ("Ainda não há execuções do pipeline." if inicio is None else
+                             "Ainda não há fechamento de pregão desde o início da simulação.")}
 
     resultado = {**base, "estado": "ok", "inicio": inicio.isoformat(),
                  "ultimo_fechamento": precos.index[-1].date().isoformat(), "pendentes": pendentes}
@@ -176,6 +267,15 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
     operacoes = [_posicao(op, precos) for op in simulacoes["estrategia"].operacoes]
     resultado["posicoes_abertas"] = [o for o in operacoes if o["aberta"]]
     resultado["operacoes_encerradas"] = [o for o in operacoes if not o["aberta"]]
+    patrimonio = resultado["carteiras"]["estrategia"]["patrimonio"]
+    investido = sum(p["valor"] for p in resultado["posicoes_abertas"])
+    resultado["alocacao"] = {
+        "caixa": patrimonio - investido,
+        "acoes": [{"ticker": p["ticker"], "valor": p["valor"]} for p in resultado["posicoes_abertas"]],
+    }
+    resultado["ativos"] = _ativos(precos_todos, decisoes, resultado["posicoes_abertas"], pendentes)
+    resultado["extrato"] = _extrato(operacoes, backtest.custo_total())
+    resultado["historico_regra"] = _historico_regra(operacoes)
     resultado["ordens_ignoradas"] = [
         {"ticker": i["ticker"], "decisao": i["decisao"], "razao": i["razao"],
          "data": pd.Timestamp(i["data_execucao"]).date().isoformat(), "origem": i.get("meta")}

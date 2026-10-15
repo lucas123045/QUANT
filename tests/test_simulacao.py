@@ -95,3 +95,43 @@ def test_endpoint_falha_de_rede_vira_503(tmp_path, monkeypatch):
     resposta = TestClient(api.app).get("/api/simulacao?base=real")
     assert resposta.status_code == 503
     assert "sem internet" in resposta.json()["detail"]
+
+
+def test_painel_fintech(dados):
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar,
+                           capital=100_000.0)
+    # Alocação: 20.000 viraram 26.000 em PETR4; 80.000 em caixa.
+    assert r["alocacao"]["caixa"] == pytest.approx(80_000)
+    assert r["alocacao"]["acoes"] == [{"ticker": "PETR4", "valor": pytest.approx(26_000)}]
+
+    ativos = {a["ticker"]: a for a in r["ativos"]}
+    assert list(ativos) == config.CARTEIRA
+    petr = ativos["PETR4"]
+    assert petr["situacao"] == "na_carteira"
+    assert petr["preco"] == 13.0
+    assert petr["variacao_dia"] == pytest.approx(13 / 12 - 1)
+    assert petr["variacao_30d"] == pytest.approx(0.30)
+    assert [p["preco"] for p in petr["minigrafico"]] == SERIES["PETR4.SA"]
+    assert petr["ultima_decisao"]["decisao"] == "compra"
+    assert petr["ultima_decisao"]["trecho_fonte"]
+    assert petr["ultima_decisao"]["motivo"].startswith("evento positivo confirmado")
+    assert ativos["VALE3"]["situacao"] == "sem_posicao"
+    assert ativos["VALE3"]["ultima_decisao"]["decisao"] == "venda"
+    assert ativos["ITUB4"]["ultima_decisao"] is None
+
+    assert [(l["tipo"], l["ticker"], l["data"]) for l in r["extrato"]] == [("compra", "PETR4", "2026-10-06")]
+    assert r["extrato"][0]["quantidade"] == pytest.approx(2000)
+
+    h = r["historico_regra"]
+    assert h["n"] == 1 and h["media"] == pytest.approx(0.30)
+    assert h["intervalo_aproximado_95"] is None  # uma decisão só: sem margem de incerteza
+    assert h["taxa_acerto"] == 1.0
+
+
+def test_ativos_aparecem_mesmo_aguardando_pregao(dados):
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 5, 17, 0, tzinfo=SP), baixar=baixar,
+                           capital=100_000.0)
+    assert r["estado"] == "aguardando_pregao"
+    ativos = {a["ticker"]: a for a in r["ativos"]}
+    assert ativos["PETR4"]["situacao"] == "compra_agendada"
+    assert ativos["VALE3"]["situacao"] == "venda_agendada"

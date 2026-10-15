@@ -303,10 +303,19 @@ A aba **Simulação** mantém uma carteira fictícia de R$ 100.000 (`CAPITAL_INI
 
 - **Execução:** como no backtest, no fechamento do primeiro pregão posterior ao dia da notícia, com até 20% do patrimônio por ação e os custos de `config.py`.
 - **Preços:** fechamentos reais do Yahoo Finance, ajustados por proventos. São salvos em `data/simulacao/precos/`, um download por dia. Antes das 18h30 (horário de São Paulo), o preço do dia é considerado parcial e não é usado.
-- **Comparação:** a estratégia aparece ao lado do baseline 1 (toda notícia positiva) e do Ibovespa, todos com o mesmo capital, num gráfico com cursor e numa tabela com retorno, pior queda, operações, acerto e exposição.
-- **Rastro:** cada posição aberta mostra preço de entrada, preço atual, resultado e a notícia (com o trecho) que a originou.
-- **"E se eu tivesse aplicado…":** você escolhe um valor e vê quanto ele teria virado em cada decisão.
-- **Pendências:** aparecem as ordens que aguardam o próximo pregão e as que não foram executadas, com o motivo (ex.: "sem posição para vender").
+A aba tem a forma de um painel de banco:
+
+- **Saldo total** em destaque, com variação desde o início, divisão entre investido, caixa e rendimento das posições, e um botão para esconder os valores.
+- **Onde está o dinheiro:** rosca de alocação por ação e caixa.
+- **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro 7D, 30D ou Tudo e cursor.
+- **Rendimento comparado:** barras com o retorno de cada carteira e uma explicação em texto.
+- **Seus ativos:** um cartão por ação, com preço real, variação no dia, gráfico de 30 dias e situação (na carteira, compra agendada, venda agendada ou sem posição). O cartão mostra também a posição e o rendimento, e a última notícia analisada: o que a IA classificou, o que a regra decidiu e por quê.
+- **Rendimento de cada decisão:** barras para cima (ganho) ou para baixo (perda), com a calculadora "E se eu tivesse aplicado R$ X".
+- **Histórico da regra:** decisões executadas, rendimento médio, acertos, melhor e pior, e a margem de incerteza da média.
+- **Próximas movimentações** e **extrato**, como num banco, além das ordens não executadas com o motivo.
+- **Como funciona:** a explicação passo a passo, incluindo por que não existe "quanto vai render".
+
+**Não há previsão de rendimento.** Ninguém sabe quanto uma ação vai render, e mostrar um número desses seria inventá-lo. A aba mostra o que já aconteceu e a incerteza disso.
 
 É uma **validação prospectiva**: cada decisão é registrada antes de o resultado existir, então não há como ajustar nada olhando o futuro, e não há contaminação pelo conhecimento do LLM. **Enquanto a regra não for congelada, o resultado é exploratório** e não substitui o período de teste. Não é recomendação de investimento.
 
