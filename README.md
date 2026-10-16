@@ -56,6 +56,7 @@ Controle adicional, que não entra no critério: o baseline 2 (sorteio) dá a fr
   - **Ibovespa com a mesma exposição diária da estratégia**. A estratégia investe no máximo 20% por ação e deixa o resto em caixa, enquanto o Ibovespa comprado e segurado fica 100% investido. Comparar com o Ibovespa na mesma exposição separa a seleção do simples fato de estar mais ou menos investido.
 - **Do critério:** excesso médio por operação, estatística t e p-valor (seção 3).
 - **De apoio:** número de operações, taxa de acerto e erro padrão do retorno médio por operação.
+- **Sensibilidade a custos:** `backtest.sensibilidade_custos(eventos, precos, periodo, tipo_fonte)` repete o backtest com 0%, 0,1%, 0,25% e 0,5% por operação (em cada compra e cada venda) e devolve os retornos e se o critério passa em cada caso. Não muda os custos de `config.py`, que continuam zerados até haver valores aprovados; serve para mostrar se um resultado positivo sobrevive a custos plausíveis.
 
 ## 5. Data de congelamento da regra
 
@@ -224,23 +225,39 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 2. **Sorteio:** mantém o mesmo número de operações e as mesmas durações da estratégia, com ticker e data de entrada sorteados. Usa 1000 simulações e a semente `20261015`, e devolve a distribuição e a fração de sorteios que empatam com a estratégia ou a superam.
 3. **Comprar e segurar o Ibovespa** (`^BVSP`).
 
-## 12. Configuração
+## 12. Instalação em qualquer computador
 
-1. Python 3.11 ou superior. O projeto foi desenvolvido com Python 3.12.
-2. Crie o ambiente e instale as dependências:
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate          # Windows (Linux/macOS: source .venv/bin/activate)
-   pip install -r requirements.txt
-   ```
-3. Chave de API: copie `.env.example` para `.env` e preencha os valores. O `.env` está no `.gitignore`, e a chave **nunca** vai para o código nem para o git.
-   ```
-   LLM_API_KEY=...          # chave da API do provedor escolhido
-   LLM_PROVEDOR=openai      # ou anthropic
-   LLM_MODELO=...           # obrigatório com openai; com anthropic, padrão claude-opus-5-5
-   ```
-   Depois de escolher o modelo, registre a data de corte de conhecimento dele em `DATA_CORTE_CONHECIMENTO_MODELO` (seção 5.1), tirada da documentação oficial do provedor.
-   Para rodar sem LLM real, use o modo de teste.
+Baixe o projeto (`git clone` ou o ZIP do GitHub) e rode o instalador. Ele pode ser rodado de novo quando quiser: usa o que já estiver instalado e só completa o que falta.
+
+| Sistema | Instalar | Abrir o QUANT | Ligar/desligar a coleta automática |
+|---|---|---|---|
+| **Windows** | dois cliques em `instalar.cmd` | dois cliques em `QUANT.cmd` | `agendar.cmd` / `agendar.cmd -Remover` |
+| **macOS / Linux** | `bash instalar.sh` | `bash QUANT.sh` | `bash scripts/agendar-unix.sh` / `... --remover` |
+
+O instalador, em 7 passos:
+
+1. **Python 3.11+:** usa o que já existir. No Windows, se faltar, instala o 3.12 pelo `winget`; no macOS/Linux, diz o comando (`brew install python@3.12`, `apt install python3.12 python3.12-venv`).
+2. **Node.js 18+:** idem (`winget`, `brew install node` ou nodejs.org).
+3. **`.venv` e dependências Python:** recria a `.venv` se ela estiver quebrada, por exemplo depois de copiar a pasta de outro computador.
+4. **Dependências do site:** `npm install`. Os atalhos `.cmd` usam `npm.cmd`, então o bloqueio de scripts do PowerShell não atrapalha.
+5. **`.env`:** cria a partir do `.env.example` e pergunta a chave do LLM. Pode pular: sem chave, o QUANT continua coletando notícias e só não as analisa.
+6. **Testes:** roda os testes automáticos (sem internet e sem custo) para conferir a instalação.
+7. **Coleta automática:** oferece ativar no Agendador de Tarefas do Windows ou no `cron` (macOS/Linux).
+
+**Mesmo modelo em todos os computadores.** O `.env.example` já traz `LLM_MODELO=gpt-4.1-2025-04-14`. A versão do modelo é parâmetro da pesquisa (seção 5): trocar de modelo entre computadores muda os resultados. Registre a data de corte de conhecimento dele em `DATA_CORTE_CONHECIMENTO_MODELO` (seção 5.1), tirada da documentação oficial do provedor.
+
+**Instalação manual** (se preferir):
+
+```bash
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt      # macOS/Linux: .venv/bin/python -m pip ...
+npm install
+copy .env.example .env                                      # macOS/Linux: cp .env.example .env
+```
+
+O `.env` está no `.gitignore`: a chave **nunca** vai para o código nem para o git. Para rodar sem LLM real, use o modo de teste.
+
+**Vários computadores:** cada um tem sua própria pasta `data/`, que não vai para o git. Para a pesquisa, deixe a coleta automática ligada em **um** computador principal, de preferência um que fique ligado. A vitrine se recusa a publicar a partir de um computador com menos dados que a versão online (seção 14).
 
 ## 13. Como rodar
 
@@ -256,7 +273,7 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | Hash dos preços (congelamento) | `python -c "from src import backtest; print(backtest.hash_dos_precos())"` |
 | Backtest | Ainda não pode ser executado: os períodos estão pendentes de aprovação. Depois de aprovados: `backtest.rodar_backtest(eventos, backtest.carregar_precos(inicio, fim), backtest.periodo_do_config("treino"), "noticia")` |
 
-O pipeline pode ser retomado. Se for interrompido, rodar de novo no mesmo dia reaproveita a coleta, a extração, a classificação e as explicações já gravadas, sem novas chamadas ao LLM, e não duplica registros no log de auditoria. Notícias que já estavam no arquivo sem passar pela IA (por exemplo, coletadas antes pelo botão "Coletar notícias" ou por `archive --coletar`) são extraídas na próxima execução, desde que voltem na coleta; o resumo mostra quantas em `ja_arquivados_sem_extracao`.
+O pipeline pode ser retomado e rodado várias vezes por dia. Rodar de novo coleta outra vez (sem custo) e soma as notícias novas ao dia; a extração, a classificação e as explicações já gravadas são reaproveitadas, sem novas chamadas ao LLM, e o log de auditoria não duplica registros. Notícias que já estavam no arquivo sem passar pela IA (por exemplo, coletadas antes pelo botão "Coletar notícias" ou por `archive --coletar`) são extraídas na próxima execução, desde que voltem na coleta; o resumo mostra quantas em `ja_arquivados_sem_extracao`.
 
 Saídas em `data/` (fora do git):
 
@@ -265,10 +282,25 @@ Saídas em `data/` (fora do git):
 - `operacoes.jsonl`: log de auditoria;
 - `precos/`: cache de preços, com `downloads.jsonl` registrando a data e o SHA-256 de cada download.
 
-### Agendamento e backup
+### Funcionamento automático, agendamento e backup
 
-- **Agendamento diário (Windows):** preparado em `scripts\agendar-windows.ps1`, mas inativo até você executá-lo deliberadamente.
-- **Backup:** cada execução real cria um ZIP com os dados. O destino prioriza o OneDrive detectado no Windows; `QUANT_BACKUP_DIR` permite escolher outra pasta. Sem OneDrive, um aviso informa se o destino local está no mesmo disco.
+O pipeline pode rodar várias vezes por dia. Cada execução coleta de novo, soma ao que já foi coletado no dia e só manda para o LLM o que é novo; sem notícia nova, não há nenhuma chamada paga (nem o resumo do relatório, que só é refeito quando as decisões mudam). Uma trava (`data/.pipeline.lock`) impede duas execuções ao mesmo tempo, por exemplo o agendamento e o botão da interface.
+
+**Por que coletar com frequência:** os feeds RSS mostram só as 10 notícias mais recentes. Medido em 16/10/2026, isso cobria cerca de 1,2 hora no InfoMoney e 3 horas no Money Times. Coletando uma vez por dia, a maior parte das notícias se perderia.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1                       # pipeline a cada 30 min + vitrine às 20h
+powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -IntervaloMinutos 60  # a cada hora
+powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -SoColeta             # só coleta, sem LLM e sem custo
+powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Publicar             # a vitrine diária também faz git push
+powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Remover              # desfaz
+```
+
+- **Tarefas criadas:** "QUANT - coleta automatica" (a cada 30 min, sem fim) e "QUANT - vitrine diaria" (20h). Rodam pelo `pythonw.exe`, sem abrir janela, via `python -m src.agendado pipeline|coleta|vitrine`. Se o computador estiver desligado ou dormindo, a tarefa roda quando ele voltar.
+- **Log:** `data/agendamento.log`, em UTF-8, com início, resumo e fim de cada execução (e o erro completo, se houver). Ao passar de 5 MB, vira `agendamento.log.old`.
+- **Na interface:** a página Notícias mostra a hora da última coleta e quantas notícias novas ela trouxe, recarrega sozinha a cada 5 minutos e avisa se a coleta automática parecer parada (mais de 3 horas sem coletar).
+- **Certificados:** o InfoMoney serve a cadeia de certificados incompleta, que o Python sozinho recusa. Os downloads usam a verificação do sistema operacional (`truststore`, em `src/rede.py`), que continua recusando certificado inválido.
+- **Backup:** cada execução real pode criar um ZIP com os dados, mas no máximo um a cada 6 horas. O destino prioriza o OneDrive detectado no Windows; `QUANT_BACKUP_DIR` permite escolher outra pasta. Sem OneDrive, um aviso informa se o destino local está no mesmo disco.
 
 ## 14. Interface web
 
@@ -338,6 +370,7 @@ A aba tem a forma de um painel de banco:
 - **Maturidade da simulação:** selo "muito cedo / histórico curto / histórico razoável", com barras de progresso de dias de pregão (meta de 126) e de decisões (meta de 30). Serve para que ninguém conclua "é seguro" com poucas semanas de dados fictícios.
 - **Produtos que você está testando:** Estratégia QUANT, Seguir toda notícia, Ibovespa e Renda fixa (CDI). Cada um mostra rentabilidade, oscilação (baixa < 10%, média < 25%, alta ≥ 25% ao ano), pior queda e % de dias no positivo, e um selo marca o de maior rendimento.
 - **Renda fixa (CDI):** o mesmo capital aplicado a 100% do CDI desde o primeiro pregão, sem impostos nem taxas (série 12 do SGS do Banco Central, com cache em `data/simulacao/cdi/`). Mostra o custo de oportunidade do caixa, que na simulação rende 0%. É só comparação: não entra na regra nem no critério estatístico. Se o Banco Central não responder, a carteira aparece sem esse produto e com um aviso.
+- **E com custos?** Abaixo dos produtos, o rendimento que a estratégia teria com 0,1%, 0,25% e 0,5% de custo por operação.
 - **Onde está o dinheiro:** rosca de alocação por ação e caixa.
 - **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro Semana, Mês ou Tudo e cursor.
 - **Seus ativos:** um cartão por ação, com preço real, variação no dia, gráfico de 30 dias e situação (na carteira, compra agendada, venda agendada ou sem posição). O cartão mostra também a posição e o rendimento, e a última notícia analisada: o que a IA classificou, o que a regra decidiu e por quê.

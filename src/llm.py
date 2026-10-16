@@ -35,7 +35,8 @@ def carregar_env(caminho=None) -> None:
     """Carrega variáveis de um arquivo .env sem sobrescrever as já definidas."""
     caminho = caminho or (config.RAIZ_PROJETO / ".env")
     try:
-        linhas = open(caminho, encoding="utf-8").read().splitlines()
+        # utf-8-sig: aceita o .env com BOM (o Bloco de Notas e o PowerShell 5.1 às vezes gravam).
+        linhas = open(caminho, encoding="utf-8-sig").read().splitlines()
     except FileNotFoundError:
         return
     for linha in linhas:

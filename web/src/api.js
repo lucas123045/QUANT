@@ -45,7 +45,7 @@ async function pedirVitrine(caminho, opcoes) {
       return lerArquivo(`execucoes-${base}.json`);
     case "noticias": {
       // Mesmos filtros da API, aplicados no navegador.
-      const { itens } = await lerArquivo(`noticias-${base}.json`);
+      const { itens, ultima_coleta: ultimaColeta = null } = await lerArquivo(`noticias-${base}.json`);
       const ticker = url.searchParams.get("ticker");
       const termo = (url.searchParams.get("q") || "").toLowerCase();
       const soCarteira = url.searchParams.get("so_carteira") === "true";
@@ -54,7 +54,7 @@ async function pedirVitrine(caminho, opcoes) {
         && (!ticker || n.tickers_atuais.includes(ticker))
         && (!termo || `${n.titulo} ${n.texto}`.toLowerCase().includes(termo)));
       const limite = Number(url.searchParams.get("limite")) || 300;
-      return { total: filtrados.length, itens: filtrados.slice(0, limite) };
+      return { total: filtrados.length, itens: filtrados.slice(0, limite), ultima_coleta: ultimaColeta };
     }
     default:
       throw new Error("Recurso indisponível na versão online.");
@@ -87,8 +87,12 @@ async function buscar(caminho, opcoes) {
   return corpo;
 }
 
-/** Carrega um endpoint e recarrega quando o caminho muda. */
-export function useApi(caminho) {
+/**
+ * Carrega um endpoint e recarrega quando o caminho muda.
+ * `intervaloMs` (opcional): recarrega sozinho de tempos em tempos, só com a aba
+ * visível e só com a API ao vivo (na vitrine os dados não mudam).
+ */
+export function useApi(caminho, intervaloMs = 0) {
   const [dados, setDados] = useState(null);
   const [erro, setErro] = useState(null);
   const [carregando, setCarregando] = useState(true);
@@ -109,6 +113,14 @@ export function useApi(caminho) {
   }, [caminho]);
 
   useEffect(recarregar, [recarregar]);
+  useEffect(() => {
+    if (!intervaloMs || VITRINE) return undefined;
+    const id = setInterval(() => { if (document.visibilityState === "visible") recarregar(); }, intervaloMs);
+    // Voltou para a aba depois de um tempo: atualiza na hora.
+    const aoVoltar = () => { if (document.visibilityState === "visible") recarregar(); };
+    document.addEventListener("visibilitychange", aoVoltar);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", aoVoltar); };
+  }, [intervaloMs, recarregar]);
   return { dados, erro, carregando, recarregar };
 }
 

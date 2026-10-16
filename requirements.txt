@@ -2,6 +2,8 @@
 pytest>=8.0
 # Coleta de notícias (RSS)
 feedparser>=6.0
+# Verificação de certificados pelo sistema operacional (o InfoMoney serve a cadeia incompleta)
+truststore>=0.9
 # Preços históricos e manipulação de séries
 yfinance>=0.2
 pandas>=2.0

@@ -74,6 +74,18 @@ def aviso_destino(dir_data: Path | None = None, destino: Path | None = None) -> 
     return None
 
 
+def ultimo_backup(destino: Path | None = None) -> datetime | None:
+    """Horário (local, sem fuso) do backup mais recente na pasta, pelo nome do arquivo."""
+    destino = Path(destino or pasta_destino())
+    horarios = []
+    for zip_ in destino.glob("quant-dados-*.zip"):
+        try:
+            horarios.append(datetime.strptime(zip_.stem, "quant-dados-%Y-%m-%d_%H%M%S"))
+        except ValueError:
+            continue  # arquivo com outro nome: ignora
+    return max(horarios, default=None)
+
+
 def fazer_backup(dir_data: Path | None = None, destino: Path | None = None,
                  agora: datetime | None = None) -> Path | None:
     """Compacta os dados e devolve o caminho do .zip (None se não houver dados)."""

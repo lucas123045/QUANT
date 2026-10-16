@@ -17,7 +17,7 @@
       try {
         if (localStorage.getItem("quant.tema") === "claro") {
           document.documentElement.dataset.tema = "claro";
-          document.querySelector('meta[name="theme-color"]').setAttribute("content", "#ece8de");
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", "#d5cfc2");
         }
       } catch (e) {}
     </script>
@@ -30,7 +30,7 @@
         font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
         transition: opacity .5s ease, visibility .5s ease;
       }
-      [data-tema="claro"] #abertura { background: #ece8de; color: #1c1e1d; }
+      [data-tema="claro"] #abertura { background: #d5cfc2; color: #1c1e1d; }
       #abertura.saindo { opacity: 0; visibility: hidden; }
       #abertura .abertura-halo {
         position: absolute; width: 420px; height: 420px; border-radius: 50%;

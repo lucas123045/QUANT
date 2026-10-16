@@ -555,3 +555,36 @@ def rodar_backtest(
     resultado["contaminacao_llm"] = verificar_contaminacao(inicio)
     resultado["operacoes_estrategia"] = simulacoes["estrategia"].operacoes
     return resultado
+
+
+# Custos por operação (cada compra e cada venda) para a análise de sensibilidade.
+# Não substituem os custos de config.py (zerados até haver valores aprovados):
+# servem para ver se um resultado positivo sobrevive a custos plausíveis.
+CUSTOS_SENSIBILIDADE = (0.0, 0.001, 0.0025, 0.005)
+
+
+def sensibilidade_custos(
+    eventos: list[dict],
+    precos: pd.DataFrame,
+    periodo: tuple[str, str] | None,
+    tipo_fonte: str,
+    custos: tuple[float, ...] = CUSTOS_SENSIBILIDADE,
+    nome_periodo: str = "período",
+    capital: float | None = None,
+) -> list[dict]:
+    """O mesmo backtest com custos diferentes: o resultado sobrevive a custos realistas?
+
+    O custo incide na estratégia e no baseline 1 (que também operam); o Ibovespa
+    comprado e segurado não paga custo por operação. Mesmas travas de período.
+    """
+    linhas = []
+    for custo in custos:
+        r = rodar_backtest(eventos, precos, periodo, tipo_fonte, nome_periodo, capital, custo)
+        linhas.append({
+            "custo": custo,
+            "retorno_estrategia": r["estrategia"]["retorno_acumulado"],
+            "retorno_baseline_1": r["baseline_1"]["retorno_acumulado"],
+            "retorno_ibovespa": r["ibovespa"]["retorno_acumulado"],
+            "sinal_demonstrado": r["criterio"]["sinal_demonstrado"],
+        })
+    return linhas

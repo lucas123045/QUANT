@@ -11,12 +11,13 @@ próximo dia útil.
 """
 
 import json
-import urllib.request
 from collections.abc import Callable
 from datetime import date
 from pathlib import Path
 
 import pandas as pd
+
+from src import rede
 
 URL_SGS = ("https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json"
            "&dataInicial={inicio}&dataFinal={fim}")
@@ -24,9 +25,7 @@ URL_SGS = ("https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json"
 
 def baixar_bcb(inicio: date, fim: date) -> list[dict]:
     url = URL_SGS.format(inicio=inicio.strftime("%d/%m/%Y"), fim=fim.strftime("%d/%m/%Y"))
-    pedido = urllib.request.Request(url, headers={"User-Agent": "quant-academico/1.0"})
-    with urllib.request.urlopen(pedido, timeout=30) as resposta:
-        return json.loads(resposta.read())
+    return json.loads(rede.baixar(url, 30, "quant-academico/1.0"))
 
 
 def carregar_cdi(inicio: date, fim: date, pasta: Path,

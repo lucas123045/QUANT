@@ -308,10 +308,17 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
     resultado = {**base, "estado": "ok", "inicio": inicio.isoformat(),
                  "ultimo_fechamento": precos.index[-1].date().isoformat(), "pendentes": pendentes}
 
-    simulacoes = {}
+    simulacoes, ordens = {}, {}
     for nome, lista in (("estrategia", sinais), ("baseline_1", sinais_b1)):
-        ordens = backtest.sinais_para_ordens(lista, precos.index)
-        simulacoes[nome] = backtest.simular(ordens, precos, capital)
+        ordens[nome] = backtest.sinais_para_ordens(lista, precos.index)
+        simulacoes[nome] = backtest.simular(ordens[nome], precos, capital)
+    # Os custos de config.py estão zerados: mostra quanto a estratégia teria
+    # rendido pagando custos plausíveis por operação (cada compra e cada venda).
+    resultado["sensibilidade_custos"] = []
+    for custo in backtest.CUSTOS_SENSIBILIDADE[1:]:
+        patrimonio = backtest.simular(ordens["estrategia"], precos, capital, custo).patrimonio
+        resultado["sensibilidade_custos"].append(
+            {"custo": custo, "retorno_acumulado": float(patrimonio.iloc[-1] / patrimonio.iloc[0] - 1)})
     ibov = backtest.comprar_e_segurar(precos[config.BENCHMARK], capital)
     renda_fixa = _renda_fixa(precos.index, capital, dir_data, baixar_cdi)
     if renda_fixa is None:

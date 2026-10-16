@@ -256,17 +256,37 @@ function Produtos({ d, oculto }) {
         investido — um colchão também não oscila. Para comparar habilidade, olhe a diferença de rendimento, não só a oscilação.
       </p>
       {rendaFixa ? (
+        // O texto vai num único <span>: a nota é flexível e cada trecho viraria uma coluna.
         <p className="f-nota">
-          <Icone nome="info" tamanho={14} /> Na simulação, o caixa da estratégia rende 0%. Deixar tudo no CDI teria
-          rendido {pct(rendaFixa.retorno_acumulado)} no mesmo período: a estratégia está{" "}
-          <strong className={tom(est.retorno_acumulado - rendaFixa.retorno_acumulado)}>
-            {formatarNumero(Math.abs(est.retorno_acumulado - rendaFixa.retorno_acumulado) * 100, 2)} pontos percentuais
-            {est.retorno_acumulado >= rendaFixa.retorno_acumulado ? " acima" : " abaixo"}
-          </strong>{" "}
-          da renda fixa.
+          <Icone nome="info" tamanho={14} />
+          <span>
+            Na simulação, o caixa da estratégia rende 0%. Deixar tudo no CDI teria
+            rendido {pct(rendaFixa.retorno_acumulado)} no mesmo período: a estratégia está{" "}
+            <strong className={tom(est.retorno_acumulado - rendaFixa.retorno_acumulado)}>
+              {formatarNumero(Math.abs(est.retorno_acumulado - rendaFixa.retorno_acumulado) * 100, 2)} pontos percentuais
+              {est.retorno_acumulado >= rendaFixa.retorno_acumulado ? " acima" : " abaixo"}
+            </strong>{" "}
+            da renda fixa.
+          </span>
         </p>
       ) : d.cdi_indisponivel && (
-        <p className="f-nota"><Icone nome="info" tamanho={14} /> {d.cdi_indisponivel}</p>
+        <p className="f-nota"><Icone nome="info" tamanho={14} /> <span>{d.cdi_indisponivel}</span></p>
+      )}
+      {!!d.sensibilidade_custos?.length && (
+        <p className="f-nota">
+          <Icone nome="info" tamanho={14} />
+          <span>
+            E com custos? Os custos configurados estão zerados. Pagando por operação{" "}
+            {d.sensibilidade_custos.map((s, i) => (
+              <span key={s.custo}>
+                {i ? (i === d.sensibilidade_custos.length - 1 ? " ou " : ", ") : ""}
+                {formatarNumero(s.custo * 100, 2)}%, a estratégia teria rendido{" "}
+                <strong className={tom(s.retorno_acumulado)}>{pct(s.retorno_acumulado)}</strong>
+              </span>
+            ))}
+            .
+          </span>
+        </p>
       )}
     </section>
   );

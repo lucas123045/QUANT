@@ -13,6 +13,7 @@
   --texto: #e6eae7;
   --texto-2: #9aa49e;
   --texto-3: #636c66;
+  --sobre-acento: #0b0d0c;
   --acento: #e3a336;
   --acento-forte: #f0b54e;
   --acento-fundo: rgb(227 163 54 / 0.14);
@@ -30,30 +31,34 @@
   color-scheme: dark;
 }
 
+/* Tema claro em tons médios de areia: nada perto do branco (a versão anterior,
+   quase toda em #f4–#f8, ofuscava). Cartões um degrau acima do fundo, linhas e
+   textos mais escuros para manter o contraste. */
 :root[data-tema="claro"] {
-  --fundo: #ece8de;
-  --lateral: #f4f1ea;
-  --painel: #f8f6f1;
-  --painel-2: #efebe2;
-  --painel-3: #e5e0d4;
-  --linha: #ddd7ca;
-  --linha-forte: #c9c2b2;
-  --texto: #1c1e1d;
-  --texto-2: #5e625c;
-  --texto-3: #8b8d85;
-  --acento: #a86400;
-  --acento-forte: #c27500;
-  --acento-fundo: rgb(168 100 0 / 0.1);
-  --positivo: #1d7a4c;
-  --positivo-fundo: rgb(29 122 76 / 0.1);
-  --negativo: #b3352c;
-  --negativo-fundo: rgb(179 53 44 / 0.1);
+  --fundo: #d5cfc2;
+  --lateral: #cbc4b5;
+  --painel: #e2ddd2;
+  --painel-2: #d8d2c5;
+  --painel-3: #ccc5b6;
+  --linha: #c3bbab;
+  --linha-forte: #aea592;
+  --texto: #191b1a;
+  --texto-2: #41453f;
+  --texto-3: #565a52;
+  --sobre-acento: #ffffff;
+  --acento: #8a5000;
+  --acento-forte: #a05f00;
+  --acento-fundo: rgb(138 80 0 / 0.13);
+  --positivo: #146339;
+  --positivo-fundo: rgb(20 99 57 / 0.13);
+  --negativo: #9e2a22;
+  --negativo-fundo: rgb(158 42 34 / 0.12);
   --console: #1a1c1b;
-  --saldo-fundo: linear-gradient(135deg, #f6e3c2 0%, #f8f1e4 60%, #f8f6f1 100%);
-  --sombra: 0 1px 2px rgb(60 50 30 / 0.06);
-  --serie-1: #2a78d6; --serie-2: #eb6834; --serie-3: #1baf7a; --serie-4: #7a4bcc;
-  --cat-1: #2a78d6; --cat-2: #eb6834; --cat-3: #1baf7a; --cat-4: #eda100; --cat-5: #e87ba4;
-  --cat-caixa: #b9b3a3;
+  --saldo-fundo: linear-gradient(135deg, #dcc59a 0%, #ddd3bf 60%, #e2ddd2 100%);
+  --sombra: 0 1px 2px rgb(50 40 20 / 0.10);
+  --serie-1: #1f62b8; --serie-2: #c4501c; --serie-3: #11805a; --serie-4: #6538b3;
+  --cat-1: #1f62b8; --cat-2: #c4501c; --cat-3: #11805a; --cat-4: #b07800; --cat-5: #b8466f;
+  --cat-caixa: #978f7e;
   color-scheme: light;
 }
 
@@ -75,7 +80,7 @@ a:hover { text-decoration: underline; }
 button { font: inherit; color: inherit; cursor: pointer; }
 h1, h2 { margin: 0; }
 h2 { font-size: 15px; font-weight: 600; }
-::selection { background: var(--acento); color: #0b0d0c; }
+::selection { background: var(--acento); color: var(--sobre-acento); }
 .icone { flex-shrink: 0; }
 
 .rotulo, th { font-size: 12px; font-weight: 500; color: var(--texto-2); }
@@ -93,7 +98,7 @@ h2 { font-size: 15px; font-weight: 600; }
 .marca strong { font-size: 18px; letter-spacing: 0.06em; }
 .marca-logo {
   width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
-  background: var(--acento); color: #0b0d0c;
+  background: var(--acento); color: var(--sobre-acento);
 }
 nav { display: flex; flex-direction: column; gap: 2px; }
 .nav-item {
@@ -201,7 +206,7 @@ nav { display: flex; flex-direction: column; gap: 2px; }
   border-radius: 10px; font-weight: 600; margin-top: 12px;
 }
 .botao:hover:not(:disabled) { background: var(--painel-3); }
-.botao.primario { background: var(--acento); border-color: var(--acento); color: #0b0d0c; }
+.botao.primario { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); }
 .botao.primario:hover:not(:disabled) { background: var(--acento-forte); }
 .botao:disabled { opacity: 0.45; cursor: not-allowed; }
 .botao-link { border: 0; background: none; color: var(--acento); padding: 0; font-weight: 500; font-size: 13px; }
@@ -257,6 +262,8 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
 .noticia-texto { margin: 0; color: var(--texto-2); font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .mais-itens { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--linha); font-size: 13px; }
 .mais-itens .botao { margin-top: 0; }
+.ultima-coleta { margin: -6px 0 12px; font-size: 12.5px; color: var(--texto-2); }
+.ultima-coleta.atrasada { color: var(--acento); font-weight: 500; }
 
 /* ----------------------------------------------- execuções / operações / ações */
 .lista-dias { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -416,7 +423,7 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
 .f-ativo header div { display: flex; flex-direction: column; line-height: 1.3; }
 .f-ativo header small { color: var(--texto-2); font-size: 12px; }
 .f-ativo-logo {
-  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: #0b0d0c;
+  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--sobre-acento);
   font-weight: 700; font-size: 13px; letter-spacing: 0.02em;
 }
 .f-ativo-logo.pequeno { width: 32px; height: 32px; border-radius: 10px; font-size: 11px; }
@@ -510,7 +517,7 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
   background: var(--painel-3); color: var(--texto-2); font-weight: 600; font-size: 13px;
 }
-.estudo-licao.aberta .estudo-licao-numero { background: var(--acento); color: #0b0d0c; }
+.estudo-licao.aberta .estudo-licao-numero { background: var(--acento); color: var(--sobre-acento); }
 .estudo-licao-titulo { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .estudo-licao-titulo strong { font-size: 15px; font-weight: 600; }
 .estudo-licao-titulo small { color: var(--texto-2); font-size: 13px; line-height: 1.45; }
@@ -629,7 +636,7 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .topo { padding: max(14px, env(safe-area-inset-top)) 16px 4px; gap: 12px; }
   .topo h1 { font-size: 19px; }
   .topo p, .relogio { display: none; }
-  .topo-logo { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--acento); color: #0b0d0c; flex-shrink: 0; }
+  .topo-logo { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--acento); color: var(--sobre-acento); flex-shrink: 0; }
   .topo-perfil {
     display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
     border: 1px solid var(--linha); background: var(--painel); color: var(--texto-2);

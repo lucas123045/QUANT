@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -144,3 +145,63 @@ def test_noticia_ja_extraida_em_dia_anterior_nao_e_extraida_de_novo(tmp_path, co
     resumo = main.executar(agora=AGORA + timedelta(hours=12), teste=True, dir_data=tmp_path)
     assert resumo["ja_arquivados_sem_extracao"] == 0 and resumo["eventos_validos"] == 0
     assert not any("PROMPT_EXTRACAO" in c for c in contador_llm[antes:])
+
+
+def test_execucoes_a_cada_hora_somam_so_o_que_e_novo(tmp_path, monkeypatch, contador_llm):
+    """Rodando de hora em hora: a 2ª execução do dia coleta de novo e só analisa a notícia nova."""
+    from datetime import timedelta
+
+    exemplos = main.itens_de_exemplo(AGORA)
+    lotes = [exemplos[:1], exemplos]  # às 20h só a da Petrobras; às 21h, as três
+    monkeypatch.setattr(main, "itens_de_exemplo", lambda agora: lotes.pop(0))
+
+    primeira = main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    assert (primeira["coletados"], primeira["eventos_validos"], primeira["operacoes"]) == (1, 1, 1)
+    antes = len(contador_llm)
+
+    segunda = main.executar(agora=AGORA + timedelta(hours=1), teste=True, dir_data=tmp_path)
+    assert (segunda["coletados"], segunda["novos_arquivados"]) == (3, 3)
+    assert (segunda["eventos_validos"], segunda["operacoes"]) == (2, 2)
+    extracoes = [c for c in contador_llm[antes:] if "PROMPT_EXTRACAO" in c]
+    assert len(extracoes) == 1  # só a notícia da Vale foi para o LLM
+    assert len(auditoria.ler_operacoes(tmp_path / "operacoes.jsonl")) == 2  # sem duplicar a compra
+
+
+def test_trava_impede_duas_execucoes_ao_mesmo_tempo(tmp_path):
+    import os
+    import time
+
+    trava = tmp_path / ".pipeline.lock"
+    trava.write_text("123")
+    with pytest.raises(main.PipelineEmExecucao):
+        main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    # Trava esquecida por uma execução que morreu: expira e não bloqueia para sempre.
+    velho = time.time() - (main.VALIDADE_TRAVA_HORAS + 1) * 3600
+    os.utime(trava, (velho, velho))
+    assert main.executar(agora=AGORA, teste=True, dir_data=tmp_path)["eventos_validos"] == 2
+    assert not trava.exists()  # liberada no fim
+
+
+def test_backup_no_maximo_a_cada_seis_horas(tmp_path, monkeypatch):
+    from datetime import timedelta
+    from pathlib import Path
+
+    monkeypatch.setattr(news, "baixar_url", lambda url: b"<rss></rss>")  # feeds vazios, sem rede
+    destino = Path(os.environ["QUANT_BACKUP_DIR"])
+    for horas in (0, 1, 2):
+        r = main.executar(agora=AGORA + timedelta(hours=horas), teste=False, dir_data=tmp_path / "data")
+    assert len(list(destino.glob("quant-dados-*.zip"))) == 1
+    assert r["backup"].startswith("mantido")
+    r = main.executar(agora=AGORA + timedelta(hours=7), teste=False, dir_data=tmp_path / "data")
+    assert len(list(destino.glob("quant-dados-*.zip"))) == 2
+
+
+def test_rodar_de_novo_sem_novidade_nao_chama_o_llm(tmp_path, contador_llm):
+    """Agendado a cada 30 min: sem notícia nova, nenhuma chamada paga (nem o resumo do relatório)."""
+    from datetime import timedelta
+
+    main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    antes = len(contador_llm)
+    main.executar(agora=AGORA + timedelta(minutes=30), teste=True, dir_data=tmp_path)
+    assert contador_llm[antes:] == []
+    assert (tmp_path / "execucoes" / "2026-10-15" / "relatorio.txt").exists()

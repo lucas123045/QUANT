@@ -1,0 +1,5 @@
+# Fins de linha fixos por tipo: um .sh com CRLF não roda no macOS/Linux
+# ("bad interpreter"), e .cmd/.ps1 esperam CRLF no Windows.
+*.sh  text eol=lf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf

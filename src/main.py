@@ -18,6 +18,8 @@ import argparse
 import json
 import logging
 import os
+import time
+from contextlib import contextmanager
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -28,6 +30,10 @@ from src.strategy import MANTER, Decisao, decidir
 logger = logging.getLogger(__name__)
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
+# Rodando a cada hora: no máximo um backup a cada tantas horas.
+INTERVALO_BACKUP_HORAS = 6
+# Trava de uma execução que morreu sem apagá-la deixa de valer depois disso.
+VALIDADE_TRAVA_HORAS = 2
 
 AVISO_MODO_TESTE = ("*** MODO DE TESTE: notícias de exemplo e LLM falso por palavras-chave. "
                     "NÃO USAR ESTE RELATÓRIO EM NENHUMA CONCLUSÃO DO TRABALHO. ***")
@@ -78,11 +84,21 @@ def itens_de_exemplo(agora: datetime) -> list[dict]:
 # Etapas
 # ---------------------------------------------------------------------------
 
+def _unir_por_url(antigos: list[dict], novos: list[dict]) -> list[dict]:
+    """Acrescenta os itens de URL ainda não vista, preservando os antigos."""
+    vistas = {i.get("url") for i in antigos}
+    return antigos + [i for i in novos if i.get("url") not in vistas]
+
+
 def etapa_coletar(pasta: Path, agora: datetime, teste: bool) -> list[dict]:
+    """Coleta e acumula no arquivo do dia.
+
+    O pipeline pode rodar várias vezes por dia (ex.: a cada hora): cada execução
+    coleta de novo e soma ao que já foi coletado no dia. Coletar não usa o LLM,
+    então repetir não tem custo; as etapas seguintes só tratam o que é novo.
+    """
     caminho = pasta / "01_coleta.json"
-    if caminho.exists():
-        logger.info("Coleta reaproveitada de %s", caminho)
-        return _ler(caminho, [])
+    anteriores = _ler(caminho, [])
     if teste:
         itens = itens_de_exemplo(agora)
     else:
@@ -91,17 +107,20 @@ def etapa_coletar(pasta: Path, agora: datetime, teste: bool) -> list[dict]:
             itens += news.coletar_fatos_relevantes()
         except NotImplementedError as erro:
             logger.warning("Fonte CVM indisponível (bloqueio documentado): %s", erro)
-    _gravar(caminho, itens)
-    return itens
+    todos = _unir_por_url(anteriores, itens)
+    if anteriores:
+        logger.info("Coleta: %d itens novos nesta execução (%d no dia)", len(todos) - len(anteriores), len(todos))
+    _gravar(caminho, todos)
+    return todos
 
 
 def etapa_arquivar(pasta: Path, itens: list[dict], dir_arquivo: Path, agora: datetime) -> list[dict]:
+    """Arquiva o que é novo e devolve tudo o que esta pasta do dia já arquivou."""
     caminho = pasta / "02_arquivo.json"
-    if caminho.exists():
-        return _ler(caminho, [])
     novos = archive.arquivar(itens, pasta=dir_arquivo, agora=agora)
-    _gravar(caminho, novos)
-    return novos
+    do_dia = _unir_por_url(_ler(caminho, []), novos)
+    _gravar(caminho, do_dia)
+    return do_dia
 
 
 def registros_para_extrair(itens: list[dict], novos: list[dict], dir_arquivo: Path,
@@ -201,6 +220,25 @@ def etapa_explicar(pasta: Path, decisoes: list[dict]) -> dict[str, str]:
     return feitos
 
 
+def etapa_relatorio(pasta: Path, decisoes: list[dict], data: str, teste: bool) -> str:
+    """Relatório do dia, refeito só quando as decisões mudam.
+
+    O resumo do relatório é escrito pelo LLM: com o pipeline rodando a cada 30
+    minutos, refazê-lo sem decisões novas seria uma chamada paga à toa a cada vez.
+    """
+    caminho, marca = pasta / "relatorio.txt", pasta / "08_relatorio.json"
+    assinatura = json.dumps([[d["evento"]["id"], d["decisao"]["decisao"], d["decisao"]["motivo"]]
+                             for d in decisoes], ensure_ascii=False)
+    if caminho.exists() and _ler(marca, {}).get("decisoes") == assinatura:
+        return caminho.read_text(encoding="utf-8")
+    relatorio = explain.gerar_relatorio_diario(decisoes, data)
+    if teste:
+        relatorio = f"{AVISO_MODO_TESTE}\n\n{relatorio}"
+    caminho.write_text(relatorio, encoding="utf-8")
+    _gravar(marca, {"decisoes": assinatura})
+    return relatorio
+
+
 def etapa_registrar(pasta: Path, decisoes: list[dict], explicacoes: dict[str, str],
                     arquivo_operacoes: Path, data: str) -> list[str]:
     """Registra compras e vendas no log de auditoria, uma única vez por evento."""
@@ -230,8 +268,35 @@ def etapa_registrar(pasta: Path, decisoes: list[dict], explicacoes: dict[str, st
 # Execução
 # ---------------------------------------------------------------------------
 
+class PipelineEmExecucao(RuntimeError):
+    """Já há outra execução do pipeline em andamento nesta pasta de dados."""
+
+
+@contextmanager
+def _trava(dir_data: Path):
+    """Uma execução por vez por pasta de dados (agendamento + botão da interface).
+
+    Trava esquecida por uma execução que morreu expira depois de VALIDADE_TRAVA_HORAS.
+    """
+    dir_data.mkdir(parents=True, exist_ok=True)
+    caminho = dir_data / ".pipeline.lock"
+    if caminho.exists() and time.time() - caminho.stat().st_mtime > VALIDADE_TRAVA_HORAS * 3600:
+        logger.warning("Trava antiga removida (%s): a execução anterior não terminou", caminho)
+        caminho.unlink(missing_ok=True)
+    try:
+        descritor = os.open(caminho, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        raise PipelineEmExecucao("Outra execução do pipeline está em andamento; esta foi pulada.") from None
+    os.write(descritor, str(os.getpid()).encode())
+    os.close(descritor)
+    try:
+        yield
+    finally:
+        caminho.unlink(missing_ok=True)
+
+
 def executar(agora: datetime | None = None, teste: bool = False, dir_data: Path | None = None) -> dict:
-    """Roda o pipeline do dia e devolve um resumo."""
+    """Roda o pipeline (pode ser várias vezes por dia) e devolve um resumo."""
     if not teste or llm.modo_teste():
         return _executar(agora, teste or llm.modo_teste(), dir_data)
     # --teste: liga o provedor falso só durante esta execução.
@@ -244,9 +309,13 @@ def executar(agora: datetime | None = None, teste: bool = False, dir_data: Path 
 
 def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dict:
     agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
-    data = agora.date().isoformat()
-
     dir_data = Path(dir_data or (config.DIR_DATA / "teste" if teste else config.DIR_DATA))
+    with _trava(dir_data):
+        return _rodar(agora, teste, dir_data)
+
+
+def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
+    data = agora.date().isoformat()
     dir_execucoes = dir_data / "execucoes"
     pasta = dir_execucoes / data
     pasta.mkdir(parents=True, exist_ok=True)
@@ -264,10 +333,7 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
     registrados = etapa_registrar(pasta, decisoes, explicacoes,
                                   dir_data / "operacoes.jsonl", data)
 
-    relatorio = explain.gerar_relatorio_diario(decisoes, data)
-    if teste:
-        relatorio = f"{AVISO_MODO_TESTE}\n\n{relatorio}"
-    (pasta / "relatorio.txt").write_text(relatorio, encoding="utf-8")
+    etapa_relatorio(pasta, decisoes, data, teste)
 
     resumo = {
         "data": data,
@@ -283,10 +349,16 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
         "por_fonte": contar_por_fonte(itens, teste),
     }
     if not teste:
-        resumo["aviso_backup"] = backup.aviso_destino(dir_data, backup.pasta_destino())
+        destino = backup.pasta_destino()
+        resumo["aviso_backup"] = backup.aviso_destino(dir_data, destino)
+        ultimo = backup.ultimo_backup(destino)
         try:
-            caminho = backup.fazer_backup(dir_data)
-            resumo["backup"] = str(caminho) if caminho else None
+            if ultimo and agora.replace(tzinfo=None) - ultimo < timedelta(hours=INTERVALO_BACKUP_HORAS):
+                # Rodando a cada hora, seriam 24 ZIPs por dia: um a cada poucas horas basta.
+                resumo["backup"] = f"mantido o de {ultimo:%d/%m %H:%M} (um a cada {INTERVALO_BACKUP_HORAS} h)"
+            else:
+                caminho = backup.fazer_backup(dir_data, destino, agora)
+                resumo["backup"] = str(caminho) if caminho else None
         except Exception as erro:  # backup falhar não pode derrubar o pipeline
             logger.error("Backup falhou: %s", erro)
             resumo["backup"] = f"falhou: {erro}"
@@ -336,8 +408,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--teste", action="store_true",
                         help="modo de teste: sem rede e sem LLM real; grava em data/teste/")
     args = parser.parse_args(argv)
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    resumo = executar(teste=args.teste)
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    try:
+        resumo = executar(teste=args.teste)
+    except PipelineEmExecucao as erro:  # agendamento e botão ao mesmo tempo: não é falha
+        print(erro)
+        return 0
     print(json.dumps(resumo, ensure_ascii=False, indent=2))
     print("\n" + Path(resumo["pasta"], "relatorio.txt").read_text(encoding="utf-8"))
     return 0

@@ -139,7 +139,8 @@ def noticias(base: str = "real", ticker: str | None = None, q: str | None = None
         termo = q.lower()
         registros = [r for r in registros if termo in (r["titulo"] + " " + r["texto"]).lower()]
     registros.sort(key=lambda r: r.get("timestamp_publicacao") or "", reverse=True)
-    return {"total": len(registros), "itens": registros[:limite]}
+    return {"total": len(registros), "itens": registros[:limite],
+            "ultima_coleta": archive.ultima_coleta(_dir(base) / "arquivo")}
 
 
 @app.get("/api/execucoes")

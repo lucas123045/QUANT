@@ -1,6 +1,6 @@
 import pytest
 
-from src import cdi, llm
+from src import cdi, llm, rede
 
 CARREGAR_ENV_ORIGINAL = llm.carregar_env
 
@@ -19,3 +19,8 @@ def ambiente_isolado(monkeypatch, tmp_path_factory):
     def sem_rede(inicio, fim):
         raise OSError("rede desligada nos testes")
     monkeypatch.setattr(cdi, "baixar_bcb", sem_rede)
+
+    # Rede bloqueada para todo teste: quem precisar simula a resposta (ex.: news.baixar_url).
+    def rede_bloqueada(url, *args, **kwargs):
+        raise OSError(f"rede desligada nos testes: {url}")
+    monkeypatch.setattr(rede, "baixar", rede_bloqueada)

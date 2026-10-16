@@ -24,6 +24,8 @@ FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 CAMPOS_OBRIGATORIOS = ("tipo_fonte", "fonte", "url", "titulo", "texto",
                        "timestamp_publicacao", "timestamp_coleta")
 TIPOS_FONTE = {"noticia", "fato_relevante"}
+# Fora do padrão *.jsonl de propósito: não é registro do arquivo, só a marca da última coleta.
+ARQUIVO_ULTIMA_COLETA = "_ultima_coleta.json"
 
 
 def _sha256(texto: str) -> str:
@@ -88,8 +90,20 @@ def arquivar(itens: list[dict], pasta: Path | None = None, agora: datetime | Non
         with open(caminho, "a", encoding="utf-8") as f:  # "a": nunca sobrescreve
             for registro in novos:
                 f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+    # Marca a coleta mesmo sem nada novo: a interface mostra quando foi a última.
+    (pasta / ARQUIVO_ULTIMA_COLETA).write_text(json.dumps(
+        {"quando": agora.isoformat(), "coletados": len(itens), "novos": len(novos)}), encoding="utf-8")
     logger.info("Arquivados %d novos de %d coletados", len(novos), len(itens))
     return novos
+
+
+def ultima_coleta(pasta: Path | None = None) -> dict | None:
+    """Horário e contagens da coleta mais recente (None se nunca houve)."""
+    caminho = Path(pasta or config.DIR_ARQUIVO) / ARQUIVO_ULTIMA_COLETA
+    try:
+        return json.loads(caminho.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
 
 
 def main(argv: list[str] | None = None) -> int:

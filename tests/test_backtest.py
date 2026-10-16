@@ -336,3 +336,22 @@ def test_carregamentos_simultaneos_nao_corrompem_o_cache(tmp_path):
     assert not erros
     assert chamadas == ["PETR4.SA"]  # o segundo pedido leu o cache do primeiro
     backtest.carregar_precos("2026-10-05", "2026-10-06", ["PETR4"], tmp_path, baixar)  # sem PrecosAlterados
+
+
+def test_sensibilidade_a_custos():
+    """Compra R$ 20.000 a 10 e vende a 15; com custo c em cada ponta, sobra 30.000 × (1 − c)²."""
+    eventos = [evento("PETR4", "positivo", "2026-03-02T19:00:00-03:00"),
+               evento("PETR4", "negativo", "2026-03-09T12:00:00-03:00")]
+    linhas = backtest.sensibilidade_custos(eventos, PRECOS, PERIODO, "noticia", capital=100_000.0)
+    assert [l["custo"] for l in linhas] == [0.0, 0.001, 0.0025, 0.005]
+    for l in linhas:
+        esperado = (30_000 * (1 - l["custo"]) ** 2 - 20_000) / 100_000
+        assert l["retorno_estrategia"] == pytest.approx(esperado)
+        assert l["retorno_ibovespa"] == pytest.approx(0.10)  # o índice não paga custo por operação
+    retornos = [l["retorno_estrategia"] for l in linhas]
+    assert retornos == sorted(retornos, reverse=True)
+
+
+def test_sensibilidade_respeita_a_trava_de_periodo():
+    with pytest.raises(PeriodoPendente):
+        backtest.sensibilidade_custos([], PRECOS, None, "noticia")

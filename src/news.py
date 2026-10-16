@@ -8,27 +8,24 @@ import calendar
 import html
 import logging
 import re
-import urllib.request
 from collections.abc import Callable
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import feedparser
 
-from src import config
+from src import config, rede
 
 logger = logging.getLogger(__name__)
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 TIMEOUT_SEGUNDOS = 20
-USER_AGENT = "quant-academico/1.0 (+coleta diaria de RSS)"
+USER_AGENT = "quant-academico/1.0 (+coleta de RSS)"
 
 
 def baixar_url(url: str) -> bytes:
-    """Baixa o conteúdo bruto de uma URL (com timeout)."""
-    pedido = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(pedido, timeout=TIMEOUT_SEGUNDOS) as resposta:
-        return resposta.read()
+    """Baixa o conteúdo bruto de uma URL (com timeout e certificados do sistema)."""
+    return rede.baixar(url, TIMEOUT_SEGUNDOS, USER_AGENT)
 
 
 def limpar_html(texto: str) -> str:

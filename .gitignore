@@ -20,3 +20,8 @@ __pycache__/
 node_modules/
 dist/
 data/simulacao/
+
+# Logs e trava do funcionamento automático
+data/*.log
+data/*.log.old
+data/.pipeline.lock

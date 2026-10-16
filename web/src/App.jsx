@@ -137,7 +137,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dataset.tema = tema;
     // Barra do navegador/app no celular acompanha o fundo do tema.
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", tema === "claro" ? "#ece8de" : "#0b0d0c");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", tema === "claro" ? "#d5cfc2" : "#0b0d0c");
     gravarPreferencia("quant.tema", tema);
   }, [tema]);
   // Esc fecha o menu lateral do celular.

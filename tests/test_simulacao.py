@@ -180,3 +180,14 @@ def test_preco_parcial_nao_fica_no_cache_como_fechamento(dados):
                            capital=100_000.0)
     assert r["ultimo_fechamento"] == "2026-10-09"
     assert r["carteiras"]["estrategia"]["patrimonio"] == pytest.approx(106_000)
+
+
+def test_sensibilidade_a_custos_na_carteira(dados):
+    """Compra R$ 20.000 de PETR4 a 10 e marca a 13: com custo c na compra, vale 26.000 × (1 − c)."""
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar,
+                           capital=100_000.0)
+    sens = r["sensibilidade_custos"]
+    assert [s["custo"] for s in sens] == [0.001, 0.0025, 0.005]
+    for s in sens:
+        assert s["retorno_acumulado"] == pytest.approx((80_000 + 26_000 * (1 - s["custo"])) / 100_000 - 1)
+    assert r["carteiras"]["estrategia"]["retorno_acumulado"] == pytest.approx(0.06)  # sem custo, inalterado
