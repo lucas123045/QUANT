@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * Vitrine: a versão publicada (build de produção, ex.: Vercel) não tem a API
@@ -61,8 +61,21 @@ async function pedirVitrine(caminho, opcoes) {
   }
 }
 
-export async function pedir(caminho, opcoes = {}) {
+// Leituras iguais em andamento compartilham a mesma resposta (o React, em
+// desenvolvimento, monta cada página duas vezes e pediria tudo em dobro).
+const leiturasEmAndamento = new Map();
+
+export function pedir(caminho, opcoes = {}) {
   if (VITRINE) return pedirVitrine(caminho, opcoes);
+  if (opcoes.method && opcoes.method !== "GET") return buscar(caminho, opcoes);
+  if (!leiturasEmAndamento.has(caminho)) {
+    leiturasEmAndamento.set(caminho, buscar(caminho, opcoes)
+      .finally(() => leiturasEmAndamento.delete(caminho)));
+  }
+  return leiturasEmAndamento.get(caminho);
+}
+
+async function buscar(caminho, opcoes) {
   const resposta = await fetch(caminho, {
     headers: { "Content-Type": "application/json" },
     ...opcoes,
@@ -80,13 +93,19 @@ export function useApi(caminho) {
   const [erro, setErro] = useState(null);
   const [carregando, setCarregando] = useState(true);
 
+  // Só a resposta do pedido mais recente vale: numa busca digitada rápido, uma
+  // resposta antiga que chegasse por último substituiria a atual na tela.
+  const ultimoPedido = useRef(0);
+
   const recarregar = useCallback(() => {
     if (!caminho) return;
+    const pedido = ++ultimoPedido.current;
+    const atual = () => pedido === ultimoPedido.current;
     setCarregando(true);
     pedir(caminho)
-      .then((d) => { setDados(d); setErro(null); })
-      .catch((e) => setErro(e.message))
-      .finally(() => setCarregando(false));
+      .then((d) => { if (atual()) { setDados(d); setErro(null); } })
+      .catch((e) => { if (atual()) setErro(e.message); })
+      .finally(() => { if (atual()) setCarregando(false); });
   }, [caminho]);
 
   useEffect(recarregar, [recarregar]);
@@ -108,6 +127,11 @@ export function formatarNumero(valor, casas = 2, minimo = 0) {
   if (valor === null || valor === undefined) return "—";
   if (typeof valor !== "number") return String(valor);
   return valor.toLocaleString("pt-BR", { minimumFractionDigits: minimo, maximumFractionDigits: casas });
+}
+
+/** "1 notícia", "3 notícias" — em vez de "notícia(s)". */
+export function plural(n, singular, pluralTexto) {
+  return `${n.toLocaleString("pt-BR")} ${n === 1 ? singular : pluralTexto}`;
 }
 
 export function formatarPreco(valor) {

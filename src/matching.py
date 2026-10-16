@@ -60,4 +60,13 @@ def menciona(texto: str, ticker: str) -> bool:
 def identificar_tickers(texto: str, carteira: list[str] | None = None) -> list[str]:
     """Lista os tickers da carteira mencionados no texto, na ordem da carteira."""
     carteira = config.CARTEIRA if carteira is None else carteira
-    return [t for t in carteira if menciona(texto, t)]
+    return list(_identificar(texto, tuple(carteira)))
+
+
+# A interface recalcula o casamento de todo o arquivo a cada pedido (Notícias,
+# funil): com alguns meses de coleta, seriam segundos por pedido. As regras não
+# mudam com o processo rodando (os padrões já ficam em cache acima), então o
+# resultado por texto também pode ficar.
+@lru_cache(maxsize=20_000)
+def _identificar(texto: str, carteira: tuple[str, ...]) -> tuple[str, ...]:
+    return tuple(t for t in carteira if menciona(texto, t))

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useApi, formatarData } from "../api.js";
+import { useApi, formatarData, plural } from "../api.js";
 import { Cartao, Estado, EtiquetaDecisao, EtiquetaSentimento } from "../ui.jsx";
 
 export default function Operacoes({ base }) {
@@ -7,7 +7,7 @@ export default function Operacoes({ base }) {
   const [aberta, setAberta] = useState(null);
 
   return (
-    <Cartao titulo={dados ? `Log de auditoria · ${dados.length} operação(ões)` : "Log de auditoria"}
+    <Cartao titulo={dados ? `Log de auditoria · ${plural(dados.length, "operação", "operações")}` : "Log de auditoria"}
       acao={<button className="botao-link" onClick={recarregar}>Atualizar</button>}>
       <p className="nota">
         Registro append-only (data/operacoes.jsonl). Cada linha guarda o evento com o trecho da fonte,
@@ -31,6 +31,7 @@ export default function Operacoes({ base }) {
                 {aberta === chave && (
                   <div className="operacao-detalhe">
                     <dl className="lista-chave-valor">
+                      <dt>Classificação (IA)</dt><dd><EtiquetaSentimento classificacao={op.classificacao} /></dd>
                       <dt>Motivo (regra)</dt><dd>{op.motivo}</dd>
                       <dt>Trecho da fonte</dt><dd><blockquote>“{op.evento?.trecho_fonte}”</blockquote></dd>
                       <dt>Origem</dt>

@@ -45,3 +45,24 @@ def test_erro_da_api_vira_arquivo_de_erro(tmp_path, monkeypatch):
     exportar.exportar(tmp_path / "vitrine", bases=("real",))
     sim = json.loads((tmp_path / "vitrine" / "simulacao-real.json").read_text(encoding="utf-8"))
     assert sim["_erro"] == 503 and "sem internet" in sim["detail"]
+
+
+def test_recusa_vitrine_que_encolheu(tmp_path, monkeypatch):
+    """Gerar a vitrine num computador com data/ vazia não pode apagar a publicada."""
+    import pytest
+
+    monkeypatch.setattr(config, "DIR_DATA", tmp_path / "data")  # sem nenhuma notícia
+    monkeypatch.setattr(simulacao, "calcular", lambda d: {"estado": "sem_dados", "ativos": []})
+    destino = tmp_path / "vitrine"
+    destino.mkdir()
+    (destino / "meta.json").write_text(json.dumps({"bases": {"real": {"noticias": 28, "operacoes": 0}}}))
+    (destino / "noticias-real.json").write_text("publicada")
+
+    with pytest.raises(exportar.VitrineEncolheu, match="noticias 28 → 0"):
+        exportar.exportar(destino, bases=("real",))
+    assert (destino / "noticias-real.json").read_text() == "publicada"  # intacta
+    assert not (tmp_path / "vitrine.novo").exists()
+
+    exportar.exportar(destino, bases=("real",), forcar=True)  # decisão explícita
+    assert json.loads((destino / "noticias-real.json").read_text(encoding="utf-8"))["total"] == 0
+    assert not (tmp_path / "vitrine.antigo").exists()

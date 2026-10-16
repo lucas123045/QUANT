@@ -78,11 +78,15 @@ export function BarrasComparacao({ itens, formatar }) {
 /** Barras divergentes: rendimento de cada decisão, para cima (ganho) ou para baixo (perda). */
 export function BarrasRendimento({ itens, formatar }) {
   const [foco, setFoco] = useState(null);
-  const altura = 180;
+  // Só reserva espaço abaixo da linha do zero se houver perda (e acima, se houver ganho).
+  const comGanho = itens.some((i) => i.valor >= 0);
+  const comPerda = itens.some((i) => i.valor < 0);
+  const metade = 90;
+  const altura = comGanho && comPerda ? 2 * metade : metade + 22;
+  const meio = comGanho ? metade : 22;
   const maximo = Math.max(0.01, ...itens.map((i) => Math.abs(i.valor)));
   const largura = Math.max(36, Math.min(64, 640 / Math.max(1, itens.length)));
-  const meio = altura / 2;
-  const escala = (meio - 22) / maximo;
+  const escala = (metade - 22) / maximo;
   const total = itens.length * largura;
   return (
     <div className="barras-rend">

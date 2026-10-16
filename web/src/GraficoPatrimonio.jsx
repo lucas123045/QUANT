@@ -5,6 +5,7 @@ export const SERIES = [
   { chave: "estrategia", nome: "Estratégia (regra)", cor: "var(--serie-1)" },
   { chave: "baseline_1", nome: "Baseline 1 (toda notícia positiva)", cor: "var(--serie-2)" },
   { chave: "ibovespa", nome: "Ibovespa (comprar e segurar)", cor: "var(--serie-3)" },
+  { chave: "cdi", nome: "Renda fixa (100% do CDI)", cor: "var(--serie-4)" },
 ];
 
 const ALTURA = 300;
@@ -71,7 +72,9 @@ export default function GraficoPatrimonio({ serie, capital }) {
   const M = compacto ? MARGEM_COMPACTA : MARGEM;
   const altura = compacto ? ALTURA_COMPACTA : ALTURA;
 
-  const valores = serie.flatMap((p) => SERIES.map((s) => p[s.chave])).filter((v) => v != null);
+  // Só as séries com dados (o CDI some quando o Banco Central não responde).
+  const series = SERIES.filter((s) => serie.some((p) => p[s.chave] != null));
+  const valores = serie.flatMap((p) => series.map((s) => p[s.chave])).filter((v) => v != null);
   const bruto = [Math.min(capital, ...valores), Math.max(capital, ...valores)];
   const folga = (bruto[1] - bruto[0]) * 0.1 || capital * 0.01;
   const ticks = marcas(bruto[0] - folga, bruto[1] + folga);
@@ -84,12 +87,18 @@ export default function GraficoPatrimonio({ serie, capital }) {
 
   // Rótulos no fim das linhas, afastados para não se sobreporem.
   const ultimo = serie[serie.length - 1];
-  const rotulos = SERIES.filter((s) => ultimo[s.chave] != null)
+  const rotulos = series.filter((s) => ultimo[s.chave] != null)
     .map((s) => ({ ...s, valor: ultimo[s.chave], yAlvo: y(ultimo[s.chave]) }))
     .sort((a, b) => a.yAlvo - b.yAlvo);
   rotulos.forEach((r, i) => { r.yTexto = i ? Math.max(r.yAlvo, rotulos[i - 1].yTexto + 30) : r.yAlvo; });
 
   const passoX = Math.max(1, Math.ceil(serie.length / Math.max(2, Math.floor(larguraUtil / 90))));
+  // Datas do eixo: a cada passoX, mais o último dia; um rótulo regular colado
+  // no último sai, para os dois não se sobreporem.
+  const ultimoIndice = serie.length - 1;
+  const datasEixo = serie.map((_, i) => i).filter((i) => i === ultimoIndice
+    || (i % passoX === 0 && (ultimoIndice - i) * (larguraUtil / Math.max(1, ultimoIndice)) >= 64));
+  const ancora = (i) => (serie.length < 2 ? "middle" : i === 0 ? "start" : i === ultimoIndice ? "end" : "middle");
 
   function aoMover(evento) {
     // O retângulo de captura cobre só a área útil: a fração horizontal já é a do eixo X.
@@ -104,7 +113,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
   return (
     <div className="grafico" ref={caixa}>
       <svg width={largura} height={altura} role="img"
-        aria-label="Patrimônio da estratégia, do baseline 1 e do Ibovespa ao longo do tempo">
+        aria-label="Patrimônio da estratégia e das alternativas de comparação ao longo do tempo">
         {ticks.map((t) => (
           <g key={t}>
             <line className="grafico-grade" x1={M.esquerda} x2={largura - M.direita} y1={y(t)} y2={y(t)} />
@@ -112,9 +121,9 @@ export default function GraficoPatrimonio({ serie, capital }) {
           </g>
         ))}
         <line className="grafico-referencia" x1={M.esquerda} x2={largura - M.direita} y1={y(capital)} y2={y(capital)} />
-        {serie.map((p, i) => (i % passoX === 0 || i === serie.length - 1) && (
-          <text key={p.data} className="grafico-eixo" x={x(i)} y={altura - 8} textAnchor="middle">
-            {formatarData(p.data + "T12:00:00-03:00", false).slice(0, 5)}
+        {datasEixo.map((i) => (
+          <text key={serie[i].data} className="grafico-eixo" x={x(i)} y={altura - 8} textAnchor={ancora(i)}>
+            {formatarData(serie[i].data + "T12:00:00-03:00", false).slice(0, 5)}
           </text>
         ))}
 
@@ -125,7 +134,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
           </linearGradient>
         </defs>
         {/* A estratégia é desenhada por último, por cima das referências, com área em degradê. */}
-        {[...SERIES].reverse().map((s) => {
+        {[...series].reverse().map((s) => {
           const pontos = serie.map((p, i) => (p[s.chave] == null ? null : [x(i), y(p[s.chave])])).filter(Boolean);
           if (pontos.length === 1) return <circle key={s.chave} cx={pontos[0][0]} cy={pontos[0][1]} r="4" fill={s.cor} />;
           if (pontos.length < 2) return null;
@@ -153,19 +162,21 @@ export default function GraficoPatrimonio({ serie, capital }) {
         {pontoFoco && (
           <g pointerEvents="none">
             <line className="grafico-cursor" x1={x(foco)} x2={x(foco)} y1={M.topo} y2={altura - M.base} />
-            {SERIES.map((s) => pontoFoco[s.chave] != null && (
+            {series.map((s) => pontoFoco[s.chave] != null && (
               <circle key={s.chave} cx={x(foco)} cy={y(pontoFoco[s.chave])} r="4" fill={s.cor} stroke="var(--painel)" strokeWidth="2" />
             ))}
           </g>
         )}
         <rect x={M.esquerda} y={M.topo} width={larguraUtil} height={alturaUtil} fill="transparent"
-          onPointerMove={aoMover} onPointerDown={aoMover} onPointerLeave={() => setFoco(null)} />
+          onPointerMove={aoMover} onPointerDown={aoMover}
+          /* No toque, o "saiu" dispara assim que o dedo levanta: só o mouse esconde a dica. */
+          onPointerLeave={(e) => { if (e.pointerType === "mouse") setFoco(null); }} />
       </svg>
 
       {pontoFoco && (
         <div className="grafico-dica" style={{ left: Math.max(0, Math.min(x(foco) + 12, largura - (compacto ? 200 : 230))), top: M.topo }}>
           <div className="grafico-dica-data">{formatarData(pontoFoco.data + "T12:00:00-03:00", false)}</div>
-          {SERIES.map((s) => (
+          {series.map((s) => (
             <div key={s.chave} className="grafico-dica-linha">
               <span className="grafico-amostra" style={{ background: s.cor }} />
               <span>{s.nome.split(" (")[0]}</span>
@@ -176,7 +187,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
       )}
 
       <div className="legenda">
-        {SERIES.map((s) => (
+        {series.map((s) => (
           <span key={s.chave}><span className="grafico-amostra" style={{ background: s.cor }} />{s.nome}</span>
         ))}
         <span><span className="grafico-amostra tracejada" />Capital inicial</span>

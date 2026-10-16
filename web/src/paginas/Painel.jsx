@@ -1,4 +1,4 @@
-import { useApi, formatarData } from "../api.js";
+import { useApi, formatarData, plural } from "../api.js";
 import { Cartao, Estado, Indicador } from "../ui.jsx";
 
 const ETAPAS_FUNIL = [
@@ -6,7 +6,7 @@ const ETAPAS_FUNIL = [
   ["noticias_com_mencao", "Mencionam a carteira"],
   ["eventos_extraidos", "Eventos extraídos"],
   ["eventos_confirmados", "Eventos confirmados"],
-  ["eventos_acima_do_limiar", "Acima do limiar (0,7)"],
+  ["eventos_acima_do_limiar", "Acima do limiar"],
   ["operacoes", "Operações"],
 ];
 
@@ -24,7 +24,8 @@ function Funil({ funil }) {
           const conversao = anterior ? `${Math.round((valor / anterior) * 100)}%` : "—";
           return (
             <tr key={chave}>
-              <td>{rotulo}</td>
+              <td>{chave === "eventos_acima_do_limiar" && funil.limiar_probabilidade != null
+                ? `${rotulo} (${funil.limiar_probabilidade.toLocaleString("pt-BR")})` : rotulo}</td>
               <td className="funil-col-barra">
                 <div className="funil-trilho">
                   <div className="funil-barra" style={{ width: `${(valor / maximo) * 100}%` }} />
@@ -73,7 +74,7 @@ export default function Painel({ base, irPara }) {
             <>
               <Funil funil={funil.dados} />
               <p className="nota">
-                {funil.dados.dias_de_coleta} dia(s) de coleta ·
+                {plural(funil.dados.dias_de_coleta, "dia", "dias")} de coleta ·
                 projeção: {funil.dados.projecao_operacoes_por_semestre ?? "—"} operações por semestre.
                 {" "}{funil.dados.aviso}
               </p>

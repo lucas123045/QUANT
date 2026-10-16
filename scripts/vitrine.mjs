@@ -12,7 +12,8 @@ if (!existsSync(python)) {
   console.error(`Python da .venv não encontrado em ${python}.`);
   process.exit(1);
 }
-const r = spawnSync(python, ["-m", "src.web.exportar"], {
+// Repassa argumentos: npm run vitrine -- --forcar
+const r = spawnSync(python, ["-m", "src.web.exportar", ...process.argv.slice(2)], {
   cwd: raiz, stdio: "inherit", env: { ...process.env, PYTHONIOENCODING: "utf-8" },
 });
 process.exit(r.status ?? 1);

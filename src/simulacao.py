@@ -16,16 +16,19 @@ não substitui o período de teste. Não é recomendação de investimento.
 """
 
 import json
+import logging
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-from src import auditoria, backtest, config
+from src import auditoria, backtest, cdi, config
 from src.baselines import sinais_baseline_1
 from src.estatistica import teste_t_uma_amostra
 from src.strategy import COMPRA
+
+logger = logging.getLogger(__name__)
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 # Antes deste horário, o "fechamento" de hoje ainda é um preço parcial.
@@ -235,8 +238,26 @@ def maturidade(pregoes: int, decisoes: int) -> dict:
             "meta": {"pregoes": MATURIDADE_RAZOAVEL[0], "decisoes": MATURIDADE_RAZOAVEL[1]}}
 
 
+def _renda_fixa(pregoes: pd.DatetimeIndex, capital: float, dir_data: Path, baixar_cdi) -> pd.Series | None:
+    """Capital aplicado a 100% do CDI desde o primeiro pregão (sem impostos nem taxas).
+
+    É a referência que falta ao lado do Ibovespa: no Brasil, a alternativa óbvia
+    às ações é a renda fixa. Fonte fora do ar: devolve None e a simulação segue
+    sem esse produto (o CDI é comparação, não entra em nenhuma decisão).
+    """
+    try:
+        taxas = cdi.carregar_cdi(pregoes[0].date(), pregoes[-1].date(),
+                                 dir_data / "simulacao" / "cdi", baixar=baixar_cdi)
+        if taxas.empty:
+            return None
+        return cdi.patrimonio_cdi(pregoes, taxas, capital)
+    except Exception as erro:  # rede, BCB fora do ar, resposta inesperada
+        logger.warning("CDI indisponível: %s", erro)
+        return None
+
+
 def calcular(dir_data: Path | None = None, agora: datetime | None = None,
-             baixar=None, capital: float | None = None) -> dict:
+             baixar=None, capital: float | None = None, baixar_cdi=None) -> dict:
     """Estado da carteira simulada até o último fechamento confiável."""
     dir_data = Path(dir_data or config.DIR_DATA)
     agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
@@ -292,12 +313,17 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
         ordens = backtest.sinais_para_ordens(lista, precos.index)
         simulacoes[nome] = backtest.simular(ordens, precos, capital)
     ibov = backtest.comprar_e_segurar(precos[config.BENCHMARK], capital)
+    renda_fixa = _renda_fixa(precos.index, capital, dir_data, baixar_cdi)
+    if renda_fixa is None:
+        resultado["cdi_indisponivel"] = ("Não foi possível obter o CDI no Banco Central agora; "
+                                         "a comparação com a renda fixa aparece quando a fonte responder.")
 
     resultado["serie"] = [
         {"data": d.date().isoformat(),
          "estrategia": float(simulacoes["estrategia"].patrimonio.at[d]),
          "baseline_1": float(simulacoes["baseline_1"].patrimonio.at[d]),
-         "ibovespa": float(ibov.at[d]) if d in ibov.index else None}
+         "ibovespa": float(ibov.at[d]) if d in ibov.index else None,
+         "cdi": float(renda_fixa.at[d]) if renda_fixa is not None else None}
         for d in precos.index
     ]
     resultado["carteiras"] = {}
@@ -312,6 +338,11 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
         **_produto(ibov, backtest.calcular_metricas(ibov)),
         "caixa_investido_pct": 1.0, "n_operacoes": None, "taxa_acerto": None, "exposicao_media": 1.0,
     }
+    if renda_fixa is not None:
+        resultado["carteiras"]["cdi"] = {
+            **_produto(renda_fixa, backtest.calcular_metricas(renda_fixa)),
+            "caixa_investido_pct": 0.0, "n_operacoes": None, "taxa_acerto": None, "exposicao_media": 0.0,
+        }
     n_decisoes = len(simulacoes["estrategia"].operacoes)
     resultado["maturidade"] = maturidade(len(precos), n_decisoes)
 

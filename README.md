@@ -286,13 +286,13 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Página | O que mostra |
 |---|---|
 | Painel | Provedor e modelo do LLM, se a chave está configurada (a chave nunca é exibida), status de períodos, congelamento e corte do modelo, funil, última execução, carteira e pendências |
-| Notícias | Arquivo de notícias, com busca, filtro por empresa e "só as que mencionam a carteira" (pelas regras atuais de casamento) |
+| Notícias | Arquivo de notícias, com busca, filtro por empresa e "só as que mencionam a carteira" (pelas regras atuais de casamento). Mostra 100 por vez, com "Mostrar mais" |
 | Execuções | Cada dia do pipeline: decisões da regra com classificação, trecho da fonte e motivo, e o relatório do dia |
 | Operações | Log de auditoria (`operacoes.jsonl`), com motivo, trecho, origem, modelo e explicação |
 | Simulação | Carteira com dinheiro fictício e preços reais (ver abaixo) |
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
-| Estudos | Guia de economia do zero em 15 lições curtas (fundamentos, ações e risco, como o QUANT testa uma ideia). Cada lição abre com a ideia em uma frase e, quando há dados, mostra o conceito nos números atuais da simulação. Quatro calculadoras (juros compostos, queda e recuperação, retorno real, quantas operações são necessárias) e um glossário. No celular, as lições começam recolhidas e o índice desliza com o dedo, fixo no topo |
+| Estudos | Guia de economia do zero em três abas. **Lições:** 15 lições curtas em três partes (fundamentos, ações e risco, como o QUANT testa uma ideia), em lista sanfonada; cada uma abre com a ideia em uma frase e, quando há dados, mostra o conceito nos números atuais da simulação, que ficam numa lateral fixa no computador. **Calculadoras:** juros compostos, queda e recuperação, retorno real e quantas operações são necessárias. **Glossário:** 16 termos. A aba escolhida é lembrada |
 
 Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 - barra lateral com ícones e cartões arredondados;
@@ -320,7 +320,7 @@ O app abre em tela cheia, sem a barra do navegador. Quando um arquivo `.py` em `
 O seletor "Dados: Reais / Teste", na barra lateral, alterna entre `data/` e `data/teste/`. No modo de teste aparece uma faixa avisando que nada dali serve para conclusões.
 
 **Garantias:**
-- A API escuta só em 127.0.0.1.
+- A API escuta só em 127.0.0.1 e recusa pedidos com outro nome de host (proteção contra DNS rebinding).
 - Ela não altera nenhum parâmetro congelável.
 - Ela não devolve a chave de API.
 - Ela roda uma ação por vez.
@@ -336,7 +336,8 @@ A aba tem a forma de um painel de banco:
 
 - **Saldo total** em destaque, com variação desde o início, cartões de investido, caixa e rendimento das posições, e um botão para esconder os valores.
 - **Maturidade da simulação:** selo "muito cedo / histórico curto / histórico razoável", com barras de progresso de dias de pregão (meta de 126) e de decisões (meta de 30). Serve para que ninguém conclua "é seguro" com poucas semanas de dados fictícios.
-- **Produtos que você está testando:** Estratégia QUANT, Seguir toda notícia e Ibovespa. Cada um mostra rentabilidade, oscilação (baixa < 10%, média < 25%, alta ≥ 25% ao ano), pior queda e % de dias no positivo, e um selo marca o de maior rendimento.
+- **Produtos que você está testando:** Estratégia QUANT, Seguir toda notícia, Ibovespa e Renda fixa (CDI). Cada um mostra rentabilidade, oscilação (baixa < 10%, média < 25%, alta ≥ 25% ao ano), pior queda e % de dias no positivo, e um selo marca o de maior rendimento.
+- **Renda fixa (CDI):** o mesmo capital aplicado a 100% do CDI desde o primeiro pregão, sem impostos nem taxas (série 12 do SGS do Banco Central, com cache em `data/simulacao/cdi/`). Mostra o custo de oportunidade do caixa, que na simulação rende 0%. É só comparação: não entra na regra nem no critério estatístico. Se o Banco Central não responder, a carteira aparece sem esse produto e com um aviso.
 - **Onde está o dinheiro:** rosca de alocação por ação e caixa.
 - **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro Semana, Mês ou Tudo e cursor.
 - **Seus ativos:** um cartão por ação, com preço real, variação no dia, gráfico de 30 dias e situação (na carteira, compra agendada, venda agendada ou sem posição). O cartão mostra também a posição e o rendimento, e a última notícia analisada: o que a IA classificou, o que a regra decidiu e por quê.
@@ -365,6 +366,8 @@ git push                             # o Vercel republica sozinho
 Na versão publicada:
 - todas as páginas funcionam em modo leitura, com a faixa "Versão online, somente leitura" e a data dos dados;
 - os botões de "Rodar agora" ficam desativados.
+
+**Proteção contra apagar o site sem querer:** a vitrine é gerada numa pasta temporária e só substitui a publicada no fim. Como o arquivo de notícias e o log de operações só crescem, se a nova tiver menos notícias ou operações que a publicada (por exemplo, rodando num computador com `data/` vazia), o comando recusa e explica o motivo. Para publicar mesmo assim: `npm run vitrine -- --forcar`.
 
 A coleta, a IA e a chave continuam só no seu computador. Assim ninguém consegue disparar chamadas pagas ao LLM pelo site, e a chave nunca sai do `.env`. Um teste confere que ela não aparece nos arquivos exportados.
 

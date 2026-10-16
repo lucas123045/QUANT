@@ -20,6 +20,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 
 from src import archive, auditoria, config, funil, llm, main, news, simulacao
@@ -29,6 +30,10 @@ FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 DATA_VALIDA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 app = FastAPI(title="QUANT", docs_url="/api/docs", openapi_url="/api/openapi.json")
+# Só nomes locais: escutar em 127.0.0.1 não basta contra DNS rebinding, em que
+# uma página da internet passa a "ser" 127.0.0.1 e poderia disparar o pipeline
+# real (pago). "testserver" é o nome usado pelo TestClient (testes e vitrine).
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 
 
 def _dir(base: str) -> Path:

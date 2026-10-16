@@ -1,18 +1,29 @@
 import { useApi, formatarNumero } from "../api.js";
 import { Cartao, Estado } from "../ui.jsx";
 
+// Identificadores (semente, contagens técnicas) não levam separador de milhar.
+const SEM_SEPARADOR = new Set(["SEMENTE_BASELINE_2"]);
+
+/** Nome de parâmetro que pode quebrar linha depois de cada "_" (e não no meio da palavra). */
+function NomeParametro({ nome }) {
+  const partes = nome.split("_");
+  return partes.map((p, i) => (
+    <span key={i}>{p}{i < partes.length - 1 && <>_<wbr /></>}</span>
+  ));
+}
+
 function Tabela({ valores }) {
   return (
     <table className="tabela-config">
       <tbody>
         {Object.entries(valores).map(([chave, valor]) => (
           <tr key={chave}>
-            <th>{chave}</th>
+            <th><NomeParametro nome={chave} /></th>
             <td>
               {valor === null
                 ? <span className="pendente">PENDENTE</span>
                 : Array.isArray(valor) ? valor.join(" → ")
-                : typeof valor === "number" ? formatarNumero(valor, 4)
+                : typeof valor === "number" ? (SEM_SEPARADOR.has(chave) ? String(valor) : formatarNumero(valor, 4))
                 : String(valor)}
             </td>
           </tr>

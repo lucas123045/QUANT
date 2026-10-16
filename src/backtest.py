@@ -14,6 +14,7 @@ Convenções:
 import hashlib
 import json
 import logging
+import threading
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -311,7 +312,20 @@ def _baixar_yfinance(simbolo: str, inicio: str, fim: str) -> pd.Series:
     return fechamento
 
 
-def carregar_precos(
+# Um carregamento por vez: dois pedidos simultâneos (a interface pode pedir a
+# simulação duas vezes ao mesmo tempo) baixariam e gravariam o mesmo CSV juntos.
+# Se os dois downloads diferirem, o hash registrado deixa de bater com o arquivo
+# e todo carregamento seguinte daquele intervalo falha com PrecosAlterados.
+_TRAVA_PRECOS = threading.Lock()
+
+
+def carregar_precos(*args, **kwargs) -> pd.DataFrame:
+    """Fechamentos ajustados da carteira e do benchmark (ver `_carregar_precos`), com trava."""
+    with _TRAVA_PRECOS:
+        return _carregar_precos(*args, **kwargs)
+
+
+def _carregar_precos(
     inicio: str,
     fim: str,
     tickers: list[str] | None = None,

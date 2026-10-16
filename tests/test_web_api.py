@@ -110,3 +110,12 @@ def test_uma_tarefa_por_vez_e_tipo_invalido(cliente, monkeypatch):
     assert cliente.post("/api/tarefas", json={"tipo": "coletar"}).status_code == 409
     monkeypatch.setattr(api, "_em_execucao", None)
     assert cliente.post("/api/tarefas", json={"tipo": "apagar_tudo"}).status_code == 400
+
+
+def test_recusa_host_que_nao_e_local(cliente):
+    """Proteção contra DNS rebinding: uma página da internet que resolva para
+    127.0.0.1 continua mandando o próprio nome no Host e é recusada."""
+    assert cliente.get("/api/status", headers={"Host": "site-qualquer.com"}).status_code == 400
+    assert cliente.post("/api/tarefas", json={"tipo": "coletar"},
+                        headers={"Host": "site-qualquer.com"}).status_code == 400
+    assert cliente.get("/api/status", headers={"Host": "127.0.0.1:8000"}).status_code == 200

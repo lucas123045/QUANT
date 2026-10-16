@@ -1,19 +1,23 @@
 import { useState } from "react";
-import { useApi, formatarData, formatarNumero, formatarPreco } from "../api.js";
+import { VITRINE, useApi, formatarData, formatarNumero, formatarPreco, plural } from "../api.js";
 import { Estado, EtiquetaDecisao, EtiquetaSentimento } from "../ui.jsx";
 import GraficoPatrimonio, { SERIES, reais } from "../GraficoPatrimonio.jsx";
 import { BarrasRendimento, COR_TICKER, Minigrafico, Rosca } from "../graficos.jsx";
 import Icone from "../icones.jsx";
 
 const dia = (iso) => formatarData(iso + "T12:00:00-03:00", false);
-const pct = (v, sinal = true) =>
-  v === null || v === undefined ? "—" : `${sinal && v >= 0 ? "+" : ""}${formatarNumero(v * 100, 2)}%`;
+const pct = (v, sinal = true) => {
+  if (v === null || v === undefined) return "—";
+  if (Math.abs(v) < 0.00005) return "0%";  // zero (ou quase) não leva sinal
+  return `${sinal && v > 0 ? "+" : ""}${formatarNumero(v * 100, 2)}%`;
+};
 const tom = (v) => (!v ? "" : v > 0 ? "tom-texto-positivo" : "tom-texto-negativo");
 
 const PRODUTOS = {
   estrategia: { nome: "Estratégia QUANT", descricao: "Compra quando a IA encontra uma notícia boa e confirmada, seguindo a regra." },
   baseline_1: { nome: "Seguir toda notícia", descricao: "Compra em toda notícia positiva, sem filtro nenhum. Serve de comparação." },
   ibovespa: { nome: "Ibovespa", descricao: "O mercado inteiro, comprado no primeiro dia e guardado." },
+  cdi: { nome: "Renda fixa (CDI)", descricao: "Tudo aplicado a 100% do CDI, sem bolsa. A alternativa que qualquer estratégia precisa superar." },
 };
 
 const SITUACOES = {
@@ -92,7 +96,7 @@ function Resumo({ d, oculto, setOculto }) {
         detalhe="disponível para as próximas compras" />
       <Estatistica icone="alta" rotulo="Rendimento das posições"
         valor={<span className={tom(rendimento)}>{oculto ? "R$ ••••" : `${rendimento >= 0 ? "+" : "−"}${reais(Math.abs(rendimento), 2)}`}</span>}
-        detalhe={`${d.posicoes_abertas?.length || 0} posição(ões) aberta(s)`} />
+        detalhe={plural(d.posicoes_abertas?.length || 0, "posição aberta", "posições abertas")} />
     </div>
   );
 }
@@ -157,7 +161,7 @@ function Evolucao({ d }) {
   const quantos = PERIODOS.find(([n]) => n === periodo)[1];
   const serie = quantos === Infinity ? d.serie : d.serie.slice(-(quantos + 1));
   return (
-    <Cartao titulo="Evolução do patrimônio" subtitulo="Os três produtos começaram com o mesmo valor"
+    <Cartao titulo="Evolução do patrimônio" subtitulo="Todos os produtos começaram com o mesmo valor"
       className="f-span-2"
       acao={
         <div className="f-segmentado">
@@ -200,14 +204,17 @@ function Alocacao({ d, oculto }) {
 /* ----------------------------------------------------------- produtos */
 function Produtos({ d, oculto }) {
   const melhor = Object.entries(d.carteiras).sort((a, b) => b[1].retorno_acumulado - a[1].retorno_acumulado)[0][0];
+  const presentes = SERIES.filter((s) => d.carteiras[s.chave]);
+  const est = d.carteiras.estrategia;
+  const rendaFixa = d.carteiras.cdi;
   return (
     <section>
       <div className="f-secao">
         <h2>Produtos que você está testando</h2>
-        <p>Mesmo valor inicial nos três. Compare quanto rendeu, quanto oscilou e quanto chegou a cair.</p>
+        <p>Mesmo valor inicial em todos. Compare quanto rendeu, quanto oscilou e quanto chegou a cair.</p>
       </div>
-      <div className="f-produtos">
-        {SERIES.map((s) => {
+      <div className={`f-produtos ${presentes.length === 4 ? "quatro" : ""}`}>
+        {presentes.map((s) => {
           const c = d.carteiras[s.chave];
           const p = PRODUTOS[s.chave];
           return (
@@ -232,7 +239,9 @@ function Produtos({ d, oculto }) {
                 <div>
                   <dt>Oscilação</dt>
                   <dd><span className={`f-nivel ${c.oscilacao || ""}`}>{c.oscilacao || "—"}</span></dd>
-                  <small className="sutil">{Math.round((c.exposicao_media ?? 1) * 100)}% investido</small>
+                  <small className="sutil">
+                    {s.chave === "cdi" ? "sem ações" : `${Math.round((c.exposicao_media ?? 1) * 100)}% em ações`}
+                  </small>
                 </div>
                 <div><dt>Pior queda</dt><dd className={tom(c.drawdown_maximo)}>{pct(c.drawdown_maximo)}</dd></div>
                 <div><dt>Dias no positivo</dt><dd>{c.dias_positivos_pct == null ? "—" : `${Math.round(c.dias_positivos_pct * 100)}%`}</dd></div>
@@ -242,10 +251,23 @@ function Produtos({ d, oculto }) {
         })}
       </div>
       <p className="f-nota">
-        <Icone nome="info" tamanho={14} /> Atenção: a Estratégia QUANT fica em média {pct(d.carteiras.estrategia.exposicao_media, false)} investida
+        <Icone nome="info" tamanho={14} /> Atenção: a Estratégia QUANT fica em média {pct(est.exposicao_media, false)} investida
         e o resto parado em caixa; o Ibovespa fica 100% investido. Oscilação baixa aqui vem principalmente de estar pouco
         investido — um colchão também não oscila. Para comparar habilidade, olhe a diferença de rendimento, não só a oscilação.
       </p>
+      {rendaFixa ? (
+        <p className="f-nota">
+          <Icone nome="info" tamanho={14} /> Na simulação, o caixa da estratégia rende 0%. Deixar tudo no CDI teria
+          rendido {pct(rendaFixa.retorno_acumulado)} no mesmo período: a estratégia está{" "}
+          <strong className={tom(est.retorno_acumulado - rendaFixa.retorno_acumulado)}>
+            {formatarNumero(Math.abs(est.retorno_acumulado - rendaFixa.retorno_acumulado) * 100, 2)} pontos percentuais
+            {est.retorno_acumulado >= rendaFixa.retorno_acumulado ? " acima" : " abaixo"}
+          </strong>{" "}
+          da renda fixa.
+        </p>
+      ) : d.cdi_indisponivel && (
+        <p className="f-nota"><Icone nome="info" tamanho={14} /> {d.cdi_indisponivel}</p>
+      )}
     </section>
   );
 }
@@ -297,7 +319,8 @@ function CartaoAtivo({ a, oculto, saldo, fracao }) {
         {u ? (
           <>
             <p>{u.resumo}</p>
-            {u.trecho_fonte && <blockquote>“{u.trecho_fonte}”</blockquote>}
+            {/* O corte de linhas vai no texto, não na citação: senão o recuo mostra meia linha. */}
+            {u.trecho_fonte && <blockquote><span className="f-ativo-trecho">“{u.trecho_fonte}”</span></blockquote>}
             <div className="f-ativo-chips">
               <EtiquetaSentimento classificacao={u.sentimento ? { sentimento: u.sentimento, probabilidade: u.probabilidade } : null} />
               <span className="sutil">→ regra:</span><EtiquetaDecisao decisao={u.decisao} />
@@ -351,7 +374,7 @@ function Rendimentos({ d }) {
           <div><dt>Decisões</dt><dd>{h.n}</dd></div>
           <div><dt>Rendimento médio</dt><dd className={tom(h.media)}>{pct(h.media)}</dd></div>
           <div><dt>Acertos</dt><dd>{h.taxa_acerto == null ? "—" : `${Math.round(h.taxa_acerto * 100)}%`}</dd></div>
-          <div><dt>Melhor / pior</dt><dd>{pct(h.melhor)} / {pct(h.pior)}</dd></div>
+          <div><dt>Melhor / pior</dt><dd className="f-numeros-par">{pct(h.melhor)} <span className="sutil">/</span> {pct(h.pior)}</dd></div>
           <div className="largo">
             <dt>Margem de incerteza da média</dt>
             <dd>{h.intervalo_aproximado_95 ? `${pct(h.intervalo_aproximado_95[0])} a ${pct(h.intervalo_aproximado_95[1])}` : "precisa de 2 ou mais decisões"}</dd>
@@ -459,7 +482,15 @@ export default function Simulacao({ base, irPara }) {
           <Atalhos irPara={irPara} />
           {d.maturidade && <Maturidade m={d.maturidade} />}
           {d.estado !== "ok" && (
-            <div className="f-aviso"><Icone nome="info" tamanho={16} /> {d.mensagem} A carteira começa com {reais(d.capital_inicial)} fictícios, 100% em caixa.</div>
+            <div className="f-aviso">
+              <Icone nome="info" tamanho={16} />
+              <span>
+                {d.mensagem} A carteira começa com {reais(d.capital_inicial)} fictícios, 100% em caixa.
+                {d.estado === "sem_dados" && !VITRINE && (
+                  <> <button className="botao-link" onClick={() => irPara("acoes")}>Rodar o pipeline agora →</button></>
+                )}
+              </span>
+            </div>
           )}
 
           {d.estado === "ok" && (

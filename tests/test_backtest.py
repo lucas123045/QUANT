@@ -303,3 +303,36 @@ def test_hash_dos_precos_muda_com_o_conteudo(tmp_path):
 ])
 def test_acerto_direcional(sentimento, quando, esperado):
     assert backtest.acerto_direcional(evento("PETR4", sentimento, quando), PRECOS) is esperado
+
+
+def test_carregamentos_simultaneos_nao_corrompem_o_cache(tmp_path):
+    """Dois pedidos ao mesmo tempo (a interface em modo de desenvolvimento faz isso)
+    não podem baixar e gravar o mesmo CSV juntos: se os downloads diferirem, o hash
+    registrado deixa de bater e todo carregamento seguinte falharia."""
+    import threading
+    import time
+
+    chamadas = []
+
+    def baixar(simbolo, inicio, fim):
+        chamadas.append(simbolo)
+        valor = 10.0 + len(chamadas)  # cada download devolve um número diferente
+        time.sleep(0.05)  # alarga a janela da corrida
+        return pd.Series([valor, valor], index=pd.DatetimeIndex(["2026-10-05", "2026-10-06"]))
+
+    erros = []
+
+    def carregar():
+        try:
+            backtest.carregar_precos("2026-10-05", "2026-10-06", ["PETR4"], tmp_path, baixar)
+        except Exception as erro:  # noqa: BLE001
+            erros.append(erro)
+
+    threads = [threading.Thread(target=carregar) for _ in range(2)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    assert not erros
+    assert chamadas == ["PETR4.SA"]  # o segundo pedido leu o cache do primeiro
+    backtest.carregar_precos("2026-10-05", "2026-10-06", ["PETR4"], tmp_path, baixar)  # sem PrecosAlterados

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useApi } from "../api.js";
 import { Cartao } from "../ui.jsx";
 import Icone from "../icones.jsx";
@@ -13,11 +13,6 @@ const percentual = (n, casas = 1, sinal = false) => {
 };
 const numero = (texto, padrao = 0) => (finito(texto) ? Number(texto) : padrao);
 const limitar = (v, min, max) => Math.min(max, Math.max(min, v));
-
-const CELULAR = "(max-width: 820px)";
-const ehCelular = () => {
-  try { return window.matchMedia(CELULAR).matches; } catch { return false; }
-};
 
 /* ------------------------------------------------------------------ lições
    Cada lição: título, a ideia "em uma frase", o texto, uma fórmula opcional e,
@@ -65,7 +60,12 @@ const LICOES = [
       <p>A <strong>Selic</strong> é a taxa básica de juros definida pelo Banco Central. O <strong>CDI</strong> acompanha a Selic de perto e é a referência da maior parte da renda fixa (CDBs, fundos DI, Tesouro Selic).</p>
       <p><strong>Custo de oportunidade</strong> é o que você deixa de ganhar pela alternativa que não escolheu. Para quem investe em ações no Brasil, a alternativa óbvia é a renda fixa: uma estratégia só vale a pena se compensar esse rendimento e o risco a mais.</p>
     </>,
-    noQuant: ({ caixaPct }) => <>Na simulação, o dinheiro em caixa rende 0%{finito(caixaPct) ? ` — e hoje ${percentual(caixaPct, 0)} da carteira está em caixa` : ""}. Na vida real esse valor poderia render perto do CDI, então a comparação com o Ibovespa ainda não inclui esse custo.</>,
+    noQuant: ({ caixaPct, est, d }) => {
+      const rf = d?.carteiras?.cdi;
+      const caixa = `Na simulação, o dinheiro em caixa rende 0%${finito(caixaPct) ? ` — e hoje ${percentual(caixaPct, 0)} da carteira está em caixa` : ""}.`;
+      if (!rf || !est) return <>{caixa} Na vida real esse valor poderia render perto do CDI.</>;
+      return <>{caixa} No mesmo período, tudo no CDI teria rendido {percentual(rf.retorno_acumulado, 2, true)}, contra {percentual(est.retorno_acumulado, 2, true)} da estratégia. É por isso que a Carteira mostra a renda fixa como um dos produtos.</>;
+    },
   },
   {
     id: "acoes", modulo: "risco", titulo: "Ações e proventos",
@@ -133,7 +133,7 @@ const LICOES = [
       <p><strong>Look-ahead</strong> é usar, sem perceber, uma informação que ainda não existia. Exemplo: comprar no fechamento do dia de uma notícia publicada às 14h — o preço de fechamento já pode refletir a notícia.</p>
       <p>Por isso o QUANT executa toda notícia do dia D no fechamento do <em>primeiro pregão depois de D</em>. É conservador: perde a reação do próprio dia, mas não infla o resultado. Outro risco é o próprio modelo de IA ter sido treinado com textos que já contam o desfecho; por isso o projeto registra a data de corte de conhecimento do modelo.</p>
     </>,
-    noQuant: ({ d }) => d?.pendentes?.length > 0 && <>Há {d.pendentes.length} movimentação(ões) aguardando o próximo pregão para serem executadas.</>,
+    noQuant: ({ d }) => d?.pendentes?.length > 0 && <>{d.pendentes.length === 1 ? "Há 1 movimentação aguardando o próximo pregão para ser executada." : `Há ${d.pendentes.length} movimentações aguardando o próximo pregão para serem executadas.`}</>,
   },
   {
     id: "comparacao", modulo: "metodo", titulo: "Comparar com alternativas simples",
@@ -145,8 +145,9 @@ const LICOES = [
         <li><strong>Sorteio:</strong> mesmo número de operações e mesmas durações, com ações e datas sorteadas mil vezes. Mostra quanto se ganharia por acaso.</li>
         <li><strong>Ibovespa:</strong> comprar o índice e esperar.</li>
       </ul>
+      <p>Na carteira simulada aparece também a <strong>renda fixa (CDI)</strong>: não entra no critério estatístico, mas mostra se valeu a pena correr o risco da bolsa.</p>
     </>,
-    noQuant: ({ est, b1 }) => est && b1 && <>Até agora: regra {percentual(est.retorno_acumulado, 2, true)}, seguir toda notícia {percentual(b1.retorno_acumulado, 2, true)}.</>,
+    noQuant: ({ est, b1, d }) => est && b1 && <>Até agora: regra {percentual(est.retorno_acumulado, 2, true)}, seguir toda notícia {percentual(b1.retorno_acumulado, 2, true)}{d?.carteiras?.cdi ? `, renda fixa ${percentual(d.carteiras.cdi.retorno_acumulado, 2, true)}` : ""}.</>,
   },
   {
     id: "sorte", modulo: "metodo", titulo: "Sorte, amostra e p-valor",
@@ -326,7 +327,7 @@ function CalculadoraAmostra({ decisoesAtuais }) {
         <strong>{n == null ? "—" : n.toLocaleString("pt-BR")}</strong>
         <small>
           {n == null ? "Com ganho médio zero ou negativo não há vantagem a demonstrar."
-            : `É o ponto em que um resultado médio exatamente igual a esse passaria no teste.${finito(decisoesAtuais) ? ` O QUANT tem ${decisoesAtuais} até agora.` : ""}`}
+            : `É o ponto em que um resultado médio exatamente igual a esse passaria no teste.${finito(decisoesAtuais) ? ` Até agora, o QUANT executou ${decisoesAtuais} ${Number(decisoesAtuais) === 1 ? "decisão" : "decisões"}.` : ""}`}
         </small>
       </div>
       <small className="sutil">Aproximação pela normal: n ≈ (1,645 × variação ÷ média)². Com metade do ganho médio, são necessárias quatro vezes mais operações.</small>
@@ -336,55 +337,79 @@ function CalculadoraAmostra({ decisoesAtuais }) {
 
 /* --------------------------------------------------------------- estrutura */
 
+const NUMERADAS = LICOES.map((l, i) => ({ ...l, numero: i + 1 }));
+
+const ABAS = [
+  ["licoes", "Lições", LICOES.length],
+  ["calculadoras", "Calculadoras", 4],
+  ["glossario", "Glossário", GLOSSARIO.length],
+];
+const CHAVE_ABA = "quant.estudos.aba";
+
+function lerAba() {
+  try {
+    const salva = localStorage.getItem(CHAVE_ABA);
+    return ABAS.some(([id]) => id === salva) ? salva : "licoes";
+  } catch { return "licoes"; }
+}
+
 function Licao({ licao, aberta, aoAlternar, contexto }) {
-  const noQuant = licao.noQuant?.(contexto);
+  const noQuant = aberta ? licao.noQuant?.(contexto) : null;
+  const corpoId = `estudo-corpo-${licao.id}`;
   return (
-    <details id={`estudo-${licao.id}`} className="estudo-licao" open={aberta}
-      onToggle={(e) => aoAlternar(licao.id, e.currentTarget.open)}>
-      <summary>
+    <li className={`estudo-licao ${aberta ? "aberta" : ""}`}>
+      <button type="button" className="estudo-licao-cabeca" aria-expanded={aberta} aria-controls={corpoId}
+        onClick={() => aoAlternar(licao.id)}>
         <span className="estudo-licao-numero">{licao.numero}</span>
         <span className="estudo-licao-titulo">
           <strong>{licao.titulo}</strong>
           <small>{licao.frase}</small>
         </span>
-        <span className="estudo-licao-seta" aria-hidden="true">▾</span>
-      </summary>
-      <div className="estudo-licao-corpo">
-        {licao.corpo}
-        {licao.formula && <div className="estudo-formula">{licao.formula}</div>}
-        {noQuant && (
-          <div className="estudo-no-quant">
-            <Icone nome="grafico" tamanho={16} />
-            <p><strong>No QUANT agora:</strong> {noQuant}</p>
-          </div>
-        )}
-      </div>
-    </details>
+        <svg className="estudo-licao-seta" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </button>
+      {aberta && (
+        <div className="estudo-licao-corpo" id={corpoId}>
+          {licao.corpo}
+          {licao.formula && <div className="estudo-formula">{licao.formula}</div>}
+          {noQuant && (
+            <div className="estudo-no-quant">
+              <Icone nome="grafico" tamanho={16} />
+              <p><strong>No QUANT agora:</strong> {noQuant}</p>
+            </div>
+          )}
+        </div>
+      )}
+    </li>
   );
 }
 
 function Fotografia({ d, erro, carregando }) {
   const est = d?.carteiras?.estrategia;
   const ibov = d?.carteiras?.ibovespa;
+  const tom = (v) => (v > 0 ? "tom-texto-positivo" : v < 0 ? "tom-texto-negativo" : "");
   let conteudo;
   if (carregando && !d) conteudo = <p className="sutil">Carregando os números da simulação…</p>;
-  else if (erro) conteudo = <p className="sutil">Não foi possível carregar a simulação agora ({erro}). As lições continuam válidas.</p>;
-  else if (!est || !ibov) conteudo = <p className="sutil">{d?.mensagem || "Ainda não há histórico de preços suficiente."} Assim que houver pregões, os exemplos das lições passam a usar os números reais da simulação.</p>;
-  else {
+  else if (erro) conteudo = <p className="sutil">Não foi possível carregar a simulação agora. As lições continuam válidas.</p>;
+  else if (!est || !ibov) {
+    conteudo = <p className="sutil">{d?.mensagem || "Ainda não há histórico de preços suficiente."} Quando houver pregões, as lições passam a mostrar os números reais da simulação.</p>;
+  } else {
     conteudo = (
-      <div className="estudo-metricas estudo-metricas-foto">
-        <div><span>Estratégia</span><strong>{percentual(est.retorno_acumulado, 2, true)}</strong><small>{dinheiro(est.patrimonio)}</small></div>
-        <div><span>Ibovespa</span><strong>{percentual(ibov.retorno_acumulado, 2, true)}</strong><small>{dinheiro(ibov.patrimonio)}</small></div>
-        <div><span>Investido, em média</span><strong>{percentual(est.exposicao_media)}</strong><small>resto em caixa</small></div>
-        <div><span>Maior queda</span><strong>{percentual(est.drawdown_maximo, 2)}</strong><small>da estratégia</small></div>
-      </div>
+      <dl className="estudos-foto-numeros">
+        <div><dt>Estratégia</dt><dd className={tom(est.retorno_acumulado)}>{percentual(est.retorno_acumulado, 2, true)}</dd></div>
+        <div><dt>Ibovespa</dt><dd className={tom(ibov.retorno_acumulado)}>{percentual(ibov.retorno_acumulado, 2, true)}</dd></div>
+        <div><dt>Investido, em média</dt><dd>{percentual(est.exposicao_media)}</dd></div>
+        <div><dt>Maior queda</dt><dd>{percentual(est.drawdown_maximo, 2)}</dd></div>
+      </dl>
     );
   }
   return (
     <section className="estudos-foto">
       <header>
         <strong>Os números de hoje</strong>
-        <small>{d?.ultimo_fechamento ? `fechamento de ${new Date(`${d.ultimo_fechamento}T12:00:00-03:00`).toLocaleDateString("pt-BR")}` : "simulação com dinheiro fictício"}</small>
+        <small>{d?.ultimo_fechamento
+          ? `fechamento de ${new Date(`${d.ultimo_fechamento}T12:00:00-03:00`).toLocaleDateString("pt-BR")}`
+          : "dinheiro fictício"}</small>
       </header>
       {conteudo}
       {d?.maturidade && <p className="estudos-foto-nota"><Icone nome="escudo" tamanho={14} /> {d.maturidade.texto}</p>}
@@ -392,40 +417,58 @@ function Fotografia({ d, erro, carregando }) {
   );
 }
 
-const NUMERADAS = LICOES.map((l, i) => ({ ...l, numero: i + 1 }));
+function Licoes({ contexto, fotografia }) {
+  const [abertas, setAbertas] = useState(() => new Set([LICOES[0].id]));
+  const alternar = (id) => setAbertas((atual) => {
+    const novo = new Set(atual);
+    if (novo.has(id)) novo.delete(id); else novo.add(id);
+    return novo;
+  });
+  const todas = abertas.size === LICOES.length;
+  return (
+    <div className="estudos-corpo">
+      <aside className="estudos-lateral">{fotografia}</aside>
+      <div className="estudos-modulos">
+        <div className="estudos-controle">
+          <span className="sutil">Toque em uma lição para abrir.</span>
+          <button type="button" className="botao-link"
+            onClick={() => setAbertas(new Set(todas ? [] : LICOES.map((l) => l.id)))}>
+            {todas ? "Recolher todas" : "Abrir todas"}
+          </button>
+        </div>
+        {MODULOS.map((m, i) => (
+          <section key={m.id} className="estudos-modulo">
+            <header className="estudos-modulo-topo">
+              <small>Parte {i + 1}</small>
+              <h2>{m.titulo}</h2>
+              <p>{m.texto}</p>
+            </header>
+            <ol className="estudos-lista">
+              {NUMERADAS.filter((l) => l.modulo === m.id).map((l) => (
+                <Licao key={l.id} licao={l} aberta={abertas.has(l.id)} aoAlternar={alternar} contexto={contexto} />
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Estudos({ base }) {
   const { dados: d, erro, carregando } = useApi(`/api/simulacao?base=${base}`);
-  // No celular as lições começam fechadas (o resumo de uma frase já informa);
-  // no computador, abertas.
-  const [abertas, setAbertas] = useState(() => new Set(ehCelular() ? [] : LICOES.map((l) => l.id)));
-  const [alvo, setAlvo] = useState(null);
+  const [aba, setAba] = useState(lerAba);
 
-  const alternar = (id, aberta) => setAbertas((atual) => {
-    if (atual.has(id) === aberta) return atual;
-    const novo = new Set(atual);
-    if (aberta) novo.add(id); else novo.delete(id);
-    return novo;
-  });
-
-  function irPara(id) {
-    alternar(id, true);
-    setAlvo(id);
+  function escolher(id) {
+    setAba(id);
+    try { localStorage.setItem(CHAVE_ABA, id); } catch { /* sem armazenamento: ignora */ }
   }
 
-  // Rola depois que a lição abriu (a altura muda ao abrir).
-  useEffect(() => {
-    if (!alvo) return;
-    document.getElementById(`estudo-${alvo}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setAlvo(null);
-  }, [alvo]);
-
-  const todasAbertas = abertas.size === LICOES.length;
   const est = d?.carteiras?.estrategia;
-  const caixaPct = d?.alocacao && est?.patrimonio ? d.alocacao.caixa / est.patrimonio : null;
   const contexto = {
     d, est, ibov: d?.carteiras?.ibovespa, b1: d?.carteiras?.baseline_1,
-    capital: d?.capital_inicial ?? 100000, caixaPct,
+    capital: d?.capital_inicial ?? 100000,
+    caixaPct: d?.alocacao && est?.patrimonio ? d.alocacao.caixa / est.patrimonio : null,
   };
 
   return (
@@ -433,68 +476,51 @@ export default function Estudos({ base }) {
       <section className="estudos-abertura">
         <span className="estudos-etiqueta">Guia do zero · sem pré-requisitos</span>
         <h2>Entenda a economia por trás dos números</h2>
-        <p>{LICOES.length} lições curtas, do conceito de retorno até como o QUANT decide se uma ideia funcionou. Cada uma começa com a ideia principal em uma frase e, quando possível, mostra o conceito nos números atuais da simulação.</p>
+        <p>Do conceito de retorno até como o QUANT decide se uma ideia funcionou, em lições curtas e com os números atuais da simulação.</p>
       </section>
 
-      <Fotografia d={d} erro={erro} carregando={carregando} />
-
-      <nav className="estudos-indice" aria-label="Lições">
-        {NUMERADAS.map((l) => (
-          <button key={l.id} onClick={() => irPara(l.id)}><span>{l.numero}</span>{l.titulo}</button>
+      <div className="estudos-abas" role="tablist" aria-label="Seções do guia">
+        {ABAS.map(([id, nome, quantos]) => (
+          <button key={id} type="button" role="tab" aria-selected={aba === id}
+            className={aba === id ? "ativo" : ""} onClick={() => escolher(id)}>
+            {nome}<span>{quantos}</span>
+          </button>
         ))}
-        <button className="estudos-indice-calc" onClick={() => document.getElementById("estudos-calculadoras")?.scrollIntoView({ behavior: "smooth", block: "start" })}>
-          Calculadoras
-        </button>
-      </nav>
-
-      <div className="estudos-controle">
-        <button className="botao-link" onClick={() => setAbertas(new Set(todasAbertas ? [] : LICOES.map((l) => l.id)))}>
-          {todasAbertas ? "Recolher todas" : "Abrir todas"}
-        </button>
       </div>
 
-      {MODULOS.map((m, i) => (
-        <section key={m.id} className="estudos-modulo">
+      {aba === "licoes" && (
+        <Licoes contexto={contexto} fotografia={<Fotografia d={d} erro={erro} carregando={carregando} />} />
+      )}
+
+      {aba === "calculadoras" && (
+        <section className="estudos-modulo">
           <header className="estudos-modulo-topo">
-            <small>Parte {i + 1}</small>
-            <h2>{m.titulo}</h2>
-            <p>{m.texto}</p>
+            <h2>Calculadoras</h2>
+            <p>Mude os valores e veja os conceitos das lições funcionando. Todas usam hipóteses suas; nenhuma é previsão.</p>
           </header>
-          <div className="estudos-licoes">
-            {NUMERADAS.filter((l) => l.modulo === m.id).map((l) => (
-              <Licao key={l.id} licao={l} aberta={abertas.has(l.id)} aoAlternar={alternar} contexto={contexto} />
-            ))}
+          <div className="estudos-calculadoras">
+            <CalculadoraComposta />
+            <CalculadoraQueda />
+            <CalculadoraReal />
+            <CalculadoraAmostra decisoesAtuais={d?.maturidade?.decisoes} />
           </div>
         </section>
-      ))}
+      )}
 
-      <section className="estudos-modulo" id="estudos-calculadoras">
-        <header className="estudos-modulo-topo">
-          <small>Prática</small>
-          <h2>Calculadoras</h2>
-          <p>Mude os valores e veja os conceitos funcionando. Todas usam hipóteses suas; nenhuma é previsão.</p>
-        </header>
-        <div className="estudos-calculadoras">
-          <CalculadoraComposta />
-          <CalculadoraQueda />
-          <CalculadoraReal />
-          <CalculadoraAmostra decisoesAtuais={d?.maturidade?.decisoes} />
-        </div>
-      </section>
+      {aba === "glossario" && (
+        <section className="estudos-modulo">
+          <header className="estudos-modulo-topo">
+            <h2>Glossário</h2>
+            <p>Os termos que aparecem no QUANT, em uma linha cada.</p>
+          </header>
+          <dl className="estudos-glossario">
+            {GLOSSARIO.map(([termo, definicao]) => (
+              <div key={termo}><dt>{termo}</dt><dd>{definicao}</dd></div>
+            ))}
+          </dl>
+        </section>
+      )}
 
-      <section className="estudos-modulo">
-        <header className="estudos-modulo-topo">
-          <small>Consulta rápida</small>
-          <h2>Glossário</h2>
-        </header>
-        <dl className="estudos-glossario">
-          {GLOSSARIO.map(([termo, definicao]) => (
-            <div key={termo}><dt>{termo}</dt><dd>{definicao}</dd></div>
-          ))}
-        </dl>
-      </section>
-
-      <p className="f-rodape-aviso">Conteúdo educativo. A simulação usa dinheiro fictício e não é recomendação de investimento.</p>
     </div>
   );
 }

@@ -136,8 +136,17 @@ export default function App() {
   useEffect(() => gravarPreferencia("quant.base", base), [base]);
   useEffect(() => {
     document.documentElement.dataset.tema = tema;
+    // Barra do navegador/app no celular acompanha o fundo do tema.
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", tema === "claro" ? "#ece8de" : "#0b0d0c");
     gravarPreferencia("quant.tema", tema);
   }, [tema]);
+  // Esc fecha o menu lateral do celular.
+  useEffect(() => {
+    if (!menuAberto) return undefined;
+    const aoTeclar = (e) => { if (e.key === "Escape") setMenuAberto(false); };
+    window.addEventListener("keydown", aoTeclar);
+    return () => window.removeEventListener("keydown", aoTeclar);
+  }, [menuAberto]);
 
   useFecharAbertura();
 
@@ -154,6 +163,7 @@ export default function App() {
         <nav>
           {PAGINAS.map((p) => (
             <button key={p.id} className={`nav-item ${p.id === pagina ? "ativo" : ""}`}
+              aria-current={p.id === pagina ? "page" : undefined}
               onClick={() => { setPagina(p.id); setMenuAberto(false); }}>
               <Icone nome={p.icone} />{p.nome}
             </button>
@@ -197,7 +207,8 @@ export default function App() {
         {base === "teste" && (
           <div className="faixa-teste">
             <Icone nome="frasco" tamanho={16} />
-            Você está vendo o <strong>modo de teste</strong>: notícias de exemplo e IA simulada. Nada daqui vale como resultado.
+            {/* Um único item flexível: senão cada trecho de texto vira uma coluna. */}
+            <span>Você está vendo o <strong>modo de teste</strong>: notícias de exemplo e IA simulada. Nada daqui vale como resultado.</span>
           </div>
         )}
 
@@ -207,7 +218,8 @@ export default function App() {
 
         <nav className="nav-inferior" aria-label="Navegação principal">
           {NAV_INFERIOR.map(([id, nome, icone]) => (
-            <button key={id} className={id === pagina ? "ativo" : ""} onClick={() => setPagina(id)}>
+            <button key={id} className={id === pagina ? "ativo" : ""} aria-current={id === pagina ? "page" : undefined}
+              onClick={() => setPagina(id)}>
               <Icone nome={icone} tamanho={21} /><span>{nome}</span>
             </button>
           ))}

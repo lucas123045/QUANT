@@ -57,6 +57,7 @@ def medir_funil(dir_data: Path | None = None) -> dict:
         "eventos_confirmados": len(confirmados),
         "sentimentos": dict(Counter(c["sentimento"] for c in classificados)),
         "eventos_acima_do_limiar": len(acima_limiar),
+        "limiar_probabilidade": config.LIMIAR_PROBABILIDADE,
         "operacoes": len(operacoes),
         "operacoes_por_dia_de_coleta": por_dia,
         # Projeção grosseira: supõe que cada dia de coleta equivale a um pregão.

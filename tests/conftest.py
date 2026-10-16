@@ -1,6 +1,6 @@
 import pytest
 
-from src import llm
+from src import cdi, llm
 
 CARREGAR_ENV_ORIGINAL = llm.carregar_env
 
@@ -15,3 +15,7 @@ def ambiente_isolado(monkeypatch, tmp_path_factory):
     monkeypatch.setenv("QUANT_BACKUP_DIR", str(tmp_path_factory.mktemp("backups")))
     monkeypatch.setattr(llm, "_ultimo_modelo_servido", None)
     monkeypatch.setattr(llm, "_temperatura_informada", llm._NAO_INFORMADA)
+    # O CDI vem do Banco Central: nos testes, a fonte fica "fora do ar" (sem rede).
+    def sem_rede(inicio, fim):
+        raise OSError("rede desligada nos testes")
+    monkeypatch.setattr(cdi, "baixar_bcb", sem_rede)

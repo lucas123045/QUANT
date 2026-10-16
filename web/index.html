@@ -14,7 +14,12 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230b0d0c'/><rect x='4' y='4' width='8' height='8' fill='%23e3a336'/></svg>" />
     <script>
       // Aplica o tema salvo antes de pintar a tela (evita piscar na abertura).
-      try { if (localStorage.getItem("quant.tema") === "claro") document.documentElement.dataset.tema = "claro"; } catch (e) {}
+      try {
+        if (localStorage.getItem("quant.tema") === "claro") {
+          document.documentElement.dataset.tema = "claro";
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", "#ece8de");
+        }
+      } catch (e) {}
     </script>
     <style>
       /* Tela de abertura: aparece antes do JavaScript carregar. */
