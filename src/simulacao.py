@@ -262,9 +262,13 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
     }
     inicio = _inicio(dir_data, sinais)
     hoje = agora.date()
+    # O cache de preços é por intervalo de datas: antes do fechamento confiável,
+    # pedir até hoje gravaria o preço parcial no arquivo de hoje, e ele seria
+    # reaproveitado como fechamento mais tarde. Por isso o pedido vai só até ontem.
+    ultimo_dia = hoje if agora.time() >= HORARIO_FECHAMENTO_CONFIAVEL else hoje - timedelta(days=1)
     # Preços com contexto anterior ao início, para os minigráficos dos ativos.
     precos_todos = backtest.carregar_precos(
-        ((inicio or hoje) - timedelta(days=DIAS_CONTEXTO)).isoformat(), hoje.isoformat(),
+        ((inicio or hoje) - timedelta(days=DIAS_CONTEXTO)).isoformat(), ultimo_dia.isoformat(),
         pasta=dir_data / "simulacao" / "precos", baixar=baixar)
     precos_todos = _sem_preco_parcial(precos_todos.dropna(how="all"), agora)
     precos = precos_todos[precos_todos.index >= pd.Timestamp(inicio)] if inicio else precos_todos.iloc[0:0]

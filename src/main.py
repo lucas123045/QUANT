@@ -104,6 +104,27 @@ def etapa_arquivar(pasta: Path, itens: list[dict], dir_arquivo: Path, agora: dat
     return novos
 
 
+def registros_para_extrair(itens: list[dict], novos: list[dict], dir_arquivo: Path,
+                           dir_execucoes: Path, data_atual: str) -> list[dict]:
+    """Registros desta coleta que ainda não passaram pela extração.
+
+    Além dos arquivados agora, inclui os que já estavam no arquivo sem ter sido
+    extraídos em nenhuma execução anterior: por exemplo, notícias coletadas antes
+    no mesmo dia por `archive --coletar` (ou pelo botão da interface). Sem isso,
+    elas seriam tratadas como "já vistas" e nunca chegariam ao LLM.
+    """
+    urls = {i["url"] for i in itens if i.get("url")}
+    ja_extraidos: set[str] = set()
+    for pasta in dir_execucoes.glob("*"):
+        if pasta.is_dir() and pasta.name != data_atual:
+            ja_extraidos.update(_ler(pasta / "03_extracao.json", {}))
+    ids_novos = {r["id"] for r in novos}
+    antigos = [r for r in archive.carregar_arquivo(dir_arquivo)
+               if r["tickers"] and r["url"] in urls
+               and r["id"] not in ids_novos and r["id"] not in ja_extraidos]
+    return novos + antigos
+
+
 def _metadados(registro: dict) -> dict:
     return {c: registro[c] for c in ("id", "tipo_fonte", "fonte", "url", "timestamp_publicacao")}
 
@@ -232,7 +253,8 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
 
     itens = etapa_coletar(pasta, agora, teste)
     novos = etapa_arquivar(pasta, itens, dir_data / "arquivo", agora)
-    extraidos = etapa_extrair(pasta, novos)
+    a_extrair = registros_para_extrair(itens, novos, dir_data / "arquivo", dir_execucoes, data)
+    extraidos = etapa_extrair(pasta, a_extrair)
     eventos = [e for lista in extraidos.values() for e in lista]
     classificacoes = etapa_classificar(pasta, eventos)
     for evento in eventos:
@@ -252,6 +274,7 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
         "modo_teste": teste,
         "coletados": len(itens),
         "novos_arquivados": len(novos),
+        "ja_arquivados_sem_extracao": len(a_extrair) - len(novos),
         "eventos_validos": len(eventos),
         "operacoes": sum(item["decisao"]["decisao"] != MANTER for item in decisoes),
         "registrados_no_log": len(registrados),

@@ -9,6 +9,13 @@ export const SERIES = [
 
 const ALTURA = 300;
 const MARGEM = { topo: 16, direita: 150, base: 30, esquerda: 78 };
+// Celular: sem os rótulos no fim das linhas (a legenda embaixo já nomeia as séries).
+const LARGURA_COMPACTA = 560;
+const ALTURA_COMPACTA = 230;
+const MARGEM_COMPACTA = { topo: 14, direita: 10, base: 28, esquerda: 60 };
+
+const reaisCompacto = (valor) => valor.toLocaleString("pt-BR", {
+  style: "currency", currency: "BRL", notation: "compact", minimumFractionDigits: 0, maximumFractionDigits: 1 });
 
 export function reais(valor, casas = 0) {
   if (valor === null || valor === undefined) return "—";
@@ -55,10 +62,14 @@ export default function GraficoPatrimonio({ serie, capital }) {
   const [foco, setFoco] = useState(null);
 
   useEffect(() => {
-    const observador = new ResizeObserver(([e]) => setLargura(Math.max(320, e.contentRect.width)));
+    const observador = new ResizeObserver(([e]) => setLargura(Math.max(260, e.contentRect.width)));
     observador.observe(caixa.current);
     return () => observador.disconnect();
   }, []);
+
+  const compacto = largura < LARGURA_COMPACTA;
+  const M = compacto ? MARGEM_COMPACTA : MARGEM;
+  const altura = compacto ? ALTURA_COMPACTA : ALTURA;
 
   const valores = serie.flatMap((p) => SERIES.map((s) => p[s.chave])).filter((v) => v != null);
   const bruto = [Math.min(capital, ...valores), Math.max(capital, ...valores)];
@@ -66,10 +77,10 @@ export default function GraficoPatrimonio({ serie, capital }) {
   const ticks = marcas(bruto[0] - folga, bruto[1] + folga);
   const [yMin, yMax] = [ticks[0], ticks[ticks.length - 1]];
 
-  const larguraUtil = largura - MARGEM.esquerda - MARGEM.direita;
-  const alturaUtil = ALTURA - MARGEM.topo - MARGEM.base;
-  const x = (i) => MARGEM.esquerda + (serie.length > 1 ? (i / (serie.length - 1)) * larguraUtil : larguraUtil / 2);
-  const y = (v) => MARGEM.topo + (1 - (v - yMin) / (yMax - yMin)) * alturaUtil;
+  const larguraUtil = largura - M.esquerda - M.direita;
+  const alturaUtil = altura - M.topo - M.base;
+  const x = (i) => M.esquerda + (serie.length > 1 ? (i / (serie.length - 1)) * larguraUtil : larguraUtil / 2);
+  const y = (v) => M.topo + (1 - (v - yMin) / (yMax - yMin)) * alturaUtil;
 
   // Rótulos no fim das linhas, afastados para não se sobreporem.
   const ultimo = serie[serie.length - 1];
@@ -81,10 +92,10 @@ export default function GraficoPatrimonio({ serie, capital }) {
   const passoX = Math.max(1, Math.ceil(serie.length / Math.max(2, Math.floor(larguraUtil / 90))));
 
   function aoMover(evento) {
+    // O retângulo de captura cobre só a área útil: a fração horizontal já é a do eixo X.
     const retangulo = evento.currentTarget.getBoundingClientRect();
-    const posicao = ((evento.clientX - retangulo.left) / retangulo.width) * largura;
-    const indice = serie.length > 1
-      ? Math.round(((posicao - MARGEM.esquerda) / larguraUtil) * (serie.length - 1)) : 0;
+    const fracao = (evento.clientX - retangulo.left) / retangulo.width;
+    const indice = serie.length > 1 ? Math.round(fracao * (serie.length - 1)) : 0;
     setFoco(Math.min(serie.length - 1, Math.max(0, indice)));
   }
 
@@ -92,17 +103,17 @@ export default function GraficoPatrimonio({ serie, capital }) {
 
   return (
     <div className="grafico" ref={caixa}>
-      <svg width={largura} height={ALTURA} role="img"
+      <svg width={largura} height={altura} role="img"
         aria-label="Patrimônio da estratégia, do baseline 1 e do Ibovespa ao longo do tempo">
         {ticks.map((t) => (
           <g key={t}>
-            <line className="grafico-grade" x1={MARGEM.esquerda} x2={largura - MARGEM.direita} y1={y(t)} y2={y(t)} />
-            <text className="grafico-eixo" x={MARGEM.esquerda - 8} y={y(t)} dy="0.32em" textAnchor="end">{reais(t)}</text>
+            <line className="grafico-grade" x1={M.esquerda} x2={largura - M.direita} y1={y(t)} y2={y(t)} />
+            <text className="grafico-eixo" x={M.esquerda - 8} y={y(t)} dy="0.32em" textAnchor="end">{compacto ? reaisCompacto(t) : reais(t)}</text>
           </g>
         ))}
-        <line className="grafico-referencia" x1={MARGEM.esquerda} x2={largura - MARGEM.direita} y1={y(capital)} y2={y(capital)} />
+        <line className="grafico-referencia" x1={M.esquerda} x2={largura - M.direita} y1={y(capital)} y2={y(capital)} />
         {serie.map((p, i) => (i % passoX === 0 || i === serie.length - 1) && (
-          <text key={p.data} className="grafico-eixo" x={x(i)} y={ALTURA - 8} textAnchor="middle">
+          <text key={p.data} className="grafico-eixo" x={x(i)} y={altura - 8} textAnchor="middle">
             {formatarData(p.data + "T12:00:00-03:00", false).slice(0, 5)}
           </text>
         ))}
@@ -122,7 +133,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
           return (
             <g key={s.chave}>
               {s.chave === "estrategia" && (
-                <path d={`${linha} L${pontos[pontos.length - 1][0]},${ALTURA - MARGEM.base} L${pontos[0][0]},${ALTURA - MARGEM.base} Z`}
+                <path d={`${linha} L${pontos[pontos.length - 1][0]},${altura - M.base} L${pontos[0][0]},${altura - M.base} Z`}
                   fill="url(#area-estrategia)" />
               )}
               <path d={linha} fill="none" stroke={s.cor} strokeWidth={s.chave === "estrategia" ? 2.5 : 2}
@@ -131,28 +142,28 @@ export default function GraficoPatrimonio({ serie, capital }) {
           );
         })}
 
-        {rotulos.map((r) => (
+        {!compacto && rotulos.map((r) => (
           <g key={r.chave}>
-            <line x1={largura - MARGEM.direita + 6} x2={largura - MARGEM.direita + 18} y1={r.yTexto} y2={r.yTexto} stroke={r.cor} strokeWidth="2" />
-            <text className="grafico-rotulo" x={largura - MARGEM.direita + 24} y={r.yTexto} dy="-0.15em">{r.nome.split(" (")[0]}</text>
-            <text className="grafico-rotulo-valor" x={largura - MARGEM.direita + 24} y={r.yTexto} dy="1.05em">{reais(r.valor)}</text>
+            <line x1={largura - M.direita + 6} x2={largura - M.direita + 18} y1={r.yTexto} y2={r.yTexto} stroke={r.cor} strokeWidth="2" />
+            <text className="grafico-rotulo" x={largura - M.direita + 24} y={r.yTexto} dy="-0.15em">{r.nome.split(" (")[0]}</text>
+            <text className="grafico-rotulo-valor" x={largura - M.direita + 24} y={r.yTexto} dy="1.05em">{reais(r.valor)}</text>
           </g>
         ))}
 
         {pontoFoco && (
           <g pointerEvents="none">
-            <line className="grafico-cursor" x1={x(foco)} x2={x(foco)} y1={MARGEM.topo} y2={ALTURA - MARGEM.base} />
+            <line className="grafico-cursor" x1={x(foco)} x2={x(foco)} y1={M.topo} y2={altura - M.base} />
             {SERIES.map((s) => pontoFoco[s.chave] != null && (
               <circle key={s.chave} cx={x(foco)} cy={y(pontoFoco[s.chave])} r="4" fill={s.cor} stroke="var(--painel)" strokeWidth="2" />
             ))}
           </g>
         )}
-        <rect x={MARGEM.esquerda} y={MARGEM.topo} width={larguraUtil} height={alturaUtil} fill="transparent"
-          onPointerMove={aoMover} onPointerLeave={() => setFoco(null)} />
+        <rect x={M.esquerda} y={M.topo} width={larguraUtil} height={alturaUtil} fill="transparent"
+          onPointerMove={aoMover} onPointerDown={aoMover} onPointerLeave={() => setFoco(null)} />
       </svg>
 
       {pontoFoco && (
-        <div className="grafico-dica" style={{ left: Math.min(x(foco) + 12, largura - 230), top: MARGEM.topo }}>
+        <div className="grafico-dica" style={{ left: Math.max(0, Math.min(x(foco) + 12, largura - (compacto ? 200 : 230))), top: M.topo }}>
           <div className="grafico-dica-data">{formatarData(pontoFoco.data + "T12:00:00-03:00", false)}</div>
           {SERIES.map((s) => (
             <div key={s.chave} className="grafico-dica-linha">

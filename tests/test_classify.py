@@ -72,3 +72,12 @@ def test_llm_saida_invalida_devolve_none(respostas):
     chamar = llm_falso(*respostas)
     assert classify.classificar(EVENTO, usar_jev=False, chamar=chamar) is None
     assert len(chamar.chamadas) == 2
+
+
+def test_llm_resposta_em_bloco_de_codigo_markdown():
+    """Modelos costumam cercar o JSON com ```json; a extração já tolerava, a classificação também."""
+    resposta = '```json\n{"sentimento": "negativo", "probabilidade": 0.77}\n```'
+    chamar = llm_falso(resposta)
+    r = classify.classificar(EVENTO, usar_jev=False, chamar=chamar)
+    assert r["sentimento"] == "negativo" and r["probabilidade"] == 0.77
+    assert len(chamar.chamadas) == 1

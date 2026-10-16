@@ -9,6 +9,7 @@ Nenhum dos dois decide compra ou venda; isso é feito só por strategy.py.
 
 import json
 import logging
+import re
 from collections.abc import Callable
 
 from src import config, llm
@@ -56,6 +57,11 @@ def padronizar(bruto: dict, classificador: str, modelo: str, versao: str | None)
     }
 
 
+def _interpretar_json(resposta: str):
+    """JSON da resposta, tolerando cerca de código markdown em volta (como na extração)."""
+    return json.loads(re.sub(r"^```(?:json)?\s*|\s*```$", "", resposta.strip()))
+
+
 def classificar_jev(evento: dict) -> dict:
     """Adaptador do Jev. Bloqueado: sem especificação de API no repositório."""
     raise NotImplementedError("API do Jev não especificada no repositório.")
@@ -69,7 +75,7 @@ def classificar_llm(evento: dict, chamar: Callable[..., str] | None = None) -> d
     for tentativa in (1, 2):
         resposta = chamar(prompt, temperatura=0.0)
         try:
-            return padronizar(json.loads(resposta), "llm", llm.modelo_da_ultima_chamada(),
+            return padronizar(_interpretar_json(resposta), "llm", llm.modelo_da_ultima_chamada(),
                               VERSAO_PROMPT_CLASSIFICACAO)
         except (ValueError, TypeError) as erro:
             logger.warning("Classificação LLM inválida (tentativa %d/2): %s", tentativa, erro)

@@ -161,3 +161,22 @@ def test_niveis_de_maturidade(pregoes, decisoes, nivel):
                                        (0.249, "média"), (0.25, "alta")])
 def test_nivel_oscilacao(vol, nivel):
     assert simulacao.nivel_oscilacao(vol) == nivel
+
+
+def test_preco_parcial_nao_fica_no_cache_como_fechamento(dados):
+    """Abrir a carteira às 15h não pode congelar o preço parcial do dia no cache."""
+    precos_do_dia = {"PETR4.SA": 12.5}  # cotação no meio do pregão de 09/10
+
+    def baixar_ao_vivo(simbolo, inicio, fim):
+        serie = baixar(simbolo, inicio, fim).copy()
+        if simbolo in precos_do_dia and pd.Timestamp("2026-10-09") in serie.index:
+            serie[pd.Timestamp("2026-10-09")] = precos_do_dia[simbolo]
+        return serie
+
+    simulacao.calcular(dados, agora=datetime(2026, 10, 9, 15, 0, tzinfo=SP), baixar=baixar_ao_vivo,
+                       capital=100_000.0)
+    precos_do_dia.clear()  # depois do fechamento, a fonte já traz o preço final (13)
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar_ao_vivo,
+                           capital=100_000.0)
+    assert r["ultimo_fechamento"] == "2026-10-09"
+    assert r["carteiras"]["estrategia"]["patrimonio"] == pytest.approx(106_000)

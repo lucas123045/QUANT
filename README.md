@@ -256,7 +256,7 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | Hash dos preços (congelamento) | `python -c "from src import backtest; print(backtest.hash_dos_precos())"` |
 | Backtest | Ainda não pode ser executado: os períodos estão pendentes de aprovação. Depois de aprovados: `backtest.rodar_backtest(eventos, backtest.carregar_precos(inicio, fim), backtest.periodo_do_config("treino"), "noticia")` |
 
-O pipeline pode ser retomado. Se for interrompido, rodar de novo no mesmo dia reaproveita a coleta, a extração, a classificação e as explicações já gravadas, sem novas chamadas ao LLM, e não duplica registros no log de auditoria.
+O pipeline pode ser retomado. Se for interrompido, rodar de novo no mesmo dia reaproveita a coleta, a extração, a classificação e as explicações já gravadas, sem novas chamadas ao LLM, e não duplica registros no log de auditoria. Notícias que já estavam no arquivo sem passar pela IA (por exemplo, coletadas antes pelo botão "Coletar notícias" ou por `archive --coletar`) são extraídas na próxima execução, desde que voltem na coleta; o resumo mostra quantas em `ja_arquivados_sem_extracao`.
 
 Saídas em `data/` (fora do git):
 
@@ -265,9 +265,12 @@ Saídas em `data/` (fora do git):
 - `operacoes.jsonl`: log de auditoria;
 - `precos/`: cache de preços, com `downloads.jsonl` registrando a data e o SHA-256 de cada download.
 
-## 14. Interface web
+### Agendamento e backup
 
-**Estudos:** guia de economia do zero com números atuais da simulação e duas calculadoras (juros compostos; queda e recuperação). O agendamento diário do Windows está preparado em `scripts\agendar-windows.ps1`, mas continua inativo até você executá-lo deliberadamente. Cada execução real cria um ZIP de backup. O destino prioriza o OneDrive detectado no Windows; `QUANT_BACKUP_DIR` permite escolher outra pasta. Sem OneDrive, um aviso informa se o destino local está no mesmo disco.
+- **Agendamento diário (Windows):** preparado em `scripts\agendar-windows.ps1`, mas inativo até você executá-lo deliberadamente.
+- **Backup:** cada execução real cria um ZIP com os dados. O destino prioriza o OneDrive detectado no Windows; `QUANT_BACKUP_DIR` permite escolher outra pasta. Sem OneDrive, um aviso informa se o destino local está no mesmo disco.
+
+## 14. Interface web
 
 Interface local para acompanhar o projeto e disparar as ações, sem usar a linha de comando.
 
@@ -289,7 +292,7 @@ Para parar, aperte Ctrl+C no terminal. O endereço é http://127.0.0.1:5173. A d
 | Simulação | Carteira com dinheiro fictício e preços reais (ver abaixo) |
 | Ações | Coletar notícias, pipeline de teste e pipeline real (pede confirmação, porque tem custo), com o log ao vivo. O backtest aparece bloqueado enquanto os períodos estiverem pendentes |
 | Configuração | Parâmetros da regra, do critério, períodos, custos, fontes e aliases. **Somente leitura** |
-| Estudos | Economia do zero, exemplos atuais da simulação e duas calculadoras interativas |
+| Estudos | Guia de economia do zero em 15 lições curtas (fundamentos, ações e risco, como o QUANT testa uma ideia). Cada lição abre com a ideia em uma frase e, quando há dados, mostra o conceito nos números atuais da simulação. Quatro calculadoras (juros compostos, queda e recuperação, retorno real, quantas operações são necessárias) e um glossário. No celular, as lições começam recolhidas e o índice desliza com o dedo, fixo no topo |
 
 Visual de painel de banco/fintech nas cores do projeto (grafite e âmbar):
 - barra lateral com ícones e cartões arredondados;
@@ -302,7 +305,8 @@ A página inicial é **Minha carteira** (a simulação). Ao entrar, uma tela de 
 **No celular** o visual é de app de banco:
 - **Navegação:** barra fixa embaixo (Carteira, Notícias, Análises, Decisões e Mais, que abre o menu completo).
 - **Saldo:** cartão único com investido, caixa e rendimento embutidos.
-- **Atalhos redondos:** Notícias, Análises, Decisões, Rodar e Regras.
+- **Atalhos redondos:** Estudos, Sistema, Rodar e Regras (o que não cabe na barra de baixo).
+- **Gráfico do patrimônio:** versão compacta, com eixo em "R$ 100 mil" e cursor que segue o dedo.
 - **Carrosséis de deslizar:** ações, produtos e "Como funciona".
 - **Decisões em cartões:** em vez de tabela, cada decisão vira um cartão com a previsão da IA, a decisão e o motivo.
 - **Botão voltar:** o do celular funciona entre as telas.
@@ -326,15 +330,15 @@ O seletor "Dados: Reais / Teste", na barra lateral, alterna entre `data/` e `dat
 A aba **Simulação** mantém uma carteira fictícia de R$ 100.000 (`CAPITAL_INICIAL`) que segue, daqui para frente, as compras e vendas do log de auditoria. Essas decisões são da regra, não do LLM.
 
 - **Execução:** como no backtest, no fechamento do primeiro pregão posterior ao dia da notícia, com até 20% do patrimônio por ação e os custos de `config.py`.
-- **Preços:** fechamentos reais do Yahoo Finance, ajustados por proventos. São salvos em `data/simulacao/precos/`, um download por dia. Antes das 18h30 (horário de São Paulo), o preço do dia é considerado parcial e não é usado.
+- **Preços:** fechamentos reais do Yahoo Finance, ajustados por proventos. São salvos em `data/simulacao/precos/`, um download por dia. Antes das 18h30 (horário de São Paulo), o preço do dia é considerado parcial: não é pedido nem gravado no cache.
+
 A aba tem a forma de um painel de banco:
 
 - **Saldo total** em destaque, com variação desde o início, cartões de investido, caixa e rendimento das posições, e um botão para esconder os valores.
 - **Maturidade da simulação:** selo "muito cedo / histórico curto / histórico razoável", com barras de progresso de dias de pregão (meta de 126) e de decisões (meta de 30). Serve para que ninguém conclua "é seguro" com poucas semanas de dados fictícios.
 - **Produtos que você está testando:** Estratégia QUANT, Seguir toda notícia e Ibovespa. Cada um mostra rentabilidade, oscilação (baixa < 10%, média < 25%, alta ≥ 25% ao ano), pior queda e % de dias no positivo, e um selo marca o de maior rendimento.
 - **Onde está o dinheiro:** rosca de alocação por ação e caixa.
-- **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro 7D, 30D ou Tudo e cursor.
-- **Rendimento comparado:** barras com o retorno de cada carteira e uma explicação em texto.
+- **Evolução do patrimônio:** estratégia, baseline 1 e Ibovespa, com filtro Semana, Mês ou Tudo e cursor.
 - **Seus ativos:** um cartão por ação, com preço real, variação no dia, gráfico de 30 dias e situação (na carteira, compra agendada, venda agendada ou sem posição). O cartão mostra também a posição e o rendimento, e a última notícia analisada: o que a IA classificou, o que a regra decidiu e por quê.
 - **Rendimento de cada decisão:** barras para cima (ganho) ou para baixo (perda), com a calculadora "E se eu tivesse aplicado R$ X".
 - **Histórico da regra:** decisões executadas, rendimento médio, acertos, melhor e pior, e a margem de incerteza da média.

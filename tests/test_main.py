@@ -120,3 +120,27 @@ def test_historico_de_execucoes_anteriores_e_usado(tmp_path):
     petr4 = next(d for d in decisoes if d["decisao"]["ticker"] == "PETR4")
     assert petr4["decisao"]["decisao"] == "manter"   # negativo recente bloqueia a compra
     assert resumo["operacoes"] == 1
+
+
+def test_noticias_coletadas_antes_do_pipeline_ainda_passam_pela_ia(tmp_path):
+    """Coletar (botão da interface ou `archive --coletar`) e depois rodar o pipeline
+    no mesmo dia: as notícias já arquivadas não podem ficar sem extração."""
+    from src import archive
+
+    archive.arquivar(main.itens_de_exemplo(AGORA), pasta=tmp_path / "arquivo", agora=AGORA)
+    resumo = main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    assert resumo["novos_arquivados"] == 0
+    assert resumo["ja_arquivados_sem_extracao"] == 2  # o "Vale a pena" não menciona a carteira
+    assert resumo["eventos_validos"] == 2
+    assert resumo["operacoes"] == 2
+
+
+def test_noticia_ja_extraida_em_dia_anterior_nao_e_extraida_de_novo(tmp_path, contador_llm):
+    """O feed traz as últimas 24 h: a mesma notícia aparece em duas coletas seguidas."""
+    from datetime import timedelta
+
+    main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    antes = len(contador_llm)
+    resumo = main.executar(agora=AGORA + timedelta(hours=12), teste=True, dir_data=tmp_path)
+    assert resumo["ja_arquivados_sem_extracao"] == 0 and resumo["eventos_validos"] == 0
+    assert not any("PROMPT_EXTRACAO" in c for c in contador_llm[antes:])

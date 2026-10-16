@@ -98,10 +98,10 @@ function Resumo({ d, oculto, setOculto }) {
 }
 
 function Atalhos({ irPara }) {
+  // Notícias, Análises e Decisões já estão na barra inferior.
   const itens = [
-    ["noticias", "noticias", "Notícias"],
-    ["execucoes", "execucoes", "Análises"],
-    ["operacoes", "operacoes", "Decisões"],
+    ["estudos", "estudos", "Estudos"],
+    ["painel", "painel", "Sistema"],
     ["acoes", "acoes", "Rodar"],
     ["configuracao", "configuracao", "Regras"],
   ];

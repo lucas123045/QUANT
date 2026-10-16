@@ -39,8 +39,9 @@ def medir_funil(dir_data: Path | None = None) -> dict:
     classificados = [classificacoes.get(e["id"]) for e in eventos]
     classificados = [c for c in classificados if c]
     confirmados = [e for e in eventos if e.get("confirmado")]
-    acima_limiar = [c for c in classificados if c["sentimento"] != "neutro"
-                    and c["probabilidade"] > config.LIMIAR_PROBABILIDADE]
+    # Etapa seguinte à confirmação no funil: só conta eventos confirmados.
+    acima_limiar = [c for e in confirmados if (c := classificacoes.get(e["id"]))
+                    and c["sentimento"] != "neutro" and c["probabilidade"] > config.LIMIAR_PROBABILIDADE]
     operacoes = [d for d in decisoes if d["decisao"]["decisao"] != "manter"]
 
     n_dias = len(dias_coleta)
