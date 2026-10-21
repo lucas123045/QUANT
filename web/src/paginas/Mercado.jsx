@@ -29,15 +29,20 @@ function Macro({ m, c }) {
   const s = i.selic;
   const it = c.itens || {};
   const variacao = (x) => (x?.variacao_30d == null ? null : `${pct(x.variacao_30d)} em 30 dias`);
+  // De onde veio o número: a fonte, ou a data da última leitura boa se as fontes falharam agora.
+  const origem = (x) => (!x ? null : x.desatualizado ? `última leitura em ${dia(x.lido_em?.slice(0, 10))}` : x.fonte);
+  const junto = (...partes) => partes.filter(Boolean).join(" · ");
+  // Dólar: à vista do Yahoo; se o Yahoo falhar, a PTAX do Banco Central.
+  const dolar = it.dolar?.valor ? { ...it.dolar, fonte: "Yahoo Finance (à vista)" } : i.dolar_ptax;
   return (
     <div className="mercado-indicadores">
       <Indicador rotulo="Selic (meta)" valor={s ? `${formatarNumero(s.valor, 2)}%` : "—"}
-        detalhe={s ? `desde ${dia(s.desde)}${s.anterior != null ? `, antes ${formatarNumero(s.anterior, 2)}%` : ""}` : "Banco Central sem resposta"} />
+        detalhe={s ? junto(`desde ${dia(s.desde)}${s.anterior != null ? `, antes ${formatarNumero(s.anterior, 2)}%` : ""}`, origem(s)) : "fontes sem resposta agora"} />
       <Indicador rotulo="Inflação (IPCA 12 meses)" valor={i.ipca_12m ? `${formatarNumero(i.ipca_12m.valor, 2)}%` : "—"}
-        detalhe={i.ipca_12m ? `referência ${formatarData(i.ipca_12m.data + "T12:00:00-03:00", false).slice(3)}` : null} />
+        detalhe={i.ipca_12m ? junto(`referência ${formatarData(i.ipca_12m.data + "T12:00:00-03:00", false).slice(3)}`, origem(i.ipca_12m)) : "fontes sem resposta agora"} />
       <Indicador rotulo="Juro real aproximado" valor={s && i.ipca_12m ? `${formatarNumero(((1 + s.valor / 100) / (1 + i.ipca_12m.valor / 100) - 1) * 100, 2)}%` : "—"}
         detalhe="Selic descontada a inflação: o que a renda fixa paga de verdade" />
-      <Indicador rotulo="Dólar (à vista)" valor={it.dolar?.valor ? `R$ ${formatarPreco(it.dolar.valor)}` : "—"} detalhe={variacao(it.dolar)} />
+      <Indicador rotulo="Dólar" valor={dolar?.valor ? `R$ ${formatarPreco(dolar.valor)}` : "—"} detalhe={junto(variacao(dolar), origem(dolar))} />
       <Indicador rotulo="Petróleo Brent (US$ por barril)" valor={it.brent?.valor ? `US$ ${formatarPreco(it.brent.valor)}` : "—"}
         detalhe={[variacao(it.brent), "pesa em PETR4"].filter(Boolean).join(" · ")} />
       <Indicador rotulo="Minério de ferro (US$ por tonelada, 62% Fe na China)" valor={it.minerio?.valor ? `US$ ${formatarPreco(it.minerio.valor)}` : "—"}

@@ -4,7 +4,11 @@ Nada daqui entra na regra: é o painel que um gestor olha antes de agir.
 
 - Macro (Banco Central, SGS): meta Selic (e desde quando), IPCA em 12 meses,
   dólar PTAX. A série da Selic traz datas FUTURAS (repete a meta até a próxima
-  reunião): vale o último valor até hoje.
+  reunião): vale o último valor até hoje. O SGS às vezes recusa consultas (o
+  firewall do BC responde com uma página HTML): cada indicador tem uma fonte
+  alternativa oficial (histórico do Copom no site do BC, IPCA no IBGE/SIDRA,
+  PTAX na API Olinda do BC) e, se tudo falhar, o último valor bom, com a data
+  em que foi lido (arquivo macro_ultimo.json, guardado também na nuvem).
 - Commodities e câmbio (yfinance): Brent, minério de ferro, dólar à vista.
   Em PETR4 e VALE3, o preço da commodity pesa mais que quase qualquer notícia.
 - Sinal de Nova York: PETR4, VALE3, ITUB4, BBDC4 e ABEV3 têm ADRs na NYSE, que
@@ -35,6 +39,11 @@ from src import config, rede
 logger = logging.getLogger(__name__)
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 URL_SGS = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{serie}/dados?formato=json&dataInicial={inicio}"
+URL_COPOM = "https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros"
+URL_SIDRA_IPCA = "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/last%201?formato=json"
+URL_PTAX = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo("
+            "dataInicial=@i,dataFinalCotacao=@f)?@i='{inicio}'&@f='{fim}'&$format=json&$select=cotacaoVenda,dataHoraCotacao")
+ARQUIVO_ULTIMO = "macro_ultimo.json"  # fora de mercado/ (que não vai para o ramo "dados")
 VALIDADE_MINUTOS = 15
 # Último negócio na B3 há menos que isto: pregão em andamento, sinal de NY não se aplica.
 PREGAO_EM_ANDAMENTO = timedelta(minutes=20)
@@ -52,6 +61,9 @@ class Fontes:
             except Exception as erro:  # noqa: BLE001
                 ultimo_erro = erro
         raise ultimo_erro
+
+    def json(self, url: str):
+        return json.loads(rede.baixar(url, 20, "quant-academico/1.0"))
 
     def diario(self, simbolos: list[str]) -> dict[str, pd.Series]:
         import yfinance  # import local: testes não usam rede
@@ -94,33 +106,89 @@ def _serie_sgs(bruto: list[dict], hoje: date) -> list[tuple[date, float]]:
     return sorted(pontos)
 
 
-def macro(fontes: Fontes, hoje: date) -> dict:
+def _data_iso(texto: str) -> date:
+    """'2026-09-17T03:00:00Z' (meia-noite de Brasília em UTC) -> 2026-09-17."""
+    return datetime.fromisoformat(texto.replace("Z", "+00:00")).astimezone(FUSO).date()
+
+
+def _selic_copom(fontes: Fontes, hoje: date) -> dict:
+    """Meta Selic pelo histórico das reuniões do Copom (site do Banco Central)."""
+    reunioes = [r for r in fontes.json(URL_COPOM)["conteudo"]
+                if r.get("MetaSelic") is not None and r.get("DataInicioVigencia")
+                and _data_iso(r["DataInicioVigencia"]) <= hoje]
+    reunioes.sort(key=lambda r: r["DataInicioVigencia"], reverse=True)
+    atual = reunioes[0]
+    anterior = next((r["MetaSelic"] for r in reunioes[1:] if r["MetaSelic"] != atual["MetaSelic"]), None)
+    return {"valor": float(atual["MetaSelic"]), "data": hoje.isoformat(),
+            "desde": _data_iso(atual["DataInicioVigencia"]).isoformat(),
+            "anterior": float(anterior) if anterior is not None else None,
+            "fonte": "Banco Central (histórico do Copom)"}
+
+
+def _ipca_sidra(fontes: Fontes, hoje: date) -> dict:
+    """IPCA acumulado em 12 meses pelo IBGE (SIDRA, tabela 1737, variável 2265)."""
+    linha = fontes.json(URL_SIDRA_IPCA)[-1]
+    periodo = linha["D3C"]  # AAAAMM
+    return {"valor": float(linha["V"]), "data": f"{periodo[:4]}-{periodo[4:]}-01", "fonte": "IBGE (SIDRA)"}
+
+
+def _ptax_olinda(fontes: Fontes, hoje: date) -> dict:
+    """Dólar PTAX de venda pela API Olinda do Banco Central (com a variação em 30 dias)."""
+    url = URL_PTAX.format(inicio=(hoje - timedelta(days=45)).strftime("%m-%d-%Y"), fim=hoje.strftime("%m-%d-%Y"))
+    pontos = sorted((date.fromisoformat(v["dataHoraCotacao"][:10]), float(v["cotacaoVenda"]))
+                    for v in fontes.json(url)["value"])
+    dia, valor = pontos[-1]
+    mes_atras = [v for d, v in pontos if d <= dia - timedelta(days=30)]
+    return {"valor": valor, "data": dia.isoformat(), "variacao_30d": valor / mes_atras[-1] - 1 if mes_atras else None,
+            "fonte": "Banco Central (PTAX, Olinda)"}
+
+
+ALTERNATIVAS = {"selic": _selic_copom, "ipca_12m": _ipca_sidra, "dolar_ptax": _ptax_olinda}
+NOMES = {"selic": "Selic", "ipca_12m": "IPCA", "dolar_ptax": "dólar PTAX"}
+
+
+def _pelo_sgs(fontes: Fontes, chave: str, serie: int, hoje: date) -> dict:
+    inicio = hoje - timedelta(days=500 if chave == "ipca_12m" else 400)
+    pontos = _serie_sgs(fontes.sgs(serie, inicio), hoje)
+    if not pontos:
+        raise ValueError("série sem dados")
+    dia, valor = pontos[-1]
+    item = {"valor": valor, "data": dia.isoformat(), "serie_sgs": serie, "fonte": "Banco Central (SGS)"}
+    if chave == "selic":
+        desde = dia
+        for d, v in reversed(pontos):
+            if v != valor:
+                break
+            desde = d
+        item["desde"] = desde.isoformat()
+        anteriores = [v for d, v in pontos if d < desde]
+        item["anterior"] = anteriores[-1] if anteriores else None
+    if chave == "dolar_ptax":
+        mes_atras = [v for d, v in pontos if d <= dia - timedelta(days=30)]
+        item["variacao_30d"] = valor / mes_atras[-1] - 1 if mes_atras else None
+    return item
+
+
+def macro(fontes: Fontes, hoje: date, ultimos: dict | None = None) -> dict:
+    """Cada indicador: SGS; se falhar, a fonte alternativa oficial; se falhar, o último valor bom."""
     resultado, avisos = {}, []
+    ultimos = ultimos or {}
     for chave, serie in config.SERIES_BCB.items():
-        inicio = hoje - timedelta(days=500 if chave == "ipca_12m" else 400)
-        try:
-            pontos = _serie_sgs(fontes.sgs(serie, inicio), hoje)
-        except Exception as erro:  # noqa: BLE001
-            avisos.append(f"{chave}: Banco Central não respondeu ({type(erro).__name__})")
+        tentativas = [lambda: _pelo_sgs(fontes, chave, serie, hoje), lambda: ALTERNATIVAS[chave](fontes, hoje)]
+        for tentar in tentativas:
+            try:
+                resultado[chave] = tentar()
+                break
+            except Exception:  # noqa: BLE001 - a próxima fonte resolve
+                continue
+        if chave in resultado:
             continue
-        if not pontos:
-            avisos.append(f"{chave}: série sem dados")
-            continue
-        dia, valor = pontos[-1]
-        item = {"valor": valor, "data": dia.isoformat(), "serie_sgs": serie}
-        if chave == "selic":
-            desde = dia
-            for d, v in reversed(pontos):
-                if v != valor:
-                    break
-                desde = d
-            item["desde"] = desde.isoformat()
-            anteriores = [v for d, v in pontos if d < desde]
-            item["anterior"] = anteriores[-1] if anteriores else None
-        if chave == "dolar_ptax":
-            mes_atras = [v for d, v in pontos if d <= dia - timedelta(days=30)]
-            item["variacao_30d"] = valor / mes_atras[-1] - 1 if mes_atras else None
-        resultado[chave] = item
+        if chave in ultimos:
+            resultado[chave] = {**ultimos[chave], "desatualizado": True}
+            avisos.append(f"{NOMES[chave]}: fontes sem resposta agora; valor da última leitura "
+                          f"({ultimos[chave].get('lido_em', '?')[:10]})")
+        else:
+            avisos.append(f"{NOMES[chave]}: Banco Central e fonte alternativa sem resposta")
     return {"indicadores": resultado, "avisos": avisos}
 
 
@@ -230,7 +298,17 @@ def contexto(dir_data: Path | None = None, agora: datetime | None = None, fontes
         except (ValueError, KeyError):
             pass
     fontes = fontes or Fontes()
-    resultado = {"gerado_em": agora.isoformat(), "macro": macro(fontes, agora.date()),
+    arquivo_ultimo = dir_data / ARQUIVO_ULTIMO
+    try:
+        ultimos = json.loads(arquivo_ultimo.read_text(encoding="utf-8")) if arquivo_ultimo.exists() else {}
+    except ValueError:
+        ultimos = {}
+    painel_macro = macro(fontes, agora.date(), ultimos)
+    novos = {k: {**v, "lido_em": agora.isoformat()} for k, v in painel_macro["indicadores"].items()
+             if not v.get("desatualizado")}
+    if novos:
+        arquivo_ultimo.write_text(json.dumps({**ultimos, **novos}, ensure_ascii=False), encoding="utf-8")
+    resultado = {"gerado_em": agora.isoformat(), "macro": painel_macro,
                  "commodities": commodities(fontes), "nova_york": sinal_nova_york(fontes, agora),
                  "agenda": agenda(fontes, agora.date())}
     caminho.parent.mkdir(parents=True, exist_ok=True)

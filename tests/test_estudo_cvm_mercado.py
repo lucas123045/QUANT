@@ -294,3 +294,45 @@ def test_indice_do_cdi_compara_qualquer_compra(tmp_path):
     assert r["datas"][0] == "2023-01-02" and r["datas"][-1] == "2024-01-10"
     assert len(r["datas"]) == len(dias)                     # dois blocos anuais, sem dia repetido
     assert r["fator"][-1] == pytest.approx(1.0005 ** len(dias))
+
+
+class FontesSgsBloqueado(FontesFalsas):
+    """O SGS do BC recusa tudo (como em 21/10/2026); as fontes alternativas respondem."""
+
+    def sgs(self, serie, inicio):
+        raise ConnectionError("firewall do BC")
+
+    def json(self, url):
+        if url == mercado.URL_COPOM:
+            return {"conteudo": [
+                {"MetaSelic": 13.75, "DataInicioVigencia": "2026-09-17T03:00:00Z"},
+                {"MetaSelic": 14.0, "DataInicioVigencia": "2026-08-06T03:00:00Z"},
+                {"MetaSelic": 13.5, "DataInicioVigencia": "2026-12-10T03:00:00Z"}]}  # futura: ignorada
+        if url == mercado.URL_SIDRA_IPCA:
+            return [{"V": "Valor"}, {"V": "4.58", "D3C": "202609"}]
+        return {"value": [{"cotacaoVenda": 5.20, "dataHoraCotacao": "2026-09-18 13:00:00"},
+                          {"cotacaoVenda": 5.03, "dataHoraCotacao": "2026-10-21 13:00:00"}]}
+
+
+def test_macro_usa_fonte_alternativa_quando_o_sgs_recusa():
+    r = mercado.macro(FontesSgsBloqueado(), date(2026, 10, 21))
+    i = r["indicadores"]
+    assert i["selic"] == {"valor": 13.75, "data": "2026-10-21", "desde": "2026-09-17", "anterior": 14.0,
+                          "fonte": "Banco Central (histórico do Copom)"}
+    assert i["ipca_12m"]["valor"] == 4.58 and i["ipca_12m"]["data"] == "2026-09-01"
+    assert i["dolar_ptax"]["valor"] == 5.03 and i["dolar_ptax"]["variacao_30d"] == pytest.approx(5.03 / 5.20 - 1)
+    assert r["avisos"] == []
+
+
+def test_macro_usa_o_ultimo_valor_bom_quando_tudo_falha(tmp_path):
+    agora = datetime(2026, 10, 21, 8, 0, tzinfo=SP)
+    mercado.contexto(tmp_path, agora, FontesSgsBloqueado())  # leitura boa: grava o último valor
+    class TudoFora(FontesFalsas):
+        def sgs(self, serie, inicio):
+            raise ConnectionError("fora")
+
+        def json(self, url):
+            raise ConnectionError("fora")
+    r = mercado.contexto(tmp_path, agora + timedelta(hours=2), TudoFora())["macro"]
+    assert r["indicadores"]["selic"]["valor"] == 13.75 and r["indicadores"]["selic"]["desatualizado"]
+    assert any("última leitura (2026-10-21)" in a for a in r["avisos"])
