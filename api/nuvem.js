@@ -5,12 +5,19 @@
 // poucos minutos de vida. Quem roda é o GitHub Actions (.github/workflows/quant.yml),
 // que guarda tudo no ramo "dados". Esta função só:
 //   GET  -> as últimas execuções na nuvem e o commit mais recente do ramo "dados";
+//   GET  ?agendar=<QUANT_CRON_SEGREDO> -> dispara o pipeline (para um agendador externo);
 //   POST -> {senha, tarefa} confere a senha e manda o GitHub rodar agora.
+//
+// Por que um agendador externo: o "schedule" do GitHub Actions atrasa ou pula
+// execuções quando os servidores estão ocupados (em 21/10/2026, o "a cada 30
+// minutos" rodou 2 vezes em 9 horas). Um serviço como o cron-job.org chamando
+// esta URL a cada 30 minutos mantém a coleta em dia.
 //
 // Variáveis de ambiente (Vercel > Settings > Environment Variables):
 //   QUANT_SENHA         senha para rodar (sem ela, o botão fica desligado)
 //   QUANT_GITHUB_TOKEN  token do GitHub com permissão "Actions: Read and write" no repositório
 //   QUANT_REPOSITORIO   opcional; padrão lucas123045/QUANT
+//   QUANT_CRON_SEGREDO  opcional; segredo longo do agendador externo (diferente da senha)
 // A chave da OpenAI NÃO fica aqui: ela é o segredo LLM_API_KEY do GitHub.
 import { timingSafeEqual, createHash } from "node:crypto";
 
@@ -33,11 +40,37 @@ function github(caminho, opcoes = {}) {
 }
 
 // Compara pelo hash: mesmo tamanho sempre, e sem vazar a senha pelo tempo de resposta.
-function senhaConfere(recebida) {
-  const certa = process.env.QUANT_SENHA;
+function confere(recebida, certa) {
   if (!certa || typeof recebida !== "string") return false;
   const h = (t) => createHash("sha256").update(t).digest();
   return timingSafeEqual(h(recebida), h(certa));
+}
+
+function senhaConfere(recebida) {
+  return confere(recebida, process.env.QUANT_SENHA);
+}
+
+function disparar(tarefa) {
+  return github(`/actions/workflows/${WORKFLOW}/dispatches`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: "main", inputs: { tarefa } }),
+  });
+}
+
+/** Disparo do agendador externo: um pipeline por vez, nunca empilhado. */
+async function agendado(res, segredo) {
+  if (!process.env.QUANT_GITHUB_TOKEN || !confere(segredo, process.env.QUANT_CRON_SEGREDO)) {
+    await new Promise((r) => setTimeout(r, 1000));
+    return res.status(401).json({ detail: "Segredo do agendador incorreto ou não configurado." });
+  }
+  const { execucoes } = await estado();
+  if (execucoes.some((e) => e.status !== "completed")) {
+    return res.status(200).json({ ok: true, disparado: false, motivo: "já há uma execução na fila ou rodando" });
+  }
+  const r = await disparar("pipeline");
+  if (!r.ok) return res.status(502).json({ detail: `O GitHub recusou o pedido (${r.status}).` });
+  return res.status(202).json({ ok: true, disparado: true });
 }
 
 async function estado() {
@@ -58,6 +91,10 @@ async function estado() {
 
 export default async function handler(req, res) {
   try {
+    if (req.method === "GET" && req.query?.agendar !== undefined) {
+      res.setHeader("Cache-Control", "no-store");
+      return await agendado(res, String(req.query.agendar));
+    }
     if (req.method === "GET") {
       res.setHeader("Cache-Control", "public, s-maxage=5, stale-while-revalidate=10");
       return res.status(200).json(await estado());
@@ -74,11 +111,7 @@ export default async function handler(req, res) {
     }
     if (!TAREFAS.has(tarefa)) return res.status(400).json({ detail: "Tarefa desconhecida." });
 
-    const r = await github(`/actions/workflows/${WORKFLOW}/dispatches`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ref: "main", inputs: { tarefa } }),
-    });
+    const r = await disparar(tarefa);
     if (!r.ok) {
       const corpo = await r.json().catch(() => ({}));
       return res.status(502).json({ detail: `O GitHub recusou o pedido (${r.status}): ${corpo.message || "sem detalhe"}` });

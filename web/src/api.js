@@ -16,9 +16,13 @@ export const MENSAGEM_VITRINE =
 
 const cacheVitrine = new Map();
 
+/** Mensagem de "ainda não publicado": a interface mostra como aviso, não como erro. */
+export const NAO_PUBLICADO = "Esta parte ainda não foi publicada no site. Ela aparece depois da próxima "
+  + "atualização na nuvem (sozinha, a cada 30 minutos, ou na hora em \"Rodar agora\").";
+
 async function buscarJson(url) {
   const r = await fetch(url);
-  if (!r.ok) throw new Error(r.status === 404 ? "Dados ainda não publicados." : `Erro ${r.status}`);
+  if (!r.ok) throw new Error(r.status === 404 ? NAO_PUBLICADO : `Erro ${r.status}`);
   return r.json();
 }
 

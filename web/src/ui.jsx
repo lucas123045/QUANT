@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { NAO_PUBLICADO } from "./api.js";
 
 /** Quem pede menos movimento no sistema operacional vê tudo estático. */
 export function semMovimento() {
@@ -144,6 +145,7 @@ export function Criterios({ criterios, versao }) {
 }
 
 export function Estado({ carregando, erro, vazio, mensagemVazio = "Sem registros.", children }) {
+  if (erro === NAO_PUBLICADO) return <div className="aviso tom-alerta">{erro}</div>;
   if (erro) return <div className="aviso tom-negativo">Erro: {erro}</div>;
   if (carregando) return <Esqueleto />;
   if (vazio) return <div className="vazio">{mensagemVazio}</div>;
