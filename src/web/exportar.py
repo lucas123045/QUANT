@@ -88,6 +88,7 @@ def exportar(destino: Path | None = None, bases: tuple[str, ...] = BASES, forcar
                   "bases": {}}
         _gravar(novo / "status.json", obter("/api/status"))
         _gravar(novo / "config.json", obter("/api/config"))
+        _gravar(novo / "mercado.json", obter("/api/mercado"))
         for base in bases:
             _gravar(novo / f"funil-{base}.json", obter(f"/api/funil?base={base}"))
             noticias = obter(f"/api/noticias?base={base}&limite=5000")
@@ -102,6 +103,8 @@ def exportar(destino: Path | None = None, bases: tuple[str, ...] = BASES, forcar
             _gravar(novo / f"operacoes-{base}.json", operacoes)
             simulacao = obter(f"/api/simulacao?base={base}")
             _gravar(novo / f"simulacao-{base}.json", simulacao)
+            _gravar(novo / f"pratica-{base}.json", obter(f"/api/pratica?base={base}"))
+            _gravar(novo / f"evidencias-{base}.json", obter(f"/api/evidencias?base={base}"))
             resumo["bases"][base] = {
                 "noticias": noticias.get("total", 0), "execucoes": len(execucoes),
                 "operacoes": len(operacoes) if isinstance(operacoes, list) else 0,

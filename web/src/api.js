@@ -74,6 +74,9 @@ async function pedirVitrine(caminho, opcoes) {
     case "funil": return lerArquivo(`funil-${base}.json`);
     case "operacoes": return lerArquivo(`operacoes-${base}.json`);
     case "simulacao": return lerArquivo(`simulacao-${base}.json`);
+    case "pratica": return lerArquivo(`pratica-${base}.json`);
+    case "evidencias": return lerArquivo(`evidencias-${base}.json`);
+    case "mercado": return lerArquivo("mercado.json");
     case "tarefas": return [];
     case "execucoes":
       if (partes[1]) {

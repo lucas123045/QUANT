@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Icone from "./icones.jsx";
+import { LogoQuant, NomeQuant } from "./Marca.jsx";
 import { VITRINE, lerArquivo, pedir, useApi } from "./api.js";
 import Simulacao from "./paginas/Simulacao.jsx";
 import Painel from "./paginas/Painel.jsx";
@@ -9,10 +10,17 @@ import Operacoes from "./paginas/Operacoes.jsx";
 import Acoes from "./paginas/Acoes.jsx";
 import Configuracao from "./paginas/Configuracao.jsx";
 import Estudos from "./paginas/Estudos.jsx";
+import Pratica from "./paginas/Pratica.jsx";
+import Evidencias from "./paginas/Evidencias.jsx";
+import Mercado from "./paginas/Mercado.jsx";
 
 const PAGINAS = [
   { id: "carteira", nome: "Minha carteira", icone: "carteira", componente: Simulacao,
     titulo: "Bem-vindo de volta", subtitulo: "Sua carteira simulada, com dinheiro fictício e preços reais" },
+  { id: "pratica", nome: "Na prática", icone: "pratica", componente: Pratica,
+    titulo: "Na prática", subtitulo: "As mesmas decisões com custos, imposto e gestão de risco" },
+  { id: "mercado", nome: "Mercado", icone: "mercado", componente: Mercado,
+    titulo: "Mercado", subtitulo: "Juros, inflação, commodities, Nova York e agenda" },
   { id: "painel", nome: "Visão do sistema", icone: "painel", componente: Painel,
     titulo: "Visão do sistema", subtitulo: "Status, funil de notícias e pendências da pesquisa" },
   { id: "noticias", nome: "Notícias", icone: "noticias", componente: Noticias,
@@ -21,6 +29,8 @@ const PAGINAS = [
     titulo: "Análises do dia", subtitulo: "O que a IA leu e o que a regra decidiu, dia a dia" },
   { id: "operacoes", nome: "Decisões", icone: "operacoes", componente: Operacoes,
     titulo: "Decisões registradas", subtitulo: "Compras e vendas, com a notícia e o motivo" },
+  { id: "evidencias", nome: "Evidências", icone: "evidencias", componente: Evidencias,
+    titulo: "Evidências", subtitulo: "O preço reage às notícias? A tempo? A IA acerta?" },
   { id: "acoes", nome: "Rodar agora", icone: "acoes", componente: Acoes,
     titulo: "Rodar agora", subtitulo: "Coletar notícias e analisar com a IA" },
   { id: "configuracao", nome: "Configuração", icone: "configuracao", componente: Configuracao,
@@ -245,8 +255,8 @@ export default function App() {
     <div className="app">
       <aside className={`lateral ${menuAberto ? "aberta" : ""}`}>
         <div className="marca">
-          <span className="marca-logo"><Icone nome="alta" tamanho={18} /></span>
-          <strong>QUANT</strong>
+          <span className="marca-logo"><LogoQuant tamanho={38} /></span>
+          <NomeQuant />
         </div>
         <nav>
           {PAGINAS.map((p) => (
@@ -280,7 +290,7 @@ export default function App() {
 
       <div className="principal">
         <header className="topo">
-          <span className="topo-logo so-celular"><Icone nome="alta" tamanho={16} /></span>
+          <span className="topo-logo so-celular"><LogoQuant tamanho={34} /></span>
           <div className="topo-titulo">
             <h1>{atual.titulo}</h1>
             <p>{atual.subtitulo}</p>

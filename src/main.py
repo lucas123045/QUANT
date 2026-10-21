@@ -24,7 +24,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from src import archive, auditoria, backup, classify, config, explain, extract, llm, news
+from src import alertas, archive, auditoria, backup, classify, config, explain, extract, llm, news
 from src.strategy import MANTER, VERSAO_REGRA, Decisao, decidir
 
 logger = logging.getLogger(__name__)
@@ -109,9 +109,9 @@ def etapa_coletar(pasta: Path, agora: datetime, teste: bool) -> list[dict]:
     else:
         itens = news.coletar_noticias(agora=agora)
         try:
-            itens += news.coletar_fatos_relevantes()
-        except NotImplementedError as erro:
-            logger.warning("Fonte CVM indisponível (bloqueio documentado): %s", erro)
+            itens += news.coletar_fatos_relevantes(agora=agora, dir_data=pasta.parent.parent)
+        except Exception as erro:  # noqa: BLE001 - CVM fora do ar não pode parar a coleta de notícias
+            logger.warning("Fatos relevantes da CVM indisponíveis nesta coleta: %s", erro)
     todos = _unir_por_url(anteriores, itens)
     if anteriores:
         logger.info("Coleta: %d itens novos nesta execução (%d no dia)", len(todos) - len(anteriores), len(todos))
@@ -254,15 +254,18 @@ def etapa_relatorio(pasta: Path, decisoes: list[dict], data: str, teste: bool) -
 
 
 def etapa_registrar(pasta: Path, decisoes: list[dict], explicacoes: dict[str, str],
-                    arquivo_operacoes: Path, data: str) -> list[str]:
-    """Registra compras e vendas no log de auditoria, uma única vez por evento."""
+                    arquivo_operacoes: Path, data: str, novos: list[dict] | None = None) -> list[str]:
+    """Registra compras e vendas no log de auditoria, uma única vez por evento.
+
+    `novos` (opcional) recebe os registros gravados nesta chamada, para os alertas.
+    """
     caminho = pasta / "07_registro.json"
     registrados = _ler(caminho, [])
     for item in decisoes:
         evento, d = item["evento"], item["decisao"]
         if d["decisao"] == MANTER or evento["id"] in registrados:
             continue
-        auditoria.registrar_operacao({
+        registro = auditoria.registrar_operacao({
             "data": data,
             "ticker": d["ticker"],
             "evento": {k: v for k, v in evento.items() if k != "classificacao"},
@@ -275,6 +278,8 @@ def etapa_registrar(pasta: Path, decisoes: list[dict], explicacoes: dict[str, st
             "versao_regra": d["versao_regra"],
             "criterios": d.get("criterios", []),
         }, arquivo_operacoes)
+        if novos is not None:
+            novos.append(registro)
         registrados.append(evento["id"])
         _gravar(caminho, registrados)
     return registrados
@@ -347,8 +352,11 @@ def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
         evento["classificacao"] = classificacoes.get(evento["id"])
     decisoes = etapa_decidir(pasta, eventos, carregar_historico(dir_execucoes, data))
     explicacoes = etapa_explicar(pasta, decisoes)
+    novos_no_log: list[dict] = []
     registrados = etapa_registrar(pasta, decisoes, explicacoes,
-                                  dir_data / "operacoes.jsonl", data)
+                                  dir_data / "operacoes.jsonl", data, novos_no_log)
+    # Alerta no celular (se configurado): só decisões novas e só na base real.
+    avisos_enviados = None if teste else alertas.enviar(novos_no_log)
 
     etapa_relatorio(pasta, decisoes, data, teste)
 
@@ -366,6 +374,7 @@ def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
         "pasta": str(pasta),
         "backtest": "não executado: períodos PENDENTES DE APROVAÇÃO em config.py",
         "por_fonte": contar_por_fonte(itens, teste),
+        "alertas": avisos_enviados,
     }
     if not teste:
         destino = backup.pasta_destino()

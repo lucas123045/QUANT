@@ -10,6 +10,9 @@
 #     LLM_API_KEY = sua chave da OpenAI (sem ela, o QUANT só coleta e não analisa)
 #   Variáveis opcionais (aba "Variables"): LLM_PROVEDOR (padrão openai),
 #     LLM_MODELO (padrão gpt-4.1-2025-04-14, o modelo do projeto).
+#   Alertas no celular (opcionais, segredos; ver src/alertas.py):
+#     QUANT_NTFY_TOPICO (app ntfy, sem cadastro) e/ou
+#     QUANT_TELEGRAM_TOKEN + QUANT_TELEGRAM_CHAT.
 name: QUANT (coleta e análise automáticas)
 run-name: ${{ github.event_name == 'workflow_dispatch' && format('Pedido pelo site - {0}', inputs.tarefa || 'pipeline') || 'Automática (a cada 30 min)' }}
 
@@ -42,6 +45,9 @@ jobs:
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_PROVEDOR: ${{ vars.LLM_PROVEDOR || 'openai' }}
       LLM_MODELO: ${{ vars.LLM_MODELO || 'gpt-4.1-2025-04-14' }}
+      QUANT_NTFY_TOPICO: ${{ secrets.QUANT_NTFY_TOPICO }}
+      QUANT_TELEGRAM_TOKEN: ${{ secrets.QUANT_TELEGRAM_TOKEN }}
+      QUANT_TELEGRAM_CHAT: ${{ secrets.QUANT_TELEGRAM_CHAT }}
       PYTHONIOENCODING: utf-8
     steps:
       - name: Código (ramo main)
@@ -94,6 +100,8 @@ jobs:
         if: always()
         working-directory: _dados
         run: |
+          # Caches (preços, CVM, mercado) se refazem a cada execução: fora do histórico.
+          printf '%s\n' simulacao/precos/ pratica/precos/ estudos/precos/ cvm/ mercado/ agendamento.log.old > .gitignore
           git config user.name "quant-bot"
           git config user.email "quant-bot@users.noreply.github.com"
           git add -A

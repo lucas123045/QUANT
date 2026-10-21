@@ -106,7 +106,14 @@ def _inicio(dir_data: Path, sinais: list[dict]) -> date | None:
 def _sem_preco_parcial(precos: pd.DataFrame, agora: datetime) -> pd.DataFrame:
     hoje = pd.Timestamp(agora.date())
     if agora.time() < HORARIO_FECHAMENTO_CONFIAVEL:
-        return precos[precos.index < hoje]
+        precos = precos[precos.index < hoje]
+    # O Yahoo às vezes publica o fechamento do Ibovespa antes do das ações: o
+    # último pregão chega com o índice e as ações vazias. O calendário segue o
+    # Ibovespa, então esse dia entraria sem preço (patrimônio NaN). Fica de fora
+    # até as ações chegarem.
+    acoes = [t for t in config.CARTEIRA if t in precos.columns]
+    while len(precos) and acoes and precos.iloc[-1][acoes].isna().all():
+        precos = precos.iloc[:-1]
     return precos
 
 

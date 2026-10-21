@@ -167,8 +167,8 @@ Em `src/config.py`, os períodos ficam como `None` até a aprovação. Nenhum ba
 
 - [ ] Arquivar notícias e fatos relevantes com timestamp e fonte (**prioridade 1**).
   - **Notícias de portal:** a ferramenta está pronta (`python -m src.archive --coletar`) e a primeira coleta real foi feita em 2026-10-15, com 20 itens. Falta agendar a execução diária; o agendamento só será configurado depois da aprovação. Início oficial do arquivamento: _[data a definir]_.
-  - **Fatos relevantes:** bloqueados até a verificação da CVM (item abaixo).
-- [ ] Verificar se a CVM tem histórico utilizável de fatos relevantes para as 5 ações, com data de entrega confiável. O adaptador `coletar_fatos_relevantes` fica como `NotImplementedError` até lá.
+  - **Fatos relevantes:** coletados da CVM desde 21/10/2026 (`src/cvm.py`).
+- [x] Verificar a CVM (21/10/2026): o Portal de Dados Abertos cobre as 5 empresas (filtro por CNPJ), com o PDF de cada fato. Limitações registradas: a data de entrega vem sem hora e o arquivo atrasa alguns dias. Para o teste de conceito histórico, ainda falta decidir se a data sem hora basta.
 - [ ] Aprovar datas de treino, validação e teste
 - [ ] Definir a data de congelamento da regra
 - [ ] Confirmar acesso à API do Jev. Enquanto isso, o LLM é o classificador e `USAR_JEV = False`.
@@ -195,7 +195,7 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 |---|---|
 | `src/config.py` | Carteira, parâmetros da regra, custos, períodos, fontes |
 | `src/matching.py` | Decide se um texto menciona uma empresa da carteira. Usa o ticker com fronteira de palavra, o nome e os aliases; "vale" isolado nunca casa; casas de análise como "Itaú BBA" são excluídas |
-| `src/news.py` | Coleta RSS das últimas 24 h: feeds gerais e por empresa (tag) do InfoMoney e do Money Times, sem repetir a mesma notícia, tolerando falhas por fonte. A CVM está bloqueada |
+| `src/news.py` | Coleta RSS das últimas 24 h: feeds gerais e por empresa (tag) do InfoMoney e do Money Times, sem repetir a mesma notícia, tolerando falhas por fonte. Fatos relevantes vêm de `src/cvm.py` |
 | `src/archive.py` | Arquivo append-only em `data/arquivo/AAAA-MM-DD.jsonl` (data da coleta), com deduplicação por URL |
 | `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso. Registra o modelo que respondeu e a temperatura efetiva |
 | `src/provedores.py` | Provedores reais pelos SDKs oficiais. `openai`: Chat Completions, modelo obrigatório em `LLM_MODELO`, temperatura 0 (repete sem ela se o modelo recusar). `anthropic`: `claude-opus-5-5`, esforço `medium`, fallback do servidor. Recusas tratadas nos dois |
@@ -204,7 +204,15 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo e critérios conferidos (`REGRA_V2`) |
 | `src/baselines.py` | Baseline 1 (qualquer notícia positiva) e baseline 2 (sorteio com 1000 simulações e semente fixa) |
 | `src/backtest.py` | Execução no próximo pregão, simulação com exposição, preços do yfinance com cache e SHA-256, métricas, `CRITERIO_V2`, aviso de contaminação e travas de período |
-| `src/estatistica.py` | Teste t, teste de Welch (distribuição t sem dependências externas), tabela de calibração e escore de Brier |
+| `src/estatistica.py` | Teste t, teste de Welch (distribuição t sem dependências externas), tabela de calibração, escore de Brier, quantil t e intervalo de confiança |
+| `src/cvm.py` | Fatos relevantes da CVM (dados abertos IPE, por CNPJ, 1ª versão, texto do PDF) |
+| `src/pratica.py` | Carteira prática: as mesmas decisões com custos da B3, IR, caixa no CDI, tamanho pelo risco, limite por setor, saídas e confirmação pela reação do mercado |
+| `src/tributacao.py` | IR de ações em operações comuns: 15%, isenção de R$ 20 mil em vendas no mês, compensação de prejuízo, vencimento do DARF |
+| `src/surpresa.py` | Surpresa frente à expectativa lida no texto ("acima do consenso", "frustrou"), sem LLM |
+| `src/risco.py` | Sharpe e Sortino contra o CDI, beta, maior queda e duração, payoff, fator de lucro, correlações |
+| `src/estudo_evento.py` | Estudo de evento (modelo de mercado), calibração da IA e atraso da coleta |
+| `src/mercado.py` | Macro do Banco Central, commodities, sinal dos ADRs em Nova York e agenda (Copom, resultados, datas-ex) |
+| `src/alertas.py` | Alerta no celular (ntfy ou Telegram) a cada decisão registrada |
 | `src/funil.py` | Mede o funil notícias → menções → eventos → operações e projeta as operações por semestre |
 | `src/avaliacao.py` | Amostras para rotulagem manual; precisão e revocação do casamento e precisão da extração |
 | `src/explain.py` | Justificativa por operação e relatório diário. O cabeçalho vem da regra e o LLM só descreve |
@@ -416,6 +424,33 @@ A aba tem a forma de um painel de banco:
 É uma **validação prospectiva**: cada decisão é registrada antes de o resultado existir, então não há como ajustar nada olhando o futuro, e não há contaminação pelo conhecimento do LLM. **Enquanto a regra não for congelada, o resultado é exploratório** e não substitui o período de teste. Não é recomendação de investimento.
 
 Código: `src/simulacao.py`, `GET /api/simulacao`, `web/src/paginas/Simulacao.jsx` e `web/src/GraficoPatrimonio.jsx`. As cores das três séries foram validadas para daltonismo e contraste nos dois temas.
+
+### Na prática, Evidências e Mercado (camada prática, fora da pesquisa)
+
+Três páginas para quem quer usar o QUANT como apoio a decisões reais. **Nenhuma altera a regra congelada nem o critério do trabalho**: a carteira da pesquisa continua igual.
+
+**Na prática** (`src/pratica.py`, `GET /api/pratica`): as mesmas decisões da regra, operadas como um investidor operaria.
+
+| O que muda | Como | Por quê |
+|---|---|---|
+| Custos | 0,032% por lado: tarifa da B3 no leilão de fechamento (negociação 0,007% + CCP 0,0224% + TTA 0,0026%, tabela da B3 consultada em 21/10/2026); corretagem zero | Custo zero superestima o resultado |
+| Imposto de renda | 15% sobre o lucro do mês; isento se as vendas do mês não passam de R$ 20 mil (isenção "tudo ou nada"); prejuízo compensado depois (`src/tributacao.py`). A MP 1.303/2025, que mudaria isso, caducou em 08/10/2025 | Com posições de R$ 20 mil, quase toda venda é tributável |
+| Caixa | Rende 100% do CDI | Dinheiro parado no Brasil rende ~14% ao ano |
+| Tamanho | Até 20%, menos para ações que oscilam mais que 25% ao ano | Cada posição pesa o mesmo risco |
+| Setor | No máximo 30% por setor | Itaú e Bradesco têm correlação ~0,9: são quase a mesma aposta |
+| Saída | 20 pregões, ou antes se a perda passar de 2 desvios do esperado no período | A regra só vende com notícia negativa: na prática, seguraria para sempre |
+| Reação do mercado | Não compra se, antes da execução, a ação já reagiu com força **contra** a notícia (\|z\| > 2 além do Ibovespa) | O mercado leu como surpresa ruim. Reação forte **a favor** não barra: movimentos causados por notícia tendem a continuar (Chan, 2003) |
+| Surpresa no texto | Não compra se o texto diz que o número veio abaixo do esperado (`src/surpresa.py`, palavras-chave, sem LLM) | O que move o preço é a notícia comparada à expectativa |
+
+Cada compra traz as checagens passo a passo, e cada decisão que a prática não seguiu traz o motivo. A página mostra também Sharpe e Sortino contra o CDI, beta, maior queda e sua duração, payoff e fator de lucro (`src/risco.py`; anualizados só com 60 pregões ou mais), e a correlação entre as ações.
+
+**Evidências** (`src/estudo_evento.py`, `GET /api/evidencias`): estudo de evento com retorno anormal pelo modelo de mercado (beta estimado nos 120 pregões anteriores). Mede o que a ação já tinha andado **antes da execução** e o que sobrou **depois** (1, 5 e 20 pregões), por grupo (operados, confirmados, tipo de evento, fonte, reação), com intervalo de 95% pela t de Student. O mesmo fato em vários portais conta uma vez. Mostra também a calibração da confiança da IA (taxa de acerto por faixa e escore de Brier) e o atraso da coleta por portal. Com menos de 10 eventos, a página diz que não dá para concluir.
+
+**Mercado** (`src/mercado.py`, `GET /api/mercado`): Selic (desde quando), IPCA 12 meses, juro real, dólar, Brent e minério de ferro; o **sinal de Nova York** (variação implícita para cada ação desde o último negócio na B3: (1 + ADR) × (1 + dólar) − 1, com os ADRs PBR-A, VALE, ITUB, BBD e ABEV, inclusive pré e pós-mercado); e a agenda (Copom 2026, resultados e datas-ex do Yahoo, a conferir no RI).
+
+**Fatos relevantes da CVM** (`src/cvm.py`): entram na coleta pelo Portal de Dados Abertos da CVM (documentos IPE), filtrados por CNPJ, só a primeira versão de cada documento, com o texto do PDF. A data de entrega vem sem hora (registrada como 23h59) e o arquivo atrasa alguns dias. Seguem a regra com `tipo_fonte = "fato_relevante"` e não se misturam à carteira, que é de notícias de portal.
+
+**Alertas no celular** (`src/alertas.py`): a cada compra ou venda registrada, uma notificação com o motivo e os critérios, por ntfy (sem cadastro) ou Telegram. Configuração no `.env` (veja `.env.example`) ou nos segredos do GitHub.
 
 ### Versão online (vitrine somente leitura)
 

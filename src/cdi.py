@@ -11,6 +11,7 @@ próximo dia útil.
 """
 
 import json
+import urllib.error
 from collections.abc import Callable
 from datetime import date
 from pathlib import Path
@@ -26,7 +27,12 @@ DIAS_ATE_FECHAR = 5  # depois disso, a série do período não muda mais: pode i
 
 def baixar_bcb(inicio: date, fim: date) -> list[dict]:
     url = URL_SGS.format(inicio=inicio.strftime("%d/%m/%Y"), fim=fim.strftime("%d/%m/%Y"))
-    return json.loads(rede.baixar(url, 30, "quant-academico/1.0"))
+    try:
+        return json.loads(rede.baixar(url, 30, "quant-academico/1.0"))
+    except urllib.error.HTTPError as erro:
+        if erro.code == 404:  # "Value(s) not found": período ainda sem taxa publicada
+            return []
+        raise
 
 
 def carregar_cdi(inicio: date, fim: date, pasta: Path,

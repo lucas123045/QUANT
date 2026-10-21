@@ -4,14 +4,7 @@ import { Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, NumeroAnimado }
 import GraficoPatrimonio, { SERIES, reais } from "../GraficoPatrimonio.jsx";
 import { BarrasRendimento, COR_TICKER, Minigrafico, Rosca } from "../graficos.jsx";
 import Icone from "../icones.jsx";
-
-const dia = (iso) => formatarData(iso + "T12:00:00-03:00", false);
-const pct = (v, sinal = true) => {
-  if (v === null || v === undefined) return "—";
-  if (Math.abs(v) < 0.00005) return "0%";  // zero (ou quase) não leva sinal
-  return `${sinal && v > 0 ? "+" : ""}${formatarNumero(v * 100, 2)}%`;
-};
-const tom = (v) => (!v ? "" : v > 0 ? "tom-texto-positivo" : "tom-texto-negativo");
+import { Cartao, dia, pct, tom } from "../comum.jsx";
 
 const PRODUTOS = {
   estrategia: { nome: "Estratégia QUANT", descricao: "Compra quando a IA encontra uma notícia boa e confirmada, seguindo a regra." },
@@ -40,23 +33,6 @@ function Dinheiro({ valor, oculto, casas = 2, className = "", animar = false }) 
   // animar: conta até o valor ao aparecer e pisca se mudar numa atualização.
   if (animar) return <NumeroAnimado valor={valor} formatar={(v) => reais(v, casas)} className={className} />;
   return <span className={className}>{reais(valor, casas)}</span>;
-}
-
-function Cartao({ titulo, subtitulo, acao, children, className = "" }) {
-  return (
-    <section className={`f-cartao ${className}`}>
-      {(titulo || acao) && (
-        <header className="f-cartao-topo">
-          <div>
-            {titulo && <h2>{titulo}</h2>}
-            {subtitulo && <p>{subtitulo}</p>}
-          </div>
-          {acao}
-        </header>
-      )}
-      {children}
-    </section>
-  );
 }
 
 /* ---------------------------------------------------------------- topo */
@@ -105,12 +81,12 @@ function Resumo({ d, oculto, setOculto }) {
 }
 
 function Atalhos({ irPara }) {
-  // Notícias, Análises e Decisões já estão na barra inferior.
+  // Notícias, Análises e Decisões já estão na barra inferior; o resto fica em "Mais".
   const itens = [
+    ["pratica", "pratica", "Na prática"],
+    ["mercado", "mercado", "Mercado"],
+    ["evidencias", "evidencias", "Evidências"],
     ["estudos", "estudos", "Estudos"],
-    ["painel", "painel", "Sistema"],
-    ["acoes", "acoes", "Rodar"],
-    ["configuracao", "configuracao", "Regras"],
   ];
   return (
     <nav className="f-atalhos so-celular" aria-label="Atalhos">

@@ -23,7 +23,8 @@ def test_exporta_todos_os_arquivos_sem_expor_a_chave(tmp_path, monkeypatch):
 
     esperados = ["meta.json", "status.json", "config.json", "funil-real.json", "funil-teste.json",
                  "noticias-teste.json", "execucoes-teste.json", "execucoes-teste/2026-10-15.json",
-                 "operacoes-teste.json", "simulacao-teste.json", "simulacao-real.json"]
+                 "operacoes-teste.json", "simulacao-teste.json", "simulacao-real.json", "mercado.json",
+                 "pratica-real.json", "pratica-teste.json", "evidencias-real.json", "evidencias-teste.json"]
     for nome in esperados:
         assert (destino / nome).exists(), nome
     assert not (destino / "lixo-antigo.json").exists()  # regenerada do zero

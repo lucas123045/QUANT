@@ -1,6 +1,6 @@
 import pytest
 
-from src import cdi, llm, rede
+from src import backtest, cdi, llm, mercado, rede
 
 CARREGAR_ENV_ORIGINAL = llm.carregar_env
 
@@ -8,7 +8,9 @@ CARREGAR_ENV_ORIGINAL = llm.carregar_env
 @pytest.fixture(autouse=True)
 def ambiente_isolado(monkeypatch, tmp_path_factory):
     """Nenhum teste lê o .env real nem herda configuração de LLM do ambiente."""
-    for nome in ("QUANT_MODO_TESTE", "LLM_PROVEDOR", "LLM_API_KEY", "LLM_MODELO"):
+    # Nem canal de alerta: um teste nunca manda notificação de verdade.
+    for nome in ("QUANT_MODO_TESTE", "LLM_PROVEDOR", "LLM_API_KEY", "LLM_MODELO", "QUANT_NTFY_TOPICO",
+                 "QUANT_NTFY_SERVIDOR", "QUANT_TELEGRAM_TOKEN", "QUANT_TELEGRAM_CHAT"):
         monkeypatch.delenv(nome, raising=False)
     monkeypatch.setattr(llm, "carregar_env", lambda caminho=None: None)
     # Backups dos testes vão para uma pasta temporária, nunca para a real.
@@ -24,3 +26,10 @@ def ambiente_isolado(monkeypatch, tmp_path_factory):
     def rede_bloqueada(url, *args, **kwargs):
         raise OSError(f"rede desligada nos testes: {url}")
     monkeypatch.setattr(rede, "baixar", rede_bloqueada)
+
+    # O yfinance acessa a rede por conta própria (não passa por rede.baixar).
+    def yfinance_bloqueado(*args, **kwargs):
+        raise OSError("yfinance desligado nos testes")
+    monkeypatch.setattr(backtest, "_baixar_yfinance", yfinance_bloqueado)
+    for metodo in ("diario", "intradiario", "calendario"):
+        monkeypatch.setattr(mercado.Fontes, metodo, yfinance_bloqueado)

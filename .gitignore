@@ -20,6 +20,11 @@ __pycache__/
 node_modules/
 dist/
 data/simulacao/
+# Caches da camada prática, do estudo de evento, do mercado e da CVM (se refazem sozinhos)
+data/pratica/
+data/estudos/
+data/mercado/
+data/cvm/
 
 # Logs e trava do funcionamento automático
 data/*.log

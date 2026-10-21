@@ -103,12 +103,12 @@ def coletar_noticias(
     return itens
 
 
-def coletar_fatos_relevantes(tickers: list[str] | None = None, **kwargs) -> list[dict]:
-    """Interface para fatos relevantes da CVM (itens com tipo_fonte="fato_relevante").
+def coletar_fatos_relevantes(**kwargs) -> list[dict]:
+    """Fatos relevantes da CVM (itens com tipo_fonte="fato_relevante"): ver src/cvm.py.
 
-    Bloqueado: a cobertura da CVM para a carteira, o formato dos dados e a
-    confiabilidade da data de entrega ainda não foram verificados.
+    Verificado em 21/10/2026: a CVM cobre as cinco empresas da carteira; a data
+    de entrega vem sem hora e o arquivo atrasa alguns dias (decisões em cvm.py).
     """
-    raise NotImplementedError(
-        "Fatos relevantes da CVM: verificar formato e cobertura antes de implementar."
-    )
+    from src import cvm  # import local: evita ciclo (cvm usa archive, que usa matching)
+
+    return cvm.coletar(**kwargs)

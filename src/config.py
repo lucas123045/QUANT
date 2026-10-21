@@ -150,3 +150,101 @@ JANELA_COLETA_HORAS = 24
 # Classificação e LLM
 # ---------------------------------------------------------------------------
 USAR_JEV = False  # Jev é opcional; acesso à API ainda não confirmado
+
+# ===========================================================================
+# CAMADA PRÁTICA (fora da pesquisa)
+# ===========================================================================
+# Como um investidor de verdade operaria as MESMAS decisões da regra: com custos
+# da B3, imposto de renda, tamanho de posição pelo risco, limite por setor, saída
+# por prazo e por perda, e o caixa rendendo CDI. É outra carteira, mostrada ao
+# lado da carteira da pesquisa (src/pratica.py). Nada aqui altera a regra
+# congelada acima nem o critério de decisão do trabalho.
+VERSAO_PRATICA = "PRATICA_V1"
+
+# Custos por lado (compra e venda), frações do valor negociado.
+# B3, "Tarifas de ações e fundos de investimento - à vista", consultada em
+# 21/10/2026: negociação 0,005% (0,007% nos leilões de abertura e fechamento),
+# CCP 0,0224% e TTA 0,0026%, para ADTV mensal de até R$ 3 milhões. O QUANT
+# executa no fechamento, ou seja, no leilão de fechamento: 0,007 + 0,0224 + 0,0026.
+PRATICA_EMOLUMENTOS = 0.00032
+# Corretagem: zero nas principais corretoras para ações (ajuste se a sua cobra).
+PRATICA_CORRETAGEM = 0.0
+# Sem spread: o leilão de fechamento tem preço único. Uma ordem de ~R$ 20 mil é
+# irrelevante perto do volume diário destas ações (bilhões de reais).
+PRATICA_SLIPPAGE = 0.0
+
+# Imposto de renda em operações comuns (swing trade) com ações. Lei 11.033/2004
+# e IN RFB 1.585/2015; a MP 1.303/2025, que mudaria isso, caducou em 08/10/2025.
+# - 15% sobre o lucro líquido do mês;
+# - isento no mês em que o TOTAL VENDIDO em ações não passa de R$ 20 mil;
+# - prejuízo fica acumulado e abate lucro tributável dos meses seguintes
+#   (interpretação usada pela calculadora ReVar da Receita/B3; confirme com um
+#   contador se for declarar). O IR retido de 0,005% ("dedo-duro") é só
+#   antecipação e não muda o resultado.
+PRATICA_IR_ALIQUOTA = 0.15
+PRATICA_IR_ISENCAO_VENDAS_MES = 20_000.0
+
+# Tamanho da posição pelo risco: a regra manda até 20% (MAX_POSICAO_PCT); a
+# prática dá 20% a uma ação que oscila como a referência e menos às mais
+# voláteis, para cada posição pesar o mesmo risco na carteira:
+#   peso = min(MAX_POSICAO_PCT, MAX_POSICAO_PCT * referência / volatilidade da ação)
+# Referência: 25% ao ano, perto da volatilidade histórica do Ibovespa.
+PRATICA_VOL_REFERENCIA_ANUAL = 0.25
+PRATICA_JANELA_VOL_PREGOES = 60      # ~3 meses de pregões para estimar a volatilidade
+
+# Limite por setor (classificação setorial da B3). Itaú e Bradesco andam muito
+# juntos: duas posições cheias em bancos seriam quase a mesma aposta duas vezes.
+SETORES = {"PETR4": "Petróleo e gás", "VALE3": "Mineração", "ITUB4": "Bancos",
+           "BBDC4": "Bancos", "ABEV3": "Bebidas"}
+PRATICA_LIMITE_SETOR = 0.30
+
+# Saídas (a regra só vende com notícia negativa, o que na prática segura a
+# posição para sempre):
+# - por prazo: o efeito de uma notícia, quando existe, costuma se esgotar em
+#   dias ou semanas; 20 pregões (~1 mês) é o horizonte mais longo do estudo de
+#   evento. A rever quando o estudo de evento tiver amostra.
+# - por perda: sai se a perda passar de 2 desvios-padrão do retorno esperado em
+#   20 pregões (vol diária x raiz de 20), medido na compra. Corta só perdas fora
+#   do comum, não o ruído do dia a dia. Checado no fechamento.
+PRATICA_PRAZO_MAXIMO_PREGOES = 20
+PRATICA_STOP_DESVIOS = 2.0
+
+# Reação do mercado como confirmação da surpresa: retorno da ação menos o do
+# Ibovespa, do fechamento antes da notícia ao fechamento anterior à execução,
+# medido em desvios-padrão desse excesso nos 60 pregões anteriores.
+# |z| > 2: reação fora do comum (~5% de chance por acaso, o corte usual em
+# estudo de evento). Notícia positiva com reação forte CONTRA (z < -2): o
+# mercado leu como surpresa ruim, a prática não compra (e o espelho na venda).
+# Reação forte A FAVOR não bloqueia: movimentos causados por notícia tendem a
+# continuar (Chan, 2003, J. Financial Economics); o estudo de evento mede isso.
+PRATICA_Z_REACAO = 2.0
+
+# ---------------------------------------------------------------------------
+# Fatos relevantes da CVM (dados abertos, src/cvm.py)
+# ---------------------------------------------------------------------------
+# Documentos entregues à CVM (IPE), filtrados por CNPJ e categoria "Fato
+# Relevante". A data de entrega vem sem hora e o arquivo é atualizado com alguns
+# dias de atraso: serve como fonte primária e confirmação, não como furo.
+URL_CVM_IPE = "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_{ano}.zip"
+CNPJ_CARTEIRA = {
+    "33.000.167/0001-01": "PETR4",  # Petróleo Brasileiro S.A. - Petrobras
+    "33.592.510/0001-54": "VALE3",  # Vale S.A.
+    "60.872.504/0001-23": "ITUB4",  # Itaú Unibanco Holding S.A.
+    "60.746.948/0001-12": "BBDC4",  # Banco Bradesco S.A.
+    "07.526.557/0001-00": "ABEV3",  # Ambev S.A.
+}
+JANELA_CVM_DIAS = 10    # dias de entrega a revisar a cada coleta (o arquivo atrasa)
+
+# ---------------------------------------------------------------------------
+# Contexto de mercado (src/mercado.py): só para leitura, não entra na regra
+# ---------------------------------------------------------------------------
+# ADRs negociados em Nova York (PETR4 é preferencial: PBR-A; PBR é a ordinária).
+ADRS = {"PETR4": "PBR-A", "VALE3": "VALE", "ITUB4": "ITUB", "BBDC4": "BBD", "ABEV3": "ABEV"}
+# Séries do SGS (Banco Central): meta Selic, IPCA acumulado em 12 meses, dólar PTAX venda.
+SERIES_BCB = {"selic": 432, "ipca_12m": 13522, "dolar_ptax": 1}
+# Commodities que mais pesam em PETR4 e VALE3 (yfinance): Brent e minério de ferro 62% (SGX).
+COMMODITIES = {"brent": "BZ=F", "minerio": "TIO=F"}
+# Reuniões do Copom em 2026 (calendário publicado pelo Banco Central em junho de
+# 2025). A decisão sai no fim do segundo dia, por volta das 18h30.
+COPOM_2026 = ["2026-01-28", "2026-03-18", "2026-04-29", "2026-06-17",
+              "2026-08-05", "2026-09-16", "2026-11-04", "2026-12-09"]

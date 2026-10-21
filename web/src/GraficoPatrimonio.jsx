@@ -57,7 +57,8 @@ function marcas(min, max, quantidade = 4) {
   return lista;
 }
 
-export default function GraficoPatrimonio({ serie, capital }) {
+/** `series`: quais linhas desenhar ([{chave, nome, cor}]); a primeira ganha a área em degradê. */
+export default function GraficoPatrimonio({ serie, capital, series: definicoes = SERIES }) {
   const caixa = useRef(null);
   const [largura, setLargura] = useState(800);
   const [foco, setFoco] = useState(null);
@@ -73,7 +74,8 @@ export default function GraficoPatrimonio({ serie, capital }) {
   const altura = compacto ? ALTURA_COMPACTA : ALTURA;
 
   // Só as séries com dados (o CDI some quando o Banco Central não responde).
-  const series = SERIES.filter((s) => serie.some((p) => p[s.chave] != null));
+  const series = definicoes.filter((s) => serie.some((p) => p[s.chave] != null));
+  const principal = definicoes[0].chave;
   const valores = serie.flatMap((p) => series.map((s) => p[s.chave])).filter((v) => v != null);
   const bruto = [Math.min(capital, ...valores), Math.max(capital, ...valores)];
   const folga = (bruto[1] - bruto[0]) * 0.1 || capital * 0.01;
@@ -133,7 +135,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
             <stop offset="100%" stopColor="var(--serie-1)" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {/* A estratégia é desenhada por último, por cima das referências, com área em degradê. */}
+        {/* A série principal é desenhada por último, por cima das referências, com área em degradê. */}
         {[...series].reverse().map((s, ordem) => {
           const pontos = serie.map((p, i) => (p[s.chave] == null ? null : [x(i), y(p[s.chave])])).filter(Boolean);
           if (pontos.length === 1) return <circle key={s.chave} cx={pontos[0][0]} cy={pontos[0][1]} r="4" fill={s.cor} />;
@@ -141,11 +143,11 @@ export default function GraficoPatrimonio({ serie, capital }) {
           const linha = caminhoSuave(pontos);
           return (
             <g key={s.chave}>
-              {s.chave === "estrategia" && (
+              {s.chave === principal && (
                 <path d={`${linha} L${pontos[pontos.length - 1][0]},${altura - M.base} L${pontos[0][0]},${altura - M.base} Z`}
                   fill="url(#area-estrategia)" className="area-surge" />
               )}
-              <path d={linha} fill="none" stroke={s.cor} strokeWidth={s.chave === "estrategia" ? 2.5 : 2}
+              <path d={linha} fill="none" stroke={s.cor} strokeWidth={s.chave === principal ? 2.5 : 2}
                 pathLength="1" className="linha-desenha" style={{ animationDelay: `${ordem * 120}ms` }}
                 strokeLinejoin="round" strokeLinecap="round" />
             </g>

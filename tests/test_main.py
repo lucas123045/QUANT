@@ -97,7 +97,7 @@ def test_retomada_apos_falha_parcial_na_extracao(tmp_path, monkeypatch):
 
 
 def test_fonte_indisponivel_nao_derruba_pipeline(tmp_path, monkeypatch, caplog):
-    """Execução real com todos os feeds fora do ar (rede mockada) e CVM bloqueada."""
+    """Execução real com todos os feeds e a CVM fora do ar (rede bloqueada nos testes)."""
     def rede_fora(url):
         raise OSError("rede indisponível")
 
@@ -106,7 +106,7 @@ def test_fonte_indisponivel_nao_derruba_pipeline(tmp_path, monkeypatch, caplog):
     assert resumo["coletados"] == 0 and resumo["operacoes"] == 0
     assert (tmp_path / "execucoes" / "2026-10-15" / "relatorio.txt").exists()
     assert "Falha ao coletar InfoMoney" in caplog.text
-    assert "Fonte CVM indisponível" in caplog.text
+    assert "Fatos relevantes da CVM indisponíveis" in caplog.text
 
 
 def test_historico_de_execucoes_anteriores_e_usado(tmp_path):

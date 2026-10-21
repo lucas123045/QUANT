@@ -44,14 +44,26 @@ export default function Configuracao() {
             (src/config.py), com aprovação do autor e antes do congelamento.
           </div>
           <div className="grade">
-            <Cartao titulo="Regra de decisão (REGRA_V1)"><Tabela valores={dados.regra} /></Cartao>
+            <Cartao titulo="Regra de decisão (REGRA_V2)"><Tabela valores={dados.regra} /></Cartao>
             <Cartao titulo="Critério de sucesso"><Tabela valores={dados.criterio} /></Cartao>
             <Cartao titulo="Períodos e congelamento"><Tabela valores={dados.periodos} /></Cartao>
-            <Cartao titulo="Custos (frações do valor negociado)"><Tabela valores={dados.custos} /></Cartao>
+            <Cartao titulo="Custos da pesquisa (frações do valor negociado)"><Tabela valores={dados.custos} /></Cartao>
             <Cartao titulo="Outros parâmetros" className="span-2"><Tabela valores={dados.outros} /></Cartao>
+            {dados.pratica && (
+              <Cartao titulo="Camada prática (fora da pesquisa)" className="span-2">
+                <Tabela valores={dados.pratica} />
+                <p className="nota">
+                  Usados só na página "Na prática": custos da B3, imposto de renda, tamanho pelo risco, limite por setor e saídas.
+                  Não alteram a regra nem o critério do trabalho. Fontes e justificativas em src/config.py.
+                </p>
+              </Cartao>
+            )}
             <Cartao titulo="Fontes RSS">
               <ul className="lista-simples">
-                {dados.fontes_rss.map((f) => <li key={f.url}><strong>{f.nome}</strong> <span className="sutil">{f.url}</span></li>)}
+                {dados.fontes_rss.map((f) => (
+                  <li key={f.url}><strong>{f.nome}</strong> · {f.feed === "geral" ? "geral" : f.feed} <span className="sutil">{f.url}</span></li>
+                ))}
+                <li><strong>CVM</strong> · fatos relevantes <span className="sutil">dados.cvm.gov.br (documentos IPE, por CNPJ)</span></li>
               </ul>
             </Cartao>
             <Cartao titulo="Casamento de tickers" className="span-3">

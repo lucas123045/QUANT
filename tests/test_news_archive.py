@@ -73,11 +73,6 @@ def test_feed_invalido_registrado(caplog):
     assert {i["fonte"] for i in itens} == {"Portal B"}
 
 
-def test_cvm_bloqueada():
-    with pytest.raises(NotImplementedError, match="verificar formato e cobertura"):
-        news.coletar_fatos_relevantes()
-
-
 def _itens():
     return news.coletar_noticias(FONTES[:1], agora=AGORA,
                                  baixar=baixar_falso({FONTES[0]["url"]: FEED}))

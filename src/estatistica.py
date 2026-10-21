@@ -4,6 +4,8 @@
   (fração continuada, Numerical Recipes 6.4).
 - Teste t de uma amostra (H1: média > 0) e teste de Welch (H1: média A > média B).
 - Tabela de calibração e escore de Brier para probabilidades declaradas.
+- Média com intervalo de confiança (t de Student) e teste bilateral, para o
+  estudo de evento (src/estudo_evento.py).
 """
 
 import math
@@ -125,3 +127,41 @@ def tabela_calibracao(probabilidades: list[float], acertos: list[bool],
     n = len(probabilidades)
     brier = sum((p - float(bool(a))) ** 2 for p, a in zip(probabilidades, acertos)) / n if n else None
     return {"n": n, "brier": brier, "faixas": faixas}
+
+
+def quantil_t(probabilidade: float, graus_liberdade: float) -> float:
+    """t tal que P(T <= t) = probabilidade (bisseção sobre a cauda; 0,5 < p < 1)."""
+    if not 0.5 < probabilidade < 1.0:
+        raise ValueError("probabilidade fora de (0,5; 1)")
+    alvo = 1.0 - probabilidade
+    baixo, alto = 0.0, 1.0
+    while p_valor_t_unilateral(alto, graus_liberdade) > alvo:
+        alto *= 2.0
+    for _ in range(200):
+        meio = (baixo + alto) / 2.0
+        if p_valor_t_unilateral(meio, graus_liberdade) > alvo:
+            baixo = meio
+        else:
+            alto = meio
+    return (baixo + alto) / 2.0
+
+
+def media_com_intervalo(valores: list[float], confianca: float = 0.95) -> dict:
+    """Média, erro padrão, intervalo de confiança t e p-valor bilateral (H0: média = 0).
+
+    Com menos de 2 valores (ou desvio zero), intervalo e p-valor ficam None:
+    com amostra assim, não há o que concluir.
+    """
+    valores = [float(v) for v in valores]
+    base = {"n": len(valores), "media": sum(valores) / len(valores) if valores else None,
+            "erro_padrao": None, "intervalo": None, "t": None, "p_valor_bilateral": None}
+    if len(valores) < 2:
+        return base
+    n, media, variancia = _media_variancia(valores)
+    erro_padrao = math.sqrt(variancia / n)
+    if erro_padrao == 0.0:
+        return {**base, "erro_padrao": 0.0}
+    t = media / erro_padrao
+    margem = quantil_t(0.5 + confianca / 2.0, n - 1) * erro_padrao
+    return {**base, "erro_padrao": erro_padrao, "intervalo": [media - margem, media + margem],
+            "t": t, "p_valor_bilateral": min(1.0, 2.0 * p_valor_t_unilateral(abs(t), n - 1))}

@@ -11,7 +11,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icones/apple-touch-icon.png" />
     <title>QUANT</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230b0d0c'/><rect x='4' y='4' width='8' height='8' fill='%23e3a336'/></svg>" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='11' fill='%230b0d0c'/><rect x='4' y='12' width='32' height='32' rx='9' fill='%23f5b31a'/><rect x='11' y='31' width='5.5' height='7.5' rx='1.2' fill='%230b0d0c'/><rect x='19.5' y='27' width='5.5' height='11.5' rx='1.2' fill='%230b0d0c'/><g fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M5 31.5l9.5-8.5 5 4.2L40 8M31.5 7.5H40.5V16.5' stroke='%230b0d0c' stroke-width='9'/><path d='M5 31.5l9.5-8.5 5 4.2L40 8M31.5 7.5H40.5V16.5' stroke='%23ffcf33' stroke-width='4.2'/></g></svg>" />
     <script>
       // Aplica o tema salvo antes de pintar a tela (evita piscar na abertura).
       try {
@@ -38,18 +38,22 @@
         animation: abertura-pulsar 2.4s ease-in-out infinite;
       }
       #abertura .abertura-logo {
-        position: relative; width: 88px; height: 88px; border-radius: 24px; background: #e3a336;
-        display: grid; place-items: center; box-shadow: 0 18px 50px rgb(227 163 54 / .25);
+        position: relative; display: block; overflow: visible; filter: drop-shadow(0 18px 40px rgb(245 160 20 / .28));
         animation: abertura-surgir .6s cubic-bezier(.2, .9, .3, 1.2) both;
       }
-      #abertura .abertura-logo path {
-        stroke-dasharray: 60; stroke-dashoffset: 60;
+      #abertura .abertura-recorte { stroke: #0b0d0c; }
+      #abertura .abertura-seta {
+        stroke-dasharray: 1; stroke-dashoffset: 1;
         animation: abertura-desenhar .7s .35s ease-out forwards;
       }
+      #abertura .abertura-seta.ponta { animation-delay: 1s; animation-duration: .3s; }
       #abertura .abertura-nome {
-        position: relative; margin: 0; font-size: 30px; font-weight: 600; letter-spacing: .32em; text-indent: .32em;
+        position: relative; margin: 0; display: flex; align-items: baseline;
+        font-size: 34px; font-weight: 700; letter-spacing: .14em; text-indent: .14em;
         animation: abertura-subir .6s .5s ease-out both;
       }
+      #abertura .abertura-nome svg { width: .66em; height: .72em; fill: #f5b31a; margin-right: .1em; }
+      [data-tema="claro"] #abertura .abertura-nome svg { fill: #c97a00; }
       #abertura .abertura-sub {
         position: relative; margin: -12px 0 0; font-size: 14px; opacity: .6;
         animation: abertura-subir .6s .65s ease-out both;
@@ -69,20 +73,33 @@
       @keyframes abertura-pulsar { 50% { transform: scale(1.12); opacity: .7; } }
       @media (prefers-reduced-motion: reduce) {
         #abertura *, #abertura *::after { animation: none !important; }
-        #abertura .abertura-logo path { stroke-dashoffset: 0; }
+        #abertura .abertura-seta { stroke-dashoffset: 0; }
       }
     </style>
   </head>
   <body>
     <div id="abertura" role="status" aria-live="polite" aria-label="Carregando QUANT">
       <div class="abertura-halo"></div>
-      <div class="abertura-logo">
-        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#0b0d0c" stroke-width="2.4"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 16l5-5 4 4 7-7M15 8h5v5" />
-        </svg>
-      </div>
-      <h1 class="abertura-nome">QUANT</h1>
+      <svg class="abertura-logo" width="96" height="96" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="abertura-ouro" x1="0" y1="0" x2="0.35" y2="1">
+            <stop offset="0" stop-color="#ffcf33" /><stop offset="1" stop-color="#f59a0b" />
+          </linearGradient>
+          <clipPath id="abertura-quadro"><rect x="4" y="12" width="32" height="32" rx="9" /></clipPath>
+        </defs>
+        <rect x="4" y="12" width="32" height="32" rx="9" fill="url(#abertura-ouro)" />
+        <rect x="11" y="31" width="5.5" height="7.5" rx="1.2" fill="#0b0d0c" />
+        <rect x="19.5" y="27" width="5.5" height="11.5" rx="1.2" fill="#0b0d0c" />
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g clip-path="url(#abertura-quadro)">
+            <path class="abertura-recorte abertura-seta" d="M5 31.5l9.5-8.5 5 4.2L40 8" stroke-width="9" pathLength="1" />
+            <path class="abertura-recorte abertura-seta ponta" d="M31.5 7.5H40.5V16.5" stroke-width="9" pathLength="1" />
+          </g>
+          <path class="abertura-seta" d="M5 31.5l9.5-8.5 5 4.2L40 8" stroke="url(#abertura-ouro)" stroke-width="4.2" pathLength="1" />
+          <path class="abertura-seta ponta" d="M31.5 7.5H40.5V16.5" stroke="#ffcf33" stroke-width="4.2" pathLength="1" />
+        </g>
+      </svg>
+      <h1 class="abertura-nome" aria-label="QUANT"><span aria-hidden="true">QU</span><svg viewBox="0 0 12 14" aria-hidden="true"><polygon points="0,14 4.5,0 7.5,0 12,14 8.9,14 6,4.6 3.1,14" /></svg><span aria-hidden="true">NT</span></h1>
       <p class="abertura-sub">Carteira simulada guiada por notícias</p>
       <div class="abertura-barra"></div>
     </div>

@@ -23,7 +23,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 
-from src import archive, auditoria, config, funil, llm, main, news, simulacao
+from src import archive, auditoria, config, estudo_evento, funil, llm, main, mercado, news, pratica, simulacao
 from src.matching import identificar_tickers
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
@@ -73,8 +73,7 @@ def status() -> dict:
     alertas = [f"A fonte {nome} não trouxe nenhuma notícia nas duas últimas execuções: "
                "o portal pode ter mudado o feed." for nome in main.fontes_mudas(dir_execucoes)]
     alertas.extend(main.alertas_backup(dir_execucoes))
-    pendencias += ["Verificar a cobertura da CVM (fatos relevantes)",
-                   "Confirmar acesso à API do Jev",
+    pendencias += ["Confirmar acesso à API do Jev",
                    "Aprovar JANELA_EVENTO_RECENTE_DIAS e ALFA_CRITERIO"]
     return {
         "provedor": provedor,
@@ -113,6 +112,17 @@ def configuracao() -> dict:
                    "JANELA_COLETA_HORAS": config.JANELA_COLETA_HORAS,
                    "USAR_JEV": config.USAR_JEV,
                    "DATA_CORTE_CONHECIMENTO_MODELO": config.DATA_CORTE_CONHECIMENTO_MODELO},
+        # Camada prática: fora da pesquisa (não muda a regra nem o critério).
+        "pratica": {"VERSAO_PRATICA": config.VERSAO_PRATICA,
+                    "PRATICA_EMOLUMENTOS": config.PRATICA_EMOLUMENTOS,
+                    "PRATICA_CORRETAGEM": config.PRATICA_CORRETAGEM,
+                    "PRATICA_IR_ALIQUOTA": config.PRATICA_IR_ALIQUOTA,
+                    "PRATICA_IR_ISENCAO_VENDAS_MES": config.PRATICA_IR_ISENCAO_VENDAS_MES,
+                    "PRATICA_VOL_REFERENCIA_ANUAL": config.PRATICA_VOL_REFERENCIA_ANUAL,
+                    "PRATICA_LIMITE_SETOR": config.PRATICA_LIMITE_SETOR,
+                    "PRATICA_PRAZO_MAXIMO_PREGOES": config.PRATICA_PRAZO_MAXIMO_PREGOES,
+                    "PRATICA_STOP_DESVIOS": config.PRATICA_STOP_DESVIOS,
+                    "PRATICA_Z_REACAO": config.PRATICA_Z_REACAO},
         "fontes_rss": config.FONTES_RSS,
         "aliases": config.ALIASES,
         "exclusoes": config.EXCLUSOES,
@@ -176,6 +186,35 @@ def obter_simulacao(base: str = "real") -> dict:
         raise
     except Exception as erro:  # rede/yfinance fora do ar: a interface mostra o motivo
         raise HTTPException(503, f"Não foi possível montar a simulação: {type(erro).__name__}: {erro}")
+
+
+def _calcular(nome: str, funcao):
+    try:
+        return funcao()
+    except HTTPException:
+        raise
+    except Exception as erro:  # rede/yfinance fora do ar: a interface mostra o motivo
+        raise HTTPException(503, f"Não foi possível montar {nome}: {type(erro).__name__}: {erro}")
+
+
+@app.get("/api/pratica")
+def obter_pratica(base: str = "real") -> dict:
+    """Carteira prática: as mesmas decisões com custos, imposto e gestão de risco."""
+    pasta = _dir(base)
+    return _calcular("a carteira prática", lambda: pratica.calcular(pasta))
+
+
+@app.get("/api/evidencias")
+def obter_evidencias(base: str = "real") -> dict:
+    """Estudo de evento, calibração da IA e atraso da coleta."""
+    pasta = _dir(base)
+    return _calcular("o estudo de evento", lambda: estudo_evento.estudar(pasta))
+
+
+@app.get("/api/mercado")
+def obter_mercado() -> dict:
+    """Macro, commodities, sinal de Nova York e agenda (iguais nas duas bases)."""
+    return _calcular("o contexto de mercado", lambda: mercado.contexto(config.DIR_DATA))
 
 
 @app.get("/api/operacoes")
