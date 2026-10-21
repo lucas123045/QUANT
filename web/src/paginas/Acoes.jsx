@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { VITRINE, estadoNuvem, pedir, rodarNaNuvem, useApi, formatarData } from "../api.js";
 import { Cartao, Etiqueta } from "../ui.jsx";
+import Icone from "../icones.jsx";
 
 const ACOES = [
   {
@@ -29,6 +30,7 @@ const TONS_ESTADO = { executando: "alerta", concluida: "positivo", erro: "negati
 const NOMES_TIPO = Object.fromEntries(ACOES.map((a) => [a.tipo, a.titulo]));
 
 // ------------------------------------------------------------ versão online
+const URL_RODAR_NO_GITHUB = "https://github.com/lucas123045/QUANT/actions/workflows/quant.yml";
 const ACOES_NUVEM = [
   {
     tarefa: "coleta",
@@ -112,18 +114,21 @@ function AcoesNuvem() {
         O QUANT roda nos servidores do GitHub (de graça e com o histórico guardado). Sozinho, ele roda a cada 30 minutos;
         aqui você manda rodar agora. Leva de 1 a 4 minutos, e o resultado aparece no site quando termina.
       </div>
-      {estado && !estado.configurado && (
-        <div className="aviso tom-negativo">
-          O botão ainda não foi ligado no Vercel: faltam as variáveis QUANT_SENHA e QUANT_GITHUB_TOKEN
-          (Vercel → Settings → Environment Variables). A coleta automática a cada 30 minutos funciona mesmo assim.
+      {estado && !estado.configurado ? (
+        <p className="f-nota">
+          <Icone nome="info" tamanho={14} />
+          <span>
+            Para rodar por aqui, configure QUANT_SENHA e QUANT_GITHUB_TOKEN no Vercel. Enquanto isso, dá para rodar agora
+            pelo GitHub: <a href={URL_RODAR_NO_GITHUB} target="_blank" rel="noreferrer">abrir o workflow</a> e clicar em "Run workflow".
+          </span>
+        </p>
+      ) : (
+        <div className="filtros nuvem-senha">
+          <input type="password" placeholder="Senha para rodar" value={senha} autoComplete="current-password"
+            aria-label="Senha para rodar" onChange={(e) => setSenha(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter") rodar(ACOES_NUVEM[1]); }} />
         </div>
       )}
-
-      <div className="filtros nuvem-senha">
-        <input type="password" placeholder="Senha para rodar" value={senha} autoComplete="current-password"
-          aria-label="Senha para rodar" onChange={(e) => setSenha(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") rodar(ACOES_NUVEM[1]); }} />
-      </div>
 
       <div className="acoes">
         {ACOES_NUVEM.map((a) => (
