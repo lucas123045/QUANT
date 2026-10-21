@@ -62,6 +62,35 @@ function Grupos({ e }) {
   );
 }
 
+/**
+ * Grupos com amostra suficiente ganham um cartão com a leitura; os pequenos demais
+ * viram uma linha só (a mesma frase repetida em dez cartões não informa nada).
+ */
+function LeiturasPorGrupo({ grupos, minimo }) {
+  const comEventos = grupos.filter((g) => g.n);
+  const pequenos = minimo ? comEventos.filter((g) => g.car_5.n < minimo) : [];
+  const suficientes = comEventos.filter((g) => !pequenos.includes(g));
+  return (
+    <>
+      {!!suficientes.length && (
+        <ul className="leituras">
+          {suficientes.map((g) => (
+            <li key={g.grupo}><strong>{g.grupo}</strong> <small className="sutil">({g.n})</small><span>{g.leitura}</span></li>
+          ))}
+        </ul>
+      )}
+      {!!pequenos.length && (
+        <div className="leituras-pequenos">
+          <p>Amostra pequena demais para concluir: cada grupo precisa de {minimo} eventos com 5 pregões de histórico. Ao lado, quantos já tem.</p>
+          <ul>
+            {pequenos.map((g) => <li key={g.grupo}>{g.grupo} <small>{g.car_5.n}/{minimo}</small></li>)}
+          </ul>
+        </div>
+      )}
+    </>
+  );
+}
+
 function Atraso({ e }) {
   const l = e.latencia;
   return (
@@ -134,7 +163,9 @@ function Observacoes({ e }) {
                   </td>
                   <td><Etiqueta tom={o.sentimento === "positivo" ? "positivo" : "negativo"}>{o.sentimento} · {Math.round((o.probabilidade ?? 0) * 100)}%</Etiqueta></td>
                   <td>{o.leitura_reacao ? <Etiqueta tom={TONS_LEITURA[o.leitura_reacao]}>{o.leitura_reacao}</Etiqueta> : "—"}</td>
-                  {["car_1", "car_5", "car_20"].map((k) => <td key={k} className={tom(o[k])}>{o[k] == null ? "…" : pct(o[k])}</td>)}
+                  {[["car_1", "1 pregão"], ["car_5", "5 pregões"], ["car_20", "20 pregões"]].map(([k, rotulo]) => (
+                    <td key={k} className={tom(o[k])} data-rotulo={rotulo}>{o[k] == null ? "…" : pct(o[k])}</td>
+                  ))}
                 </tr>
               ))}
             </tbody>
@@ -208,11 +239,7 @@ export default function Evidencias({ base }) {
                 <Atraso e={e} />
               </div>
               <Secao titulo="Leitura por grupo" texto={`${plural(e.n_eventos, "evento estudado", "eventos estudados")} até o fechamento de ${dia(e.ultimo_fechamento)}.`} />
-              <ul className="leituras">
-                {e.grupos.filter((g) => g.n).map((g) => (
-                  <li key={g.grupo}><strong>{g.grupo}</strong> <small className="sutil">({g.n})</small><span>{g.leitura}</span></li>
-                ))}
-              </ul>
+              <LeiturasPorGrupo grupos={e.grupos} minimo={e.metodo?.minimo_grupo} />
               <div className="f-grade">
                 <Calibracao c={e.calibracao} />
                 <Observacoes e={e} />

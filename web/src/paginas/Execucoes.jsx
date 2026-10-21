@@ -2,6 +2,22 @@ import { useEffect, useState } from "react";
 import { useApi, formatarData } from "../api.js";
 import { Cartao, Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, Indicador } from "../ui.jsx";
 
+/** "9 critérios · 7 ✓ · 1 ✗ · 1 –": o placar da decisão antes de abrir a lista. */
+function ResumoCriterios({ criterios }) {
+  const conta = (ok) => criterios.filter((c) => c.ok === ok).length;
+  const [cumpridos, falhos, fora] = [conta(true), conta(false), criterios.length - conta(true) - conta(false)];
+  return (
+    <>
+      {criterios.length} critérios
+      <span className="criterios-placar">
+        <span className="ok">{cumpridos} ✓</span>
+        {!!falhos && <span className="falhou">{falhos} ✗</span>}
+        {!!fora && <span className="na">{fora} –</span>}
+      </span>
+    </>
+  );
+}
+
 function Detalhe({ base, data }) {
   const { dados, erro, carregando } = useApi(data ? `/api/execucoes/${data}?base=${base}` : null);
   if (!data) return <div className="vazio">Escolha uma execução.</div>;
@@ -32,7 +48,12 @@ function Detalhe({ base, data }) {
                     <p>{evento.resumo}</p>
                     <blockquote>“{evento.trecho_fonte}”</blockquote>
                     <small className="sutil"><strong>Por quê:</strong> {decisao.motivo}</small>
-                    {!!decisao.criterios?.length && <Criterios criterios={decisao.criterios} />}
+                    {!!decisao.criterios?.length && (
+                      <details className="criterios-detalhe">
+                        <summary><ResumoCriterios criterios={decisao.criterios} /></summary>
+                        <Criterios criterios={decisao.criterios} />
+                      </details>
+                    )}
                     <small className="sutil">{evento.tipo_evento} · {evento.confirmado ? "confirmado" : "não confirmado"}</small>
                   </li>
                 ))}
