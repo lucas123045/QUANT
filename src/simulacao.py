@@ -264,7 +264,8 @@ def _renda_fixa(pregoes: pd.DatetimeIndex, capital: float, dir_data: Path, baixa
         taxas = cdi.carregar_cdi(pregoes[0].date(), pregoes[-1].date(),
                                  dir_data / "simulacao" / "cdi", baixar=baixar_cdi)
         if taxas.empty:
-            return None
+            # Um pregão só: nada rendeu ainda (e o BC só publica a taxa do dia no dia seguinte).
+            return pd.Series(capital, index=pregoes, dtype=float) if len(pregoes) == 1 else None
         return cdi.patrimonio_cdi(pregoes, taxas, capital)
     except Exception as erro:  # rede, BCB fora do ar, resposta inesperada
         logger.warning("CDI indisponível: %s", erro)

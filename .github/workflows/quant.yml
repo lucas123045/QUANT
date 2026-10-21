@@ -11,11 +11,18 @@
 #   Variáveis opcionais (aba "Variables"): LLM_PROVEDOR (padrão openai),
 #     LLM_MODELO (padrão gpt-4.1-2025-04-14, o modelo do projeto).
 name: QUANT (coleta e análise automáticas)
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('Pedido pelo site - {0}', inputs.tarefa || 'pipeline') || 'Automática (a cada 30 min)' }}
 
 on:
   schedule:
     - cron: "*/30 * * * *"   # em UTC; o GitHub pode atrasar alguns minutos em horários de pico
-  workflow_dispatch: {}        # botão "Run workflow" na aba Actions
+  workflow_dispatch:           # botão "Rodar agora" do site (api/nuvem.js) ou "Run workflow" na aba Actions
+    inputs:
+      tarefa:
+        description: "pipeline (coleta + IA + regra) ou coleta (só notícias)"
+        type: choice
+        options: [pipeline, coleta]
+        default: pipeline
 
 permissions:
   contents: write              # para gravar no ramo "dados"
@@ -31,7 +38,7 @@ jobs:
     env:
       QUANT_DATA_DIR: ${{ github.workspace }}/_dados
       QUANT_VITRINE_DIR: ${{ github.workspace }}/_dados/vitrine
-      QUANT_BACKUP_DIR: ${{ runner.temp }}/backup   # o ramo "dados" já é o backup
+      QUANT_BACKUP_DIR: /tmp/quant-backup   # o ramo "dados" já é o backup
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_PROVEDOR: ${{ vars.LLM_PROVEDOR || 'openai' }}
       LLM_MODELO: ${{ vars.LLM_MODELO || 'gpt-4.1-2025-04-14' }}
@@ -40,11 +47,26 @@ jobs:
       - name: Código (ramo main)
         uses: actions/checkout@v4
 
+      - name: O ramo dados já existe?
+        id: ramo
+        run: |
+          if git ls-remote --exit-code --heads origin dados > /dev/null; then echo "existe=sim" >> "$GITHUB_OUTPUT"
+          else echo "existe=nao" >> "$GITHUB_OUTPUT"; fi
+
       - name: Dados (ramo dados)
+        if: steps.ramo.outputs.existe == 'sim'
         uses: actions/checkout@v4
         with:
           ref: dados
           path: _dados
+
+      - name: Primeira execução - cria o ramo dados
+        if: steps.ramo.outputs.existe != 'sim'
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p _dados && cd _dados && git init -q -b dados
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
       - name: Python 3.12
         uses: actions/setup-python@v5
@@ -56,7 +78,7 @@ jobs:
         run: pip install --disable-pip-version-check -q -r requirements.txt
 
       - name: Coletar, analisar, decidir e registrar
-        run: python -m src.agendado pipeline
+        run: python -m src.agendado ${{ inputs.tarefa || 'pipeline' }}
 
       - name: Vitrine (site online)
         # A simulação usa preços do Yahoo e o CDI do Banco Central: se uma fonte

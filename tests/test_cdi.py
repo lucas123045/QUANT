@@ -47,6 +47,19 @@ def test_carregar_cdi_usa_o_cache(tmp_path):
     assert a.equals(b) and a.iloc[0] == pytest.approx(0.0005)
 
 
+def test_carregar_cdi_nao_guarda_erro_nem_periodo_recente(tmp_path):
+    # O BC responde "Value(s) not found" (um objeto, não uma lista) para dias ainda sem taxa.
+    erro_bcb = {"erro": {"statusCode": 404, "detail": "Value(s) not found"}}
+    hoje = date.today()
+    assert cdi.carregar_cdi(hoje, hoje, tmp_path, lambda i, f: erro_bcb).empty
+    assert not list(tmp_path.iterdir())  # nem o erro nem o dia de hoje vão para o cache
+
+    # Cache antigo que guardou uma resposta de erro: é ignorado e baixado de novo.
+    (tmp_path / "cdi_2026-10-05_2026-10-09.json").write_text('{"erro": {}}', encoding="utf-8")
+    taxas = cdi.carregar_cdi(date(2026, 10, 5), date(2026, 10, 9), tmp_path, bcb_falso())
+    assert len(taxas) == 5
+
+
 @pytest.fixture
 def dados(tmp_path):
     pasta = tmp_path / "teste"

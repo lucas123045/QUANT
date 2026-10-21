@@ -12,7 +12,7 @@ export const VITRINE = import.meta.env.PROD && import.meta.env.VITE_USAR_API !==
 const DADOS_AO_VIVO = (import.meta.env.VITE_DADOS_URL || "").replace(/\/$/, "");
 
 export const MENSAGEM_VITRINE =
-  "Esta é a versão online, somente leitura. A coleta e a análise rodam sozinhas na nuvem; os botões ficam no sistema instalado (npm run dev).";
+  "Na versão online, a coleta e a análise rodam na nuvem: use a página \"Rodar agora\".";
 
 const cacheVitrine = new Map();
 
@@ -22,11 +22,38 @@ async function buscarJson(url) {
   return r.json();
 }
 
+/**
+ * Site online: estado da nuvem pela função do Vercel (api/nuvem.js) — execuções
+ * recentes no GitHub e o commit mais novo do ramo "dados".
+ */
+export function estadoNuvem() {
+  return buscar("/api/nuvem", {});
+}
+
+/** Pede ao GitHub para rodar agora ("pipeline" ou "coleta"). */
+export function rodarNaNuvem(senha, tarefa) {
+  return buscar("/api/nuvem", { method: "POST", body: JSON.stringify({ senha, tarefa }) });
+}
+
+// Lê a vitrine pelo endereço do commit (imutável): uma coleta que acabou de
+// terminar aparece na hora, sem esperar os ~5 min de cache do endereço do ramo.
+let enderecoAoVivo = null;
+function baseAoVivo() {
+  if (!enderecoAoVivo) {
+    enderecoAoVivo = estadoNuvem()
+      .then((e) => (e?.dados_sha ? DADOS_AO_VIVO.replace("/dados/", `/${e.dados_sha}/`) : DADOS_AO_VIVO))
+      .catch(() => DADOS_AO_VIVO);
+  }
+  return enderecoAoVivo;
+}
+
 /** Arquivo da vitrine: primeiro o ao vivo (ramo "dados"), depois o publicado com o site. */
 export async function lerArquivo(nome) {
   if (!cacheVitrine.has(nome)) {
     const local = () => buscarJson(`/dados/${nome}`);
-    const promessa = DADOS_AO_VIVO ? buscarJson(`${DADOS_AO_VIVO}/${nome}`).catch(local) : local();
+    const promessa = DADOS_AO_VIVO
+      ? baseAoVivo().then((base) => buscarJson(`${base}/${nome}`)).catch(local)
+      : local();
     cacheVitrine.set(nome, promessa);
     promessa.catch(() => cacheVitrine.delete(nome));  // erro não fica guardado
   }

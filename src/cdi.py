@@ -21,6 +21,7 @@ from src import rede
 
 URL_SGS = ("https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json"
            "&dataInicial={inicio}&dataFinal={fim}")
+DIAS_ATE_FECHAR = 5  # depois disso, a série do período não muda mais: pode ir para o cache
 
 
 def baixar_bcb(inicio: date, fim: date) -> list[dict]:
@@ -33,11 +34,14 @@ def carregar_cdi(inicio: date, fim: date, pasta: Path,
     """Taxa diária do CDI (fração, ex.: 0.00050788), indexada por data. Com cache."""
     pasta.mkdir(parents=True, exist_ok=True)
     caminho = pasta / f"cdi_{inicio.isoformat()}_{fim.isoformat()}.json"
-    if caminho.exists():
-        bruto = json.loads(caminho.read_text(encoding="utf-8"))
-    else:
+    bruto = json.loads(caminho.read_text(encoding="utf-8")) if caminho.exists() else None
+    if not isinstance(bruto, list):  # sem cache, ou cache antigo que guardou uma resposta de erro
         bruto = (baixar or baixar_bcb)(inicio, fim)
-        caminho.write_text(json.dumps(bruto), encoding="utf-8")
+        # Período sem taxa publicada (o BC publica o dia seguinte) vem como erro, não como lista.
+        bruto = bruto if isinstance(bruto, list) else []
+        # Só guarda período fechado: os últimos dias ainda podem ganhar taxa.
+        if bruto and (date.today() - fim).days > DIAS_ATE_FECHAR:
+            caminho.write_text(json.dumps(bruto), encoding="utf-8")
     serie = pd.Series({pd.Timestamp(pd.to_datetime(i["data"], dayfirst=True)): float(i["valor"]) / 100
                        for i in bruto}, dtype=float)
     return serie.sort_index()

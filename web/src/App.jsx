@@ -85,12 +85,12 @@ function FaixaVitrine() {
     <div className={`faixa-vitrine ${velha ? "velha" : ""}`}>
       <Icone nome="info" tamanho={16} />
       <span className="so-desktop">
-        <strong>Versão online, somente leitura.</strong>{" "}
+        <strong>Versão online.</strong>{" "}
         {quando ? `Dados atualizados em ${quando}${velha ? ` (${atraso} — desatualizados)` : ""}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
-        A coleta de notícias e a análise pela IA rodam sozinhas na nuvem, a cada 30 minutos.
+        A coleta de notícias e a análise pela IA rodam na nuvem, sozinhas a cada 30 minutos ou quando você pede em "Rodar agora".
       </span>
       <span className="so-celular">
-        <strong>Somente leitura</strong>
+        <strong>Online</strong>
         {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}${velha ? ` (${atraso})` : ""}` : ""}
       </span>
     </div>
@@ -155,6 +155,49 @@ function FitaCotacoes({ base }) {
   );
 }
 
+/**
+ * Novidades desde a última visita a Notícias e Decisões (o arquivo de notícias e o
+ * registro de decisões só crescem). Na primeira vez, só anota o que já existe: o
+ * selo nunca aparece com o histórico todo. Visitar a página zera o selo.
+ */
+function useNovidades(base, pagina) {
+  const noticias = useApi(`/api/noticias?base=${base}&limite=1`, 5 * 60 * 1000).dados?.total;
+  const decisoes = useApi(`/api/operacoes?base=${base}`, 5 * 60 * 1000).dados?.length;
+  const totais = { noticias, operacoes: decisoes };
+  const visto = (id) => {
+    const valor = Number(lerPreferencia(`quant.visto.${base}.${id}`, "NaN"));
+    return Number.isFinite(valor) ? valor : null;
+  };
+  // Grava o que já foi visto: na primeira vez, na página aberta e se a base encolheu.
+  useEffect(() => {
+    for (const [id, total] of Object.entries(totais)) {
+      const anterior = visto(id);
+      if (total != null && (anterior === null || id === pagina || total < anterior)) {
+        gravarPreferencia(`quant.visto.${base}.${id}`, String(total));
+      }
+    }
+  });  // sem dependências: barato (dois itens) e sempre em dia
+  const novidades = {};
+  for (const [id, total] of Object.entries(totais)) {
+    const anterior = visto(id);
+    if (total != null && anterior !== null && id !== pagina && total > anterior) novidades[id] = total - anterior;
+  }
+  return novidades;
+}
+
+const ROTULO_SELO = { noticias: "notícias novas", operacoes: "decisões novas" };
+
+function Selo({ id, novidades }) {
+  const quantidade = novidades[id];
+  if (!quantidade) return null;
+  const texto = `${quantidade} ${ROTULO_SELO[id]}`;
+  return (
+    <span className="selo-novo" role="status" aria-label={texto} title={`${texto} desde a sua última visita`}>
+      {quantidade > 99 ? "99+" : quantidade}
+    </span>
+  );
+}
+
 export default function App() {
   const [pagina, setPagina] = useState(() => {
     const hash = window.location.hash.slice(1);
@@ -193,6 +236,7 @@ export default function App() {
   }, [menuAberto]);
 
   useFecharAbertura();
+  const novidades = useNovidades(base, pagina);
 
   const atual = PAGINAS.find((p) => p.id === pagina);
   const Pagina = atual.componente;
@@ -209,7 +253,7 @@ export default function App() {
             <button key={p.id} className={`nav-item ${p.id === pagina ? "ativo" : ""}`}
               aria-current={p.id === pagina ? "page" : undefined}
               onClick={() => { setPagina(p.id); setMenuAberto(false); }}>
-              <Icone nome={p.icone} />{p.nome}
+              <Icone nome={p.icone} />{p.nome}<Selo id={p.id} novidades={novidades} />
             </button>
           ))}
         </nav>
@@ -268,7 +312,7 @@ export default function App() {
           {NAV_INFERIOR.map(([id, nome, icone]) => (
             <button key={id} className={id === pagina ? "ativo" : ""} aria-current={id === pagina ? "page" : undefined}
               onClick={() => setPagina(id)}>
-              <Icone nome={icone} tamanho={21} /><span>{nome}</span>
+              <Icone nome={icone} tamanho={21} /><span>{nome}</span><Selo id={id} novidades={novidades} />
             </button>
           ))}
           <button className={NAV_INFERIOR.some(([id]) => id === pagina) ? "" : "ativo"} onClick={() => setMenuAberto(true)}>

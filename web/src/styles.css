@@ -314,6 +314,13 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
 .acoes .cartao { display: flex; flex-direction: column; }
 .acoes .nota { margin: 0 0 6px; }
 .acoes .botao { margin-top: auto; align-self: flex-start; }
+.nuvem-senha input {
+  width: min(100%, 320px); padding: 9px 12px; border: 1px solid var(--linha-forte); border-radius: 10px;
+  background: var(--painel-2); color: var(--texto); font: inherit;
+}
+.nuvem-senha input:focus { outline: 2px solid var(--acento-fundo); border-color: var(--acento); }
+.nuvem-pronto { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; justify-content: space-between; }
+.historico a { color: inherit; }
 .historico { list-style: none; margin: 0; padding: 0; }
 .historico li { display: flex; gap: 16px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--linha); }
 .historico li:last-child { border-bottom: 0; }
@@ -867,6 +874,104 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .fita-grupo { gap: 22px; padding-right: 22px; }
   .relogio-pregao { display: none; }
 }
+
+/* ------------------------------------------------- ícones da navegação
+   Cada ícone conta o que a página faz: a moeda cai na carteira, as linhas do
+   jornal se escrevem, as setas de compra e venda trocam de lado, a engrenagem
+   gira um dente. Toca ao passar o mouse, ao focar pelo teclado e quando a
+   página fica ativa (no celular, ao tocar). Peças em icones.jsx. */
+.icone { overflow: visible; }  /* a moeda e a onda passam um pouco da borda */
+.icone path { transform-box: fill-box; transform-origin: center; }
+.icone .p-moeda, .icone .p-onda { opacity: 0; }
+.nav-item.ativo .icone, .nav-inferior button.ativo .icone {
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--acento) 45%, transparent));
+}
+:is(.nav-item, .nav-inferior button, .botao-tema, .topo-perfil):is(:hover, :focus-visible, .ativo) .icone {
+  --ic: cubic-bezier(.34, 1.56, .64, 1);  /* mola: passa um pouco e volta */
+}
+
+/* Carteira: a moeda cai e a carteira "quica" ao recebê-la. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-carteira .p-moeda { animation: ic-moeda .7s ease-in; }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-carteira .p-corpo { animation: ic-quique .7s ease-out; transform-origin: center bottom; }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-carteira .p-fecho { animation: ic-fecho .7s ease-out; }
+/* Visão do sistema (e "Mais"): os blocos do painel acendem um a um. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-painel path { animation: ic-bloco .55s var(--ic); }
+.icone-painel .p-b2 { animation-delay: 70ms !important; }
+.icone-painel .p-b3 { animation-delay: 140ms !important; }
+.icone-painel .p-b4 { animation-delay: 210ms !important; }
+/* Notícias e Estudos: as linhas se escrevem, uma depois da outra. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) :is(.icone-noticias, .icone-estudos) :is(.p-l1, .p-l2, .p-l3) {
+  stroke-dasharray: 1; animation: ic-escrever .3s ease-out backwards;
+}
+:is(.icone-noticias, .icone-estudos) .p-l1 { animation-delay: 90ms !important; }
+:is(.icone-noticias, .icone-estudos) .p-l2 { animation-delay: 210ms !important; }
+:is(.icone-noticias, .icone-estudos) .p-l3 { animation-delay: 330ms !important; }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-noticias .p-jornal { animation: ic-erguer .5s ease-out; }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-estudos .p-livro { animation: ic-inclinar .6s ease-out; transform-origin: center bottom; }
+/* Análises do dia: as argolas do calendário pulam e os dias piscam. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-execucoes .p-argola { animation: ic-argola .45s var(--ic); }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-execucoes :is(.p-d1, .p-d2) { animation: ic-piscar .5s steps(1) .1s; }
+.icone-execucoes .p-d2 { animation-delay: .25s !important; }
+/* Decisões: a seta de cima sai pela direita, a de baixo pela esquerda, e voltam. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-operacoes .p-seta-a { animation: ic-seta-direita .6s ease-in-out; }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-operacoes .p-seta-b { animation: ic-seta-esquerda .6s ease-in-out 60ms; }
+/* Rodar agora: o play encolhe, dá a partida e solta uma onda. */
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-acoes .p-play { animation: ic-partida .5s var(--ic); }
+:is(.nav-item, .nav-inferior button):is(:hover, :focus-visible, .ativo) .icone-acoes .p-onda { animation: ic-onda .6s ease-out .15s; }
+/* Configuração: a engrenagem gira um dente (60°: cai de volta no mesmo desenho). */
+:is(.nav-item, .nav-inferior button, .topo-perfil):is(:hover, :focus-visible, .ativo) .icone-configuracao path { animation: ic-girar .7s var(--ic); }
+/* Tema: os raios do sol giram; a lua balança. */
+.botao-tema:is(:hover, :focus-visible) .icone-sol .p-raios { animation: ic-raios .7s var(--ic); }
+.botao-tema:is(:hover, :focus-visible) .icone-sol .p-nucleo { animation: ic-bloco .5s var(--ic); }
+.botao-tema:is(:hover, :focus-visible) .icone-lua path { animation: ic-balanco .7s ease-in-out; }
+
+@keyframes ic-moeda {
+  0% { opacity: 0; transform: translateY(-5px); }
+  25% { opacity: 1; }
+  65% { opacity: 1; transform: translateY(5px); }
+  100% { opacity: 0; transform: translateY(7px); }
+}
+@keyframes ic-quique { 0%, 55%, 100% { transform: none; } 75% { transform: translateY(1px) scaleY(.93); } }
+@keyframes ic-fecho { 0%, 60%, 100% { transform: none; } 82% { transform: translateX(-1.5px); } }
+@keyframes ic-bloco { 0% { transform: scale(1); } 35% { transform: scale(.45); opacity: .25; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ic-escrever { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes ic-erguer { 0%, 100% { transform: none; } 40% { transform: translateY(-1.5px) rotate(-3deg); } }
+@keyframes ic-inclinar { 0%, 100% { transform: none; } 40% { transform: rotate(-9deg); } 75% { transform: rotate(3deg); } }
+@keyframes ic-argola { 0%, 100% { transform: none; } 45% { transform: translateY(-2.5px); } }
+@keyframes ic-piscar { 0% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes ic-seta-direita {
+  0% { transform: none; opacity: 1; } 40% { transform: translateX(7px); opacity: 0; }
+  41% { transform: translateX(-7px); opacity: 0; } 100% { transform: none; opacity: 1; }
+}
+@keyframes ic-seta-esquerda {
+  0% { transform: none; opacity: 1; } 40% { transform: translateX(-7px); opacity: 0; }
+  41% { transform: translateX(7px); opacity: 0; } 100% { transform: none; opacity: 1; }
+}
+@keyframes ic-partida { 0% { transform: scale(1); } 30% { transform: scale(.78); } 100% { transform: scale(1); } }
+@keyframes ic-onda { 0% { opacity: .8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes ic-girar { from { transform: rotate(0); } to { transform: rotate(60deg); } }
+@keyframes ic-raios { from { transform: rotate(0); } to { transform: rotate(45deg); } }
+@keyframes ic-balanco { 0%, 100% { transform: none; } 30% { transform: rotate(-18deg); } 65% { transform: rotate(8deg); } }
+
+/* Selo de novidade: notícias ou decisões que chegaram desde a última visita. */
+.selo-novo {
+  margin-left: auto; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px;
+  display: inline-grid; place-items: center; background: var(--acento); color: var(--sobre-acento);
+  font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1;
+  animation: selo-entra .45s cubic-bezier(.34, 1.56, .64, 1), selo-pulso 2.4s ease-in-out .5s 3;
+}
+.nav-inferior button { position: relative; }
+.nav-inferior .selo-novo {
+  position: absolute; top: 1px; left: calc(50% + 6px); margin: 0;
+  min-width: 17px; height: 17px; padding: 0 4px; font-size: 10px;
+  box-shadow: 0 0 0 2px var(--lateral);
+}
+@keyframes selo-entra { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes selo-pulso {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--acento) 55%, transparent); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+.nav-inferior .selo-novo { animation: selo-entra .45s cubic-bezier(.34, 1.56, .64, 1); }
 
 /* Menos movimento: tudo pronto, sem animar (as linhas já aparecem desenhadas). */
 @media (prefers-reduced-motion: reduce) {
