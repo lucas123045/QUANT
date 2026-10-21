@@ -1,0 +1,20 @@
+{
+  "a3dd6b78750a51de-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A publicação de certificação de reservas é procedimento recorrente e não implica mudança financeira imediata.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ae21d67e5ec0662a-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Captação relevante, mas sem efeito imediato no resultado ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

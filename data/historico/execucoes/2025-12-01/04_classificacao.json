@@ -1,0 +1,38 @@
+{
+  "80e6b53e5c1de68e-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Pagamento de dividendos relevante, mas recorrente e esperado para o porte da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "80e6b53e5c1de68e-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Valor pequeno de JCP frente ao tamanho da empresa e já esperado pelo mercado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "32a96b632ccb1617-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas proposta de bonificação, sem efeito financeiro imediato ou mudança relevante no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "32a96b632ccb1617-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas divulgação de guidance futuro sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

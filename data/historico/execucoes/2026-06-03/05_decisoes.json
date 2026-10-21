@@ -1,0 +1,162 @@
+[
+  {
+    "evento": {
+      "ticker": "EQTL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Gerais Saneamento, controlada da Equatorial, foi definida como investidor de referência finalista na oferta de ações da Copasa.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a GERAIS SANEAMENTO S.A. , sociedade 100% controlada pela Companhia (“ Gerais Saneamento”), foi definida como Investidor de Referência Finalista no contexto da oferta pública de distribuição secundária de ações ordinárias, nominativas, escriturais e sem valor nominal de emissão de COPASA, de titularidade do Estado de Minas Gerais (“Oferta”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b04d1252c9075689",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1530620&numSequencia=1055326&numVersao=1",
+        "timestamp_publicacao": "2026-06-03T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-03T23:59:00-03:00"
+      },
+      "id": "b04d1252c9075689-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas indicação como finalista, sem confirmação de aquisição ou impacto financeiro concreto.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "EQTL3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: fusao_aquisicao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 04/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas indicação como finalista, sem confirmação de aquisição ou impacto financeiro concreto."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa decidiu não apresentar nova proposta para aquisição de ações da Copasa MG.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia decidiu, em conjunto com os demais acionistas da Livorno, não apresentar nova proposta no âmbito do processo de seleção do Investidor de Referência para a aquisição de ações representativas de 30% do capital total da Copasa MG.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3bb835fa5758bab0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1530614&numSequencia=1055320&numVersao=1",
+        "timestamp_publicacao": "2026-06-03T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-03T23:59:00-03:00"
+      },
+      "id": "3bb835fa5758bab0-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Decisão de não prosseguir em potencial aquisição não altera resultados ou caixa da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 04/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Decisão de não prosseguir em potencial aquisição não altera resultados ou caixa da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

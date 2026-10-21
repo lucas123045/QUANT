@@ -78,5 +78,85 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan aprovou preço de R$5,00 por ação em oferta primária, levantando R$9,06 bilhões com emissão de 1,81 bilhão de ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "the Board of Directors approved on this date (“Board Meeting”), the offering price per Share of R$5.00 (the “ Price per Share ”), resulting in gross proceeds from the issuance of 1,812,500,000 Shares in the Offering of R$9,062,500,000.00.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4726bf3e69de4b17",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1439077&numSequencia=963789&numVersao=1",
+        "timestamp_publicacao": "2025-11-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-04T23:59:00-03:00"
+      },
+      "id": "4726bf3e69de4b17-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aumento relevante de capital com emissão primária de ações impacta caixa e diluição.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CSAN3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aumento relevante de capital com emissão primária de ações impacta caixa e diluição."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]

@@ -1,0 +1,332 @@
+[
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "guidance",
+      "resumo": "Banco do Brasil suspendeu projeções para Margem Financeira Bruta, Custo do Crédito e Lucro Líquido Ajustado para 2025.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o Banco do Brasil S.A. (BB) comunica que decidiu pela suspensão d as Projeções Corporativas para as linhas de Custo do Crédito, Margem Financeira Bruta e Lucro Líquido Ajustado para o exercício de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "def9c5cd05879be5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1379160&numSequencia=903872&numVersao=1",
+        "timestamp_publicacao": "2025-05-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-15T23:59:00-03:00"
+      },
+      "id": "def9c5cd05879be5-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Suspensão de guidance afeta previsibilidade de resultados e pode indicar riscos relevantes.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (guidance, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Suspensão de guidance afeta previsibilidade de resultados e pode indicar riscos relevantes."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "operacional",
+      "resumo": "Agravamento da inadimplência na carteira de Agronegócios acima do esperado ao longo de 2025.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O agravamento da inadimplência de parte da carteira de Agronegócios acima do esperado ao longo de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "def9c5cd05879be5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1379160&numSequencia=903872&numVersao=1",
+        "timestamp_publicacao": "2025-05-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-15T23:59:00-03:00"
+      },
+      "id": "def9c5cd05879be5-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aumento relevante da inadimplência afeta lucro e provisões do banco.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (CVM (fato relevante))",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aumento relevante da inadimplência afeta lucro e provisões do banco."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (CVM (fato relevante))"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovada distribuição de R$ 1,9 bi em JCP referente ao 1T25, pagamento em 12/06/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (BB) aprovou, em 14/05/2025, a distribuição de R$ 1.908.077.362,00 a título de remuneração aos acionistas sob a forma de Juros sobre Capital Próprio (JCP), relativo ao primeiro trimestre de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "780ca6fef4e916b2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1379171&numSequencia=903883&numVersao=1",
+        "timestamp_publicacao": "2025-05-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-15T23:59:00-03:00"
+      },
+      "id": "780ca6fef4e916b2-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Distribuição de JCP já era esperada e não altera projeções ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Distribuição de JCP já era esperada e não altera projeções ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento antecipado de R$ 852,5 mi em JCP realizado em 21/03/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Adicionalmente, informamos que R$ 852.492.000,00 foram pagos, em 2 1/03/2025, a título de remuneração antecipada aos acionistas sob a forma de JCP, conforme Fato Relevante, de 26/02/2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "780ca6fef4e916b2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1379171&numSequencia=903883&numVersao=1",
+        "timestamp_publicacao": "2025-05-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-15T23:59:00-03:00"
+      },
+      "id": "780ca6fef4e916b2-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Pagamento de JCP já era esperado e não altera projeções ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Pagamento de JCP já era esperado e não altera projeções ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

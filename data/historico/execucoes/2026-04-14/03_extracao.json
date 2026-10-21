@@ -1,0 +1,46 @@
+{
+  "66add38be9ff6bdc": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vibra concluiu a venda de sua participação de 49,99% na Evolua Etanol para a Copersucar, encerrando a joint-venture.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "concluiu a operação para a alienação da totalidade das ações que detinha no capital social da ECE S.A. (“Evolua”), sociedade originalmente constituída como uma parceria (joint-venture) entre a Vibra e a Copersucar S.A. para atuar na comercialização de etanol.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "66add38be9ff6bdc",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1504875&numSequencia=1029581&numVersao=1",
+        "timestamp_publicacao": "2026-04-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-14T23:59:00-03:00"
+      },
+      "id": "66add38be9ff6bdc-0"
+    }
+  ],
+  "afae4ef14eda45b8": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Ajustes contábeis na investida Aegea reduzem patrimônio líquido da Itaúsa em R$ 700 milhões, considerado imaterial para a holding.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os referidos ajustes contábeis geram redução no patrimônio líquido da Itaúsa em aproximadamente R$ 700 milhões, considerado imaterial para a holding que encerrou o exercício de 2025 com um patrimônio líquido de R$ 89 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "afae4ef14eda45b8",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1504583&numSequencia=1029289&numVersao=1",
+        "timestamp_publicacao": "2026-04-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-14T23:59:00-03:00"
+      },
+      "id": "afae4ef14eda45b8-0"
+    }
+  ]
+}

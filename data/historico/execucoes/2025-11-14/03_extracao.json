@@ -40,5 +40,49 @@
       },
       "id": "0ccde307c6b8e1b5-1"
     }
+  ],
+  "f653dffbe71d0495": [
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Três membros renunciaram e três novos foram eleitos para o Conselho de Administração da Rumo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Maria Rita de Carvalho Drummond, Janet Drysdale e Maria Carolina Ferreira Lacerda renunciaram aos respectivos cargos no Conselho de Administração. Para recompor o colegiado, foram eleitos RENATO ANTONIO SECONDO MAZZOLA , RALPH GUSTAVO ROSENBERG e VANESSA CLARO LOPES.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f653dffbe71d0495",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1445834&numSequencia=970546&numVersao=1",
+        "timestamp_publicacao": "2025-11-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-14T23:59:00-03:00"
+      },
+      "id": "f653dffbe71d0495-0"
+    }
+  ],
+  "ddadf76eb2ad24da": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Renúncia de Rodrigo Araujo Alves e nomeação de Rafael Bergman como Diretor Vice-Presidente Financeiro e de RI, efetivo em 05/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Rodrigo Araujo Alves, atual Diretor Vice-Presidente Financeiro e de Relações com Investidores da Companhia, renunciou ao cargo. Rafael Bergman passará a ocupar a posição de Diretor Vice- Presidente Financeiro e de Relações com Investidores da Companhia. As respectivas mudanças se tornarão efetivas a partir de 05 de dezembro de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ddadf76eb2ad24da",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1445645&numSequencia=970357&numVersao=1",
+        "timestamp_publicacao": "2025-11-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-14T23:59:00-03:00"
+      },
+      "id": "ddadf76eb2ad24da-0"
+    }
   ]
 }

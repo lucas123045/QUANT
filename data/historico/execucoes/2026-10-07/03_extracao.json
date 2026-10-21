@@ -1,0 +1,24 @@
+{
+  "1366b9b2d1343a8c": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO venceu leilão da ANP e adquiriu os blocos Magnetita e Hematita na Bacia de Campos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a PRIO S.A. (“Companhia” ou “PRIO”) (B3: PRIO3), seguindo as melhores práticas de governança corporativa, informa a seus acionistas e ao mercado em geral que participou, na data de hoje, do leilão de Oferta Permanente de Partilha da Produção (“OPP”) da Agência Nacional do Petróleo, Gás Natural e Biocombu stíveis (“ANP”) e venceu os leilões dos blocos Magnetita e Hematita no regime de partilha",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1366b9b2d1343a8c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1574965&numSequencia=1099671&numVersao=1",
+        "timestamp_publicacao": "2026-10-07T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-07T23:59:00-03:00"
+      },
+      "id": "1366b9b2d1343a8c-0"
+    }
+  ]
+}

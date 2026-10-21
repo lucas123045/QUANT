@@ -1,0 +1,24 @@
+{
+  "3c43ed48ea119d76": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Pedido de dispensa à B3 da obrigação do artigo 8º do Regulamento do Novo Mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia protocolou em 05 de dezembro de 2025 perante a B3 pedido de dispensa prévia da Companhia, em caráter excepcional, da obrigação prevista no artigo 8º do Regulamento do Novo Mercado. A B3 ainda não respondeu ao pleito da Companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3c43ed48ea119d76",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1453722&numSequencia=978434&numVersao=1",
+        "timestamp_publicacao": "2025-12-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-06T23:59:00-03:00"
+      },
+      "id": "3c43ed48ea119d76-0"
+    }
+  ]
+}

@@ -338,5 +338,170 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa poderá aumentar participação na Aegea para até 15,43% após capitalização aprovada.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovado aumento de capital no valor total entre R$ 1,5 bilhão e R$ 2,1 bilhões , mediante a emissão de novas ações ordinárias da Aegea, ao preço de R$ 55,29 por ação , conforme Fato Relevante divulgado pela Investida. Considerando a atual participação da Companhia na Aegea, e a depender de como os demais acionistas exercerão seus respectivos direitos, a Itaúsa poderá subscrever, dentro do prazo de 30 dias, montante entre R$ 730 milhões e R$ 1,5 bilhão, representando aumento de participação acionária da Itaúsa no capital total da Aegea de 13,27% para entre 14,01% e 15,43%, respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d59d717bdb957249",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549008&numSequencia=1073714&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "d59d717bdb957249-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "media",
+        "motivo_materialidade": "Aumento de participação relevante, mas impacto financeiro proporcional ao tamanho da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 29/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Aumento de participação relevante, mas impacto financeiro proporcional ao tamanho da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa celebrou acordo para proteger retorno do investimento na Aegea via aumento de participação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia informa que celebrou, nesta data, Acordo de Capitalização e Ajuste de Participação Acionária na Aegea (“Acordo”), o qual estabelece mecanismo de proteção do retorno do investimento da Itaúsa por meio de aumento da sua participação acionária na Investida.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d59d717bdb957249",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549008&numSequencia=1073714&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "d59d717bdb957249-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.9,
+        "materialidade": "media",
+        "motivo_materialidade": "Acordo protege retorno e pode aumentar participação, mas impacto financeiro imediato é limitado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade média) com probabilidade 0.90 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 29/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Acordo protege retorno e pode aumentar participação, mas impacto financeiro imediato é limitado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
   }
 ]

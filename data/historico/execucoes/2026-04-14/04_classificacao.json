@@ -1,0 +1,20 @@
+{
+  "66add38be9ff6bdc-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Venda de participação relevante, mas sem indicação de impacto financeiro expressivo ou mudança estrutural.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "afae4ef14eda45b8-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "O impacto de R$ 700 milhões é imaterial frente ao patrimônio líquido de R$ 89 bilhões.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

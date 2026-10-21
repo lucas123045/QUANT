@@ -20,5 +20,49 @@
       },
       "id": "e8bd569b1326eebb-0"
     }
+  ],
+  "7b13b8c45ed54492": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 7.380.000 ações preferenciais em tesouraria, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 225.000 ações ordinárias (GGBR3) e de 7.380.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b13b8c45ed54492",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1509331&numSequencia=1034037&numVersao=1",
+        "timestamp_publicacao": "2026-04-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-27T23:59:00-03:00"
+      },
+      "id": "7b13b8c45ed54492-0"
+    }
+  ],
+  "1e0a0f7acb13c01c": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Proposta de desdobramento de ações na proporção 1:5 será votada em 28 de abril de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Na Assembleia Geral Extraordinária a ser realizada em 28 de abril de 2026, será submetid o à deliberação o desdobramento da totalidade das ações ordinárias de emissão da Companhia à razão de 1:5",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1e0a0f7acb13c01c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1509238&numSequencia=1033944&numVersao=1",
+        "timestamp_publicacao": "2026-04-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-27T23:59:00-03:00"
+      },
+      "id": "1e0a0f7acb13c01c-0"
+    }
   ]
 }

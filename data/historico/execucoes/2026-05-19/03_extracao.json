@@ -1,0 +1,24 @@
+{
+  "465a812640f0473b": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Conselho da B3 elegeu Christian George Egan como novo Diretor-Presidente (CEO). Data de posse será informada posteriormente.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou a eleição de Christian George Egan para o cargo de Diretor -Presidente (CEO) da Companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "465a812640f0473b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1524111&numSequencia=1048817&numVersao=1",
+        "timestamp_publicacao": "2026-05-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-19T23:59:00-03:00"
+      },
+      "id": "465a812640f0473b-0"
+    }
+  ]
+}

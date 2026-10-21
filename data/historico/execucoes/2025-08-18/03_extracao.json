@@ -1,0 +1,24 @@
+{
+  "0ddebe5853130aef": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Parada do Campo de Peregrino, impactando operações da PRIO.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Parada do Campo de Peregrino",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0ddebe5853130aef",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1414426&numSequencia=939138&numVersao=1",
+        "timestamp_publicacao": "2025-08-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-18T23:59:00-03:00"
+      },
+      "id": "0ddebe5853130aef-0"
+    }
+  ]
+}

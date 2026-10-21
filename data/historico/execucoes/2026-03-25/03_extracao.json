@@ -20,5 +20,27 @@
       },
       "id": "e925af450f3bd2cb-0"
     }
+  ],
+  "3cb6b6a62d22d57c": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou proposta para reduzir dividendo obrigatório para 1% do lucro líquido ajustado, sujeita à aprovação em assembleia.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia, em reunião realizada nesta data, aprovou, entre outras matérias, a submissão à deliberação da assembleia geral de proposta de alteração do artigo 27, § 2º, item (iii), do Estatuto Social da Companhia, para reduzir o dividendo obrigatório. Caso a proposta venha a ser aprovada, o dividendo obrigatório passará a ser de 1% (um por cento) do lucro líquido ajustado do exercício",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cb6b6a62d22d57c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1495201&numSequencia=1019907&numVersao=1",
+        "timestamp_publicacao": "2026-03-25T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-25T23:59:00-03:00"
+      },
+      "id": "3cb6b6a62d22d57c-0"
+    }
   ]
 }

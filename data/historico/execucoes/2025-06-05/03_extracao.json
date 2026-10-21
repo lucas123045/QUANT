@@ -1,0 +1,25 @@
+{
+  "203f1b9effce1fac": [
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Rumo rescindiu acordo de venda de 50% do Terminal XXXIX de Santos por não cumprimento de condições precedentes.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa que, no contexto do acordo vinculante (“Acordo”) celebrado para alienação de sua participação acionária correspondente a 50% no capital social do TERMINAL XXXIX DE SANTOS S.A. (“T-XXXIX”), não houve o cumprimento de determinadas condições precedentes até a data limite contratualmente estabelecida (‘’Condição Precedente’’), tendo a Companhia decidido rescindir o Acordo.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "203f1b9effce1fac",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1387396&numSequencia=912108&numVersao=1",
+        "timestamp_publicacao": "2025-06-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-05T23:59:00-03:00"
+      },
+      "id": "203f1b9effce1fac-0"
+    }
+  ],
+  "679a44c7cd7a8aff": []
+}

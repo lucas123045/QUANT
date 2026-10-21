@@ -1,0 +1,46 @@
+{
+  "56fd2754a6f922c9": [
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou programa de recompra de até 18 milhões de ações ordinárias em até 12 meses.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração aprovou nesta data Programa de Recompra de Ações de Emissão da Ultrapar (“Programa”). O Programa está limitado ao máximo de 18.000.000 ações ordinárias e terá a duração de até 12 (doze) meses, contados a partir de 18 de junho de 202 6.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "56fd2754a6f922c9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1535827&numSequencia=1060533&numVersao=1",
+        "timestamp_publicacao": "2026-06-17T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-17T23:59:00-03:00"
+      },
+      "id": "56fd2754a6f922c9-0"
+    }
+  ],
+  "40167d24b1ed3d9f": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan celebrou compromisso para vender 12% das propriedades agrícolas da Radar por R$ 1,85 bi, sendo R$ 586 mi referentes à Cosan.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Grupo Radar celebrou, na data de ontem , por meio de algumas de suas subsidiárias (“Radar”), detentoras de propriedades agrícolas que contam com investimentos por parte da Cosan , compromisso de compra e venda (“Compromisso de Compra e Venda” ) para alienação de parte d as propriedades do seu portfólio (“Imóveis”). Os Imóveis correspondem a 12% do portfólio total de propriedades agrícolas detido pela Radar, estão localizados no Estado do Mato Grosso, compreendem uma área total de 41.214 hectares e são destinados ao cultivo de soja, milho e algodão. O preço total ofertado pelo terceiro adquirente por estes Imóveis é de R$ 1,85 bilhão, sendo aproximadamente R$ 586 milhões referentes à participação da Cosan. A conclusão da operação fica condicionada a certas condições precedentes usuais para esse tipo de operação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "40167d24b1ed3d9f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1535405&numSequencia=1060111&numVersao=1",
+        "timestamp_publicacao": "2026-06-17T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-17T23:59:00-03:00"
+      },
+      "id": "40167d24b1ed3d9f-0"
+    }
+  ]
+}

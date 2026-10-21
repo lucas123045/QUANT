@@ -243,5 +243,90 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Sabesp investiu R$ 15,2 bi em 2025, superou metas de expansão e ampliou acesso a água e esgoto.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "no ano de 2025 realizou investimentos em obras de saneamento e esgotamento sanitário no valor total de R$ 15 ,2 bilhões, valor em versão preliminar e não auditado. Os investimentos realizados no ano de 2025 foram 2,2 vezes maiores que os investimentos realizados em 2024 (R$ 6,9 bilhões), sendo que no 2S25 os investimentos aceleraram e cresceram 36% em comparação ao 1S25. Como resultados a Companhia: • Superou todas as metas de Fator-U(1) do ano sendo: o Economias de Água (ICA) = 664.161 novas economias, 152% da meta do ano 2024-25 o Economias de Esgoto (ICE) = 781.464 novas economias, 133% da meta do ano 2024-25 o Economias para Tratamento de Esgoto (IEC) = 1.372.105, 134% da meta do ano 2024-25 • Ampliou o acesso à água para 1.819.342 de pessoas, coleta de esgoto para 2.138.670 de pessoas e tratamento de esgoto para 3.759.534 pessoas • Gerou mais 40.000 empregos diretos e indiretos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4dee43d547d3f70e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1472884&numSequencia=997590&numVersao=1",
+        "timestamp_publicacao": "2026-02-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-04T23:59:00-03:00"
+      },
+      "id": "4dee43d547d3f70e-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Investimento recorde e superação de metas operacionais ampliam valor e perspectivas da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SBSP3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Investimento recorde e superação de metas operacionais ampliam valor e perspectivas da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
   }
 ]

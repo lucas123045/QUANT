@@ -1,0 +1,162 @@
+[
+  {
+    "evento": {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan realizou alienação e contratação de TRS de ações da Rumo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Cosan: Alienação e contratação de TRS de ações da Rumo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c14297db0bcaf86",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1457499&numSequencia=982211&numVersao=1",
+        "timestamp_publicacao": "2025-12-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-15T23:59:00-03:00"
+      },
+      "id": "6c14297db0bcaf86-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Operação financeira sem efeito relevante imediato no resultado ou caixa da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CSAN3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/12 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Operação financeira sem efeito relevante imediato no resultado ou caixa da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "outro",
+      "resumo": "Conselho aprova aumento de capital com bonificação de ações, 2 novas para cada 100 possuídas, creditadas em 23/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, reunido nesta data, deliberou elevar o capital social da Companhia para R$ 83.689.000.000,00, mediante capitalização de reservas de R$ 2.500.000.000,00, com emissão de 219.876.212 novas ações escriturais, sem valor nominal, sendo 75.561.451 ordinárias e 144.314.761 preferenciais, que serão atribuídas gratuitamente aos acionistas, a título de bonificação, na proporção de 2 ações novas para cada 100 ações da mesma espécie que possuírem na posição acionária final do dia 18.12.2025. As novas ações serão creditadas na posição dos acionistas no dia 23.12.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68605fc6704f7ae4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1457508&numSequencia=982220&numVersao=1",
+        "timestamp_publicacao": "2025-12-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-15T23:59:00-03:00"
+      },
+      "id": "68605fc6704f7ae4-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Bonificação de ações via capitalização de reservas não altera valor econômico da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 16/12 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Bonificação de ações via capitalização de reservas não altera valor econômico da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

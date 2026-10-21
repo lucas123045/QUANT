@@ -2,7 +2,7 @@ import { useState } from "react";
 import { formatarNumero, formatarPreco, plural, useApi } from "../api.js";
 import { Cartao, Secao, dia, pct, tom } from "../comum.jsx";
 import GraficoPatrimonio, { reais } from "../GraficoPatrimonio.jsx";
-import { COR_TICKER } from "../graficos.jsx";
+import { corTicker } from "../graficos.jsx";
 import Icone from "../icones.jsx";
 import { Criterios, Estado, NumeroAnimado } from "../ui.jsx";
 
@@ -135,7 +135,7 @@ function Posicoes({ d }) {
           {todas.map((o) => (
             <li key={o.chave} className="expansivel">
               <button className="f-lista-linha" onClick={() => setAberto(aberto === o.chave ? null : o.chave)} aria-expanded={aberto === o.chave}>
-                <span className="f-ativo-logo pequeno" style={{ background: COR_TICKER[o.ticker] }}>{o.ticker.slice(0, 2)}</span>
+                <span className="f-ativo-logo pequeno" style={{ background: corTicker(o.ticker) }}>{o.ticker.slice(0, 2)}</span>
                 <div>
                   <strong>{o.ticker} <span className="sutil">· {pct(o.peso, false, 1)} do patrimônio</span></strong>
                   <small>

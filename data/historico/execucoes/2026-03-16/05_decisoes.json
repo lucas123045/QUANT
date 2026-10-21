@@ -1,0 +1,167 @@
+[
+  {
+    "evento": {
+      "ticker": "PRIO3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Ibama concedeu retificação da Licença de Perfuração do Campo de Frade, permitindo perfuração de até 14 novos poços.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi concedida , na presente data, pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (“Ibama”), a retificação da Licença de Perfuração do Campo de Frade (“Campo”) , permitindo assim que a Companhia perfure até 14 novos poços no C ampo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5f568af8c91744ab",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1491005&numSequencia=1015711&numVersao=1",
+        "timestamp_publicacao": "2026-03-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-16T23:59:00-03:00"
+      },
+      "id": "5f568af8c91744ab-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Permissão para perfurar até 14 novos poços pode aumentar produção e receita.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PRIO3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (regulatorio, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 17/03 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Permissão para perfurar até 14 novos poços pode aumentar produção e receita."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa declarou pagamento de juros sobre capital próprio de R$ 1,3 bilhão, a ser pago até 31 de agosto de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração, reunido nesta data, deliberou declarar juros sobre capital próprio no montante bruto de R$ 1,3 bilhão (R$ 0,116 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "41077b8eef438f5f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1490845&numSequencia=1015551&numVersao=1",
+        "timestamp_publicacao": "2026-03-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-16T23:59:00-03:00"
+      },
+      "id": "41077b8eef438f5f-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Pagamento de JCP recorrente e já esperado pelo mercado, sem efeito relevante no valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 17/03 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Pagamento de JCP recorrente e já esperado pelo mercado, sem efeito relevante no valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

@@ -13,10 +13,13 @@ import Estudos from "./paginas/Estudos.jsx";
 import Pratica from "./paginas/Pratica.jsx";
 import Evidencias from "./paginas/Evidencias.jsx";
 import Mercado from "./paginas/Mercado.jsx";
+import MinhasAcoes from "./paginas/MinhasAcoes.jsx";
 
 const PAGINAS = [
   { id: "carteira", nome: "Minha carteira", icone: "carteira", componente: Simulacao,
     titulo: "Bem-vindo de volta", subtitulo: "Sua carteira simulada, com dinheiro fictício e preços reais" },
+  { id: "minhas", nome: "Minhas ações", icone: "maleta", componente: MinhasAcoes,
+    titulo: "Minhas ações", subtitulo: "As ações que você já tem, acompanhadas pelo QUANT" },
   { id: "pratica", nome: "Na prática", icone: "pratica", componente: Pratica,
     titulo: "Na prática", subtitulo: "As mesmas decisões com custos, imposto e gestão de risco" },
   { id: "mercado", nome: "Mercado", icone: "mercado", componente: Mercado,
@@ -43,7 +46,7 @@ const PAGINAS = [
 const NAV_INFERIOR = [
   ["carteira", "Carteira", "carteira"],
   ["noticias", "Notícias", "noticias"],
-  ["execucoes", "Análises", "execucoes"],
+  ["minhas", "Minhas", "maleta"],
   ["operacoes", "Decisões", "operacoes"],
 ];
 

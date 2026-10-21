@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Vibra Energia anuncia reeleição dos Vice-presidentes para novo mandato de 2 anos, mantendo a atual composição da diretoria.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os membros do Conselho de Administração, em reunião realizada nesta data, considerando a recomendação favorável do Comitê de Governança, Pessoas e Remuneração, aprovaram a reeleição, com prazo de gestão de 2 (dois) anos, contados desta data, de: • Augusto Ribeiro Junior para o cargo de Vice-presidente Executivo Financeiro e Relação com Investidores • Clarissa Della Nina Sadock Accorsi para o cargo de Vice-presidente Executiva de Energia Renovável • Marcelo Fernandes Bragança para o cargo de Vice-presidente Executivo de Operações da Vibra Energia S.A. Com a reeleição acima, a Vice-Presidência da Companhia continua com a mesma composição atual",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "58608fdbb497162b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1389432&numSequencia=914144&numVersao=1",
+        "timestamp_publicacao": "2025-06-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-10T23:59:00-03:00"
+      },
+      "id": "58608fdbb497162b-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "A reeleição mantém a diretoria sem mudanças e não afeta resultados ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VBBR3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: troca_executivo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: A reeleição mantém a diretoria sem mudanças e não afeta resultados ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "cec13bbb7648773d": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Itaúsa entregou proposta para participar da aquisição de até 30% da Copasa via Livorno.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (“Itaúsa”) (B3: ITSA3, ITSA4) comunica aos seus acionistas e ao mercado em geral que, por meio do veículo denominado Livorno Participações S.A. (“Livorno” ), entregou nesta data proposta para participar do processo para seleção d o investidor de referência (“Investidor de Referência”) e potencial aquisição de ações representativas de 30% do capital total da Companhia de Saneamento de Minas Gerais – Copasa MG (“Copasa”) (“Processo de Aquisição”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cec13bbb7648773d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1526621&numSequencia=1051327&numVersao=1",
+        "timestamp_publicacao": "2026-05-25T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-25T23:59:00-03:00"
+      },
+      "id": "cec13bbb7648773d-0"
+    }
+  ]
+}

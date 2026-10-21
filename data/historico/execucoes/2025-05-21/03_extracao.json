@@ -1,0 +1,24 @@
+{
+  "024126bf3a0ff9e8": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Banco do Brasil aprovou distribuição antecipada de JCP de R$ 516,3 milhões referente ao 2T25, pagamento em 12/06/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Banco do Brasil S.A. (“BB”) comunica que aprovou em 19/05/2025 a distribuição de R$ 516.306.000,00 a título de remuneração antecipada aos acionistas sob a forma de Juros sobre o Capital Próprio (JCP), relativos ao segundo trimestre de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "024126bf3a0ff9e8",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1381617&numSequencia=906329&numVersao=1",
+        "timestamp_publicacao": "2025-05-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-21T23:59:00-03:00"
+      },
+      "id": "024126bf3a0ff9e8-0"
+    }
+  ]
+}

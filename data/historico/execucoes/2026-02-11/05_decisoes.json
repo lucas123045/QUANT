@@ -1,0 +1,247 @@
+[
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovada distribuição de R$ 1,23 bi em JCP referente ao 4T25, pagamento em 05/03/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (BB) comunica que aprovou, em 10/02/2026, a distribuição de R$ 1.234.746.707,80 a título de remuneração aos acionistas sob a forma de Juros sobre Capital Próprio (JCP), relativo ao quarto trimestre de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80f63707989188a9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476520&numSequencia=1001226&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "80f63707989188a9-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Distribuição de JCP já era esperada e não altera projeções ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 12/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Distribuição de JCP já era esperada e não altera projeções ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento antecipado de R$ 261,63 mi em JCP do 4T25 realizado em 12/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Adicionalmente, informamos que R$ 261.630.000,00 foram pagos, em 12/12/2025, a título de remuneração antecipada aos acionistas sob a forma de JCP, relativo ao quarto trimestre de 202 5, conforme Fato Relevante de 19/11/2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80f63707989188a9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476520&numSequencia=1001226&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "80f63707989188a9-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Pagamento de dividendo já realizado e previamente divulgado, sem efeito novo relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 12/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Pagamento de dividendo já realizado e previamente divulgado, sem efeito novo relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação de programa de recompra de até 20 milhões de ações ordinárias até fevereiro de 2027.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou, nos termos do art. 30, §1º, “b”, da Lei n.º 6.404/76, e da Resolução CVM n.º 77/2022, programa de recompra de ações de emissão da própria Companhia (“ Programa de Recompra 2026 ”) até o limite de 20.000.000 (vinte milhões) de ações ordinárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f90e0e27a5d6b0f2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476742&numSequencia=1001448&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "f90e0e27a5d6b0f2-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.9,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra relevante, mas sem impacto imediato no resultado ou caixa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "TOTS3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade média) com probabilidade 0.90 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 12/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra relevante, mas sem impacto imediato no resultado ou caixa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

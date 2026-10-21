@@ -80,5 +80,27 @@
       },
       "id": "71bfd7126c26ea31-3"
     }
+  ],
+  "7c131a0479a29545": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 37ª emissão de debêntures no valor de R$ 5 bilhões para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, nesta data, a realização da 3 7ª (trigésima sétima) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em até 2 (duas) séries (“Emissão” e “Debêntures” respectivamente), para distribuição pública, sob o rito de registro automático, destinada a investidores profissionais, nos termos da Resolução da CVM nº 160, de 13 de julho de 2022, conforme alterada, no m ontante total de R$ 5.000.000.000,00 (cinco bilhões de reais) na respectiva data de emissão (“ Oferta”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7c131a0479a29545",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435730&numSequencia=960442&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "7c131a0479a29545-0"
+    }
   ]
 }

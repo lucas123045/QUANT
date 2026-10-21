@@ -1,6 +1,6 @@
 import { formatarData, formatarNumero, formatarPreco, useApi } from "../api.js";
 import { Cartao, dia, pct, tom } from "../comum.jsx";
-import { COR_TICKER } from "../graficos.jsx";
+import { corTicker } from "../graficos.jsx";
 import Icone from "../icones.jsx";
 import { Estado, Etiqueta } from "../ui.jsx";
 
@@ -55,7 +55,7 @@ function NovaYork({ ny }) {
         <ul className="f-lista">
           {ny.itens.map((i) => (
             <li key={i.ticker}>
-              <span className="f-ativo-logo pequeno" style={{ background: COR_TICKER[i.ticker] }}>{i.ticker.slice(0, 2)}</span>
+              <span className="f-ativo-logo pequeno" style={{ background: corTicker(i.ticker) }}>{i.ticker.slice(0, 2)}</span>
               <div>
                 <strong>{i.ticker} <span className="sutil">· ADR {i.adr}</span></strong>
                 <small>

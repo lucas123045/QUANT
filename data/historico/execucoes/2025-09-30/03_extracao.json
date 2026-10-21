@@ -1,0 +1,24 @@
+{
+  "0e7c2b214b369d27": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "operacional",
+      "resumo": "WEG anuncia investimento de R$ 1,1 bilhão para expansão fabril em Santa Catarina até 2028.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A WEG S.A. (B3: WEGE3 / OTC: WEGZY) comunica seus acionistas e mercado em geral um plano de investimento de aproximadamente R$ 1,1 bilhão, a ser executado até 2028, com foco na ampliação do portfólio de produto e aumento da capacidade produtiva da unidade Energia, incluindo a construção de um novo parque fabril , orçado em R$ 900 milhões, e ampliação das operações existentes em Jaraguá do Sul no valor de R$ 160 milhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0e7c2b214b369d27",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1427657&numSequencia=952369&numVersao=1",
+        "timestamp_publicacao": "2025-09-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-30T23:59:00-03:00"
+      },
+      "id": "0e7c2b214b369d27-0"
+    }
+  ]
+}

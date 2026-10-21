@@ -1,0 +1,24 @@
+{
+  "acdd32f8a8a35e77": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 35ª emissão de debêntures no valor de R$ 1 bilhão para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, nesta data, pelo Conselho de Administração da Companhia, a realização da 35ª (trigésima quinta) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em série única",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "acdd32f8a8a35e77",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1402623&numSequencia=927335&numVersao=1",
+        "timestamp_publicacao": "2025-07-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-21T23:59:00-03:00"
+      },
+      "id": "acdd32f8a8a35e77-0"
+    }
+  ]
+}

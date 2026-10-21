@@ -20,5 +20,27 @@
       },
       "id": "ac0a89986439bdf2-0"
     }
+  ],
+  "3c76d535d7713991": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Tribunal suspende liminar que obrigava Cemig a depositar R$ 912 milhões em juízo por déficit do Plano A da Forluz.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Tribunal de Justiça do Estado de Minas Gerais suspendeu, até o trânsito em julgado da sentença de mérito, a liminar proferida nos autos da ação de cobrança movida pela Fundação Forluminas de Seguridade Social – Forluz relativa ao déficit do Plano A de Previdência Complementar apurado em 2022. Assim, ficou suspensa a decisão que determinou o depósito imediato em juízo de R$ 912.234.821,90",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3c76d535d7713991",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1383999&numSequencia=908711&numVersao=1",
+        "timestamp_publicacao": "2025-05-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-28T23:59:00-03:00"
+      },
+      "id": "3c76d535d7713991-0"
+    }
   ]
 }

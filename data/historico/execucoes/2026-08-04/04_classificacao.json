@@ -1,0 +1,29 @@
+{
+  "45ac920e7c5f44de-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Cancelamento de ações sem redução do capital social não afeta resultado ou caixa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8d864d9c548f7aba-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Cancelamento de ações já recompradas e mantidas em tesouraria, sem impacto financeiro relevante ou alteração do capital social.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8d864d9c548f7aba-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra relevante pode apoiar o preço da ação e sinaliza confiança da gestão, mas não altera drasticamente resultados ou caixa no curto prazo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

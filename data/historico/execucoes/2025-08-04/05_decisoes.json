@@ -1,0 +1,257 @@
+[
+  {
+    "evento": {
+      "ticker": "BBSE3",
+      "tipo_evento": "guidance",
+      "resumo": "BB Seguridade revisou para baixo suas projeções empresariais para 2025 após resultados abaixo do esperado em alguns indicadores.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "comunica que revisou suas projeções empresariais para o ano de 2025 (“Guidance 2025”), levando em consideração o resultado realizado do 1S25 e as expectativas operacionais mais recentes, conforme segue",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "edaeb266b0320de0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1407676&numSequencia=932388&numVersao=1",
+        "timestamp_publicacao": "2025-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-04T23:59:00-03:00"
+      },
+      "id": "edaeb266b0320de0-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Revisão para baixo do guidance afeta projeções de lucro e valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBSE3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (guidance, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Revisão para baixo do guidance afeta projeções de lucro e valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBSE3",
+      "tipo_evento": "operacional",
+      "resumo": "Desempenho abaixo do previsto nos prêmios emitidos da Brasilseg, especialmente em seguro agrícola e seguro prestamista.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o desvio observado é justificado por um desempenho abaixo do previsto nos produtos vinculados ao crédito, em especial seguro agrícola e seguro prestamista",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "edaeb266b0320de0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1407676&numSequencia=932388&numVersao=1",
+        "timestamp_publicacao": "2025-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-04T23:59:00-03:00"
+      },
+      "id": "edaeb266b0320de0-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Desempenho operacional abaixo do previsto afeta receitas, mas impacto limitado ao segmento de prêmios emitidos.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBSE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (CVM (fato relevante))",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Desempenho operacional abaixo do previsto afeta receitas, mas impacto limitado ao segmento de prêmios emitidos."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (CVM (fato relevante))"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBSE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Decretos instituíram cobrança de IOF sobre contribuições para planos VGBL acima de limites, afetando captação de previdência.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "decorrente da publicação dos Decretos 12.466/25 e 12.499/25, que instituíram a cobrança de IOF sobre contribuições para planos VGBL que excedessem os limites estipulados nas referidas normas do poder executivo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "edaeb266b0320de0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1407676&numSequencia=932388&numVersao=1",
+        "timestamp_publicacao": "2025-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-04T23:59:00-03:00"
+      },
+      "id": "edaeb266b0320de0-2",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Nova tributação pode reduzir captação e receitas de previdência, mas impacto limitado ao segmento afetado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBSE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (CVM (fato relevante))",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Nova tributação pode reduzir captação e receitas de previdência, mas impacto limitado ao segmento afetado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (CVM (fato relevante))"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  }
+]

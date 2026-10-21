@@ -148,7 +148,7 @@ def ultimas_decisoes(dir_data: Path) -> dict[str, dict]:
             if atual is None or instante >= atual["publicado"]:
                 classificacao = evento.get("classificacao") or {}
                 por_ticker[decisao["ticker"]] = {
-                    **_meta(evento),
+                    **_meta(evento, criterios=decisao.get("criterios")),
                     "decisao": decisao["decisao"], "motivo": decisao["motivo"],
                     "sentimento": classificacao.get("sentimento"),
                     "probabilidade": classificacao.get("probabilidade"),
@@ -171,7 +171,8 @@ def _ativos(precos: pd.DataFrame, decisoes: dict, abertas: list[dict], pendentes
             situacao = "na_carteira"
         else:
             situacao = "sem_posicao"
-        ativo = {"ticker": ticker, "empresa": config.NOMES_EMPRESAS[ticker], "situacao": situacao,
+        ativo = {"ticker": ticker, "empresa": config.NOMES_EMPRESAS[ticker], "setor": config.SETORES.get(ticker),
+                 "situacao": situacao,
                  "posicao": posicao, "pendente": pendente, "ultima_decisao": decisoes.get(ticker),
                  "preco": None, "variacao_dia": None, "variacao_30d": None, "minigrafico": []}
         if len(serie):

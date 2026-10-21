@@ -7,5 +7,23 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "96b4f6670e8dfe16-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Extensão das concessões garante receitas de longo prazo e reduz riscos regulatórios.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "561c1b3240fd9eb6-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Geração relevante de caixa com venda de participação relevante em subsidiária, sem perda de controle.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

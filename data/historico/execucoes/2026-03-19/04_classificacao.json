@@ -1,0 +1,20 @@
+{
+  "091fdc6cd715544a-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A saída foi anunciada com antecedência e não há efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ad036cc2aa3b73b6-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Abertura de novo poço produtor aumenta potencial de produção e receita.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

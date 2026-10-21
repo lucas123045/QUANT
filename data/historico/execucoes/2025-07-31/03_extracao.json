@@ -64,5 +64,27 @@
       },
       "id": "d40e6ac0393db8ee-0"
     }
+  ],
+  "e035c63e51e0f5d1": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou cancelamento de 14.101.400 ações preferenciais sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 279.700 ações ordinárias (GGBR3) e de 14.101.400 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e035c63e51e0f5d1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406195&numSequencia=930907&numVersao=1",
+        "timestamp_publicacao": "2025-07-31T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-31T23:59:00-03:00"
+      },
+      "id": "e035c63e51e0f5d1-0"
+    }
   ]
 }

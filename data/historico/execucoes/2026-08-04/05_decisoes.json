@@ -1,1 +1,247 @@
-[]
+[
+  {
+    "evento": {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 6.975.000 ações preferenciais (GGBR4) sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 163.100 ações ordinárias (GGBR3) e de 6.975.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "45ac920e7c5f44de",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551986&numSequencia=1076692&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "45ac920e7c5f44de-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Cancelamento de ações sem redução do capital social não afeta resultado ou caixa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "GGBR4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Cancelamento de ações sem redução do capital social não afeta resultado ou caixa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 20 milhões de ações recompradas, representando 3,34% do total, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O cancelamento de 20.000.000 (vinte milhões) ações ordinárias de emissão da Companhia (“ Ações ”) recompradas no âmbito do Programa de Recompra de Ações de Emissão da Própria Companhia aprovado em 11 de fevereiro de 2026 (“ Programa de Recompra I 2026 ”) e mantidas em tesouraria, representativas de 3,34% do total de ações, sem valor nominal, sem a redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d864d9c548f7aba",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551976&numSequencia=1076682&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "8d864d9c548f7aba-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Cancelamento de ações já recompradas e mantidas em tesouraria, sem impacto financeiro relevante ou alteração do capital social.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "TOTS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Cancelamento de ações já recompradas e mantidas em tesouraria, sem impacto financeiro relevante ou alteração do capital social."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Criação de novo programa de recompra de até 30 milhões de ações, com encerramento até 05 de agosto de 2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A criação de um novo programa de recompra de ações de emissão da própria Companhia (“ Programa de Recompra II 2026 ”) até o limite de 30.000.000 (trinta milhões) de Ações. O objetivo do Programa de Recompra II 2026 é maximizar a geração de valor para o acionista e promover a alocação eficiente de capital, sendo que as Ações recompradas serão canceladas nos termos da lei. 2.1. O Programa de Recompra II 2026 será encerrado até 05 de agosto de 2027",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d864d9c548f7aba",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551976&numSequencia=1076682&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "8d864d9c548f7aba-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra relevante pode apoiar o preço da ação e sinaliza confiança da gestão, mas não altera drasticamente resultados ou caixa no curto prazo.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "TOTS3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade média) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 05/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra relevante pode apoiar o preço da ação e sinaliza confiança da gestão, mas não altera drasticamente resultados ou caixa no curto prazo."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

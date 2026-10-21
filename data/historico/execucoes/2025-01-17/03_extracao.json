@@ -1,0 +1,24 @@
+{
+  "a6070f70725e5067": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "operacional",
+      "resumo": "Vibra aprovou aumento de capital da Comerc em R$1,5 bilhão, passando a deter 99,10% do capital social da Comerc.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em assembleia geral extraordinária da Comerc Energia S.A. (“Comerc”) realizada na presente data, foi aprovado o aumento do capital social da Comerc em R$1,5 bilhão, mediante a emissão de 161.985.792 ações ordinárias pela Comerc, as quais foram totalmente subscritas na presente data e serão integralizadas pela Companhia até 30 de janeiro de 2025. Em decorrência do referido aumento de capital, a Companhia passou a ser titular de 520.295.743 ações ordinárias de emissão da Comerc, representativas de 99,10% do capital social votante e total da Comerc.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a6070f70725e5067",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1325963&numSequencia=850689&numVersao=1",
+        "timestamp_publicacao": "2025-01-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-17T23:59:00-03:00"
+      },
+      "id": "a6070f70725e5067-0"
+    }
+  ]
+}

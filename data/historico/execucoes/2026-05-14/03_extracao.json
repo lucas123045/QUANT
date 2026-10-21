@@ -1,0 +1,24 @@
+{
+  "caecd4772dd9fe5d": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "operacional",
+      "resumo": "Incidente de segurança cibernética expôs dados pessoais de cerca de 135 mil clientes da Cemig.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "identificou a ocorrência de incidente de segurança cibernético que ocasionou a exposição de dados pessoais de parcela da sua base de clientes, com nome, filiação, CPF, endereço, e-mail, número de telefone e valor de fatura.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "caecd4772dd9fe5d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1522269&numSequencia=1046975&numVersao=1",
+        "timestamp_publicacao": "2026-05-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-14T23:59:00-03:00"
+      },
+      "id": "caecd4772dd9fe5d-0"
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "evento": {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Incêndio atingiu parte da planta da controlada Moove, afetando área produtiva e administrativa.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "sobre o incêndio ocorrido em parte da planta da sua controlada Moove Lubricants Holdings (“Moove”), em 08 de fevereiro de 2025, localizada na Ilha do Governador – Rio de Janeiro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c40f50a311a4ac4f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332360&numSequencia=857086&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "c40f50a311a4ac4f-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Incêndio afetou área produtiva e administrativa, podendo gerar custos e interrupções, mas sem indicação de impacto financeiro relevante até o momento.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CSAN3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (operacional, materialidade média) com probabilidade 0.85 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Incêndio afetou área produtiva e administrativa, podendo gerar custos e interrupções, mas sem indicação de impacto financeiro relevante até o momento."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 6,6 bilhões em proventos, incluindo dividendos e juros sobre capital próprio em 2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o seu Conselho de Administração, reunido nesta data, deliberou: 1. pagar, em 07.03.2025, R$ 6,6 bilhões em proventos, sendo: a. R$ 1,1 bilhão em juros sobre capital próprio , declara dos nesta data, correspondentes a R$ 0,1011 por ação (R$ 0,085935 líquidos por ação), considerando a posição acionária final do dia 17.02.2025; b. R$ 4,4 bilhões em dividendos, declarados nesta data, correspondentes a R$ 0,40815 por ação, considerando a posição acionária final do dia 17.02.2025; e c. R$ 1,1 bilhão em juros sobre capital próprio , declarados em 16.09 .2024 e 06.12.2024, conforme anteriormente divulgados , que somados correspondem a R$ 0,1065 por ação (R$ 0,090525 líquidos por ação).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Pagamento de proventos relevante que impacta diretamente o retorno ao acionista e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (dividendo, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Pagamento de proventos relevante que impacta diretamente o retorno ao acionista e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 510 milhões em juros sobre capital próprio em 01.04.2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "2. pagar, em 01.04.2025, R$ 510 milhões em juros sobre capital próprio correspondentes a 2 (duas) parcelas dos proventos trimes trais fixos, considerando a posição acionária final do dia 28.02.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Pagamento de proventos relevante, mas recorrente e proporcional ao porte da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (CVM (fato relevante))",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Pagamento de proventos relevante, mas recorrente e proporcional ao porte da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (CVM (fato relevante))"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 1,0 bilhão em dividendos em 22.04.2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "3. pagar, em 22.04.2025, R$ 1,0 bilhão em dividendos correspondentes a R$ 0,09224 por ação, declarados nesta data, considerando a posição acionária final do dia 17.02.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Pagamento de dividendo relevante, mas proporcional ao porte da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (CVM (fato relevante))",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Pagamento de dividendo relevante, mas proporcional ao porte da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (CVM (fato relevante))"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITSA4",
+      "tipo_evento": "outro",
+      "resumo": "Aumento do capital social em R$ 1 bilhão, com emissão de 149.253.731 novas ações.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "4. aumentar o capital social , dentro do limite do capital autorizado, em R$ 1 bilhão, de R$ 80,189 bilhões para R$ 81,189 bilhões. a. Quantidade e Espécies de Ações a serem Emitidas: 149.253.731 novas ações escriturais, sem valor nominal, sendo 51.305.206 ordinárias e 97.948.525 preferenciais",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-3",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Aumento de capital dentro do limite autorizado, sem efeito imediato relevante no valor ou resultado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITSA4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Aumento de capital dentro do limite autorizado, sem efeito imediato relevante no valor ou resultado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

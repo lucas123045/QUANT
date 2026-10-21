@@ -1,0 +1,38 @@
+{
+  "cffa6927ef31c1b0-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aquisição relevante de participação e operação em campo de petróleo, impactando produção e receita.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "03fca3f20041881c-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de caixa com emissão primária de ações.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "03fca3f20041881c-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de capital com captação de R$10,5 bilhões impacta caixa e potencial de investimentos.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "03fca3f20041881c-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas informação sobre início de negociação e liquidação, sem impacto financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

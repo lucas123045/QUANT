@@ -1,0 +1,67 @@
+{
+  "1065db950cc10609": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Abertura do segundo poço produtor do Campo de Wahoo, produção estabilizada em 12.000 barris/dia.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que abriu o segundo poço produtor do Campo de Wahoo, cuja produção estabilizou em 12 . 000 barris de óleo por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1065db950cc10609",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1496355&numSequencia=1021061&numVersao=1",
+        "timestamp_publicacao": "2026-03-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-27T23:59:00-03:00"
+      },
+      "id": "1065db950cc10609-0"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Previsão de atingir produção de 40.000 barris/dia no Campo de Wahoo até o final de abril.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a partir da abertura do terceiro e quarto poço a PRIO reduzirá a produç ão dos primeiros dois poços de maneira a atingir a produção de 40.000 barris por dia no Campo de Wahoo até o final de abril.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1065db950cc10609",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1496355&numSequencia=1021061&numVersao=1",
+        "timestamp_publicacao": "2026-03-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-27T23:59:00-03:00"
+      },
+      "id": "1065db950cc10609-1"
+    }
+  ],
+  "ea1b5ecc306513f8": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou cancelamento de 58,6 milhões de ações em tesouraria, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia aprovou o cancelamento de 58.600.000 (cinquenta e oito milhões e seiscentas mil) ações ordinárias de emissão própria, atualmente mantidas em tesouraria, sem a redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ea1b5ecc306513f8",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1497128&numSequencia=1021834&numVersao=1",
+        "timestamp_publicacao": "2026-03-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-27T23:59:00-03:00"
+      },
+      "id": "ea1b5ecc306513f8-0"
+    }
+  ],
+  "979dd7f93a58de3c": []
+}

@@ -20,5 +20,111 @@
       },
       "id": "91d02d6fa9445f92-0"
     }
+  ],
+  "08f772d59625f82e": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de Juros sobre Capital Próprio de R$ 350 milhões, referente ao exercício de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada hoje, 24 de fevereiro de 2025, em Reunião do Conselho de Administração, distribuição de remuneração antecipada aos acionistas, sob a forma de Juros sobre o Capital Próprio (JCP), referente ao exercício social de 2025. O montante bruto será de R $ 350.000.000,00, equivalentes a aproximadamente R$ 0,31403898619 por ação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "08f772d59625f82e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338704&numSequencia=863430&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "08f772d59625f82e-0"
+    }
+  ],
+  "0d2db8d28ec78367": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Flavio Coelho Dantas deixa a vice-presidência e Vanessa Gordilho assume como Vice-Presidente Executiva de Comercial, Varejo e Inteligência de Mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O executivo Flavio Coelho Dantas deixará a posição de Vice-Presidente na diretoria estatutária da Vibra, passando a atuar como consultor da Companhia pelos próximos 2 (dois) anos. Vanessa Gordilho, atual Vice -Presidente de Negócios, Produtos e Marketing, foi eleita pelo Conselho de Administração como Vice-Presidente Executiva de Comercial, Varejo e Inteligência de Mercado, assumindo posição estatutária a partir de 01 de março de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0d2db8d28ec78367",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338729&numSequencia=863455&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "0d2db8d28ec78367-0"
+    }
+  ],
+  "4e8d5494b7378780": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "resultado",
+      "resumo": "Divulgação das demonstrações financeiras de 2024 será postergada para 10 de março de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O arquivamento das Demonstrações Financeiras de 2024 da Companhia, previsto para dia 26 de fevereiro de 2025, será postergado para o dia 10 de março de 2025, tendo em vista que ainda não foram finalizados, até a presente data, os trabalhos dos auditores independentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e8d5494b7378780",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338904&numSequencia=863630&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "4e8d5494b7378780-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "resultado",
+      "resumo": "Informações financeiras não auditadas serão divulgadas em 26 de fevereiro de 2025, com teleconferência em 27 de fevereiro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Cosan manterá em 26 de fevereiro de 2025 a divulgação de informações financeiras não auditadas, realizando também uma teleconferência pública em 27 de fevereiro de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e8d5494b7378780",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338904&numSequencia=863630&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "4e8d5494b7378780-1"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "outro",
+      "resumo": "Calendário Anual de Eventos Corporativos da Companhia foi atualizado e está disponível na CVM e no website da Cosan.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Calendário Anual de Eventos Corporativos da Companhia foi atualizado nesta data e está disponível na CVM (https://www.gov.br/cvm/pt-br) e no website da Cosan (https://www.cosan.com.br/).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e8d5494b7378780",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338904&numSequencia=863630&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "4e8d5494b7378780-2"
+    }
   ]
 }

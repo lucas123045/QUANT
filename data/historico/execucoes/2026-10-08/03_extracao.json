@@ -62,5 +62,27 @@
       },
       "id": "d0f5d3dbdf253b38-1"
     }
+  ],
+  "205ba1f8e3941f15": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Atualização do cronograma da incorporação, pela Sabesp, da totalidade das ações da EMAE não detidas pela Sabesp.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informar aos seus acionistas e ao mercado em geral atualizações sobre o cronograma estimado, nos termos do Anexo I ao presente Fato Relevante, no âmbito da incorporação, pela Sabesp, da totalidade das ações de emissão da EMAE não detidas pela Sabesp, tendo como contrapartida a entrega aos acionistas da EMAE de ações ordinárias de emissão da Sabesp (“Incorporação de Ações”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "205ba1f8e3941f15",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1575714&numSequencia=1100420&numVersao=1",
+        "timestamp_publicacao": "2026-10-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-08T23:59:00-03:00"
+      },
+      "id": "205ba1f8e3941f15-0"
+    }
   ]
 }

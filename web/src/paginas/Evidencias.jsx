@@ -4,7 +4,8 @@ import { Cartao, Secao, dia, pct, tom } from "../comum.jsx";
 import Icone from "../icones.jsx";
 import { Estado, Etiqueta } from "../ui.jsx";
 
-const JANELAS = [["reacao", "Antes da execução"], ["car_1", "1 pregão depois"], ["car_5", "5 pregões depois"], ["car_20", "20 pregões depois"]];
+const JANELAS = [["reacao", "Antes da execução"], ["dia_execucao", "Dia da execução"], ["car_1", "1 pregão depois"],
+  ["car_5", "5 pregões depois"], ["car_20", "20 pregões depois"]];
 const TONS_LEITURA = { "a favor": "positivo", contra: "negativo", neutra: "neutro" };
 
 /**
@@ -54,7 +55,8 @@ function Grupos({ e }) {
       <Intervalos grupos={e.grupos} campo={janela} />
       <p className="f-nota"><Icone nome="info" tamanho={14} />
         <span>Barra: intervalo de 95% da média; traço: a média. Se a barra cruza o zero (cinza), não dá para dizer que há efeito.
-          "Antes da execução" é o que o mercado já andou antes de o QUANT poder agir.</span>
+          "Antes da execução" é o que o mercado já andou antes de o QUANT poder agir; "Dia da execução" é o pregão em que
+          o QUANT compra (no fim dele): fato divulgado depois do fechamento é negociado justamente aí.</span>
       </p>
     </Cartao>
   );

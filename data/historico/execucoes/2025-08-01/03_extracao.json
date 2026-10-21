@@ -1,0 +1,46 @@
+{
+  "ed277d77faa26d66": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "operacional",
+      "resumo": "Cemig vence leilão de créditos do GSF para extensão de concessões de usinas hidrelétricas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Cemig vence leilão da CCEE de créditos do GSF para extensão de concessões",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed277d77faa26d66",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406954&numSequencia=931666&numVersao=1",
+        "timestamp_publicacao": "2025-08-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-01T23:59:00-03:00"
+      },
+      "id": "ed277d77faa26d66-0"
+    }
+  ],
+  "c1a8ae9265613944": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "operacional",
+      "resumo": "Estado de MG autorizou BNDES a abrir RFI para consultores avaliarem a Cemig visando amortização de dívida.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "autorizou o Banco Nacional de Desenvolvimento Econômico e Social - BNDES a realizar a abertura de Request for Information – RFI, etapa prévia e não vinculante para identificação n o mercado de consultores técnicos especializados interessados em apoiar a elaboração do laudo de avaliação econômico -financeira da CEMIG, para fins de amortização da dívida",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c1a8ae9265613944",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406955&numSequencia=931667&numVersao=1",
+        "timestamp_publicacao": "2025-08-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-01T23:59:00-03:00"
+      },
+      "id": "c1a8ae9265613944-0"
+    }
+  ]
+}

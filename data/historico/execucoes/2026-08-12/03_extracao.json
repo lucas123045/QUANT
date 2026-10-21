@@ -1,0 +1,44 @@
+{
+  "d441837073cb2de9": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovada distribuição de R$ 584,9 milhões em JCP referente ao 2T26, pagamento em 11/09/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (BB) comunica que aprovou, em 10/08/2026, a distribuição de R$ 584.910.838,17 a título de remuneração aos acionistas sob a forma de Juros sobre Capital Próprio (JCP), relativo ao segundo trimestre de 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d441837073cb2de9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1556522&numSequencia=1081228&numVersao=1",
+        "timestamp_publicacao": "2026-08-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-12T23:59:00-03:00"
+      },
+      "id": "d441837073cb2de9-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento antecipado de R$ 340,7 milhões em JCP referente ao 2T26, realizado em 11/06/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Adicionalmente, informamos que R$ 340.717.500,00 foram pagos, em 11/06/2026, a título de remuneração antecipada aos acionistas sob a forma de JCP, relativo ao segundo trimestre de 202 6, conforme Fato Relevante de 20/05/2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d441837073cb2de9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1556522&numSequencia=1081228&numVersao=1",
+        "timestamp_publicacao": "2026-08-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-12T23:59:00-03:00"
+      },
+      "id": "d441837073cb2de9-1"
+    }
+  ]
+}

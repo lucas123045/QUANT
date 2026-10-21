@@ -1,0 +1,24 @@
+{
+  "d7bff3f9b8d0da88": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "PRIO anuncia aumento de capital mediante capitalização de reserva.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Aumento de Capital Mediante Capitalização de Reserva",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d7bff3f9b8d0da88",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1436710&numSequencia=961422&numVersao=1",
+        "timestamp_publicacao": "2025-10-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-28T23:59:00-03:00"
+      },
+      "id": "d7bff3f9b8d0da88-0"
+    }
+  ]
+}

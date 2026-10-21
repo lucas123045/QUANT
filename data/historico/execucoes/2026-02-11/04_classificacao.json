@@ -1,0 +1,29 @@
+{
+  "80f63707989188a9-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Distribuição de JCP já era esperada e não altera projeções ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "80f63707989188a9-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Pagamento de dividendo já realizado e previamente divulgado, sem efeito novo relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f90e0e27a5d6b0f2-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra relevante, mas sem impacto imediato no resultado ou caixa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

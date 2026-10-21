@@ -1,0 +1,24 @@
+{
+  "b21fc0bb4d09506d": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Mauricio Fernandes Teixeira será o novo Vice-presidente Executivo Financeiro e de Relação com Investidores da Vibra a partir de 02/02/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, elegeu Mauricio Fernandes Teixeira para o cargo de Vice -presidente Executivo Financeiro e Relação com Investidores, com prazo de gestão de 2 (dois) anos, contado a partir da posse, prevista para 02 de fevereiro de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b21fc0bb4d09506d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1467219&numSequencia=991925&numVersao=1",
+        "timestamp_publicacao": "2026-01-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-14T23:59:00-03:00"
+      },
+      "id": "b21fc0bb4d09506d-0"
+    }
+  ]
+}

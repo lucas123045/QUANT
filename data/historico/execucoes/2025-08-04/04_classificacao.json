@@ -1,0 +1,29 @@
+{
+  "edaeb266b0320de0-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Revisão para baixo do guidance afeta projeções de lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "edaeb266b0320de0-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Desempenho operacional abaixo do previsto afeta receitas, mas impacto limitado ao segmento de prêmios emitidos.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "edaeb266b0320de0-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Nova tributação pode reduzir captação e receitas de previdência, mas impacto limitado ao segmento afetado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "2a002e4995d02acd": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp concluiu aquisição de 74,9% do capital votante da EMAE por R$682,6 milhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ocorreu hoje o fechamento da operação envolvendo aquisição de 11.009.550 (onze milhões, nove mil, quinhentas e cinquenta) ações ordinárias de emissão da Empresa Metropolitana de Águas e Energia S.A. – EMAE",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a002e4995d02acd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1469074&numSequencia=993780&numVersao=1",
+        "timestamp_publicacao": "2026-01-21T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-21T23:59:00-03:00"
+      },
+      "id": "2a002e4995d02acd-0"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Sabesp submeterá à CVM pedido de oferta pública para aquisição das ações remanescentes da EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em até 30 (trinta) dias contados da presente data, a Companhia submeterá à CVM o pedido de registro de oferta pública para a aquisição das ações ordinárias remanescentes de emissão da Companhia por alienação de controle",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a002e4995d02acd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1469074&numSequencia=993780&numVersao=1",
+        "timestamp_publicacao": "2026-01-21T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-21T23:59:00-03:00"
+      },
+      "id": "2a002e4995d02acd-1"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Sabesp informa que não pretende cancelar o registro de companhia aberta da EMAE em 1 ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "nesta data, não possui a intenção de cancelamento do registro de companhia aberta da EMAE dentro do prazo de 1 (um) ano",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a002e4995d02acd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1469074&numSequencia=993780&numVersao=1",
+        "timestamp_publicacao": "2026-01-21T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-21T23:59:00-03:00"
+      },
+      "id": "2a002e4995d02acd-2"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Sabesp informa não haver definição sobre eventual reorganização societária com a EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "nem definição sobre eventual reorganização societária envolvendo a EMAE e a Companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a002e4995d02acd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1469074&numSequencia=993780&numVersao=1",
+        "timestamp_publicacao": "2026-01-21T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-21T23:59:00-03:00"
+      },
+      "id": "2a002e4995d02acd-3"
+    }
+  ]
+}

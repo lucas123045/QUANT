@@ -1,0 +1,24 @@
+{
+  "b3bd7a58126859c0": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Cosan avalia alternativas para aprimorar estrutura de capital e busca novos investidores para Raízen junto com a Shell.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a Companhia avalia alternativas para aprimorar sua estrutura de capital e , em conjunto com a Shell, busca novos investidores para Raizen. Por essa razão, a Cosan tem sido ativamente procurada por interessados em potenciais investimentos em ambas as companhias . Ainda que mantenha tratativas , até o momento não há qualquer decisão ou compromisso assumido.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b3bd7a58126859c0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1420014&numSequencia=944726&numVersao=1",
+        "timestamp_publicacao": "2025-09-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-04T23:59:00-03:00"
+      },
+      "id": "b3bd7a58126859c0-0"
+    }
+  ]
+}

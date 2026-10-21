@@ -1,0 +1,44 @@
+{
+  "cf7566f3679f67b7": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da décima emissão de debêntures simples, não conversíveis, no valor de R$2,6 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia aprovou a realização da décima emissão de debêntures simples",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cf7566f3679f67b7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1420717&numSequencia=945429&numVersao=1",
+        "timestamp_publicacao": "2025-09-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-05T23:59:00-03:00"
+      },
+      "id": "cf7566f3679f67b7-0"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "guidance",
+      "resumo": "Projeções de alavancagem financeira para 2025 permanecem inalteradas após a emissão das debêntures.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia afirma que as projeções de alavancagem financeira para 2025 permanecem inalteradas, conforme Fato Relevante de 13 de dezembro de 2024.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cf7566f3679f67b7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1420717&numSequencia=945429&numVersao=1",
+        "timestamp_publicacao": "2025-09-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-05T23:59:00-03:00"
+      },
+      "id": "cf7566f3679f67b7-1"
+    }
+  ]
+}

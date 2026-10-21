@@ -1,0 +1,20 @@
+{
+  "6ee95febbe5230d2-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Aumento de CAPEX é relevante, mas não altera substancialmente o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "aebf93b363151bb7-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Redução relevante de produção afeta receita e resultados futuros.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

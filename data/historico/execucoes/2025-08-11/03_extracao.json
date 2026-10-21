@@ -1,0 +1,24 @@
+{
+  "f6db78ff307b3c8b": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa anuncia pagamento de juros sobre capital próprio de R$ 2,7 bilhões em 29 de agosto de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração , reunido nesta data, deliberou pagar, em 29 de agosto de 2025, juros sobre capital próprio relativos ao exercício social de 2025 no montante bruto de R$ 2,7 bilhões (R$ 0,245 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f6db78ff307b3c8b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1411519&numSequencia=936231&numVersao=1",
+        "timestamp_publicacao": "2025-08-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-11T23:59:00-03:00"
+      },
+      "id": "f6db78ff307b3c8b-0"
+    }
+  ]
+}

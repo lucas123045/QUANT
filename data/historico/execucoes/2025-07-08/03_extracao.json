@@ -1,0 +1,24 @@
+{
+  "5d417f8362a3c1c1": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Conselho da BME aprovou deslistagem das ações da Cemig do Latibex a partir de 10 de julho de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da BME – Bolsa y Mercados Españoles Sistemas de Negociación S.A. aprovou, nesta data, o pedido de deslistagem das ações de emissão da CEMIG do Mercado de Valores Latino-Americanos (Latibex), com efeitos a partir de 10 de julho de 2025 (inclusive).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5d417f8362a3c1c1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1398952&numSequencia=923664&numVersao=1",
+        "timestamp_publicacao": "2025-07-08T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-08T23:59:00-03:00"
+      },
+      "id": "5d417f8362a3c1c1-0"
+    }
+  ]
+}

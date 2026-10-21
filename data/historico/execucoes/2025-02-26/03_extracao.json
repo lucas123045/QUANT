@@ -42,5 +42,27 @@
       },
       "id": "33989ff231acf68b-0"
     }
+  ],
+  "32671ccde3a39470": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Banco do Brasil anuncia pagamento de JCP antecipado de R$ 852,492 milhões referente ao 1T25.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Banco do Brasil S.A. (“BB”) informa a distribuição de R$ 852.492.000,00 a título de remuneração antecipada aos acionistas sob a forma de Juros sobre o Capital Próprio (JCP), relativos ao primeiro trimestre de 2025, conforme aprovado e comunicado ao mercado por meio do Fato Relevante em 19/02/2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "32671ccde3a39470",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1340033&numSequencia=864759&numVersao=1",
+        "timestamp_publicacao": "2025-02-26T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-26T23:59:00-03:00"
+      },
+      "id": "32671ccde3a39470-0"
+    }
   ]
 }

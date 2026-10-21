@@ -1,0 +1,84 @@
+{
+  "8f597a04d7742ca5": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Renúncia de dois executivos e nomeação de novo Diretor Vice-Presidente Financeiro e de RI.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Sr. Rafael Bergman, atual Diretor Vice -Presidente Financeiro e de Relações com Investidores da Companhia, e a Vice-Presidente Jurídica, a Sra. Maria Rita de Carvalho Drummond, renunciaram aos seus cargos. O cargo de Diretor Vice -Presidente Financeiro e de Relações com Investidores da Companhia será ocupado por José Cezário Menezes de Barros Sobrinho",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f597a04d7742ca5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1558263&numSequencia=1082969&numVersao=1",
+        "timestamp_publicacao": "2026-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-14T23:59:00-03:00"
+      },
+      "id": "8f597a04d7742ca5-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Convocação de AGE para ajustes no estatuto social e reestruturação societária envolvendo a Radar II.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia convocou, nesta data, uma Assembleia Geral Extraordinária (“AGE”) para deliberar sobre (i) ajustes no seu estatuto social com objetivo de simplificar sua estrutura organizacional e (ii) reestruturação societária no âmbito do Grupo Radar, compreendendo a cisão total da Radar II Propriedades Agrícolas S.A.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f597a04d7742ca5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1558263&numSequencia=1082969&numVersao=1",
+        "timestamp_publicacao": "2026-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-14T23:59:00-03:00"
+      },
+      "id": "8f597a04d7742ca5-1"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Deslistagem voluntária dos ADSs da Cosan na NYSE e posterior pedido de cancelamento de registro na SEC.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Deslistagem voluntária d os American Depositary Shares (“ADSs”) da Companhia, representadas por ADRs , que c orrespondem a 4 ações ordinárias da Companhia, da NYSE, onde são negociadas sob o código “CSAN” (“Deslistagem”). Após conclusão da deslistagem , de acordo com o rito regulatório necessário , será pedido o cancelamento do registro perante a SEC",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f597a04d7742ca5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1558263&numSequencia=1082969&numVersao=1",
+        "timestamp_publicacao": "2026-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-14T23:59:00-03:00"
+      },
+      "id": "8f597a04d7742ca5-2"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "guidance",
+      "resumo": "Cosan passa a divulgar projeção para cobertura de juros do serviço da dívida para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia passará a dar projeção para a métrica de cobertura de juros do serviço da dívida (“Projeção”), estimada para convergir para o intervalo de 0,8 a 1,2x para o fechamento do exercício de 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f597a04d7742ca5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1558263&numSequencia=1082969&numVersao=1",
+        "timestamp_publicacao": "2026-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-14T23:59:00-03:00"
+      },
+      "id": "8f597a04d7742ca5-3"
+    }
+  ]
+}

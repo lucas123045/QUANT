@@ -1,0 +1,24 @@
+{
+  "57130b0cbbda2737": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Localiza celebrou contrato para vender sua participação de 64,6% na Voll por R$ 382 milhões, com fechamento esperado para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "celebrou , em conjunto com os demais acionistas da Voll Soluções em Mobilidade Corporativa S.A. (“Voll”), nesta data, um Contrato de Compra e Venda de Ações e Outras Avenças, por meio do qual a Localiza Fleet contratou a alienação integra l de sua participação societária na Voll , correspondente a 64,6% do capital social total e votante da Voll, para uma sociedade detida por fundos geridos pela Warburg Pincus (“Transação”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "57130b0cbbda2737",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444910&numSequencia=969622&numVersao=1",
+        "timestamp_publicacao": "2025-11-13T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-13T23:59:00-03:00"
+      },
+      "id": "57130b0cbbda2737-0"
+    }
+  ]
+}

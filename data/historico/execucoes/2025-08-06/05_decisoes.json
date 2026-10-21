@@ -1,0 +1,167 @@
+[
+  {
+    "evento": {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano revisou a estimativa de CAPEX para 2025 de R$ 12,4 bilhões para R$ 13,3 bilhões devido à transação com a Eldorado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A estimativa de investimento de capital (“CAPEX”) relativo ao exercício de 202 5 da Companhia foi revisado de R$ 12,4 bilhões (doze bilhões e quatrocentos milhões de reais) para R$ 13, 3 bilhões (treze bilhões e trezentos milhões de reais), de forma a refletir a assinatura de contrato com a Eldorado Brasil Celulose S.A. (“Eldorado”), efetuada nesta data, sobre permuta de ativo biológico correspondente a 18 milhões de metros cúbicos de madeira em pé, localizados no estado do Mato Grosso do Sul.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6ee95febbe5230d2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1409097&numSequencia=933809&numVersao=1",
+        "timestamp_publicacao": "2025-08-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-06T23:59:00-03:00"
+      },
+      "id": "6ee95febbe5230d2-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Aumento de CAPEX é relevante, mas não altera substancialmente o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SUZB3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 07/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Aumento de CAPEX é relevante, mas não altera substancialmente o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano reduzirá produção de celulose de mercado em 3,5% nos próximos 12 meses.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O volume de produção de celulose de mercado da Companhia no ciclo operacional dos próximos 12 (doze) meses, a contar da presente data, será inferior em , aproximadamente, 3,5% (três e meio por cento) quando comparado à sua capacidade nominal de produção de celulose anual . Esta decisão se baseia no fato de que tal volume de produção não traria retorno adequado para a Companh ia em um momento de mercado de celulose mais desafiador.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "aebf93b363151bb7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1409098&numSequencia=933810&numVersao=1",
+        "timestamp_publicacao": "2025-08-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-06T23:59:00-03:00"
+      },
+      "id": "aebf93b363151bb7-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Redução relevante de produção afeta receita e resultados futuros.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SUZB3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (operacional, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 07/08 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Redução relevante de produção afeta receita e resultados futuros."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  }
+]

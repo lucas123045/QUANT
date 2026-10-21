@@ -70,5 +70,23 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "041742c9f0c6558d-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Redução de produção impacta receita, mas proporção é pequena frente ao tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5f14a737ae2e72d7-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Captação relevante de recursos, mas sem impacto imediato em resultado ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

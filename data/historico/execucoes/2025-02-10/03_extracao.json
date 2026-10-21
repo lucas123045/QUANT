@@ -1,0 +1,106 @@
+{
+  "c40f50a311a4ac4f": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Incêndio atingiu parte da planta da controlada Moove, afetando área produtiva e administrativa.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "sobre o incêndio ocorrido em parte da planta da sua controlada Moove Lubricants Holdings (“Moove”), em 08 de fevereiro de 2025, localizada na Ilha do Governador – Rio de Janeiro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c40f50a311a4ac4f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332360&numSequencia=857086&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "c40f50a311a4ac4f-0"
+    }
+  ],
+  "b2e03ba597c2434b": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 6,6 bilhões em proventos, incluindo dividendos e juros sobre capital próprio em 2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o seu Conselho de Administração, reunido nesta data, deliberou: 1. pagar, em 07.03.2025, R$ 6,6 bilhões em proventos, sendo: a. R$ 1,1 bilhão em juros sobre capital próprio , declara dos nesta data, correspondentes a R$ 0,1011 por ação (R$ 0,085935 líquidos por ação), considerando a posição acionária final do dia 17.02.2025; b. R$ 4,4 bilhões em dividendos, declarados nesta data, correspondentes a R$ 0,40815 por ação, considerando a posição acionária final do dia 17.02.2025; e c. R$ 1,1 bilhão em juros sobre capital próprio , declarados em 16.09 .2024 e 06.12.2024, conforme anteriormente divulgados , que somados correspondem a R$ 0,1065 por ação (R$ 0,090525 líquidos por ação).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-0"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 510 milhões em juros sobre capital próprio em 01.04.2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "2. pagar, em 01.04.2025, R$ 510 milhões em juros sobre capital próprio correspondentes a 2 (duas) parcelas dos proventos trimes trais fixos, considerando a posição acionária final do dia 28.02.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-1"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento de R$ 1,0 bilhão em dividendos em 22.04.2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "3. pagar, em 22.04.2025, R$ 1,0 bilhão em dividendos correspondentes a R$ 0,09224 por ação, declarados nesta data, considerando a posição acionária final do dia 17.02.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-2"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "outro",
+      "resumo": "Aumento do capital social em R$ 1 bilhão, com emissão de 149.253.731 novas ações.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "4. aumentar o capital social , dentro do limite do capital autorizado, em R$ 1 bilhão, de R$ 80,189 bilhões para R$ 81,189 bilhões. a. Quantidade e Espécies de Ações a serem Emitidas: 149.253.731 novas ações escriturais, sem valor nominal, sendo 51.305.206 ordinárias e 97.948.525 preferenciais",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2e03ba597c2434b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1332822&numSequencia=857548&numVersao=1",
+        "timestamp_publicacao": "2025-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-10T23:59:00-03:00"
+      },
+      "id": "b2e03ba597c2434b-3"
+    }
+  ]
+}

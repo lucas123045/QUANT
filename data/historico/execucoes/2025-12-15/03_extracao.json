@@ -1,0 +1,46 @@
+{
+  "6c14297db0bcaf86": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan realizou alienação e contratação de TRS de ações da Rumo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Cosan: Alienação e contratação de TRS de ações da Rumo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c14297db0bcaf86",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1457499&numSequencia=982211&numVersao=1",
+        "timestamp_publicacao": "2025-12-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-15T23:59:00-03:00"
+      },
+      "id": "6c14297db0bcaf86-0"
+    }
+  ],
+  "68605fc6704f7ae4": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "outro",
+      "resumo": "Conselho aprova aumento de capital com bonificação de ações, 2 novas para cada 100 possuídas, creditadas em 23/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, reunido nesta data, deliberou elevar o capital social da Companhia para R$ 83.689.000.000,00, mediante capitalização de reservas de R$ 2.500.000.000,00, com emissão de 219.876.212 novas ações escriturais, sem valor nominal, sendo 75.561.451 ordinárias e 144.314.761 preferenciais, que serão atribuídas gratuitamente aos acionistas, a título de bonificação, na proporção de 2 ações novas para cada 100 ações da mesma espécie que possuírem na posição acionária final do dia 18.12.2025. As novas ações serão creditadas na posição dos acionistas no dia 23.12.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68605fc6704f7ae4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1457508&numSequencia=982220&numVersao=1",
+        "timestamp_publicacao": "2025-12-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-15T23:59:00-03:00"
+      },
+      "id": "68605fc6704f7ae4-0"
+    }
+  ]
+}

@@ -1,3 +1,47 @@
 {
-  "8db5fe4d8f1db037": []
+  "8db5fe4d8f1db037": [],
+  "9789f0880c5e94b9": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 7.700.000 ações preferenciais (GGBR4) aprovado pelo Conselho, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 418.800 ações ordinárias (GGBR3) e de 7.700.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9789f0880c5e94b9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1480641&numSequencia=1005347&numVersao=1",
+        "timestamp_publicacao": "2026-02-23T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-23T23:59:00-03:00"
+      },
+      "id": "9789f0880c5e94b9-0"
+    }
+  ],
+  "1c9b2589d98f6850": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan avalia realizar oferta pública inicial de ações da Compass Gás e Energia.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a Companhia está avaliando a realização de uma oferta pública inicial de distribuição de ações de emissão da Compass Gás e Energia S.A. (“Potencial Oferta”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1c9b2589d98f6850",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1480330&numSequencia=1005036&numVersao=1",
+        "timestamp_publicacao": "2026-02-23T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-23T23:59:00-03:00"
+      },
+      "id": "1c9b2589d98f6850-0"
+    }
+  ]
 }

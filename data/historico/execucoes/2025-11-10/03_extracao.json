@@ -1,0 +1,24 @@
+{
+  "1e6405eb47391f69": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "outro",
+      "resumo": "Celebração de acordo de acionistas entre controladores e investidores, com nova holding e entrada em vigor após oferta pública.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "seus acionistas controladores, Aguassanta Investimentos S.A. e Queluz Holding Limited , veículos da família do Sr. Rubens Ometto Silveira Mello (em conjunto, “Holdings Aguassanta”), celebraram acordo de acionistas com os fundos Classe A do Perfin Rally Fundo de Investimento em Participações Multiestratégia Responsabilidade Limitada, Classe Única BTG Pactual Infraestrutura III Fundo de Investimento em Participações Multiestratégia, Classe Única Fundo de Investimento em Participações BPAC3 - Multiestratégia Responsabilidade Limitada e BTG Pactual Co -Investimento Cosan Fundo de Investimento em Participações Multiestratégia Responsabilidade Limitada (em conjunto, “Investidores”), e a Vertiz Holding S.A., nova holding constituída para deter o investimento conjunto das Holdings Aguassanta e dos Investidores na Companhia, figurando a Companhia e o Sr. Rubens Ometto Silveira Mello como intervenientes anuentes (“Acordo de Acionistas”). Na presente data, com a liquidação da primeira oferta pública de ações realizada pela Companhia, o Acordo de Acionistas entra em eficácia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1e6405eb47391f69",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1442322&numSequencia=967034&numVersao=1",
+        "timestamp_publicacao": "2025-11-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-10T23:59:00-03:00"
+      },
+      "id": "1e6405eb47391f69-0"
+    }
+  ]
+}

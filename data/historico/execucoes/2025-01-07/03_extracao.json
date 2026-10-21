@@ -1,0 +1,24 @@
+{
+  "f8c0a6baaa73c7cf": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou aumento de capital de até R$ 111,16 milhões via emissão privada de até 4.275.569 novas ações ordinárias.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Conselho de Administração da Companhia, em reunião realizada nesta data , deliberou, entre outras matérias, pela aprovação do aumento do capital social da Companhia, dentro do limite do capital autorizado, no valor de até R$ 111.164.794,00 (cento e onze milhões, cento e sessenta e quatro mil, setecentos e noventa e quatro reais), passando o capital da Companhia dos atuais R$ 12.501.307.629,14 (doze bilhões, quinhentos e um milhões, trezentos e sete mil, seiscentos e vinte e nove reais e quatorze centavos), para, no mínimo, R$ 12.526.307.617,14 (doze bilhões, quinhentos e vinte e seis milhões, trezentos e sete mil, seisce ntos e dezessete reais e quatorze centavos ) e, no máximo, R$ 12.612.472.423,14 (doze bilhões, seiscentos e doze milhões , quatrocentos e setenta e dois mil, quatrocentos e vinte e três reais e quatorze centavos), mediante a emissão privada de até 4.275.569 (quatro milhões, duzent as e setenta e cinco mil e quinhent as e sessenta e nove ) novas ações ordinárias, nominativas, escriturais e sem valor nominal (“Aumento de Capital”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f8c0a6baaa73c7cf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1322825&numSequencia=847551&numVersao=1",
+        "timestamp_publicacao": "2025-01-07T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-07T23:59:00-03:00"
+      },
+      "id": "f8c0a6baaa73c7cf-0"
+    }
+  ]
+}

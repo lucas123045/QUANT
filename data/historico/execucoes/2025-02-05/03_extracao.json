@@ -65,5 +65,27 @@
       },
       "id": "0f7d18edf0acdd5d-0"
     }
+  ],
+  "e86757771b5d02c0": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "PRIO anuncia 5ª emissão de debêntures, conforme comunicado no documento.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO: 5ª Emissão Debêntures",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e86757771b5d02c0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1330969&numSequencia=855695&numVersao=1",
+        "timestamp_publicacao": "2025-02-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-05T23:59:00-03:00"
+      },
+      "id": "e86757771b5d02c0-0"
+    }
   ]
 }

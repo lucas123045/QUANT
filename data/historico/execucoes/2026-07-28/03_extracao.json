@@ -80,5 +80,47 @@
       },
       "id": "a67ef168b9fa4182-3"
     }
+  ],
+  "d59d717bdb957249": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa poderá aumentar participação na Aegea para até 15,43% após capitalização aprovada.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovado aumento de capital no valor total entre R$ 1,5 bilhão e R$ 2,1 bilhões , mediante a emissão de novas ações ordinárias da Aegea, ao preço de R$ 55,29 por ação , conforme Fato Relevante divulgado pela Investida. Considerando a atual participação da Companhia na Aegea, e a depender de como os demais acionistas exercerão seus respectivos direitos, a Itaúsa poderá subscrever, dentro do prazo de 30 dias, montante entre R$ 730 milhões e R$ 1,5 bilhão, representando aumento de participação acionária da Itaúsa no capital total da Aegea de 13,27% para entre 14,01% e 15,43%, respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d59d717bdb957249",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549008&numSequencia=1073714&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "d59d717bdb957249-0"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa celebrou acordo para proteger retorno do investimento na Aegea via aumento de participação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia informa que celebrou, nesta data, Acordo de Capitalização e Ajuste de Participação Acionária na Aegea (“Acordo”), o qual estabelece mecanismo de proteção do retorno do investimento da Itaúsa por meio de aumento da sua participação acionária na Investida.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d59d717bdb957249",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549008&numSequencia=1073714&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "d59d717bdb957249-1"
+    }
   ]
 }

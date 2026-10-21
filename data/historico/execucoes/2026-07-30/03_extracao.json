@@ -64,5 +64,47 @@
       },
       "id": "d0b3b7b48f4d263d-0"
     }
+  ],
+  "2133581582efee3e": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "AGE da Sabesp aprovou a incorporação das ações da EMAE, condicionada à aprovação pela assembleia da EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em Assembleia Geral Extraordinária realizada nesta data (“ Assembleia”), foi aprovada pelos seus acionistas, dentre outras matérias, a incorporação, pela Companhia, da totalidade das ações de emissão da EMAE não detidas pela Companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2133581582efee3e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1550021&numSequencia=1074727&numVersao=1",
+        "timestamp_publicacao": "2026-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-30T23:59:00-03:00"
+      },
+      "id": "2133581582efee3e-0"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "regulatorio",
+      "resumo": "A eficácia da incorporação depende de aprovação pela AGE da EMAE, adiada por determinação da CVM.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A eficácia da Incorporação de Ações está condicionada à sua aprovação também pela Assembleia Geral Extraordinária da EMAE – Empresa Metropolitana de Águas e Energia S.A. (“EMAE” e “AGE EMAE”, respectivamente), cuja realização foi adiada por determinação do colegiado da Comissão de Valores Mobiliários (“ CVM”), pelo prazo de 30 dias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2133581582efee3e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1550021&numSequencia=1074727&numVersao=1",
+        "timestamp_publicacao": "2026-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-30T23:59:00-03:00"
+      },
+      "id": "2133581582efee3e-1"
+    }
   ]
 }

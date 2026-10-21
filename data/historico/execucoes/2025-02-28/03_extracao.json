@@ -1,0 +1,68 @@
+{
+  "1dbf4a5f8c6563ce": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO recebeu licença de perfuração para o campo de Wahoo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Licença de Perfuração de Wahoo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1dbf4a5f8c6563ce",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1341592&numSequencia=866318&numVersao=1",
+        "timestamp_publicacao": "2025-02-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-28T23:59:00-03:00"
+      },
+      "id": "1dbf4a5f8c6563ce-0"
+    }
+  ],
+  "cefa45c4ee24daef": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "PRIO anuncia aumento de capital mediante capitalização de reserva.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Aumento de Capital Mediante Capitalização de Reserva",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cefa45c4ee24daef",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1341610&numSequencia=866336&numVersao=1",
+        "timestamp_publicacao": "2025-02-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-28T23:59:00-03:00"
+      },
+      "id": "cefa45c4ee24daef-0"
+    }
+  ],
+  "de948e346f13c58b": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Liquidação da 5ª Emissão de Debêntures pela PRIO.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO: Liquidação da 5ª Emissão de Debêntures",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "de948e346f13c58b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1341616&numSequencia=866342&numVersao=1",
+        "timestamp_publicacao": "2025-02-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-28T23:59:00-03:00"
+      },
+      "id": "de948e346f13c58b-0"
+    }
+  ]
+}

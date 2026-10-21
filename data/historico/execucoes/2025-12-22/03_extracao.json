@@ -1,0 +1,46 @@
+{
+  "3f63bb460bacddb7": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan vendeu 4,96% das ações da Rumo e contratou derivativos para manter exposição econômica.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "realizou uma transação que consiste: (i) na alienação de parte de ações ordinárias de emissão de sua controlada, Rumo S.A. (“Rumo”), equivalente a aproximadamente 4,96% do capital social total da Rumo (“Ações”); e concomitantemente (ii) na celebração de instrumento derivativos ( total return swap ), que representa a mesma exposição econômica correspondente às Ações mencionadas no item anterior (“Operação Financeira”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3f63bb460bacddb7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1460406&numSequencia=985112&numVersao=1",
+        "timestamp_publicacao": "2025-12-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-22T23:59:00-03:00"
+      },
+      "id": "3f63bb460bacddb7-0"
+    }
+  ],
+  "135132df8c4f34e2": [
+    {
+      "ticker": "RADL3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovado aumento de capital com bonificação de 1 ação para cada 50 aos acionistas, totalizando R$750 milhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, dentre outras matérias, a proposta de aumento do capital social mediante capitalização de parte das reservas de lucros no valor total de R$750.000.000,00 (setecentos e cinquenta milhões de reais) , com a emissão e distribuição aos acionistas, proporcionalmente às suas respectivas participações, de 34.360.144 (trinta e quatro milhões, trezentas e sessenta mil, cento e quarenta e quatro) ações ordinárias, sem valor nominal . Atribuindo-se, portanto, aos acionistas, a título de bonificação, 1 (uma) ação nova para cada 50 (cinquenta) ações de emissão da Companhia existentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "135132df8c4f34e2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1460400&numSequencia=985106&numVersao=1",
+        "timestamp_publicacao": "2025-12-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-22T23:59:00-03:00"
+      },
+      "id": "135132df8c4f34e2-0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "e4b8be683233c729": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de juros sobre capital próprio de R$0,522127416 por ação em 22/05/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, reunido em 24/03/2026, deliberou autorizar o crédito e pagamento aos acionistas de juros sobre o capital próprio no valor bruto de R$571.792.379,63. O pagamento ocorrerá no dia 22/05/2026 na proporção da participação de cada acionista",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e4b8be683233c729",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1494669&numSequencia=1019375&numVersao=1",
+        "timestamp_publicacao": "2026-03-24T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-24T23:59:00-03:00"
+      },
+      "id": "e4b8be683233c729-0"
+    }
+  ]
+}

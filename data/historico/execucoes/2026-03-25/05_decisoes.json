@@ -78,5 +78,90 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "EQTL3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou proposta para reduzir dividendo obrigatório para 1% do lucro líquido ajustado, sujeita à aprovação em assembleia.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia, em reunião realizada nesta data, aprovou, entre outras matérias, a submissão à deliberação da assembleia geral de proposta de alteração do artigo 27, § 2º, item (iii), do Estatuto Social da Companhia, para reduzir o dividendo obrigatório. Caso a proposta venha a ser aprovada, o dividendo obrigatório passará a ser de 1% (um por cento) do lucro líquido ajustado do exercício",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cb6b6a62d22d57c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1495201&numSequencia=1019907&numVersao=1",
+        "timestamp_publicacao": "2026-03-25T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-25T23:59:00-03:00"
+      },
+      "id": "3cb6b6a62d22d57c-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Redução do dividendo obrigatório pode impactar diretamente a atratividade da ação e o retorno ao acionista.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "EQTL3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (dividendo, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/03 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Redução do dividendo obrigatório pode impactar diretamente a atratividade da ação e o retorno ao acionista."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
   }
 ]

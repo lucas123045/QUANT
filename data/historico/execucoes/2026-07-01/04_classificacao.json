@@ -1,0 +1,38 @@
+{
+  "17d2d62d84ee5ecd-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Aditivo contratual com regime operacional mínimo não altera resultados ou projeções relevantes.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "577ddd7f67fb408b-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aquisição relevante que pode impactar receita, produção e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a154e32a4a62ee47-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Recebimento de dividendo extraordinário relevante, mas de subsidiária não operacional.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a154e32a4a62ee47-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Impacto financeiro concreto, mas não recorrente e pequeno em relação ao tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

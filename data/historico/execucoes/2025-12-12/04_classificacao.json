@@ -1,0 +1,74 @@
+{
+  "1fb0a212e31536db-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas divulgação de projeções sem surpresas ou revisões relevantes.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2c1e4a862e1b6e3e-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra de ações pode apoiar o preço e sinaliza confiança, mas não altera fundamentalmente resultados ou caixa no curto prazo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2c1e4a862e1b6e3e-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A autorização para contratos de equity swap é procedimento operacional sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f0422ed0fd819888-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Pagamento de proventos já esperado e sem efeito relevante imediato no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f0422ed0fd819888-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "media",
+    "motivo_materialidade": "Programa de recompra pode apoiar o preço das ações, mas não altera fundamentalmente o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "0718c0f03f246ab3-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Limitação de indenização pode ter efeito financeiro, mas acordo já era esperado e não altera projeções relevantes.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "0718c0f03f246ab3-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Extinção de ações judiciais sem impacto financeiro declarado ou estimado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a3977319a676fce2-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Plano de investimentos relevante pode impactar crescimento e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

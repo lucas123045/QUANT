@@ -1,0 +1,24 @@
+{
+  "182f50774c4ec1d6": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa aprova 8ª emissão de debêntures para resgatar antecipadamente debêntures da 6ª emissão, reduzindo custo e alongando prazo da dívida.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Itaúsa S.A. (“Itaúsa”) (B3: ITSA3, ITSA4) comunica que, em continuidade à estratégia de gestão de passivos e desalavancagem iniciada ao final de 2022, aprovou a 8ª Emissão de Debêntures, não conversíveis em açõe s, no m ontante de R$ 1,0 bilhão (“8ª Emissão”). Os recursos da 8ª Emissão, so mados a R$ 250 milhões de r ecursos próprios, serão uti lizados para o resgate antecipado da totalidade das debêntures da 6ª Emissão da Itaúsa (“6ª Emissão”), no valor de R$ 1,25 bilhão (“Refinanciamento”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "182f50774c4ec1d6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1416903&numSequencia=941615&numVersao=1",
+        "timestamp_publicacao": "2025-08-25T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-25T23:59:00-03:00"
+      },
+      "id": "182f50774c4ec1d6-0"
+    }
+  ]
+}

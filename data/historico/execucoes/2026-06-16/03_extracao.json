@@ -1,0 +1,24 @@
+{
+  "4421ed9c7eabcd6a": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO abriu o quarto poço produtor do Campo de Wahoo, estabilizando produção em 10.000 barris/dia e limitando produção total a 40.000 barris/dia.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que abriu o quarto poço produtor do Campo de Wahoo (“Campo”) , estabilizando a produção do mesmo em 10 . 000 barris de óleo por dia. Assim , a PRIO concluiu a abertura de todos os poços produtores previstos no projeto de desenvolvimento d e Wahoo e , c onforme divulgado anteriormente, limitará a produção total do Campo em 40.000 barris de óleo por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4421ed9c7eabcd6a",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1535182&numSequencia=1059888&numVersao=1",
+        "timestamp_publicacao": "2026-06-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-16T23:59:00-03:00"
+      },
+      "id": "4421ed9c7eabcd6a-0"
+    }
+  ]
+}

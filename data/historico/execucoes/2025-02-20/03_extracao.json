@@ -1,0 +1,130 @@
+{
+  "0a0607ed6d5b468c": [
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "guidance",
+      "resumo": "Rumo divulga projeções para 2025: volume transportado, EBITDA e Capex estimados.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica suas projeções e estimativas para o ano de 2025: Indicador Unidade 2025 Volume Transportado TKU bilhões 82 ≤ ∆ ≤ 86 EBITDA R$ bilhões 8,1 ≤ ∆ ≤ 8,7 Capex R$ bilhões 5,8 ≤ ∆ ≤ 6,5",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0a0607ed6d5b468c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337484&numSequencia=862210&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "0a0607ed6d5b468c-0"
+    },
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "guidance",
+      "resumo": "Rumo reafirma projeções para construção da Ferrovia do Mato Grosso divulgadas em agosto de 2024.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia também informa que as projeções e estimativas para a construção da Ferrovia do Mato Grosso, apresentadas ao mercado em Fato Relevante de 26 de agosto de 202 4, permanecem vigentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0a0607ed6d5b468c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337484&numSequencia=862210&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "0a0607ed6d5b468c-1"
+    }
+  ],
+  "35bbc84a885e7db6": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "TST determinou fim da prorrogação automática de cláusulas sobre benefício pós-emprego do plano de saúde.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi publicado acórdão do julgamento ocorrido em 9.12.2024 no Recurso Ordinário Trabalhista 11813-49.2022.5.03.0000, pela Seção Especializada em Dissídios Coletivos – SDC do Tribunal Superior do Trabalho – TST. Essa decisão determinou a cessação, a partir de 31.12.2023, da validade das cláusulas que determinavam a prorroga ção automática por iguais e sucessivos períodos da cláusula 17ª do acordo coletivo de trabalho 2010 e cláusula 4ª do acordo coletivo de trabalho 2016 , que se refere m exclusivamente à garantia de cobertura das suas obrigações com pagamento de benef ício pós-emprego do plano de saúde (PSI) , incluindo os aposentados e empregados ativos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "35bbc84a885e7db6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337599&numSequencia=862325&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "35bbc84a885e7db6-0"
+    }
+  ],
+  "43c9de18a5612980": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou programa de recompra de até 75 milhões de ações, equivalente a R$ 1 bilhão, para retorno de capital e criação de valor.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "seu Conselho de Administração aprovou, em reunião realizada nesta data e em concordância com o artigo 20 de seu Estatuto Social, o Programa de Recompra de Ações , visando à aquisição de até 75.000.000 (setenta e cinco milhões) de ações ordinárias de emissão da própria Companhia, representativas de 7,13% das ações em circulação e com valor equivalente, nesta data, a aproximadamente R$ 1 bilhão",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "43c9de18a5612980",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337483&numSequencia=862209&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "43c9de18a5612980-0"
+    }
+  ],
+  "da8d5227c24f7302": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "guidance",
+      "resumo": "Lojas Renner atualizou e descontinuou algumas projeções, incluindo entregas D+2 e custo logístico sobre vendas digitais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia informa que revisou os indicadores e optou por descontinuar as projeções referentes a Entregas D+2 e Custo Logístico s/ Receita Líquida Online (Vendas Digitais) , e, na Camicado, indicadores referentes ao Share do Digital e GMV Marketplace (in) 3P.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "da8d5227c24f7302",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337542&numSequencia=862268&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "da8d5227c24f7302-0"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "guidance",
+      "resumo": "Lead time de abastecimento de lojas ficou em cerca de 7 dias em 2024, acima da projeção de 3 a 4 dias.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "embora tenha atingido ao longo de 2024 níveis recordes de lead time de abastecimento de lojas (cerca de 7 dias), ainda assim , ficou acima da projeção esperada para o período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "da8d5227c24f7302",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337542&numSequencia=862268&numVersao=1",
+        "timestamp_publicacao": "2025-02-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-20T23:59:00-03:00"
+      },
+      "id": "da8d5227c24f7302-1"
+    }
+  ]
+}

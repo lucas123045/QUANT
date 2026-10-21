@@ -20,5 +20,89 @@
       },
       "id": "f7de5de9215905f2-0"
     }
+  ],
+  "e827a61027adae04": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano divulga metas de dívida líquida e alavancagem para 2027 e 2028, com alavancagem abaixo de 2,5x.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia informa que suas metas de dívida líquida e alavancagem em USD são de, respectivamente: (a) US$11,0 bilhões e (b) abaixo de 2,5x, com expectativa de atingimento ao longo dos exercícios sociais de 2027 e 2028.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e827a61027adae04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1519914&numSequencia=1044620&numVersao=1",
+        "timestamp_publicacao": "2026-05-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-11T23:59:00-03:00"
+      },
+      "id": "e827a61027adae04-0"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano divulga estimativas de custo caixa de produção de celulose para 2T26 e média anual de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Suzano informa que sua estimativa de custo caixa de produção de celulose — desconsiderando os efeitos das paradas programadas para manutenção — para o segundo trimestre de 2026 está prevista entre R$830 por tonelada e R$840 por tonelada (aproximadamente de 3% a 5% de aumento em relação ao primeiro trimestre de 2026).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e827a61027adae04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1519914&numSequencia=1044620&numVersao=1",
+        "timestamp_publicacao": "2026-05-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-11T23:59:00-03:00"
+      },
+      "id": "e827a61027adae04-1"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Suzano atualizará o item 3 do Formulário de Referência conforme Resolução CVM nº 80/22.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia esclarece que o item 3 do Formulário de Referência da Companhia será devidamente atualizado, no prazo previsto na Resolução CVM no 80/22.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e827a61027adae04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1519914&numSequencia=1044620&numVersao=1",
+        "timestamp_publicacao": "2026-05-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-11T23:59:00-03:00"
+      },
+      "id": "e827a61027adae04-2"
+    }
+  ],
+  "298f68c0cbc5cd59": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação de programa de recompra de até 5 milhões de ações preferenciais para plano de incentivos e/ou tesouraria.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o seu Conselho de Administração, em reunião realizada nesta data, aprovou Programa de Recompra de Ações de Emissão Própria para utilização no âmbito do Plano de Incentivos de Longo Prazo da Itaúsa e/ou permanência em tesouraria para posterior alienação ou cancelamento",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "298f68c0cbc5cd59",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1520242&numSequencia=1044948&numVersao=1",
+        "timestamp_publicacao": "2026-05-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-11T23:59:00-03:00"
+      },
+      "id": "298f68c0cbc5cd59-0"
+    }
   ]
 }

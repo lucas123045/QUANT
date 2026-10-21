@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "VBBR3",
+      "tipo_evento": "operacional",
+      "resumo": "Vibra aprovou aumento de capital da Comerc em R$1,5 bilhão, passando a deter 99,10% do capital social da Comerc.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em assembleia geral extraordinária da Comerc Energia S.A. (“Comerc”) realizada na presente data, foi aprovado o aumento do capital social da Comerc em R$1,5 bilhão, mediante a emissão de 161.985.792 ações ordinárias pela Comerc, as quais foram totalmente subscritas na presente data e serão integralizadas pela Companhia até 30 de janeiro de 2025. Em decorrência do referido aumento de capital, a Companhia passou a ser titular de 520.295.743 ações ordinárias de emissão da Comerc, representativas de 99,10% do capital social votante e total da Comerc.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a6070f70725e5067",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1325963&numSequencia=850689&numVersao=1",
+        "timestamp_publicacao": "2025-01-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-17T23:59:00-03:00"
+      },
+      "id": "a6070f70725e5067-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Aumento de capital relevante, mas sem efeito imediato no resultado ou caixa da Vibra.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VBBR3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 20/01 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Aumento de capital relevante, mas sem efeito imediato no resultado ou caixa da Vibra."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

@@ -20,5 +20,28 @@
       },
       "id": "a61149cc07a27a96-0"
     }
-  ]
+  ],
+  "4726bf3e69de4b17": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan aprovou preço de R$5,00 por ação em oferta primária, levantando R$9,06 bilhões com emissão de 1,81 bilhão de ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "the Board of Directors approved on this date (“Board Meeting”), the offering price per Share of R$5.00 (the “ Price per Share ”), resulting in gross proceeds from the issuance of 1,812,500,000 Shares in the Offering of R$9,062,500,000.00.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4726bf3e69de4b17",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1439077&numSequencia=963789&numVersao=1",
+        "timestamp_publicacao": "2025-11-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-04T23:59:00-03:00"
+      },
+      "id": "4726bf3e69de4b17-0"
+    }
+  ],
+  "1fe6a02dab37e0d8": []
 }

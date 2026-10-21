@@ -1,0 +1,44 @@
+{
+  "a9923621ef72c782": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "guidance",
+      "resumo": "BB Seguridade divulgou projeções empresariais (Guidance 2025) com manutenção dos indicadores e alteração na metodologia de cálculo do resultado operacional.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica ao mercado, aos seus acionistas e ao público em geral que divulgou, nesta data, as projeções empresariais a serem acompanhadas no exercício de 2025 (“Guidance 2025”). Para 2025, a BB Seguridade manteve os indicadores do ano anterior, realizando apenas uma alteração na metodologia de cálculo do resultado operacional não decorrente de juros (ex-holdings).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a9923621ef72c782",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1335790&numSequencia=860516&numVersao=1",
+        "timestamp_publicacao": "2025-02-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-17T23:59:00-03:00"
+      },
+      "id": "a9923621ef72c782-0"
+    },
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Constituição de Provisão Complementar de Cobertura (PCC) em 2024 devido à entrada em vigor da Circular Susep 678/22.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Cabe ressaltar que a necessidade de constituição de PCC decorreu da entrada em vigor da Circular Susep 678/22 em janeiro/2024, portanto, não houve constituição de PCC em exercícios anteriores:",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a9923621ef72c782",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1335790&numSequencia=860516&numVersao=1",
+        "timestamp_publicacao": "2025-02-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-17T23:59:00-03:00"
+      },
+      "id": "a9923621ef72c782-1"
+    }
+  ]
+}

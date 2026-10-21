@@ -160,6 +160,10 @@ Esses campos são preenchidos apenas pelo autor.
 
 A carteira é **provisória** e foi **escolhida hoje** (2026-10-15), portanto está sujeita a viés de sobrevivência. Ela só pode ser alterada com aprovação do autor.
 
+**Ampliação em 21/10/2026 (aprovada pelo autor, antes do congelamento).** A carteira acompanhada passou de 5 para **24 ações**: as 5 acima e mais 19 grandes empresas do Ibovespa (BBAS3, B3SA3, WEGE3, SUZB3, RENT3, ITSA4, RADL3, PRIO3, EQTL3, GGBR4, RAIL3, VBBR3, SBSP3, BBSE3, UGPA3, LREN3, TOTS3, CSAN3, CMIG4), as mesmas do universo do estudo histórico. Critério, definido antes de olhar qualquer retorno: setores variados e o mesmo código de negociação desde junho de 2024 (a Embraer ficou de fora por ter mudado de código). Motivo: com 5 ações, o teste ao vivo levaria anos para reunir os ~110 eventos necessários. O viés de sobrevivência continua: são empresas grandes **hoje**.
+
+Nomes que também são palavras comuns ou lugares têm casamento restrito (`ALIASES` e `PADROES_CONTEXTO`): "Rumo", "Vibra", "Localiza", "Equatorial" e "Suzano" só contam pelo nome completo ou com artigo e maiúscula ("a Rumo", nunca "rumo a"); "B3" só conta como empresa quando é o lucro, o resultado ou os dividendos da B3 (sozinho, é a bolsa). Testado em `tests/test_matching.py` e no arquivo real de notícias. Limitação conhecida: links "Leia também" dentro do texto do feed podem citar empresas que não são o assunto da notícia; a extração pela IA não cria evento nesses casos, então o efeito é só custo de leitura.
+
 ## 9. Períodos
 
 | Período | Início | Fim | Status |
@@ -480,6 +484,12 @@ Cada compra traz as checagens passo a passo, e cada decisão que a prática não
 **Fatos relevantes da CVM** (`src/cvm.py`): entram na coleta pelo Portal de Dados Abertos da CVM (documentos IPE), filtrados por CNPJ, só a primeira versão de cada documento, com o texto do PDF. A data de entrega vem sem hora (registrada como 23h59) e o arquivo atrasa alguns dias. Seguem a regra com `tipo_fonte = "fato_relevante"` e não se misturam à carteira, que é de notícias de portal.
 
 **Alertas no celular** (`src/alertas.py`): a cada compra ou venda registrada, uma notificação com o motivo e os critérios, por ntfy (sem cadastro) ou Telegram. Configuração no `.env` (veja `.env.example`) ou nos segredos do GitHub.
+
+### Minhas ações (as ações que você já tem)
+
+A carteira simulada começa em caixa. Quem já tem ações cadastra as suas posições na página **Minhas ações** (ação, quantidade, preço médio e, se quiser, a data), e o QUANT as cruza com o que acompanha: valor e resultado pelo fechamento do último pregão, preço médio ponderado de vários lotes, a última notícia que a IA analisou de cada empresa (com os critérios da regra), alerta quando a regra registra um fato relevante, concentração por ação e por setor com os mesmos limites da camada prática (20% e 30%), e o imposto estimado se vender tudo hoje.
+
+**As posições ficam só no navegador** (`localStorage`): são dados pessoais e nunca vão para o servidor, para o GitHub nem para o site público. "Exportar" e "Importar" guardam e restauram uma cópia em arquivo JSON. Código: `web/src/paginas/MinhasAcoes.jsx`.
 
 ### Versão online (vitrine somente leitura)
 

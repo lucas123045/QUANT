@@ -1,0 +1,25 @@
+{
+  "e3dcf595f017ef92": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa pagará juros sobre capital próprio de R$ 2,8 bilhões em 28 de agosto de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração , reunido nesta data, deliberou pagar, em 28 de agosto de 202 6, os juros sobre capital próprio relativos ao exercício social de 2026 no montante bruto de R$ 2,8 bilhões (R$ 0,254 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e3dcf595f017ef92",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1555260&numSequencia=1079966&numVersao=1",
+        "timestamp_publicacao": "2026-08-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-10T23:59:00-03:00"
+      },
+      "id": "e3dcf595f017ef92-0"
+    }
+  ],
+  "42b57443386a7610": []
+}

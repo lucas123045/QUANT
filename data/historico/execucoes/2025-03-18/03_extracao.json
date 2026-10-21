@@ -1,0 +1,24 @@
+{
+  "313a2a1ea2c578a9": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre capital próprio de R$0,14 por ação, a ser pago em 4 de abril de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "aprovou o pagamento de juros sobre capital próprio (“ JCP ”), no montante total bruto de até R$ 82.026.143,36 (oitenta e dois milhões, vinte e seis mil, cento e quarenta e três reais e trinta e seis centavos) , correspondente a R$0,14 (quatorze centavos) por ação da Companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "313a2a1ea2c578a9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1348338&numSequencia=873064&numVersao=1",
+        "timestamp_publicacao": "2025-03-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-18T23:59:00-03:00"
+      },
+      "id": "313a2a1ea2c578a9-0"
+    }
+  ]
+}

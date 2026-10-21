@@ -1,0 +1,29 @@
+{
+  "1065db950cc10609-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de produção impacta receita e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "1065db950cc10609-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A previsão de produção já era esperada e não altera projeções ou resultados imediatamente.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ea1b5ecc306513f8-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Cancelamento de ações em tesouraria sem impacto no capital social ou caixa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "d4ce6d003cb0e6b7": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Banco do Brasil adiou a divulgação do resultado do 1T25 para 15 de maio de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o BB decidiu pela postergação da data de divulgação do resultado para o dia 15 de maio de 2025, quinta-feira, após o fechamento do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d4ce6d003cb0e6b7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1375694&numSequencia=900406&numVersao=1",
+        "timestamp_publicacao": "2025-05-09T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-09T23:59:00-03:00"
+      },
+      "id": "d4ce6d003cb0e6b7-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Data de anúncio da distribuição do JCP complementar do 1T25 foi alterada para 15 de maio de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a data de anúncio da distribuição do JCP complementar referente ao 1º trimestre de 2025, será alterada para 15 de maio de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d4ce6d003cb0e6b7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1375694&numSequencia=900406&numVersao=1",
+        "timestamp_publicacao": "2025-05-09T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-09T23:59:00-03:00"
+      },
+      "id": "d4ce6d003cb0e6b7-1"
+    }
+  ]
+}

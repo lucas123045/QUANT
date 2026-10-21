@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO abriu o quarto poço produtor do Campo de Wahoo, estabilizando produção em 10.000 barris/dia e limitando produção total a 40.000 barris/dia.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que abriu o quarto poço produtor do Campo de Wahoo (“Campo”) , estabilizando a produção do mesmo em 10 . 000 barris de óleo por dia. Assim , a PRIO concluiu a abertura de todos os poços produtores previstos no projeto de desenvolvimento d e Wahoo e , c onforme divulgado anteriormente, limitará a produção total do Campo em 40.000 barris de óleo por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4421ed9c7eabcd6a",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1535182&numSequencia=1059888&numVersao=1",
+        "timestamp_publicacao": "2026-06-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-16T23:59:00-03:00"
+      },
+      "id": "4421ed9c7eabcd6a-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Evento já era esperado e não altera projeções ou resultados.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PRIO3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 17/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Evento já era esperado e não altera projeções ou resultados."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

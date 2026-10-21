@@ -1,0 +1,24 @@
+{
+  "082acce5e7157719": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano atualiza estimativa de desembolso operacional para R$ 1.983/tonelada em 2027, incluindo custos de produção, logística e manutenção.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Diante do exposto, a Suzano atualiza a sua estimativa de desembolso total operacional para R$ 1.983 por tonelada em 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "082acce5e7157719",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1455942&numSequencia=980654&numVersao=1",
+        "timestamp_publicacao": "2025-12-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-11T23:59:00-03:00"
+      },
+      "id": "082acce5e7157719-0"
+    }
+  ]
+}

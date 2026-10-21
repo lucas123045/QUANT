@@ -20,5 +20,27 @@
       },
       "id": "32fc03aa1087fd62-0"
     }
+  ],
+  "c8461f5d32bab16e": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Equatorial, via Gerais Saneamento, foi confirmada como investidor de referência na COPASA, com alocação de ao menos 30% do capital.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a GERAIS SANEAMENTO S.A., sociedade 100% controlada pela Companhia (“Gerais Saneamento”), foi confirmada como Investidor de Referência Selecionado , com alocação à Gerais Saneamento de ações ordinárias de emissão da COPASA representativas de, no mínimo, 30,00% (trinta por cento) do capital social da COPASA",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c8461f5d32bab16e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1533446&numSequencia=1058152&numVersao=1",
+        "timestamp_publicacao": "2026-06-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-11T23:59:00-03:00"
+      },
+      "id": "c8461f5d32bab16e-0"
+    }
   ]
 }

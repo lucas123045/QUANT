@@ -1,0 +1,24 @@
+{
+  "e404ffd42fe32cb2": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano mantém estimativa de CAPEX para 2025 em R$ 13,3 bilhões e aprova estimativa para 2026 em R$ 10,9 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia mantém sua estimativa de investimento de capital ( CAPEX) para o exercício social de 2025, no valor de R$ 13,3 bilhões (treze bilhões e trezentos milhões de reais), conforme divulgada no Fato Relevante de 06 de agosto de 2025. (ii) O Conselho de Administração da Companhia, em reunião na data de hoje, aprovou a estimativa de CAPEX para o exercício de 2026 no valor total de R$ 10,9 bilhões (dez bilhões e novecentos milhões de reais), conforme detalhado a seguir.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e404ffd42fe32cb2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1455047&numSequencia=979759&numVersao=1",
+        "timestamp_publicacao": "2025-12-09T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-09T23:59:00-03:00"
+      },
+      "id": "e404ffd42fe32cb2-0"
+    }
+  ]
+}

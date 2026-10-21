@@ -6,6 +6,18 @@ export const COR_TICKER = {
   BBDC4: "var(--cat-4)", ABEV3: "var(--cat-5)", CAIXA: "var(--cat-caixa)",
 };
 
+/**
+ * Cor de cada ação: as 5 originais têm cor fixa (validada para daltonismo); as
+ * demais ganham um tom estável, calculado do próprio ticker (sempre o mesmo),
+ * escuro o bastante para o texto branco do selo.
+ */
+export function corTicker(ticker) {
+  if (COR_TICKER[ticker]) return COR_TICKER[ticker];
+  let h = 0;
+  for (const c of ticker || "") h = (h * 31 + c.charCodeAt(0)) % 360;
+  return `hsl(${h} 52% 40%)`;
+}
+
 /** Rosca de alocação. fatias: [{chave, rotulo, valor}] */
 export function Rosca({ fatias, tamanho = 168, espessura = 22, centro, formatar }) {
   const [foco, setFoco] = useState(null);
@@ -28,7 +40,7 @@ export function Rosca({ fatias, tamanho = 168, espessura = 22, centro, formatar 
             acumulado += comprimento;
             return (
               <circle key={f.chave} cx={tamanho / 2} cy={tamanho / 2} r={raio} fill="none"
-                stroke={COR_TICKER[f.chave] || "var(--cat-caixa)"}
+                stroke={f.chave === "CAIXA" ? COR_TICKER.CAIXA : corTicker(f.chave)}
                 strokeWidth={foco === f.chave ? espessura + 4 : espessura}
                 strokeDasharray={`${Math.max(0, comprimento - folga)} ${circ}`} strokeDashoffset={deslocamento}
                 onPointerEnter={() => setFoco(f.chave)} onPointerLeave={() => setFoco(null)}

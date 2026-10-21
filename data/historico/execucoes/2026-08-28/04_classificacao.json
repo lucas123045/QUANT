@@ -1,0 +1,38 @@
+{
+  "a1d2fae21d54addb-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Prorrogação de concessão já esperada e sem efeito financeiro imediato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c3c4d8d3ded1e058-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Troca de executivo sem indicação de mudança relevante na estratégia ou resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c3c4d8d3ded1e058-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança de executivo sem indicação de impacto financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c3c4d8d3ded1e058-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Indicação de conselheiro sem efeito financeiro mensurável ou mudança relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

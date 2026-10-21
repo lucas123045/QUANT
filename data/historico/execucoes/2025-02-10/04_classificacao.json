@@ -1,0 +1,47 @@
+{
+  "c40f50a311a4ac4f-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Incêndio afetou área produtiva e administrativa, podendo gerar custos e interrupções, mas sem indicação de impacto financeiro relevante até o momento.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b2e03ba597c2434b-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Pagamento de proventos relevante que impacta diretamente o retorno ao acionista e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b2e03ba597c2434b-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Pagamento de proventos relevante, mas recorrente e proporcional ao porte da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b2e03ba597c2434b-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Pagamento de dividendo relevante, mas proporcional ao porte da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b2e03ba597c2434b-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Aumento de capital dentro do limite autorizado, sem efeito imediato relevante no valor ou resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

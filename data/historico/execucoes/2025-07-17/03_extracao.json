@@ -1,0 +1,24 @@
+{
+  "d3c64d47340dc93f": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "TOTVS negocia potencial aquisição do negócio de software Linx, em período de exclusividade com STNE Participações S.A.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a Companhia permanece em um período de exclusividade de negociações junto à STNE Participações S.A. para discutir a potencial aquisição do negócio de software conhecido como “Linx”. Não obstante, a Companhia reforça que nenhum contrato definitivo foi firmado e esclarece, ainda, que até este momento, não solicitou proposta de financiamento para a potencial aquisição.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d3c64d47340dc93f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1401861&numSequencia=926573&numVersao=1",
+        "timestamp_publicacao": "2025-07-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-17T23:59:00-03:00"
+      },
+      "id": "d3c64d47340dc93f-0"
+    }
+  ]
+}

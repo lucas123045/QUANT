@@ -1,0 +1,88 @@
+{
+  "c719548a8b849a01": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Banco do Brasil aprovou distribuição de R$ 410,6 milhões em JCP referente ao 3T25, pagamento em 11/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (BB) aprovou, em 10/11/2025, a distribuição de R$ 410.587.269,98 a título de remuneração aos acionistas sob a forma de Juros sobre Capital Próprio (JCP), relativo ao terceiro trimestre de 2025, conforme abaixo: JCP (R$) por ação Ações BB – ON R$ 0,07192713139 Os valores serão pagos em 11/12/2025, tendo como base a posição acionária de 01/12/2025, sendo as ações negociadas “ex” a partir de 02/12/2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c719548a8b849a01",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444116&numSequencia=968828&numVersao=1",
+        "timestamp_publicacao": "2025-11-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-12T23:59:00-03:00"
+      },
+      "id": "c719548a8b849a01-0"
+    }
+  ],
+  "af31ad64ca4b25a2": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "guidance",
+      "resumo": "Banco do Brasil revisou projeções para Custo do Crédito e Lucro Líquido Ajustado para 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Banco do Brasil S.A. (BB) comunica a revisão das Projeções Corporativas para Custo do Crédito e Lucro Líquido Ajustado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "af31ad64ca4b25a2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444117&numSequencia=968829&numVersao=1",
+        "timestamp_publicacao": "2025-11-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-12T23:59:00-03:00"
+      },
+      "id": "af31ad64ca4b25a2-0"
+    }
+  ],
+  "4524cea789c3ca22": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "operacional",
+      "resumo": "Encerramento do programa de recompra de ações 2024 e aprovação de novo programa de recompra para 2025-2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração , em reunião realizada na presente data (“RCA”): (a) aprovou o encerramento do programa de recompra de ações aprovado em 15 de maio de 2024, e divulgado por Fato Relevante divulgado de 16 de maio de 2024 (“Programa de Recompra 2024”), cuja vigência estava prevista até 14 de novembro de 2025 (inclusive); e (b) aprovou a criação d e novo programa de recompra de ações ordinárias de emissão da Companhia, a ser executado em bolsa, para manutenção em tesouraria, cancelamento, alienação, ou atendimento a planos de incentivo de longo prazo (inclusive o “Plano de Matching Shares ”), sem redução do capital social, com uso de lucros e/ou reservas disponíveis, com vigência de 18 (dezoito) meses, a partir de 13 de novembro de 2025 (inclusive) até 1 4 de maio de 2027 (inclusive) (“Programa de Recompra 2025”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4524cea789c3ca22",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444332&numSequencia=969044&numVersao=1",
+        "timestamp_publicacao": "2025-11-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-12T23:59:00-03:00"
+      },
+      "id": "4524cea789c3ca22-0"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "operacional",
+      "resumo": "Aquisição de 2.746.983 ações ordinárias no âmbito do Programa de Recompra 2024, equivalentes a 0,2% do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Desde a criação do Programa de Recompra 2024 até a presente data, foram adquiridas 2.746.983 ações ordinárias de emissão da Companhia, equivalentes a 0,2% do capital social da Companhia, a preços de mercado, em ambiente de bolsa.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4524cea789c3ca22",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444332&numSequencia=969044&numVersao=1",
+        "timestamp_publicacao": "2025-11-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-12T23:59:00-03:00"
+      },
+      "id": "4524cea789c3ca22-1"
+    }
+  ]
+}

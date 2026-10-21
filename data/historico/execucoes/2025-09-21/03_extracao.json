@@ -1,0 +1,64 @@
+{
+  "ae3425fc82932081": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan realizará duas ofertas públicas primárias de ações, podendo emitir até 2 bilhões de ações ordinárias.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em nenhuma hipótese as Ofertas Públicas resultarão na emissão de mais do que 2.000.000.000 (dois bilhões) de ações ordinárias de emissão da Companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ae3425fc82932081",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1425188&numSequencia=949900&numVersao=1",
+        "timestamp_publicacao": "2025-09-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-21T23:59:00-03:00"
+      },
+      "id": "ae3425fc82932081-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Investidores âncora comprometeram-se a subscrever ações na primeira oferta, totalizando R$ 7,25 bilhões a R$ 5,00 por ação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Os Investidores Âncora assumiram o compromisso de , observadas determinadas condições precedentes subscrever e integralizar as ações da Primeira Oferta Pública, em quantidade suficiente para assegurar a colocação de 100% (cem por cento) da Primeira Oferta Base , sendo o valor agregado de tal compromisso equivalente a R$ 7.250.000.000,00 (sete bilhões, duzentos e cinquenta milhões de reais) (“Investimento”), a um preço por ação de R$ 5,00 (cinco reais).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ae3425fc82932081",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1425188&numSequencia=949900&numVersao=1",
+        "timestamp_publicacao": "2025-09-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-21T23:59:00-03:00"
+      },
+      "id": "ae3425fc82932081-1"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Implementação das ofertas públicas depende de aprovação em Assembleia Geral Extraordinária para aumento do capital autorizado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A implementação das Ofertas Públicas está sujeita à aprovação, em Assembleia Geral Extraordinária (“AGE”), (i) do aumento do limite do capital autorizado da Cosan para o limite de até 8.000.000.000 (oito bilhões) ações ordinárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ae3425fc82932081",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1425188&numSequencia=949900&numVersao=1",
+        "timestamp_publicacao": "2025-09-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-21T23:59:00-03:00"
+      },
+      "id": "ae3425fc82932081-2"
+    }
+  ]
+}

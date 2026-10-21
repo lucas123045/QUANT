@@ -338,5 +338,85 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 37ª emissão de debêntures no valor de R$ 5 bilhões para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, nesta data, a realização da 3 7ª (trigésima sétima) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em até 2 (duas) séries (“Emissão” e “Debêntures” respectivamente), para distribuição pública, sob o rito de registro automático, destinada a investidores profissionais, nos termos da Resolução da CVM nº 160, de 13 de julho de 2022, conforme alterada, no m ontante total de R$ 5.000.000.000,00 (cinco bilhões de reais) na respectiva data de emissão (“ Oferta”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7c131a0479a29545",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435730&numSequencia=960442&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "7c131a0479a29545-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Captação relevante de recursos, mas sem efeito imediato sobre resultados ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SBSP3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 27/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Captação relevante de recursos, mas sem efeito imediato sobre resultados ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]

@@ -1,0 +1,24 @@
+{
+  "374c9452d38e992c": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Plano de recompra de até 6,9 milhões de ações aprovado, mas ainda não iniciado por falta de contratação das instituições intermediárias.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Sabesp esclarece que o Plano de Recompra ainda não teve início, uma vez que a Companhia está em processo de contratação das instituições intermediárias que atuarão no âmbito do referido plano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "374c9452d38e992c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1378468&numSequencia=903180&numVersao=1",
+        "timestamp_publicacao": "2025-05-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-14T23:59:00-03:00"
+      },
+      "id": "374c9452d38e992c-0"
+    }
+  ]
+}

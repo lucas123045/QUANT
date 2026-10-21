@@ -1,0 +1,87 @@
+[
+  {
+    "evento": {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação e início de plano de recompra de até 6,9 milhões de ações ordinárias entre 21/05/2025 e 12/11/2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em relação ao plano de aquisição de até 6.904.170 (seis milhões, novecentas e quatro mil, cento e setenta) ações ordinárias de emissão da Companhia (“Plano de Recomp ra”), representativas, em bases totalmente diluídas (fully diluted basis), de aproximadamente 1% (um por cento) do total de ações de emissão da Companhia e das ações em circulação , aprovado pelo Conselho de Administração em reunião realizada no dia 12 de maio de 2025, em continuidade aos Fatos Relevantes divulgados em 12 e 15 de maio de 2025, a Sabesp informa que: (i) as aquisições referentes ao Plano de Recompra serão intermediadas pela Morgan Stanley Corretora de Títulos e Valores Mobiliários S.A., inscrita no CNPJ sob o nº 04.323.351/0001- 94, com sede na cidade de São Paulo, Estado de São Paulo, na Avenida Brigadeiro Faria Lima, nº 3.600, 6º andar, Itaim Bibi, CEP04.538-132; (ii) o Plano de Recompra terá início a partir de 21 de maio de 2025, encerrando-se em 12 de novembro de 2026;",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "92b2571e54619c3d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1380720&numSequencia=905432&numVersao=1",
+        "timestamp_publicacao": "2025-05-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-19T23:59:00-03:00"
+      },
+      "id": "92b2571e54619c3d-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra de 1% das ações pode apoiar o preço, mas impacto financeiro é limitado pelo tamanho da operação.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SBSP3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade média) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 20/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra de 1% das ações pode apoiar o preço, mas impacto financeiro é limitado pelo tamanho da operação."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

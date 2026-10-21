@@ -1,3 +1,67 @@
 {
-  "81453dd2130abfac": []
+  "81453dd2130abfac": [],
+  "45ac920e7c5f44de": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 6.975.000 ações preferenciais (GGBR4) sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 163.100 ações ordinárias (GGBR3) e de 6.975.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "45ac920e7c5f44de",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551986&numSequencia=1076692&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "45ac920e7c5f44de-0"
+    }
+  ],
+  "8d864d9c548f7aba": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 20 milhões de ações recompradas, representando 3,34% do total, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O cancelamento de 20.000.000 (vinte milhões) ações ordinárias de emissão da Companhia (“ Ações ”) recompradas no âmbito do Programa de Recompra de Ações de Emissão da Própria Companhia aprovado em 11 de fevereiro de 2026 (“ Programa de Recompra I 2026 ”) e mantidas em tesouraria, representativas de 3,34% do total de ações, sem valor nominal, sem a redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d864d9c548f7aba",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551976&numSequencia=1076682&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "8d864d9c548f7aba-0"
+    },
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Criação de novo programa de recompra de até 30 milhões de ações, com encerramento até 05 de agosto de 2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A criação de um novo programa de recompra de ações de emissão da própria Companhia (“ Programa de Recompra II 2026 ”) até o limite de 30.000.000 (trinta milhões) de Ações. O objetivo do Programa de Recompra II 2026 é maximizar a geração de valor para o acionista e promover a alocação eficiente de capital, sendo que as Ações recompradas serão canceladas nos termos da lei. 2.1. O Programa de Recompra II 2026 será encerrado até 05 de agosto de 2027",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d864d9c548f7aba",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1551976&numSequencia=1076682&numVersao=1",
+        "timestamp_publicacao": "2026-08-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-04T23:59:00-03:00"
+      },
+      "id": "8d864d9c548f7aba-1"
+    }
+  ]
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { VITRINE, useApi, formatarData, formatarNumero, formatarPreco, plural } from "../api.js";
 import { Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, NumeroAnimado, REGRA_VIGENTE } from "../ui.jsx";
 import GraficoPatrimonio, { SERIES, reais } from "../GraficoPatrimonio.jsx";
-import { BarrasRendimento, COR_TICKER, Minigrafico, Rosca } from "../graficos.jsx";
+import { BarrasRendimento, Minigrafico, Rosca, corTicker } from "../graficos.jsx";
 import Icone from "../icones.jsx";
 import { Cartao, dia, pct, tom } from "../comum.jsx";
 
@@ -168,7 +168,7 @@ function Alocacao({ d, oculto }) {
         <ul className="f-legenda">
           {fatias.map((f) => (
             <li key={f.chave}>
-              <span className="f-ponto" style={{ background: COR_TICKER[f.chave] }} />
+              <span className="f-ponto" style={{ background: corTicker(f.chave) }} />
               <span>{f.rotulo}</span>
               <span className="sutil">{pct(f.valor / total, false)}</span>
               <Dinheiro valor={f.valor} oculto={oculto} casas={0} className="f-legenda-valor" />
@@ -278,7 +278,7 @@ function CartaoAtivo({ a, oculto, saldo, fracao }) {
   return (
     <article className="f-ativo">
       <header>
-        <span className="f-ativo-logo" style={{ background: COR_TICKER[a.ticker] }}>{a.ticker.slice(0, 2)}</span>
+        <span className="f-ativo-logo" style={{ background: corTicker(a.ticker) }}>{a.ticker.slice(0, 2)}</span>
         <div>
           <strong>{a.empresa}</strong>
           <small>{a.ticker}</small>
@@ -359,7 +359,7 @@ function Rendimentos({ d }) {
           <ul className="f-lista">
             {operacoes.map((o, i) => (
               <li key={i}>
-                <span className="f-ativo-logo pequeno" style={{ background: COR_TICKER[o.ticker] }}>{o.ticker.slice(0, 2)}</span>
+                <span className="f-ativo-logo pequeno" style={{ background: corTicker(o.ticker) }}>{o.ticker.slice(0, 2)}</span>
                 <div><strong>{o.ticker}</strong><small>{dia(o.entrada)} → {o.aberta ? "hoje" : dia(o.saida)}</small></div>
                 <span className="sutil">{reais(valor, 2)} viraria</span>
                 <strong className={tom(o.retorno)}>{reais(valor * (1 + o.retorno), 2)}</strong>

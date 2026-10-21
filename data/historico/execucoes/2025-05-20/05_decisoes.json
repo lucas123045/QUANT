@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Cemig recebeu liminar para depositar R$ 912 milhões em juízo devido a déficit do Plano A de Previdência Complementar.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi concedida liminar , pelo Juíz o da 1ª Vara da Fazenda Pública e Autarquias da Comarca de Belo Horizonte, em ação de cobrança movida pela Fundação Forluminas de Seguridade Social – Forluz relativa ao déficit do Plano A de Previdência Complementar apurado em 2022. A decisão determina o depósito em juízo de R$ 912.234.821,90",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e85a66ba869fdac7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1381190&numSequencia=905902&numVersao=1",
+        "timestamp_publicacao": "2025-05-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-20T23:59:00-03:00"
+      },
+      "id": "e85a66ba869fdac7-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Depósito judicial relevante, mas sem saída imediata de caixa ou impacto direto no resultado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CMIG4",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 21/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Depósito judicial relevante, mas sem saída imediata de caixa ou impacto direto no resultado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

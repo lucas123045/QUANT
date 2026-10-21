@@ -1,0 +1,86 @@
+{
+  "a1d2fae21d54addb": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Ministério de Minas e Energia decidiu prorrogar concessão da UHE Sá Carvalho por 30 anos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Ministério de Minas e Energia (“MME”) decidiu pela prorrogação da concessão da Usina Hidrelétrica de Sá Carvalho. A referida prorrogação, nos termos do Art. 1º da Lei Federal nº 12.783, de 11 de janeiro de 2013, será pelo prazo de 30 (trinta) anos, contados a partir de 31 -08-2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a1d2fae21d54addb",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1562249&numSequencia=1086955&numVersao=1",
+        "timestamp_publicacao": "2026-08-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-28T23:59:00-03:00"
+      },
+      "id": "a1d2fae21d54addb-0"
+    }
+  ],
+  "c3c4d8d3ded1e058": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Indicação de Márcio Augusto Vasconcelos Nunes para Presidente da CEMIG pelo acionista controlador.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "recebeu do Estado de Minas Gerais, acionista controlador da Companhia, as indicações do Sr. Márcio Augusto Vasconcelos Nunes para o cargo de Presidente da CEMIG",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c3c4d8d3ded1e058",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1562820&numSequencia=1087526&numVersao=1",
+        "timestamp_publicacao": "2026-08-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-28T23:59:00-03:00"
+      },
+      "id": "c3c4d8d3ded1e058-0"
+    },
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Indicação de Alexandre Ramos Peixoto para Conselheiro e Presidente do Conselho de Administração da CEMIG.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "do Sr. Alexandre Ramos Peixoto para o s cargos de Conselheiro e de Pre sidente do Conselho de Administração da CEMIG",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c3c4d8d3ded1e058",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1562820&numSequencia=1087526&numVersao=1",
+        "timestamp_publicacao": "2026-08-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-28T23:59:00-03:00"
+      },
+      "id": "c3c4d8d3ded1e058-1"
+    },
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Indicação de Sérgio Pessoa de Paula Castro para Conselheiro de Administração da CEMIG.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "do Sr. Sérgio Pessoa de Paula Castro para o cargo de Conselheiro de Administração da CEMIG",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c3c4d8d3ded1e058",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1562820&numSequencia=1087526&numVersao=1",
+        "timestamp_publicacao": "2026-08-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-28T23:59:00-03:00"
+      },
+      "id": "c3c4d8d3ded1e058-2"
+    }
+  ]
+}

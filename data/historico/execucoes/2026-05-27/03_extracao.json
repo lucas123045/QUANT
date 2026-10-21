@@ -1,0 +1,24 @@
+{
+  "37f46c11758aaa29": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "TRF1 decide sobre RBSE, determinando compensação de valores pagos e suspensão de cobrança do Ke a partir de 2026/2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Em sessão realizada no dia 26 de maio de 2026, a 7ª Turma do TRF1 decidiu, conforme restou registrado na sessão pública de julgamento: 1. Reconhecer a legalidade da incorporação dos ativos da RBSE à Base de Remuneração Regulatória; 2. Declarar a nulidade do §3º, do Art. 1º, da Portaria MME n. 120/2016, determinando que os valores já pagos às transmissoras a título de remuneração do custo de capital próprio (Ke) sejam compensados via tarifa nos ciclos subsequentes, no mesmo prazo em que foram cobrados, por meio de instrumento de Parcela de Ajuste de modo a ressarcir os autores que arcaram com esse encargo; 3. Antecipar a Tutela para suspender a cobrança do Ke a partir do ciclo tarifário 2026/2027 relativamente aos autores.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "37f46c11758aaa29",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1527534&numSequencia=1052240&numVersao=1",
+        "timestamp_publicacao": "2026-05-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-27T23:59:00-03:00"
+      },
+      "id": "37f46c11758aaa29-0"
+    }
+  ]
+}

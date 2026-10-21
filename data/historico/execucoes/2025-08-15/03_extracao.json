@@ -1,0 +1,24 @@
+{
+  "e5514ce53dfc35d1": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Sabesp atualiza metas do Fator-U, reportando avanços nas métricas de universalização até julho de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Sabesp informa que ao final do mês de julho de 2025, apresentou avanços nas métricas de Fator-U conforme segue: Universalização (Fator-U) o Novas Economias de Água (ICA): 513.176 no acumulado de 2024 e 2025 (118% da meta Fator-U ano 1) o Novas Economias de Esgoto (ICE) : 545.222 no acumulado de 2024 e 2025 (93% da meta Fator-U ano 1) o Economias para Tratamento de Esgoto (IEC): 661.731 no acumulado de 2024 e 2025 (64% da meta Fator-U ano 1)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e5514ce53dfc35d1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1414398&numSequencia=939110&numVersao=1",
+        "timestamp_publicacao": "2025-08-15T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-15T23:59:00-03:00"
+      },
+      "id": "e5514ce53dfc35d1-0"
+    }
+  ]
+}

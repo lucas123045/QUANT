@@ -1,0 +1,24 @@
+{
+  "2b4f77266d23eb5f": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "TOTVS celebrou termo de exclusividade para negociar potencial aquisição do negócio de software Linx com a Stone.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa que retomou as discussões visando a aquisição do negócio de software conhecido como “Linx” (a “ Transação ”) e que, nesta data, celebrou com a STNE Participações S.A. (“ Stone ”) um termo para negociação da potencial Transação durante um período de exclusividade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b4f77266d23eb5f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365760&numSequencia=890486&numVersao=1",
+        "timestamp_publicacao": "2025-04-25T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-25T23:59:00-03:00"
+      },
+      "id": "2b4f77266d23eb5f-0"
+    }
+  ]
+}

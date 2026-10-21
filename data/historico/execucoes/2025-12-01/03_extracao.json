@@ -1,0 +1,86 @@
+{
+  "80e6b53e5c1de68e": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa aprovou pagamento de dividendos de R$ 0,775364 por ação em 19/12/2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "aprovou a declaração de proventos adicionais no valor bruto de R$ 8,722 bilhões, que terão como base de cálculo a posição acionária final do dia 9 de dezembro de 2025, da seguinte forma: ➢ R$ 8,522 bilhões na forma de dividendos (R$ 0,775364 por ação), que serão pagos em 19 de dezembro de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80e6b53e5c1de68e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1451136&numSequencia=975848&numVersao=1",
+        "timestamp_publicacao": "2025-12-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-01T23:59:00-03:00"
+      },
+      "id": "80e6b53e5c1de68e-0"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa aprovou pagamento de juros sobre capital próprio de R$ 0,0182 por ação até 30/04/2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "➢ R$ 0,2 bilhão (R$ 0,17 bilhão líquidos de IRRF) na forma de juros sobre capital próprio (R$ 0,0182 por ação ou R$ 0,01547 por ação líquidos de IRRF), que serão pagos até 30 de abril de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80e6b53e5c1de68e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1451136&numSequencia=975848&numVersao=1",
+        "timestamp_publicacao": "2025-12-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-01T23:59:00-03:00"
+      },
+      "id": "80e6b53e5c1de68e-1"
+    }
+  ],
+  "32a96b632ccb1617": [
+    {
+      "ticker": "RADL3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Proposta de aumento de capital com bonificação de ações será submetida à AGE em 22/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administ ração da Companhia deliberou submeter à Assembleia Geral Extraordinária da Companhia, a ser realizada em 22 de dezembro de 2025 (“ AGE”), proposta de aumento do capital social mediante capitalização de parte das reservas lucros no valor total de R$750.000.0 00,00 (setecentos e cinquenta milhões de reais).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "32a96b632ccb1617",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1451145&numSequencia=975857&numVersao=1",
+        "timestamp_publicacao": "2025-12-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-01T23:59:00-03:00"
+      },
+      "id": "32a96b632ccb1617-0"
+    },
+    {
+      "ticker": "RADL3",
+      "tipo_evento": "guidance",
+      "resumo": "Companhia divulga projeção de abertura de 330 a 350 lojas para o exercício de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia vem comunicar ao mercado em geral que estabeleceu a projeção de abertura de lojas para o exercício de 2026 . A projeção para o ano de 2026 foi estabelecida como sendo entre 330 e 350 aberturas brutas.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "32a96b632ccb1617",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1451145&numSequencia=975857&numVersao=1",
+        "timestamp_publicacao": "2025-12-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-01T23:59:00-03:00"
+      },
+      "id": "32a96b632ccb1617-1"
+    }
+  ]
+}

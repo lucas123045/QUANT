@@ -1,0 +1,24 @@
+{
+  "2b68e431d12574e4": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Primeiro poço produtor do Campo de Wahoo atinge produção estabilizada de 12.000 barris de óleo por dia.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o primeiro poço produtor do Campo de Wahoo atingiu produção estabilizada de 1 2 . 000 barris de óleo por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b68e431d12574e4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493458&numSequencia=1018164&numVersao=1",
+        "timestamp_publicacao": "2026-03-23T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-23T23:59:00-03:00"
+      },
+      "id": "2b68e431d12574e4-0"
+    }
+  ]
+}

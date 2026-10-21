@@ -113,3 +113,23 @@ def test_casa_de_analise_nao_conta_como_mencao(frase, ticker):
 
 def test_banco_citado_tambem_fora_da_casa_de_analise_casa():
     assert menciona("Itaú BBA vê alta; o Itaú Unibanco reporta lucro", "ITUB4")
+
+
+@pytest.mark.parametrize("texto, esperado", [
+    ("O Ibovespa fechou em alta na B3 nesta terça", []),
+    ("enquanto o principal índice de ações da B3 avançou 6%", []),
+    ("O lucro da B3 subiu 12% no trimestre", ["B3SA3"]),
+    ("Rumo a 2027, o governo prevê corte", []),
+    ("A Rumo anunciou investimento de R$ 2 bi", ["RAIL3"]),
+    ("Mercado vibra com o corte de juros", []),
+    ("A polícia localiza o suspeito", []),
+    ("A Localiza vendeu 10 mil carros", ["RENT3"]),
+    ("Clima equatorial afeta a safra", []),
+    ("A Equatorial venceu o leilão", ["EQTL3"]),
+    ("Acidente em Suzano (SP) deixa feridos", []),
+    ("A Suzano elevou o preço da celulose", ["SUZB3"]),
+    ("A Itaúsa recebeu dividendos do Itaú", ["ITUB4", "ITSA4"]),
+])
+def test_empresas_com_nome_de_palavra_comum(texto, esperado):
+    """21/10/2026: Rumo, Vibra, Localiza, Equatorial, Suzano e B3 também são palavras ou lugares."""
+    assert identificar_tickers(texto) == esperado

@@ -1,0 +1,24 @@
+{
+  "01f0d20a2d16ff45": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "Aditamento da 6ª emissão de debêntures da PRIO.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO: Aditamento 6ª Emissão Debêntures",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "01f0d20a2d16ff45",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1398118&numSequencia=922830&numVersao=1",
+        "timestamp_publicacao": "2025-07-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-04T23:59:00-03:00"
+      },
+      "id": "01f0d20a2d16ff45-0"
+    }
+  ]
+}

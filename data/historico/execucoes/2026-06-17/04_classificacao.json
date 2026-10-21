@@ -1,0 +1,20 @@
+{
+  "56fd2754a6f922c9-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra de ações pode apoiar o preço e sinaliza confiança, mas o volume é pequeno frente ao total em circulação.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "40167d24b1ed3d9f-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Venda relevante de ativos agrícolas com impacto significativo no caixa da Cosan.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

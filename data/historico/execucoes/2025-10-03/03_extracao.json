@@ -1,0 +1,64 @@
+{
+  "2a6599f02640ee04": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Criação da Vice-Presidência Executiva de Lubrificantes e eleição de Marcelo Fernandes Bragança como CEO de Lubrificantes.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Fica criada a Vice -Presidência Executiva de Lubrificantes, com o objetivo de dar maior foco e crescimento acelerado desse segmento de negócio. Para a nova posição e como CEO de Lubrificantes, o Conselho de Administração elegeu Marcelo Fernandes Bragança, com mandato de 2 (dois) anos, contados a partir da posse, prevista para 01.11.2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a6599f02640ee04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1429574&numSequencia=954286&numVersao=1",
+        "timestamp_publicacao": "2025-10-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-03T23:59:00-03:00"
+      },
+      "id": "2a6599f02640ee04-0"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Marcelo Fernandes Bragança deixa VP de Operações; Daniel Drumond Campos e Silva eleito para o cargo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Em decorrência da movimentação mencionada acima, Marcelo Fernandes Bragança deixa o cargo de Vice -Presidente Executivo de Operações, tendo o Conselho de Administração eleito Daniel Drumond Campos e Silva para a posição, com mandato de 2 (dois) anos, contados a partir da posse, prevista para 01.11.2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a6599f02640ee04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1429574&numSequencia=954286&numVersao=1",
+        "timestamp_publicacao": "2025-10-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-03T23:59:00-03:00"
+      },
+      "id": "2a6599f02640ee04-1"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Clarissa Della Nina Sadock Accorsi deixa de ser VP estatutária e passa a VP não estatutária da Vibra.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Clarissa Della Nina Sadock Accorsi, deixa de atuar como Vice-presidente estatutária da Vibra para, além de sua função de CEO da Comerc Energia, atuar como Vice -presidente não estatutária da Vibra.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2a6599f02640ee04",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1429574&numSequencia=954286&numVersao=1",
+        "timestamp_publicacao": "2025-10-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-03T23:59:00-03:00"
+      },
+      "id": "2a6599f02640ee04-2"
+    }
+  ]
+}

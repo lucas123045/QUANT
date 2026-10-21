@@ -1,0 +1,25 @@
+{
+  "0fd9278678370df4": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Aprovação de desdobramento de ações na proporção de 1:5 em Assembleia Geral Extraordinária.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovado, em Assembleia Geral Extraordinária, o desdobramento da totalidade das ações ordinárias de emissão da Companhia à razão de 1: 5, passando cada 1 (uma) ação ordinária a representar 5 (cinco) ações ordinárias, sem alteração do valor do capital social",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0fd9278678370df4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1510039&numSequencia=1034745&numVersao=1",
+        "timestamp_publicacao": "2026-04-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-28T23:59:00-03:00"
+      },
+      "id": "0fd9278678370df4-0"
+    }
+  ],
+  "73aa3e95ace7b639": []
+}

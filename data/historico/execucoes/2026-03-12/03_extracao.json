@@ -1,3 +1,25 @@
 {
-  "e787ad2182c5b812": []
+  "e787ad2182c5b812": [],
+  "f2a657ba9b4636ce": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp celebrou contrato para adquirir 100% das cotas do Oceania Fundo de Investimento em Ações, detentor de ações da EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que celebrou, nesta data, contrato de compra e venda de cotas e outras avenças com o África Fundo de Investimento Multimercado Responsabilidade Limitada para aquisição, pela Companhia, de 100% (cem por cento) das cotas do Oceania Fundo de Investimento em Ações",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f2a657ba9b4636ce",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1489752&numSequencia=1014458&numVersao=1",
+        "timestamp_publicacao": "2026-03-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-12T23:59:00-03:00"
+      },
+      "id": "f2a657ba9b4636ce-0"
+    }
+  ]
 }

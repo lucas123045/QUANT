@@ -20,5 +20,27 @@
       },
       "id": "86fc78f51c37c21d-0"
     }
+  ],
+  "97c8bc5254b0fecb": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "guidance",
+      "resumo": "Lojas Renner revisou projeção de crescimento anual de receita operacional líquida de varejo para 2026 de 9-13% para 4-8%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia informa que revisou a supracitada projeção para o exercício de 2026, anteriormente divulgada entre 9% e 13%, para um intervalo de 4% a 8%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "97c8bc5254b0fecb",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1553699&numSequencia=1078405&numVersao=1",
+        "timestamp_publicacao": "2026-08-06T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-06T23:59:00-03:00"
+      },
+      "id": "97c8bc5254b0fecb-0"
+    }
   ]
 }

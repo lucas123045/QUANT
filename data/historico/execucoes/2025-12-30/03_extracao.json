@@ -1,0 +1,44 @@
+{
+  "36726ec3cfcb7a00": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Bradesco BBI e BTG Pactual adquiriram 23% da Cosan Dez por R$4 bilhões, reduzindo custo financeiro da Cosan.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Banco Bradesco BBI S.A. (“Bradesco BBI ”) e o Banco BTG Pactual S.A. (“BTG Pactual”) adquiriram, em iguais proporções, ações preferenciais d e emissão da Cosan Dez Participações S.A. (“Cosan Dez”) pelo montante total de R$4 bilhões, as quais correspondem, em termos de equity value, a aproximadamente 23% do capital social total da Cosan Dez",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "36726ec3cfcb7a00",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1462753&numSequencia=987459&numVersao=1",
+        "timestamp_publicacao": "2025-12-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-30T23:59:00-03:00"
+      },
+      "id": "36726ec3cfcb7a00-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Renegociação da estrutura financeira permitiu à Cosan reduzir o custo financeiro da transação anterior.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o que permitiu a Companhia reduzir o custo financeiro associado à transação anterior",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "36726ec3cfcb7a00",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1462753&numSequencia=987459&numVersao=1",
+        "timestamp_publicacao": "2025-12-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-30T23:59:00-03:00"
+      },
+      "id": "36726ec3cfcb7a00-1"
+    }
+  ]
+}

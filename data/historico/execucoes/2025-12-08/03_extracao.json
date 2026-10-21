@@ -1,0 +1,66 @@
+{
+  "496d6095693b3225": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vibra celebrou contrato para vender sua participação de 49,99% na Evolua Etanol para a Copersucar.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "celebrou, nesta data, contrato para a alienação da totalidade das ações que detém no capital social da ECE S.A. (“Evolua”), sociedade originalmente constituída como uma parceria (joint-venture) entre a Vibra e a Copersucar S.A. para atuar na comercialização de etanol.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "496d6095693b3225",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1454270&numSequencia=978982&numVersao=1",
+        "timestamp_publicacao": "2025-12-08T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-08T23:59:00-03:00"
+      },
+      "id": "496d6095693b3225-0"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Conclusão da venda da participação na Evolua depende de aprovação do CADE e outras condições usuais.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A conclusão da transação, estimada para o final do 1T26, está sujeita ao cumprimento de condições usuais em operações dessa natureza, incluindo a aprovação da transação pelo Conselho Administrativo de Defesa Econômica – CADE.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "496d6095693b3225",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1454270&numSequencia=978982&numVersao=1",
+        "timestamp_publicacao": "2025-12-08T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-08T23:59:00-03:00"
+      },
+      "id": "496d6095693b3225-1"
+    }
+  ],
+  "0ed5f48d602f8538": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "guidance",
+      "resumo": "Lojas Renner revisou e atualizou projeções financeiras e operacionais, incluindo crescimento de receita, margem EBITDA e distribuição de lucros até 2030.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "divulga aos seus acionistas e ao mercado em geral as seguintes revisões e consequentes atualizações das projeções financeiras e operacionais da Companhia e suas subsidiárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0ed5f48d602f8538",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1453759&numSequencia=978471&numVersao=1",
+        "timestamp_publicacao": "2025-12-08T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-08T23:59:00-03:00"
+      },
+      "id": "0ed5f48d602f8538-0"
+    }
+  ]
+}

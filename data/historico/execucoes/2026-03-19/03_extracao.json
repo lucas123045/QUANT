@@ -1,0 +1,46 @@
+{
+  "091fdc6cd715544a": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Presidente Gilson Finkelsztain deixará o cargo no final do primeiro semestre de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "seu Presidente, Gilson Finkelsztain, deixará o cargo no final do primeiro semestre de 2026, encerrando seu atual ciclo de sucesso à frente da Companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "091fdc6cd715544a",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1492775&numSequencia=1017481&numVersao=1",
+        "timestamp_publicacao": "2026-03-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-19T23:59:00-03:00"
+      },
+      "id": "091fdc6cd715544a-0"
+    }
+  ],
+  "ad036cc2aa3b73b6": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO abriu o primeiro poço produtor do Campo de Wahoo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que abriu o primeiro poço produtor do Campo de Wahoo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ad036cc2aa3b73b6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1492359&numSequencia=1017065&numVersao=1",
+        "timestamp_publicacao": "2026-03-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-19T23:59:00-03:00"
+      },
+      "id": "ad036cc2aa3b73b6-0"
+    }
+  ]
+}

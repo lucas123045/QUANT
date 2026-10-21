@@ -1,0 +1,24 @@
+{
+  "c2fe15beed8c1a0e": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan pretende suspender emissão de ADSs por 40 dias após conclusão da segunda oferta pública.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia pretend e suspender a emissão de ADSs por um período de 40 (quarenta) dias após a conclusão da Segunda Oferta Pública",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c2fe15beed8c1a0e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1439070&numSequencia=963782&numVersao=1",
+        "timestamp_publicacao": "2025-11-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-03T23:59:00-03:00"
+      },
+      "id": "c2fe15beed8c1a0e-0"
+    }
+  ]
+}

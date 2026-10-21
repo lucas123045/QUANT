@@ -1,0 +1,44 @@
+{
+  "1d266271439dba85": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Encerramento do programa de recompra 2024, com aquisição de 68.000.000 ações preferenciais ao preço médio de R$ 18,89.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Durante o período de vigência, foram adquiridas 1.767.911 ações ordinárias (GGBR3) ao preço médio de R$ 17,78 por ação e 68.000.000 ações preferenciais (GGBR4) ao preço médio de R$ 18,89 por ação , correspondendo a 100% do Programa de Recompra.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1d266271439dba85",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1326236&numSequencia=850962&numVersao=1",
+        "timestamp_publicacao": "2025-01-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-20T23:59:00-03:00"
+      },
+      "id": "1d266271439dba85-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 25.000.000 ações preferenciais de emissão da Companhia, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data , aprovou o cancelamento de 1.093.011 ações ordinárias (GGBR3) e de 25.000.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1d266271439dba85",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1326236&numSequencia=850962&numVersao=1",
+        "timestamp_publicacao": "2025-01-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-20T23:59:00-03:00"
+      },
+      "id": "1d266271439dba85-1"
+    }
+  ]
+}

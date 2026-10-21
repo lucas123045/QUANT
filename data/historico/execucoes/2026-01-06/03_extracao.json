@@ -1,0 +1,44 @@
+{
+  "97598c2dcccc2be9": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 6ª emissão de debêntures simples, não conversíveis, no valor de R$3 bilhões, para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia aprovou a 6ª (sexta) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em série única, para distribuição pública e sob o rito de registro automático",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "97598c2dcccc2be9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1464337&numSequencia=989043&numVersao=1",
+        "timestamp_publicacao": "2026-01-06T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-06T23:59:00-03:00"
+      },
+      "id": "97598c2dcccc2be9-0"
+    },
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Recursos líquidos da emissão serão usados para aquisição da totalidade das ações da Linx Software Participações em Tecnologia S.A.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os recursos líquidos obtidos com a 6ª Emissão serão integralmente utilizados para a aquisição da totalidade das ações de emissão da Linx Software Participações em Tecnologia S.A. (atual denominação da Linx Participações S.A.), conforme fato relevante divulgado em 23 de julho de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "97598c2dcccc2be9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1464337&numSequencia=989043&numVersao=1",
+        "timestamp_publicacao": "2026-01-06T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-06T23:59:00-03:00"
+      },
+      "id": "97598c2dcccc2be9-1"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "evento": {
+      "ticker": "RENT3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Localiza celebrou contrato para vender sua participação de 64,6% na Voll por R$ 382 milhões, com fechamento esperado para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "celebrou , em conjunto com os demais acionistas da Voll Soluções em Mobilidade Corporativa S.A. (“Voll”), nesta data, um Contrato de Compra e Venda de Ações e Outras Avenças, por meio do qual a Localiza Fleet contratou a alienação integra l de sua participação societária na Voll , correspondente a 64,6% do capital social total e votante da Voll, para uma sociedade detida por fundos geridos pela Warburg Pincus (“Transação”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "57130b0cbbda2737",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1444910&numSequencia=969622&numVersao=1",
+        "timestamp_publicacao": "2025-11-13T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-13T23:59:00-03:00"
+      },
+      "id": "57130b0cbbda2737-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Venda relevante de participação societária por valor significativo, impactando caixa e foco estratégico.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "RENT3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (fusao_aquisicao, materialidade alta) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: fusao_aquisicao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 14/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Venda relevante de participação societária por valor significativo, impactando caixa e foco estratégico."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

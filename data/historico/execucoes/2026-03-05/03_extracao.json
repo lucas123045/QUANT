@@ -20,5 +20,28 @@
       },
       "id": "2518ce1c9a469194-0"
     }
+  ],
+  "3acbfee168811a86": [],
+  "8bbfe36a34b98a2e": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "guidance",
+      "resumo": "Lojas Renner divulga projeções financeiras e operacionais até 2026, incluindo investimentos e abertura de lojas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "divulga aos seus acionistas e ao mercado em geral, sem prejuízo das projeções constantes do Formulário de Referência (que permanecem vigentes) , as seguintes projeções financeiras e operacionais da Companhia e suas subsidiárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8bbfe36a34b98a2e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486138&numSequencia=1010844&numVersao=1",
+        "timestamp_publicacao": "2026-03-05T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-05T23:59:00-03:00"
+      },
+      "id": "8bbfe36a34b98a2e-0"
+    }
   ]
 }

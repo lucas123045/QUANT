@@ -1,0 +1,24 @@
+{
+  "e90adf250d4d416a": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp celebrou protocolo para incorporar ações da EMAE, tornando-a subsidiária integral, sujeito à aprovação em assembleia.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi celebrado o “Protocolo e Justificação de Incorporação das Ações de Emissão da Empresa Metropolitana de Águas e Energia S.A. – EMAE pela Companhia de Saneamento Básico do Estado de São Paulo – SABESP”",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e90adf250d4d416a",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1539689&numSequencia=1064395&numVersao=1",
+        "timestamp_publicacao": "2026-06-29T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-29T23:59:00-03:00"
+      },
+      "id": "e90adf250d4d416a-0"
+    }
+  ]
+}

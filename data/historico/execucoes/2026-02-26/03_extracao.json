@@ -20,5 +20,47 @@
       },
       "id": "65236ec389278570-0"
     }
+  ],
+  "c093349b8238798c": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "guidance",
+      "resumo": "B3 descumpriu a projeção de distribuição do lucro líquido para 2025, distribuindo 137% ante guidance de 110%-130%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "encerrou o exercício de 2025 com uma dist ribuição do lucro líquido de 137%, acima da projeção divulgada via Fato Relevante, em 23 de dezembro de 2025: Projeção 2025 Efetivo 2025 Distribuição do Lucro Líquido1 110% – 130% 137%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c093349b8238798c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1482622&numSequencia=1007328&numVersao=1",
+        "timestamp_publicacao": "2026-02-26T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-26T23:59:00-03:00"
+      },
+      "id": "c093349b8238798c-0"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "resultado",
+      "resumo": "Impacto contábil negativo de R$1,0 bilhão no lucro líquido de 2025 devido à majoração da CSLL.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "gerando um impacto contábil negativo e sem efeito caixa de aproximadamente R$1,0 bilhão no lucro líquido do exercício de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c093349b8238798c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1482622&numSequencia=1007328&numVersao=1",
+        "timestamp_publicacao": "2026-02-26T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-26T23:59:00-03:00"
+      },
+      "id": "c093349b8238798c-1"
+    }
   ]
 }

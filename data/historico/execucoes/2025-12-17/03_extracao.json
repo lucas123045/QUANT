@@ -1,0 +1,46 @@
+{
+  "3e69e31733a1eca4": [],
+  "ffae73b6f7633c26": [],
+  "e7b83f81366eceda": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "resultado",
+      "resumo": "Divulgação de lucro ou prejuízo pela BB Seguridade.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Lucro ou Prejuízo e Atribuição de Proventos em Dinheiro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e7b83f81366eceda",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1458633&numSequencia=983345&numVersao=1",
+        "timestamp_publicacao": "2025-12-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-17T23:59:00-03:00"
+      },
+      "id": "e7b83f81366eceda-0"
+    },
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "dividendo",
+      "resumo": "Atribuição de proventos em dinheiro pela BB Seguridade.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Lucro ou Prejuízo e Atribuição de Proventos em Dinheiro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e7b83f81366eceda",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1458633&numSequencia=983345&numVersao=1",
+        "timestamp_publicacao": "2025-12-17T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-17T23:59:00-03:00"
+      },
+      "id": "e7b83f81366eceda-1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "a98c474ebccaf16c": [
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "operacional",
+      "resumo": "Ultrapar contratou Itaú Corretora como formador de mercado para suas ações UGPA3 na B3.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa que celebrou o contrato de prestação de serviços de formador de mercado (“Contrato”) com a Itaú Corretora de Valores S.A., sociedade com sede na Avenida Brigadeiro Faria Lima, 3500, 3º andar, parte, inscrita no CNPJ sob o nº 61.194.353/0001 -64 (“Formador de Mercado”) para exercer, a partir de 02 de setembro de 2025, a função de formador de mercado das ações ordinárias, nominativas e sem valor nominal de emissão da Companhia negociadas no âmbito da B3 S.A. – Brasil, Bolsa, Balcão (“B3”) sob o código “UGPA3”.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a98c474ebccaf16c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1418902&numSequencia=943614&numVersao=1",
+        "timestamp_publicacao": "2025-09-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-01T23:59:00-03:00"
+      },
+      "id": "a98c474ebccaf16c-0"
+    }
+  ]
+}

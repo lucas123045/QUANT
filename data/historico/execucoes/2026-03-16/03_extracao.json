@@ -1,0 +1,46 @@
+{
+  "5f568af8c91744ab": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Ibama concedeu retificação da Licença de Perfuração do Campo de Frade, permitindo perfuração de até 14 novos poços.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi concedida , na presente data, pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (“Ibama”), a retificação da Licença de Perfuração do Campo de Frade (“Campo”) , permitindo assim que a Companhia perfure até 14 novos poços no C ampo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5f568af8c91744ab",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1491005&numSequencia=1015711&numVersao=1",
+        "timestamp_publicacao": "2026-03-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-16T23:59:00-03:00"
+      },
+      "id": "5f568af8c91744ab-0"
+    }
+  ],
+  "41077b8eef438f5f": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa declarou pagamento de juros sobre capital próprio de R$ 1,3 bilhão, a ser pago até 31 de agosto de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração, reunido nesta data, deliberou declarar juros sobre capital próprio no montante bruto de R$ 1,3 bilhão (R$ 0,116 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "41077b8eef438f5f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1490845&numSequencia=1015551&numVersao=1",
+        "timestamp_publicacao": "2026-03-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-16T23:59:00-03:00"
+      },
+      "id": "41077b8eef438f5f-0"
+    }
+  ]
+}

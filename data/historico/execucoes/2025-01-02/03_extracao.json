@@ -1,0 +1,24 @@
+{
+  "4df9c19d9445ec65": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "Aumento de capital por exercício de opções de compra de ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO: Aumento de Capital por Exercício de Opções de Compra de Ações",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4df9c19d9445ec65",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1321008&numSequencia=845734&numVersao=1",
+        "timestamp_publicacao": "2025-01-02T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-02T23:59:00-03:00"
+      },
+      "id": "4df9c19d9445ec65-0"
+    }
+  ]
+}

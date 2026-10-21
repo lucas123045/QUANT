@@ -1,0 +1,68 @@
+{
+  "80f63707989188a9": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovada distribuição de R$ 1,23 bi em JCP referente ao 4T25, pagamento em 05/03/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (BB) comunica que aprovou, em 10/02/2026, a distribuição de R$ 1.234.746.707,80 a título de remuneração aos acionistas sob a forma de Juros sobre Capital Próprio (JCP), relativo ao quarto trimestre de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80f63707989188a9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476520&numSequencia=1001226&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "80f63707989188a9-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamento antecipado de R$ 261,63 mi em JCP do 4T25 realizado em 12/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Adicionalmente, informamos que R$ 261.630.000,00 foram pagos, em 12/12/2025, a título de remuneração antecipada aos acionistas sob a forma de JCP, relativo ao quarto trimestre de 202 5, conforme Fato Relevante de 19/11/2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "80f63707989188a9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476520&numSequencia=1001226&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "80f63707989188a9-1"
+    }
+  ],
+  "5778942872765003": [],
+  "74ce285ede342b0e": [],
+  "f90e0e27a5d6b0f2": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação de programa de recompra de até 20 milhões de ações ordinárias até fevereiro de 2027.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou, nos termos do art. 30, §1º, “b”, da Lei n.º 6.404/76, e da Resolução CVM n.º 77/2022, programa de recompra de ações de emissão da própria Companhia (“ Programa de Recompra 2026 ”) até o limite de 20.000.000 (vinte milhões) de ações ordinárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f90e0e27a5d6b0f2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476742&numSequencia=1001448&numVersao=1",
+        "timestamp_publicacao": "2026-02-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-11T23:59:00-03:00"
+      },
+      "id": "f90e0e27a5d6b0f2-0"
+    }
+  ]
+}

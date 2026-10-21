@@ -1,0 +1,44 @@
+{
+  "4b11f56baa84d0cc": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vibra celebrou acordo para sair do capital social da ZEG Biogás, condicionada à aprovação do CADE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "vem informar aos seus acionistas e ao mercado em geral que celebrou acordo para sua saída do capital social da sociedade ZEG Biogás e Energia S.A. (\"ZEG\").",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4b11f56baa84d0cc",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1344213&numSequencia=868939&numVersao=1",
+        "timestamp_publicacao": "2025-03-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-10T23:59:00-03:00"
+      },
+      "id": "4b11f56baa84d0cc-0"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Conclusão da saída da ZEG Biogás depende de aprovação do CADE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A conclusão da transação está condicionada à aprovação pelo Conselho Administrativo de Defesa Econômica – CADE.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4b11f56baa84d0cc",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1344213&numSequencia=868939&numVersao=1",
+        "timestamp_publicacao": "2025-03-10T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-10T23:59:00-03:00"
+      },
+      "id": "4b11f56baa84d0cc-1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "4dc6569d44ae3cef": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "operacional",
+      "resumo": "Cemig celebrou acordo em dissídio coletivo sobre plano de saúde, prevendo indenização de até R$ 1,25 bilhão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica aos seus acionistas e ao mercado em geral , em continuidade ao Fato Relevante de 20/02/2025, que protocolou, em 11/09/2025, nos autos do dissídio cole tivo Processo n° 0011802 - 15.2025.5.03.0000, o acordo celebrado com as entidades representativas SINDSUL – Sindicato dos Eletricitários do Sul de Minas Gerais e FTIUMG – Federação dos Trabalhadores nas Indústrias Urbanas de Minas Gerais. O acordo prevê o pagamento de indenização compensatória (buyout) no valor total máximo de R$ 1.250.000.000,00 (um bilhão e duzentos e cinquenta milhões de reais), a ser pago pro rata , em 6 (seis) parcelas, sendo a última em 2030",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4dc6569d44ae3cef",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1423317&numSequencia=948029&numVersao=1",
+        "timestamp_publicacao": "2025-09-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-12T23:59:00-03:00"
+      },
+      "id": "4dc6569d44ae3cef-0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "b23ed0d001cf1020": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre capital próprio de R$0,18 por ação, totalizando R$104,3 milhões, com pagamento em 10 de julho de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "aprovou o pagamento de juros sobre capital próprio (“ JCP ”), correspondente a R$0,18 (dezoito centavos) por ação da Companhia (“ Ações ”), no montante total bruto de aproximadamente R$104,3 milhões, os quais serão imputados os dividendos obrigatórios do exercício. O pagamento do JCP estará sujeito às seguintes condições: 1. Terão direito aos JCP todos os acionistas titulares de Ações na data base de 15 de junho de 2026; 2. As negociações de Ações, a partir do dia 16 de junho de 2026, inclusive, serão realizadas ex-JCP; 3. Os JCP serão pagos aos acionistas beneficiários no dia 10 de julho de 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b23ed0d001cf1020",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1532516&numSequencia=1057222&numVersao=1",
+        "timestamp_publicacao": "2026-06-09T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-09T23:59:00-03:00"
+      },
+      "id": "b23ed0d001cf1020-0"
+    }
+  ]
+}

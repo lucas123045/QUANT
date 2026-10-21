@@ -1,0 +1,332 @@
+[
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Indicação de Gilson Alceu Bittencourt para Vice-Presidente de Agronegócios e Agricultura Familiar, substituindo Luiz Gustavo Braz Lage.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "o Sr. Gilson Alceu Bittencourt foi indicado para ocupar o cargo de Vice-Presidente de Agronegócios e Agricultura Familiar, em substituição ao Sr. Luiz Gustavo Braz Lage, que continuará exercendo suas funções regularmente até a investidura do indicado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "42ded6a0fe03c4d1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1402974&numSequencia=927686&numVersao=1",
+        "timestamp_publicacao": "2025-07-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-22T23:59:00-03:00"
+      },
+      "id": "42ded6a0fe03c4d1-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Mudança executiva sem efeito financeiro imediato ou confirmado",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: troca_executivo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Mudança executiva sem efeito financeiro imediato ou confirmado"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Sabesp divulga marcos financeiros e operacionais após 1 ano de privatização, incluindo investimentos, geração de empregos e avanços em universalização.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia informa os seguintes marcos financeiros e operacionais alcançados nos últimos 12 meses (até o período findo em 30 de junho de 2025), em versão preliminar e não auditada, estando sujeitos a revisão até a data de divulgação oficial prevista para 11 de agosto de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "42ce5828440c1d88",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1403016&numSequencia=927728&numVersao=1",
+        "timestamp_publicacao": "2025-07-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-22T23:59:00-03:00"
+      },
+      "id": "42ce5828440c1d88-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Divulgação preliminar de marcos sem dados auditados ou impacto financeiro detalhado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SBSP3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Divulgação preliminar de marcos sem dados auditados ou impacto financeiro detalhado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "TOTS3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "TOTVS celebrou contrato para adquirir a totalidade das ações da Linx por R$3,05 bilhões, sujeito a aprovações regulatórias e assembleia.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A TOTVS S.A. (B3: TOTS3) (“Companhia” ou “TOTVS”) informa que, conforme aprovado pelo seu Conselho de Administração, celebrou um Contrato de Compra e Venda de Ações (“Contrato”) com a Linx S.A. (controlada da StoneCo Ltd.), tendo por objeto a aquisição da totalidade das ações da Linx Participações S.A. (“Linx”), que deverá ser a titular, no fechamento da transação, de parte do segmento de negócio de software da Linx, pelo montante total de R$3.050.000.000,00 (três bilhões e cinquenta milhões de reais) (“Transação”), sujeito a ajuste com base na posição de Caixa/Dívida Líquida no fechamento da Transação e sem previsão de pagamento de preço complementar. A Transação será financiada com o Caixa da TOTVS e com instrumentos de dívida em condições propícias de mercado, ainda a serem contratados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f1f7daf8f49881d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1402653&numSequencia=927365&numVersao=1",
+        "timestamp_publicacao": "2025-07-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-22T23:59:00-03:00"
+      },
+      "id": "8f1f7daf8f49881d-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aquisição relevante que pode aumentar receita, lucro e participação de mercado da TOTVS.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "TOTS3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (fusao_aquisicao, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: fusao_aquisicao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aquisição relevante que pode aumentar receita, lucro e participação de mercado da TOTVS."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "TOTS3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Fechamento da aquisição da Linx depende de aprovação do CADE e assembleia de acionistas da TOTVS.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O fechamento da Transação está sujeito à aprovação do Conselho Administrativo de Defesa Econômica (CADE) e ao cumprimento de outros requisitos regulatórios e condições precedentes usuais, incluindo a aprovação da Transação pelos acionistas da TOTVS em assembleia geral, para fins do Artigo 256 da Lei n.º 6.404/76.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f1f7daf8f49881d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1402653&numSequencia=927365&numVersao=1",
+        "timestamp_publicacao": "2025-07-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-22T23:59:00-03:00"
+      },
+      "id": "8f1f7daf8f49881d-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Evento apenas comunica etapas regulatórias pendentes, sem efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "TOTS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/07 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Evento apenas comunica etapas regulatórias pendentes, sem efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

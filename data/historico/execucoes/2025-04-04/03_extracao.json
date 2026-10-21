@@ -1,0 +1,85 @@
+{
+  "d264df1f05070bd0": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Equatorial celebrou contrato para venda da totalidade das ações da Equatorial Transmissão por até R$ 9,395 bilhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi celebrado oContrato de Compra e Venda de Ações e Outras Avenças (“Contrato”) entre a Equatorial S.A., na qualidade de vendedora, e a Infraestrutura e Energia Brasil S.A. (“Infraestrutura Energia”), na qualidade de comprador",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d264df1f05070bd0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358179&numSequencia=882905&numVersao=1",
+        "timestamp_publicacao": "2025-04-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-04T23:59:00-03:00"
+      },
+      "id": "d264df1f05070bd0-0"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "operacional",
+      "resumo": "Equatorial fará reorganização societária para segregar Echoenergia Participações, Echoenergia Crescimento e Equatorial Renováveis.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Como parte da estrutura da Operação, haverá reorganização societária para segregação da Echoenergia Participações S.A., Echoenergia Crescimento S.A. e Equatorial Renováveis S.A., de acordo com o perímetro da transação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d264df1f05070bd0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358179&numSequencia=882905&numVersao=1",
+        "timestamp_publicacao": "2025-04-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-04T23:59:00-03:00"
+      },
+      "id": "d264df1f05070bd0-1"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Conclusão da venda depende de aprovação da ANEEL, CADE e credores.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A consumação da Operação está sujeita à satisfação (ou renúncia, conforme aplicável) de certas condições suspensivas usuais para transações dessa natureza, incluindo a aprovação da Operação pela Agência Nacional de Energia Elétrica – ANEEL, pelo Conselho Administrativo de Defesa Econômica – CADE, e por determinados credores.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d264df1f05070bd0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358179&numSequencia=882905&numVersao=1",
+        "timestamp_publicacao": "2025-04-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-04T23:59:00-03:00"
+      },
+      "id": "d264df1f05070bd0-2"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "outro",
+      "resumo": "Recursos da venda poderão ser usados para desalavancagem, crescimento e pagamento de proventos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Os recursos desta operação poderão ser utilizados tanto para aceleração da trajetória de desalavancagem, fruto das aquisições recentes, quanto para a busca de oportunidades orgânicas e inorgânicas, assim como para o eventual pagamento de proventos aos acionistas (como dividendos, JSCP etc.).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d264df1f05070bd0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358179&numSequencia=882905&numVersao=1",
+        "timestamp_publicacao": "2025-04-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-04T23:59:00-03:00"
+      },
+      "id": "d264df1f05070bd0-3"
+    }
+  ],
+  "32c790c08d13cf92": []
+}

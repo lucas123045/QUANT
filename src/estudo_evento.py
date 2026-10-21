@@ -13,6 +13,9 @@ anormal acumulado). Duas janelas, com o sinal ajustado ao sentimento (positivo:
 
 - reação: do fechamento antes do dia da notícia ao fechamento anterior à
   execução. É o que o mercado já andou antes de o QUANT poder agir;
+- dia da execução: do fechamento anterior à execução ao fechamento de execução.
+  Fato divulgado depois do fechamento (comum na CVM) é negociado justamente
+  nesse dia, e o QUANT só compra no fim dele: é o custo do atraso;
 - depois da execução: do fechamento de execução (primeiro pregão depois do dia
   da notícia, a convenção do backtest) até 1, 5 e 20 pregões à frente. É o que
   ainda havia para capturar.
@@ -179,7 +182,7 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
             "tipo_fonte": backtest.tipo_fonte_do_evento(e), "resumo": e.get("resumo"),
             "url": (e.get("origem") or {}).get("url"), "operado": e.get("id") in operados,
             "na_carteira": e["ticker"] in config.CARTEIRA,
-            "reacao": None, "reacao_z": None, "leitura_reacao": None,
+            "reacao": None, "reacao_z": None, "leitura_reacao": None, "dia_execucao": None,
             **{f"car_{h}": None for h in HORIZONTES},
             # Quando cada janela termina: o portão de evidência da prática só usa
             # eventos cuja janela já acabou antes do dia da decisão.
@@ -192,6 +195,10 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
                 linha["reacao"] = direcao * reacao["car"]
                 linha["reacao_z"] = direcao * reacao["z"]
                 linha["leitura_reacao"] = leitura_reacao(reacao["z"], direcao)
+            _, ate, _ = posicoes_do_evento(instante, precos.index)
+            if 0 <= ate < execucao < len(precos.index):
+                valor = car(rets, e["ticker"], modelo, ate, execucao)
+                linha["dia_execucao"] = None if valor is None else direcao * valor
             for h in HORIZONTES:
                 if execucao + h < len(precos.index):
                     valor = car(rets, e["ticker"], modelo, execucao, execucao + h)
@@ -203,7 +210,7 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
 def _resumo(linhas: list[dict], nome: str) -> dict:
     """Médias com intervalo de 95% para a reação e cada horizonte."""
     resumo = {"grupo": nome, "n": len(linhas)}
-    for campo in ("reacao", *(f"car_{h}" for h in HORIZONTES)):
+    for campo in ("reacao", "dia_execucao", *(f"car_{h}" for h in HORIZONTES)):
         valores = [l[campo] for l in linhas if l[campo] is not None]
         estat = media_com_intervalo(valores)
         resumo[campo] = {"n": estat["n"], "media": estat["media"], "intervalo": estat["intervalo"],
@@ -245,8 +252,8 @@ def grupos(linhas: list[dict]) -> list[dict]:
                   ("Não confirmados (expectativas)", [l for l in linhas if not l["confirmado"]]),
                   ("Notícias de portal", [l for l in linhas if l["tipo_fonte"] == "noticia"]),
                   ("Fatos relevantes (CVM)", [l for l in linhas if l["tipo_fonte"] == "fato_relevante"]),
-                  ("Ações da carteira", [l for l in linhas if l.get("na_carteira")]),
-                  ("Outras grandes empresas (estudo)", [l for l in linhas if not l.get("na_carteira")])]
+                  ("5 ações originais", [l for l in linhas if l["ticker"] in config.CARTEIRA_ORIGINAL]),
+                  ("19 ações adicionadas em 21/10", [l for l in linhas if l["ticker"] not in config.CARTEIRA_ORIGINAL])]
     candidatos += [(f"Reação {r} antes da execução", [l for l in linhas if l["leitura_reacao"] == r])
                    for r in ("a favor", "neutra", "contra")]
     candidatos += [(f"Tipo: {t}", [l for l in linhas if l["tipo_evento"] == t])
@@ -373,17 +380,25 @@ def estudar(dir_data: Path | None = None, agora: datetime | None = None, baixar=
 
 
 def _leitura_atraso(linhas: list[dict]) -> dict:
-    """Do movimento total a favor da notícia, quanto já tinha acontecido antes da execução?"""
-    pares = [(l["reacao"], l["car_5"]) for l in linhas if l["reacao"] is not None and l["car_5"] is not None]
-    if len(pares) < MINIMO_GRUPO:
-        return {"n": len(pares), "texto": (f"Só {_eventos(len(pares))} com reação e 5 pregões depois: ainda "
-                                           "não dá para dizer quanto do movimento chega antes do QUANT.")}
-    reacao = statistics.fmean(p[0] for p in pares)
-    depois = statistics.fmean(p[1] for p in pares)
-    texto = (f"Em média, a ação andou {_pct(reacao)} (a favor da classificação, além do Ibovespa) antes "
-             f"da execução e {_pct(depois)} nos 5 pregões seguintes.")
-    if reacao > 0 and depois <= 0:
+    """Do movimento a favor da notícia, quanto acontece antes da execução e quanto depois?
+
+    Só afirma algo com significância (5%): "a média é positiva" sem isso é ruído.
+    """
+    validas = [l for l in linhas if l["reacao"] is not None and l["car_5"] is not None]
+    if len(validas) < MINIMO_GRUPO:
+        return {"n": len(validas), "texto": (f"Só {_eventos(len(validas))} com reação e 5 pregões depois: ainda "
+                                             "não dá para dizer quanto do movimento chega antes do QUANT.")}
+    antes = media_com_intervalo([l["reacao"] + (l["dia_execucao"] or 0.0) for l in validas])
+    depois = media_com_intervalo([l["car_5"] for l in validas])
+    sig = lambda r: r["p_valor_bilateral"] is not None and r["p_valor_bilateral"] < 0.05
+    texto = (f"Com {_eventos(len(validas))}: até a execução (inclusive o dia dela), a ação andou em média "
+             f"{_pct(antes['media'])} a favor da classificação, além do Ibovespa; nos 5 pregões seguintes, "
+             f"{_pct(depois['media'])}.")
+    if sig(antes) and antes["media"] > 0 and not (sig(depois) and depois["media"] > 0):
         texto += " O movimento acontece antes de o QUANT conseguir agir: a notícia chega tarde."
-    elif reacao > 0 and depois > 0:
-        texto += f" Cerca de {reacao / (reacao + depois) * 100:.0f}% do movimento já tinha acontecido."
-    return {"n": len(pares), "reacao_media": reacao, "depois_media": depois, "texto": texto}
+    elif sig(depois) and depois["media"] > 0:
+        texto += " Ainda havia movimento a capturar depois da execução."
+    elif not sig(antes) and not sig(depois):
+        texto += (" Nenhuma das duas médias se distingue de zero: o preço não anda a favor da classificação "
+                  "nem antes nem depois. O problema não é o atraso: a classificação não indica a direção.")
+    return {"n": len(validas), "reacao_media": antes["media"], "depois_media": depois["media"], "texto": texto}

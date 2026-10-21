@@ -1,0 +1,24 @@
+{
+  "1465b3d5258f2d7f": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Banco do Brasil aprovou distribuição de R$ 400,4 milhões em JCP antecipado referente ao 1T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil S.A. (“BB”) comunica que aprovou em 12/02/2026 a distribuição de R$ 400.396.500,00 a título de remuneração antecipada aos acionistas sob a forma de Juros sobre o Capital Próprio (JCP), relativos ao primeiro trimestre de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1465b3d5258f2d7f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1479548&numSequencia=1004254&numVersao=1",
+        "timestamp_publicacao": "2026-02-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-19T23:59:00-03:00"
+      },
+      "id": "1465b3d5258f2d7f-0"
+    }
+  ]
+}

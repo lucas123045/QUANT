@@ -20,5 +20,27 @@
       },
       "id": "c6df5d225ef57bce-0"
     }
+  ],
+  "0dcaf1cebb2d0cab": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Estado de MG propõe adesão ao PROPAG usando participação na Cemig, conforme Projeto de Lei em tramitação.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "recebeu do Estado de Minas Gerais, acionista controlador da Companhia, o Ofício SEDE/SECADJ nº. 66/2025, por meio do qual informa que encaminhou à Secretaria do Tesouro Nacional do Ministério da Fazenda a proposta de adesão ao Programa de Pleno Pagamento de Precatórios – PROPAG, contemplando os ativos destinados à amortização extraordinária da dívida pública estadual. Entre os ativos elencados consta a participação societária do Estado na CEMIG, observando-se, contudo, que a estrutura proposta adota o modelo de corporação, nos termos do Projeto de Lei nº 3.053/2024, atualmente em tramitação na Assembleia Legislativa do Estado de Minas Gerais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0dcaf1cebb2d0cab",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1441221&numSequencia=965933&numVersao=1",
+        "timestamp_publicacao": "2025-11-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-06T23:59:00-03:00"
+      },
+      "id": "0dcaf1cebb2d0cab-0"
+    }
   ]
 }

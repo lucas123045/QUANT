@@ -1,0 +1,46 @@
+{
+  "ec02d141c67cd305": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Conselho aprovou incorporação da Gerdau Summit; decisão será submetida à assembleia em 30/05/2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração se reuniu na data de hoje e aprovou a incorporação de sua subsidiária integral Gerdau Summit Aços Fundidos e Forjados S.A., que será submetida à deliberação pela Assembleia Geral Extraordinária, a ser realizada no dia 30 de maio de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec02d141c67cd305",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1366645&numSequencia=891371&numVersao=1",
+        "timestamp_publicacao": "2025-04-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-28T23:59:00-03:00"
+      },
+      "id": "ec02d141c67cd305-0"
+    }
+  ],
+  "b2ebea787bdfffcf": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Cancelamento de 24.000.000 ações preferenciais (GGBR4) sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião realizada nesta data, aprovou o cancelamento de 517.600 ações ordinárias (GGBR3) e de 24.000.000 ações preferenciais (GGBR4) de emissão da Companhia, sem valor nominal e sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b2ebea787bdfffcf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1366659&numSequencia=891385&numVersao=1",
+        "timestamp_publicacao": "2025-04-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-28T23:59:00-03:00"
+      },
+      "id": "b2ebea787bdfffcf-0"
+    }
+  ]
+}

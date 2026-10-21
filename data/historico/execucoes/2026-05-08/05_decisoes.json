@@ -78,5 +78,175 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "EQTL3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Equatorial assinou aditivos que estendem concessões da Equatorial Pará e Maranhão até 2058 e 2060.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica aos investidores e ao mercado em geral que, assinou o Sétimo Termo Aditivo ao Contrato de Concessão do Serviço Público de Distribuição de Energia Elétrica nº 182/1998 -ANEEL e o Quinto Termo Aditivo ao Contrato de Concessão do Serviço Público de Distribuição de Energia Elétrica nº 60/2000 - ANEEL, que estende o prazo de concessão das concessionárias controladas Equatorial Pará Distribuidora de Energia S.A. (“Equatorial Pará”) e Equatorial Maranhão Distribuidora de Energia S.A. (“Equatorial Maranhão”), para 28 de julho de 2058 e 11 de agosto de 2060, respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "96b4f6670e8dfe16",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1519276&numSequencia=1043982&numVersao=1",
+        "timestamp_publicacao": "2026-05-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-08T23:59:00-03:00"
+      },
+      "id": "96b4f6670e8dfe16-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Extensão das concessões garante receitas de longo prazo e reduz riscos regulatórios.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "EQTL3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (regulatorio, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Extensão das concessões garante receitas de longo prazo e reduz riscos regulatórios."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan aprovou e realizou oferta pública secundária de ações da Compass, reduzindo participação de 88% para até 75,37%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi precificada , nesta data , a oferta pública de distribuição secundária de ações ordinárias de emissão d a Compass Gás e Energia S.A. ( “Compass” e “Ações”, respectivamente) e de titularidade da Companhia e dos demais acionistas vendedores indicados no Prospecto Definitivo (“Oferta”). Nesse contexto, o Conselho de Administração da Cosan aprovou, nesta data, a alienação, no âmbito da Oferta, de 76.785.715 Ações de sua titularidade, ao preço por Ação de R$ 28,00, fixado após a conclusão do Procedimento de Bookbuilding, resultando assim em um montante de R$ 2.150.000.020,00 para a Companhia. A Oferta totalizou 100.892.857 Ações alienadas pela Cosan e demais acionistas vendedores, perfazendo o montante total de R$ 2.824.999.996,00. Adicionalmente, foi outorgada pela Cosan ao Bank of America Merrill Lynch Banco Múltiplo S.A., na qualidade de agente estabilizador, opção de lote suplementar de até 13.392.857 Ações de titularidade da Cosan, equivalente a até 15% do total das Ações da Oferta base, nas mesmas condições e ao mesmo Preço por Ação, destinada exclusivamente à atividade de estabilização do preço das Ações no âmbito da Oferta (“Ações Suplementares”). Caso haja a colocação integral das Ações Suplementares, o montante total da Oferta poderá alcançar até R$3.199.999.992,00, tendo a Cosan recebido R$2.525.000.016,00. Em decorrência da Oferta, a participação direta e indireta da Cosan no capital social da Compass, atualmente equivalente a 88%, passará a ser de 77,25%, podendo ser reduzida para 75,37% em caso de colocação integral das Ações Suplementares, permanecendo a Cosan, em conjunto com a Cosan Dez Participações S.A., como acionista controladora da Compass.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "561c1b3240fd9eb6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1518348&numSequencia=1043054&numVersao=1",
+        "timestamp_publicacao": "2026-05-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-08T23:59:00-03:00"
+      },
+      "id": "561c1b3240fd9eb6-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Geração relevante de caixa com venda de participação relevante em subsidiária, sem perda de controle.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CSAN3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (operacional, materialidade alta) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 11/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Geração relevante de caixa com venda de participação relevante em subsidiária, sem perda de controle."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
   }
 ]

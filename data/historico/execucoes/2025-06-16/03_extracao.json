@@ -1,0 +1,46 @@
+{
+  "20a331f0400c812b": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre capital próprio de R$ 0,15 por ação, totalizando R$88 milhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "aprovou o pagamento de juros sobre capital próprio (“ JCP ”), correspondente a R$ 0,15 ( quinze centavos) por ação da Companhia (“ Ações ”), no montante total bruto de aproximadamente R$88 milhões",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "20a331f0400c812b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1391123&numSequencia=915835&numVersao=1",
+        "timestamp_publicacao": "2025-06-16T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-16T23:59:00-03:00"
+      },
+      "id": "20a331f0400c812b-0"
+    }
+  ],
+  "496930687dbc194f": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa declara juros sobre capital próprio de R$ 0,0591 por ação, com pagamento até 29 de agosto de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração , reunido nesta data, deliberou declarar juros sobre capital próprio no montante bruto de R$ 650 milhões (R$ 0,0591 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "496930687dbc194f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1391040&numSequencia=915752&numVersao=1",
+        "timestamp_publicacao": "2025-06-16T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-16T23:59:00-03:00"
+      },
+      "id": "496930687dbc194f-0"
+    }
+  ]
+}

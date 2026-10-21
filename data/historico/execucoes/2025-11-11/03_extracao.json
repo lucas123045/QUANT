@@ -1,0 +1,87 @@
+{
+  "cffa6927ef31c1b0": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "PRIO concluiu a aquisição de 40% e operação do Campo de Peregrino.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Conclusão da Aquisição de 40% e Operação do Campo de Peregrino",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cffa6927ef31c1b0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1443557&numSequencia=968269&numVersao=1",
+        "timestamp_publicacao": "2025-11-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-11T23:59:00-03:00"
+      },
+      "id": "cffa6927ef31c1b0-0"
+    }
+  ],
+  "c1d9bcba6f853204": [],
+  "03fca3f20041881c": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan concluiu oferta pública primária de ações, emitindo 287,5 milhões de ações a R$5,00 cada, totalizando R$1,44 bilhão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "the Board of Directors approved on this date (“Board Meeting”) the issuance of 287,500,000 Shares at the price per share of R$5.00, resulting in gross proceeds of R$1,437,500,000.00.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "03fca3f20041881c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1443659&numSequencia=968371&numVersao=1",
+        "timestamp_publicacao": "2025-11-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-11T23:59:00-03:00"
+      },
+      "id": "03fca3f20041881c-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan aumentou o limite máximo de ações emitíveis de 2 bilhões para 2,1 bilhões, totalizando R$10,5 bilhões arrecadados nas ofertas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "the Company has opted to increase the maximum number of common shares issuable by the Company across such offering and this Offering by 100,000,000 common shares from the initial level of 2,000,000,000 common shares to 2,100,000,000 common shares . As a result , the equity offerings raised a total amount of R$10,500,000,000.00.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "03fca3f20041881c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1443659&numSequencia=968371&numVersao=1",
+        "timestamp_publicacao": "2025-11-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-11T23:59:00-03:00"
+      },
+      "id": "03fca3f20041881c-1"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Ações emitidas na oferta serão negociadas na B3 a partir de 13 de novembro de 2025, com liquidação financeira em 14 de novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "The Shares issued in connection with this Offering will be traded on B3 S.A. – Brasil, Bolsa, Balcão as from November 13, 2025 , and the financial settlement of the Shares will take place on November 14, 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "03fca3f20041881c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1443659&numSequencia=968371&numVersao=1",
+        "timestamp_publicacao": "2025-11-11T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-11T23:59:00-03:00"
+      },
+      "id": "03fca3f20041881c-2"
+    }
+  ]
+}

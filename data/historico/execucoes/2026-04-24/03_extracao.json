@@ -1,0 +1,24 @@
+{
+  "76b6d7be7a916ed0": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp irá avaliar a viabilidade de incorporar todas as ações da EMAE não detidas pela Sabesp.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "as respectivas administrações irão avaliar a viabilidade de incorporação, pela Sabesp, da totalidade das ações de emissão da EMAE não detidas pela Sabesp",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76b6d7be7a916ed0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1508802&numSequencia=1033508&numVersao=1",
+        "timestamp_publicacao": "2026-04-24T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-24T23:59:00-03:00"
+      },
+      "id": "76b6d7be7a916ed0-0"
+    }
+  ]
+}

@@ -26,10 +26,18 @@ ARQUIVO_OPERACOES = DIR_DATA / "operacoes.jsonl"
 DIR_HISTORICO = Path(os.environ.get("QUANT_HISTORICO_DIR") or RAIZ_PROJETO / "data" / "historico")
 
 # ---------------------------------------------------------------------------
-# Carteira (PROVISÓRIA, escolhida em 2026-10-15; sujeita a viés de
-# sobrevivência; só muda com aprovação do autor)
+# Carteira acompanhada (PROVISÓRIA; sujeita a viés de sobrevivência; só muda
+# com aprovação do autor e antes do congelamento)
 # ---------------------------------------------------------------------------
-CARTEIRA = ["PETR4", "VALE3", "ITUB4", "BBDC4", "ABEV3"]
+# 15/10/2026: as 5 ações originais.
+CARTEIRA_ORIGINAL = ["PETR4", "VALE3", "ITUB4", "BBDC4", "ABEV3"]
+# 21/10/2026 (pedido do autor): mais 19 grandes empresas do Ibovespa, as mesmas do
+# universo do estudo histórico (critério em UNIVERSO_ESTUDO, definido antes de
+# olhar qualquer retorno). Mais empresas = mais eventos por semana, que é o que
+# falta para o teste ao vivo ter poder estatístico.
+AMPLIACAO_2026_10_21 = ["BBAS3", "B3SA3", "WEGE3", "SUZB3", "RENT3", "ITSA4", "RADL3", "PRIO3", "EQTL3",
+                        "GGBR4", "RAIL3", "VBBR3", "SBSP3", "BBSE3", "UGPA3", "LREN3", "TOTS3", "CSAN3", "CMIG4"]
+CARTEIRA = CARTEIRA_ORIGINAL + AMPLIACAO_2026_10_21
 BENCHMARK = "^BVSP"
 SUFIXO_B3 = ".SA"  # sufixo usado pelo yfinance para ações da B3
 
@@ -39,6 +47,25 @@ NOMES_EMPRESAS = {
     "ITUB4": "Itaú Unibanco",
     "BBDC4": "Bradesco",
     "ABEV3": "Ambev",
+    "BBAS3": "Banco do Brasil",
+    "B3SA3": "B3",
+    "WEGE3": "WEG",
+    "SUZB3": "Suzano",
+    "RENT3": "Localiza",
+    "ITSA4": "Itaúsa",
+    "RADL3": "Raia Drogasil",
+    "PRIO3": "PRIO",
+    "EQTL3": "Equatorial",
+    "GGBR4": "Gerdau",
+    "RAIL3": "Rumo",
+    "VBBR3": "Vibra Energia",
+    "SBSP3": "Sabesp",
+    "BBSE3": "BB Seguridade",
+    "UGPA3": "Ultrapar",
+    "LREN3": "Lojas Renner",
+    "TOTS3": "Totvs",
+    "CSAN3": "Cosan",
+    "CMIG4": "Cemig",
 }
 
 # Formas aceitas para cada empresa, comparadas sem distinção de maiúsculas e
@@ -51,6 +78,28 @@ ALIASES = {
     "ITUB4": ["Itaú Unibanco", "Itaú", "Banco Itaú", "ITUB3"],
     "BBDC4": ["Bradesco", "Banco Bradesco", "BBDC3"],
     "ABEV3": ["Ambev"],
+    # 21/10/2026. Nomes que também são palavras comuns ou cidades (Rumo, Vibra,
+    # Localiza, Equatorial, Suzano, B3) entram só pelo nome completo aqui e, com
+    # artigo, em PADROES_CONTEXTO: "rumo a 2027" e "em Suzano (SP)" não são notícia.
+    "BBAS3": ["Banco do Brasil", "BBAS3"],
+    "B3SA3": ["B3 S.A.", "B3SA3"],
+    "WEGE3": ["WEG"],
+    "SUZB3": ["Suzano S.A.", "Suzano Papel e Celulose"],
+    "RENT3": ["Localiza Rent a Car", "Localiza&Co", "Localiza & Co"],
+    "ITSA4": ["Itaúsa"],
+    "RADL3": ["Raia Drogasil", "RD Saúde"],
+    "PRIO3": ["PRIO", "PetroRio"],
+    "EQTL3": ["Equatorial Energia"],
+    "GGBR4": ["Gerdau", "GGBR3"],
+    "RAIL3": ["Rumo Logística"],
+    "VBBR3": ["Vibra Energia"],
+    "SBSP3": ["Sabesp"],
+    "BBSE3": ["BB Seguridade"],
+    "UGPA3": ["Ultrapar"],
+    "LREN3": ["Lojas Renner", "Renner"],
+    "TOTS3": ["Totvs"],
+    "CSAN3": ["Cosan"],
+    "CMIG4": ["Cemig", "CMIG3"],
 }
 
 # Expressões removidas do texto antes do casamento (sem distinção de caixa e
@@ -70,6 +119,17 @@ PADROES_CONTEXTO = {
     "VALE3": [
         r"\b(?:[AaÀà]|[Dd]a|[Nn]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Vale\b(?!\s+d[oa]s?\b)",
     ],
+    # Empresa citada com artigo e maiúscula ("a Rumo", "da Vibra"); nunca "rumo a",
+    # "rumo ao", nem a cidade de Suzano ("em Suzano").
+    "RAIL3": [r"\b(?:[Aa]|[Dd]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Rumo\b(?!\s+(?:a|ao|à|às|aos)\b)"],
+    "VBBR3": [r"\b(?:[Aa]|[Dd]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Vibra\b"],
+    "RENT3": [r"\b(?:[Aa]|[Dd]a|[Nn]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Localiza\b"],
+    "EQTL3": [r"\b(?:[Aa]|[Dd]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Equatorial\b"],
+    "SUZB3": [r"\b(?:[Aa]|[Dd]a|[Pp]ela|[Cc]om a|[Pp]ara a)\s+Suzano\b"],
+    # "B3" sozinho é a bolsa (aparece em quase toda notícia de mercado): só fala da
+    # EMPRESA quando é o resultado, o lucro ou os dividendos da B3. "Ações da B3"
+    # fica de fora: quase sempre é "ações negociadas na bolsa".
+    "B3SA3": [r"\b(?:[Ll]ucro|[Rr]eceita|[Rr]esultado|[Bb]alanço|[Dd]ividendos|JCP|[Rr]ecompra)\s+da\s+B3\b"],
 }
 
 # ---------------------------------------------------------------------------
@@ -209,8 +269,13 @@ PRATICA_JANELA_VOL_PREGOES = 60      # ~3 meses de pregões para estimar a volat
 
 # Limite por setor (classificação setorial da B3). Itaú e Bradesco andam muito
 # juntos: duas posições cheias em bancos seriam quase a mesma aposta duas vezes.
-SETORES = {"PETR4": "Petróleo e gás", "VALE3": "Mineração", "ITUB4": "Bancos",
-           "BBDC4": "Bancos", "ABEV3": "Bebidas"}
+SETORES = {"PETR4": "Petróleo e gás", "VALE3": "Mineração e siderurgia", "ITUB4": "Bancos",
+           "BBDC4": "Bancos", "ABEV3": "Consumo", "BBAS3": "Bancos", "ITSA4": "Bancos",  # Itaúsa: holding do Itaú
+           "B3SA3": "Serviços financeiros", "BBSE3": "Serviços financeiros", "WEGE3": "Bens industriais",
+           "SUZB3": "Papel e celulose", "RENT3": "Transporte e logística", "RAIL3": "Transporte e logística",
+           "RADL3": "Consumo", "LREN3": "Consumo", "PRIO3": "Petróleo e gás", "VBBR3": "Petróleo e gás",
+           "UGPA3": "Petróleo e gás", "CSAN3": "Petróleo e gás", "GGBR4": "Mineração e siderurgia",
+           "EQTL3": "Energia elétrica", "CMIG4": "Energia elétrica", "SBSP3": "Saneamento", "TOTS3": "Tecnologia"}
 PRATICA_LIMITE_SETOR = 0.30
 
 # Saídas (a regra só vende com notícia negativa, o que na prática segura a
@@ -289,12 +354,16 @@ UNIVERSO_ESTUDO = {
     "50.746.577/0001-15": ("CSAN3", "Cosan"),
     "17.155.730/0001-64": ("CMIG4", "Cemig"),
 }
+# Desde 21/10/2026 essas empresas também estão na carteira acompanhada: a coleta da
+# CVM ao vivo passa a buscar os fatos relevantes delas.
+CNPJ_CARTEIRA.update({cnpj: ticker for cnpj, (ticker, _) in UNIVERSO_ESTUDO.items()})
 
 # ---------------------------------------------------------------------------
 # Contexto de mercado (src/mercado.py): só para leitura, não entra na regra
 # ---------------------------------------------------------------------------
 # ADRs negociados em Nova York (PETR4 é preferencial: PBR-A; PBR é a ordinária).
-ADRS = {"PETR4": "PBR-A", "VALE3": "VALE", "ITUB4": "ITUB", "BBDC4": "BBD", "ABEV3": "ABEV"}
+ADRS = {"PETR4": "PBR-A", "VALE3": "VALE", "ITUB4": "ITUB", "BBDC4": "BBD", "ABEV3": "ABEV",
+        "SUZB3": "SUZ", "GGBR4": "GGB", "SBSP3": "SBS", "UGPA3": "UGP", "CMIG4": "CIG"}
 # Séries do SGS (Banco Central): meta Selic, IPCA acumulado em 12 meses, dólar PTAX venda.
 SERIES_BCB = {"selic": 432, "ipca_12m": 13522, "dolar_ptax": 1}
 # Commodities que mais pesam em PETR4 e VALE3 (yfinance): Brent e minério de ferro 62% (SGX).

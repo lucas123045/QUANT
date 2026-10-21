@@ -1,0 +1,24 @@
+{
+  "f87604e47baef1bd": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Cemig elegeu novo Presidente e novo Presidente do Conselho de Administração.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia deliberou sobre a eleição do Sr. Marco Aurélio Martins da Costa Vasconcelos para o cargo de Presidente e do Sr. Alexandre Ramos Peixoto para o cargo de Presidente do Conselho de Administração.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f87604e47baef1bd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1567618&numSequencia=1092324&numVersao=1",
+        "timestamp_publicacao": "2026-09-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-09-11T23:59:00-03:00"
+      },
+      "id": "f87604e47baef1bd-0"
+    }
+  ]
+}

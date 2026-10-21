@@ -7,5 +7,23 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c093349b8238798c-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Descumprimento de guidance pode afetar confiança do mercado, mas impacto financeiro direto é limitado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c093349b8238798c-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Impacto contábil negativo de R$1 bilhão reduz lucro líquido de 2025 de forma relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

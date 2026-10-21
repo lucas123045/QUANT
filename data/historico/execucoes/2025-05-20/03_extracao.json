@@ -1,0 +1,24 @@
+{
+  "e85a66ba869fdac7": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Cemig recebeu liminar para depositar R$ 912 milhões em juízo devido a déficit do Plano A de Previdência Complementar.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi concedida liminar , pelo Juíz o da 1ª Vara da Fazenda Pública e Autarquias da Comarca de Belo Horizonte, em ação de cobrança movida pela Fundação Forluminas de Seguridade Social – Forluz relativa ao déficit do Plano A de Previdência Complementar apurado em 2022. A decisão determina o depósito em juízo de R$ 912.234.821,90",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e85a66ba869fdac7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1381190&numSequencia=905902&numVersao=1",
+        "timestamp_publicacao": "2025-05-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-20T23:59:00-03:00"
+      },
+      "id": "e85a66ba869fdac7-0"
+    }
+  ]
+}

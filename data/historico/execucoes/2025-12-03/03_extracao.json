@@ -1,0 +1,24 @@
+{
+  "5322e18ae9eae7a1": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "operacional",
+      "resumo": "Homologado acordo em dissídio coletivo sobre plano de saúde, prevendo indenização de até R$ 1,25 bi e transição de participantes para novos planos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi homologado na presente data , pelo Tribunal Regional do Trabalho da 3ª Região, no dissídio coletivo n° 0011731 -13.2025.5.03.0000, o acordo celebrado com as entidades representativas dos empregados",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5322e18ae9eae7a1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1452586&numSequencia=977298&numVersao=1",
+        "timestamp_publicacao": "2025-12-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-03T23:59:00-03:00"
+      },
+      "id": "5322e18ae9eae7a1-0"
+    }
+  ]
+}

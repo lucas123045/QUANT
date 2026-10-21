@@ -1,0 +1,108 @@
+{
+  "24f2a5af319f3baf": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou revisão do payout para 2025, fixando-o em 30%, via JCP e/ou dividendos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Conselho de Administração, em reunião de 13 de agosto de 2025, deliberou pela revisão do payout para o Exercício 2025, fixando-o em 30%, via juros sobre o capital próprio (JCP) e/ou dividendos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "24f2a5af319f3baf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1413625&numSequencia=938337&numVersao=1",
+        "timestamp_publicacao": "2025-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-14T23:59:00-03:00"
+      },
+      "id": "24f2a5af319f3baf-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Pagamentos de JCP referentes ao 1º semestre de 2025 já foram realizados integralmente em 21 de março e 12 de junho de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os pagamentos de juros sobre capital próprio referente ao primeiro semestre de 2025 já foram realizados integralmente em 21 de março e 12 de junho de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "24f2a5af319f3baf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1413625&numSequencia=938337&numVersao=1",
+        "timestamp_publicacao": "2025-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-14T23:59:00-03:00"
+      },
+      "id": "24f2a5af319f3baf-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Cronograma de pagamentos para o 2º semestre de 2025 permanece inalterado, conforme fato relevante anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O cronograma de pagamentos previsto para o segundo semestre de 2025 permanece inalterado, conforme disposto no Fato Relevante de 19 de fevereiro de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "24f2a5af319f3baf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1413625&numSequencia=938337&numVersao=1",
+        "timestamp_publicacao": "2025-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-14T23:59:00-03:00"
+      },
+      "id": "24f2a5af319f3baf-2"
+    }
+  ],
+  "586d1d728d15086c": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "guidance",
+      "resumo": "Banco do Brasil revisou projeções para 2025, incluindo carteira de crédito, margem financeira, custo do crédito e lucro líquido ajustado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Banco do Brasil S.A. (BB) comunica a revisão das Projeções Corporativas para Carteira de Crédito e a retomada dos intervalos para as linhas de Custo do Crédito, Margem Financeira Bruta e Lucro Líquido Ajustado , a partir de uma reavaliação dos impactos do cenário atual e em linha com as melhores expectativas correntes da administração para 2025, conforme segue:",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "586d1d728d15086c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1413626&numSequencia=938338&numVersao=1",
+        "timestamp_publicacao": "2025-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-14T23:59:00-03:00"
+      },
+      "id": "586d1d728d15086c-0"
+    }
+  ],
+  "7588802875d752fa": [
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "STF decidiu pela constitucionalidade da Lei 14.385/2022, que disciplina devolução de tributos aos consumidores de energia elétrica.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Supremo Tribunal Federal (STF) decidiu, no âmbito d a Ação Direta de Inconstitucionalidade nº 7324, pela constitucionalidade d a Lei nº 14.385/2022 , que disciplina a devolução aos consumidores de energia elétrica dos valores de tributos recolhidos a maior pelas distribuidoras.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7588802875d752fa",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1413865&numSequencia=938577&numVersao=1",
+        "timestamp_publicacao": "2025-08-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-14T23:59:00-03:00"
+      },
+      "id": "7588802875d752fa-0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "91a3b136fdaec50e": [
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Aprovação pelo CA dos atos relativos à incorporação de ações da Malha Norte pela Rumo.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "informam aos seus acionistas e ao mercado em geral que aprovaram em suas respectivas reuniões dos Conselhos de Administração os atos relativos à incorporação de ações pretendida pelas Companhias, que consiste na incorporação de ações da Malha Norte pela Rumo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "91a3b136fdaec50e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1387030&numSequencia=911742&numVersao=1",
+        "timestamp_publicacao": "2025-06-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-04T23:59:00-03:00"
+      },
+      "id": "91a3b136fdaec50e-0"
+    }
+  ]
+}

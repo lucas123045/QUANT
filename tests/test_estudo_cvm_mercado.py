@@ -76,7 +76,7 @@ def test_reacao_contra_e_a_favor():
 
 def test_grupos_e_calibracao_com_amostra_pequena_nao_concluem():
     precos = mercado_com_beta()
-    eventos = [evento(t, precos.index[150 + k].date().isoformat()) for k, t in enumerate(config.CARTEIRA)]
+    eventos = [evento(t, precos.index[150 + k].date().isoformat()) for k, t in enumerate(config.CARTEIRA_ORIGINAL)]
     linhas = estudo_evento.observacoes(eventos, precos)
     grupos = estudo_evento.grupos(linhas)
     assert grupos[0]["grupo"] == "Todos os eventos" and grupos[0]["n"] == 5

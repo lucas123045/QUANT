@@ -1,0 +1,87 @@
+[
+  {
+    "evento": {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "CADE e ANEEL aprovaram aquisição da EMAE pela Sabesp; transferência de controle depende de formalidades contratuais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho Administrativo de Defesa Econômica – CADE negou, por unanimidade, o recurso interposto pela Phoenix Água e Energia S.A., mantendo a decisão que aprovou a Operação, sem restrições. A certidão de trânsito em julgado da Operação foi publicada nesta data; e (ii) a Agência Nacional de Energia Elétrica – ANEEL, em sua 1ª Reunião Pública Ordinária de 2026, realizada em 20 de janeiro de 2026, aprovou por unanimidade o pedido de anuência prévia à Operação, nos termos da regulamentação aplicável. A efetiva consumação da transferência do controle societário para Companhia depende de formalidades adicionais previstas nos respectivos contratos de compra e venda celebrados com a Vórtx Distribuidora de Títulos e Valores Mobiliários Ltda. e Axia Energia, as quais estão em fase de implementação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b74eb6fad30792f6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1468684&numSequencia=993390&numVersao=1",
+        "timestamp_publicacao": "2026-01-20T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-20T23:59:00-03:00"
+      },
+      "id": "b74eb6fad30792f6-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aprovação regulatória de aquisição relevante pode impactar valor e resultados futuros da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SBSP3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (fusao_aquisicao, materialidade alta) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: fusao_aquisicao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 21/01 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aprovação regulatória de aquisição relevante pode impactar valor e resultados futuros da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

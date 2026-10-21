@@ -78,5 +78,85 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "CMIG4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Estado de MG propõe adesão ao PROPAG usando participação na Cemig, conforme Projeto de Lei em tramitação.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "recebeu do Estado de Minas Gerais, acionista controlador da Companhia, o Ofício SEDE/SECADJ nº. 66/2025, por meio do qual informa que encaminhou à Secretaria do Tesouro Nacional do Ministério da Fazenda a proposta de adesão ao Programa de Pleno Pagamento de Precatórios – PROPAG, contemplando os ativos destinados à amortização extraordinária da dívida pública estadual. Entre os ativos elencados consta a participação societária do Estado na CEMIG, observando-se, contudo, que a estrutura proposta adota o modelo de corporação, nos termos do Projeto de Lei nº 3.053/2024, atualmente em tramitação na Assembleia Legislativa do Estado de Minas Gerais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0dcaf1cebb2d0cab",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1441221&numSequencia=965933&numVersao=1",
+        "timestamp_publicacao": "2025-11-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-06T23:59:00-03:00"
+      },
+      "id": "0dcaf1cebb2d0cab-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas proposta em tramitação sem efeito financeiro imediato ou decisão concreta.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CMIG4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 07/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas proposta em tramitação sem efeito financeiro imediato ou decisão concreta."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]

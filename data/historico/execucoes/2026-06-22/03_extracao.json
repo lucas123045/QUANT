@@ -1,0 +1,24 @@
+{
+  "76dedce64e159571": [
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Pedro Palma deixará o cargo de Diretor Presidente; Daniel Rockenbach assume interinamente em 20 de julho de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Pedro Palma deixará o cargo de Diretor Presidente. Em sua substituição, de forma interina, assumirá Daniel Rockenbach, atual diretor presidente da Malha Sul e executivo da Companhia há 15 anos. A mudança entra em vigor em 20 de julho de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76dedce64e159571",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1536674&numSequencia=1061380&numVersao=1",
+        "timestamp_publicacao": "2026-06-22T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-22T23:59:00-03:00"
+      },
+      "id": "76dedce64e159571-0"
+    }
+  ]
+}

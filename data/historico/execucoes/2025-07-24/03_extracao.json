@@ -1,0 +1,46 @@
+{
+  "1553d3210d38ae07": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Sabesp precificou emissão de Blue Bonds de US$ 500 milhões para projetos sustentáveis, com liquidação prevista para 31 de julho de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que sua subsidiária integral, Sabesp Lux S.à r.l, precificou, nesta data, a oferta de blue sênior unsecured notes (“Blue Bonds”) no volume total de US$ 500.000.000,00 (quinhentos milhões de dólares americanos), garantidos pela Sabesp. A emissão dos Blue Bonds ocorreu a 5,625%, com vencimento em agosto de 2030 e pagamento de juros semestral. A liquidação dos Blue Bonds está prevista para o dia 31 de julho de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1553d3210d38ae07",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1403901&numSequencia=928613&numVersao=1",
+        "timestamp_publicacao": "2025-07-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-24T23:59:00-03:00"
+      },
+      "id": "1553d3210d38ae07-0"
+    }
+  ],
+  "931a5754180558d0": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 36ª emissão de debêntures no valor de até R$ 3 bilhões para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada nesta data a realização da 36ª (trigésima sexta) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em série única (“Emissão” e “Debêntures” respectivamente), para distribuição pública, sob o rito de registro automático, destinada a investidores profissionais, nos termos da Resolução da CVM nº 160, de 13 de julho de 2022, conforme alterada, no montante total de até R$ 3.000.000.000,00 (três bilhões de reais) na respectiva data de emissão (“Oferta”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "931a5754180558d0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1403928&numSequencia=928640&numVersao=1",
+        "timestamp_publicacao": "2025-07-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-24T23:59:00-03:00"
+      },
+      "id": "931a5754180558d0-0"
+    }
+  ]
+}

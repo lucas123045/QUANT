@@ -1,0 +1,24 @@
+{
+  "0c7cc3008d17e9bf": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 33ª emissão de debêntures no valor de R$ 3,7 bilhões para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada nos termos da Reunião do Conselho de Administração da Companhia realizada nesta data, a realização da 33ª (trigésima terceira) emissão de debêntures simples, não conversíveis em ações, da es pécie quirografária, em 3 (três) séries",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0c7cc3008d17e9bf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1322403&numSequencia=847129&numVersao=1",
+        "timestamp_publicacao": "2025-01-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-06T23:59:00-03:00"
+      },
+      "id": "0c7cc3008d17e9bf-0"
+    }
+  ]
+}

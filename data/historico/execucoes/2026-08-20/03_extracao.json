@@ -1,0 +1,24 @@
+{
+  "7e0b84776d13f7ed": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan avalia alternativas para vender parte de sua participação na Rumo S.A.; processo está em fase de propostas vinculantes.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa seus acionistas e o mercado em geral que, em linha com sua estratégia de desalavancagem, t em dado prosseguimento ao processo de avaliação de alternativas de alienação de parte de sua participação na Rumo S.A. (“Rumo”). Conforme veiculado em notícias divulgadas, a Companhia se encontra em fase de recebimento de propostas vinculantes de potenciais interessados. Não há qualquer decisão da Companhia, até o momento, com relação à efetiva realização de uma transação envolvendo sua participação na Rumo.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7e0b84776d13f7ed",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1559723&numSequencia=1084429&numVersao=1",
+        "timestamp_publicacao": "2026-08-20T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-20T23:59:00-03:00"
+      },
+      "id": "7e0b84776d13f7ed-0"
+    }
+  ]
+}

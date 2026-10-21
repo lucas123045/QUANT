@@ -20,5 +20,27 @@
       },
       "id": "2e0f13ba9bf60ca5-0"
     }
+  ],
+  "52b4bef36a9a0a84": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "guidance",
+      "resumo": "BB Seguridade divulga projeções empresariais (Guidance) para 2026, com intervalos para principais indicadores.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica ao mercado, aos seus acionistas e ao público em geral que divul gou, nesta data, as projeções empresariais a serem acompanhadas no exercício de 2026 (“Guidance 2026”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "52b4bef36a9a0a84",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475085&numSequencia=999791&numVersao=1",
+        "timestamp_publicacao": "2026-02-09T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-09T23:59:00-03:00"
+      },
+      "id": "52b4bef36a9a0a84-0"
+    }
   ]
 }

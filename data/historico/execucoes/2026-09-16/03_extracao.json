@@ -1,0 +1,24 @@
+{
+  "820e70635693a549": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp incorpora totalidade das ações da EMAE, transferindo base acionária e entregando ações da Sabesp aos acionistas da EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os acionistas da EMAE aprovaram, em Assembleia Geral Extraordinária realizada nesta data, a incorporação, pela Sabesp, da totalidade das ações de emissão da EMAE não detidas pela Sabesp, tendo como contrapartida a entrega aos acionistas da EMAE de ações ordinárias de emissão da Sabesp",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "820e70635693a549",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1568917&numSequencia=1093623&numVersao=1",
+        "timestamp_publicacao": "2026-09-16T23:59:00-03:00",
+        "timestamp_coleta": "2026-09-16T23:59:00-03:00"
+      },
+      "id": "820e70635693a549-0"
+    }
+  ]
+}

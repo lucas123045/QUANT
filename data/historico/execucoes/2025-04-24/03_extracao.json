@@ -1,0 +1,24 @@
+{
+  "c1db3d1169952062": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Ibama concede anuência para workover dos poços no Campo de Tubarão Martelo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Anuência do Ibama para workover dos poços no Campo de Tubarão Martelo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c1db3d1169952062",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365146&numSequencia=889872&numVersao=1",
+        "timestamp_publicacao": "2025-04-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-04-24T23:59:00-03:00"
+      },
+      "id": "c1db3d1169952062-0"
+    }
+  ]
+}

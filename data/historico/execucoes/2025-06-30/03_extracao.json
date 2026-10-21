@@ -1,0 +1,46 @@
+{
+  "84541aade5bcf96f": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 34ª emissão de debêntures no valor de R$ 1,068 bilhão para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, nesta data, pelo Conselho de Administração da Companhia , a realização da 34ª (trigésima quarta) emissão de debêntures simples, não conversíveis em ações, da es pécie quirografária, em série única",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84541aade5bcf96f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1395754&numSequencia=920466&numVersao=1",
+        "timestamp_publicacao": "2025-06-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-30T23:59:00-03:00"
+      },
+      "id": "84541aade5bcf96f-0"
+    }
+  ],
+  "ccb5aa12e39f4da9": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaúsa anuncia resgate antecipado de debêntures da 2ª série da 4ª emissão, reduzindo dívida e custo financeiro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Itaúsa S.A. (“Companhia” ou “Itaúsa” ) (B3: ITSA3, ITSA4) comunica que, em continuidade à estratégia de desalavancagem iniciada ao final de 2022, realizará o resgate antecipado da totalidade das debêntures da 2ª série da 4ª emissão, no valor de R$ 1,25 bilhão, acrescido da remuneração e do prêmio, conforme termos definidos na escritura de emissão celebrada em 31 de maio de 2021.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ccb5aa12e39f4da9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1395176&numSequencia=919888&numVersao=1",
+        "timestamp_publicacao": "2025-06-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-30T23:59:00-03:00"
+      },
+      "id": "ccb5aa12e39f4da9-0"
+    }
+  ]
+}

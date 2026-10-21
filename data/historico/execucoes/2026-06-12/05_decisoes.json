@@ -1,0 +1,162 @@
+[
+  {
+    "evento": {
+      "ticker": "EQTL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Equatorial, via Gerais Saneamento, adquiriu 30% do capital da Copasa por R$5,59 bilhões, sujeito à aprovação do CADE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi alocada à GERAIS SANEAMENTO S.A., sociedade 100% (cem por cento) controlada pela Companhia (“Gerais Saneamento”) a quantidade final de 114.075.921 (cento e quatorze milhões, setenta e cinco mil, novecentas e vinte e uma) ações ordinárias, nominativas, escriturais e sem valor nominal de emissão de COPASA, de titularidade do Estado de Minas Gerais, representativas de 30,00% (trinta por cento) do capital social da COPASA, perfazendo um investimento total pela Gerais Saneamento de R$5.593.142.406,63 (cinco bilhões, quinhentos e noventa e três milhões, cento e quarenta e dois mil, quatrocentos e seis reais e sessenta e três centavos ) (“Investimento”). A liquidação da oferta está prevista para 16 de junho de 2026. O Investimento está sujeito à aprovação do Conselho Administrativo de Defesa Econômica (CADE), sendo que o exercício dos direitos políticos inerentes às ações adquiridas permanecerá suspenso até que o CADE aprove a operação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "751221793475bb16",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1534080&numSequencia=1058786&numVersao=1",
+        "timestamp_publicacao": "2026-06-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-12T23:59:00-03:00"
+      },
+      "id": "751221793475bb16-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aquisição relevante de participação em empresa do setor, com potencial impacto futuro no valor da companhia.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "EQTL3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: fusao_aquisicao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 15/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aquisição relevante de participação em empresa do setor, com potencial impacto futuro no valor da companhia."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "CMIG4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Cemig anuncia nova composição da Diretoria Executiva com nomeação de novos vice-presidentes.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica aos seus acionistas e ao mercado em geral que na data de 11 /06/2026 o Conselho de Administração da Companhia deliberou sobre a nomeação de novos Vice-presidentes",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "47832307cddf4247",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1533939&numSequencia=1058645&numVersao=1",
+        "timestamp_publicacao": "2026-06-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-12T23:59:00-03:00"
+      },
+      "id": "47832307cddf4247-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Mudança de executivos sem indicação de impacto financeiro relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "CMIG4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: troca_executivo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 15/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Mudança de executivos sem indicação de impacto financeiro relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

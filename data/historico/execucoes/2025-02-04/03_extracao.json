@@ -1,0 +1,24 @@
+{
+  "34fc03900212f96f": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "operacional",
+      "resumo": "Encerramento do Programa de Recompra de Ações após 18 meses, com aquisição de 55,6 milhões de ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica que o Programa de Recompra de Ações (“Programa”), d ivulgado por meio de fato relevante em 04.08.2023, foi encerrado hoje em decorrência do at ingimento do prazo de 18 (dezoito) meses de duração, conforme previsto no seu lançamento. No total foram adquiridas 55.591.700 (cinquenta e c inco milhões, quinhentas e noventa e um mil e setecentas) ações ordinárias (BBSE3), ao preço médio de R$ 32,20 (trinta e dois reais e vinte centavos) por ação, correspondendo a 86,53% do limite máximo de 64.249.172 (sessenta e quatro milhões, duzentas e quarenta e nove mil, cento e setenta e d uas) ações que poderiam ser compradas no âmbito do Programa.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "34fc03900212f96f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1330270&numSequencia=854996&numVersao=1",
+        "timestamp_publicacao": "2025-02-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-04T23:59:00-03:00"
+      },
+      "id": "34fc03900212f96f-0"
+    }
+  ]
+}

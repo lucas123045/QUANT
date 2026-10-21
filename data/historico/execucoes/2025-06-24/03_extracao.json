@@ -1,0 +1,24 @@
+{
+  "b92694fb78d117c0": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre capital próprio de R$533,8 milhões em 19/08/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada a autorização do crédito e pagamento aos acionistas de juros sobre o capital próprio no valor bruto de R$533.817.799,07 (quinhentos e trinta e três milhões, oitocentos e dezessete mil, setecentos e noventa e nove reais e sete centavos). O pagamento ocorrerá no dia 19 de agosto de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b92694fb78d117c0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1393680&numSequencia=918392&numVersao=1",
+        "timestamp_publicacao": "2025-06-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-24T23:59:00-03:00"
+      },
+      "id": "b92694fb78d117c0-0"
+    }
+  ]
+}

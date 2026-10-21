@@ -1,0 +1,24 @@
+{
+  "b74eb6fad30792f6": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "CADE e ANEEL aprovaram aquisição da EMAE pela Sabesp; transferência de controle depende de formalidades contratuais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho Administrativo de Defesa Econômica – CADE negou, por unanimidade, o recurso interposto pela Phoenix Água e Energia S.A., mantendo a decisão que aprovou a Operação, sem restrições. A certidão de trânsito em julgado da Operação foi publicada nesta data; e (ii) a Agência Nacional de Energia Elétrica – ANEEL, em sua 1ª Reunião Pública Ordinária de 2026, realizada em 20 de janeiro de 2026, aprovou por unanimidade o pedido de anuência prévia à Operação, nos termos da regulamentação aplicável. A efetiva consumação da transferência do controle societário para Companhia depende de formalidades adicionais previstas nos respectivos contratos de compra e venda celebrados com a Vórtx Distribuidora de Títulos e Valores Mobiliários Ltda. e Axia Energia, as quais estão em fase de implementação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b74eb6fad30792f6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1468684&numSequencia=993390&numVersao=1",
+        "timestamp_publicacao": "2026-01-20T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-20T23:59:00-03:00"
+      },
+      "id": "b74eb6fad30792f6-0"
+    }
+  ]
+}

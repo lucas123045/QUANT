@@ -1,0 +1,47 @@
+{
+  "6ee95febbe5230d2": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "guidance",
+      "resumo": "Suzano revisou a estimativa de CAPEX para 2025 de R$ 12,4 bilhões para R$ 13,3 bilhões devido à transação com a Eldorado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A estimativa de investimento de capital (“CAPEX”) relativo ao exercício de 202 5 da Companhia foi revisado de R$ 12,4 bilhões (doze bilhões e quatrocentos milhões de reais) para R$ 13, 3 bilhões (treze bilhões e trezentos milhões de reais), de forma a refletir a assinatura de contrato com a Eldorado Brasil Celulose S.A. (“Eldorado”), efetuada nesta data, sobre permuta de ativo biológico correspondente a 18 milhões de metros cúbicos de madeira em pé, localizados no estado do Mato Grosso do Sul.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6ee95febbe5230d2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1409097&numSequencia=933809&numVersao=1",
+        "timestamp_publicacao": "2025-08-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-06T23:59:00-03:00"
+      },
+      "id": "6ee95febbe5230d2-0"
+    }
+  ],
+  "aebf93b363151bb7": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano reduzirá produção de celulose de mercado em 3,5% nos próximos 12 meses.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O volume de produção de celulose de mercado da Companhia no ciclo operacional dos próximos 12 (doze) meses, a contar da presente data, será inferior em , aproximadamente, 3,5% (três e meio por cento) quando comparado à sua capacidade nominal de produção de celulose anual . Esta decisão se baseia no fato de que tal volume de produção não traria retorno adequado para a Companh ia em um momento de mercado de celulose mais desafiador.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "aebf93b363151bb7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1409098&numSequencia=933810&numVersao=1",
+        "timestamp_publicacao": "2025-08-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-06T23:59:00-03:00"
+      },
+      "id": "aebf93b363151bb7-0"
+    }
+  ],
+  "ba33b0648817b011": []
+}

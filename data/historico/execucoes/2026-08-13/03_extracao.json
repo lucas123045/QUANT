@@ -40,5 +40,49 @@
       },
       "id": "aa9d3b26d9594692-1"
     }
+  ],
+  "8f5ba302ce3e2b8d": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Cosan formalizou carta de intenções para vender participação no Terminal de Uso Privado Porto São Luís.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "formalizou, nesta data, uma carta de intenções, apresentada por terceiro adquirente, para a alienação da totalidade da participação detida pela Companhia no Terminal de Uso Privado Porto São Luís S.A.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8f5ba302ce3e2b8d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1557382&numSequencia=1082088&numVersao=1",
+        "timestamp_publicacao": "2026-08-13T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-13T23:59:00-03:00"
+      },
+      "id": "8f5ba302ce3e2b8d-0"
+    }
+  ],
+  "3a255f6b6b8c4d9c": [
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 7ª emissão de debêntures simples, não conversíveis, no valor de R$ 1,5 bilhão, para resgate antecipado da 5ª emissão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia aprovou a 7ª (sétima) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em série única, para distribuição pública e sob o rito de registro automático",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a255f6b6b8c4d9c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1557276&numSequencia=1081982&numVersao=1",
+        "timestamp_publicacao": "2026-08-13T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-13T23:59:00-03:00"
+      },
+      "id": "3a255f6b6b8c4d9c-0"
+    }
   ]
 }

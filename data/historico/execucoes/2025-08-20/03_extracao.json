@@ -20,5 +20,27 @@
       },
       "id": "0921ba1a1c84697b-0"
     }
+  ],
+  "a11776cb615a71fd": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Remuneração aos acionistas do 3T25 será paga integralmente em 11/12/2025, sem pagamento antecipado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a remuneração dos acionistas referente ao terceiro trimestre de 2025 será paga integralmente em 11/12/2025, ou seja, não haverá pagamento antecipado referente ao período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a11776cb615a71fd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1415541&numSequencia=940253&numVersao=1",
+        "timestamp_publicacao": "2025-08-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-20T23:59:00-03:00"
+      },
+      "id": "a11776cb615a71fd-0"
+    }
   ]
 }

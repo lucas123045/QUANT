@@ -160,5 +160,50 @@
       },
       "id": "570daa71ba1e839e-7"
     }
+  ],
+  "3c179d18424d2482": [],
+  "041742c9f0c6558d": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano manterá produção de celulose 3,5% abaixo da capacidade nominal durante todo o ano de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Companhia manterá, ao longo de todo o ano de 2026, um volume de produção de celulose de mercado aproximadamente 3,5% (três e meio por cento) inferior à sua capacidade nominal anual.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "041742c9f0c6558d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475889&numSequencia=1000595&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "041742c9f0c6558d-0"
+    }
+  ],
+  "5f14a737ae2e72d7": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação da 38ª emissão de debêntures no valor de R$ 6,29 bilhões para investidores profissionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi aprovada, nesta data, a realização da 38ª (trigésima oitava) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em até 5 (cinco) séries",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5f14a737ae2e72d7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476161&numSequencia=1000867&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "5f14a737ae2e72d7-0"
+    }
   ]
 }

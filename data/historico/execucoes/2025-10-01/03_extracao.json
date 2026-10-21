@@ -1,0 +1,68 @@
+{
+  "f0750165c887001e": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "PRIO anuncia emissão de notas representativas de dívida e oferta de recompra.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Emissão de Notas Representativa de Divida e Oferta de Recompra",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f0750165c887001e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1428150&numSequencia=952862&numVersao=1",
+        "timestamp_publicacao": "2025-10-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-01T23:59:00-03:00"
+      },
+      "id": "f0750165c887001e-0"
+    }
+  ],
+  "cba4f4a0893da491": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "guidance",
+      "resumo": "Gerdau projeta CAPEX de R$ 6,0 bi em 2025 e R$ 4,7 bi em 2026, com redução significativa em 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Conselho de Administração da Gerdau S.A. aprovou, nesta data, a projeção para o plano de investimentos em CAPEX1 para 2026, no valor de R$ 4,7 bilhões, representando uma significativa redução em relação aos últimos anos. O CAPEX para o ano de 2025 permanece inalterado no valor de R$ 6,0 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cba4f4a0893da491",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1428134&numSequencia=952846&numVersao=1",
+        "timestamp_publicacao": "2025-10-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-01T23:59:00-03:00"
+      },
+      "id": "cba4f4a0893da491-0"
+    }
+  ],
+  "1d8a4854068bc613": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "guidance",
+      "resumo": "Gerdau revisou projeções de investimentos e EBITDA potencial anual dos principais projetos, incluindo detalhes sobre o projeto de mineração Miguel Burnier.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "as projeções, anteriormente divulgadas como “Investimentos em CAPEX Estratégico” e agora divulgadas como “Investimentos nos Principais Projetos”, e o consequente “EBITDA Potencial Anual” foram revistas, conforme descrito abaixo e detalhado na apresenta ção do “Gerdau Investor Day 2025”, divulgada ao mercado nesta data",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1d8a4854068bc613",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1428147&numSequencia=952859&numVersao=1",
+        "timestamp_publicacao": "2025-10-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-01T23:59:00-03:00"
+      },
+      "id": "1d8a4854068bc613-0"
+    }
+  ]
+}

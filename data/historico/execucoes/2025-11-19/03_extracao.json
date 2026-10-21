@@ -20,5 +20,69 @@
       },
       "id": "4498c45ef0aa6355-0"
     }
+  ],
+  "97fd4686071d0182": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Banco do Brasil aprovou distribuição de R$ 261,63 milhões em JCP referentes ao 4T25, pagamento em 12/12/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Banco do Brasil S.A. (“BB”) comunica que aprovou em 10/11/2025 a distribuição de R$ 261.630.000,00 a título de remuneração antecipada aos acionistas sob a forma de Juros sobre o Capital Próprio (JCP), relativos ao quarto trimestre de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "97fd4686071d0182",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1447183&numSequencia=971895&numVersao=1",
+        "timestamp_publicacao": "2025-11-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-19T23:59:00-03:00"
+      },
+      "id": "97fd4686071d0182-0"
+    }
+  ],
+  "bebb0cd4c2312a1c": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de distribuição de juros sobre capital próprio de R$ 850 milhões, cerca de R$ 0,76 por ação.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Foi aprovado, conforme o disposto no artigo 44 do Estatuto Social e ad referendum da Assembleia Geral Ordinária que aprovará as contas do exercício social a ser encerrado em 31 de dezembro de 2025, a distribuição de remuneração antecipada aos acionistas, sob a forma de juros sobre o capital próprio (JCP), com base nas informações finan ceiras referentes ao terceiro trimestre de 2025, a serem imputados ao valor dos dividendos obrigatórios referentes ao exercício social a ser encerrado em 31 de dezembro de 202 5, no montante bruto de R$ 850.000.000,00 (oitocentos e cinquenta milhões de reais) , correspondendo a aproximadamente R$ 0,76354353559 por ação de emissão da Companhia (desconsideradas as ações mantidas em tesouraria).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bebb0cd4c2312a1c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1447585&numSequencia=972297&numVersao=1",
+        "timestamp_publicacao": "2025-11-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-19T23:59:00-03:00"
+      },
+      "id": "bebb0cd4c2312a1c-0"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "outro",
+      "resumo": "Aprovação de aumento de capital de R$ 800 milhões via bonificação de ações, na proporção de 1 para 14,06.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Foi aprovado o aumento do capital social da Companhia no valor de R$ 800.000.000,00 (oitocentos milhões de reais), dentro do limite do capital autorizado, nos termos do artigo 6º do Estatuto Social da Companhia, mediante capitalização de parte do saldo contábil da reserva de retenção de lucros da Companhia, conforme registrados no balanço patrimonial da Companhia de 30 de setembro de 2025, com a emissão de novas ações ordinárias, todas nominativas, escriturais e sem valor nominal, a serem atribuídas a títul o de bonificação (respectivamente, “Ações Bonificadas” e “Aumento de Capital”). O Aumento do Capital será efetivado mediante a emissão de 79.563.531 Ações Bonificadas, atribuídas a título de bonificação, na proporção de 1 Ação Bonificada para cada 14,06423244265 ações ordinárias que os acionistas da Companhia possuírem na data de corte.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bebb0cd4c2312a1c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1447585&numSequencia=972297&numVersao=1",
+        "timestamp_publicacao": "2025-11-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-19T23:59:00-03:00"
+      },
+      "id": "bebb0cd4c2312a1c-1"
+    }
   ]
 }

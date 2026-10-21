@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "UGPA3",
+      "tipo_evento": "operacional",
+      "resumo": "Ultrapar contratou Itaú Corretora como formador de mercado para suas ações UGPA3 na B3.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa que celebrou o contrato de prestação de serviços de formador de mercado (“Contrato”) com a Itaú Corretora de Valores S.A., sociedade com sede na Avenida Brigadeiro Faria Lima, 3500, 3º andar, parte, inscrita no CNPJ sob o nº 61.194.353/0001 -64 (“Formador de Mercado”) para exercer, a partir de 02 de setembro de 2025, a função de formador de mercado das ações ordinárias, nominativas e sem valor nominal de emissão da Companhia negociadas no âmbito da B3 S.A. – Brasil, Bolsa, Balcão (“B3”) sob o código “UGPA3”.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a98c474ebccaf16c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1418902&numSequencia=943614&numVersao=1",
+        "timestamp_publicacao": "2025-09-01T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-01T23:59:00-03:00"
+      },
+      "id": "a98c474ebccaf16c-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "A contratação de formador de mercado não altera resultados ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "UGPA3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/09 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: A contratação de formador de mercado não altera resultados ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

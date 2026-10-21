@@ -1,0 +1,25 @@
+{
+  "3679bc798a3a6f32": [],
+  "b6acb12d93f7e2f8": [
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "dividendo",
+      "resumo": "Itaúsa declarou juros sobre capital próprio de R$ 0,138 por ação, a serem pagos até 31 de agosto de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚSA S.A. (B3: ITSA3, ITSA4) comunica que seu Conselho de Administração , reunido nesta data, deliberou declarar juros sobre capital próprio no montante bruto de R$ 1.547 milhões (R$ 0,138 por ação)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b6acb12d93f7e2f8",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1534704&numSequencia=1059410&numVersao=1",
+        "timestamp_publicacao": "2026-06-15T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-15T23:59:00-03:00"
+      },
+      "id": "b6acb12d93f7e2f8-0"
+    }
+  ]
+}

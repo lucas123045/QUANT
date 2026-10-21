@@ -1,0 +1,25 @@
+{
+  "0868f4bcdf455884": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vibra concluiu aquisição de 50% da Comerc, passando a deter 98,7% do capital social da empresa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "foi consumado o fechamento da operação de aquisição pela Companhia de ações de emissão da Comerc Energia S.A. (“Comerc”), conforme inicialmente descrita no fato relevante divulgado pela Companhia em 21 de agosto de 2024",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0868f4bcdf455884",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1325690&numSequencia=850416&numVersao=1",
+        "timestamp_publicacao": "2025-01-16T23:59:00-03:00",
+        "timestamp_coleta": "2025-01-16T23:59:00-03:00"
+      },
+      "id": "0868f4bcdf455884-0"
+    }
+  ],
+  "316d7e53c463bd47": []
+}

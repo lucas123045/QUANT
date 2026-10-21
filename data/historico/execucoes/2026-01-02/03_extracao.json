@@ -1,0 +1,24 @@
+{
+  "c99191bd32a8bbc7": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Aumento de capital social por exercício de opções de compra de ações, aprovado pelo Conselho de Administração.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em reunião do Conselho de Administração realizada no dia 02 de janeiro de 202 6 , foi aprovad a (a) a emissão de 3.137.840 (três milhões cento e cento e trinta e sete mil oitocentos e quarenta) ações ordinárias , nominativas, escriturais e sem valor nominal da Companhia; e (b) a decorrente homologação do aumento do capital social da Companhia no valor de R$ 95.122.389,10",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c99191bd32a8bbc7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1462998&numSequencia=987704&numVersao=1",
+        "timestamp_publicacao": "2026-01-02T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-02T23:59:00-03:00"
+      },
+      "id": "c99191bd32a8bbc7-0"
+    }
+  ]
+}

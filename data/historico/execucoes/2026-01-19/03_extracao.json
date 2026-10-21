@@ -1,0 +1,24 @@
+{
+  "e407f292b38dc641": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou payout de 30% para 2026, com oito pagamentos de dividendos/JCP ao longo do ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Conselho de Administração (CA), aprovou payout de 30% para o exercício de 2026, via juros sobre o capital próprio (JCP) e/ou dividendos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e407f292b38dc641",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1468338&numSequencia=993044&numVersao=1",
+        "timestamp_publicacao": "2026-01-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-19T23:59:00-03:00"
+      },
+      "id": "e407f292b38dc641-0"
+    }
+  ]
+}

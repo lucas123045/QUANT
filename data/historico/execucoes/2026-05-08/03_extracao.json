@@ -20,5 +20,49 @@
       },
       "id": "2ca6fa7d0830bfbc-0"
     }
+  ],
+  "96b4f6670e8dfe16": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Equatorial assinou aditivos que estendem concessões da Equatorial Pará e Maranhão até 2058 e 2060.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "comunica aos investidores e ao mercado em geral que, assinou o Sétimo Termo Aditivo ao Contrato de Concessão do Serviço Público de Distribuição de Energia Elétrica nº 182/1998 -ANEEL e o Quinto Termo Aditivo ao Contrato de Concessão do Serviço Público de Distribuição de Energia Elétrica nº 60/2000 - ANEEL, que estende o prazo de concessão das concessionárias controladas Equatorial Pará Distribuidora de Energia S.A. (“Equatorial Pará”) e Equatorial Maranhão Distribuidora de Energia S.A. (“Equatorial Maranhão”), para 28 de julho de 2058 e 11 de agosto de 2060, respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "96b4f6670e8dfe16",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1519276&numSequencia=1043982&numVersao=1",
+        "timestamp_publicacao": "2026-05-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-08T23:59:00-03:00"
+      },
+      "id": "96b4f6670e8dfe16-0"
+    }
+  ],
+  "561c1b3240fd9eb6": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "operacional",
+      "resumo": "Cosan aprovou e realizou oferta pública secundária de ações da Compass, reduzindo participação de 88% para até 75,37%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi precificada , nesta data , a oferta pública de distribuição secundária de ações ordinárias de emissão d a Compass Gás e Energia S.A. ( “Compass” e “Ações”, respectivamente) e de titularidade da Companhia e dos demais acionistas vendedores indicados no Prospecto Definitivo (“Oferta”). Nesse contexto, o Conselho de Administração da Cosan aprovou, nesta data, a alienação, no âmbito da Oferta, de 76.785.715 Ações de sua titularidade, ao preço por Ação de R$ 28,00, fixado após a conclusão do Procedimento de Bookbuilding, resultando assim em um montante de R$ 2.150.000.020,00 para a Companhia. A Oferta totalizou 100.892.857 Ações alienadas pela Cosan e demais acionistas vendedores, perfazendo o montante total de R$ 2.824.999.996,00. Adicionalmente, foi outorgada pela Cosan ao Bank of America Merrill Lynch Banco Múltiplo S.A., na qualidade de agente estabilizador, opção de lote suplementar de até 13.392.857 Ações de titularidade da Cosan, equivalente a até 15% do total das Ações da Oferta base, nas mesmas condições e ao mesmo Preço por Ação, destinada exclusivamente à atividade de estabilização do preço das Ações no âmbito da Oferta (“Ações Suplementares”). Caso haja a colocação integral das Ações Suplementares, o montante total da Oferta poderá alcançar até R$3.199.999.992,00, tendo a Cosan recebido R$2.525.000.016,00. Em decorrência da Oferta, a participação direta e indireta da Cosan no capital social da Compass, atualmente equivalente a 88%, passará a ser de 77,25%, podendo ser reduzida para 75,37% em caso de colocação integral das Ações Suplementares, permanecendo a Cosan, em conjunto com a Cosan Dez Participações S.A., como acionista controladora da Compass.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "561c1b3240fd9eb6",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1518348&numSequencia=1043054&numVersao=1",
+        "timestamp_publicacao": "2026-05-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-08T23:59:00-03:00"
+      },
+      "id": "561c1b3240fd9eb6-0"
+    }
   ]
 }

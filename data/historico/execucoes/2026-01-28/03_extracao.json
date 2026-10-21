@@ -1,3 +1,25 @@
 {
-  "6c2a6111f516355e": []
+  "6c2a6111f516355e": [],
+  "72475ab21065cd07": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp concluiu aquisição de 14.856.900 ações preferenciais da EMAE, passando a deter 70,1% do capital social total da EMAE.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ocorreu hoje o fechamento da operação envolvendo aquisição de 14.856.900 (quatorze milhões, oitocentos e cinquenta e seis mil e novecentos) ações preferenciais, nominativas, escriturais, e sem valor nominal de emissão da Empresa Metropolitana de Águas e Energia S.A. – EMAE",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "72475ab21065cd07",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1470887&numSequencia=995593&numVersao=1",
+        "timestamp_publicacao": "2026-01-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-01-28T23:59:00-03:00"
+      },
+      "id": "72475ab21065cd07-0"
+    }
+  ]
 }

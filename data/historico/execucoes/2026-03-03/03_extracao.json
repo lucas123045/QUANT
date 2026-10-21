@@ -1,0 +1,46 @@
+{
+  "7a42b7e1419ea236": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "regulatorio",
+      "resumo": "PRIO recebeu do Ibama a Licença de Operação do Campo de Wahoo, última etapa regulatória para início da produção.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "foi concedida , na presente data, pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (“Ibama”), a Licença de Operação (“LO”) do Campo de Wahoo . Com a emissão da LO, a Companhia conclui a última etapa regulatória para o início da produção do campo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7a42b7e1419ea236",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1484462&numSequencia=1009168&numVersao=1",
+        "timestamp_publicacao": "2026-03-03T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-03T23:59:00-03:00"
+      },
+      "id": "7a42b7e1419ea236-0"
+    }
+  ],
+  "758c22fd489cacc7": [
+    {
+      "ticker": "RADL3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Raia Drogasil celebrou contrato para vender 100% da 4Bio Medicamentos S.A. ao Grupo Profarma por R$ 600 milhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "informa que nesta data celebrou Contrato com a Health Ventures S.A., empresa do Grupo Profarma, para alienação de sua participação societária direta de 100% no capital social da 4Bio Medicamentos S.A.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "758c22fd489cacc7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1484397&numSequencia=1009103&numVersao=1",
+        "timestamp_publicacao": "2026-03-03T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-03T23:59:00-03:00"
+      },
+      "id": "758c22fd489cacc7-0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "4d55c4f1e0832a0f": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Resultado da oferta de recompra de notas representativas de dívida foi divulgado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Resultado da Oferta de Recompra de Notas Representativas de Dívida",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4d55c4f1e0832a0f",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1430550&numSequencia=955262&numVersao=1",
+        "timestamp_publicacao": "2025-10-08T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-08T23:59:00-03:00"
+      },
+      "id": "4d55c4f1e0832a0f-0"
+    }
+  ]
+}

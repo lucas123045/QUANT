@@ -1,0 +1,24 @@
+{
+  "92b2571e54619c3d": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "operacional",
+      "resumo": "Aprovação e início de plano de recompra de até 6,9 milhões de ações ordinárias entre 21/05/2025 e 12/11/2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em relação ao plano de aquisição de até 6.904.170 (seis milhões, novecentas e quatro mil, cento e setenta) ações ordinárias de emissão da Companhia (“Plano de Recomp ra”), representativas, em bases totalmente diluídas (fully diluted basis), de aproximadamente 1% (um por cento) do total de ações de emissão da Companhia e das ações em circulação , aprovado pelo Conselho de Administração em reunião realizada no dia 12 de maio de 2025, em continuidade aos Fatos Relevantes divulgados em 12 e 15 de maio de 2025, a Sabesp informa que: (i) as aquisições referentes ao Plano de Recompra serão intermediadas pela Morgan Stanley Corretora de Títulos e Valores Mobiliários S.A., inscrita no CNPJ sob o nº 04.323.351/0001- 94, com sede na cidade de São Paulo, Estado de São Paulo, na Avenida Brigadeiro Faria Lima, nº 3.600, 6º andar, Itaim Bibi, CEP04.538-132; (ii) o Plano de Recompra terá início a partir de 21 de maio de 2025, encerrando-se em 12 de novembro de 2026;",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "92b2571e54619c3d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1380720&numSequencia=905432&numVersao=1",
+        "timestamp_publicacao": "2025-05-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-19T23:59:00-03:00"
+      },
+      "id": "92b2571e54619c3d-0"
+    }
+  ]
+}

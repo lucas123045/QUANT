@@ -1,0 +1,44 @@
+{
+  "1586084c303b9e6e": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de juros sobre capital próprio de R$480,9 milhões em 16/05/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia deliberou (1) pela autorização de crédito e pagamento aos acionistas de juros sobre o capital próprio no valor bruto de R$480.916.080,44",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1586084c303b9e6e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1350150&numSequencia=874876&numVersao=1",
+        "timestamp_publicacao": "2025-03-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-21T23:59:00-03:00"
+      },
+      "id": "1586084c303b9e6e-0"
+    },
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Submissão à assembleia da incorporação da Localiza Franchising Brasil S.A. pela Localiza Rent a Car S.A.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "pela submissão à apreciação de seus acionistas, em sede de Assembleia Geral Ordinária e Extraordinária da Companhia a ser realizada em 30 de abril de 2025 , às 17 horas, de forma exclusivamente digital (“AGOE”), a incorporação, pela Companhia, da sua subsidiária integral Localiza Franchising Brasil S.A.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1586084c303b9e6e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1350150&numSequencia=874876&numVersao=1",
+        "timestamp_publicacao": "2025-03-21T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-21T23:59:00-03:00"
+      },
+      "id": "1586084c303b9e6e-1"
+    }
+  ]
+}

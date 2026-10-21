@@ -1,0 +1,46 @@
+{
+  "2f499b0b8e258e93": [],
+  "b4dbf12d11b80fdf": [],
+  "bf9c8ec951b6b1f4": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre capital próprio de R$ 1,798 bilhão aos acionistas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Companhia aprovou , por unanimidade e sem quaisquer restrições ou ressalvas : (i) o creditamento de juros sobre capital próprio aos acionistas da Companhia, no valor bruto total de R$ 1.798.000.000,00 (um bilhão, setecentos e noventa e oito milhões de reais) (“JCP”)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9c8ec951b6b1f4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1459361&numSequencia=984073&numVersao=1",
+        "timestamp_publicacao": "2025-12-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-19T23:59:00-03:00"
+      },
+      "id": "bf9c8ec951b6b1f4-0"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Aprovação de aumento de capital social de R$ 2,81 bilhões com emissão de novas ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o aumento d o capital social da Companhia no valor de R$ 2.810.000.000,00 (dois bilhões, oitocentos e dez milhões de reais), dentro do limite do capital autorizado, nos termos do Artigo 3º, §§ 3º e 5º do seu Estatuto Social, mediante a capitalização de parte do saldo de reservas de lucros da Companhia, com a emissão de 20.264.000 (vinte milhões e duzentas e sessenta e quatro mil) novas ações ordinárias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9c8ec951b6b1f4",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1459361&numSequencia=984073&numVersao=1",
+        "timestamp_publicacao": "2025-12-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-19T23:59:00-03:00"
+      },
+      "id": "bf9c8ec951b6b1f4-1"
+    }
+  ]
+}
