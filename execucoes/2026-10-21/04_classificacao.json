@@ -173,5 +173,32 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V1"
+  },
+  "5c1db712b341199b-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Projeção de terceiros sem confirmação e sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5c1db712b341199b-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.7,
+    "materialidade": "baixa",
+    "motivo_materialidade": "É apenas uma previsão de terceiros, sem confirmação ou anúncio oficial.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5c1db712b341199b-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "É apenas uma projeção de analista, sem confirmação ou efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

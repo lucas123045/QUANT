@@ -502,5 +502,67 @@
       },
       "id": "6624336bfebd458c-2"
     }
+  ],
+  "5c1db712b341199b": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "XP projeta resultados sólidos para Petrobras no 3T26, com queda do EBITDA, mas dividendos maiores.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A Petrobras ( PETR3 ; PETR4 ) também deve entregar resultados sólidos. A XP projeta queda do EBITDA, apesar de preços internacionais de derivados mais fortes e da maior produção de petróleo no trimestre. Ainda assim, os dividendos devem crescer na comparação sequencial, sustentados por maiores entradas da subvenção do governo aos combustíveis.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "XP prevê crescimento dos dividendos da Petrobras no 3T26, sustentados por subvenção do governo.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Ainda assim, os dividendos devem crescer na comparação sequencial, sustentados por maiores entradas da subvenção do governo aos combustíveis.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "XP projeta queda de EBITDA para Vale no 3T26 devido a custos elevados e preços menores do minério.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "A XP destaca a persistência da pressão de custos, com fretes elevados e preços realizados mais baixos do minério de ferro afetando as mineradoras, especialmente CSN Mineração ( CMIN3 ) e Vale ( VALE3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-2"
+    }
   ]
 }

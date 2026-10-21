@@ -395,3 +395,55 @@
 2026-10-21 19:12:30,804 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-10-21 19:12:30,807 INFO agendado: vitrine: {"real": {"noticias": 94, "execucoes": 1, "operacoes": 5, "simulacao": "aguardando_pregao"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-21 19:12:30,807 INFO agendado: ==== fim: vitrine (ok)
+2026-10-21 19:37:03,528 INFO agendado: ==== início: pipeline
+2026-10-21 19:37:03,770 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-21 19:37:04,058 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-21 19:37:04,625 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-21 19:37:05,288 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-21 19:37:05,403 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-21 19:37:05,541 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-21 19:37:06,039 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-21 19:37:06,586 INFO src.news: Money Times (VALE3): 1 itens novos na janela
+2026-10-21 19:37:07,079 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-21 19:37:07,503 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-21 19:37:07,906 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-21 19:37:08,438 INFO src.cvm: CVM: 0 fato(s) relevante(s) novo(s) da carteira desde 2026-10-11
+2026-10-21 19:37:08,454 INFO src.main: Coleta: 8 itens novos nesta execução (50 no dia)
+2026-10-21 19:37:08,490 INFO src.archive: Arquivados 8 novos de 50 coletados
+2026-10-21 19:37:08,496 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 19:37:13,713 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 19:37:13,727 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 19:37:13,731 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 19:37:15,066 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 19:37:15,076 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 19:37:16,517 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 19:37:16,524 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 19:37:17,495 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 19:37:17,510 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 19:37:19,979 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 19:37:19,986 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-10-21 19:37:20,035 INFO agendado: resumo: {"coletados": 50, "novos_arquivados": 21, "eventos_validos": 28, "operacoes": 0, "por_fonte": {"InfoMoney": 31, "Money Times": 18, "CVM (fato relevante)": 1}, "backup": "/tmp/quant-backup/quant-dados-2026-10-21_163703.zip"}
+2026-10-21 19:37:20,035 INFO agendado: ==== fim: pipeline (ok)
+2026-10-21 19:37:20,156 INFO agendado: ==== início: vitrine
+2026-10-21 19:37:20,823 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-21 19:37:20,827 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-21 19:37:26,974 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-21 19:37:26,979 INFO httpx2: HTTP Request: GET http://testserver/api/congelamento "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,125 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=historico "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,582 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,590 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,600 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,604 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,609 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:28,627 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,329 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,973 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,977 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,981 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,984 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:29,987 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:30,001 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:30,005 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:30,008 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-21 19:37:30,011 INFO agendado: vitrine: {"real": {"noticias": 102, "execucoes": 1, "operacoes": 5, "simulacao": "aguardando_pregao"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-21 19:37:30,011 INFO agendado: ==== fim: vitrine (ok)

@@ -28,10 +28,10 @@
     },
     "decisao": {
       "ticker": "PETR4",
-      "decisao": "compra",
-      "motivo": "evento positivo confirmado (operacional) com probabilidade 0.85 > 0.70 e sem evento negativo recente",
-      "fracao_alvo": 0.2,
-      "versao_regra": "REGRA_V2",
+      "decisao": "manter",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -49,6 +49,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -57,6 +67,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -98,7 +113,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -114,6 +129,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": true,
           "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -162,10 +187,10 @@
     },
     "decisao": {
       "ticker": "PETR4",
-      "decisao": "compra",
-      "motivo": "evento positivo confirmado (regulatorio) com probabilidade 0.80 > 0.70 e sem evento negativo recente",
-      "fracao_alvo": 0.2,
-      "versao_regra": "REGRA_V2",
+      "decisao": "manter",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -183,6 +208,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -191,6 +226,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -232,7 +272,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -250,6 +290,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -258,6 +308,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -299,7 +354,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -315,6 +370,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": false,
           "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -366,7 +431,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -384,6 +449,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -392,6 +467,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -430,10 +510,10 @@
     },
     "decisao": {
       "ticker": "PETR4",
-      "decisao": "compra",
-      "motivo": "evento positivo confirmado (regulatorio) com probabilidade 0.80 > 0.70 e sem evento negativo recente",
-      "fracao_alvo": 0.2,
-      "versao_regra": "REGRA_V2",
+      "decisao": "manter",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -451,6 +531,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -459,6 +549,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -497,10 +592,10 @@
     },
     "decisao": {
       "ticker": "PETR4",
-      "decisao": "compra",
-      "motivo": "evento positivo confirmado (regulatorio) com probabilidade 0.80 > 0.70 e sem evento negativo recente",
-      "fracao_alvo": 0.2,
-      "versao_regra": "REGRA_V2",
+      "decisao": "manter",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -518,6 +613,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -526,6 +631,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -564,10 +674,10 @@
     },
     "decisao": {
       "ticker": "PETR4",
-      "decisao": "compra",
-      "motivo": "evento positivo confirmado (regulatorio) com probabilidade 0.80 > 0.70 e sem evento negativo recente",
-      "fracao_alvo": 0.2,
-      "versao_regra": "REGRA_V2",
+      "decisao": "manter",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -585,6 +695,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -593,6 +713,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -634,7 +759,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -652,6 +777,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -660,6 +795,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -701,7 +841,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -719,6 +859,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -727,6 +877,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -768,7 +923,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -786,6 +941,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -794,6 +959,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": false,
           "detalhe": "confiança: 0,70"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -833,9 +1003,9 @@
     "decisao": {
       "ticker": "BBDC4",
       "decisao": "manter",
-      "motivo": "sentimento neutro",
+      "motivo": "classificação sem avaliação de materialidade (feita com um prompt anterior à REGRA_V3)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -851,6 +1021,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": true,
           "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -902,7 +1082,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -920,6 +1100,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -928,6 +1118,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -969,7 +1164,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -987,6 +1182,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -995,6 +1200,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -1036,7 +1246,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1054,6 +1264,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -1062,6 +1282,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -1103,7 +1328,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1121,6 +1346,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -1129,6 +1364,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -1170,7 +1410,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1188,6 +1428,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: negativo"
@@ -1196,6 +1446,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
@@ -1237,7 +1492,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1253,6 +1508,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": false,
           "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -1304,7 +1569,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1320,6 +1585,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": false,
           "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -1371,7 +1646,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1389,6 +1664,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -1397,6 +1682,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -1438,7 +1728,7 @@
       "decisao": "manter",
       "motivo": "evento não confirmado (rumor ou expectativa)",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1456,6 +1746,16 @@
           "detalhe": "rumor, expectativa ou especulação"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": true,
           "detalhe": "sentimento: positivo"
@@ -1464,6 +1764,11 @@
           "criterio": "Confiança da IA acima de 0,70",
           "ok": true,
           "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
         },
         {
           "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
@@ -1505,7 +1810,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1521,6 +1826,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": true,
           "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -1572,7 +1887,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1588,6 +1903,16 @@
           "criterio": "O evento está confirmado (não é rumor)",
           "ok": true,
           "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
         },
         {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
@@ -1639,7 +1964,7 @@
       "decisao": "manter",
       "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
       "fracao_alvo": 0.0,
-      "versao_regra": "REGRA_V2",
+      "versao_regra": "REGRA_V3",
       "criterios": [
         {
           "criterio": "A IA classificou o evento",
@@ -1657,6 +1982,16 @@
           "detalhe": "o texto afirma que aconteceu"
         },
         {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "hora da coleta não registrada"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": null,
+          "detalhe": "não avaliada (classificação anterior à REGRA_V3)"
+        },
+        {
           "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
           "ok": false,
           "detalhe": "sentimento: neutro"
@@ -1670,6 +2005,251 @@
           "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
           "ok": null,
           "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "XP projeta resultados sólidos para Petrobras no 3T26, com queda do EBITDA, mas dividendos maiores.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A Petrobras ( PETR3 ; PETR4 ) também deve entregar resultados sólidos. A XP projeta queda do EBITDA, apesar de preços internacionais de derivados mais fortes e da maior produção de petróleo no trimestre. Ainda assim, os dividendos devem crescer na comparação sequencial, sustentados por maiores entradas da subvenção do governo aos combustíveis.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Projeção de terceiros sem confirmação e sem efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Projeção de terceiros sem confirmação e sem efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "XP prevê crescimento dos dividendos da Petrobras no 3T26, sustentados por subvenção do governo.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Ainda assim, os dividendos devem crescer na comparação sequencial, sustentados por maiores entradas da subvenção do governo aos combustíveis.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.7,
+        "materialidade": "baixa",
+        "motivo_materialidade": "É apenas uma previsão de terceiros, sem confirmação ou anúncio oficial.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: É apenas uma previsão de terceiros, sem confirmação ou anúncio oficial."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": false,
+          "detalhe": "confiança: 0,70"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "XP projeta queda de EBITDA para Vale no 3T26 devido a custos elevados e preços menores do minério.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "A XP destaca a persistência da pressão de custos, com fretes elevados e preços realizados mais baixos do minério de ferro afetando as mineradoras, especialmente CSN Mineração ( CMIN3 ) e Vale ( VALE3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c1db712b341199b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/xp-preve-temporada-de-balancos-no-3t26-forte-para-poucas-empresas-e-fraca-para-muitas/",
+        "timestamp_publicacao": "2026-10-21T16:30:00-03:00",
+        "timestamp_coleta": "2026-10-21T16:37:03.628914-03:00"
+      },
+      "id": "5c1db712b341199b-2",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.9,
+        "materialidade": "baixa",
+        "motivo_materialidade": "É apenas uma projeção de analista, sem confirmação ou efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: É apenas uma projeção de analista, sem confirmação ou efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
         }
       ]
     }
