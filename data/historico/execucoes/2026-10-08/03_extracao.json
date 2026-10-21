@@ -1,0 +1,66 @@
+{
+  "2d3eef49640f99f9": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras adquiriu 21 blocos em leilões da ANP, ampliando portfólio exploratório e fortalecendo posição em águas profundas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que participou do 4º Ciclo de Oferta Permanente de Partilha de Produção e do 6º Ciclo de Oferta Permanente de Concessão promovidos pela Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2d3eef49640f99f9",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1575304&numSequencia=1100010&numVersao=1",
+        "timestamp_publicacao": "2026-10-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-08T23:59:00-03:00"
+      },
+      "id": "2d3eef49640f99f9-0"
+    }
+  ],
+  "d0f5d3dbdf253b38": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Banco Central homologou aumento de capital do Bradesco, permitindo emissão de novas ações.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "nesta data, o Banco Central do Brasil homologou o Aumento de Capital",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0f5d3dbdf253b38",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1575663&numSequencia=1100369&numVersao=1",
+        "timestamp_publicacao": "2026-10-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-08T23:59:00-03:00"
+      },
+      "id": "d0f5d3dbdf253b38-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Valores dos juros sobre capital próprio por ação ajustados após aumento de capital homologado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "os valores dos juros sobre o capital próprio por ação anteriormente divulgados ficam ajustados para R$0,323858718 por a ção ordin ária e R$0,356244590 por a ção preferencial",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0f5d3dbdf253b38",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1575663&numSequencia=1100369&numVersao=1",
+        "timestamp_publicacao": "2026-10-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-08T23:59:00-03:00"
+      },
+      "id": "d0f5d3dbdf253b38-1"
+    }
+  ]
+}

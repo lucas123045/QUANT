@@ -37,7 +37,7 @@ import pandas as pd
 
 from src import archive, auditoria, backtest, config
 from src.estatistica import media_com_intervalo
-from src.strategy import TIPO_COTACAO
+from src.strategy import TIPO_COTACAO, VERSAO_REGRA
 
 logger = logging.getLogger(__name__)
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
@@ -138,15 +138,19 @@ def leitura_reacao(z: float, direcao: int, corte: float | None = None) -> str:
 # Estudo
 # ---------------------------------------------------------------------------
 
-def _candidatos(eventos: list[dict]) -> list[dict]:
-    """Eventos com direção, um por (ação, dia, sentimento), em ordem cronológica."""
+def _candidatos(eventos: list[dict], tickers: set[str] | None = None) -> list[dict]:
+    """Eventos com direção, um por (ação, dia, sentimento), em ordem cronológica.
+
+    `tickers`: as ações aceitas (padrão: a carteira; o estudo histórico usa o universo ampliado).
+    """
+    tickers = set(config.CARTEIRA) if tickers is None else tickers
     vistos, lista = set(), []
     for e in sorted(eventos, key=lambda e: backtest.instante_do_evento(e) or ""):
         classificacao = e.get("classificacao") or {}
         sentimento = classificacao.get("sentimento")
         instante = backtest.instante_do_evento(e)
         if (sentimento not in ("positivo", "negativo") or not instante
-                or e.get("tipo_evento") == TIPO_COTACAO or e.get("ticker") not in config.CARTEIRA):
+                or e.get("tipo_evento") == TIPO_COTACAO or e.get("ticker") not in tickers):
             continue
         chave = (e["ticker"], backtest.data_local(instante), sentimento)
         if chave in vistos:
@@ -161,7 +165,8 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
     rets = retornos(precos)
     operados = operados or set()
     linhas = []
-    for e in _candidatos(eventos):
+    tickers = {c for c in precos.columns if c != config.BENCHMARK}
+    for e in _candidatos(eventos, tickers):
         classificacao = e["classificacao"]
         direcao = 1 if classificacao["sentimento"] == "positivo" else -1
         instante = backtest.instante_do_evento(e)
@@ -173,8 +178,13 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
             "sentimento": classificacao["sentimento"], "probabilidade": classificacao.get("probabilidade"),
             "tipo_fonte": backtest.tipo_fonte_do_evento(e), "resumo": e.get("resumo"),
             "url": (e.get("origem") or {}).get("url"), "operado": e.get("id") in operados,
+            "na_carteira": e["ticker"] in config.CARTEIRA,
             "reacao": None, "reacao_z": None, "leitura_reacao": None,
             **{f"car_{h}": None for h in HORIZONTES},
+            # Quando cada janela termina: o portão de evidência da prática só usa
+            # eventos cuja janela já acabou antes do dia da decisão.
+            **{f"fim_{h}": (precos.index[execucao + h].date().isoformat()
+                            if 0 <= execucao and execucao + h < len(precos.index) else None) for h in HORIZONTES},
         }
         if modelo is not None:
             reacao = reacao_do_mercado(e["ticker"], instante, precos, rets)
@@ -234,7 +244,9 @@ def grupos(linhas: list[dict]) -> list[dict]:
                   ("Fatos confirmados", [l for l in linhas if l["confirmado"]]),
                   ("Não confirmados (expectativas)", [l for l in linhas if not l["confirmado"]]),
                   ("Notícias de portal", [l for l in linhas if l["tipo_fonte"] == "noticia"]),
-                  ("Fatos relevantes (CVM)", [l for l in linhas if l["tipo_fonte"] == "fato_relevante"])]
+                  ("Fatos relevantes (CVM)", [l for l in linhas if l["tipo_fonte"] == "fato_relevante"]),
+                  ("Ações da carteira", [l for l in linhas if l.get("na_carteira")]),
+                  ("Outras grandes empresas (estudo)", [l for l in linhas if not l.get("na_carteira")])]
     candidatos += [(f"Reação {r} antes da execução", [l for l in linhas if l["leitura_reacao"] == r])
                    for r in ("a favor", "neutra", "contra")]
     candidatos += [(f"Tipo: {t}", [l for l in linhas if l["tipo_evento"] == t])
@@ -321,7 +333,7 @@ def latencia(dir_arquivo: Path) -> dict:
 def _ids_operados(dir_data: Path) -> set[str]:
     ids = set()
     for op in auditoria.ler_operacoes(dir_data / "operacoes.jsonl"):
-        if auditoria.versao_regra(op) == "REGRA_V2":
+        if auditoria.versao_regra(op) == VERSAO_REGRA:
             ids.add((op.get("evento") or {}).get("id"))
     return ids
 
@@ -333,7 +345,8 @@ def estudar(dir_data: Path | None = None, agora: datetime | None = None, baixar=
     dir_data = Path(dir_data or config.DIR_DATA)
     agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
     eventos = simulacao.eventos_classificados(dir_data)
-    candidatos = _candidatos(eventos)
+    aceitos = set(config.CARTEIRA) | {t for t, _ in config.UNIVERSO_ESTUDO.values()}
+    candidatos = _candidatos(eventos, aceitos)
     base = {"metodo": {"janela_estimacao": JANELA_ESTIMACAO, "minimo_estimacao": MINIMO_ESTIMACAO,
                        "horizontes": list(HORIZONTES), "minimo_grupo": MINIMO_GRUPO,
                        "corte_reacao_z": config.PRATICA_Z_REACAO},
@@ -348,7 +361,8 @@ def estudar(dir_data: Path | None = None, agora: datetime | None = None, baixar=
     ultimo_dia = hoje if agora.time() >= simulacao.HORARIO_FECHAMENTO_CONFIAVEL else hoje - timedelta(days=1)
     # ~120 pregões antes do primeiro evento para estimar o beta.
     inicio = (primeiro - pd.Timedelta(days=200)).date()
-    precos = backtest.carregar_precos(inicio.isoformat(), ultimo_dia.isoformat(),
+    tickers = sorted({e["ticker"] for e in candidatos})
+    precos = backtest.carregar_precos(inicio.isoformat(), ultimo_dia.isoformat(), tickers + [config.BENCHMARK],
                                       pasta=dir_data / "estudos" / "precos", baixar=baixar)
     precos = simulacao._sem_preco_parcial(precos.dropna(how="all"), agora)
     linhas = observacoes(eventos, precos, _ids_operados(dir_data))

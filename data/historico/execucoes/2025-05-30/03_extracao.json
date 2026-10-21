@@ -1,0 +1,24 @@
+{
+  "9b0e0388a8977218": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras anunciou pedido de registro de oferta pública de debêntures no valor de R$ 3 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras anuncia Pedido de Registro de Oferta Pública de Debêntures — Rio de Janeiro, 30 de maio de 2025 - A Petróleo Brasileiro S.A . – Petrobras, em continuidade aos Fatos Relevantes divulgados em 26 de maio de 2025 e 28 de maio de 2025, informa que apresentou à Comissão de Valores Mobiliários (“CVM”), nesta data, o pedido de registro da oferta para distribuição pública de debêntures simples, não conversíveis em ações, em até 3 (três) séries, da espécie quirografária, da 8ª (oitava) emissão da Companhia (“Debêntures”), no valor total de R$ 3.000.000.000,00 (três bilhões de reais) (“Emissão”), a qual será objeto de oferta pública de distribuição, sob o rito de registro automático, com dispensa de análise prévia, nos termos do artigo 26, inciso IV, alínea “b”, da Resolução da CVM n.º 160, de 13 de julho de 2022, (“Resolução CVM 160”), da Lei n.º 12.431, de 24 de junho de 2011, (“Lei n.º 12.431”), do Decreto n.º 11.964, de 26 de março de 2024, (“Decreto n.º 11.964”), da Lei n.º 6.385, de 7 de dezembro de 1976, conforme em vigor, bem como das demais disposições legais e regulamentares aplicáveis (“Oferta”), conforme aprovada pela Diretoria Executiva da Companhia, em reunião realizada em 28 de maio de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b0e0388a8977218",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1385344&numSequencia=910056&numVersao=1",
+        "timestamp_publicacao": "2025-05-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-30T23:59:00-03:00"
+      },
+      "id": "9b0e0388a8977218-0"
+    }
+  ]
+}

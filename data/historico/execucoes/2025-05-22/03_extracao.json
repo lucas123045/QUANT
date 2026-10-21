@@ -1,0 +1,24 @@
+{
+  "d9bbc43155627538": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Vale aprova emissão de debêntures de R$6 bilhões para projetos prioritários em transportes.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale S.A (“Vale” ou a “Companhia”) informa que seu Conselho de Administração aprovou, na data de hoje, a 11ª (décima primeira) emissão de debêntures simples, não conversíveis em ações, da espécie quirografária, em 3 (três) séries, no valor total de R$6.000.000.000,00 (seis bilhões de reais), com prazos de 7, 10 e 1 2 anos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d9bbc43155627538",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1382116&numSequencia=906828&numVersao=1",
+        "timestamp_publicacao": "2025-05-22T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-22T23:59:00-03:00"
+      },
+      "id": "d9bbc43155627538-0"
+    }
+  ]
+}

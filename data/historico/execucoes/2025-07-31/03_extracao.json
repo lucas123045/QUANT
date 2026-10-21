@@ -1,0 +1,68 @@
+{
+  "f279997f48b9f64e": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale aprova uso de instrumentos financeiros para apoiar programa de recompra de até 120 milhões de ações.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração da Vale autorizou, nesta data, o uso de um ou mais dos seguintes instrumentos financeiros relacionados a negociações de valores mobiliários da Vale : contratos de Total Return Equity Swap (TSR), Enhanced Share Repurchase (ESR) e Accelerated Share Repurchase (ASR).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f279997f48b9f64e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406266&numSequencia=930978&numVersao=1",
+        "timestamp_publicacao": "2025-07-31T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-31T23:59:00-03:00"
+      },
+      "id": "f279997f48b9f64e-0"
+    }
+  ],
+  "48d4fe07ec867937": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "dividendo",
+      "resumo": "Vale aprova distribuição de juros sobre capital próprio de R$ 1,895387417 por ação, com pagamento em setembro de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A. (“Vale” ou “Companhia) informa que seu Conselho de Administração aprovou, na presente data, a distribuição de juros sobre o capital próprio (“JCP”) no valor bruto de R$ 1,895387417 por ação, apurados com base no balanço de 30 de junho de 2025, e em linha com a Política de Remuneração aos Acionistas da Companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "48d4fe07ec867937",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406267&numSequencia=930979&numVersao=1",
+        "timestamp_publicacao": "2025-07-31T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-31T23:59:00-03:00"
+      },
+      "id": "48d4fe07ec867937-0"
+    }
+  ],
+  "d40e6ac0393db8ee": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale atualizou projeção do custo all-in de cobre para 2025, reduzindo estimativa anterior.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale informa sobre a atualização de projeção do custo all-in de cobre Rio de Janeiro, 31 de julho de 2025 – A Vale S.A. (“Vale”) informa que atualizou suas estimativas para o custo all- in do cobre em 2025, refletindo o sólido desempenho operacional do negócio e os preços do ouro como subproduto acima das expectativas . Todas as demais estimativas divulgadas anteriormente pela Companhia permanecem inalteradas. Componentes de custo all-in (US$/t): US$/t 2025 novo 2025 anterior Custo all-in cobre1 1.500-2.000 2.800-3.300",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d40e6ac0393db8ee",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1406268&numSequencia=930980&numVersao=1",
+        "timestamp_publicacao": "2025-07-31T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-31T23:59:00-03:00"
+      },
+      "id": "d40e6ac0393db8ee-0"
+    }
+  ]
+}

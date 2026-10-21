@@ -1,0 +1,24 @@
+{
+  "681dba0d249ec41c": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Bradesco aprova pagamento de juros sobre capital próprio intermediários de R$2,3 bilhões até 31/10/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião hoje realizada, aprovou proposta da Diretoria para pagamento de juros sobre o capital próprio intermediários, no valor total de R$2.300.000.000,00",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "681dba0d249ec41c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1349389&numSequencia=874115&numVersao=1",
+        "timestamp_publicacao": "2025-03-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-20T23:59:00-03:00"
+      },
+      "id": "681dba0d249ec41c-0"
+    }
+  ]
+}

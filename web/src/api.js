@@ -69,7 +69,7 @@ export async function lerArquivo(nome) {
 async function pedirVitrine(caminho, opcoes) {
   if (opcoes.method && opcoes.method !== "GET") throw new Error(MENSAGEM_VITRINE);
   const url = new URL(caminho, window.location.origin);
-  const base = url.searchParams.get("base") === "teste" ? "teste" : "real";
+  const base = ["teste", "historico"].includes(url.searchParams.get("base")) ? url.searchParams.get("base") : "real";
   const partes = url.pathname.replace(/^\/api\//, "").split("/");
 
   switch (partes[0]) {
@@ -81,6 +81,7 @@ async function pedirVitrine(caminho, opcoes) {
     case "pratica": return lerArquivo(`pratica-${base}.json`);
     case "evidencias": return lerArquivo(`evidencias-${base}.json`);
     case "mercado": return lerArquivo("mercado.json");
+    case "congelamento": return lerArquivo("congelamento.json");
     case "tarefas": return [];
     case "execucoes":
       if (partes[1]) {

@@ -3,16 +3,20 @@ import pytest
 from src.strategy import COMPRA, MANTER, VENDA, decidir
 
 
-def evento(ticker="PETR4", confirmado=True, quando="2026-10-15T10:00:00-03:00", sentimento=None):
-    e = {"ticker": ticker, "tipo_evento": "dividendo", "confirmado": confirmado,
-         "origem": {"timestamp_publicacao": quando, "tipo_fonte": "noticia"}}
+def evento(ticker="PETR4", confirmado=True, quando="2026-10-15T10:00:00-03:00", sentimento=None,
+           coleta=None, materialidade="alta", fonte="Portal A"):
+    origem = {"timestamp_publicacao": quando, "tipo_fonte": "noticia", "fonte": fonte}
+    if coleta:
+        origem["timestamp_coleta"] = coleta
+    e = {"ticker": ticker, "tipo_evento": "dividendo", "confirmado": confirmado, "origem": origem}
     if sentimento:
-        e["classificacao"] = {"sentimento": sentimento, "probabilidade": 0.9}
+        e["classificacao"] = {"sentimento": sentimento, "probabilidade": 0.9, "materialidade": materialidade}
     return e
 
 
-def cls(sentimento="positivo", probabilidade=0.9):
-    return {"sentimento": sentimento, "probabilidade": probabilidade}
+def cls(sentimento="positivo", probabilidade=0.9, materialidade="alta"):
+    return {"sentimento": sentimento, "probabilidade": probabilidade, "materialidade": materialidade,
+            "motivo_materialidade": "muda o lucro do trimestre"}
 
 
 def test_compra_positivo_confirmado_acima_do_limiar():
@@ -89,8 +93,9 @@ def test_evento_oposto_posterior_nao_bloqueia():
     assert decidir(evento(), cls(), historico).decisao == COMPRA
 
 
-def test_mesmo_sentimento_recente_nao_bloqueia():
-    historico = [evento(quando="2026-10-14T10:00:00-03:00", sentimento="positivo")]
+def test_mesmo_sentimento_fora_da_janela_de_repeticao_nao_bloqueia():
+    # Dois dias antes: outro fato no mesmo sentido, não a mesma notícia repetida.
+    historico = [evento(quando="2026-10-13T10:00:00-03:00", sentimento="positivo")]
     assert decidir(evento(), cls(), historico).decisao == COMPRA
 
 
@@ -112,8 +117,8 @@ def test_v2_noticia_de_cotacao_nao_opera():
 
 def test_v2_criterios_mostram_por_que_comprou():
     d = decidir(evento(), cls("positivo", 0.9))
-    assert d.versao_regra == "REGRA_V2"
-    assert [c["ok"] for c in d.criterios] == [True] * 6
+    assert d.versao_regra == "REGRA_V3"
+    assert [c["ok"] for c in d.criterios] == [True] * 9
     assert any("0,90" in c["detalhe"] for c in d.criterios)  # o valor que decidiu
 
 
@@ -126,7 +131,7 @@ def test_v2_criterios_mostram_o_que_barrou():
 
 def test_v2_criterios_sem_classificacao():
     d = decidir(evento(), None)
-    assert d.criterios[0]["ok"] is False and len(d.criterios) == 3
+    assert d.criterios[0]["ok"] is False and len(d.criterios) == 4
     assert d.como_dict()["criterios"] == list(d.criterios)  # vai para o JSON como lista
 
 
@@ -139,3 +144,69 @@ def test_v2_previa_ou_cotacao_recente_nao_bloqueia_um_fato():
     assert decidir(fato, cls("negativo"), [previa, cotacao]).decisao == VENDA
     confirmado = {**evento(quando="2026-10-19T12:00:00-03:00", sentimento="positivo"), "ticker": "BBDC4"}
     assert decidir(fato, cls("negativo"), [confirmado]).decisao == MANTER  # fato contrário confirmado ainda bloqueia
+
+
+# --- REGRA_V3: materialidade, fato novo e repetição (casos reais de 21/10/2026) ---
+
+def test_v3_fato_sem_materialidade_nao_opera():
+    """"A ANP adiou uma audiência pública": confirmado e positivo, mas sem efeito financeiro."""
+    d = decidir(evento(), cls("positivo", 0.8, "baixa"))
+    assert d.decisao == MANTER and "materialidade baixa" in d.motivo
+    assert decidir(evento(), cls("positivo", 0.8, "media")).decisao == COMPRA  # média basta
+
+
+def test_v3_classificacao_sem_materialidade_nao_opera():
+    d = decidir(evento(), {"sentimento": "positivo", "probabilidade": 0.95})
+    assert d.decisao == MANTER and "materialidade" in d.motivo
+
+
+def test_v3_mesma_noticia_em_outro_portal_e_repeticao():
+    primeira = evento(quando="2026-10-21T09:00:00-03:00", sentimento="positivo", fonte="InfoMoney")
+    segunda = evento(quando="2026-10-21T09:40:00-03:00", fonte="Money Times")
+    d = decidir(segunda, cls(), [primeira])
+    assert d.decisao == MANTER and "repetição" in d.motivo and "InfoMoney" in d.motivo
+    # Sentido oposto não é repetição (é o filtro de evento oposto que barra).
+    oposta = decidir(segunda, cls("negativo"), [primeira])
+    assert "repetição" not in oposta.motivo and "positivo" in oposta.motivo
+
+
+def test_v3_repeticao_so_conta_se_a_anterior_gerou_sinal():
+    # A anterior não tinha materialidade (não gerou sinal): a nova notícia, relevante, decide.
+    fraca = evento(quando="2026-10-21T09:00:00-03:00", sentimento="positivo", materialidade="baixa")
+    assert decidir(evento(quando="2026-10-21T10:00:00-03:00"), cls(), [fraca]).decisao == COMPRA
+    # A anterior era fato velho (não gerou sinal): a notícia nova, a tempo, decide.
+    velha = evento(quando="2026-10-20T09:00:00-03:00", coleta="2026-10-21T18:00:00-03:00", sentimento="positivo")
+    assert decidir(evento(quando="2026-10-21T10:00:00-03:00"), cls(), [velha]).decisao == COMPRA
+
+
+def test_v3_fato_velho_nao_opera():
+    """Fato relevante entregue à CVM em 13/10 e coletado em 21/10: o mercado já negociou com ele."""
+    e = evento(quando="2026-10-13T23:59:00-03:00", coleta="2026-10-21T15:14:00-03:00")
+    d = decidir(e, cls())
+    assert d.decisao == MANTER and "fato velho" in d.motivo and "14/10 16:55" in d.motivo
+
+
+@pytest.mark.parametrize("coleta, velho", [
+    ("2026-10-16T16:54:00-03:00", False),  # sexta 15/10 -> pregão seguinte é sexta 16/10: soube antes do leilão
+    ("2026-10-16T16:55:00-03:00", True),   # no início do leilão de fechamento: tarde demais
+])
+def test_v3_limite_do_fato_novo(coleta, velho):
+    e = evento(quando="2026-10-15T10:00:00-03:00", coleta=coleta)
+    assert (decidir(e, cls()).decisao == MANTER) is velho
+
+
+def test_v3_fato_de_sexta_coletado_no_fim_de_semana_ainda_vale():
+    # Publicado sexta 16/10 à noite, coletado domingo: o pregão seguinte é segunda 19/10.
+    e = evento(quando="2026-10-16T21:00:00-03:00", coleta="2026-10-18T10:00:00-03:00")
+    assert decidir(e, cls()).decisao == COMPRA
+
+
+def test_v3_evento_antigo_sem_hora_da_coleta_e_tratado_como_novo():
+    assert decidir(evento(quando="2026-10-01T10:00:00-03:00"), cls()).decisao == COMPRA
+
+
+def test_v3_fato_oposto_sem_materialidade_nao_bloqueia():
+    irrelevante = evento(quando="2026-10-14T10:00:00-03:00", sentimento="negativo", materialidade="baixa")
+    assert decidir(evento(), cls(), [irrelevante]).decisao == COMPRA
+    relevante = evento(quando="2026-10-14T10:00:00-03:00", sentimento="negativo", materialidade="media")
+    assert decidir(evento(), cls(), [relevante]).decisao == MANTER

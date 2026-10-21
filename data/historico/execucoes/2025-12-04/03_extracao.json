@@ -1,0 +1,24 @@
+{
+  "169624db3fc1d742": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras arrematou direitos e obrigações da União em Mero e Atapu, aumentando participação nas jazidas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. - Petrobras informa que arrematou os direitos e obrigações da União em Mero e Atapu no Leilão de Áreas Não Contratadas realizado hoje pela Pré-Sal Petróleo S.A. - PPSA.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "169624db3fc1d742",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1452804&numSequencia=977516&numVersao=1",
+        "timestamp_publicacao": "2025-12-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-04T23:59:00-03:00"
+      },
+      "id": "169624db3fc1d742-0"
+    }
+  ]
+}

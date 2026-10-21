@@ -23,8 +23,10 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 
-from src import archive, auditoria, config, estudo_evento, funil, llm, main, mercado, news, pratica, simulacao
+from src import (archive, auditoria, config, congelamento, estudo_evento, funil, llm, main, mercado, news,
+                 pratica, simulacao)
 from src.matching import identificar_tickers
+from src.strategy import VERSAO_REGRA
 
 FUSO = ZoneInfo(config.FUSO_REFERENCIA)
 DATA_VALIDA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -37,9 +39,12 @@ app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost
 
 
 def _dir(base: str) -> Path:
-    if base not in ("real", "teste"):
-        raise HTTPException(400, "base deve ser 'real' ou 'teste'")
-    return config.DIR_DATA if base == "real" else config.DIR_DATA / "teste"
+    """real (data/), teste (data/teste/) ou historico (data/historico/: estudo com os fatos da CVM)."""
+    if base not in ("real", "teste", "historico"):
+        raise HTTPException(400, "base deve ser 'real', 'teste' ou 'historico'")
+    if base == "historico":
+        return config.DIR_HISTORICO
+    return config.DIR_DATA if base == "real" else config.DIR_DATA / base
 
 
 def _ler_json(caminho: Path, padrao):
@@ -73,6 +78,11 @@ def status() -> dict:
     alertas = [f"A fonte {nome} não trouxe nenhuma notícia nas duas últimas execuções: "
                "o portal pode ter mudado o feed." for nome in main.fontes_mudas(dir_execucoes)]
     alertas.extend(main.alertas_backup(dir_execucoes))
+    alertas.extend(main.alertas_agenda(config.DIR_DATA / "arquivo"))
+    verificacao = congelamento.verificar()
+    if verificacao["estado"] in ("alterada", "sem_registro"):
+        alertas.insert(0, "A regra não é mais a congelada (" + "; ".join(verificacao["problemas"]) + "): "
+                          "os resultados a partir daqui não valem como teste.")
     pendencias += ["Confirmar acesso à API do Jev",
                    "Aprovar JANELA_EVENTO_RECENTE_DIAS e ALFA_CRITERIO"]
     return {
@@ -93,10 +103,14 @@ def status() -> dict:
 @app.get("/api/config")
 def configuracao() -> dict:
     return {
+        "versao_regra": VERSAO_REGRA,
         "regra": {
             "LIMIAR_PROBABILIDADE": config.LIMIAR_PROBABILIDADE,
             "MAX_POSICAO_PCT": config.MAX_POSICAO_PCT,
             "JANELA_EVENTO_RECENTE_DIAS": config.JANELA_EVENTO_RECENTE_DIAS,
+            "MATERIALIDADE_MINIMA": config.MATERIALIDADE_MINIMA,
+            "JANELA_REPETICAO_HORAS": config.JANELA_REPETICAO_HORAS,
+            "HORA_LIMITE_EXECUCAO": "%02d:%02d" % config.HORA_LIMITE_EXECUCAO,
             "CAPITAL_INICIAL": config.CAPITAL_INICIAL,
         },
         "criterio": {"versao": "CRITERIO_V2", "ALFA_CRITERIO": config.ALFA_CRITERIO},
@@ -127,6 +141,13 @@ def configuracao() -> dict:
         "aliases": config.ALIASES,
         "exclusoes": config.EXCLUSOES,
     }
+
+
+@app.get("/api/congelamento")
+def obter_congelamento() -> dict:
+    """Pré-requisitos do congelamento da regra e a impressão digital atual."""
+    llm.carregar_env()
+    return congelamento.checklist()
 
 
 @app.get("/api/funil")

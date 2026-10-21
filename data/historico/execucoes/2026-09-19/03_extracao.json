@@ -1,0 +1,24 @@
+{
+  "fdac04cc18a789bf": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Conselho aprovou adesão à nova subvenção econômica para óleo diesel, conforme MP nº 1.391/2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que seu Conselho de Administração, em reunião realizada nesta sexta-feira (18/09), aprovou a adesão a subvenção econômica aos produtores e importadores de óleo diesel e suas correntes, instituída pela Medida Provisória nº 1.391, de 11 de setembro de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fdac04cc18a789bf",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1569745&numSequencia=1094451&numVersao=1",
+        "timestamp_publicacao": "2026-09-19T23:59:00-03:00",
+        "timestamp_coleta": "2026-09-19T23:59:00-03:00"
+      },
+      "id": "fdac04cc18a789bf-0"
+    }
+  ]
+}

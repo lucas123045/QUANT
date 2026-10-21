@@ -1,0 +1,24 @@
+{
+  "bb567215ab745ad3": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco renova programa de recompra de ações para permanência em tesouraria e posterior cancelamento.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administraçªo deliberou renovar o programa de recompra de açıes de própria emissªo que autoriza a Diretoria a adquirir, no período de 8.5.2025 a 8.11.2026, atØ 106.584.881 açıes nominativas-escriturais, sem valor nominal, sendo atØ 53.413.506 açıes ordinÆrias e atØ 53.171.375 açıes preferenciais, para permanŒncia em tesouraria e posterior cancelamento, sem reduçªo do capital social",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bb567215ab745ad3",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1373671&numSequencia=898383&numVersao=1",
+        "timestamp_publicacao": "2025-05-07T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-07T23:59:00-03:00"
+      },
+      "id": "bb567215ab745ad3-0"
+    }
+  ]
+}

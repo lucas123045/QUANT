@@ -31,6 +31,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from src import backtest, cdi, config, estudo_evento, risco, simulacao, surpresa, tributacao
+from src.estatistica import quantil_t
 from src.strategy import COMPRA, VENDA
 
 logger = logging.getLogger(__name__)
@@ -78,9 +79,42 @@ def _reais(valor: float) -> str:
     return f"R$ {valor:.2f}".replace(".", ",")
 
 
+def evidencia_ate(observacoes: list[dict], dia) -> dict:
+    """O que os eventos já encerrados antes de `dia` dizem sobre o sinal (portão de evidência).
+
+    Usa só eventos cuja janela de PRATICA_EVIDENCIA_HORIZONTE pregões depois da
+    execução terminou ANTES de `dia`: nada do futuro entra na decisão.
+    """
+    h = config.PRATICA_EVIDENCIA_HORIZONTE
+    limite_dia = pd.Timestamp(dia).date().isoformat()
+    valores = [o[f"car_{h}"] for o in observacoes
+               if o.get(f"car_{h}") is not None and o.get(f"fim_{h}") and o[f"fim_{h}"] < limite_dia]
+    custo = 2 * custo_por_lado()
+    base = {"n": len(valores), "minimo": config.PRATICA_EVIDENCIA_MINIMA, "custo_ida_e_volta": custo,
+            "media": None, "limite_inferior": None, "aberto": False}
+    if len(valores) < max(2, config.PRATICA_EVIDENCIA_MINIMA):
+        return base
+    media = sum(valores) / len(valores)
+    desvio = (sum((v - media) ** 2 for v in valores) / (len(valores) - 1)) ** 0.5
+    inferior = media - quantil_t(config.PRATICA_EVIDENCIA_CONFIANCA, len(valores) - 1) * desvio / len(valores) ** 0.5
+    return {**base, "media": media, "limite_inferior": inferior, "aberto": inferior > custo}
+
+
+def _texto_evidencia(e: dict) -> str:
+    h = config.PRATICA_EVIDENCIA_HORIZONTE
+    if e["n"] < e["minimo"]:
+        return f"só {e['n']} evento(s) com {h} pregões encerrados; o mínimo é {e['minimo']}".replace("evento(s)", "evento" if e["n"] == 1 else "eventos")
+    return (f"{e['n']} eventos: retorno médio de {_pct(e['media'])} em {h} pregões; "
+            f"no pior caso plausível, {_pct(e['limite_inferior'])}, contra custo de {_pct(e['custo_ida_e_volta'])}")
+
+
 def simular(sinais: list[dict], precos: pd.DataFrame, inicio, capital: float,
-            taxas_cdi: pd.Series | None = None) -> dict:
-    """Simulação dia a dia. `precos` inclui histórico antes de `inicio` (para risco e reação)."""
+            taxas_cdi: pd.Series | None = None, evidencias: list[dict] | None = None) -> dict:
+    """Simulação dia a dia. `precos` inclui histórico antes de `inicio` (para risco e reação).
+
+    `evidencias`: observações do estudo de evento para o portão de evidência. None
+    desliga o portão (testes da mecânica); a carteira prática de verdade sempre passa a lista.
+    """
     inicio = pd.Timestamp(inicio)
     pregoes = precos.index[precos.index >= inicio]
     rets = estudo_evento.retornos(precos)
@@ -168,6 +202,15 @@ def simular(sinais: list[dict], precos: pd.DataFrame, inicio, capital: float,
                 continue
             meta = ordem.get("meta") or {}
             checagens = []
+            if evidencias is not None:
+                evidencia = evidencia_ate(evidencias, dia)
+                checagens.append(_item("Há evidência de que o sinal paga o custo", evidencia["aberto"],
+                                       _texto_evidencia(evidencia)))
+                if not evidencia["aberto"]:
+                    descartar(ordem, "sem evidência suficiente",
+                              "o portão de evidência está fechado: " + _texto_evidencia(evidencia)
+                              + ". O dinheiro segue no CDI", checagens)
+                    continue
             reacao = estudo_evento.reacao_do_mercado(ticker, ordem["instante"], precos, rets)
             if reacao is None:
                 checagens.append(_item("Reação do mercado antes da execução", None, "sem histórico de preços para medir"))
@@ -184,7 +227,8 @@ def simular(sinais: list[dict], precos: pd.DataFrame, inicio, capital: float,
                                    f"o texto compara com a expectativa: \"{texto['trecho']}\"" if texto["surpresa"]
                                    else "o texto não compara o número com a expectativa"))
             if any(c["ok"] is False for c in checagens):
-                razao = "mercado discordou" if checagens[0]["ok"] is False else "texto contradiz"
+                razao = next(("mercado discordou" if "reagiu" in c["criterio"] else "texto contradiz")
+                             for c in checagens if c["ok"] is False)
                 descartar(ordem, razao, next(c["detalhe"] for c in checagens if c["ok"] is False), checagens)
                 continue
 
@@ -280,7 +324,11 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None, baixar
     if taxas.empty and len(pregoes) > 1:
         aviso_cdi = "CDI indisponível agora: o caixa da carteira prática foi considerado parado (0%)."
 
-    pratica = simular(sinais, precos, inicio, capital, taxas)
+    # Portão de evidência: todos os eventos classificados desta base (ao vivo), com
+    # o retorno de cada um medido nos preços; cada compra só vê os já encerrados.
+    eventos = simulacao.eventos_classificados(dir_data)
+    obs = estudo_evento.observacoes(eventos, precos)
+    pratica = simular(sinais, precos, inicio, capital, taxas, evidencias=obs)
     pesquisa = backtest.simular(backtest.sinais_para_ordens(sinais, pregoes), precos.loc[pregoes], capital, 0.0)
     ibov = backtest.comprar_e_segurar(precos.loc[pregoes, config.BENCHMARK], capital)
     if not taxas.empty:
@@ -313,6 +361,8 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None, baixar
         "descartados": pratica["descartados"], "imposto_de_renda": pratica["ir"],
         "exposicao_atual": float(pratica["exposicao"].iloc[-1]),
         "correlacoes": risco.correlacoes(precos, config.CARTEIRA),
+        "portao_evidencia": {**evidencia_ate(obs, pregoes[-1] + pd.Timedelta(days=1)),
+                             "texto": _texto_evidencia(evidencia_ate(obs, pregoes[-1] + pd.Timedelta(days=1)))},
     }
 
 
@@ -329,4 +379,7 @@ def parametros() -> dict:
         "prazo_maximo_pregoes": config.PRATICA_PRAZO_MAXIMO_PREGOES,
         "stop_desvios": config.PRATICA_STOP_DESVIOS,
         "z_reacao": config.PRATICA_Z_REACAO,
+        "evidencia_minima": config.PRATICA_EVIDENCIA_MINIMA,
+        "evidencia_confianca": config.PRATICA_EVIDENCIA_CONFIANCA,
+        "evidencia_horizonte": config.PRATICA_EVIDENCIA_HORIZONTE,
     }

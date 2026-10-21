@@ -1,0 +1,24 @@
+{
+  "67a92c344696208d": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Bradesco divulga projeções de crescimento para 2025 em carteira de crédito, receitas e despesas operacionais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Banco Bradesco S.A. comunica ao mercado suas projeções de crescimento para o ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "67a92c344696208d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1331674&numSequencia=856400&numVersao=1",
+        "timestamp_publicacao": "2025-02-07T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-07T23:59:00-03:00"
+      },
+      "id": "67a92c344696208d-0"
+    }
+  ]
+}

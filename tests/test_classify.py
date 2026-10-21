@@ -8,7 +8,8 @@ EVENTO = {"ticker": "PETR4", "tipo_evento": "dividendo", "resumo": "Petrobras pa
           "impacto_declarado": "positivo", "confirmado": True,
           "trecho_fonte": "pagamento de dividendos"}
 
-CHAVES = {"sentimento", "probabilidade", "classificador", "modelo", "versao_prompt"}
+CHAVES = {"sentimento", "probabilidade", "materialidade", "motivo_materialidade", "classificador", "modelo",
+          "versao_prompt"}
 
 
 def llm_falso(*respostas):
@@ -23,13 +24,14 @@ def llm_falso(*respostas):
 
 
 def test_caminho_llm_formato_padrao():
-    chamar = llm_falso(json.dumps({"sentimento": "positivo", "probabilidade": 0.82}))
+    chamar = llm_falso(json.dumps({"sentimento": "positivo", "probabilidade": 0.82, "materialidade": "alta",
+                                   "motivo_materialidade": "muda o lucro"}))
     r = classify.classificar(EVENTO, usar_jev=False, chamar=chamar)
     assert set(r) == CHAVES
     assert r["sentimento"] == "positivo" and r["probabilidade"] == 0.82
     assert r["classificador"] == "llm"
-    assert r["versao_prompt"] == "PROMPT_CLASSIFICACAO_V1"
-    assert "[PROMPT_CLASSIFICACAO_V1]" in chamar.chamadas[0]
+    assert r["versao_prompt"] == "PROMPT_CLASSIFICACAO_V2" and r["materialidade"] == "alta"
+    assert "[PROMPT_CLASSIFICACAO_V2]" in chamar.chamadas[0] and "materialidade" in chamar.chamadas[0]
 
 
 def test_caminho_jev_mesmo_formato():
@@ -45,19 +47,19 @@ def test_adaptador_jev_bloqueado():
 
 
 def test_jev_indisponivel_usa_llm_como_fluxo_normal():
-    chamar = llm_falso(json.dumps({"sentimento": "neutro", "probabilidade": 0.6}))
+    chamar = llm_falso(json.dumps({"sentimento": "neutro", "probabilidade": 0.6, "materialidade": "baixa"}))
     r = classify.classificar(EVENTO, usar_jev=True, chamar=chamar)
     assert r["classificador"] == "llm"
 
 
 def test_jev_saida_invalida_usa_llm():
-    chamar = llm_falso(json.dumps({"sentimento": "neutro", "probabilidade": 0.6}))
+    chamar = llm_falso(json.dumps({"sentimento": "neutro", "probabilidade": 0.6, "materialidade": "baixa"}))
     r = classify.classificar(EVENTO, usar_jev=True, jev=lambda e: {"x": 1}, chamar=chamar)
     assert r["classificador"] == "llm"
 
 
 def test_llm_retry_uma_vez():
-    chamar = llm_falso("lixo", json.dumps({"sentimento": "positivo", "probabilidade": 0.9}))
+    chamar = llm_falso("lixo", json.dumps({"sentimento": "positivo", "probabilidade": 0.9, "materialidade": "media"}))
     assert classify.classificar(EVENTO, usar_jev=False, chamar=chamar)["sentimento"] == "positivo"
     assert len(chamar.chamadas) == 2
 
@@ -67,6 +69,8 @@ def test_llm_retry_uma_vez():
     ('{"sentimento": "otimista", "probabilidade": 0.9}',) * 2,
     ('{"sentimento": "positivo", "probabilidade": 1.5}',) * 2,
     ('{"sentimento": "positivo", "probabilidade": "alta"}',) * 2,
+    ('{"sentimento": "positivo", "probabilidade": 0.9}',) * 2,                          # sem materialidade
+    ('{"sentimento": "positivo", "probabilidade": 0.9, "materialidade": "enorme"}',) * 2,
 ])
 def test_llm_saida_invalida_devolve_none(respostas):
     chamar = llm_falso(*respostas)
@@ -76,7 +80,7 @@ def test_llm_saida_invalida_devolve_none(respostas):
 
 def test_llm_resposta_em_bloco_de_codigo_markdown():
     """Modelos costumam cercar o JSON com ```json; a extração já tolerava, a classificação também."""
-    resposta = '```json\n{"sentimento": "negativo", "probabilidade": 0.77}\n```'
+    resposta = '```json\n{"sentimento": "negativo", "probabilidade": 0.77, "materialidade": "alta"}\n```'
     chamar = llm_falso(resposta)
     r = classify.classificar(EVENTO, usar_jev=False, chamar=chamar)
     assert r["sentimento"] == "negativo" and r["probabilidade"] == 0.77

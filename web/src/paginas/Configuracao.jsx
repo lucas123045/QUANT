@@ -44,7 +44,7 @@ export default function Configuracao() {
             (src/config.py), com aprovação do autor e antes do congelamento.
           </div>
           <div className="grade">
-            <Cartao titulo="Regra de decisão (REGRA_V2)"><Tabela valores={dados.regra} /></Cartao>
+            <Cartao titulo={`Regra de decisão (${dados.versao_regra || "REGRA_V3"})`}><Tabela valores={dados.regra} /></Cartao>
             <Cartao titulo="Critério de sucesso"><Tabela valores={dados.criterio} /></Cartao>
             <Cartao titulo="Períodos e congelamento"><Tabela valores={dados.periodos} /></Cartao>
             <Cartao titulo="Custos da pesquisa (frações do valor negociado)"><Tabela valores={dados.custos} /></Cartao>

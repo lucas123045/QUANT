@@ -1,0 +1,24 @@
+{
+  "042ae566c692d2bd": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras considera potencial emissão de debêntures incentivadas de até R$ 3 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que está considerando uma potencial emissão de debentures incentivadas no montante de até R$ 3 bilhões. A emissão ainda está em discussão e está sujeita, nos termos e nas hipóteses do Estatuto da Companhia, às aprovações internas competentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "042ae566c692d2bd",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1383079&numSequencia=907791&numVersao=1",
+        "timestamp_publicacao": "2025-05-26T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-26T23:59:00-03:00"
+      },
+      "id": "042ae566c692d2bd-0"
+    }
+  ]
+}

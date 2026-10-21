@@ -1,0 +1,47 @@
+{
+  "c4f141a238e04079": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras celebrou novos contratos de longo prazo com a Braskem para fornecimento de nafta, etano, propano, hidrogênio e propeno.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. - Petrobras informa que celebrou novos contratos de longo prazo com a Braskem S.A., tendo em vista a proximidade dos vencimentos dos contratos vigentes, para as seguintes relações comerciais:",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c4f141a238e04079",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1459222&numSequencia=983934&numVersao=1",
+        "timestamp_publicacao": "2025-12-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-18T23:59:00-03:00"
+      },
+      "id": "c4f141a238e04079-0"
+    }
+  ],
+  "464dcd0e00636dc5": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de proposta para pagamento de juros sobre o capital próprio complementares de R$3,9 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião hoje realizada , aprovou a proposta da Diretoria da Sociedade para pagamento de juros sobre o capital próprio complementares, no valor total de R$3.900.000.000,00",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "464dcd0e00636dc5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1459149&numSequencia=983861&numVersao=1",
+        "timestamp_publicacao": "2025-12-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-12-18T23:59:00-03:00"
+      },
+      "id": "464dcd0e00636dc5-0"
+    }
+  ],
+  "7c58c372a84d16d1": []
+}

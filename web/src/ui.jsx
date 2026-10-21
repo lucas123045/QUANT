@@ -119,11 +119,14 @@ export function Tickers({ lista }) {
  * Justificativa passo a passo: cada condição da regra, conferida, com o valor
  * que decidiu. `criterios`: [{criterio, ok, detalhe}] gravado pela regra (V2+).
  */
+/** Versão da regra que guia a carteira (igual a strategy.VERSAO_REGRA). */
+export const REGRA_VIGENTE = "REGRA_V3";
+
 export function Criterios({ criterios, versao }) {
   if (!criterios?.length) {
     return (
       <p className="criterios-vazio">
-        {versao && versao !== "REGRA_V2"
+        {versao === "REGRA_V1"
           ? `Decisão da ${versao.replace("_", " ")}, anterior à revisão: não guardava a lista de critérios e não entra na carteira atual.`
           : "Sem a lista de critérios desta decisão."}
       </p>

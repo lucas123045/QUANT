@@ -1,0 +1,84 @@
+{
+  "a67ef168b9fa4182": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção média de óleo, LGN e gás natural atinge recorde de 3,34 MM boed no 2T26, 14,1% acima do 2T25.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No 2T26, a produção média de óleo, LGN e gás natural alcançou a marca recorde de 3,34 MM boed, 14,1% acima do mesmo trimestre do ano passado e 3,4% acima do 1T26",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a67ef168b9fa4182",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1548963&numSequencia=1073669&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "a67ef168b9fa4182-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Plataformas do campo de Búzios atingem produção média recorde de 1,2 MM bpd em junho de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "as plataformas de Búzios superaram essa marca, com produção média de 1,2 MM bpd. Estes recordes foram alcançados com a ampliação das atividades das plataformas P-78 e P-79",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a67ef168b9fa4182",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1548963&numSequencia=1073669&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "a67ef168b9fa4182-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Plataforma P-79 entra em produção no pré-sal da Bacia de Santos em 01/05, três meses antes do previsto.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A plataforma P-79 entrou em produção no dia 01/05, no pré-sal da Bacia de Santos, com três meses de antecedência em relação à data prevista no Plano de Negócios 2026 –2030 (PN 26– 30)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a67ef168b9fa4182",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1548963&numSequencia=1073669&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "a67ef168b9fa4182-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Refinarias atingem recorde histórico de Fator de Utilização de 101,2% no 2T26.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Registramos no 2T26 recorde histórico do Fator de Utilização (FUT) das refinarias, atingindo a marca de 101,2%, superando o recorde anterior de 101,1%, alcançado no 3T14.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a67ef168b9fa4182",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1548963&numSequencia=1073669&numVersao=1",
+        "timestamp_publicacao": "2026-07-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-28T23:59:00-03:00"
+      },
+      "id": "a67ef168b9fa4182-3"
+    }
+  ]
+}

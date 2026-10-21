@@ -16,8 +16,41 @@ from src import config, llm
 
 logger = logging.getLogger(__name__)
 
-VERSAO_PROMPT_CLASSIFICACAO = "PROMPT_CLASSIFICACAO_V1"
+VERSAO_PROMPT_CLASSIFICACAO = "PROMPT_CLASSIFICACAO_V2"
 SENTIMENTOS = {"positivo", "negativo", "neutro"}
+MATERIALIDADES = ("baixa", "media", "alta")  # em ordem crescente
+
+# V1 → V2 (21/10/2026, antes do congelamento): a primeira compra real da nuvem
+# veio de "a ANP adiou uma audiência pública", um fato confirmado e "positivo",
+# mas sem efeito financeiro mensurável. A V2 pede também a MATERIALIDADE: se o
+# fato muda o resultado, o caixa ou o valor da empresa, e quanto. A regra (V3)
+# passou a exigir materialidade mínima (config.MATERIALIDADE_MINIMA).
+PROMPT_CLASSIFICACAO_V2 = """[PROMPT_CLASSIFICACAO_V2]
+Classifique o evento abaixo sobre a empresa da ação {ticker}. Responda APENAS com JSON válido:
+{{"sentimento": "<positivo|negativo|neutro>", "probabilidade": <número entre 0 e 1>,
+  "materialidade": "<alta|media|baixa>", "motivo_materialidade": "<uma frase curta>"}}
+
+"sentimento": efeito provável sobre o preço da ação no próximo pregão.
+"probabilidade": a sua confiança de que o sentimento está correto.
+"materialidade": quanto o fato muda o resultado, o caixa ou o valor da empresa:
+- "alta": muda de forma relevante lucro, receita, produção, caixa, dívida,
+  dividendos ou projeções; ou é grande o bastante para mudar o valor da empresa
+  (aquisição ou venda de ativo relevante, multa ou condenação grande, mudança de
+  controle ou de comando, resultado acima ou abaixo do esperado, nova política de
+  preços ou de dividendos).
+- "media": efeito financeiro concreto, mas pequeno perto do tamanho da empresa.
+- "baixa": sem efeito financeiro mensurável: procedimento, adiamento, agenda,
+  data de divulgação, evento institucional, opinião ou previsão de terceiros,
+  ou repetição de algo já conhecido.
+Na dúvida entre dois níveis, escolha o mais baixo.
+
+Evento:
+- tipo: {tipo_evento}
+- resumo: {resumo}
+- impacto declarado pelo texto: {impacto_declarado}
+- confirmado: {confirmado}
+- trecho da fonte: "{trecho_fonte}"
+"""
 
 PROMPT_CLASSIFICACAO_V1 = """[PROMPT_CLASSIFICACAO_V1]
 Classifique o efeito provável do evento abaixo sobre o preço da ação {ticker}
@@ -39,7 +72,11 @@ class ClassificacaoInvalida(ValueError):
 
 
 def padronizar(bruto: dict, classificador: str, modelo: str, versao: str | None) -> dict:
-    """Valida e devolve a saída no formato único da interface."""
+    """Valida e devolve a saída no formato único da interface.
+
+    A materialidade é obrigatória no LLM (PROMPT_CLASSIFICACAO_V2). O Jev só dá
+    sentimento e probabilidade: fica sem materialidade, e a regra não opera.
+    """
     sentimento = bruto.get("sentimento") if isinstance(bruto, dict) else None
     probabilidade = bruto.get("probabilidade") if isinstance(bruto, dict) else None
     if sentimento not in SENTIMENTOS:
@@ -48,9 +85,15 @@ def padronizar(bruto: dict, classificador: str, modelo: str, versao: str | None)
         raise ClassificacaoInvalida(f"probabilidade não numérica: {probabilidade!r}")
     if not 0.0 <= float(probabilidade) <= 1.0:
         raise ClassificacaoInvalida(f"probabilidade fora de [0, 1]: {probabilidade}")
+    materialidade = bruto.get("materialidade")
+    if classificador == "llm" and materialidade not in MATERIALIDADES:
+        raise ClassificacaoInvalida(f"materialidade inválida: {materialidade!r}")
+    motivo = bruto.get("motivo_materialidade")
     return {
         "sentimento": sentimento,
         "probabilidade": float(probabilidade),
+        "materialidade": materialidade if materialidade in MATERIALIDADES else None,
+        "motivo_materialidade": str(motivo)[:300] if motivo else None,
         "classificador": classificador,
         "modelo": modelo,
         "versao_prompt": versao,
@@ -70,7 +113,7 @@ def classificar_jev(evento: dict) -> dict:
 def classificar_llm(evento: dict, chamar: Callable[..., str] | None = None) -> dict | None:
     """Classifica com o LLM generativo. JSON inválido: uma nova tentativa, depois None."""
     chamar = chamar or llm.chamar_llm
-    prompt = PROMPT_CLASSIFICACAO_V1.format(**{k: evento[k] for k in (
+    prompt = PROMPT_CLASSIFICACAO_V2.format(**{k: evento[k] for k in (
         "ticker", "tipo_evento", "resumo", "impacto_declarado", "confirmado", "trecho_fonte")})
     for tentativa in (1, 2):
         resposta = chamar(prompt, temperatura=0.0)

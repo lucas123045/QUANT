@@ -1,0 +1,69 @@
+{
+  "a791e2a89e6a37e7": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Aprovação de novo programa de recompra de até 200 milhões de ações preferenciais até 05.02.2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, reunido em 05.02.2025, deliberou: (i) Encerrar a par�r desta data, por antecipação, o programa de recompra de ações de emissão própria, aprovado na reunião do Conselho de Administração de 05.02.2024, que venceria em 04.08.2025; e (ii) Aprovar novo programa de recompra de ações de emissão própria1, que passará a vigorar a par�r desta data até 05.02.2026, autorizando a aquisição de até 200.000.000 de ações preferenciais de emissão própria, sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a791e2a89e6a37e7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1330895&numSequencia=855621&numVersao=1",
+        "timestamp_publicacao": "2025-02-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-05T23:59:00-03:00"
+      },
+      "id": "a791e2a89e6a37e7-0"
+    }
+  ],
+  "ec4eea9eabe4d425": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú Unibanco divulgou projeções e metas operacionais e financeiras para o ano de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que nesta data divulgou suas projeções para o ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec4eea9eabe4d425",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1330896&numSequencia=855622&numVersao=1",
+        "timestamp_publicacao": "2025-02-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-05T23:59:00-03:00"
+      },
+      "id": "ec4eea9eabe4d425-0"
+    }
+  ],
+  "534ff18aa86b793a": [],
+  "0f7d18edf0acdd5d": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de dividendos e JCP totalizando R$ 2,03 por ação em 07.03.2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco Holding S.A. comunica aos seus acionistas que o Conselho de Administração deliberou, na data de hoje, o pagamento de proventos1 a ser realizado em 07.03.2025: (i) Dividendos, no valor de R$ 1,25093 por ação; e (ii) JCP – juros sobre o capital próprio no valor de R$ 0,33344 por ação, com retenção de 15% de imposto de renda na fonte2, resultando em juros líquidos de R$ 0,283424 por ação. Tais pagamentos totalizarão o montante de R$ 15 bilhões, sendo que a base de cálculo utilizada será a posição acionária final registrada no dia 17.02.2025, com suas ações negociadas “ex-direito” a partir do dia 18.02.2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0f7d18edf0acdd5d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1330898&numSequencia=855624&numVersao=1",
+        "timestamp_publicacao": "2025-02-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-05T23:59:00-03:00"
+      },
+      "id": "0f7d18edf0acdd5d-0"
+    }
+  ]
+}

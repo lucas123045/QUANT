@@ -150,11 +150,17 @@ def registros_para_extrair(itens: list[dict], novos: list[dict], dir_arquivo: Pa
 
 
 def _metadados(registro: dict) -> dict:
-    return {c: registro[c] for c in ("id", "tipo_fonte", "fonte", "url", "timestamp_publicacao")}
+    # timestamp_coleta: quando o QUANT soube do fato (critério "fato novo" da REGRA_V3).
+    return {c: registro[c] for c in ("id", "tipo_fonte", "fonte", "url", "timestamp_publicacao", "timestamp_coleta")
+            if c in registro}
 
 
-def etapa_extrair(pasta: Path, registros: list[dict]) -> dict[str, list[dict]]:
-    """Extrai eventos só de registros que mencionam a carteira. Salva item a item."""
+def etapa_extrair(pasta: Path, registros: list[dict], tickers_do_registro: bool = False) -> dict[str, list[dict]]:
+    """Extrai eventos só de registros que mencionam a carteira. Salva item a item.
+
+    `tickers_do_registro`: pede ao LLM só as empresas do próprio registro (estudo
+    histórico com o universo ampliado). Ao vivo, a lista é a da carteira.
+    """
     caminho = pasta / "03_extracao.json"
     feitos = _ler(caminho, {})
     for registro in registros:
@@ -162,7 +168,8 @@ def etapa_extrair(pasta: Path, registros: list[dict]) -> dict[str, list[dict]]:
             continue
         try:
             eventos = extract.extrair_eventos(f"{registro['titulo']}\n{registro['texto']}",
-                                              metadados=_metadados(registro))
+                                              metadados=_metadados(registro),
+                                              tickers=registro["tickers"] if tickers_do_registro else None)
         except Exception as erro:  # LLM fora do ar: segue e tenta de novo na próxima execução
             logger.error("Extração falhou para %s: %s", registro["url"], erro)
             continue
@@ -336,6 +343,11 @@ def _executar(agora: datetime | None, teste: bool, dir_data: Path | None) -> dic
 
 
 def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
+    from src import congelamento  # import local: congelamento importa strategy e os prompts
+    verificacao = congelamento.verificar()
+    if verificacao["estado"] in ("alterada", "sem_registro"):
+        logger.error("A regra não é mais a congelada: %s. As decisões seguem registradas, mas não valem "
+                     "como teste.", "; ".join(verificacao["problemas"]))
     data = agora.date().isoformat()
     dir_execucoes = dir_data / "execucoes"
     pasta = dir_execucoes / data
@@ -414,6 +426,39 @@ def fontes_mudas(dir_execucoes: Path, seguidas: int = 2) -> list[str]:
     if len(resumos) < seguidas:
         return []
     return sorted(nome for nome in resumos[0] if all(r.get(nome, 0) == 0 for r in resumos))
+
+
+# Coleta com buraco maior que isto nas últimas 24 h: a notícia chega atrasada.
+INTERVALO_MAXIMO_COLETA = timedelta(minutes=90)
+
+
+def alertas_agenda(dir_arquivo: Path, agora: datetime | None = None) -> list[str]:
+    """A coleta está rodando na frequência prevista (a cada 30 minutos)?
+
+    Cada hora sem coleta é uma hora de atraso a mais entre a notícia e a decisão.
+    Na nuvem, o agendador do GitHub atrasa ou pula execuções; um agendador
+    externo (cron-job.org chamando /api/nuvem?agendar=...) resolve.
+    """
+    agora = (agora or datetime.now(FUSO)).astimezone(FUSO)
+    instantes = [i.astimezone(FUSO) for i in archive.coletas(dir_arquivo)]
+    if not instantes:
+        return []
+    inicio = agora - timedelta(hours=24)
+    janela = [i for i in instantes if i >= inicio]
+    pontos = ([max([i for i in instantes if i < inicio], default=inicio)] if instantes[0] < inicio else []) \
+        + janela + [agora]
+    maior, de, ate = timedelta(0), None, None
+    for a, b in zip(pontos, pontos[1:]):
+        if b - a > maior:
+            maior, de, ate = b - a, a, b
+    if maior <= INTERVALO_MAXIMO_COLETA:
+        return []
+    horas = f"{maior.total_seconds() / 3600:.1f}".replace(".", ",")
+    trecho = f"de {de:%d/%m %H:%M} a {ate:%d/%m %H:%M}" if ate != agora else f"desde {de:%d/%m %H:%M}"
+    feitas = f"{len(janela)} coleta" + ("" if len(janela) == 1 else "s")
+    return [f"A coleta ficou {horas} h sem rodar ({trecho}); nas últimas 24 h foram {feitas}, e o previsto "
+            "é uma a cada 30 minutos. Cada hora sem coleta atrasa as decisões. Na nuvem, configure o "
+            "agendador externo (README, seção Tempo real na nuvem)."]
 
 
 def alertas_backup(dir_execucoes: Path) -> list[str]:

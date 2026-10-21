@@ -1,0 +1,24 @@
+{
+  "a61149cc07a27a96": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú Unibanco divulgou projeção revisada para o ano de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que nesta data divulgou sua projeção revisada para o ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a61149cc07a27a96",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1439515&numSequencia=964227&numVersao=1",
+        "timestamp_publicacao": "2025-11-04T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-04T23:59:00-03:00"
+      },
+      "id": "a61149cc07a27a96-0"
+    }
+  ]
+}

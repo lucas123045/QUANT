@@ -1,0 +1,24 @@
+{
+  "0921ba1a1c84697b": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Presidente do Conselho de Administração da Petrobras, Pietro Mendes, renuncia ao cargo com efeitos imediatos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Petróleo Brasileiro S.A. - Petrobras, em continuidade ao Comunicado divulgado em 16/12/2024, informa que recebeu hoje a renúncia, com efeitos imediatos, do Presidente do Conselho de Administração da companhia, Pietro Adamo Sampaio Mendes, aos cargos de Presidente e membro do Conselho de Administração da Petrobras em razão de novos desafios profissionais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0921ba1a1c84697b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1415536&numSequencia=940248&numVersao=1",
+        "timestamp_publicacao": "2025-08-20T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-20T23:59:00-03:00"
+      },
+      "id": "0921ba1a1c84697b-0"
+    }
+  ]
+}

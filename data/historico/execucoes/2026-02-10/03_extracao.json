@@ -1,0 +1,164 @@
+{
+  "570daa71ba1e839e": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção total de óleo e gás em 2025 superou meta, atingindo 2,99 milhões de boed, aumento de 11% sobre 2024.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Nossa produção total de óleo e gás natural superou em 2,8 p.p . o limite superior da meta (+4%), alcançando 2,99 milhões de barris de óleo equivalente por dia (boed), representando um aumento de 11% em relação à produção de 2024.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Almirante Tamandaré atingiu topo de produção de 240 mil bpd em nov/dez, tornando-se maior plataforma do Brasil.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "FPSO Almirante Tamandaré (Búzios) (foto) alcançou o topo de produção inicialmente previsto de 225 mil bpd e posteriormente se tornou a plataforma de maior produção de petróleo da Petrobras e do Brasil ao produzir cerca de 240 mil bpd em novembro e dezembro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Alexandre de Gusmão entrou em operação antecipada em maio, com capacidade de 180 mil bpd.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "FPSO Alexandre de Gusmão (Mero) (foto) entrou, de forma antecipada, em operação no dia 24 de maio, com capacidade de produzir 180 mil bpd e de comprimir/reinjetar 12 milhões de m³ de gás por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Marechal Duque de Caxias atingiu 200 mil bpd em setembro, superando topo previsto.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em 25 de setembro, chegou a 200 mil bpd, superando em 20 mil bpd o topo inicialmente previsto.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "P-78 começou a produzir em 31 de dezembro, capacidade de 180 mil bpd e 7,2 milhões m³/dia de compressão.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "P-78 (Búzios) começou a produzir em 31 de dezembro e possui capacidade de produção de 180 mil bpd e 7,2 milhões de m³/dia de compressão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Adição de 1,7 bilhão de boe em reservas em 2025, IRR de 175%, indicador R/P de 12,5 anos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em 2025, a Petrobras alcançou o melhor resultado dos últimos dez anos ao adicionar 1,7 bilhão de boe em reservas, atingindo um índice de reposição de reservas (IRR) de 175%, mesmo diante de uma produção recorde. O indicador R/P atingiu 12,5 anos, refletindo a sustentabilidade do portfólio.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-5"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recorde anual de exportações de petróleo: 765 mbpd e recorde trimestral de 1 milhão de barris/dia no 4T25.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "As exportações de petróleo registraram recorde anual de 765 mbpd e novo recorde trimestral no patamar de 1 milhão de barris/dia no 4T25, refletindo a elevada produção , a eficiência logística no alívio das plataformas, além do trabalho contínuo de desenvolvimento de mercados para nossos óleos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-6"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Finalizadas obras de modernização do Trem 1 da RNEST e assinatura dos contratos para o Trem 2.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em 2025 foram finalizadas as obras de modernização do Trem 1 da RNEST e ocorreu também a assinatura dos contratos para o Trem 2 dessa refinaria, marcando um passo fundamental para dobrar a capacidade instalada da planta para 260 mbpd até 2029.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "570daa71ba1e839e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475924&numSequencia=1000630&numVersao=1",
+        "timestamp_publicacao": "2026-02-10T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-10T23:59:00-03:00"
+      },
+      "id": "570daa71ba1e839e-7"
+    }
+  ]
+}

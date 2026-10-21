@@ -1,0 +1,24 @@
+{
+  "4fd622530bd57799": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale atualiza projeções para 2026, incluindo fluxo de caixa e EBITDA em Soluções de Minério de Ferro e Níquel, considerando impacto do conflito no Oriente Médio.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale informa sobre atualização de projeções Rio de Janeiro, 12 de maio de 2026 – A Vale S.A. (“Vale” ou “Companhia”) informa ao mercado a atualização de suas projeções, as quais passam a contemplar: (i) a variação do fluxo de caixa livre do segmento de Soluções de Minério de Ferro em 2026, considerando as condições de mercado decorrentes do conflito no Oriente Médio; e (ii) as sensibilidades de EBITDA e de fluxo de caixa do segmento de Níquel da Vale Base Metals Ltd. (“VBM”).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4fd622530bd57799",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1520311&numSequencia=1045017&numVersao=1",
+        "timestamp_publicacao": "2026-05-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-12T23:59:00-03:00"
+      },
+      "id": "4fd622530bd57799-0"
+    }
+  ]
+}

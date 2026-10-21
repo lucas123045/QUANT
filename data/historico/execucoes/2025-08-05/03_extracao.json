@@ -1,0 +1,46 @@
+{
+  "1167422c78da7535": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de JCP de R$ 0,592875 por ação em 29/08/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco Holding S.A. comunica aos seus acionistas que seu Conselho de Administração, na data de hoje, aprovou o pagamento de JCP – juros sobre o capital próprio a ser realizado em 29.08.2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1167422c78da7535",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1408193&numSequencia=932905&numVersao=1",
+        "timestamp_publicacao": "2025-08-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-05T23:59:00-03:00"
+      },
+      "id": "1167422c78da7535-0"
+    }
+  ],
+  "8bf19589586f1351": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú Unibanco divulgou projeções revisadas para o ano de 2025, incluindo metas operacionais e financeiras.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que nesta data divulgou suas projeções revisadas para o ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8bf19589586f1351",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1408194&numSequencia=932906&numVersao=1",
+        "timestamp_publicacao": "2025-08-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-08-05T23:59:00-03:00"
+      },
+      "id": "8bf19589586f1351-0"
+    }
+  ]
+}

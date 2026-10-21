@@ -1,0 +1,20 @@
+{
+  "8867a62823b8e409-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aporte relevante de capital fortalece caixa e viabiliza investimentos estratégicos.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8867a62823b8e409-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A antecipação do pagamento não altera o valor total distribuído nem o resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

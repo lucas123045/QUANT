@@ -1,0 +1,25 @@
+{
+  "21cfddce00484f4e": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Vale aprova novo programa de recompra de até 120 milhões de ações em 18 meses.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A (“Vale” ou a “Companhia”) informa que seu Conselho de Administração aprovou, hoje, um novo programa para a aquisição de até 120 milhões de ações ordinárias 1 em um prazo de 18 meses 2, contados a partir da presente data (“novo programa de recompra de ações”)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "21cfddce00484f4e",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1336985&numSequencia=861711&numVersao=1",
+        "timestamp_publicacao": "2025-02-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-19T23:59:00-03:00"
+      },
+      "id": "21cfddce00484f4e-0"
+    }
+  ],
+  "159d291c25e05b69": []
+}

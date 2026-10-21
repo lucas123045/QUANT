@@ -1,0 +1,84 @@
+{
+  "71bfd7126c26ea31": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção média de óleo, LGN e gás natural cresceu 7,6% no 3T25, atingindo 3,14 MMboed, com recordes em diversas plataformas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No 3T25, a produção média de óleo, LGN e gás natural alcançou 3,14 MMboed, 7,6% acima do 2T25, e 16,9% acima do 3T24, em função, principalmente, do atingimento do topo de produção (capacidade de projeto) do FPSO Almirante Tamandaré, no campo de Búzios, e aumento da capacidade de produção do FPSO Marechal Duque de Caxias, no campo de Mero.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71bfd7126c26ea31",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435672&numSequencia=960384&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "71bfd7126c26ea31-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Almirante Tamandaré atingiu topo de produção de 225 mil bpd em agosto e 250 mil bpd em outubro, acima da capacidade nominal.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O FPSO Almirante Tamandaré (foto), que entrou em produção em fevereiro deste ano, em Búzios, alcançou o topo de produção previsto de 225 mil bpd em 14 de agosto, com apenas 5 poços produtores e 3 meses de antecedência em relação ao cronograma inicial. Em 09 de outubro, a unidade atingiu a marca de 250 mil bpd, acima da sua capacidade nominal de projeto, conforme autorizado pelos órgãos competentes, tornando-se a plataforma de maior produção de petróleo da Petrobras e do Brasil.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71bfd7126c26ea31",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435672&numSequencia=960384&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "71bfd7126c26ea31-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Assinatura de cinco contratos para construção do Projeto Refino Boaventura, ampliando produção de diesel S10, QAV e lubrificantes.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Concluímos em 03 de outubro a assinatura de cinco contratos de serviços para a construção das unidades que compõem o Projeto Refino Boaventura, marco na modernização de nosso parque de refino. O projeto propiciará a integração entre a REDUC e o Complexo de Energias Boaventura, ampliando a produção de diesel S10 em 76 Mbpd, e de Querosene de Aviação (QAV) em 20 Mbpd. Além disso, o Boaventura possibilitará a produção de 12 Mbpd de lubrificantes Grupo II, agregando valor e competitividade ao portfólio.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71bfd7126c26ea31",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435672&numSequencia=960384&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "71bfd7126c26ea31-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Certificação internacional ISCC para produção de SAF na REDUC, com previsão de início da produção em 2025.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Realizamos teste de produção na REVAP e obtivemos a certificação internacional ISCC para a produção de SAF na REDUC, que já tem a autorização da ANP para a incorporação de até 1,2% de matéria- prima renovável na produção. A previsão é que a REDUC inicie a produção de SAF ainda em 2025, visando comercializar até 10 Mbpd do combustível sustentável.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71bfd7126c26ea31",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1435672&numSequencia=960384&numVersao=1",
+        "timestamp_publicacao": "2025-10-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-24T23:59:00-03:00"
+      },
+      "id": "71bfd7126c26ea31-3"
+    }
+  ]
+}

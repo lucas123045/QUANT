@@ -1,0 +1,167 @@
+[
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "guidance",
+      "resumo": "Ambev projeta crescimento de 5,5% a 8,5% no CPV por hectolitro para cerveja no Brasil em 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Ambev S.A. (“Companhia”) comunica que , conforme divulgado nesta data em seu earnings release, espera que o CPV ( custo dos produtos vendidos ) por hectolitro , excluindo depreciação e amortização, para seu negócio de cerveja no Brasil apresente crescimento entre 5,5% e 8,5% no ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "36c22d45465d8027",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1339571&numSequencia=864297&numVersao=1",
+        "timestamp_publicacao": "2025-02-26T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-26T23:59:00-03:00"
+      },
+      "id": "36c22d45465d8027-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Projeção de aumento de custos pode pressionar margens em 2025.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (guidance, materialidade média) com probabilidade 0.85 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 27/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Projeção de aumento de custos pode pressionar margens em 2025."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou proposta de dividendos de R$ 9,1 bi, totalizando R$ 75,8 bi em remuneração aos acionistas em 2024.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que seu Conselho de Administração (CA), em reunião realizada hoje, autorizou o encaminhamento à Assembleia Geral Ordinária (AGO), prevista para 16 de abril de 202 5, da proposta de distribuição de dividendos equivalentes a R$ 9,1 bilhões. Caso haja aprovação da AGO, considerando os proventos antecipados pela companhia ao longo do ano, devidamente corrigidos pela Selic, a remuneração aos acionistas relativa ao exercício de 2024 totalizará R$ 75,8 bilhões, sendo R$ 73,9 bilhões em distribuição de dividendos e JCP e R$ 1,9 bilhão em recompras de ações.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "33989ff231acf68b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1340140&numSequencia=864866&numVersao=1",
+        "timestamp_publicacao": "2025-02-26T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-26T23:59:00-03:00"
+      },
+      "id": "33989ff231acf68b-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Distribuição de dividendos relevante para o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 27/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Distribuição de dividendos relevante para o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "95f5ba493bc85df1": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Renúncia do presidente do Conselho de Administração, Daniel André Stieler, com efeitos imediatos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A. (“Vale” ou “Companhia”) informa que recebeu, nesta data, carta do Sr. Daniel André Stieler comunicando sua renúncia aos cargos de membro e de presidente do Conselho de Administração da Companhia, com efeitos imediatos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "95f5ba493bc85df1",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1542192&numSequencia=1066898&numVersao=1",
+        "timestamp_publicacao": "2026-07-06T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-06T23:59:00-03:00"
+      },
+      "id": "95f5ba493bc85df1-0"
+    }
+  ]
+}

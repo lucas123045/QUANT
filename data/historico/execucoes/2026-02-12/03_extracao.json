@@ -1,0 +1,46 @@
+{
+  "f795e14c93b3a375": [
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "guidance",
+      "resumo": "Ambev projeta crescimento do CPV por hectolitro entre 4,5% e 7,5% para cerveja no Brasil em 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "espera que o CPV ( custo dos produtos vendidos ) por hectolitro , excluindo depreciação e amortização, para seu negócio de cerveja no Brasil apresente crescimento entre 4,5% e 7,5% no ano de 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f795e14c93b3a375",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476801&numSequencia=1001507&numVersao=1",
+        "timestamp_publicacao": "2026-02-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-12T23:59:00-03:00"
+      },
+      "id": "f795e14c93b3a375-0"
+    }
+  ],
+  "e614bba740c798bc": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Petrobras aprovou não exercer direitos de preferência e tag along na potencial transferência de ações da Braskem.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "seu Conselho de Administração, tendo em vista uma potencial operação (“Transação”) envolvendo a transferência de ações da Braskem S.A. detidas pela NSP Investimentos S.A., uma subsidiária da Novonor, para o Shine I Fundo de Investimento em Direitos Creditórios de Responsabilidade Limitada (FIDC), aprovou o não exercício, pela Petrobras, dos Direitos de Preferênci a e Tag Along previstos no Acordo de Acionistas vigente da Braskem S.A.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e614bba740c798bc",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1476839&numSequencia=1001545&numVersao=1",
+        "timestamp_publicacao": "2026-02-12T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-12T23:59:00-03:00"
+      },
+      "id": "e614bba740c798bc-0"
+    }
+  ]
+}

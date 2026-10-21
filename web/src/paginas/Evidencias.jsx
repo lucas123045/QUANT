@@ -169,17 +169,34 @@ function Metodo({ m }) {
   );
 }
 
+const FONTES = [["ao_vivo", "Ao vivo (notícias)"], ["historico", "Histórico (fatos relevantes da CVM)"]];
+
 export default function Evidencias({ base }) {
-  const { dados: e, erro, carregando } = useApi(`/api/evidencias?base=${base}`);
+  const [fonte, setFonte] = useState("ao_vivo");
+  const historico = fonte === "historico" && base !== "teste";
+  const { dados: e, erro, carregando } = useApi(`/api/evidencias?base=${historico ? "historico" : base}`);
   return (
+    <div className="f-pagina">
+      <div className="f-aviso">
+        <Icone nome="info" tamanho={16} />
+        <span>Aqui o QUANT se testa: o preço realmente reage às notícias que a IA classifica? A tempo de o sistema aproveitar?
+          Nada nesta página muda as decisões; é evidência para julgar a estratégia.</span>
+      </div>
+      {base !== "teste" && (
+        <div className="f-segmentado evidencias-fonte" role="group" aria-label="Fonte dos eventos">
+          {FONTES.map(([k, nome]) => <button key={k} className={fonte === k ? "ativo" : ""} onClick={() => setFonte(k)}>{nome}</button>)}
+        </div>
+      )}
+      {historico && (
+        <p className="f-nota"><Icone nome="info" tamanho={14} />
+          <span>Fatos relevantes entregues à CVM de 2025 em diante, todos depois do corte de conhecimento do modelo (01/06/2024):
+            a IA não conhece o desfecho. Cada fato foi processado como se tivesse sido coletado no dia da entrega, com a regra vigente
+            e só o histórico anterior. Execução no fechamento do pregão seguinte à entrega.</span>
+        </p>
+      )}
     <Estado carregando={carregando && !e} erro={erro}>
       {e && (
-        <div className="f-pagina">
-          <div className="f-aviso">
-            <Icone nome="info" tamanho={16} />
-            <span>Aqui o QUANT se testa: o preço realmente reage às notícias que a IA classifica? A tempo de o sistema aproveitar?
-              Nada nesta página muda as decisões; é evidência para julgar a estratégia.</span>
-          </div>
+        <>
           {e.estado !== "ok" ? (
             <div className="f-aviso"><Icone nome="relogio" tamanho={16} /><span>{e.mensagem}</span></div>
           ) : (
@@ -201,8 +218,9 @@ export default function Evidencias({ base }) {
             </>
           )}
           <Metodo m={e.metodo} />
-        </div>
+        </>
       )}
     </Estado>
+    </div>
   );
 }

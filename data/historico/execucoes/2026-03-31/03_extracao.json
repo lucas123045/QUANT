@@ -1,0 +1,25 @@
+{
+  "57f9c486ffc82d3a": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Presidente do Conselho de Administração, Bruno Moretti, renunciou ao cargo com efeitos imediatos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que recebeu hoje a renúncia, com efeitos imediatos, do Presidente do Conselho de Administração da companhia, Bruno Moretti, aos cargos de Presidente e membro do Conselho de Administração da Petrobras, tendo em vista sua nomeação como Ministro do Planejamento e Orçamento.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "57f9c486ffc82d3a",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1499371&numSequencia=1024077&numVersao=1",
+        "timestamp_publicacao": "2026-03-31T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-31T23:59:00-03:00"
+      },
+      "id": "57f9c486ffc82d3a-0"
+    }
+  ],
+  "a4277083c8fb209d": []
+}

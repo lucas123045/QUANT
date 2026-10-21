@@ -1,0 +1,124 @@
+{
+  "ed5f1211c9452586": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção média de óleo, LGN e gás natural aumentou 5% no 2T25, com entrada de novos FPSOs e recordes operacionais.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A produção média de óleo, LGN e gás natural alcançou 2,91 MMboed no 2T25, o que representa um aumento de 5,0% em comparação ao 1T25.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Alexandre de Gusmão iniciou operações em 24 de maio, antecipando a data prevista no plano de negócios.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O FPSO Alexandre de Gusmão (foto), quinta plataforma no campo de Mero, na Bacia de Santos, iniciou suas operações em 24 de maio, antecipando a data prevista no plano de negócios atual e marcando mais um importante avanço para a produção no pré-sal brasileiro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Navio-plataforma P-78 saiu do estaleiro e está em trânsito para o Brasil, com produção prevista para o segundo semestre.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O navio-plataforma P-78 saiu do estaleiro em Singapura no dia 13 de julho e está em trânsito para o Brasil. Sua entrada em produção está prevista para o segundo semestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Novo HDT da REPLAN iniciou operação em 27/05, ampliando produção de diesel S-10 e QAV.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O novo HDT da REPLAN (foto) é outro importante marco para a Petrobras. Com o início da operação dessa unidade em 27/05 , a Refinaria de Paulínia ampliou sua capacidade de produção de diesel S-10 em até 63 mbpd e de querosene de aviação (QAV) em até 21 mbpd.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Parceria com a Vale para abastecimento de navio com biocombustível marítimo VLS B24, focando em descarbonização.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Por meio da Petrobras Singapore, realizamos uma parceria com a Vale para abastecer o navio graneleiro Luise Oldendorff (foto) com o combustível marítimo Very Low Sulfur (VLS) B24, composto por 24% de biodiesel de segunda geração (UCOME), derivado de óleo de cozinha usado, e 76% de óleo combustível fóssil das refinarias da Petrobras.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-4"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Parceria com a Petrobras para teste de biocombustível marítimo VLS B24 em navio graneleiro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Por meio da Petrobras Singapore, realizamos uma parceria com a Vale para abastecer o navio graneleiro Luise Oldendorff (foto) com o combustível marítimo Very Low Sulfur (VLS) B24, composto por 24% de biodiesel de segunda geração (UCOME), derivado de óleo de cozinha usado, e 76% de óleo combustível fóssil das refinarias da Petrobras.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed5f1211c9452586",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405140&numSequencia=929852&numVersao=1",
+        "timestamp_publicacao": "2025-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-29T23:59:00-03:00"
+      },
+      "id": "ed5f1211c9452586-5"
+    }
+  ]
+}

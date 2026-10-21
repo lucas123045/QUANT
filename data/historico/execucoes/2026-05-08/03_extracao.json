@@ -1,0 +1,24 @@
+{
+  "2ca6fa7d0830bfbc": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Itaú Unibanco altera o portal de divulgação de atos e fatos relevantes para https://mzgroup.com.br/fatos-relevantes/.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "realizou a substituição do portal de notícias com página na internet utilizado para divulgação de seus atos e fatos relevantes. A Companhia passará a realizar referidas divulgações no portal https://mzgroup.com.br/fatos-relevantes/",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2ca6fa7d0830bfbc",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1518428&numSequencia=1043134&numVersao=1",
+        "timestamp_publicacao": "2026-05-08T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-08T23:59:00-03:00"
+      },
+      "id": "2ca6fa7d0830bfbc-0"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ from collections import Counter
 from pathlib import Path
 
 from src import archive, config
+from src.strategy import materialidade_suficiente
 from src.matching import identificar_tickers
 
 PREGOES_POR_SEMESTRE = 126
@@ -39,8 +40,11 @@ def medir_funil(dir_data: Path | None = None) -> dict:
     classificados = [classificacoes.get(e["id"]) for e in eventos]
     classificados = [c for c in classificados if c]
     confirmados = [e for e in eventos if e.get("confirmado")]
-    # Etapa seguinte à confirmação no funil: só conta eventos confirmados.
-    acima_limiar = [c for e in confirmados if (c := classificacoes.get(e["id"]))
+    # REGRA_V3: dos confirmados, os que mudam o resultado da empresa (materialidade mínima).
+    relevantes = [e for e in confirmados
+                  if materialidade_suficiente(classificacoes.get(e["id"])) is True]
+    # Etapa seguinte no funil: só conta eventos relevantes.
+    acima_limiar = [c for e in relevantes if (c := classificacoes.get(e["id"]))
                     and c["sentimento"] != "neutro" and c["probabilidade"] > config.LIMIAR_PROBABILIDADE]
     operacoes = [d for d in decisoes if d["decisao"]["decisao"] != "manter"]
 
@@ -55,6 +59,8 @@ def medir_funil(dir_data: Path | None = None) -> dict:
         "eventos_extraidos": len(eventos),
         "eventos_classificados": len(classificados),
         "eventos_confirmados": len(confirmados),
+        "eventos_relevantes": len(relevantes),
+        "materialidade_minima": config.MATERIALIDADE_MINIMA,
         "sentimentos": dict(Counter(c["sentimento"] for c in classificados)),
         "eventos_acima_do_limiar": len(acima_limiar),
         "limiar_probabilidade": config.LIMIAR_PROBABILIDADE,

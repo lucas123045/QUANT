@@ -25,6 +25,8 @@ data/pratica/
 data/estudos/
 data/mercado/
 data/cvm/
+# Estudo histórico: versionado, menos o cache de preços (se refaz sozinho)
+data/historico/estudos/
 
 # Logs e trava do funcionamento automático
 data/*.log

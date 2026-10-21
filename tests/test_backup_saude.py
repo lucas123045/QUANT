@@ -79,3 +79,20 @@ def test_pipeline_real_faz_backup(tmp_path, monkeypatch):
     resumo = main.executar(agora=datetime(2026, 10, 15, 20, 0, tzinfo=SP), dir_data=tmp_path / "data")
     assert resumo["backup"] and resumo["backup"].startswith(str(destino))
     assert resumo["por_fonte"] == {"InfoMoney": 0, "Money Times": 0}
+
+
+def test_alerta_quando_a_coleta_fica_horas_sem_rodar(tmp_path):
+    import json
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    from src import main
+    sp = ZoneInfo("America/Sao_Paulo")
+    quando = ["2026-10-21T06:16:00-03:00", "2026-10-21T06:46:00-03:00", "2026-10-21T11:36:00-03:00"]
+    (tmp_path / "_coletas.log").write_text("\n".join(json.dumps({"quando": q}) for q in quando), encoding="utf-8")
+    alertas = main.alertas_agenda(tmp_path, datetime(2026, 10, 21, 12, 0, tzinfo=sp))
+    assert len(alertas) == 1 and "4,8 h sem rodar" in alertas[0] and "de 21/10 06:46 a 21/10 11:36" in alertas[0]
+    # Em dia (a cada 30 min): sem alerta.
+    em_dia = [f"2026-10-21T{h:02d}:{m:02d}:00-03:00" for h in range(12, 24) for m in (0, 30)]
+    (tmp_path / "_coletas.log").write_text("\n".join(json.dumps({"quando": q}) for q in em_dia), encoding="utf-8")
+    assert main.alertas_agenda(tmp_path, datetime(2026, 10, 22, 0, 10, tzinfo=sp)) == []

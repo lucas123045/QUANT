@@ -1,0 +1,24 @@
+{
+  "349ba6b15a77c03c": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vale avalia potencial venda de 70% da Aliança Energia para a GIP, incluindo ativos Sol do Cerrado e Consórcio Candonga.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "a Vale S.A. (“Vale” ou “Companhia) esclarece que está avaliando potencial alienação de 70% de participação na Aliança Energia, incluindo os ativos de energia Sol do Cerrado e Consórcio Candonga, presentes no portfólio da Companhia, para a Global Infrastructure Partners (\"GIP\"). A Vale informa que não há qualquer instrumento vinculante firmado quanto à alienação",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "349ba6b15a77c03c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1334979&numSequencia=859705&numVersao=1",
+        "timestamp_publicacao": "2025-02-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-14T23:59:00-03:00"
+      },
+      "id": "349ba6b15a77c03c-0"
+    }
+  ]
+}

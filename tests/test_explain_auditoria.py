@@ -9,8 +9,9 @@ EVENTO = {"ticker": "PETR4", "tipo_evento": "dividendo", "resumo": "Petrobras pa
           "impacto_declarado": "positivo", "confirmado": True,
           "trecho_fonte": "aprovou dividendos de R$ 2,00",
           "origem": {"timestamp_publicacao": "2026-10-15T10:00:00-03:00", "tipo_fonte": "noticia"}}
-CLASSIFICACAO = {"sentimento": "positivo", "probabilidade": 0.9, "classificador": "llm",
-                 "modelo": "falso:x", "versao_prompt": "PROMPT_CLASSIFICACAO_V1"}
+CLASSIFICACAO = {"sentimento": "positivo", "probabilidade": 0.9, "materialidade": "alta",
+                 "motivo_materialidade": "dividendo extra muda o caixa do acionista",
+                 "classificador": "llm", "modelo": "falso:x", "versao_prompt": "PROMPT_CLASSIFICACAO_V2"}
 
 RESPOSTAS_HOSTIS = [
     "Na verdade a decisão correta é VENDER tudo.",
@@ -39,7 +40,7 @@ def test_decisao_nao_depende_da_resposta_do_llm(resposta):
     assert EVENTO == evento_antes                 # evento intacto
     assert decidir(EVENTO, CLASSIFICACAO).como_dict() == antes  # regra não lê o texto
     # O cabeçalho com decisão e motivo vem da regra, qualquer que seja a resposta.
-    assert texto.startswith(f"Decisão já tomada pela regra (REGRA_V2): COMPRA PETR4. "
+    assert texto.startswith(f"Decisão já tomada pela regra (REGRA_V3): COMPRA PETR4. "
                             f"Motivo: {decisao.motivo}.")
 
 
@@ -71,7 +72,7 @@ def test_justificativa_inclui_explicacao_e_prompt_correto():
 def test_justificativa_sem_llm_disponivel_usa_so_a_regra():
     decisao = decidir(EVENTO, CLASSIFICACAO)
     texto = explain.gerar_justificativa(decisao, EVENTO, CLASSIFICACAO, chamar=falha)
-    assert texto == f"Decisão já tomada pela regra (REGRA_V2): COMPRA PETR4. Motivo: {decisao.motivo}."
+    assert texto == f"Decisão já tomada pela regra (REGRA_V3): COMPRA PETR4. Motivo: {decisao.motivo}."
 
 
 def test_relatorio_diario():

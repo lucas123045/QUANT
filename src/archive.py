@@ -26,6 +26,9 @@ CAMPOS_OBRIGATORIOS = ("tipo_fonte", "fonte", "url", "titulo", "texto",
 TIPOS_FONTE = {"noticia", "fato_relevante"}
 # Fora do padrão *.jsonl de propósito: não é registro do arquivo, só a marca da última coleta.
 ARQUIVO_ULTIMA_COLETA = "_ultima_coleta.json"
+# Histórico curto das coletas (uma linha por coleta), para medir se a agenda está em dia.
+ARQUIVO_COLETAS = "_coletas.log"
+MAX_COLETAS = 500  # ~10 dias a cada 30 minutos
 
 
 def _sha256(texto: str) -> str:
@@ -58,7 +61,8 @@ def montar_registro(item: dict) -> dict:
         "url": item["url"],
         "titulo": item["titulo"],
         "texto": item["texto"],
-        "tickers": identificar_tickers(f"{item['titulo']}\n{item['texto']}"),
+        # O estudo histórico já sabe a empresa (pelo CNPJ na CVM); a coleta casa pelo texto.
+        "tickers": item.get("tickers") or identificar_tickers(f"{item['titulo']}\n{item['texto']}"),
         "hash_conteudo": _sha256(f"{item['titulo']}\n{item['texto']}"),
     }
 
@@ -91,10 +95,27 @@ def arquivar(itens: list[dict], pasta: Path | None = None, agora: datetime | Non
             for registro in novos:
                 f.write(json.dumps(registro, ensure_ascii=False) + "\n")
     # Marca a coleta mesmo sem nada novo: a interface mostra quando foi a última.
-    (pasta / ARQUIVO_ULTIMA_COLETA).write_text(json.dumps(
-        {"quando": agora.isoformat(), "coletados": len(itens), "novos": len(novos)}), encoding="utf-8")
+    marca = json.dumps({"quando": agora.isoformat(), "coletados": len(itens), "novos": len(novos)})
+    (pasta / ARQUIVO_ULTIMA_COLETA).write_text(marca, encoding="utf-8")
+    historico = pasta / ARQUIVO_COLETAS
+    linhas = historico.read_text(encoding="utf-8").splitlines() if historico.exists() else []
+    historico.write_text("\n".join((linhas + [marca])[-MAX_COLETAS:]) + "\n", encoding="utf-8")
     logger.info("Arquivados %d novos de %d coletados", len(novos), len(itens))
     return novos
+
+
+def coletas(pasta: Path | None = None) -> list[datetime]:
+    """Instantes das coletas registradas (as mais antigas saem depois de MAX_COLETAS)."""
+    caminho = Path(pasta or config.DIR_ARQUIVO) / ARQUIVO_COLETAS
+    if not caminho.exists():
+        return []
+    instantes = []
+    for linha in caminho.read_text(encoding="utf-8").splitlines():
+        try:
+            instantes.append(datetime.fromisoformat(json.loads(linha)["quando"]))
+        except (ValueError, KeyError, TypeError):
+            continue
+    return sorted(instantes)
 
 
 def ultima_coleta(pasta: Path | None = None) -> dict | None:

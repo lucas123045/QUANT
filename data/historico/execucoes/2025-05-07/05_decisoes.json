@@ -1,0 +1,87 @@
+[
+  {
+    "evento": {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco renova programa de recompra de ações para permanência em tesouraria e posterior cancelamento.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administraçªo deliberou renovar o programa de recompra de açıes de própria emissªo que autoriza a Diretoria a adquirir, no período de 8.5.2025 a 8.11.2026, atØ 106.584.881 açıes nominativas-escriturais, sem valor nominal, sendo atØ 53.413.506 açıes ordinÆrias e atØ 53.171.375 açıes preferenciais, para permanŒncia em tesouraria e posterior cancelamento, sem reduçªo do capital social",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bb567215ab745ad3",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1373671&numSequencia=898383&numVersao=1",
+        "timestamp_publicacao": "2025-05-07T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-07T23:59:00-03:00"
+      },
+      "id": "bb567215ab745ad3-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra de ações pode apoiar o preço e sinaliza confiança, mas impacto financeiro é limitado pelo tamanho do Bradesco.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBDC4",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (outro, materialidade média) com probabilidade 0.85 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 08/05 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra de ações pode apoiar o preço e sinaliza confiança, mas impacto financeiro é limitado pelo tamanho do Bradesco."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  }
+]

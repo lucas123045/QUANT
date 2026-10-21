@@ -1,0 +1,24 @@
+{
+  "8df94598e139bfda": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale inicia oferta para aquisição facultativa de até a totalidade das debêntures participativas de sua 6ª emissão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale informa início da oferta para aquisição facultativa de debêntures participativas pela Companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8df94598e139bfda",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1429700&numSequencia=954412&numVersao=1",
+        "timestamp_publicacao": "2025-10-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-06T23:59:00-03:00"
+      },
+      "id": "8df94598e139bfda-0"
+    }
+  ]
+}

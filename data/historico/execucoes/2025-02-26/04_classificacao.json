@@ -1,0 +1,20 @@
+{
+  "36c22d45465d8027-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Projeção de aumento de custos pode pressionar margens em 2025.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "33989ff231acf68b-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Distribuição de dividendos relevante para o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "91d02d6fa9445f92": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale atualiza projeções de fluxo de caixa livre e sensibilidade para 2025 e 2025-27, apresentando novas estimativas financeiras.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A. (“Vale” ou “Companhia) informa que atualizou as estimativas referentes a sensibilidade de fluxo de caixa da Companhia, a ser apresentada na Conferência BMO Global Metals, Mining & Critical Minerals, em Miami, na data de hoje.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "91d02d6fa9445f92",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1338388&numSequencia=863114&numVersao=1",
+        "timestamp_publicacao": "2025-02-24T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-24T23:59:00-03:00"
+      },
+      "id": "91d02d6fa9445f92-0"
+    }
+  ]
+}

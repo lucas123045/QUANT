@@ -17,7 +17,7 @@ PRECOS = pd.DataFrame({
 def evento(ticker, sentimento, quando, confirmado=True, probabilidade=0.9):
     return {"ticker": ticker, "tipo_evento": "outro", "confirmado": confirmado,
             "origem": {"timestamp_publicacao": quando, "tipo_fonte": "noticia"},
-            "classificacao": {"sentimento": sentimento, "probabilidade": probabilidade}}
+            "classificacao": {"sentimento": sentimento, "probabilidade": probabilidade, "materialidade": "alta"}}
 
 
 # --- execução no próximo pregão ---------------------------------------------

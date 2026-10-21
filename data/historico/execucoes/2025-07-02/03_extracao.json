@@ -1,0 +1,24 @@
+{
+  "68ff7f277646ef87": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale decide antecipar manutenções preventivas na usina de pelotização de São Luís, paralisando produção no 3T25.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia decidiu antecipar manutenções preventivas da usina de pelotização de São Luís2 (MA) ao longo do 3T25, paralisando a produção no período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68ff7f277646ef87",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1396796&numSequencia=921508&numVersao=1",
+        "timestamp_publicacao": "2025-07-02T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-02T23:59:00-03:00"
+      },
+      "id": "68ff7f277646ef87-0"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "7a0242328a4dc4bb": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vale concluiu formação de joint-venture na Aliança Energia com a GIP, recebendo US$ 1 bilhão e ficando com 30% de participação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Vale S.A. (“Vale” ou a “Companhia”) anuncia que concluiu, em conjunto com a Global Infrastructure Partners (“GIP”) , a formação de uma joint venture na Aliança Geração de Energia S.A. (“Aliança Energia”), após o cumprimento de todas as condições precedentes, incluindo a anuência e/ou a aprovação de órgãos regulatórios. Pela transação, a Vale recebeu US$ 1 bilhão 2 em caixa e passou a deter uma participação de 30% na joint venture, enquanto a GIP detém os 70% remanescentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7a0242328a4dc4bb",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1424772&numSequencia=949484&numVersao=1",
+        "timestamp_publicacao": "2025-09-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-18T23:59:00-03:00"
+      },
+      "id": "7a0242328a4dc4bb-0"
+    }
+  ],
+  "33615b60d51dde80": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Aprovação de pagamento de juros sobre o capital próprio intermediários no valor total de R$3 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Conselho de Administração, em reunião hoje realizada, aprovou proposta da Diretoria para pagamento de juros sobre o capital próprio intermediários, no valor total de R$3.000.000.000,00",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "33615b60d51dde80",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1424773&numSequencia=949485&numVersao=1",
+        "timestamp_publicacao": "2025-09-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-09-18T23:59:00-03:00"
+      },
+      "id": "33615b60d51dde80-0"
+    }
+  ]
+}

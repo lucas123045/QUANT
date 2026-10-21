@@ -59,11 +59,15 @@ def linhas_do_arquivo(conteudo_zip: bytes) -> list[dict]:
     return list(csv.DictReader(io.StringIO(texto), delimiter=";"))
 
 
-def fatos_da_carteira(linhas: list[dict], desde: date) -> list[dict]:
-    """Fatos relevantes (1ª versão) das empresas da carteira entregues desde `desde`."""
+def fatos_da_carteira(linhas: list[dict], desde: date, cnpjs: dict[str, str] | None = None) -> list[dict]:
+    """Fatos relevantes (1ª versão) entregues desde `desde`, das empresas de `cnpjs` (CNPJ -> ticker).
+
+    Padrão: a carteira. O estudo histórico passa o universo ampliado.
+    """
+    cnpjs = config.CNPJ_CARTEIRA if cnpjs is None else cnpjs
     fatos = []
     for l in linhas:
-        ticker = config.CNPJ_CARTEIRA.get(l.get("CNPJ_Companhia", "").strip())
+        ticker = cnpjs.get(l.get("CNPJ_Companhia", "").strip())
         if not ticker or l.get("Categoria") != CATEGORIA or l.get("Versao", "").strip() != "1":
             continue
         try:

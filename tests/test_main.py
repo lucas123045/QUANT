@@ -45,7 +45,7 @@ def test_pipeline_modo_teste_ponta_a_ponta(tmp_path, monkeypatch, contador_llm):
                                                                      ("VALE3", "venda")]
     for op in operacoes:
         assert set(op) == set(auditoria.CAMPOS) | set(auditoria.CAMPOS_OPCIONAIS)
-        assert op["versao_regra"] == "REGRA_V2"
+        assert op["versao_regra"] == "REGRA_V3"
         # Justificativa passo a passo: cada critério da regra, cumprido, para uma compra/venda.
         assert op["criterios"] and all(c["ok"] for c in op["criterios"])
         assert op["evento"]["trecho_fonte"]
@@ -117,7 +117,8 @@ def test_historico_de_execucoes_anteriores_e_usado(tmp_path):
               "origem": {"timestamp_publicacao": "2026-10-14T10:00:00-03:00"}}
     (anterior / "03_extracao.json").write_text(json.dumps({"x": [evento]}), encoding="utf-8")
     (anterior / "04_classificacao.json").write_text(
-        json.dumps({"x-0": {"sentimento": "negativo", "probabilidade": 0.9}}), encoding="utf-8")
+        json.dumps({"x-0": {"sentimento": "negativo", "probabilidade": 0.9, "materialidade": "alta"}}),
+        encoding="utf-8")
 
     resumo = main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
     decisoes = json.loads((tmp_path / "execucoes" / "2026-10-15" / "05_decisoes.json")
@@ -137,7 +138,8 @@ def test_eventos_do_prompt_antigo_nao_entram_na_regra(tmp_path):
               "origem": {"timestamp_publicacao": "2026-10-14T10:00:00-03:00"}}
     (anterior / "03_extracao.json").write_text(json.dumps({"x": [evento]}), encoding="utf-8")
     (anterior / "04_classificacao.json").write_text(
-        json.dumps({"x-0": {"sentimento": "negativo", "probabilidade": 0.9}}), encoding="utf-8")
+        json.dumps({"x-0": {"sentimento": "negativo", "probabilidade": 0.9, "materialidade": "alta"}}),
+        encoding="utf-8")
     assert main.carregar_historico(tmp_path / "execucoes", "2026-10-15") == []
     resumo = main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
     assert resumo["operacoes"] == 2  # o negativo antigo (V1) não bloqueou a compra de PETR4

@@ -1,0 +1,24 @@
+{
+  "c6df5d225ef57bce": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de dividendos intercalares de R$ 12,16 bilhões, em duas parcelas, referentes ao exercício de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "seu Conselho de Administração (CA), em reunião realizada hoje, aprovou o pagamento de dividendos intercalares no valor de R$ 12, 16 bilhões, equivalente a R$ 0,94320755 por ação ordinária e preferencial em circulação, como antecipação da remuneração aos acionistas relativa ao exercício de 2025, declarada com base no balanço de 30 de setembro de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c6df5d225ef57bce",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1441412&numSequencia=966124&numVersao=1",
+        "timestamp_publicacao": "2025-11-06T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-06T23:59:00-03:00"
+      },
+      "id": "c6df5d225ef57bce-0"
+    }
+  ]
+}

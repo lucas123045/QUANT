@@ -65,9 +65,10 @@ Antes de olhar qualquer resultado do período de teste, a regra é congelada. A 
 - `LIMIAR_PROBABILIDADE` (hoje 0,7)
 - `MAX_POSICAO_PCT` (hoje 0,20)
 - `JANELA_EVENTO_RECENTE_DIAS` (hoje 5), usado pela lógica de `decidir`
-- lógica da função `decidir` (`src/strategy.py`, `REGRA_V2`)
+- `MATERIALIDADE_MINIMA` (hoje "media"), `JANELA_REPETICAO_HORAS` (hoje 24) e `HORA_LIMITE_EXECUCAO` (hoje 16h55)
+- lógica da função `decidir` (`src/strategy.py`, `REGRA_V3`)
 - prompt de extração (`PROMPT_EXTRACAO_V2`, `src/extract.py`)
-- prompt de classificação (`PROMPT_CLASSIFICACAO_V1`, `src/classify.py`)
+- prompt de classificação (`PROMPT_CLASSIFICACAO_V2`, `src/classify.py`)
 - versão do modelo de LLM usado (`LLM_PROVEDOR` e `LLM_MODELO`) e sua data de corte de conhecimento (`DATA_CORTE_CONHECIMENTO_MODELO`)
 - esforço do modelo (`ESFORCO = "medium"`, `src/provedores.py`)
 - critério de decisão (`CRITERIO_V2`, `ALFA_CRITERIO = 0,05`)
@@ -76,6 +77,12 @@ Antes de olhar qualquer resultado do período de teste, a regra é congelada. A 
 - hash de `requirements.txt` e hash dos preços (`backtest.hash_dos_precos()`)
 
 O código impede rodar o período de teste enquanto `DATA_CONGELAMENTO` for `None`: `periodo_do_config("teste")` levanta `CongelamentoPendente`.
+
+**Como congelar (`src/congelamento.py`).** `python -m src.congelamento` lista os pré-requisitos, cada um com o que fazer, e mostra a **impressão digital da regra**: o SHA-256 do código de `strategy.py`, dos prompts de extração e de classificação, do casamento de tickers, das fontes e de todos os parâmetros que decidem. Com tudo cumprido, o autor roda `python -m src.congelamento --congelar --confirmo-que-sou-o-autor`, que grava `congelamento.json` na raiz (com a impressão digital, o modelo e os parâmetros) e preenche `DATA_CONGELAMENTO`. A partir daí, cada execução confere a impressão digital e o modelo em uso: se algo mudar, a Visão do sistema avisa que os resultados não valem mais como teste. O mesmo checklist aparece na página Visão do sistema.
+
+Pré-requisitos: modelo com versão datada (`LLM_MODELO`), corte de conhecimento registrado (para o gpt-4.1, a documentação da OpenAI informa 01/06/2024), os três períodos aprovados, validação e teste depois do corte, e o teste começando no futuro (prospectivo).
+
+**Sugestão de períodos (decisão do autor).** Para notícias de portal não há arquivo anterior a 15/10/2026, então o desenho natural é: treino e validação com os fatos relevantes da CVM, todos posteriores ao corte do modelo (por exemplo, treino em 2025 e validação de 01/01/2026 até a data do congelamento, via `src/historico.py`), e teste **prospectivo** a partir do congelamento, com notícias e fatos relevantes, por um prazo fixo (por exemplo, 6 meses).
 
 O teste `test_parametros_congelaveis_nao_foram_alterados` **falha de propósito** se algum parâmetro congelável mudar ou se `DATA_CONGELAMENTO` for preenchida. Atualizá-lo é um ato deliberado, que entra no mesmo commit da mudança aprovada.
 
@@ -219,13 +226,21 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | `src/auditoria.py` | Log append-only `data/operacoes.jsonl` |
 | `src/main.py` | Pipeline retomável. Cada etapa grava em `data/execucoes/AAAA-MM-DD/` |
 
-### Regra de decisão (`REGRA_V2`)
+### Regra de decisão (`REGRA_V3`)
 
 | Situação | Decisão |
 |---|---|
-| Fato sobre a empresa (não só a cotação), confirmado, positivo, probabilidade **> 0,7**, sem **fato** negativo confirmado do mesmo ticker nos 5 dias anteriores | COMPRA de até 20% do patrimônio |
-| Fato sobre a empresa, confirmado, negativo, probabilidade **> 0,7**, sem fato positivo confirmado do mesmo ticker nos 5 dias anteriores | VENDA (zera a posição, se houver) |
-| Sem classificação, só a variação da cotação, não confirmado, neutro, probabilidade ≤ 0,7 ou fato oposto recente | MANTER |
+| Fato sobre a empresa (não só a cotação), confirmado, **relevante** (materialidade média ou alta), **novo** (o mercado ainda não negociou um pregão inteiro com ele), positivo, probabilidade **> 0,7**, **primeira notícia do fato** nas últimas 24 h e sem **fato** negativo confirmado do mesmo ticker nos 5 dias anteriores | COMPRA de até 20% do patrimônio |
+| O mesmo, com sentido negativo (sem fato positivo confirmado recente) | VENDA (zera a posição, se houver) |
+| Qualquer critério não cumprido | MANTER, com o primeiro critério que falhou como motivo |
+
+**V2 → V3 (21/10/2026, antes do congelamento).** No primeiro dia na nuvem, a V2 registrou 5 compras de PETR4: quatro eram a mesma notícia em dois portais ("a ANP adiou uma audiência pública sobre o Gas Release"), um fato confirmado e positivo, mas sem efeito financeiro mensurável; a quinta era um fato relevante entregue à CVM 8 dias antes. Mudanças:
+
+1. **Materialidade (`PROMPT_CLASSIFICACAO_V2`):** a IA classifica também quanto o fato muda o resultado, o caixa ou o valor da empresa (alta, média ou baixa, com uma frase de motivo e definições objetivas; na dúvida, o nível mais baixo). A regra exige `MATERIALIDADE_MINIMA = "media"`: procedimento, adiamento, agenda, opinião de terceiros e repetição de algo já conhecido ficam de fora.
+2. **Fato novo (`HORA_LIMITE_EXECUCAO`):** o evento passa a guardar quando o QUANT soube dele (`timestamp_coleta`). Se isso aconteceu depois do início do leilão de fechamento (16h55) do pregão seguinte ao dia do fato, o mercado já negociou um pregão inteiro com ele, e executar "no pregão seguinte" seria no passado: MANTER. Feriados contam como dia útil (erro conservador).
+3. **Repetição (`JANELA_REPETICAO_HORAS = 24`):** notícia da mesma ação, no mesmo sentido, nas 24 h anteriores, que passou por todos os critérios próprios, é a mesma informação: a primeira decide, as outras viram MANTER com o motivo "repetição". A posição por ação já é limitada a 20%, então uma segunda notícia igual não teria o que acrescentar.
+
+Classificações feitas com o prompt V1 não têm materialidade: a V3 não opera sobre elas. As decisões da V2 continuam no log, fora da carteira.
 
 Cada decisão grava a lista de critérios conferidos (`criterios`: cada condição com ✓/✗ e o valor que decidiu). É a justificativa passo a passo que aparece na interface (Carteira › Extrato, Decisões, Análises do dia) e no log de auditoria, junto com a explicação da IA (`PROMPT_EXPLICACAO_V2`, que recebe esses critérios e cita o fato da notícia).
 
@@ -318,7 +333,20 @@ Um computador pessoal desligado ou dormindo para a coleta: em 16–20/10/2026 ho
 3. gera a vitrine e grava tudo no ramo **`dados`** do repositório (cada coleta é um commit: histórico auditável e backup);
 4. o site online lê a vitrine desse ramo (`web/.env.production`, `VITE_DADOS_URL`) e se atualiza sem ser republicado.
 
-**Para ligar (uma vez, no GitHub):** Settings › Secrets and variables › Actions › *New repository secret* `LLM_API_KEY` com a chave da OpenAI. Sem o secret, a nuvem coleta, mas não analisa. Para rodar na hora: aba Actions › *QUANT* › *Run workflow*. O GitHub pode atrasar execuções agendadas alguns minutos em horários de pico.
+**Para ligar (uma vez, no GitHub):** Settings › Secrets and variables › Actions › *New repository secret* `LLM_API_KEY` com a chave da OpenAI (em **Repository secrets**, não em Environment secrets). Sem o secret, a nuvem coleta, mas não analisa. Para rodar na hora: aba Actions › *QUANT* › *Run workflow*. A nuvem também roda sozinha quando chega código novo na `main`.
+
+**Agendador externo (recomendado).** O agendamento do GitHub atrasa ou pula execuções: em 21/10/2026, o "a cada 30 minutos" rodou 2 vezes em 9 horas, e a notícia chegava ao QUANT, em mediana, 2 horas depois de publicada. Para manter os 30 minutos:
+
+1. no Vercel (Settings › Environment Variables), crie `QUANT_CRON_SEGREDO` (um segredo longo) e `QUANT_GITHUB_TOKEN` (token do GitHub com permissão *Actions: Read and write* no repositório) e faça *Redeploy*;
+2. no [cron-job.org](https://cron-job.org) (gratuito), crie uma tarefa a cada 30 minutos chamando `https://SEU-SITE.vercel.app/api/nuvem?agendar=SEU_SEGREDO`.
+
+O endereço nunca empilha execuções (se já houver uma na fila, não dispara outra) e recusa segredo errado. A Visão do sistema avisa quando a coleta passa mais de 90 minutos sem rodar.
+
+### Estudo histórico com os fatos relevantes da CVM
+
+`python -m src.historico --desde 2025-01-01` processa todos os fatos relevantes da carteira **e de um universo ampliado** (`UNIVERSO_ESTUDO`: 19 grandes empresas do Ibovespa, de setores variados, com o mesmo código de negociação desde junho de 2024, critério definido antes de olhar qualquer retorno) entregues à CVM a partir da data, que precisa ser posterior ao corte de conhecimento do modelo: a IA não conhece o desfecho. Cada fato entra como se tivesse sido coletado no dia da entrega, e a extração, a classificação e a regra vigente rodam dia a dia, em ordem, só com o histórico anterior. Os dados ficam em `data/historico/` (separados da carteira) e o resultado aparece em Evidências › Histórico. `--estimar` conta os fatos e estima o custo antes de chamar a IA (372 fatos de 2025 a 21/10/2026: cerca de US$ 3,50).
+
+Por que o universo ampliado: com as 5 ações da carteira, os fatos relevantes rendem 10 a 15 eventos independentes por ano, e detectar um efeito de 1% em 5 pregões (desvio do retorno anormal de ~3,8%) pede ~110. A carteira ao vivo não muda: o universo vale só para o estudo.
 
 **No computador:** com a nuvem ligada, o PC não deve coletar também, senão haveria dois conjuntos de dados. Rode `agendar.cmd -Sincronizar` (Windows) ou `bash scripts/agendar-unix.sh 30 --sincronizar` (macOS/Linux): o PC passa a só trazer os dados da nuvem para `data/` (`python -m src.sincronizar`), juntando sem perder nada local. O `QUANT.cmd`/`QUANT.sh` também sincroniza ao abrir.
 
@@ -433,6 +461,7 @@ Três páginas para quem quer usar o QUANT como apoio a decisões reais. **Nenhu
 
 | O que muda | Como | Por quê |
 |---|---|---|
+| **Portão de evidência** | Só compra quando os eventos **anteriores** (com os 5 pregões depois da execução já encerrados) somam 30 ou mais e o limite inferior do intervalo unilateral de 90% do retorno anormal médio supera o custo de ida e volta. Sem isso, o dinheiro fica no CDI | Testar uma hipótese (carteira da pesquisa, que opera sempre) é diferente de investir nela: o investidor só arrisca depois de evidência, e o pior caso vira o CDI |
 | Custos | 0,032% por lado: tarifa da B3 no leilão de fechamento (negociação 0,007% + CCP 0,0224% + TTA 0,0026%, tabela da B3 consultada em 21/10/2026); corretagem zero | Custo zero superestima o resultado |
 | Imposto de renda | 15% sobre o lucro do mês; isento se as vendas do mês não passam de R$ 20 mil (isenção "tudo ou nada"); prejuízo compensado depois (`src/tributacao.py`). A MP 1.303/2025, que mudaria isso, caducou em 08/10/2025 | Com posições de R$ 20 mil, quase toda venda é tributável |
 | Caixa | Rende 100% do CDI | Dinheiro parado no Brasil rende ~14% ao ano |

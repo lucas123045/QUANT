@@ -1,0 +1,44 @@
+{
+  "8867a62823b8e409": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Aumento de capital social aprovado, com subscrição privada de até R$10 bilhões, para fortalecer investimentos estratégicos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Aprovou o aumento do capital social, mediante subscrição privada de ações, no valor de até R$ 10.000.000.000,00, dentro do limite do capital autorizado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8867a62823b8e409",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549485&numSequencia=1074191&numVersao=1",
+        "timestamp_publicacao": "2026-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-29T23:59:00-03:00"
+      },
+      "id": "8867a62823b8e409-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Antecipação do pagamento de JCP declarados em 25.3.2026 e 23.6.2026 para 15.9.2026, totalizando R$6,5 bilhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Aprovou proposta da Diretoria para antecipar para 15.9.2026 o pagamento de JCP anteriormente declarados em 25.3.2026 e em 23.6.2026, que , somados, correspondem a R$6.500.000.000,00",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8867a62823b8e409",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549485&numSequencia=1074191&numVersao=1",
+        "timestamp_publicacao": "2026-07-29T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-29T23:59:00-03:00"
+      },
+      "id": "8867a62823b8e409-1"
+    }
+  ]
+}

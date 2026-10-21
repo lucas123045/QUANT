@@ -1,3 +1,4 @@
+import json
 import os
 
 import pytest
@@ -38,7 +39,9 @@ def test_provedor_registrado_sem_chave_falha(monkeypatch):
 def test_modo_teste(monkeypatch):
     monkeypatch.setenv("QUANT_MODO_TESTE", "1")
     assert llm.provedor_atual() == "falso"
-    assert llm.chamar_llm("[PROMPT_CLASSIFICACAO_V1] x") == '{"sentimento": "neutro", "probabilidade": 0.5}'
+    assert json.loads(llm.chamar_llm("[PROMPT_CLASSIFICACAO_V2] x")) == {
+        "sentimento": "neutro", "probabilidade": 0.5, "materialidade": "baixa",
+        "motivo_materialidade": "Materialidade simulada pelo provedor falso."}
 
 
 def test_carregar_env_nao_sobrescreve(tmp_path, monkeypatch):

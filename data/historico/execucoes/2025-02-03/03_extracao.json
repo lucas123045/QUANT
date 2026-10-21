@@ -1,0 +1,224 @@
+{
+  "4e629569eb4033e0": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras atingiu todas as metas de produção de 2024, com recordes no pré-sal e produção total de 2,7 milhões de boed.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No ano de 2024, a Petrobras atingiu todas as metas de produção estabelecidas em seu Plano Estratégico 2024 - 2028+, dentro do intervalo de ±4%. A produção total de óleo e gás natural alcançou 2,7 milhões de barris de óleo equivalente por dia (boed).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Início de produção do FPSO Marechal Duque de Caxias em 30 de outubro de 2024.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Início de produção do FPSO Marechal Duque de Caxias, em 30 de outubro: no campo de Mero, no pré-sal da Bacia de Santos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Navio-plataforma Sepetiba atingiu topo de produção de 180 mil barris/dia em agosto de 2024.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O navio-plataforma Sepetiba, que opera no campo de Mero, atingiu o topo de produção de 180 mil barris de petróleo por dia (bpd) em agosto, após 8 meses de operação.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Início da operação comercial da UPGN no Complexo de Energias Boaventura em novembro de 2024.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Início da operação comercial da Unidade de Processamento de Gás Natural (UPGN), localizada no Complexo de Energias Boaventura (Itaboraí, RJ). O primeiro módulo, com capacidade de processar 10,5 milhões de m3/dia de gás, entrou em operação em 10 de novembro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Alexandre de Gusmão saiu da China para o campo de Mero, com operação prevista para 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Em 16 de dezembro, o FPSO Alexandre de Gusmão saiu do estaleiro Cosco Qidong, na China, rumo ao campo de Mero, no pré-sal da Bacia de Santos. A plataforma, que será o quarto sistema definitivo de produção do campo, está prevista para entrar em operação em 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "FPSO Almirante Tamandaré está na locação no campo de Búzios, com operação prevista ainda neste trimestre.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O FPSO Almirante Tamandaré está na locação no campo de Búzios, no pré -sal da Bacia de Santos, com as atividades de ancoragem e comissionamento do primeiro poço concluídas e tem entrada em operação prevista ainda neste trimestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-5"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção total de derivados em 2024 foi de 1,78 milhões de barris/dia, levemente superior a 2023.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No segmento de Refino, Transporte e Comercialização (RTC), a produção total de derivados em 2024 foi de 1,78 milhões de barris por dia, levemente superior em relação à 2023.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-6"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Fator de utilização total das refinarias em 2024 foi de 93%, maior desde 2014.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O fator de utilização total (FUT) em 2024 foi de 93%, o que representa a maior utilização do parque de refino desde 2014, considerando as refinarias atuais da Petrobras.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-7"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recordes de produção de gasolina (420 mil bpd) e diesel S-10 (452 mil bpd) em 2024.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Registramos em 2024 recordes de produção de gasolina (420 mil bpd) e diesel S -10 (452 mil bpd).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-8"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recorde de vendas de Diesel R com conteúdo renovável e aumento de vendas de Gasolina Podium Carbono Neutro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em 2024, atingimos a marca de 100 mil m3 de venda de Diesel R com conteúdo renovável (R5) e cerca de 10 mil toneladas de CO2 de emissões evitadas. Registramos também aumento de 27% nas vendas da Gasolina Podium Carbono Neutro em relação a 2023",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-9"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recebimento do certificado internacional ISCC EU RED para comercialização de Bunker renovável.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Recebemos o certificado internacional ISCC EU RED (International Sustainability & Carbon Certification- European Union – Renewable Energy DIrective ), uma das certificações mais reconhecidas no mercado, para a comercialização de Bunker com conteúdo renovável no Terminal de Rio Grande (TERIG).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4e629569eb4033e0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1329780&numSequencia=854506&numVersao=1",
+        "timestamp_publicacao": "2025-02-03T23:59:00-03:00",
+        "timestamp_coleta": "2025-02-03T23:59:00-03:00"
+      },
+      "id": "4e629569eb4033e0-10"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Previ solicita AGE para destituição e indicação de membros do Conselho de Administração da Vale.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A. (“Vale” ou “Companhia”) informa que, nesta data, recebeu correspondência da sua acionista Caixa de Previdência dos Funcionários do Banco do Brasil – Previ, requerendo a convocação de Assembleia Geral Extraordinária de acionistas da Companhia pa ra deliberar sobre: (i) a destituição do Sr. Daniel André Stieler do cargo de membro do Conselho de Administração; (ii) a indicação do Sr. José Mauricio Pereira Coelho como membro titular do Conselho de Administração, para completar o mandato em curso; e, caso aprovada a matéria prevista no item (i), (iii) a eleição do Presidente do Conselho de Administração da Companhia. Em sua correspondência, a Previ também declara apoio à indicação do Sr. Manuel Lino Silva de Sousa Oliveira (Ollie) para o cargo de Presidente do Conselho de Administração da Companhia, por entender que sua eventual condução contribuirá positivamente para o fortalecimento das práticas de governança, a melhoria da gestão estratégica e o alinhamento com os interesses dos acionistas e stakeholders.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "32fc03aa1087fd62",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1533887&numSequencia=1058593&numVersao=1",
+        "timestamp_publicacao": "2026-06-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-06-11T23:59:00-03:00"
+      },
+      "id": "32fc03aa1087fd62-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.7,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Mudança proposta no conselho sem efeito financeiro imediato ou confirmado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: troca_executivo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 12/06 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Mudança proposta no conselho sem efeito financeiro imediato ou confirmado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": false,
+          "detalhe": "confiança: 0,70"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "ac0a89986439bdf2": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras aprova oferta pública de debêntures no valor de R$ 3 bilhões para financiar projetos prioritários.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras informa que sua Diretoria Executiva, em reunião realizada nesta data, nos termos do item VII, do artigo 34, de seu Estatuto Social, aprovou a 8ª (oitava) emissão de debêntures simples, não conversíveis em ações, em até 3 (três) séries, da espécie quirografária, no valor total de R$ 3.000.000.000,00 (três bilhões de reais) (“ Emissão de Debêntures”), a qual será objeto de oferta pública de distribuição",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ac0a89986439bdf2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1384161&numSequencia=908873&numVersao=1",
+        "timestamp_publicacao": "2025-05-28T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-28T23:59:00-03:00"
+      },
+      "id": "ac0a89986439bdf2-0"
+    }
+  ]
+}

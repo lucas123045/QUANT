@@ -902,6 +902,14 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
 }
 
 /* ------------------------------------------------- na prática, evidências, mercado */
+.portao { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: var(--raio); border: 1px solid var(--linha-forte); background: var(--painel); }
+.portao strong { font-size: 16px; }
+.portao p { margin: 6px 0 0; color: var(--texto-2); font-size: 14px; line-height: 1.55; }
+.portao-icone { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; }
+.portao.fechado { border-color: color-mix(in srgb, var(--acento) 45%, var(--linha)); }
+.portao.fechado .portao-icone { background: var(--acento-fundo); color: var(--acento); }
+.portao.aberto { border-color: color-mix(in srgb, var(--positivo) 45%, var(--linha)); }
+.portao.aberto .portao-icone { background: var(--positivo-fundo); color: var(--positivo); }
 .f-resumo.cinco { grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr)); }
 .f-span-3 { grid-column: 1 / -1; }
 .f-passos.tres { grid-template-columns: repeat(3, 1fr); }
@@ -1092,3 +1100,4 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   }
   .fita-trilho, .esqueleto span, .ponto-vivo.aberto, .f-saldo::after { animation: none !important; }
 }
+.evidencias-fonte { align-self: flex-start; flex-wrap: wrap; }

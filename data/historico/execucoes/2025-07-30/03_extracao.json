@@ -1,0 +1,24 @@
+{
+  "895e65cff20b1c38": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Bradesco revisou guidance para 2025, elevando projeções de receitas de serviços e resultado de seguros.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Banco Bradesco S.A. (Bradesco) comunica ao mercado que revisou o guidance para o ano de 2025",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "895e65cff20b1c38",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1405579&numSequencia=930291&numVersao=1",
+        "timestamp_publicacao": "2025-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-07-30T23:59:00-03:00"
+      },
+      "id": "895e65cff20b1c38-0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "ec1c5fc9034c3890": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Vale celebrou acordo para joint venture com GIP na Aliança Energia, recebendo US$ 1 bi e ficando com 30%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale S.A. (“Vale” ou a “Companhia”) informa que celebrou um acordo com a Global Infrastructure Partners (“GIP”) para estabelecer uma joint venture na Aliança Geração de Energia S.A. (“Aliança Energia”), uma empresa privada que atua no mercado brasileiro de energia. Uma vez concluída a transação, a Vale receberá aproximadamente US$ 1 bilhão 1 em dinheiro e deterá uma participação de 30% na joint venture, enquanto a GIP terá os 70% restantes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec1c5fc9034c3890",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1355123&numSequencia=879849&numVersao=1",
+        "timestamp_publicacao": "2025-03-31T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-31T23:59:00-03:00"
+      },
+      "id": "ec1c5fc9034c3890-0"
+    }
+  ]
+}

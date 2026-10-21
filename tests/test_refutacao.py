@@ -19,7 +19,7 @@ PERIODO = ("2026-03-02", "2026-03-17")
 def evento(ticker, sentimento, quando, prob=0.9):
     return {"ticker": ticker, "tipo_evento": "outro", "confirmado": True,
             "origem": {"timestamp_publicacao": quando, "tipo_fonte": "noticia"},
-            "classificacao": {"sentimento": sentimento, "probabilidade": prob}}
+            "classificacao": {"sentimento": sentimento, "probabilidade": prob, "materialidade": "alta"}}
 
 
 EVENTOS = [

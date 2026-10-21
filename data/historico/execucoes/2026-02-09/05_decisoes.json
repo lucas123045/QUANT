@@ -1,0 +1,87 @@
+[
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Operações das unidades de Fábrica e Viga foram suspensas pela Vale em 25 de janeiro de 2026, por decisão liminar.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "incluindo algumas já em atendimento, como a paralisação das operações das unidades de Fábrica e Viga (as quais foram suspensas pela Vale em 25 de janeiro de 2026)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2e0f13ba9bf60ca5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1475252&numSequencia=999958&numVersao=1",
+        "timestamp_publicacao": "2026-02-09T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-09T23:59:00-03:00"
+      },
+      "id": "2e0f13ba9bf60ca5-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.9,
+        "materialidade": "media",
+        "motivo_materialidade": "Suspensão operacional pode afetar produção, mas impacto financeiro deve ser limitado ao porte das unidades.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (operacional, materialidade média) com probabilidade 0.90 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 10/02 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Suspensão operacional pode afetar produção, mas impacto financeiro deve ser limitado ao porte das unidades."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  }
+]

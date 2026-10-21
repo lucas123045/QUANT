@@ -21,6 +21,9 @@ DIR_ARQUIVO = DIR_DATA / "arquivo"
 DIR_PRECOS = DIR_DATA / "precos"
 DIR_EXECUCOES = DIR_DATA / "execucoes"
 ARQUIVO_OPERACOES = DIR_DATA / "operacoes.jsonl"
+# Estudo histórico com os fatos relevantes da CVM (src/historico.py): passado fixo,
+# versionado no repositório (não fica no ramo "dados") para a nuvem e o site o verem.
+DIR_HISTORICO = Path(os.environ.get("QUANT_HISTORICO_DIR") or RAIZ_PROJETO / "data" / "historico")
 
 # ---------------------------------------------------------------------------
 # Carteira (PROVISÓRIA, escolhida em 2026-10-15; sujeita a viés de
@@ -76,6 +79,18 @@ LIMIAR_PROBABILIDADE = 0.7          # compra/venda exigem probabilidade ESTRITAM
 MAX_POSICAO_PCT = 0.20              # fração máxima do patrimônio por ação
 CAPITAL_INICIAL = 100_000.0
 JANELA_EVENTO_RECENTE_DIAS = 5      # dias corridos para "evento oposto recente"
+# REGRA_V3 (21/10/2026, antes do congelamento; ver strategy.py):
+# - materialidade mínima do fato, avaliada pela IA (PROMPT_CLASSIFICACAO_V2):
+#   "media" barra só o que não tem efeito financeiro mensurável ("baixa");
+MATERIALIDADE_MINIMA = "media"
+# - o mesmo fato em vários portais vira UMA decisão: notícia da mesma ação, no
+#   mesmo sentido e que passaria nos mesmos critérios, nas horas anteriores, é repetição;
+JANELA_REPETICAO_HORAS = 24
+# - fato velho não opera: se o QUANT só soube do fato depois do início do leilão
+#   de fechamento do pregão seguinte ao dia do fato, o mercado já negociou um
+#   pregão inteiro com ele (e executar "no pregão seguinte" seria no passado).
+#   16h55 é o início do leilão de fechamento no horário de pregão até 17h.
+HORA_LIMITE_EXECUCAO = (16, 55)
 
 # ---------------------------------------------------------------------------
 # Custos: zerados por padrão. Frações do valor negociado (0.001 = 0,1%).
@@ -219,6 +234,17 @@ PRATICA_STOP_DESVIOS = 2.0
 # continuar (Chan, 2003, J. Financial Economics); o estudo de evento mede isso.
 PRATICA_Z_REACAO = 2.0
 
+# Portão de evidência: a prática só compra quando os eventos ANTERIORES (com os 5
+# pregões depois da execução já encerrados antes do dia da compra) mostram que o
+# retorno anormal médio, a favor da classificação, supera o custo de ida e volta:
+# limite inferior do intervalo unilateral de 90% > 2 x custo por lado. Sem isso, o
+# dinheiro fica no CDI. É a diferença entre testar uma hipótese (carteira da
+# pesquisa, que opera sempre) e investir nela (só depois de alguma evidência).
+# 30 eventos: abaixo disso, a média de retornos de ações é quase só ruído.
+PRATICA_EVIDENCIA_MINIMA = 30
+PRATICA_EVIDENCIA_CONFIANCA = 0.90
+PRATICA_EVIDENCIA_HORIZONTE = 5   # pregões depois da execução
+
 # ---------------------------------------------------------------------------
 # Fatos relevantes da CVM (dados abertos, src/cvm.py)
 # ---------------------------------------------------------------------------
@@ -234,6 +260,35 @@ CNPJ_CARTEIRA = {
     "07.526.557/0001-00": "ABEV3",  # Ambev S.A.
 }
 JANELA_CVM_DIAS = 10    # dias de entrega a revisar a cada coleta (o arquivo atrasa)
+
+# Universo ampliado do ESTUDO HISTÓRICO (src/historico.py), não da carteira: com
+# 5 empresas, os fatos relevantes dão 10 a 15 eventos independentes por ano, e a
+# pergunta precisa de ~110 para detectar um efeito de 1% em 5 pregões (desvio do
+# retorno anormal ~3,8%, medido em 21/10/2026). Critério, definido ANTES de olhar
+# qualquer retorno: grandes empresas do Ibovespa, de setores variados, com o mesmo
+# código de negociação desde junho de 2024 (histórico de preço limpo no Yahoo).
+# Aplicado em 21/10/2026: a Embraer ficou de fora (EMBR3 sem cotação: mudou de código).
+UNIVERSO_ESTUDO = {
+    "00.000.000/0001-91": ("BBAS3", "Banco do Brasil"),
+    "09.346.601/0001-25": ("B3SA3", "B3"),
+    "84.429.695/0001-11": ("WEGE3", "WEG"),
+    "16.404.287/0001-55": ("SUZB3", "Suzano"),
+    "16.670.085/0001-55": ("RENT3", "Localiza"),
+    "61.532.644/0001-15": ("ITSA4", "Itaúsa"),
+    "61.585.865/0001-51": ("RADL3", "Raia Drogasil"),
+    "10.629.105/0001-68": ("PRIO3", "PRIO"),
+    "03.220.438/0001-73": ("EQTL3", "Equatorial"),
+    "33.611.500/0001-19": ("GGBR4", "Gerdau"),
+    "02.387.241/0001-60": ("RAIL3", "Rumo"),
+    "34.274.233/0001-02": ("VBBR3", "Vibra Energia"),
+    "43.776.517/0001-80": ("SBSP3", "Sabesp"),
+    "17.344.597/0001-94": ("BBSE3", "BB Seguridade"),
+    "33.256.439/0001-39": ("UGPA3", "Ultrapar"),
+    "92.754.738/0001-62": ("LREN3", "Lojas Renner"),
+    "53.113.791/0001-22": ("TOTS3", "Totvs"),
+    "50.746.577/0001-15": ("CSAN3", "Cosan"),
+    "17.155.730/0001-64": ("CMIG4", "Cemig"),
+}
 
 # ---------------------------------------------------------------------------
 # Contexto de mercado (src/mercado.py): só para leitura, não entra na regra

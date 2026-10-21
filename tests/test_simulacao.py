@@ -194,7 +194,7 @@ def test_sensibilidade_a_custos_na_carteira(dados):
 
 
 def test_carteira_segue_so_a_regra_vigente(dados):
-    """Decisões da REGRA_V1 ficam no log, mas não entram na carteira da V2."""
+    """Decisões de regras anteriores ficam no log, mas não entram na carteira da regra vigente."""
     import json
 
     log = dados / "operacoes.jsonl"
@@ -204,6 +204,6 @@ def test_carteira_segue_so_a_regra_vigente(dados):
                    encoding="utf-8")
     r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar,
                            capital=100_000.0)
-    assert r["regra_vigente"] == "REGRA_V2" and r["decisoes_regras_anteriores"] == 1
+    assert r["regra_vigente"] == "REGRA_V3" and r["decisoes_regras_anteriores"] == 1
     tickers = {o["ticker"] for o in r["posicoes_abertas"]} | {o["ticker"] for o in r["ordens_ignoradas"]}
     assert antiga["ticker"] not in tickers

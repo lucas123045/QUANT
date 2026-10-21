@@ -1,0 +1,66 @@
+{
+  "6d769e0062dbd32c": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Novo programa de recompra de até 200 milhões de ações preferenciais aprovado até 04.08.2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Aprovar novo programa de recompra de ações de emissão própria1, que passará a vigorar a partir desta data até 04.08.2027, autorizando a aquisição de até 200.000.000 de ações preferenciais de emissão própria, sem redução do valor do capital social.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6d769e0062dbd32c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1473197&numSequencia=997903&numVersao=1",
+        "timestamp_publicacao": "2026-02-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-04T23:59:00-03:00"
+      },
+      "id": "6d769e0062dbd32c-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Encerramento antecipado do programa anterior de recompra de ações aprovado em 05.02.2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Encerrar a partir desta data, por antecipação, o programa de recompra de ações de emissão própria, aprovado na reunião do Conselho de Administração de 05.02.2025, que venceria em 05.02.2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6d769e0062dbd32c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1473197&numSequencia=997903&numVersao=1",
+        "timestamp_publicacao": "2026-02-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-04T23:59:00-03:00"
+      },
+      "id": "6d769e0062dbd32c-1"
+    }
+  ],
+  "7388d9f6e31cb06b": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú Unibanco divulga projeções para o ano de 2026, baseadas em expectativas da administração.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "informa aos seus acionistas e ao mercado em geral que , nesta data , divulgou sua s projeções para o ano de 202 6, conforme disposto no item 3 (“Projeções”) do Formulário de Referência.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7388d9f6e31cb06b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1473323&numSequencia=998029&numVersao=1",
+        "timestamp_publicacao": "2026-02-04T23:59:00-03:00",
+        "timestamp_coleta": "2026-02-04T23:59:00-03:00"
+      },
+      "id": "7388d9f6e31cb06b-0"
+    }
+  ]
+}

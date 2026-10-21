@@ -1,0 +1,68 @@
+{
+  "f44a7bdfb0a98fee": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou distribuição de R$ 2,03 por ação em dividendos e JCP, pagamento em setembro de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A (“Vale” ou a “Companhia”) informa que o Conselho de Administração aprovou, na presente data a distribuição de remuneração aos acionistas no valor total bruto de R$ 2,03072189812 por ação ordinária e por ação preferencial da classe especial de emissão da Vale 3 (“ação”), dos quais R$ 1,568705805 serão distribuídos sob a forma de juros sobre o capital próprio e R$ 0,462016093 serão distribuídos sob a forma de dividendos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f44a7bdfb0a98fee",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549981&numSequencia=1074687&numVersao=1",
+        "timestamp_publicacao": "2026-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-30T23:59:00-03:00"
+      },
+      "id": "f44a7bdfb0a98fee-0"
+    }
+  ],
+  "014d95f9dcbf9be0": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Vale aprova novo programa de recompra de até 100 milhões de ações em 18 meses, sinalizando confiança e disciplina na alocação de capital.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale S.A (“Vale” ou a “Companhia”) informa que seu Conselho de Administração aprovou, hoje, um novo programa para a aquisição de até 1 00 milhões de ações ordinárias 1 em um prazo de 18 meses, contados a partir da presente data 2 (“novo programa de recompra de ações”), representando cerca de 2,3% do número de ações em circulação3.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "014d95f9dcbf9be0",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549982&numSequencia=1074688&numVersao=1",
+        "timestamp_publicacao": "2026-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-30T23:59:00-03:00"
+      },
+      "id": "014d95f9dcbf9be0-0"
+    }
+  ],
+  "d0b3b7b48f4d263d": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale atualizou projeções de custos e volumes de produção para 2026, incluindo minério de ferro, cobre e níquel.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale informa sobre atualização de projeções Rio de Janeiro, 30 de julho de 2026 – A Vale S.A. (“Vale” ou “Companhia) informa que atualizou as projeções descritas abaixo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b3b7b48f4d263d",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1549984&numSequencia=1074690&numVersao=1",
+        "timestamp_publicacao": "2026-07-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-07-30T23:59:00-03:00"
+      },
+      "id": "d0b3b7b48f4d263d-0"
+    }
+  ]
+}

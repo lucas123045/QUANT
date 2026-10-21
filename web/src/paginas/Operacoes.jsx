@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useApi, formatarData, plural } from "../api.js";
-import { Cartao, Criterios, Estado, Etiqueta, EtiquetaDecisao, EtiquetaSentimento } from "../ui.jsx";
+import { Cartao, Criterios, Estado, Etiqueta, EtiquetaDecisao, EtiquetaSentimento, REGRA_VIGENTE } from "../ui.jsx";
 
-const REGRA_VIGENTE = "REGRA_V2";
 // Linhas gravadas antes da REGRA_V2 não registravam a versão: eram da V1.
 const versao = (op) => op.versao_regra || "REGRA_V1";
 

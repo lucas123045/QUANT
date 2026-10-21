@@ -1,0 +1,24 @@
+{
+  "221aab7788c917de": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras assinou acordos de equalização de gastos e volumes das jazidas Berbigão e Sururu, recebendo US$ 859 milhões das parceiras.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Petrobras receberá das empresas parceiras do Consórcio BM -S-11A o valor líquido de aproximadamente US$ 859 milhões. O montante será liquidado até novembro de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "221aab7788c917de",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1576827&numSequencia=1101533&numVersao=1",
+        "timestamp_publicacao": "2026-10-13T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-13T23:59:00-03:00"
+      },
+      "id": "221aab7788c917de-0"
+    }
+  ]
+}

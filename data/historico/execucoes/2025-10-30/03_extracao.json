@@ -1,0 +1,25 @@
+{
+  "65560d70e4ebd871": [],
+  "95213ec7e87defd3": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale atualiza projeções de custos all-in de cobre e níquel para 2025, reduzindo as faixas anteriores.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale S.A. (“Vale”) anuncia a atualização das estimativas de custos all- in de cobre e níquel para 2025, refletindo o sólido desempenho operacional do negócio e os preços do ouro como subproduto acima das expectativas . T odas as demais estimativas previamente divulgadas pela Companhia permanecem inalteradas. Estimativas de custo all-in: US$/t 2025 novo 2025 anterior Custo all-in cobre1 1.000-1.500 1.500-2.000 Custo all-in níquel 13.000-14.000 14.000-15.500",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "95213ec7e87defd3",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1437753&numSequencia=962465&numVersao=1",
+        "timestamp_publicacao": "2025-10-30T23:59:00-03:00",
+        "timestamp_coleta": "2025-10-30T23:59:00-03:00"
+      },
+      "id": "95213ec7e87defd3-0"
+    }
+  ]
+}

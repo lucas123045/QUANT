@@ -1,0 +1,24 @@
+{
+  "4498c45ef0aa6355": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale precifica US$750 milhões em títulos subordinados com vencimento em 2056 para fins corporativos gerais.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Vale informa que sua subsidiária integral Vale Overseas Limited (“Vale Overseas”) precificou , em 18 de novembro de 2025, a oferta de títulos subordinados com data fixa para reajuste (subordinated dated fixed to reset notes) de US$750.000.000,00 de valor de principal agregado com vencimento em 2056, garantidas pela Vale",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4498c45ef0aa6355",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1447314&numSequencia=972026&numVersao=1",
+        "timestamp_publicacao": "2025-11-19T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-19T23:59:00-03:00"
+      },
+      "id": "4498c45ef0aa6355-0"
+    }
+  ]
+}

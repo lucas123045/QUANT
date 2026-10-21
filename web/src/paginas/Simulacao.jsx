@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { VITRINE, useApi, formatarData, formatarNumero, formatarPreco, plural } from "../api.js";
-import { Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, NumeroAnimado } from "../ui.jsx";
+import { Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, NumeroAnimado, REGRA_VIGENTE } from "../ui.jsx";
 import GraficoPatrimonio, { SERIES, reais } from "../GraficoPatrimonio.jsx";
 import { BarrasRendimento, COR_TICKER, Minigrafico, Rosca } from "../graficos.jsx";
 import Icone from "../icones.jsx";
@@ -410,7 +410,7 @@ function PorQue({ origem, execucao }) {
       </div>
       <div>
         <h4>O que a regra conferiu</h4>
-        <Criterios criterios={origem.criterios} versao="REGRA_V2" />
+        <Criterios criterios={origem.criterios} versao={REGRA_VIGENTE} />
       </div>
       {ia && (
         <div>
@@ -491,7 +491,7 @@ function ComoFunciona({ d }) {
   const p = d.parametros;
   const passos = [
     ["noticias", "A IA lê a notícia", "Descobre a empresa, o tipo de evento, se é bom ou ruim e com que confiança — e mostra a frase que comprova."],
-    ["escudo", "Uma regra fixa decide", `Compra se for confirmado, positivo, com confiança acima de ${formatarNumero(p.limiar_probabilidade, 2)} e sem notícia ruim da empresa nos ${p.janela_evento_recente_dias} dias anteriores.`],
+    ["escudo", "Uma regra fixa decide", `Compra se for um fato confirmado, relevante para o resultado da empresa, novo (o mercado ainda não negociou com ele), positivo, com confiança acima de ${formatarNumero(p.limiar_probabilidade, 2)}, que não seja repetição da mesma notícia e sem notícia ruim da empresa nos ${p.janela_evento_recente_dias} dias anteriores.`],
     ["relogio", "Executa no dia seguinte", `No preço de fechamento real do próximo pregão, com até ${Math.round(p.max_posicao_pct * 100)}% do saldo por ação.`],
     ["grafico", "Você acompanha", "Saldo, produtos, ações e extrato — e decide se confia na estratégia."],
   ];

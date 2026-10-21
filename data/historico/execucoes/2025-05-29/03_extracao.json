@@ -1,0 +1,24 @@
+{
+  "9c862616f55fd664": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de JCP de R$ 0,3341 por ação, com pagamento até 29/08/2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco Holding S.A. comunica aos seus acionistas que seu Conselho de Administração, na data de hoje, aprovou o pagamento de JCP – juros sobre o capital próprio no valor de R$ 0,3341 por ação, com retenção de 15% de imposto de renda na fonte, resultando em juros líquidos de R$ 0,283985 por ação, excetuados dessa retenção os acionistas pessoas jurídicas comprovadamente imunes ou isentos, que serão pagos até 29.08.2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9c862616f55fd664",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1384638&numSequencia=909350&numVersao=1",
+        "timestamp_publicacao": "2025-05-29T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-29T23:59:00-03:00"
+      },
+      "id": "9c862616f55fd664-0"
+    }
+  ]
+}

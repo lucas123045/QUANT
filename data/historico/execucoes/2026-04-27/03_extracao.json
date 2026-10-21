@@ -1,0 +1,24 @@
+{
+  "e8bd569b1326eebb": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Petrobras celebrou acordo para adquirir parte do ring-fence do Campo de Argonauta na Bacia de Campos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que celebrou acordo para a aquisição de 100% de uma porção do ring -fence do Campo de Argonauta (Concessão BC -10), na Bacia de Campos, detida pelas empresas Shell (Shell Brasil Petróleo Ltda.), ONGC (ONGC Campos Ltda.) e Brava (Enauta Petróleo e Gás Ltda.).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8bd569b1326eebb",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1509255&numSequencia=1033961&numVersao=1",
+        "timestamp_publicacao": "2026-04-27T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-27T23:59:00-03:00"
+      },
+      "id": "e8bd569b1326eebb-0"
+    }
+  ]
+}

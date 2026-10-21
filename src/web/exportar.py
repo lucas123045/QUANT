@@ -89,6 +89,9 @@ def exportar(destino: Path | None = None, bases: tuple[str, ...] = BASES, forcar
         _gravar(novo / "status.json", obter("/api/status"))
         _gravar(novo / "config.json", obter("/api/config"))
         _gravar(novo / "mercado.json", obter("/api/mercado"))
+        _gravar(novo / "congelamento.json", obter("/api/congelamento"))
+        if (config.DIR_HISTORICO / "execucoes").exists():
+            _gravar(novo / "evidencias-historico.json", obter("/api/evidencias?base=historico"))
         for base in bases:
             _gravar(novo / f"funil-{base}.json", obter(f"/api/funil?base={base}"))
             noticias = obter(f"/api/noticias?base={base}&limite=5000")

@@ -1,0 +1,24 @@
+{
+  "2518ce1c9a469194": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou proposta de remuneração aos acionistas de R$ 8,1 bi para o 4T25, sujeita à AGO.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras informa que seu Conselho de Administração (CA), em reunião realizada hoje, autorizou o encaminhamento à Assembleia Geral Ordinária (AGO), prevista para 16 de abril de 202 6, da proposta de distribuição de remuneração aos acionistas no montante de R$ 8,1 bilhões relativa ao quarto trimestre de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2518ce1c9a469194",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486330&numSequencia=1011036&numVersao=1",
+        "timestamp_publicacao": "2026-03-05T23:59:00-03:00",
+        "timestamp_coleta": "2026-03-05T23:59:00-03:00"
+      },
+      "id": "2518ce1c9a469194-0"
+    }
+  ]
+}

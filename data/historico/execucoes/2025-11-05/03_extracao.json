@@ -1,0 +1,24 @@
+{
+  "1ca5ba967c112b7c": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale concluiu a liquidação da aquisição facultativa de 89.410.390 debêntures participativas de sua 6ª emissão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Vale S.A. (\"Companhia\" ou \"Vale\") informa que foi concluída hoje, nos termos da legislação e da regulamentação aplicáveis, a liquidação da aquisição facultativa, pela Companhia, de 89.410.390 debêntures participativas de sua 6ª emissão",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1ca5ba967c112b7c",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1440220&numSequencia=964932&numVersao=1",
+        "timestamp_publicacao": "2025-11-05T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-05T23:59:00-03:00"
+      },
+      "id": "1ca5ba967c112b7c-0"
+    }
+  ]
+}

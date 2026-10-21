@@ -1,0 +1,44 @@
+{
+  "aa9d3b26d9594692": [
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho aprovou cancelamento de 279 milhões de ações em tesouraria, sem redução do capital social.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "aprovou o cancelamento de 279.000.000 ações ordinárias, nominativas, escriturais e sem valor nominal de emissão da Companhia mantidas em tesouraria, sem diminuição do capital social",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "aa9d3b26d9594692",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1557376&numSequencia=1082082&numVersao=1",
+        "timestamp_publicacao": "2026-08-13T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-13T23:59:00-03:00"
+      },
+      "id": "aa9d3b26d9594692-0"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "operacional",
+      "resumo": "Encerrado programa de recompra de ações após atingir limite previsto.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o programa de recompra de ações de emissão da própria Companhia - aprovado em reunião do Conselho de Administração realizada 29 de outubro de 2025 - foi encerrado, tendo em vista o atingimento do limite de ações ordinárias para recompra nele previsto",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "aa9d3b26d9594692",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1557376&numSequencia=1082082&numVersao=1",
+        "timestamp_publicacao": "2026-08-13T23:59:00-03:00",
+        "timestamp_coleta": "2026-08-13T23:59:00-03:00"
+      },
+      "id": "aa9d3b26d9594692-1"
+    }
+  ]
+}

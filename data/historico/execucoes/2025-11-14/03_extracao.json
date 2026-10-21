@@ -1,0 +1,44 @@
+{
+  "0ccde307c6b8e1b5": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Vale, BHP e Samarco firmam acordo de US$ 32 bilhões com autoridades brasileiras para quitação de ações do rompimento da barragem.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Em outubro de 2024, a Samarco, BHP Billiton Brasil Ltda3 e Vale celebraram um acordo abrangente de US$ 32 bilhões (R$ 170 bilhões) com autoridades brasileiras para a quitação integral das principais ações no Brasil relacionadas ao rompimento da barragem.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0ccde307c6b8e1b5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1445178&numSequencia=969890&numVersao=1",
+        "timestamp_publicacao": "2025-11-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-14T23:59:00-03:00"
+      },
+      "id": "0ccde307c6b8e1b5-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale estima provisão adicional de US$ 500 milhões em 31/12/2025 para obrigações do rompimento da barragem de Fundão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Companhia estima uma provisão adicional de aproximadamente US$ 500 milhões em suas demonstrações financeiras de 31 de dezembro de 2025 para obrigações decorrentes do rompimento da barragem de Fundão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0ccde307c6b8e1b5",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1445178&numSequencia=969890&numVersao=1",
+        "timestamp_publicacao": "2025-11-14T23:59:00-03:00",
+        "timestamp_coleta": "2025-11-14T23:59:00-03:00"
+      },
+      "id": "0ccde307c6b8e1b5-1"
+    }
+  ]
+}

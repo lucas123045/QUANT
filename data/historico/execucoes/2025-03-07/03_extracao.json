@@ -1,0 +1,24 @@
+{
+  "580d32f3dbea4ac8": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Petrobras assina acordo para encerrar litígio com a EIG Energy nos EUA, pagando US$ 283 milhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras assina acordo para encerrar litígio com a EIG Energy nos Estados Unidos — Rio de Janeiro, 07 de março de 2025 – A Petróleo Brasileiro S.A. – Petrobras informa, em continuidade aos comunicados de 31/03/2017 e 09/08/2022, que seu Conselho de Administração aprovou celebração de acordo para encerramento de pendência judicial com a EIG Energy Fund XIV, LP. e outros (EIG).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "580d32f3dbea4ac8",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1344025&numSequencia=868751&numVersao=1",
+        "timestamp_publicacao": "2025-03-07T23:59:00-03:00",
+        "timestamp_coleta": "2025-03-07T23:59:00-03:00"
+      },
+      "id": "580d32f3dbea4ac8-0"
+    }
+  ]
+}

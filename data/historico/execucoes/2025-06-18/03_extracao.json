@@ -1,0 +1,24 @@
+{
+  "9c69185fc200a4c3": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Bradesco aprova pagamento de juros sobre capital próprio intermediários de R$3 bilhões até 31/01/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Banco Bradesco S.A. (Bradesco ou Sociedade) comunica aos seus acionistas e ao mercado em geral que o Conselho de Administração, em reunião hoje realizada, aprovou proposta da Diretoria para pagamento de juros sobre o capital próprio intermediários, no valor total de R$3.000.000.000,00",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9c69185fc200a4c3",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1391892&numSequencia=916604&numVersao=1",
+        "timestamp_publicacao": "2025-06-18T23:59:00-03:00",
+        "timestamp_coleta": "2025-06-18T23:59:00-03:00"
+      },
+      "id": "9c69185fc200a4c3-0"
+    }
+  ]
+}

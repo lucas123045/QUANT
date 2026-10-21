@@ -1,11 +1,40 @@
 import { useApi, formatarData, plural } from "../api.js";
-import { Cartao, Estado, Indicador } from "../ui.jsx";
+import { Cartao, Criterios, Estado, Indicador } from "../ui.jsx";
+
+/** Pré-requisitos do congelamento da regra: o que falta e como fazer (só o autor congela). */
+function Congelamento() {
+  const { dados: c, erro, carregando } = useApi("/api/congelamento");
+  return (
+    <Cartao titulo="Congelamento da regra" className="span-2">
+      <Estado carregando={carregando && !c} erro={erro}>
+        {c && (
+          <>
+            <p className="nota" style={{ marginTop: 0 }}>
+              {c.congelada
+                ? `Congelada em ${formatarData(c.data_congelamento + "T12:00:00-03:00", false)}.` +
+                  (c.verificacao?.estado === "integra" ? " A regra em uso é a congelada." :
+                    ` Atenção: ${(c.verificacao?.problemas || []).join("; ")}.`)
+                : "Congelar fixa a regra, os prompts, os parâmetros e o modelo: daí em diante, o período de teste mede algo que não foi ajustado olhando o resultado. Quem congela é o autor."}
+            </p>
+            <Criterios criterios={c.itens.map((i) => ({ criterio: i.item, ok: i.ok, detalhe: i.acao ? `${i.detalhe}. ${i.acao}` : i.detalhe }))} />
+            <p className="nota">
+              Impressão digital da regra: <code>{c.impressao_digital.slice(0, 16)}…</code> (muda se o código, um prompt,
+              um parâmetro ou as fontes mudarem).
+              {!c.congelada && <> Com tudo cumprido: <code>{c.comando}</code>.</>}
+            </p>
+          </>
+        )}
+      </Estado>
+    </Cartao>
+  );
+}
 
 const ETAPAS_FUNIL = [
   ["noticias_arquivadas", "Notícias arquivadas"],
   ["noticias_com_mencao", "Mencionam a carteira"],
   ["eventos_extraidos", "Eventos extraídos"],
   ["eventos_confirmados", "Eventos confirmados"],
+  ["eventos_relevantes", "Relevantes (materialidade)"],
   ["eventos_acima_do_limiar", "Acima do limiar"],
   ["operacoes", "Operações"],
 ];
@@ -116,6 +145,8 @@ export default function Painel({ base, irPara }) {
           {s.alertas.map((a) => <div key={a} className="aviso tom-alerta">{a}</div>)}
         </div>
       )}
+
+      <Congelamento />
 
       <Cartao titulo="Pendências" className="span-2">
         {s && (

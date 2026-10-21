@@ -1,0 +1,24 @@
+{
+  "cd3db3bbf8f0a017": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de JCP de R$ 3,99 bilhões, com data-base em 18/06/2026 e pagamento até 31/08/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco Holding S.A. comunica que seu Conselho de Administração, em reunião realizada na data de hoje, aprovou o pagamento de J uros sobre o C apital Próprio (JCP) no montante bruto de R$ 3,99 bilhões, relativos ao exercício de 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "cd3db3bbf8f0a017",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1528166&numSequencia=1052872&numVersao=1",
+        "timestamp_publicacao": "2026-05-28T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-28T23:59:00-03:00"
+      },
+      "id": "cd3db3bbf8f0a017-0"
+    }
+  ]
+}

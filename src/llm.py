@@ -179,7 +179,9 @@ def resposta_falsa(prompt: str) -> str:
         m = re.search(r"impacto declarado pelo texto: (\w+)", prompt)
         sentimento = m.group(1) if m and m.group(1) in ("positivo", "negativo") else "neutro"
         return json.dumps({"sentimento": sentimento,
-                           "probabilidade": 0.8 if sentimento != "neutro" else 0.5})
+                           "probabilidade": 0.8 if sentimento != "neutro" else 0.5,
+                           "materialidade": "alta" if sentimento != "neutro" else "baixa",
+                           "motivo_materialidade": "Materialidade simulada pelo provedor falso."})
     if "PROMPT_EXPLICACAO" in prompt or "PROMPT_RELATORIO" in prompt:
         return "Texto gerado pelo provedor falso (modo de teste)."
     return ""

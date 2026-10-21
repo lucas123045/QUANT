@@ -38,6 +38,24 @@ const MOTIVOS_SAIDA = {
   prazo: "Prazo", "perda máxima": "Perda máxima", "notícia negativa": "Notícia negativa",
 };
 
+/** Portão de evidência: a prática só arrisca quando os eventos já encerrados pagam o custo. */
+function Portao({ p, parametros }) {
+  if (!p) return null;
+  return (
+    <section className={`portao ${p.aberto ? "aberto" : "fechado"}`}>
+      <span className="portao-icone"><Icone nome={p.aberto ? "alta" : "escudo"} tamanho={22} /></span>
+      <div>
+        <strong>{p.aberto ? "Portão de evidência aberto: a prática pode comprar" : "Portão de evidência fechado: o dinheiro fica no CDI"}</strong>
+        <p>
+          {p.texto}. A prática só compra quando os eventos anteriores, com os {parametros.evidencia_horizonte} pregões depois da
+          execução já encerrados, mostram retorno acima do custo de ida e volta, com {Math.round(parametros.evidencia_confianca * 100)}% de
+          confiança e pelo menos {parametros.evidencia_minima} eventos. Até lá, ela não arrisca: o pior caso é o CDI.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Resumo({ d }) {
   const e = d.efeitos;
   return (
@@ -226,6 +244,7 @@ function Correlacoes({ c }) {
 
 function Regras({ p }) {
   const itens = [
+    ["frasco", "Portão de evidência", `Só compra quando ${p.evidencia_minima} ou mais eventos já encerrados mostram, com ${Math.round(p.evidencia_confianca * 100)}% de confiança, retorno acima do custo. Sem evidência, fica no CDI.`],
     ["escudo", "Confirmação pelo mercado", `Não compra se, antes da execução, a ação já reagiu com força contra a notícia (mais de ${num(p.z_reacao, 0)} desvios além do Ibovespa): o mercado leu como surpresa ruim. Reação forte a favor não barra: movimentos de notícia tendem a continuar.`],
     ["noticias", "Surpresa no texto", "Não compra se o próprio texto diz que o número veio abaixo do esperado (e não vende se diz que veio acima)."],
     ["grafico", "Tamanho pelo risco", `Até ${Math.round(p.max_posicao * 100)}% por ação, menos para as que oscilam mais que ${Math.round(p.vol_referencia_anual * 100)}% ao ano: cada posição pesa o mesmo risco.`],
@@ -261,6 +280,7 @@ export default function Pratica({ base }) {
             <div className="f-aviso"><Icone nome="relogio" tamanho={16} /><span>{d.mensagem}</span></div>
           ) : (
             <>
+              <Portao p={d.portao_evidencia} parametros={d.parametros} />
               <Resumo d={d} />
               {d.cdi_indisponivel && <p className="f-nota"><Icone nome="info" tamanho={14} /> <span>{d.cdi_indisponivel}</span></p>}
               <div className="f-grade">

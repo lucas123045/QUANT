@@ -1,0 +1,24 @@
+{
+  "d6303200e3e24011": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de dividendos e JCP de R$ 11,72 bilhões, com pagamentos em agosto e setembro de 2025.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petróleo Brasileiro S.A. – Petrobras, nos termos da Resolução CVM nº 44/21, informa que seu Conselho de Administração (CA), em reunião realizada hoje, aprovou o pagamento de dividendos e juros sobre capital próprio (JCP) intercalares no valor de R$ 11 ,72 bilhões, equivalente a R$ 0,90916619 por ação ordinária e preferencial em circulação, como antecipação da remuneração aos acionistas relativa ao exercício de 2025, declarada com base no balanço de 31 de março de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d6303200e3e24011",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1376455&numSequencia=901167&numVersao=1",
+        "timestamp_publicacao": "2025-05-12T23:59:00-03:00",
+        "timestamp_coleta": "2025-05-12T23:59:00-03:00"
+      },
+      "id": "d6303200e3e24011-0"
+    }
+  ]
+}

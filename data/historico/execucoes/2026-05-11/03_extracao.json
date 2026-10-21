@@ -1,0 +1,24 @@
+{
+  "f7de5de9215905f2": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou pagamento de R$ 9,03 bilhões em remuneração aos acionistas, antecipação referente ao exercício de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "seu Conselho de Administração (CA), em reunião realizada hoje, aprovou o pagamento de remuneração aos acionistas no valor de R$ 9,03 bilhões, equivalente a R$ 0,70097272 por ação ordinária e preferencial em circulação, como antecipação da remuneração relativa ao exercício de 2026, declarada com base no balanço de 31 de março de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f7de5de9215905f2",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1520177&numSequencia=1044883&numVersao=1",
+        "timestamp_publicacao": "2026-05-11T23:59:00-03:00",
+        "timestamp_coleta": "2026-05-11T23:59:00-03:00"
+      },
+      "id": "f7de5de9215905f2-0"
+    }
+  ]
+}

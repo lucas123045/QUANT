@@ -217,7 +217,7 @@ def test_pipeline_registra_e_alerta_so_decisoes_novas(tmp_path, monkeypatch):
     monkeypatch.setattr(alertas, "enviar", lambda registros: enviados.append(len(registros)) or {})
     pasta = tmp_path / "execucoes" / "2026-10-15"
     pasta.mkdir(parents=True)
-    decisao = {"ticker": "PETR4", "decisao": "compra", "motivo": "m", "versao_regra": "REGRA_V2", "criterios": []}
+    decisao = {"ticker": "PETR4", "decisao": "compra", "motivo": "m", "versao_regra": "REGRA_V3", "criterios": []}
     evento = {"id": "e-0", "ticker": "PETR4", "trecho_fonte": "t", "modelo": "x", "versao_prompt": "v",
               "classificacao": {"sentimento": "positivo", "probabilidade": 0.9}}
     novos = []
@@ -230,3 +230,38 @@ def test_pipeline_registra_e_alerta_so_decisoes_novas(tmp_path, monkeypatch):
     main.executar(agora=datetime(2026, 10, 15, 20, 0, tzinfo=ZoneInfo("America/Sao_Paulo")), teste=True,
                   dir_data=tmp_path / "teste")
     assert enviados == []
+
+
+# ---------------------------------------------------------------- portão de evidência
+
+def _obs(n, car, fim="2026-03-01"):
+    return [{"car_5": car + (0.004 if i % 2 else -0.004), "fim_5": fim} for i in range(n)]
+
+
+def test_portao_so_abre_com_amostra_e_retorno_acima_do_custo():
+    assert not pratica.evidencia_ate(_obs(10, 0.03), "2026-04-01")["aberto"]   # poucos eventos
+    assert not pratica.evidencia_ate(_obs(40, 0.0), "2026-04-01")["aberto"]    # média zero
+    e = pratica.evidencia_ate(_obs(40, 0.02), "2026-04-01")
+    assert e["aberto"] and e["limite_inferior"] > e["custo_ida_e_volta"]
+
+
+def test_portao_nao_usa_evento_cuja_janela_ainda_nao_terminou():
+    # 40 eventos bons, mas a janela de 5 pregões só termina depois do dia da decisão.
+    assert pratica.evidencia_ate(_obs(40, 0.02, fim="2026-04-02"), "2026-04-01")["n"] == 0
+    assert pratica.evidencia_ate(_obs(40, 0.02, fim="2026-04-01"), "2026-04-01")["n"] == 0  # no mesmo dia, não
+    assert pratica.evidencia_ate(_obs(40, 0.02, fim="2026-03-31"), "2026-04-01")["n"] == 40
+
+
+def test_sem_evidencia_a_pratica_nao_compra_e_fica_no_cdi():
+    precos = precos_sinteticos()
+    dia = precos.index[131]
+    precos = calmo(precos, "PETR4", dia)
+    taxas = pd.Series(0.0005, index=precos.index[130:])
+    r = pratica.simular([sinal("PETR4", dia)], precos, precos.index[130], 100_000.0, taxas, evidencias=[])
+    assert not r["operacoes"] and not r["abertas"]
+    assert r["descartados"][0]["razao"] == "sem evidência suficiente"
+    assert r["bruto"].iloc[-1] == pytest.approx(100_000 * 1.0005 ** (len(precos.index[130:]) - 1))
+    # Com evidência anterior favorável, compra.
+    r = pratica.simular([sinal("PETR4", dia)], precos, precos.index[130], 100_000.0, taxas,
+                        evidencias=_obs(40, 0.02, fim=precos.index[100].date().isoformat()))
+    assert r["operacoes"] or r["abertas"]

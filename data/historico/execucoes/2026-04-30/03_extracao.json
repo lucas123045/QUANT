@@ -1,0 +1,164 @@
+{
+  "9b80c19924513863": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras atingiu recordes de produção de óleo, gás e derivados no 1T26, com alta eficiência operacional e novos poços em operação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No 1T26, a produção média de óleo, LGN e gás natural alcançou a marca recorde de 3,23 MMboed, 3,7% acima do 4T25, e 16,1% acima do 1T25, em função, principalmente, do ramp -up dos FPSOs P-78, no campo de Búzios, Alexandre de Gusmão, no campo de Mero, Anna Nery e Anita Garibaldi nos campos de Marlim e Voador.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recorde de produção diária operada no campo de Búzios e exportação de gás em março de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "As plataformas do campo de Búzios alcançaram o recorde de produção diária operada de 1,037 milhão de barris de óleo no dia 20 de março e recorde de exportação de gás de 12,4 milhões de m3 no dia 25 de março.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recorde de produção no campo de Mero, superando 700 mil barris em um dia, com novo poço interligado.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A produção do campo de Mero superou a marca histórica de 700 mil barris de petróleo em um único dia. O resultado foi alcançado pela entrada em operação de mais 1 poço, interligado ao FPSO Alexandre de Gusmão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Recorde diário de exportação de gás nas plataformas da Bacia de Santos em março de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "As plataformas da Bacia de Santos alcançaram o recorde diário de exportação de gás de 44,8 milhões de m3 no dia 28 de março.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Plataforma P-78 injetou primeiro gás em tempo recorde, ampliando produção no campo de Búzios.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A plataforma P -78 que opera no campo de Búzios, no pré -sal da Bacia de Santos, injetou o primeiro gás no dia 02 de março, no menor tempo de comissionamento do sistema de compressão e injeção de gás já alcançado entre plataformas próprias da Petrobras: 61 dias após o início da sua produção.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Operação de ancoragem da plataforma P-79 finalizada em tempo recorde, integrando projeto Búzios 8.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A operação de ancoragem da plataforma P -79 foi finalizada em 21 de fevereiro, em apenas 12 dias após a sua chegada à locação, o que estabeleceu um novo recorde entre as plataformas próprias da companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-5"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Maior utilização do parque de refino desde 2014, com FUT de 97,4% em março de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "FUT (Fator de utilização total) do parque de refino: atingiu o patamar de 95%, 6 p.p. acima do 4T25, demonstrando a alta eficiência operacional das nossas refinarias. Além disso, em março, registramos FUT de 97,4%, maior utilização do parque desde dezembro de 2014.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-6"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Vendas de derivados no mercado interno cresceram 2,9% no 1T26 em relação ao 1T25.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "As vendas de derivados no mercado interno evoluíram de forma consistente no 1T26, com alta de 2,9% em comparação ao 1T25.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b80c19924513863",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1513705&numSequencia=1038411&numVersao=1",
+        "timestamp_publicacao": "2026-04-30T23:59:00-03:00",
+        "timestamp_coleta": "2026-04-30T23:59:00-03:00"
+      },
+      "id": "9b80c19924513863-7"
+    }
+  ]
+}
