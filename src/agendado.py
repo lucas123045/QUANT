@@ -40,7 +40,8 @@ def _pipeline() -> None:
     if llm.provedor_atual() != "falso" and not os.environ.get("LLM_API_KEY"):
         # Computador novo sem a chave no .env: as notícias continuam sendo coletadas;
         # quando a chave for configurada, a próxima execução analisa as que estiverem na coleta.
-        logger.warning("LLM_API_KEY não configurada no .env: só coleta, sem análise da IA.")
+        logger.warning("LLM_API_KEY não configurada (no .env deste computador ou, na nuvem, nos segredos "
+                       "do GitHub: Settings > Secrets and variables > Actions): só coleta, sem análise da IA.")
         _coleta()
         return
     try:
