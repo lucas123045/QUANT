@@ -312,6 +312,21 @@ def _baixar_yfinance(simbolo: str, inicio: str, fim: str) -> pd.Series:
     return fechamento
 
 
+# Período que termina nos últimos dias: o Yahoo pode ainda não ter publicado o
+# fechamento (às vezes o Ibovespa chega antes das ações). Série assim não vai
+# para o cache: senão o dia faltante ficaria faltando até o fim do dia.
+DIAS_RECENTES = 4
+
+
+def _incompleta(serie: pd.Series, fim: str) -> bool:
+    """A série pedida até `fim` (recente) ainda não chegou a esse dia?"""
+    fim = pd.Timestamp(fim)
+    if (pd.Timestamp(datetime.now(FUSO).date()) - fim).days > DIAS_RECENTES:
+        return False
+    validos = serie.dropna()
+    return validos.empty or pd.Timestamp(validos.index.max()).normalize() < fim
+
+
 # Um carregamento por vez: dois pedidos simultâneos (a interface pode pedir a
 # simulação duas vezes ao mesmo tempo) baixariam e gravariam o mesmo CSV juntos.
 # Se os dois downloads diferirem, o hash registrado deixa de bater com o arquivo
@@ -357,9 +372,22 @@ def _carregar_precos(
             if caminho.name in registrados and registrados[caminho.name] != atual:
                 raise PrecosAlterados(f"{caminho.name}: hash diferente do registrado no download")
             serie = pd.read_csv(caminho, index_col=0, parse_dates=True).iloc[:, 0]
+            if _incompleta(serie, fim):
+                # Cache gravado antes desta regra, com o último dia faltando: tenta de novo,
+                # só em memória (o arquivo e o hash registrado ficam como estão).
+                try:
+                    nova = baixar(simbolo, inicio, fim)
+                    nova.index = pd.DatetimeIndex(nova.index).tz_localize(None).normalize()
+                    if len(nova.dropna()) > len(serie.dropna()):
+                        serie = nova
+                except Exception as erro:  # noqa: BLE001 - sem rede: segue com o cache
+                    logger.warning("%s: não foi possível completar o último dia: %s", simbolo, erro)
         else:
             serie = baixar(simbolo, inicio, fim)
             serie.index = pd.DatetimeIndex(serie.index).tz_localize(None).normalize()
+            if _incompleta(serie, fim):
+                series[ticker] = serie  # usa agora, sem gravar: o próximo pedido baixa de novo
+                continue
             conteudo = serie.rename(ticker).to_csv().encode("utf-8")
             novo = hashlib.sha256(conteudo).hexdigest()
             if caminho.name in registrados and registrados[caminho.name] != novo:

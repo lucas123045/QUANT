@@ -143,6 +143,9 @@ function FitaCotacoes({ base }) {
   const { dados } = useApi(`/api/simulacao?base=${base}`, 5 * 60 * 1000);
   const ativos = (dados?.ativos || []).filter((a) => a.preco != null);
   if (!ativos.length) return null;
+  // Preço de fechamento (a simulação não usa preço parcial do dia): a fita diz de quando é.
+  const ultimoDia = ativos.map((a) => a.minigrafico?.at(-1)?.data).filter(Boolean).sort().at(-1);
+  const rotulo = ultimoDia ? `Fechamento ${ultimoDia.slice(8, 10)}/${ultimoDia.slice(5, 7)}` : "Fechamento";
   const item = (a, i) => (
     <span key={`${a.ticker}-${i}`} className="fita-item">
       <strong>{a.ticker}</strong>
@@ -155,7 +158,8 @@ function FitaCotacoes({ base }) {
     </span>
   );
   return (
-    <div className="fita" aria-label="Cotações das ações da carteira">
+    <div className="fita" aria-label={`Cotações das ações da carteira: ${rotulo.toLowerCase()}`}>
+      <span className="fita-rotulo" title="Preço de fechamento do último pregão completo; as decisões usam só fechamentos">{rotulo}</span>
       {/* Duas cópias idênticas lado a lado: ao rolar metade, a rolagem volta ao início sem emenda. */}
       <div className="fita-trilho">
         <span className="fita-grupo">{ativos.map(item)}</span>

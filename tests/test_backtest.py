@@ -361,3 +361,24 @@ def test_sensibilidade_a_custos():
 def test_sensibilidade_respeita_a_trava_de_periodo():
     with pytest.raises(PeriodoPendente):
         backtest.sensibilidade_custos([], PRECOS, None, "noticia")
+
+
+def test_periodo_recente_incompleto_nao_vai_para_o_cache(tmp_path):
+    """O Yahoo às vezes publica o Ibovespa do dia antes das ações: o dia faltante não fica preso no cache."""
+    from datetime import date, timedelta
+
+    hoje = date.today()
+    inicio, fim = (hoje - timedelta(days=20)).isoformat(), hoje.isoformat()
+    dias = pd.bdate_range(inicio, fim)
+    chamadas = []
+
+    def baixar(simbolo, i, f):
+        chamadas.append(simbolo)
+        ate = dias if simbolo == "^BVSP" or len(chamadas) > 2 else dias[:-1]  # a ação chega depois
+        return pd.Series(10.0, index=ate)
+
+    p1 = backtest.carregar_precos(inicio, fim, tickers=["PETR4", "^BVSP"], pasta=tmp_path, baixar=baixar)
+    assert pd.isna(p1["PETR4"].iloc[-1])
+    assert not (tmp_path / f"PETR4.SA_{inicio}_{fim}.csv").exists()
+    p2 = backtest.carregar_precos(inicio, fim, tickers=["PETR4", "^BVSP"], pasta=tmp_path, baixar=baixar)
+    assert p2["PETR4"].iloc[-1] == 10.0  # baixou de novo e agora veio completo
