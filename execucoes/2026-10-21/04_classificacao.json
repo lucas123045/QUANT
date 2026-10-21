@@ -227,5 +227,23 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "71e2dce500bfc99a-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral abaixo do esperado impacta lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "71e2dce500bfc99a-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

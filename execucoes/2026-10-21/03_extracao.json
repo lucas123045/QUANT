@@ -630,5 +630,47 @@
       },
       "id": "618979e80d6e1882-0"
     }
+  ],
+  "71e2dce500bfc99a": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "Divulgou balanço do 3T com lucro líquido de R$ 1,67 bi e Ebitda de R$ 2,35 bi, abaixo do esperado.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "WEG ON ( WEGE3 ) tombou 7,34% após balanço do terceiro trimestre mostrar lucro líquido de R$ 1,67 bilhão e Ebitda de R$ 2,35 bilhões, ligeiramente abaixo das previsões de analistas.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71e2dce500bfc99a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-zera-ganhos-apos-nova-pesquisa-quaest-mostrar-disputa-apertada/",
+        "timestamp_publicacao": "2026-10-21T17:46:01-03:00",
+        "timestamp_coleta": "2026-10-21T17:50:04.445401-03:00"
+      },
+      "id": "71e2dce500bfc99a-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Divulga balanço no final da quinta-feira; expectativa do mercado para o resultado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "BRADESCO PN ( BBDC4 ), que divulga balanço no final da quinta-feira, cedeu 0,15%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "71e2dce500bfc99a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-zera-ganhos-apos-nova-pesquisa-quaest-mostrar-disputa-apertada/",
+        "timestamp_publicacao": "2026-10-21T17:46:01-03:00",
+        "timestamp_coleta": "2026-10-21T17:50:04.445401-03:00"
+      },
+      "id": "71e2dce500bfc99a-1"
+    }
   ]
 }

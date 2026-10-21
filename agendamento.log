@@ -594,3 +594,54 @@
 2026-10-21 20:44:28,556 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-10-21 20:44:28,560 INFO agendado: vitrine: {"real": {"noticias": 114, "execucoes": 1, "operacoes": 6, "simulacao": "aguardando_pregao"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-21 20:44:28,560 INFO agendado: ==== fim: vitrine (ok)
+2026-10-21 20:50:04,314 INFO agendado: ==== início: pipeline
+2026-10-21 20:50:06,134 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-21 20:50:06,449 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-21 20:50:06,875 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-21 20:50:07,510 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-21 20:50:07,706 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-21 20:50:08,293 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-21 20:50:08,803 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-21 20:50:09,398 INFO src.news: Money Times (VALE3): 1 itens novos na janela
+2026-10-21 20:50:10,001 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-21 20:50:10,518 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-21 20:50:10,874 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-21 20:50:11,551 INFO src.cvm: CVM: 0 fato(s) relevante(s) novo(s) da carteira desde 2026-10-11
+2026-10-21 20:50:11,562 INFO src.main: Coleta: 1 itens novos nesta execução (64 no dia)
+2026-10-21 20:50:11,600 INFO src.archive: Arquivados 1 novos de 64 coletados
+2026-10-21 20:50:11,606 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 20:50:14,855 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 20:50:14,862 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 20:50:14,865 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 20:50:15,978 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 20:50:15,980 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 20:50:16,988 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 20:50:17,002 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 20:50:18,542 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 20:50:18,550 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-10-21 20:50:18,601 INFO agendado: resumo: {"coletados": 64, "novos_arquivados": 34, "eventos_validos": 33, "operacoes": 1, "por_fonte": {"InfoMoney": 39, "Money Times": 24, "CVM (fato relevante)": 1}, "backup": "/tmp/quant-backup/quant-dados-2026-10-21_175004.zip"}
+2026-10-21 20:50:18,601 INFO agendado: ==== fim: pipeline (ok)
+2026-10-21 20:50:18,747 INFO agendado: ==== início: vitrine
+2026-10-21 20:50:19,416 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-21 20:50:19,420 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-21 20:50:37,458 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-21 20:50:37,464 INFO httpx2: HTTP Request: GET http://testserver/api/congelamento "HTTP/1.1 200 OK"
+2026-10-21 20:50:37,902 INFO httpx2: HTTP Request: GET http://testserver/api/cdi "HTTP/1.1 503 Service Unavailable"
+2026-10-21 20:50:43,841 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=historico "HTTP/1.1 200 OK"
+2026-10-21 20:50:45,690 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:45,700 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 20:50:45,710 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:45,715 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:45,719 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:49,029 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:53,632 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,906 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,910 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,912 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,915 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,918 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,960 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,965 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,968 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-21 20:50:54,970 INFO agendado: vitrine: {"real": {"noticias": 115, "execucoes": 1, "operacoes": 6, "simulacao": "aguardando_pregao"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-21 20:50:54,970 INFO agendado: ==== fim: vitrine (ok)
