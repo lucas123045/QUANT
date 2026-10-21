@@ -60,3 +60,39 @@
 2026-10-21 14:36:33,247 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
 2026-10-21 14:36:33,251 INFO agendado: vitrine: {"real": {"noticias": 56, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-21 14:36:33,251 INFO agendado: ==== fim: vitrine (ok)
+2026-10-21 17:36:14,166 INFO agendado: ==== início: pipeline
+2026-10-21 17:36:14,287 WARNING agendado: LLM_API_KEY não configurada no .env: só coleta, sem análise da IA.
+2026-10-21 17:36:14,578 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-21 17:36:15,476 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-21 17:36:15,902 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-21 17:36:16,538 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-21 17:36:17,125 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-21 17:36:17,284 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-21 17:36:17,976 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-21 17:36:18,851 INFO src.news: Money Times (VALE3): 0 itens novos na janela
+2026-10-21 17:36:19,823 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-21 17:36:20,557 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-21 17:36:21,278 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-21 17:36:21,357 INFO src.archive: Arquivados 22 novos de 31 coletados
+2026-10-21 17:36:21,357 INFO agendado: coleta: 22 novos (3 mencionam a carteira)
+2026-10-21 17:36:21,357 INFO agendado: ==== fim: pipeline (ok)
+2026-10-21 17:36:21,436 INFO agendado: ==== início: vitrine
+2026-10-21 17:36:22,239 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-21 17:36:22,244 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,316 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,679 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,687 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,695 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,699 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,715 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,718 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,724 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,727 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,730 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,733 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,737 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,750 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,754 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,757 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:36:29,760 INFO agendado: vitrine: {"real": {"noticias": 78, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-21 17:36:29,760 INFO agendado: ==== fim: vitrine (ok)
