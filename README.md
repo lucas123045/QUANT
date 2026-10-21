@@ -46,6 +46,17 @@ Controle adicional, que não entra no critério: o baseline 2 (sorteio) dá a fr
 
 > **Limitação do teste de Welch:** as operações da estratégia costumam ser um subconjunto das do baseline 1, então as amostras não são independentes. O teste é aproximado e tende a ser conservador nesse caso.
 
+## 3.1 Hipóteses secundárias pré-registradas (21/10/2026)
+
+Registradas **antes** de qualquer dado ao vivo da carteira de 24 ações, com o estudo histórico já conhecido (seção 15). Não mudam a regra: são medições do estudo de evento (`src/estudo_evento.py`, grupos "H2" e "H3"), avaliadas só com eventos posteriores ao congelamento.
+
+| | Hipótese | Medida | Critério |
+|---|---|---|---|
+| H2 | Notícia **negativa** tem efeito mais forte que a positiva | Retorno anormal médio em 5 pregões depois da execução, com o sinal da classificação, separado por sentimento | Média dos negativos > 0 com p < 0,05 (bilateral) e n ≥ 30; e maior que a dos positivos |
+| H3 | O que move o preço é a **surpresa frente à expectativa**, não o tom | O mesmo, separado pelo que o texto diz (`src/surpresa.py`): "acima do esperado", "abaixo do esperado", sem comparação | Média de "acima" + "abaixo" > 0 com p < 0,05 e n ≥ 30; e maior que a dos sem comparação |
+
+Motivação na literatura: o efeito depois do anúncio de resultados (*post-earnings announcement drift*) depende da surpresa frente ao consenso, e notícias ruins tendem a ser incorporadas mais devagar. Limitação de H3: o QUANT só vê a surpresa quando o próprio texto a explicita; não há fonte de consenso de analistas.
+
 ## 4. Métricas
 
 - **Primária:** retorno acumulado líquido da estratégia contra o Ibovespa no período de teste.
@@ -88,12 +99,12 @@ O teste `test_parametros_congelaveis_nao_foram_alterados` **falha de propósito*
 
 | Campo | Valor |
 |---|---|
-| Data de congelamento | _PENDENTE_ |
-| Hash do commit (e tag `regra-congelada-v1`) | _PENDENTE_ |
-| Hash dos preços (`hash_dos_precos`) | _PENDENTE_ |
-| Hash de `requirements.txt` | _PENDENTE_ |
-| Data de corte de conhecimento do modelo | _PENDENTE_ |
-| Aprovação | _PENDENTE_ |
+| Data de congelamento | **21/10/2026** |
+| Impressão digital da regra (`congelamento.json`) | `81c7ae07b551b69c9bf94cab2c67187ba6e1e63c0c1bd3e738cc3da7b0a042dd` |
+| Modelo | `gpt-4.1-2025-04-14` (OpenAI) |
+| Data de corte de conhecimento do modelo | 01/06/2024 (documentação oficial da OpenAI) |
+| Regra e prompts | `REGRA_V3`, `PROMPT_EXTRACAO_V2`, `PROMPT_CLASSIFICACAO_V2` |
+| Aprovação | autor, 21/10/2026 |
 
 Esses campos são preenchidos apenas pelo autor.
 
@@ -168,11 +179,11 @@ Nomes que também são palavras comuns ou lugares têm casamento restrito (`ALIA
 
 | Período | Início | Fim | Status |
 |---|---|---|---|
-| Treino | — | — | PENDENTE DE APROVAÇÃO |
-| Validação | — | — | PENDENTE DE APROVAÇÃO |
-| Teste | — | — | PENDENTE DE APROVAÇÃO |
+| Treino | 01/01/2025 | 31/12/2025 | aprovado em 21/10/2026 (fatos relevantes da CVM, estudo histórico) |
+| Validação | 01/01/2026 | 21/10/2026 | aprovado em 21/10/2026 (fatos relevantes da CVM, estudo histórico) |
+| Teste | 22/10/2026 | 22/04/2027 | aprovado em 21/10/2026: **prospectivo**, notícias de portal e fatos relevantes das 24 ações |
 
-Em `src/config.py`, os períodos ficam como `None` até a aprovação. Nenhum backtest roda com período `None`.
+Treino e validação ficam inteiramente depois do corte de conhecimento do modelo (01/06/2024). Ressalva: os resultados do estudo histórico (seção 15) já eram conhecidos quando os períodos foram definidos; a regra não foi ajustada com base neles, mas o teste realmente limpo é o prospectivo, que começa depois do congelamento.
 
 ## 10. Pendências
 
@@ -513,3 +524,23 @@ A coleta, a IA e a chave continuam só no seu computador. Assim ninguém consegu
 Para atualizar o site, rode o pipeline normalmente (`npm run dev` → Rodar agora) e depois repita os três comandos acima.
 
 Código: `src/web/api.py` (FastAPI), `web/` (React + Vite), `scripts/api.mjs` (sobe a API com o Python da `.venv`).
+
+## 15. Resultados até agora (21/10/2026)
+
+### Estudo histórico com fatos relevantes da CVM (H1 por fonte, exploratório)
+
+372 fatos relevantes das 24 empresas, entregues de 01/01/2025 a 21/10/2026, todos **depois** do corte de conhecimento do modelo (01/06/2024). Processados com a REGRA_V3 como se coletados no dia da entrega (`src/historico.py`). Depois de juntar o mesmo fato da mesma empresa no mesmo dia: **91 eventos independentes** com direção (positivo ou negativo).
+
+| Janela (retorno anormal, modelo de mercado, sinal da classificação) | Média | Intervalo de 95% | p |
+|---|---|---|---|
+| Até a execução, inclusive o dia dela | −0,09% | ≈ −0,9% a +0,8% | 0,9 |
+| 1 pregão depois da execução | −0,13% | — | — |
+| **5 pregões depois** | **−0,07%** | **−0,82% a +0,69%** | 0,86 |
+| 20 pregões depois | +0,34% | — | — |
+
+- **O preço não anda a favor da classificação da IA**, nem antes nem depois da execução. As ações se mexem no dia da execução (movimento anormal médio de 2% em módulo), mas a classificação não acerta o sentido.
+- **Calibração:** com confiança declarada de 80% a 100%, a direção em 5 pregões acerta 44% a 48% das vezes; escore de Brier 0,45 (chutar 50% dá 0,25).
+- **Poder:** com o desvio observado do retorno anormal em 5 pregões (~3,8%), o intervalo descarta efeitos médios maiores que ~0,8%. Efeitos menores, que mal pagariam custos e imposto, não podem ser descartados.
+- **Portão de evidência:** fechado (limite inferior −0,56%, abaixo do custo de ida e volta). A carteira prática não compraria e ficaria no CDI.
+
+**Conclusão (exploratória):** para fatos relevantes da CVM, a classificação de sentimento por LLM, filtrada pela REGRA_V3, não prevê o retorno anormal. Não vale como teste confirmatório: os períodos foram definidos depois de conhecido este resultado, e a regra foi revista (V2 → V3) antes, por outros motivos. O teste confirmatório é o prospectivo, a partir do congelamento, com notícias de portal e fatos relevantes das 24 ações.

@@ -19,6 +19,10 @@ def test_impressao_digital_muda_com_qualquer_parametro_da_regra(monkeypatch):
 def test_checklist_mostra_o_que_falta_com_a_sugestao_do_corte(monkeypatch):
     monkeypatch.setenv("LLM_PROVEDOR", "openai")
     monkeypatch.setenv("LLM_MODELO", "gpt-4.1-2025-04-14")
+    # Como era antes do congelamento real: nada preenchido.
+    for nome in ("DATA_CORTE_CONHECIMENTO_MODELO", "PERIODO_TREINO", "PERIODO_VALIDACAO", "PERIODO_TESTE",
+                 "DATA_CONGELAMENTO"):
+        monkeypatch.setattr(config, nome, None)
     c = congelamento.checklist(date(2026, 10, 21))
     pendentes = {i["item"]: i for i in c["itens"] if not i["ok"]}
     assert not c["pronto_para_congelar"]
@@ -26,7 +30,9 @@ def test_checklist_mostra_o_que_falta_com_a_sugestao_do_corte(monkeypatch):
     assert "Período de teste aprovado" in pendentes
 
 
-def test_congelar_exige_o_autor_e_os_pre_requisitos(tmp_path):
+def test_congelar_exige_o_autor_e_os_pre_requisitos(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "DATA_CONGELAMENTO", None)
+    monkeypatch.setattr(config, "PERIODO_TESTE", None)
     with pytest.raises(PermissionError):
         congelamento.congelar(False, arquivo=tmp_path / "c.json")
     with pytest.raises(RuntimeError, match="Pré-requisitos pendentes"):
@@ -35,6 +41,7 @@ def test_congelar_exige_o_autor_e_os_pre_requisitos(tmp_path):
 
 
 def test_congelar_registra_e_a_verificacao_detecta_mudanca(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "DATA_CONGELAMENTO", None)
     monkeypatch.setenv("LLM_PROVEDOR", "openai")
     monkeypatch.setenv("LLM_MODELO", "gpt-4.1-2025-04-14")
     monkeypatch.setattr(config, "DATA_CORTE_CONHECIMENTO_MODELO", "2024-06-01")

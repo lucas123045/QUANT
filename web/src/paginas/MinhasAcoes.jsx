@@ -69,6 +69,47 @@ function consolidar(lotes, ativos) {
   return { posicoes: posicoes.sort((a, b) => (b.valor ?? 0) - (a.valor ?? 0)), total, custo, setores, dia };
 }
 
+/**
+ * Quanto R$ 1 aplicado no CDI no dia `desde` vale no dia `ate` (fator do /api/cdi).
+ * A taxa de cada dia remunera até o dia seguinte: vale o fator do último dia ANTES de cada data.
+ */
+function crescimentoCdi(cdi, desde, ate) {
+  if (!cdi?.datas?.length || !desde || desde < cdi.inicio || !ate || ate <= desde) return null;
+  const antes = (data) => {
+    let lo = 0, hi = cdi.datas.length - 1, achado = -1;
+    while (lo <= hi) {
+      const meio = (lo + hi) >> 1;
+      if (cdi.datas[meio] < data) { achado = meio; lo = meio + 1; } else { hi = meio - 1; }
+    }
+    return achado >= 0 ? cdi.fator[achado] : 1;
+  };
+  return antes(ate) / antes(desde);
+}
+
+/** O que os lotes com data de compra valeriam se o dinheiro tivesse ido para o CDI. */
+function noCdi(lotes, cdi, ate, precoAtual) {
+  let custo = 0, cdiValor = 0, hoje = 0, semData = 0;
+  for (const l of lotes) {
+    const fator = crescimentoCdi(cdi, l.data_compra, ate);
+    if (fator == null || precoAtual == null) { semData += 1; continue; }
+    const pago = Number(l.quantidade) * Number(l.preco_medio);
+    custo += pago;
+    cdiValor += pago * fator;
+    hoje += Number(l.quantidade) * precoAtual;
+  }
+  return { custo, cdiValor, hoje, semData, comparados: lotes.length - semData };
+}
+
+/** A carteira inteira contra o CDI (soma das ações, cada uma com o seu preço atual). */
+function carteiraNoCdi(posicoes, cdi, ate) {
+  const total = { custo: 0, cdiValor: 0, hoje: 0, semData: 0, comparados: 0 };
+  for (const p of posicoes) {
+    const r = noCdi(p.lotes, cdi, ate, p.preco);
+    for (const k of Object.keys(total)) total[k] += r[k];
+  }
+  return total;
+}
+
 /** IR estimado se vender tudo hoje (sem vendas anteriores no mês nem prejuízo acumulado). */
 function impostoSeVender(posicoes) {
   const vendas = posicoes.reduce((s, p) => s + (p.valor ?? 0), 0);
@@ -138,7 +179,20 @@ function Sinal({ u }) {
   );
 }
 
-function Posicao({ p, aoRemover }) {
+function ComparacaoCdi({ c, indisponivel }) {
+  if (indisponivel) return <p className="sutil">O CDI está indisponível agora (Banco Central sem resposta); a comparação volta sozinha.</p>;
+  if (!c.comparados) return <p className="sutil">Informe a data da compra para comparar com o CDI.</p>;
+  const diferenca = c.hoje - c.cdiValor;
+  return (
+    <p className={`minhas-cdi ${tom(diferenca)}`}>
+      No CDI desde a compra, {reais(c.custo, 2)} seriam hoje {reais(c.cdiValor, 2)}: você está{" "}
+      <strong>{reais(Math.abs(diferenca), 2)} {diferenca >= 0 ? "acima" : "abaixo"}</strong> da renda fixa.
+      {c.semData > 0 && <span className="sutil"> ({plural(c.semData, "lote sem data ficou", "lotes sem data ficaram")} de fora.)</span>}
+    </p>
+  );
+}
+
+function Posicao({ p, aoRemover, cdi, ate, cdiIndisponivel }) {
   const [aberto, setAberto] = useState(false);
   const u = p.ativo?.ultima_decisao;
   return (
@@ -179,6 +233,10 @@ function Posicao({ p, aoRemover }) {
                 {!!u.criterios?.length && <Criterios criterios={u.criterios} />}
               </>
             ) : <p className="sutil">Nenhuma notícia desta empresa analisada ainda.</p>}
+          </div>
+          <div>
+            <h4>Contra a renda fixa</h4>
+            <ComparacaoCdi c={noCdi(p.lotes, cdi, ate, p.preco)} indisponivel={cdiIndisponivel} />
           </div>
           <div>
             <h4>Seus lotes</h4>
@@ -261,8 +319,35 @@ function Imposto({ posicoes }) {
   );
 }
 
+/** Lista de códigos para os alertas no celular (só os códigos: as posições ficam aqui). */
+function AlertasCelular({ posicoes }) {
+  const [copiado, setCopiado] = useState(false);
+  if (!posicoes.length) return null;
+  const linha = `QUANT_ALERTAS_TICKERS=${posicoes.map((p) => p.ticker).join(",")}`;
+  function copiar() {
+    navigator.clipboard?.writeText(linha).then(() => { setCopiado(true); setTimeout(() => setCopiado(false), 2000); });
+  }
+  return (
+    <Cartao titulo="Alertas no celular só das suas ações" subtitulo="Aviso quando a regra vir um fato relevante numa empresa que você tem">
+      <div className="minhas-alerta-linha">
+        <code>{linha}</code>
+        <button className="botao" onClick={copiar}>{copiado ? "Copiado" : "Copiar"}</button>
+      </div>
+      <ol className="minhas-passos">
+        <li>Instale o app <strong>ntfy</strong> no celular e assine um tópico com nome difícil de adivinhar.</li>
+        <li>No GitHub: Settings › Secrets and variables › Actions › <strong>Variables</strong>: crie <code>QUANT_ALERTAS_TICKERS</code> com a lista acima, e em <strong>Secrets</strong> crie <code>QUANT_NTFY_TOPICO</code> com o nome do tópico.</li>
+        <li>No seu computador, as mesmas duas linhas no arquivo <code>.env</code>.</li>
+      </ol>
+      <p className="f-nota">Vão só os códigos das ações, sem quantidade nem valor: suas posições continuam só neste navegador.</p>
+    </Cartao>
+  );
+}
+
 export default function MinhasAcoes() {
   const { dados: d, erro, carregando } = useApi("/api/simulacao?base=real", 5 * 60 * 1000);
+  const respostaCdi = useApi("/api/cdi");
+  const cdi = respostaCdi.dados;
+  const cdiIndisponivel = !!respostaCdi.erro;
   const [lotes, setLotes] = useState(lerLotes);
   const [aviso, setAviso] = useState(null);
   const entrada = useRef(null);
@@ -354,13 +439,18 @@ export default function MinhasAcoes() {
             <Secao titulo="Suas posições" texto="Toque numa ação para ver o que o QUANT analisou dela." />
             <Cartao>
               <ul className="f-lista">
-                {c.posicoes.map((p) => <Posicao key={p.ticker} p={p} aoRemover={(id) => salvar(lotes.filter((l) => l.id !== id))} />)}
+                {c.posicoes.map((p) => <Posicao key={p.ticker} p={p} cdi={cdi} ate={ultimoDia} cdiIndisponivel={cdiIndisponivel}
+                  aoRemover={(id) => salvar(lotes.filter((l) => l.id !== id))} />)}
               </ul>
             </Cartao>
             <div className="f-grade">
               <Setores setores={c.setores} />
               <Imposto posicoes={c.posicoes} />
+              <Cartao titulo="Contra a renda fixa" subtitulo="O mesmo dinheiro aplicado a 100% do CDI desde cada compra (antes do IR)">
+                <ComparacaoCdi c={carteiraNoCdi(c.posicoes, cdi, ultimoDia)} indisponivel={cdiIndisponivel} />
+              </Cartao>
             </div>
+            <AlertasCelular posicoes={c.posicoes} />
           </>
         ) : (
           <div className="vazio">Nenhuma ação ainda. Adicione as que você tem para o QUANT acompanhar junto.</div>

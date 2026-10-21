@@ -28,11 +28,18 @@ DIAS_ATE_FECHAR = 5  # depois disso, a série do período não muda mais: pode i
 def baixar_bcb(inicio: date, fim: date) -> list[dict]:
     url = URL_SGS.format(inicio=inicio.strftime("%d/%m/%Y"), fim=fim.strftime("%d/%m/%Y"))
     try:
-        return json.loads(rede.baixar(url, 30, "quant-academico/1.0"))
+        bruto = rede.baixar(url, 30, "quant-academico/1.0")
     except urllib.error.HTTPError as erro:
         if erro.code == 404:  # "Value(s) not found": período ainda sem taxa publicada
             return []
         raise
+    try:
+        return json.loads(bruto)
+    except ValueError:
+        # O firewall do BC às vezes responde com uma página HTML ("Requisição inválida"),
+        # por exemplo depois de muitas consultas do mesmo endereço: bloqueio temporário.
+        raise ConnectionError("o Banco Central recusou a consulta agora (bloqueio temporário); "
+                              "a comparação com o CDI volta sozinha") from None
 
 
 def carregar_cdi(inicio: date, fim: date, pasta: Path,
@@ -51,6 +58,31 @@ def carregar_cdi(inicio: date, fim: date, pasta: Path,
     serie = pd.Series({pd.Timestamp(pd.to_datetime(i["data"], dayfirst=True)): float(i["valor"]) / 100
                        for i in bruto}, dtype=float)
     return serie.sort_index()
+
+
+INICIO_INDICE = date(2023, 1, 2)  # compras mais antigas que isto ficam sem comparação
+
+
+def indice(fim: date, pasta: Path, baixar: Callable[[date, date], list[dict]] | None = None,
+           inicio: date = INICIO_INDICE) -> dict:
+    """Fator acumulado do CDI por dia útil, para comparar qualquer compra com a renda fixa.
+
+    fator[i] = produto de (1 + taxa) até a data i, inclusive. Quem aplicou no dia D e
+    olha no dia L ganhou fator(último dia antes de L) / fator(último dia antes de D),
+    pela mesma convenção de patrimonio_cdi (a taxa do dia remunera até o dia seguinte).
+    Em blocos anuais: a API do BC limita o tamanho de cada consulta.
+    """
+    partes = []
+    ano = inicio.year
+    while ano <= fim.year:
+        de, ate = max(inicio, date(ano, 1, 1)), min(fim, date(ano, 12, 31))
+        partes.append(carregar_cdi(de, ate, pasta, baixar))
+        ano += 1
+    taxas = pd.concat(partes).sort_index() if partes else pd.Series(dtype=float)
+    taxas = taxas[~taxas.index.duplicated()]
+    fator = (1 + taxas).cumprod()
+    return {"inicio": inicio.isoformat(), "fim": fim.isoformat(),
+            "datas": [d.date().isoformat() for d in fator.index], "fator": [round(float(v), 10) for v in fator]}
 
 
 def patrimonio_cdi(pregoes: pd.DatetimeIndex, taxas: pd.Series, capital: float) -> pd.Series:

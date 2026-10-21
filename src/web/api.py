@@ -238,6 +238,14 @@ def obter_mercado() -> dict:
     return _calcular("o contexto de mercado", lambda: mercado.contexto(config.DIR_DATA))
 
 
+@app.get("/api/cdi")
+def obter_cdi() -> dict:
+    """Fator acumulado do CDI desde 2023, para comparar compras com a renda fixa."""
+    from src import cdi  # import local: só esta rota usa o índice
+    hoje = datetime.now(FUSO).date()
+    return _calcular("o índice do CDI", lambda: cdi.indice(hoje, config.DIR_DATA / "simulacao" / "cdi"))
+
+
 @app.get("/api/operacoes")
 def operacoes(base: str = "real") -> list[dict]:
     return list(reversed(auditoria.ler_operacoes(_dir(base) / "operacoes.jsonl")))

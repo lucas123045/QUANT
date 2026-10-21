@@ -53,7 +53,7 @@ def test_resultado_conhecido(dados):
     assert [(i["ticker"], i["razao"]) for i in r["ordens_ignoradas"]] == [("VALE3", "sem posição para vender")]
     assert [p["data"] for p in r["serie"]] == [d.date().isoformat() for d in DIAS]
     assert r["serie"][0]["estrategia"] == 100_000
-    assert "não substitui o período de teste" in r["aviso"]
+    assert "Regra congelada" in r["aviso"]  # congelada em 21/10/2026
 
 
 def test_ordem_pendente_ate_o_proximo_pregao(dados):

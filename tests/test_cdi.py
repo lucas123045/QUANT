@@ -8,6 +8,8 @@ import pytest
 from src import cdi, main, simulacao
 
 SP = ZoneInfo("America/Sao_Paulo")
+# A original, antes de o conftest trocá-la por uma que simula a rede fora do ar.
+BAIXAR_BCB_ORIGINAL = cdi.baixar_bcb
 DIAS = pd.DatetimeIndex(["2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09"])
 
 
@@ -88,3 +90,12 @@ def test_simulacao_segue_sem_o_cdi_quando_a_fonte_falha(dados):
     assert "cdi" not in r["carteiras"]
     assert "Banco Central" in r["cdi_indisponivel"]
     assert all(p["cdi"] is None for p in r["serie"])
+
+
+
+def test_firewall_do_bc_vira_erro_claro(monkeypatch):
+    """O BC às vezes responde com uma página HTML de bloqueio: vira um erro claro, não JSONDecodeError."""
+    from src import rede
+    monkeypatch.setattr(rede, "baixar", lambda *a, **k: b'<?xml version="1.0"?><html>Requisicao invalida</html>')
+    with pytest.raises(ConnectionError, match="recusou"):
+        BAIXAR_BCB_ORIGINAL(date(2026, 10, 1), date(2026, 10, 20))

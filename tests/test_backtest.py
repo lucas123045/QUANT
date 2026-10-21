@@ -34,12 +34,21 @@ def test_periodo_none_recusado_com_explicacao():
 
 
 @pytest.mark.parametrize("nome", ["treino", "validacao", "teste"])
-def test_periodos_do_config_estao_pendentes(nome):
+def test_periodo_pendente_trava_o_backtest(nome, monkeypatch):
+    # Antes da aprovação (até 21/10/2026), os períodos eram None: nenhum backtest rodava.
+    monkeypatch.setattr(config, {"treino": "PERIODO_TREINO", "validacao": "PERIODO_VALIDACAO",
+                                 "teste": "PERIODO_TESTE"}[nome], None)
     with pytest.raises(PeriodoPendente):
         periodo_do_config(nome)
 
 
+def test_periodos_aprovados_e_teste_liberado_pelo_congelamento():
+    assert periodo_do_config("treino") == (pd.Timestamp("2025-01-01"), pd.Timestamp("2025-12-31"))
+    assert periodo_do_config("teste") == (pd.Timestamp("2026-10-22"), pd.Timestamp("2027-04-22"))
+
+
 def test_teste_exige_data_de_congelamento(monkeypatch):
+    monkeypatch.setattr(config, "DATA_CONGELAMENTO", None)
     monkeypatch.setattr(config, "PERIODO_TESTE", ("2026-01-01", "2026-06-30"))
     with pytest.raises(CongelamentoPendente, match="DATA_CONGELAMENTO"):
         periodo_do_config("teste")
@@ -65,9 +74,11 @@ def test_rodar_backtest_recusa_periodo_none():
 def test_parametros_congelaveis_nao_foram_alterados():
     """Trava contra alterações acidentais.
 
-    Este teste FALHA DE PROPÓSITO no dia do congelamento (DATA_CONGELAMENTO
-    deixa de ser None) ou se algum parâmetro mudar. Atualizá-lo é um ato
-    deliberado, que deve entrar no mesmo commit da mudança aprovada.
+    Este teste FALHA DE PROPÓSITO se algum parâmetro mudar. Atualizá-lo é um ato
+    deliberado, que deve entrar no mesmo commit da mudança aprovada. A regra foi
+    congelada em 21/10/2026: a impressão digital registrada em congelamento.json
+    também tem de bater (qualquer mudança no código da regra, nos prompts, no
+    casamento ou nos parâmetros a altera).
     """
     assert config.LIMIAR_PROBABILIDADE == 0.7
     assert config.MAX_POSICAO_PCT == 0.20
@@ -76,7 +87,14 @@ def test_parametros_congelaveis_nao_foram_alterados():
     assert config.ALFA_CRITERIO == 0.05
     assert config.SEMENTE_BASELINE_2 == 20261015
     assert (config.CORRETAGEM, config.EMOLUMENTOS, config.SLIPPAGE) == (0.0, 0.0, 0.0)
-    assert config.DATA_CONGELAMENTO is None
+    assert config.DATA_CONGELAMENTO == "2026-10-21"
+    assert config.DATA_CORTE_CONHECIMENTO_MODELO == "2024-06-01"
+    assert (config.PERIODO_TREINO, config.PERIODO_VALIDACAO, config.PERIODO_TESTE) == (
+        ("2025-01-01", "2025-12-31"), ("2026-01-01", "2026-10-21"), ("2026-10-22", "2027-04-22"))
+    import json
+    from src import congelamento
+    registro = json.loads(congelamento.ARQUIVO.read_text(encoding="utf-8"))
+    assert registro["impressao_digital"] == congelamento.impressao_digital()
     # Versões da regra e dos prompts (V1 → V2 em 20/10/2026: a V1 operava notícias que
     # só descreviam a variação do preço; V2 → V3 em 21/10/2026: materialidade, fato
     # novo e repetição). Todas antes do congelamento.
@@ -165,6 +183,8 @@ def test_criterio_v2_corrige_o_defeito_do_v1():
 
 def test_contaminacao(monkeypatch):
     inicio = pd.Timestamp("2025-01-01")
+    assert backtest.verificar_contaminacao(inicio).startswith("OK")  # corte registrado: 01/06/2024
+    monkeypatch.setattr(config, "DATA_CORTE_CONHECIMENTO_MODELO", None)
     assert backtest.verificar_contaminacao(inicio).startswith("NAO_AVALIADO")
     monkeypatch.setattr(config, "DATA_CORTE_CONHECIMENTO_MODELO", "2025-06-30")
     assert backtest.verificar_contaminacao(inicio).startswith("RISCO")
@@ -248,7 +268,8 @@ def test_simbolo_yfinance():
 
 # --- revisão metodológica: excesso, exposição, hash, calibração ---------------
 
-def test_backtest_anota_excesso_exposicao_e_contaminacao():
+def test_backtest_anota_excesso_exposicao_e_contaminacao(monkeypatch):
+    monkeypatch.setattr(config, "DATA_CORTE_CONHECIMENTO_MODELO", None)
     eventos = [evento("PETR4", "positivo", "2026-03-02T19:00:00-03:00"),
                evento("PETR4", "negativo", "2026-03-09T12:00:00-03:00")]
     r = rodar_backtest(eventos, PRECOS, PERIODO, "noticia", capital=100_000.0, custo=0.0)

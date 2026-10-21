@@ -10,7 +10,8 @@ def ambiente_isolado(monkeypatch, tmp_path_factory):
     """Nenhum teste lê o .env real nem herda configuração de LLM do ambiente."""
     # Nem canal de alerta: um teste nunca manda notificação de verdade.
     for nome in ("QUANT_MODO_TESTE", "LLM_PROVEDOR", "LLM_API_KEY", "LLM_MODELO", "QUANT_NTFY_TOPICO",
-                 "QUANT_NTFY_SERVIDOR", "QUANT_TELEGRAM_TOKEN", "QUANT_TELEGRAM_CHAT"):
+                 "QUANT_NTFY_SERVIDOR", "QUANT_TELEGRAM_TOKEN", "QUANT_TELEGRAM_CHAT",
+                 "QUANT_ALERTAS_TICKERS"):
         monkeypatch.delenv(nome, raising=False)
     monkeypatch.setattr(llm, "carregar_env", lambda caminho=None: None)
     # Backups dos testes vão para uma pasta temporária, nunca para a real.

@@ -35,8 +35,9 @@ def test_status_nao_expoe_chave(cliente, monkeypatch):
     dados = resposta.json()
     assert dados["chave_configurada"] is True
     assert dados["modelo"] == "openai:modelo-x"
-    assert dados["periodos"] == {"treino": None, "validacao": None, "teste": None}
-    assert "Aprovar o período de teste" in dados["pendencias"]
+    assert dados["periodos"] == {"treino": ["2025-01-01", "2025-12-31"], "validacao": ["2026-01-01", "2026-10-21"],
+                                 "teste": ["2026-10-22", "2027-04-22"]}
+    assert not any("período" in p for p in dados["pendencias"])  # aprovados em 21/10/2026
     assert [c["ticker"] for c in dados["carteira"]] == config.CARTEIRA
 
 

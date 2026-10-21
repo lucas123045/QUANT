@@ -82,6 +82,7 @@ async function pedirVitrine(caminho, opcoes) {
     case "evidencias": return lerArquivo(`evidencias-${base}.json`);
     case "mercado": return lerArquivo("mercado.json");
     case "congelamento": return lerArquivo("congelamento.json");
+    case "cdi": return lerArquivo("cdi.json");
     case "tarefas": return [];
     case "execucoes":
       if (partes[1]) {

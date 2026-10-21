@@ -1,0 +1,71 @@
+{
+  "data": "2026-10-21",
+  "impressao_digital": "81c7ae07b551b69c9bf94cab2c67187ba6e1e63c0c1bd3e738cc3da7b0a042dd",
+  "modelo": "gpt-4.1-2025-04-14",
+  "parametros": {
+    "VERSAO_REGRA": "REGRA_V3",
+    "VERSAO_PROMPT_EXTRACAO": "PROMPT_EXTRACAO_V2",
+    "VERSAO_PROMPT_CLASSIFICACAO": "PROMPT_CLASSIFICACAO_V2",
+    "LIMIAR_PROBABILIDADE": 0.7,
+    "MAX_POSICAO_PCT": 0.2,
+    "JANELA_EVENTO_RECENTE_DIAS": 5,
+    "MATERIALIDADE_MINIMA": "media",
+    "JANELA_REPETICAO_HORAS": 24,
+    "HORA_LIMITE_EXECUCAO": [
+      16,
+      55
+    ],
+    "CAPITAL_INICIAL": 100000.0,
+    "CUSTOS": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ALFA_CRITERIO": 0.05,
+    "SEMENTE_BASELINE_2": 20261015,
+    "N_SIMULACOES_BASELINE_2": 1000,
+    "CARTEIRA": [
+      "PETR4",
+      "VALE3",
+      "ITUB4",
+      "BBDC4",
+      "ABEV3",
+      "BBAS3",
+      "B3SA3",
+      "WEGE3",
+      "SUZB3",
+      "RENT3",
+      "ITSA4",
+      "RADL3",
+      "PRIO3",
+      "EQTL3",
+      "GGBR4",
+      "RAIL3",
+      "VBBR3",
+      "SBSP3",
+      "BBSE3",
+      "UGPA3",
+      "LREN3",
+      "TOTS3",
+      "CSAN3",
+      "CMIG4"
+    ],
+    "BENCHMARK": "^BVSP",
+    "FUSO_REFERENCIA": "America/Sao_Paulo",
+    "PERIODOS": [
+      [
+        "2025-01-01",
+        "2025-12-31"
+      ],
+      [
+        "2026-01-01",
+        "2026-10-21"
+      ],
+      [
+        "2026-10-22",
+        "2027-04-22"
+      ]
+    ]
+  },
+  "registrado_em": "2026-10-21T17:27:19.861446-03:00"
+}

@@ -10,6 +10,10 @@ GitHub; sem nenhuma, nada é enviado):
 - Telegram: crie um bot com o @BotFather e defina QUANT_TELEGRAM_TOKEN e
   QUANT_TELEGRAM_CHAT (o id da sua conversa com o bot).
 
+QUANT_ALERTAS_TICKERS (opcional, ex.: "PETR4,ITUB4"): só avisa dessas ações, as
+que a pessoa tem (a página Minhas ações gera a lista). Só os códigos, sem
+quantidade nem valor: as posições continuam só no navegador.
+
 Falha no envio vira aviso no log: nunca derruba o pipeline. Não manda a chave
 do LLM nem nada além da decisão e do motivo.
 """
@@ -32,6 +36,12 @@ def canais() -> list[str]:
     if os.environ.get("QUANT_TELEGRAM_TOKEN", "").strip() and os.environ.get("QUANT_TELEGRAM_CHAT", "").strip():
         lista.append("telegram")
     return lista
+
+
+def tickers_filtrados() -> set[str] | None:
+    """Ações que a pessoa quer acompanhar no celular (None: todas)."""
+    tickers = {t.strip().upper() for t in os.environ.get("QUANT_ALERTAS_TICKERS", "").split(",") if t.strip()}
+    return tickers or None
 
 
 def mensagem(registro: dict) -> tuple[str, str]:
@@ -81,10 +91,15 @@ def enviar(registros: list[dict]) -> dict:
     """Envia um alerta por decisão registrada. Devolve {"enviados", "falhas", "canais"}."""
     lista = canais()
     enviados = falhas = 0
+    filtro = tickers_filtrados()
+    if filtro is not None:
+        registros = [r for r in registros if r.get("ticker") in filtro]
     if not lista or not registros:
         return {"enviados": 0, "falhas": 0, "canais": lista}
     for registro in registros:
         titulo, texto = mensagem(registro)
+        if filtro is not None:
+            titulo += " · você tem esta ação"
         clique = ((registro.get("evento") or {}).get("origem") or {}).get("url")
         for canal in lista:
             try:

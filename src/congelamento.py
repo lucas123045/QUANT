@@ -134,7 +134,10 @@ def verificar(arquivo: Path | None = None) -> dict:
     problemas = []
     if registro.get("impressao_digital") != impressao_digital():
         problemas.append("o código da regra, um prompt, um parâmetro ou as fontes mudaram depois do congelamento")
-    if registro.get("modelo") != _modelo():
+    # O modelo só é comparado com um provedor real configurado: no modo de teste (provedor
+    # falso) ou sem modelo definido, o pipeline não chama o LLM e não decide nada real.
+    real = llm.provedor_atual() not in ("falso", "") and _modelo() != "nao_definido"
+    if real and registro.get("modelo") != _modelo():
         problemas.append(f"o modelo em uso ({_modelo()}) não é o congelado ({registro.get('modelo')})")
     return {"estado": "integra" if not problemas else "alterada", "problemas": problemas,
             "data": registro.get("data"), "modelo": registro.get("modelo")}

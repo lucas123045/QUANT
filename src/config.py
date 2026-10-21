@@ -163,10 +163,13 @@ SLIPPAGE = 0.0
 # ---------------------------------------------------------------------------
 # Períodos: PENDENTE DE APROVAÇÃO. Formato quando aprovado: ("AAAA-MM-DD", "AAAA-MM-DD").
 # ---------------------------------------------------------------------------
-PERIODO_TREINO = None       # PENDENTE DE APROVAÇÃO
-PERIODO_VALIDACAO = None    # PENDENTE DE APROVAÇÃO
-PERIODO_TESTE = None        # PENDENTE DE APROVAÇÃO (precisa de data final fixa)
-DATA_CONGELAMENTO = None    # PENDENTE: preenchida só pelo autor ao congelar a regra
+# Aprovados pelo autor em 21/10/2026. Treino e validação: fatos relevantes da CVM
+# (estudo histórico, todos depois do corte do modelo); teste: PROSPECTIVO, a partir
+# do dia seguinte ao congelamento, com notícias de portal e fatos relevantes.
+PERIODO_TREINO = ("2025-01-01", "2025-12-31")
+PERIODO_VALIDACAO = ("2026-01-01", "2026-10-21")
+PERIODO_TESTE = ("2026-10-22", "2027-04-22")
+DATA_CONGELAMENTO = "2026-10-21"    # congelada pelo autor (src/congelamento.py; registro em congelamento.json)
 
 # ---------------------------------------------------------------------------
 # Critério de decisão (congela junto com a regra)
@@ -180,7 +183,9 @@ ALFA_CRITERIO = 0.05
 # Data de corte de conhecimento do modelo usado na extração ("AAAA-MM-DD"),
 # tirada da documentação oficial do provedor. PENDENTE: preencher ao escolher
 # o modelo. Períodos que começam antes dela podem ter look-ahead via modelo.
-DATA_CORTE_CONHECIMENTO_MODELO = None
+# gpt-4.1-2025-04-14: 01/06/2024, documentação oficial da OpenAI
+# (https://developers.openai.com/api/docs/models/gpt-4.1), registrada pelo autor em 21/10/2026.
+DATA_CORTE_CONHECIMENTO_MODELO = "2024-06-01"
 
 # ---------------------------------------------------------------------------
 # Corte temporal

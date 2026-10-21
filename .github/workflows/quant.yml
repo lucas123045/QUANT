@@ -13,6 +13,7 @@
 #   Alertas no celular (opcionais, segredos; ver src/alertas.py):
 #     QUANT_NTFY_TOPICO (app ntfy, sem cadastro) e/ou
 #     QUANT_TELEGRAM_TOKEN + QUANT_TELEGRAM_CHAT.
+#   Só das suas ações (variável, aba "Variables"): QUANT_ALERTAS_TICKERS=PETR4,ITUB4.
 name: QUANT (coleta e análise automáticas)
 run-name: ${{ github.event_name == 'workflow_dispatch' && format('Pedido pelo site - {0}', inputs.tarefa || 'pipeline') || github.event_name == 'push' && 'Código novo publicado' || 'Automática (a cada 30 min)' }}
 
@@ -53,6 +54,7 @@ jobs:
       QUANT_NTFY_TOPICO: ${{ secrets.QUANT_NTFY_TOPICO }}
       QUANT_TELEGRAM_TOKEN: ${{ secrets.QUANT_TELEGRAM_TOKEN }}
       QUANT_TELEGRAM_CHAT: ${{ secrets.QUANT_TELEGRAM_CHAT }}
+      QUANT_ALERTAS_TICKERS: ${{ vars.QUANT_ALERTAS_TICKERS }}
       PYTHONIOENCODING: utf-8
     steps:
       - name: Código (ramo main)

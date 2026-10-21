@@ -38,7 +38,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-from src import archive, auditoria, backtest, config
+from src import archive, auditoria, backtest, config, surpresa
 from src.estatistica import media_com_intervalo
 from src.strategy import TIPO_COTACAO, VERSAO_REGRA
 
@@ -182,6 +182,8 @@ def observacoes(eventos: list[dict], precos: pd.DataFrame, operados: set[str] | 
             "tipo_fonte": backtest.tipo_fonte_do_evento(e), "resumo": e.get("resumo"),
             "url": (e.get("origem") or {}).get("url"), "operado": e.get("id") in operados,
             "na_carteira": e["ticker"] in config.CARTEIRA,
+            # H3 (pré-registrada): o texto compara o número com a expectativa?
+            "surpresa": surpresa.detectar(e.get("trecho_fonte"), e.get("resumo"))["surpresa"],
             "reacao": None, "reacao_z": None, "leitura_reacao": None, "dia_execucao": None,
             **{f"car_{h}": None for h in HORIZONTES},
             # Quando cada janela termina: o portão de evidência da prática só usa
@@ -256,6 +258,14 @@ def grupos(linhas: list[dict]) -> list[dict]:
                   ("19 ações adicionadas em 21/10", [l for l in linhas if l["ticker"] not in config.CARTEIRA_ORIGINAL])]
     candidatos += [(f"Reação {r} antes da execução", [l for l in linhas if l["leitura_reacao"] == r])
                    for r in ("a favor", "neutra", "contra")]
+    # Hipóteses pré-registradas em 21/10/2026 (README, seção Hipóteses), medidas daqui para frente:
+    # H2: notícia negativa tem efeito mais forte e mais duradouro que a positiva;
+    # H3: o que move o preço é a surpresa frente à expectativa, não o "tom" da notícia.
+    candidatos += [("H2: notícias negativas", [l for l in linhas if l["sentimento"] == "negativo"]),
+                   ("H2: notícias positivas", [l for l in linhas if l["sentimento"] == "positivo"]),
+                   ("H3: texto diz acima do esperado", [l for l in linhas if l.get("surpresa") == "acima"]),
+                   ("H3: texto diz abaixo do esperado", [l for l in linhas if l.get("surpresa") == "abaixo"]),
+                   ("H3: texto não compara com a expectativa", [l for l in linhas if not l.get("surpresa")])]
     candidatos += [(f"Tipo: {t}", [l for l in linhas if l["tipo_evento"] == t])
                    for t in sorted({l["tipo_evento"] for l in linhas if l["tipo_evento"]})]
     lista, vistos = [], set()

@@ -272,3 +272,25 @@ def test_falha_no_alerta_nao_vaza_o_token(monkeypatch, caplog):
     monkeypatch.setenv("QUANT_TELEGRAM_CHAT", "42")
     assert alertas.enviar([REGISTRO]) == {"enviados": 0, "falhas": 1, "canais": ["telegram"]}
     assert "segredo" not in caplog.text
+
+
+def test_alerta_so_das_acoes_da_pessoa(monkeypatch):
+    enviados = []
+    monkeypatch.setattr(alertas, "_postar", lambda url, corpo, cab: enviados.append(json.loads(corpo)))
+    monkeypatch.setenv("QUANT_NTFY_TOPICO", "t")
+    monkeypatch.setenv("QUANT_ALERTAS_TICKERS", "itub4, BBAS3")
+    outro = {**REGISTRO, "ticker": "ITUB4"}
+    assert alertas.enviar([REGISTRO, outro])["enviados"] == 1  # PETR4 fica de fora
+    assert enviados[0]["title"].endswith("você tem esta ação") and "ITUB4" in enviados[0]["title"]
+
+
+def test_indice_do_cdi_compara_qualquer_compra(tmp_path):
+    from src import cdi
+    dias = pd.bdate_range("2023-01-02", "2024-01-10")
+
+    def baixar(inicio, fim):
+        return [{"data": d.strftime("%d/%m/%Y"), "valor": "0.05"} for d in dias if inicio <= d.date() <= fim]
+    r = cdi.indice(date(2024, 1, 10), tmp_path, baixar)
+    assert r["datas"][0] == "2023-01-02" and r["datas"][-1] == "2024-01-10"
+    assert len(r["datas"]) == len(dias)                     # dois blocos anuais, sem dia repetido
+    assert r["fator"][-1] == pytest.approx(1.0005 ** len(dias))
