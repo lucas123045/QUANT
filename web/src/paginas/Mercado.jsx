@@ -37,10 +37,10 @@ function Macro({ m, c }) {
         detalhe={i.ipca_12m ? `referência ${formatarData(i.ipca_12m.data + "T12:00:00-03:00", false).slice(3)}` : null} />
       <Indicador rotulo="Juro real aproximado" valor={s && i.ipca_12m ? `${formatarNumero(((1 + s.valor / 100) / (1 + i.ipca_12m.valor / 100) - 1) * 100, 2)}%` : "—"}
         detalhe="Selic descontada a inflação: o que a renda fixa paga de verdade" />
-      <Indicador rotulo="Dólar" valor={it.dolar?.valor ? `R$ ${formatarPreco(it.dolar.valor)}` : "—"} detalhe={variacao(it.dolar)} />
-      <Indicador rotulo="Petróleo Brent" valor={it.brent?.valor ? `US$ ${formatarPreco(it.brent.valor)}` : "—"}
+      <Indicador rotulo="Dólar (à vista)" valor={it.dolar?.valor ? `R$ ${formatarPreco(it.dolar.valor)}` : "—"} detalhe={variacao(it.dolar)} />
+      <Indicador rotulo="Petróleo Brent (US$ por barril)" valor={it.brent?.valor ? `US$ ${formatarPreco(it.brent.valor)}` : "—"}
         detalhe={[variacao(it.brent), "pesa em PETR4"].filter(Boolean).join(" · ")} />
-      <Indicador rotulo="Minério de ferro" valor={it.minerio?.valor ? `US$ ${formatarPreco(it.minerio.valor)}` : "—"}
+      <Indicador rotulo="Minério de ferro (US$ por tonelada, 62% Fe na China)" valor={it.minerio?.valor ? `US$ ${formatarPreco(it.minerio.valor)}` : "—"}
         detalhe={[variacao(it.minerio), "pesa em VALE3"].filter(Boolean).join(" · ")} />
     </div>
   );
