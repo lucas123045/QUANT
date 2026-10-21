@@ -168,3 +168,141 @@
 2026-10-21 17:39:26,919 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-10-21 17:39:26,921 INFO agendado: vitrine: {"real": {"noticias": 81, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-21 17:39:26,921 INFO agendado: ==== fim: vitrine (ok)
+2026-10-21 18:14:37,184 INFO agendado: ==== início: pipeline
+2026-10-21 18:14:37,723 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-21 18:14:37,961 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-21 18:14:38,103 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-21 18:14:38,254 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-21 18:14:38,391 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-21 18:14:38,554 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-21 18:14:39,214 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-21 18:14:39,599 INFO src.news: Money Times (VALE3): 1 itens novos na janela
+2026-10-21 18:14:40,310 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-21 18:14:40,693 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-21 18:14:41,171 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-21 18:14:43,823 INFO src.cvm: CVM: 1 fato(s) relevante(s) novo(s) da carteira desde 2026-10-11
+2026-10-21 18:14:43,864 INFO src.archive: Arquivados 4 novos de 33 coletados
+2026-10-21 18:14:43,868 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:14:47,416 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:14:47,434 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:14:47,435 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:14:49,160 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:14:49,169 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:14:49,170 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:14:52,120 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:14:52,121 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:14:52,132 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:14:54,195 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:14:54,196 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:14:54,197 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:14:56,962 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:14:56,974 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:14:56,975 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:01,647 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:01,648 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:01,650 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:03,982 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:04,000 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:04,001 WARNING src.extract: Evento descartado (trecho_fonte inexistente no texto): 'O Bradesco tem previsão para divulgar o balanço do terceiro trimestre em 22 de outubro.'
+2026-10-21 18:15:04,002 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:08,691 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:08,703 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:08,707 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:10,424 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:10,431 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:10,434 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:12,829 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:12,843 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:12,844 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:15,751 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:15,756 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:15,758 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:19,017 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:19,051 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:19,053 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:23,200 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:23,202 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:23,204 WARNING src.extract: Evento descartado (trecho_fonte inexistente no texto): 'a Petrobras acumula alta de 22,45% no mês e de cerca de 100% em 2026. As máximas históricas foram alcançadas na última sexta-feira (16), quando a estatal bateu um valor de mercado de R$ 820 bilhões.'
+2026-10-21 18:15:23,205 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:25,361 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:25,363 INFO src.extract: Extração com modelo=openai:gpt-4.1-2025-04-14 prompt=PROMPT_EXTRACAO_V2 temperatura=0.0
+2026-10-21 18:15:25,366 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:25,974 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:25,978 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:26,560 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:26,563 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:27,485 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:27,491 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:28,129 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:28,138 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:28,924 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:28,934 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:29,740 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:29,742 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:30,373 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:30,390 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:31,324 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:31,333 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:32,359 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:32,373 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:33,368 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:33,374 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:34,080 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:34,086 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:34,669 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:34,678 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:35,422 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:35,428 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:36,089 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:36,104 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:36,706 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:36,712 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:37,430 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:37,438 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:37,910 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:37,916 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:38,642 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:38,650 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:39,134 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:39,136 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:40,424 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:40,425 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:40,975 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:40,977 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:41,840 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:41,852 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:43,158 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:43,162 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:44,704 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:44,711 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:46,286 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:46,290 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:47,299 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:47,308 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:48,447 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:48,459 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-10-21 18:15:50,743 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-21 18:15:50,763 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-10-21 18:15:50,800 INFO agendado: resumo: {"coletados": 33, "novos_arquivados": 4, "eventos_validos": 22, "operacoes": 5, "por_fonte": {"InfoMoney": 18, "Money Times": 14, "CVM (fato relevante)": 1}, "backup": "/tmp/quant-backup/quant-dados-2026-10-21_151437.zip"}
+2026-10-21 18:15:50,800 INFO agendado: ==== fim: pipeline (ok)
+2026-10-21 18:15:50,960 INFO agendado: ==== início: vitrine
+2026-10-21 18:15:51,676 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-21 18:15:51,680 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-21 18:15:58,657 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,042 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,050 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,059 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,064 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,068 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,087 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:15:59,995 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,638 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,642 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,646 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,649 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,652 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,666 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,670 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,674 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-21 18:16:00,677 INFO agendado: vitrine: {"real": {"noticias": 85, "execucoes": 1, "operacoes": 5, "simulacao": "aguardando_pregao"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-21 18:16:00,677 INFO agendado: ==== fim: vitrine (ok)
