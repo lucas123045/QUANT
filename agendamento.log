@@ -132,3 +132,39 @@
 2026-10-21 17:37:38,238 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-10-21 17:37:38,240 INFO agendado: vitrine: {"real": {"noticias": 80, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-21 17:37:38,240 INFO agendado: ==== fim: vitrine (ok)
+2026-10-21 17:39:17,290 INFO agendado: ==== início: pipeline
+2026-10-21 17:39:17,397 WARNING agendado: LLM_API_KEY não configurada (no .env deste computador ou, na nuvem, nos segredos do GitHub: Settings > Secrets and variables > Actions): só coleta, sem análise da IA.
+2026-10-21 17:39:18,403 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-21 17:39:18,629 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-21 17:39:18,749 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-21 17:39:18,878 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-21 17:39:18,991 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-21 17:39:19,127 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-21 17:39:19,225 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-21 17:39:19,487 INFO src.news: Money Times (VALE3): 0 itens novos na janela
+2026-10-21 17:39:19,785 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-21 17:39:19,866 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-21 17:39:20,128 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-21 17:39:20,134 INFO src.archive: Arquivados 1 novos de 31 coletados
+2026-10-21 17:39:20,134 INFO agendado: coleta: 1 novos (0 mencionam a carteira)
+2026-10-21 17:39:20,134 INFO agendado: ==== fim: pipeline (ok)
+2026-10-21 17:39:20,191 INFO agendado: ==== início: vitrine
+2026-10-21 17:39:20,791 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-21 17:39:20,794 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,593 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,854 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,861 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,869 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,872 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,884 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,888 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,892 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,895 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,898 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,900 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,903 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,914 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,916 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,919 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-21 17:39:26,921 INFO agendado: vitrine: {"real": {"noticias": 81, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-21 17:39:26,921 INFO agendado: ==== fim: vitrine (ok)
