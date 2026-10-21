@@ -443,5 +443,64 @@
       },
       "id": "864d73d1ffe9f9de-1"
     }
+  ],
+  "6624336bfebd458c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras receberam R$ 18 bilhões de investidores estrangeiros nos últimos seis anos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Destes, R$ 18 bilhões, ou seja 32% do total, foram alocados apenas nas ações da Petrobras (PETR3;PETR3) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6624336bfebd458c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-pode-receber-ate-r-500-bilhoes-de-gringos-veja-onde-eles-investem-lils/",
+        "timestamp_publicacao": "2026-10-21T15:41:36-03:00"
+      },
+      "id": "6624336bfebd458c-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vale captaram R$ 11 bilhões de investidores estrangeiros nos últimos seis anos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE3) captou R$ 11 bilhões (19%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6624336bfebd458c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-pode-receber-ate-r-500-bilhoes-de-gringos-veja-onde-eles-investem-lils/",
+        "timestamp_publicacao": "2026-10-21T15:41:36-03:00"
+      },
+      "id": "6624336bfebd458c-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Estudo destaca bancos entre os principais destinos de fluxo estrangeiro, mas não cita valores para ITUB4.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Os bancos também se destacam",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6624336bfebd458c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-pode-receber-ate-r-500-bilhoes-de-gringos-veja-onde-eles-investem-lils/",
+        "timestamp_publicacao": "2026-10-21T15:41:36-03:00"
+      },
+      "id": "6624336bfebd458c-2"
+    }
   ]
 }
