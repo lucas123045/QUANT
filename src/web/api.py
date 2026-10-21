@@ -83,8 +83,9 @@ def status() -> dict:
     if verificacao["estado"] in ("alterada", "sem_registro"):
         alertas.insert(0, "A regra não é mais a congelada (" + "; ".join(verificacao["problemas"]) + "): "
                           "os resultados a partir daqui não valem como teste.")
-    pendencias += ["Confirmar acesso à API do Jev",
-                   "Aprovar JANELA_EVENTO_RECENTE_DIAS e ALFA_CRITERIO"]
+    pendencias.append("Confirmar acesso à API do Jev")
+    if config.DATA_CONGELAMENTO is None:  # congelar aprova todos os parâmetros da regra
+        pendencias.append("Aprovar JANELA_EVENTO_RECENTE_DIAS e ALFA_CRITERIO")
     return {
         "provedor": provedor,
         "modelo": llm.modelo_atual() if provedor else None,

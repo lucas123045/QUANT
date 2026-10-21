@@ -468,7 +468,9 @@ def alertas_backup(dir_execucoes: Path) -> list[str]:
         if not resumo or resumo.get("modo_teste"):
             continue
         alertas = []
-        if resumo.get("aviso_backup"):
+        # Na nuvem (GitHub Actions), o backup é o próprio ramo "dados" (um commit por
+        # execução): o ZIP local em /tmp é descartável e o aviso de "mesmo disco" não se aplica.
+        if resumo.get("aviso_backup") and not os.environ.get("GITHUB_ACTIONS"):
             alertas.append(resumo["aviso_backup"])
         if isinstance(resumo.get("backup"), str) and resumo["backup"].startswith("falhou:"):
             alertas.append(f"O último backup automático falhou: {resumo['backup'][8:]}")
