@@ -541,8 +541,8 @@ export default function Simulacao({ base, irPara }) {
               <Icone nome="info" tamanho={16} />
               <span>
                 A carteira segue a regra vigente ({d.regra_vigente.replace("_", " ")}){d.inicio ? `, desde ${dia(d.inicio)}` : ""}.{" "}
-                {plural(d.decisoes_regras_anteriores, "decisão anterior", "decisões anteriores")} (REGRA V1, que operava notícias que só
-                descreviam a variação do preço) {d.decisoes_regras_anteriores === 1 ? "continua" : "continuam"} na página Decisões, fora da carteira.
+                {plural(d.decisoes_regras_anteriores, "decisão de uma regra anterior", "decisões de regras anteriores")}, de antes da
+                revisão da regra, {d.decisoes_regras_anteriores === 1 ? "continua" : "continuam"} registrada{d.decisoes_regras_anteriores === 1 ? "" : "s"} na página Decisões, fora da carteira.
               </span>
             </div>
           )}
