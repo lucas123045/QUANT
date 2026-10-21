@@ -565,5 +565,70 @@
       "id": "5c1db712b341199b-2"
     }
   ],
-  "6a0b574b3208ecc3": []
+  "6a0b574b3208ecc3": [],
+  "81b42eef8d2ebd93": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "WEG reportou resultado misto no 3T26, com crescimento de receita e Ebitda, mas margens abaixo das expectativas devido a pressões de custos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A WEG ( WEGE3 ) iniciou a temporada de resultados do terceiro trimestre de 2026 (3T26) apresentando um resultado misto, com crescimento de receita e Ebitda (lucro antes de juros, impostos, depreciações e amortizações) sustentado principalmente pelos mercados internacionais, mas com margens abaixo das expectativas de parte dos analistas em meio a pressões de custos, câmbio e despesas ligadas à expansão de capacidade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "81b42eef8d2ebd93",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/weg-wege3-margens-decepcionam-expoem-pressao-de-custos-queda-acoes-apos-3t26/",
+        "timestamp_publicacao": "2026-10-21T17:35:52-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "81b42eef8d2ebd93-0"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "operacional",
+      "resumo": "WEG investiu R$ 950,4 milhões no trimestre, maior volume em sete trimestres, focando expansão internacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A empresa investiu R$ 950,4 milhões no trimestre, o maior volume em sete trimestres, direcionando a maior parte dos recursos para expansão internacional.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "81b42eef8d2ebd93",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/weg-wege3-margens-decepcionam-expoem-pressao-de-custos-queda-acoes-apos-3t26/",
+        "timestamp_publicacao": "2026-10-21T17:35:52-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "81b42eef8d2ebd93-1"
+    }
+  ],
+  "1089f9eb1b92d1fb": [],
+  "618979e80d6e1882": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "WEG reagiu ao balanço do terceiro trimestre, com números piores do que o esperado segundo analistas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "WEG (WEGE3) reagiu ao balanço do terceiro trimestre e figurou como a segunda maior queda do índice, com as ações cedendo 7,34% (R$ 45,21). Na avaliação de analistas, a companhia reportou números piores do que o esperado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "618979e80d6e1882",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-21-10-26-lils/",
+        "timestamp_publicacao": "2026-10-21T17:25:40-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "618979e80d6e1882-0"
+    }
+  ]
 }

@@ -2253,5 +2253,255 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "WEG reagiu ao balanço do terceiro trimestre, com números piores do que o esperado segundo analistas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "WEG (WEGE3) reagiu ao balanço do terceiro trimestre e figurou como a segunda maior queda do índice, com as ações cedendo 7,34% (R$ 45,21). Na avaliação de analistas, a companhia reportou números piores do que o esperado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "618979e80d6e1882",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-21-10-26-lils/",
+        "timestamp_publicacao": "2026-10-21T17:25:40-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "618979e80d6e1882-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.98,
+        "materialidade": "alta",
+        "motivo_materialidade": "Resultado trimestral abaixo do esperado impactou fortemente o preço das ações.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "WEGE3",
+      "decisao": "venda",
+      "motivo": "evento negativo confirmado (resultado, materialidade alta) com probabilidade 0.98 > 0.70, fato novo e sem evento positivo recente",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Resultado trimestral abaixo do esperado impactou fortemente o preço das ações."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "WEG reportou resultado misto no 3T26, com crescimento de receita e Ebitda, mas margens abaixo das expectativas devido a pressões de custos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A WEG ( WEGE3 ) iniciou a temporada de resultados do terceiro trimestre de 2026 (3T26) apresentando um resultado misto, com crescimento de receita e Ebitda (lucro antes de juros, impostos, depreciações e amortizações) sustentado principalmente pelos mercados internacionais, mas com margens abaixo das expectativas de parte dos analistas em meio a pressões de custos, câmbio e despesas ligadas à expansão de capacidade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "81b42eef8d2ebd93",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/weg-wege3-margens-decepcionam-expoem-pressao-de-custos-queda-acoes-apos-3t26/",
+        "timestamp_publicacao": "2026-10-21T17:35:52-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "81b42eef8d2ebd93-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "alta",
+        "motivo_materialidade": "Resultado trimestral impacta lucro e expectativas do mercado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "WEGE3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Resultado trimestral impacta lucro e expectativas do mercado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "WEGE3",
+      "tipo_evento": "operacional",
+      "resumo": "WEG investiu R$ 950,4 milhões no trimestre, maior volume em sete trimestres, focando expansão internacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A empresa investiu R$ 950,4 milhões no trimestre, o maior volume em sete trimestres, direcionando a maior parte dos recursos para expansão internacional.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "81b42eef8d2ebd93",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/weg-wege3-margens-decepcionam-expoem-pressao-de-custos-queda-acoes-apos-3t26/",
+        "timestamp_publicacao": "2026-10-21T17:35:52-03:00",
+        "timestamp_coleta": "2026-10-21T17:39:54.665403-03:00"
+      },
+      "id": "81b42eef8d2ebd93-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.9,
+        "materialidade": "media",
+        "motivo_materialidade": "Investimento relevante, mas sem impacto imediato no resultado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "WEGE3",
+      "decisao": "manter",
+      "motivo": "positivo, mas houve evento negativo de WEGE3 nos últimos 5 dias",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 22/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Investimento relevante, mas sem impacto imediato no resultado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
   }
 ]

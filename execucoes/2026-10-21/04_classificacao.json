@@ -200,5 +200,32 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "81b42eef8d2ebd93-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral impacta lucro e expectativas do mercado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "81b42eef8d2ebd93-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Investimento relevante, mas sem impacto imediato no resultado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "618979e80d6e1882-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral abaixo do esperado impactou fortemente o preço das ações.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }
