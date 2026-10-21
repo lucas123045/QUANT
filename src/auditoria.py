@@ -7,6 +7,14 @@ from src import config
 
 CAMPOS = ("data", "ticker", "evento", "classificacao", "modelo", "versao_prompt",
           "decisao", "motivo", "explicacao")
+# Gravados a partir da REGRA_V2; linhas mais antigas não os têm (eram da REGRA_V1).
+CAMPOS_OPCIONAIS = ("versao_regra", "criterios")
+VERSAO_REGRA_SEM_REGISTRO = "REGRA_V1"
+
+
+def versao_regra(registro: dict) -> str:
+    """Versão da regra que tomou a decisão (linhas antigas não registravam: V1)."""
+    return registro.get("versao_regra") or VERSAO_REGRA_SEM_REGISTRO
 
 
 def registrar_operacao(registro: dict, caminho: Path | None = None) -> dict:

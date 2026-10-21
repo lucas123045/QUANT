@@ -6,13 +6,17 @@ JANELA_EVENTO_RECENTE_DIAS) não mudam sem aviso prévio e ficam congelados a
 partir de DATA_CONGELAMENTO.
 """
 
+import os
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
 # Caminhos
 # ---------------------------------------------------------------------------
 RAIZ_PROJETO = Path(__file__).resolve().parent.parent
-DIR_DATA = RAIZ_PROJETO / "data"
+# Repositório no GitHub: a coleta automática na nuvem grava no ramo "dados" dele.
+REPOSITORIO_GITHUB = os.environ.get("QUANT_REPOSITORIO") or "lucas123045/QUANT"
+# QUANT_DATA_DIR: outra pasta de dados (na nuvem, o ramo "dados" do repositório).
+DIR_DATA = Path(os.environ.get("QUANT_DATA_DIR") or RAIZ_PROJETO / "data")
 DIR_ARQUIVO = DIR_DATA / "arquivo"
 DIR_PRECOS = DIR_DATA / "precos"
 DIR_EXECUCOES = DIR_DATA / "execucoes"
@@ -122,9 +126,23 @@ N_SIMULACOES_BASELINE_2 = 1000
 # ---------------------------------------------------------------------------
 # Fontes
 # ---------------------------------------------------------------------------
+# "nome" é o portal (contagens e alertas são por portal); "feed" diz qual feed.
+# Os feeds gerais trazem sobretudo política e mundo: em 20/10/2026, só 5 de 96
+# notícias citavam a carteira. Os feeds por empresa (tag) dos mesmos portais
+# trazem 90% a 100% de notícias da empresa e cobrem cerca de uma semana.
+# A Ambev não tem feed próprio no InfoMoney (404); o feed geral cobre.
 FONTES_RSS = [
-    {"nome": "InfoMoney", "url": "https://www.infomoney.com.br/feed/"},
-    {"nome": "Money Times", "url": "https://www.moneytimes.com.br/feed/"},
+    {"nome": "InfoMoney", "feed": "geral", "url": "https://www.infomoney.com.br/feed/"},
+    {"nome": "Money Times", "feed": "geral", "url": "https://www.moneytimes.com.br/feed/"},
+    {"nome": "InfoMoney", "feed": "PETR4", "url": "https://www.infomoney.com.br/tudo-sobre/petrobras/feed/"},
+    {"nome": "InfoMoney", "feed": "VALE3", "url": "https://www.infomoney.com.br/tudo-sobre/vale/feed/"},
+    {"nome": "InfoMoney", "feed": "ITUB4", "url": "https://www.infomoney.com.br/tudo-sobre/itau-unibanco/feed/"},
+    {"nome": "InfoMoney", "feed": "BBDC4", "url": "https://www.infomoney.com.br/tudo-sobre/bradesco/feed/"},
+    {"nome": "Money Times", "feed": "PETR4", "url": "https://www.moneytimes.com.br/tag/petrobras/feed/"},
+    {"nome": "Money Times", "feed": "VALE3", "url": "https://www.moneytimes.com.br/tag/vale/feed/"},
+    {"nome": "Money Times", "feed": "ITUB4", "url": "https://www.moneytimes.com.br/tag/itau/feed/"},
+    {"nome": "Money Times", "feed": "BBDC4", "url": "https://www.moneytimes.com.br/tag/bradesco/feed/"},
+    {"nome": "Money Times", "feed": "ABEV3", "url": "https://www.moneytimes.com.br/tag/ambev/feed/"},
 ]
 JANELA_COLETA_HORAS = 24
 

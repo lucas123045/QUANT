@@ -2,13 +2,22 @@
 
 Nenhuma chamada a LLM ou a rede. Mesma entrada, mesma saída.
 
-Regra (V1):
-- COMPRA: evento confirmado, classificado como positivo com probabilidade
-  estritamente acima de LIMIAR_PROBABILIDADE, e nenhum evento negativo do
-  mesmo ticker nos JANELA_EVENTO_RECENTE_DIAS dias corridos anteriores.
+Regra (V2):
+- COMPRA: evento que é um fato sobre a empresa (não só a variação da cotação),
+  confirmado, classificado como positivo com probabilidade estritamente acima
+  de LIMIAR_PROBABILIDADE, e nenhum evento negativo do mesmo ticker nos
+  JANELA_EVENTO_RECENTE_DIAS dias corridos anteriores.
 - VENDA: espelho da compra (negativo, sem positivo recente). Sem venda a
   descoberto: no backtest, VENDA só zera posição existente.
 - MANTER: todos os outros casos.
+
+V1 → V2 (antes do congelamento): com a V1, todas as operações reais dos primeiros
+dias vieram de resumos de fechamento ("ações da Petrobras sobem 3%"). Comprar
+porque a ação já subiu é seguir o preço, não reagir à notícia, e esvazia a
+hipótese do trabalho. A V2 não opera evento do tipo "cotacao".
+
+Cada decisão traz também a lista de critérios conferidos (`criterios`), com o
+resultado e o valor de cada um: é a justificativa passo a passo da decisão.
 """
 
 from dataclasses import asdict, dataclass
@@ -16,9 +25,13 @@ from datetime import datetime, timedelta
 
 from src import config
 
-VERSAO_REGRA = "REGRA_V1"
+VERSAO_REGRA = "REGRA_V2"
+# Regras anteriores: decisões delas continuam no log, mas não guiam a carteira.
+VERSOES_ANTERIORES = ("REGRA_V1",)
 
 COMPRA, VENDA, MANTER = "compra", "venda", "manter"
+# Tipo de evento da notícia que só relata a variação do preço da ação.
+TIPO_COTACAO = "cotacao"
 
 
 @dataclass(frozen=True)
@@ -28,9 +41,12 @@ class Decisao:
     motivo: str
     fracao_alvo: float  # fração do patrimônio a alocar na compra (0 nos demais)
     versao_regra: str = VERSAO_REGRA
+    criterios: tuple = ()  # [{criterio, ok, detalhe}]: a justificativa passo a passo
 
     def como_dict(self) -> dict:
-        return asdict(self)
+        d = asdict(self)
+        d["criterios"] = list(d["criterios"])
+        return d
 
 
 def _instante(evento: dict) -> datetime | None:
@@ -40,13 +56,20 @@ def _instante(evento: dict) -> datetime | None:
 
 def _oposto_recente(evento: dict, historico: list[dict], sentimento_oposto: str,
                     janela_dias: int) -> bool:
-    """Há evento do mesmo ticker, com o sentimento oposto, na janela anterior ao evento?"""
+    """Há fato do mesmo ticker, com o sentimento oposto, na janela anterior ao evento?
+
+    Só conta o que a própria regra levaria em conta: evento confirmado e que não
+    seja só a variação da cotação. Na V1, uma prévia de analista ("deve lucrar
+    mais") ou um resumo de pregão bloqueava a reação a um fato confirmado.
+    """
     agora = _instante(evento)
     if agora is None:
         return False
     inicio = agora - timedelta(days=janela_dias)
     for anterior in historico:
         if anterior.get("ticker") != evento["ticker"]:
+            continue
+        if not anterior.get("confirmado") or anterior.get("tipo_evento") == TIPO_COTACAO:
             continue
         classificacao = anterior.get("classificacao") or {}
         quando = _instante(anterior)
@@ -75,12 +98,15 @@ def decidir(
     janela_dias = config.JANELA_EVENTO_RECENTE_DIAS if janela_dias is None else janela_dias
     historico = historico or []
     ticker = evento["ticker"]
+    lista = tuple(criterios(evento, classificacao, historico, limiar, janela_dias))
 
     def manter(motivo: str) -> Decisao:
-        return Decisao(ticker, MANTER, motivo, 0.0)
+        return Decisao(ticker, MANTER, motivo, 0.0, criterios=lista)
 
     if classificacao is None:
         return manter("evento sem classificação válida")
+    if evento.get("tipo_evento") == TIPO_COTACAO:
+        return manter("a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa")
     if not evento.get("confirmado"):
         return manter("evento não confirmado (rumor ou expectativa)")
     sentimento = classificacao["sentimento"]
@@ -96,11 +122,48 @@ def decidir(
         return Decisao(ticker, COMPRA,
                        f"evento positivo confirmado ({evento['tipo_evento']}) com probabilidade "
                        f"{probabilidade:.2f} > {limiar:.2f} e sem evento negativo recente",
-                       max_posicao)
+                       max_posicao, criterios=lista)
 
     if _oposto_recente(evento, historico, "positivo", janela_dias):
         return manter(f"negativo, mas houve evento positivo de {ticker} nos últimos {janela_dias} dias")
     return Decisao(ticker, VENDA,
                    f"evento negativo confirmado ({evento['tipo_evento']}) com probabilidade "
                    f"{probabilidade:.2f} > {limiar:.2f} e sem evento positivo recente",
-                   0.0)
+                   0.0, criterios=lista)
+
+
+def criterios(evento: dict, classificacao: dict | None, historico: list[dict],
+              limiar: float, janela_dias: int) -> list[dict]:
+    """Cada condição da regra, conferida, com o valor que decidiu: a justificativa.
+
+    `ok` é True (cumprida), False (barrou a operação) ou None (não se aplica).
+    Todas são avaliadas, mesmo depois da primeira que falha, para a justificativa
+    mostrar o quadro completo.
+    """
+    lista = []
+
+    def item(criterio: str, ok: bool | None, detalhe: str) -> None:
+        lista.append({"criterio": criterio, "ok": ok, "detalhe": detalhe})
+
+    item("A IA classificou o evento", classificacao is not None,
+         "classificação recebida" if classificacao else "sem classificação válida")
+    tipo = evento.get("tipo_evento")
+    item("É um fato sobre a empresa, não só a variação da cotação", tipo != TIPO_COTACAO,
+         f"tipo de evento: {tipo}")
+    item("O evento está confirmado (não é rumor)", bool(evento.get("confirmado")),
+         "o texto afirma que aconteceu" if evento.get("confirmado") else "rumor, expectativa ou especulação")
+    if classificacao is None:
+        return lista
+    sentimento, probabilidade = classificacao["sentimento"], classificacao["probabilidade"]
+    item("A IA vê efeito positivo ou negativo (não neutro)", sentimento != "neutro", f"sentimento: {sentimento}")
+    item(f"Confiança da IA acima de {limiar:.2f}".replace(".", ","), probabilidade > limiar,
+         f"confiança: {probabilidade:.2f}".replace(".", ","))
+    if sentimento in ("positivo", "negativo"):
+        oposto = "negativo" if sentimento == "positivo" else "positivo"
+        houve = _oposto_recente(evento, historico, oposto, janela_dias)
+        item(f"Sem fato {oposto} confirmado da empresa nos {janela_dias} dias anteriores", not houve,
+             f"houve fato {oposto} confirmado recente" if houve else f"nenhum fato {oposto} confirmado recente")
+    else:
+        item(f"Sem notícia de sentido oposto nos {janela_dias} dias anteriores", None,
+             "não se aplica a sentimento neutro")
+    return lista

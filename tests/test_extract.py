@@ -46,7 +46,7 @@ def test_json_valido():
     eventos = extrair_eventos(TEXTO, metadados={"tipo_fonte": "noticia", "url": "u"}, chamar=falso)
     assert len(eventos) == 1
     assert eventos[0]["tipo_evento"] == "dividendo"
-    assert eventos[0]["versao_prompt"] == "PROMPT_EXTRACAO_V1"
+    assert eventos[0]["versao_prompt"] == "PROMPT_EXTRACAO_V2"
     assert eventos[0]["modelo"]
     assert eventos[0]["origem"]["tipo_fonte"] == "noticia"
     assert len(falso.chamadas) == 1
@@ -56,7 +56,7 @@ def test_temperatura_zero_e_prompt_identificado():
     falso = LLMFalso(resposta())
     extrair_eventos(TEXTO, chamar=falso)
     assert falso.chamadas[0]["temperatura"] == 0.0
-    assert "[PROMPT_EXTRACAO_V1]" in falso.chamadas[0]["prompt"]
+    assert "[PROMPT_EXTRACAO_V2]" in falso.chamadas[0]["prompt"]
     assert TEXTO in falso.chamadas[0]["prompt"]
 
 

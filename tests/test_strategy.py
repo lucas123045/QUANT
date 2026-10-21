@@ -97,3 +97,45 @@ def test_mesmo_sentimento_recente_nao_bloqueia():
 def test_deterministico():
     resultados = {decidir(evento(), cls()).como_dict().__repr__() for _ in range(20)}
     assert len(resultados) == 1
+
+
+# --- REGRA_V2: notícia que só descreve a cotação + justificativa passo a passo ---
+
+def test_v2_noticia_de_cotacao_nao_opera():
+    """"Ações da Petrobras sobem 3%": seguir o preço não é reagir a uma notícia."""
+    e = {**evento(), "tipo_evento": "cotacao"}
+    for sentimento in ("positivo", "negativo"):
+        d = decidir(e, cls(sentimento, 0.95))
+        assert d.decisao == MANTER
+        assert "variação da cotação" in d.motivo
+
+
+def test_v2_criterios_mostram_por_que_comprou():
+    d = decidir(evento(), cls("positivo", 0.9))
+    assert d.versao_regra == "REGRA_V2"
+    assert [c["ok"] for c in d.criterios] == [True] * 6
+    assert any("0,90" in c["detalhe"] for c in d.criterios)  # o valor que decidiu
+
+
+def test_v2_criterios_mostram_o_que_barrou():
+    d = decidir(evento(confirmado=False), cls("positivo", 0.6))
+    barrados = [c["criterio"] for c in d.criterios if c["ok"] is False]
+    assert any("confirmado" in b for b in barrados) and any("Confiança" in b for b in barrados)
+    assert d.decisao == MANTER and "não confirmado" in d.motivo  # o primeiro que falha vira o motivo
+
+
+def test_v2_criterios_sem_classificacao():
+    d = decidir(evento(), None)
+    assert d.criterios[0]["ok"] is False and len(d.criterios) == 3
+    assert d.como_dict()["criterios"] == list(d.criterios)  # vai para o JSON como lista
+
+
+def test_v2_previa_ou_cotacao_recente_nao_bloqueia_um_fato():
+    """Caso real (20/10/2026): o aumento de capital do Bradesco (fato, negativo) foi barrado
+    por uma prévia "deve lucrar mais" (não confirmada). Na V2, só fato confirmado bloqueia."""
+    fato = {**evento(quando="2026-10-20T10:00:00-03:00"), "ticker": "BBDC4"}
+    previa = {**evento(quando="2026-10-19T10:00:00-03:00", confirmado=False, sentimento="positivo"), "ticker": "BBDC4"}
+    cotacao = {**evento(quando="2026-10-19T11:00:00-03:00", sentimento="positivo"), "ticker": "BBDC4", "tipo_evento": "cotacao"}
+    assert decidir(fato, cls("negativo"), [previa, cotacao]).decisao == VENDA
+    confirmado = {**evento(quando="2026-10-19T12:00:00-03:00", sentimento="positivo"), "ticker": "BBDC4"}
+    assert decidir(fato, cls("negativo"), [confirmado]).decisao == MANTER  # fato contrário confirmado ainda bloqueia

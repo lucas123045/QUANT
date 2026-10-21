@@ -2,22 +2,33 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * Vitrine: a versão publicada (build de produção, ex.: Vercel) não tem a API
- * Python. Ela lê os arquivos gerados por `npm run vitrine` em /dados/.
+ * Python. Ela lê os arquivos JSON da vitrine:
+ * 1. ao vivo, do ramo "dados" do GitHub (VITE_DADOS_URL), atualizado pela coleta
+ *    automática na nuvem a cada 30 minutos — o site não precisa ser republicado;
+ * 2. se esse endereço falhar, dos arquivos publicados junto com o site (/dados/).
  * Em desenvolvimento (`npm run dev`), tudo vem da API ao vivo.
  */
 export const VITRINE = import.meta.env.PROD && import.meta.env.VITE_USAR_API !== "1";
+const DADOS_AO_VIVO = (import.meta.env.VITE_DADOS_URL || "").replace(/\/$/, "");
 
 export const MENSAGEM_VITRINE =
-  "Esta é a versão online, somente leitura. Para coletar notícias e rodar a IA, use o sistema no computador (npm run dev).";
+  "Esta é a versão online, somente leitura. A coleta e a análise rodam sozinhas na nuvem; os botões ficam no sistema instalado (npm run dev).";
 
 const cacheVitrine = new Map();
 
-async function lerArquivo(nome) {
+async function buscarJson(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(r.status === 404 ? "Dados ainda não publicados." : `Erro ${r.status}`);
+  return r.json();
+}
+
+/** Arquivo da vitrine: primeiro o ao vivo (ramo "dados"), depois o publicado com o site. */
+export async function lerArquivo(nome) {
   if (!cacheVitrine.has(nome)) {
-    cacheVitrine.set(nome, fetch(`/dados/${nome}`).then(async (r) => {
-      if (!r.ok) throw new Error(r.status === 404 ? "Dados ainda não publicados (rode npm run vitrine)." : `Erro ${r.status}`);
-      return r.json();
-    }));
+    const local = () => buscarJson(`/dados/${nome}`);
+    const promessa = DADOS_AO_VIVO ? buscarJson(`${DADOS_AO_VIVO}/${nome}`).catch(local) : local();
+    cacheVitrine.set(nome, promessa);
+    promessa.catch(() => cacheVitrine.delete(nome));  // erro não fica guardado
   }
   const dados = await cacheVitrine.get(nome);
   if (dados && dados._erro) throw new Error(dados.detail || `Erro ${dados._erro}`);

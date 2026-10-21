@@ -77,6 +77,12 @@ def test_parametros_congelaveis_nao_foram_alterados():
     assert config.SEMENTE_BASELINE_2 == 20261015
     assert (config.CORRETAGEM, config.EMOLUMENTOS, config.SLIPPAGE) == (0.0, 0.0, 0.0)
     assert config.DATA_CONGELAMENTO is None
+    # Versões da regra e dos prompts (V1 → V2 em 20/10/2026, antes do congelamento:
+    # a V1 operava notícias que só descreviam a variação do preço).
+    from src import classify, extract, strategy
+    assert strategy.VERSAO_REGRA == "REGRA_V2"
+    assert extract.VERSAO_PROMPT_EXTRACAO == "PROMPT_EXTRACAO_V2"
+    assert classify.VERSAO_PROMPT_CLASSIFICACAO == "PROMPT_CLASSIFICACAO_V1"
 
 
 # --- métricas -----------------------------------------------------------------

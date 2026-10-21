@@ -13,15 +13,22 @@ from src.strategy import Decisao
 
 logger = logging.getLogger(__name__)
 
-VERSAO_PROMPT_EXPLICACAO = "PROMPT_EXPLICACAO_V1"
+VERSAO_PROMPT_EXPLICACAO = "PROMPT_EXPLICACAO_V2"
 VERSAO_PROMPT_RELATORIO = "PROMPT_RELATORIO_V1"
 TEMPERATURA_EXPLICACAO = 0.0
 
-PROMPT_EXPLICACAO_V1 = """[PROMPT_EXPLICACAO_V1]
+# V1 → V2: a explicação recebe os critérios que a regra conferiu e precisa citar o
+# fato da notícia e por que ele importa para a empresa (a V1 tendia a repetir
+# "houve um evento positivo relevante", sem dizer qual nem por quê).
+PROMPT_EXPLICACAO_V2 = """[PROMPT_EXPLICACAO_V2]
 Uma regra determinística JÁ TOMOU a decisão abaixo. Não a altere, não a
 questione e não recomende outra. Explique em português, em até 3 frases e
 para um leitor leigo, por que a regra chegou a essa decisão, usando apenas
-os dados fornecidos.
+os dados fornecidos:
+1. qual é o fato da notícia, em palavras simples;
+2. por que esse fato tende a ser bom ou ruim para a empresa, segundo o próprio texto;
+3. quais critérios da regra ele cumpriu.
+Não invente números nem fatos que não estejam abaixo.
 
 Ticker: {ticker}
 Decisão da regra: {decisao}
@@ -29,6 +36,8 @@ Motivo registrado pela regra: {motivo}
 Evento: {tipo_evento} | {resumo}
 Trecho da fonte: "{trecho_fonte}"
 Classificação: {sentimento} (probabilidade {probabilidade})
+Critérios conferidos pela regra:
+{criterios}
 """
 
 PROMPT_RELATORIO_V1 = """[PROMPT_RELATORIO_V1]
@@ -59,12 +68,16 @@ def gerar_justificativa(
     classificacao = classificacao or {}
     cabecalho = (f"Decisão já tomada pela regra ({decisao.versao_regra}): "
                  f"{decisao.decisao.upper()} {decisao.ticker}. Motivo: {decisao.motivo}.")
-    prompt = PROMPT_EXPLICACAO_V1.format(
+    criterios = "\n".join(
+        f"- [{'sim' if c['ok'] else 'não' if c['ok'] is False else 'n/a'}] {c['criterio']} ({c['detalhe']})"
+        for c in decisao.criterios) or "- (não informados)"
+    prompt = PROMPT_EXPLICACAO_V2.format(
         ticker=decisao.ticker, decisao=decisao.decisao, motivo=decisao.motivo,
         tipo_evento=evento.get("tipo_evento"), resumo=evento.get("resumo"),
         trecho_fonte=evento.get("trecho_fonte"),
         sentimento=classificacao.get("sentimento", "sem classificação"),
         probabilidade=classificacao.get("probabilidade", "-"),
+        criterios=criterios,
     )
     explicacao = _texto_llm(prompt, chamar)
     if explicacao is None:

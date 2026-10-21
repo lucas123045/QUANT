@@ -4,4 +4,6 @@ set -e
 cd "$(dirname "$0")"
 [ -x .venv/bin/python ] || { echo "O QUANT ainda não foi instalado neste computador. Rodando o instalador..."; bash ./instalar.sh; }
 [ -d node_modules ] || npm install --no-fund --no-audit
+# Traz o que a coleta na nuvem gravou (se ela estiver ligada); sem internet, segue com os dados locais.
+.venv/bin/python -m src.sincronizar || true
 npm run dev

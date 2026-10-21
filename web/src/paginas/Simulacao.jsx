@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { VITRINE, useApi, formatarData, formatarNumero, formatarPreco, plural } from "../api.js";
-import { Estado, EtiquetaDecisao, EtiquetaSentimento } from "../ui.jsx";
+import { Criterios, Estado, EtiquetaDecisao, EtiquetaSentimento, NumeroAnimado } from "../ui.jsx";
 import GraficoPatrimonio, { SERIES, reais } from "../GraficoPatrimonio.jsx";
 import { BarrasRendimento, COR_TICKER, Minigrafico, Rosca } from "../graficos.jsx";
 import Icone from "../icones.jsx";
@@ -35,8 +35,11 @@ const NIVEIS = {
 
 const PERIODOS = [["Semana", 5], ["Mês", 21], ["Tudo", Infinity]];
 
-function Dinheiro({ valor, oculto, casas = 2, className = "" }) {
-  return <span className={className}>{oculto ? "R$ ••••••" : reais(valor, casas)}</span>;
+function Dinheiro({ valor, oculto, casas = 2, className = "", animar = false }) {
+  if (oculto) return <span className={className}>R$ ••••••</span>;
+  // animar: conta até o valor ao aparecer e pisca se mudar numa atualização.
+  if (animar) return <NumeroAnimado valor={valor} formatar={(v) => reais(v, casas)} className={className} />;
+  return <span className={className}>{reais(valor, casas)}</span>;
 }
 
 function Cartao({ titulo, subtitulo, acao, children, className = "" }) {
@@ -73,7 +76,7 @@ function Resumo({ d, oculto, setOculto }) {
             <Icone nome={oculto ? "olho" : "olhoFechado"} tamanho={17} />
           </button>
         </div>
-        <Dinheiro valor={saldo} oculto={oculto} className="f-saldo-valor" />
+        <Dinheiro valor={saldo} oculto={oculto} className="f-saldo-valor" animar />
         <div className="f-saldo-rodape">
           <span className={`f-pilula ${ganho > 0 ? "positiva" : ganho < 0 ? "negativa" : ""}`}>
             {oculto ? "••••" : `${ganho >= 0 ? "+" : "−"}${reais(Math.abs(ganho), 2)}`} · {pct(est?.retorno_acumulado ?? 0)}
@@ -90,9 +93,9 @@ function Resumo({ d, oculto, setOculto }) {
           </div>
         </div>
       </section>
-      <Estatistica icone="grafico" rotulo="Investido em ações" valor={<Dinheiro valor={investido} oculto={oculto} />}
+      <Estatistica icone="grafico" rotulo="Investido em ações" valor={<Dinheiro valor={investido} oculto={oculto} animar />}
         detalhe={`${pct(saldo ? investido / saldo : 0, false)} do saldo`} />
-      <Estatistica icone="dinheiro" rotulo="Em caixa" valor={<Dinheiro valor={caixa} oculto={oculto} />}
+      <Estatistica icone="dinheiro" rotulo="Em caixa" valor={<Dinheiro valor={caixa} oculto={oculto} animar />}
         detalhe="disponível para as próximas compras" />
       <Estatistica icone="alta" rotulo="Rendimento das posições"
         valor={<span className={tom(rendimento)}>{oculto ? "R$ ••••" : `${rendimento >= 0 ? "+" : "−"}${reais(Math.abs(rendimento), 2)}`}</span>}
@@ -229,7 +232,7 @@ function Produtos({ d, oculto }) {
               </header>
               <div className="f-produto-meio">
                 <div>
-                  <span className={`f-produto-retorno ${tom(c.retorno_acumulado)}`}>{pct(c.retorno_acumulado)}</span>
+                  <NumeroAnimado valor={c.retorno_acumulado} formatar={pct} className={`f-produto-retorno ${tom(c.retorno_acumulado)}`} />
                   <Dinheiro valor={c.patrimonio} oculto={oculto} className="sutil" />
                 </div>
                 <Minigrafico pontos={d.serie.map((x) => ({ data: x.data, preco: x[s.chave] })).filter((x) => x.preco != null)}
@@ -407,38 +410,94 @@ function Rendimentos({ d }) {
 }
 
 /* ------------------------------------------------------ agenda e extrato */
+/** Só o texto da IA, sem o cabeçalho fixo da regra (que já aparece nos critérios). */
+function textoDaIA(explicacao) {
+  const partes = (explicacao || "").split("\n").slice(1).join(" ");
+  return partes.replace(/^Explicação[^:]*:\s*/, "").trim();
+}
+
+/** "Por que investiu": a execução, a notícia, os critérios conferidos e o texto da IA. */
+function PorQue({ origem, execucao }) {
+  if (!origem) return <div className="porque"><p>Sem o registro da notícia que originou esta movimentação.</p></div>;
+  const ia = textoDaIA(origem.explicacao);
+  return (
+    <div className="porque">
+      {execucao && <p className="porque-execucao">{execucao}</p>}
+      <div>
+        <h4>A notícia</h4>
+        <p>{origem.resumo}</p>
+        {origem.trecho_fonte && <blockquote>“{origem.trecho_fonte}”</blockquote>}
+        <small className="sutil">
+          {origem.fonte} · publicada em {formatarData(origem.publicado)}
+          {origem.url && <> · <a href={origem.url} target="_blank" rel="noreferrer">ler a notícia</a></>}
+        </small>
+      </div>
+      <div>
+        <h4>O que a regra conferiu</h4>
+        <Criterios criterios={origem.criterios} versao="REGRA_V2" />
+      </div>
+      {ia && (
+        <div>
+          <h4>Em palavras <span className="sutil">(texto da IA, que só descreve; quem decide é a regra)</span></h4>
+          <p>{ia}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function AgendaExtrato({ d, oculto }) {
+  const [aberto, setAberto] = useState(null);
+  const fracao = d.parametros.max_posicao_pct;
+  const alternar = (chave) => setAberto(aberto === chave ? null : chave);
+  const execucao = (l) => (l.tipo === "compra"
+    ? `Comprou ${formatarNumero(l.quantidade, 2)} ações de ${l.ticker} a R$ ${formatarPreco(l.preco)} no fechamento de ${dia(l.data)}, `
+      + `o primeiro pregão depois da notícia, usando ${oculto ? "R$ ••••" : reais(l.valor, 2)} (até ${Math.round(fracao * 100)}% do patrimônio por ação).`
+    : `Vendeu toda a posição em ${l.ticker} a R$ ${formatarPreco(l.preco)} no fechamento de ${dia(l.data)}, `
+      + `recebendo ${oculto ? "R$ ••••" : reais(l.valor, 2)} (resultado de ${oculto ? "R$ ••••" : reais(l.resultado, 2)}).`);
   return (
     <div className="f-grade">
       <Cartao titulo="Próximas movimentações" subtitulo="Executam no fechamento do próximo pregão">
         <Estado vazio={!d.pendentes.length} mensagemVazio="Nada agendado.">
           <ul className="f-lista">
             {d.pendentes.map((p, i) => (
-              <li key={i}>
-                <span className={`f-estat-icone ${p.decisao === "compra" ? "tom-positivo" : "tom-negativo"}`}>
-                  <Icone nome={p.decisao} tamanho={16} />
-                </span>
-                <div><strong>{p.decisao === "compra" ? "Comprar" : "Vender"} {p.ticker}</strong><small>notícia de {formatarData(p.publicado)}</small></div>
+              <li key={i} className="expansivel">
+                <button className="f-lista-linha" onClick={() => alternar(`p${i}`)} aria-expanded={aberto === `p${i}`}>
+                  <span className={`f-estat-icone ${p.decisao === "compra" ? "tom-positivo" : "tom-negativo"}`}>
+                    <Icone nome={p.decisao} tamanho={16} />
+                  </span>
+                  <div><strong>{p.decisao === "compra" ? "Comprar" : "Vender"} {p.ticker}</strong><small>notícia de {formatarData(p.publicado)} · por quê?</small></div>
+                  <span className="seta">{aberto === `p${i}` ? "▾" : "▸"}</span>
+                </button>
+                {aberto === `p${i}` && (
+                  <PorQue origem={p.origem} execucao={p.decisao === "compra"
+                    ? `Vai comprar ${p.ticker} no fechamento do próximo pregão, com até ${Math.round(fracao * 100)}% do patrimônio.`
+                    : `Vai vender toda a posição em ${p.ticker} no fechamento do próximo pregão (se houver posição).`} />
+                )}
               </li>
             ))}
           </ul>
         </Estado>
       </Cartao>
-      <Cartao titulo="Extrato" subtitulo="Todas as movimentações da carteira" className="f-span-2">
+      <Cartao titulo="Extrato" subtitulo="Todas as movimentações da carteira · toque para ver o porquê" className="f-span-2">
         <Estado vazio={!d.extrato.length} mensagemVazio="Nenhuma movimentação ainda.">
           <ul className="f-lista">
             {d.extrato.map((l, i) => (
-              <li key={i}>
-                <span className={`f-estat-icone ${l.tipo === "compra" ? "" : "tom-positivo"}`}>
-                  <Icone nome={l.tipo} tamanho={16} />
-                </span>
-                <div>
-                  <strong>{l.tipo === "compra" ? "Compra" : "Venda"} de {l.ticker}</strong>
-                  <small>{dia(l.data)} · {formatarNumero(l.quantidade ?? l.valor / l.preco, 2)} ações a R$ {formatarPreco(l.preco)}</small>
-                </div>
-                <strong className={l.tipo === "compra" ? "" : tom(l.resultado)}>
-                  {oculto ? "R$ ••••" : `${l.tipo === "compra" ? "−" : "+"}${reais(l.valor, 2)}`}
-                </strong>
+              <li key={i} className="expansivel">
+                <button className="f-lista-linha" onClick={() => alternar(`e${i}`)} aria-expanded={aberto === `e${i}`}>
+                  <span className={`f-estat-icone ${l.tipo === "compra" ? "" : "tom-positivo"}`}>
+                    <Icone nome={l.tipo} tamanho={16} />
+                  </span>
+                  <div>
+                    <strong>{l.tipo === "compra" ? "Compra" : "Venda"} de {l.ticker}</strong>
+                    <small>{dia(l.data)} · {formatarNumero(l.quantidade ?? l.valor / l.preco, 2)} ações a R$ {formatarPreco(l.preco)}</small>
+                  </div>
+                  <strong className={l.tipo === "compra" ? "" : tom(l.resultado)}>
+                    {oculto ? "R$ ••••" : `${l.tipo === "compra" ? "−" : "+"}${reais(l.valor, 2)}`}
+                  </strong>
+                  <span className="seta">{aberto === `e${i}` ? "▾" : "▸"}</span>
+                </button>
+                {aberto === `e${i}` && <PorQue origem={l.origem} execucao={execucao(l)} />}
               </li>
             ))}
           </ul>
@@ -501,6 +560,16 @@ export default function Simulacao({ base, irPara }) {
           <Resumo d={d} oculto={oculto} setOculto={setOculto} />
           <Atalhos irPara={irPara} />
           {d.maturidade && <Maturidade m={d.maturidade} />}
+          {d.decisoes_regras_anteriores > 0 && (
+            <div className="f-aviso">
+              <Icone nome="info" tamanho={16} />
+              <span>
+                A carteira segue a regra vigente ({d.regra_vigente.replace("_", " ")}){d.inicio ? `, desde ${dia(d.inicio)}` : ""}.{" "}
+                {plural(d.decisoes_regras_anteriores, "decisão anterior", "decisões anteriores")} (REGRA V1, que operava notícias que só
+                descreviam a variação do preço) {d.decisoes_regras_anteriores === 1 ? "continua" : "continuam"} na página Decisões, fora da carteira.
+              </span>
+            </div>
+          )}
           {d.estado !== "ok" && (
             <div className="f-aviso">
               <Icone nome="info" tamanho={16} />

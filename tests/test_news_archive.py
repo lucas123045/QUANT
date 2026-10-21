@@ -134,3 +134,17 @@ def test_cli_coletar(monkeypatch, tmp_path, capsys):
     monkeypatch.setattr(news, "coletar_noticias", lambda: itens)
     assert archive.main(["--coletar"]) == 0
     assert "2 itens novos arquivados (1 mencionam a carteira)" in capsys.readouterr().out
+
+
+def test_mesma_noticia_em_dois_feeds_entra_uma_vez():
+    """A notícia sai no feed geral e no feed da empresa: deve ser coletada uma vez só."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    rss = (b"<?xml version=\"1.0\"?><rss version=\"2.0\"><channel><item><title>Petrobras paga dividendos</title>"
+           b"<link>https://portal.exemplo/petrobras-dividendos</link><description>Texto.</description>"
+           b"<pubDate>Tue, 20 Oct 2026 15:00:00 -0300</pubDate></item></channel></rss>")
+    fontes = [{"nome": "Portal", "feed": "geral", "url": "u1"}, {"nome": "Portal", "feed": "PETR4", "url": "u2"}]
+    itens = news.coletar_noticias(fontes, agora=datetime(2026, 10, 20, 18, 0, tzinfo=ZoneInfo("America/Sao_Paulo")),
+                                  baixar=lambda url: rss)
+    assert [i["url"] for i in itens] == ["https://portal.exemplo/petrobras-dividendos"]

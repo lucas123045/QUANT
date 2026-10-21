@@ -10,6 +10,7 @@ Depois: git add web/public/dados && git commit && git push  → o Vercel republi
 
 import argparse
 import json
+import os
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -20,7 +21,8 @@ from fastapi.testclient import TestClient
 from src import config
 from src.web import api
 
-DESTINO = config.RAIZ_PROJETO / "web" / "public" / "dados"
+# QUANT_VITRINE_DIR: na nuvem, a vitrine vai para o ramo "dados" (o site lê de lá).
+DESTINO = Path(os.environ.get("QUANT_VITRINE_DIR") or config.RAIZ_PROJETO / "web" / "public" / "dados")
 BASES = ("real", "teste")
 
 
@@ -43,9 +45,16 @@ def _contagens_publicadas(destino: Path) -> dict:
 
 def _encolhimentos(antes: dict, depois: dict) -> list[str]:
     """O arquivo de notícias e o log de operações só crescem: se a contagem caiu,
-    a pasta de dados usada está errada ou incompleta (ex.: outro computador)."""
+    a pasta de dados usada está errada ou incompleta (ex.: outro computador).
+
+    Só vale para a base real: a base de teste é descartável (notícias de exemplo),
+    e um computador que nunca rodou o modo de teste a teria "encolhido" sempre,
+    travando a vitrine todo dia.
+    """
     problemas = []
     for base, novo in depois.items():
+        if base != "real":
+            continue
         velho = antes.get(base) or {}
         for campo in ("noticias", "operacoes"):
             if (velho.get(campo) or 0) > (novo.get(campo) or 0):

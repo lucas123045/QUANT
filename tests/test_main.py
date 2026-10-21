@@ -44,10 +44,13 @@ def test_pipeline_modo_teste_ponta_a_ponta(tmp_path, monkeypatch, contador_llm):
     assert sorted((o["ticker"], o["decisao"]) for o in operacoes) == [("PETR4", "compra"),
                                                                      ("VALE3", "venda")]
     for op in operacoes:
-        assert set(op) == set(auditoria.CAMPOS)
+        assert set(op) == set(auditoria.CAMPOS) | set(auditoria.CAMPOS_OPCIONAIS)
+        assert op["versao_regra"] == "REGRA_V2"
+        # Justificativa passo a passo: cada critério da regra, cumprido, para uma compra/venda.
+        assert op["criterios"] and all(c["ok"] for c in op["criterios"])
         assert op["evento"]["trecho_fonte"]
         assert op["evento"]["origem"]["tipo_fonte"] == "noticia"
-        assert op["versao_prompt"] == "PROMPT_EXTRACAO_V1"
+        assert op["versao_prompt"] == "PROMPT_EXTRACAO_V2"
         assert op["modelo"].startswith("falso:")
         assert op["explicacao"].startswith("Decisão já tomada pela regra")
 
@@ -109,7 +112,8 @@ def test_fonte_indisponivel_nao_derruba_pipeline(tmp_path, monkeypatch, caplog):
 def test_historico_de_execucoes_anteriores_e_usado(tmp_path):
     anterior = tmp_path / "execucoes" / "2026-10-14"
     anterior.mkdir(parents=True)
-    evento = {"id": "x-0", "ticker": "PETR4", "confirmado": True,
+    evento = {"id": "x-0", "ticker": "PETR4", "confirmado": True, "tipo_evento": "resultado",
+              "versao_prompt": "PROMPT_EXTRACAO_V2",
               "origem": {"timestamp_publicacao": "2026-10-14T10:00:00-03:00"}}
     (anterior / "03_extracao.json").write_text(json.dumps({"x": [evento]}), encoding="utf-8")
     (anterior / "04_classificacao.json").write_text(
@@ -121,6 +125,22 @@ def test_historico_de_execucoes_anteriores_e_usado(tmp_path):
     petr4 = next(d for d in decisoes if d["decisao"]["ticker"] == "PETR4")
     assert petr4["decisao"]["decisao"] == "manter"   # negativo recente bloqueia a compra
     assert resumo["operacoes"] == 1
+
+
+def test_eventos_do_prompt_antigo_nao_entram_na_regra(tmp_path):
+    """Com o PROMPT_EXTRACAO_V1, resumos de cotação saíam como "outro": a REGRA_V2 não
+    pode tratá-los como fatos, nem como histórico do filtro de evento oposto."""
+    anterior = tmp_path / "execucoes" / "2026-10-14"
+    anterior.mkdir(parents=True)
+    evento = {"id": "x-0", "ticker": "PETR4", "confirmado": True, "tipo_evento": "outro",
+              "versao_prompt": "PROMPT_EXTRACAO_V1",
+              "origem": {"timestamp_publicacao": "2026-10-14T10:00:00-03:00"}}
+    (anterior / "03_extracao.json").write_text(json.dumps({"x": [evento]}), encoding="utf-8")
+    (anterior / "04_classificacao.json").write_text(
+        json.dumps({"x-0": {"sentimento": "negativo", "probabilidade": 0.9}}), encoding="utf-8")
+    assert main.carregar_historico(tmp_path / "execucoes", "2026-10-15") == []
+    resumo = main.executar(agora=AGORA, teste=True, dir_data=tmp_path)
+    assert resumo["operacoes"] == 2  # o negativo antigo (V1) não bloqueou a compra de PETR4
 
 
 def test_noticias_coletadas_antes_do_pipeline_ainda_passam_pela_ia(tmp_path):

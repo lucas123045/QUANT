@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Icone from "./icones.jsx";
-import { VITRINE, pedir } from "./api.js";
+import { VITRINE, lerArquivo, pedir, useApi } from "./api.js";
 import Simulacao from "./paginas/Simulacao.jsx";
 import Painel from "./paginas/Painel.jsx";
 import Noticias from "./paginas/Noticias.jsx";
@@ -70,29 +70,40 @@ function useFecharAbertura() {
 function FaixaVitrine() {
   const [meta, setMeta] = useState(undefined);  // undefined = carregando; null = não publicado
   useEffect(() => {
-    fetch("/dados/meta.json").then((r) => (r.ok ? r.json() : null)).then(setMeta).catch(() => setMeta(null));
+    lerArquivo("meta.json").then(setMeta).catch(() => setMeta(null));
   }, []);
   const quando = meta?.gerado_em
     ? new Date(meta.gerado_em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
     : null;
   const idadeBruta = meta?.gerado_em ? Date.now() - new Date(meta.gerado_em).getTime() : 0;
   const idadeMs = Number.isFinite(idadeBruta) ? idadeBruta : 0;
-  const dias = Math.max(0, Math.floor(idadeMs / 86_400_000));
-  const velha = idadeMs > 2 * 86_400_000;
+  const horas = Math.max(0, Math.floor(idadeMs / 3_600_000));
+  // A coleta na nuvem roda a cada 30 min: mais de 3 h sem atualizar é sinal de problema.
+  const velha = idadeMs > 3 * 3_600_000;
+  const atraso = horas >= 48 ? `há ${Math.floor(horas / 24)} dias` : `há ${horas} h`;
   return (
     <div className={`faixa-vitrine ${velha ? "velha" : ""}`}>
       <Icone nome="info" tamanho={16} />
       <span className="so-desktop">
         <strong>Versão online, somente leitura.</strong>{" "}
-        {quando ? `Dados atualizados em ${quando}${velha ? ` (há ${dias} dias — desatualizados)` : ""}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
-        A coleta de notícias e a análise pela IA rodam no computador do autor.
+        {quando ? `Dados atualizados em ${quando}${velha ? ` (${atraso} — desatualizados)` : ""}.` : meta === null ? "Dados ainda não publicados." : ""}{" "}
+        A coleta de notícias e a análise pela IA rodam sozinhas na nuvem, a cada 30 minutos.
       </span>
       <span className="so-celular">
         <strong>Somente leitura</strong>
-        {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}${velha ? ` (há ${dias} dias)` : ""}` : ""}
+        {quando ? ` · dados de ${quando.replace(/\/\d{4},/, ",")}${velha ? ` (${atraso})` : ""}` : ""}
       </span>
     </div>
   );
+}
+
+/** Pregão da B3 aberto? Aproximação: dias úteis, 10h às 18h de Brasília (sem feriados). */
+function pregaoAberto(agora) {
+  const partes = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Sao_Paulo", weekday: "short", hour: "numeric", hourCycle: "h23",
+  }).formatToParts(agora).map((p) => [p.type, p.value]));
+  const hora = Number(partes.hour);
+  return !["Sat", "Sun"].includes(partes.weekday) && hora >= 10 && hora < 18;
 }
 
 function Relogio() {
@@ -101,13 +112,46 @@ function Relogio() {
     const id = setInterval(() => setAgora(new Date()), 30000);
     return () => clearInterval(id);
   }, []);
+  const aberto = pregaoAberto(agora);
   return (
     <span className="relogio">
-      <Icone nome="relogio" tamanho={15} />
+      <span className={`ponto-vivo ${aberto ? "aberto" : ""}`} title={aberto ? "Pregão aberto (aprox.)" : "Pregão fechado"} />
       {agora.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo", weekday: "short", day: "2-digit", month: "short" })}
       {" · "}
       {agora.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit" })}
+      <span className="relogio-pregao">{aberto ? "pregão aberto" : "pregão fechado"}</span>
     </span>
+  );
+}
+
+/**
+ * Fita de cotações, no estilo de terminal de mercado: as ações da carteira com
+ * preço e variação do dia, rolando devagar (para ao passar o mouse). Mesmo dado
+ * da Carteira (/api/simulacao); some se ainda não houver preço.
+ */
+function FitaCotacoes({ base }) {
+  const { dados } = useApi(`/api/simulacao?base=${base}`, 5 * 60 * 1000);
+  const ativos = (dados?.ativos || []).filter((a) => a.preco != null);
+  if (!ativos.length) return null;
+  const item = (a, i) => (
+    <span key={`${a.ticker}-${i}`} className="fita-item">
+      <strong>{a.ticker}</strong>
+      <span>R$ {a.preco.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+      {a.variacao_dia != null && (
+        <span className={a.variacao_dia > 0 ? "sobe" : a.variacao_dia < 0 ? "desce" : ""}>
+          {a.variacao_dia > 0 ? "▲" : a.variacao_dia < 0 ? "▼" : "•"} {Math.abs(a.variacao_dia * 100).toLocaleString("pt-BR", { maximumFractionDigits: 2 })}%
+        </span>
+      )}
+    </span>
+  );
+  return (
+    <div className="fita" aria-label="Cotações das ações da carteira">
+      {/* Duas cópias idênticas lado a lado: ao rolar metade, a rolagem volta ao início sem emenda. */}
+      <div className="fita-trilho">
+        <span className="fita-grupo">{ativos.map(item)}</span>
+        <span className="fita-grupo" aria-hidden="true">{ativos.map((a, i) => item(a, i + ativos.length))}</span>
+      </div>
+    </div>
   );
 }
 
@@ -203,6 +247,7 @@ export default function App() {
           </button>
         </header>
 
+        <FitaCotacoes base={base} />
         {VITRINE && <FaixaVitrine />}
         {base === "teste" && (
           <div className="faixa-teste">
@@ -213,7 +258,10 @@ export default function App() {
         )}
 
         <main className="conteudo">
-          <Pagina base={base} irPara={setPagina} />
+          {/* A chave reinicia a animação de entrada a cada troca de página ou de base. */}
+          <div key={`${pagina}-${base}`} className="pagina-entra">
+            <Pagina base={base} irPara={setPagina} />
+          </div>
         </main>
 
         <nav className="nav-inferior" aria-label="Navegação principal">

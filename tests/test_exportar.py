@@ -66,3 +66,14 @@ def test_recusa_vitrine_que_encolheu(tmp_path, monkeypatch):
     exportar.exportar(destino, bases=("real",), forcar=True)  # decisão explícita
     assert json.loads((destino / "noticias-real.json").read_text(encoding="utf-8"))["total"] == 0
     assert not (tmp_path / "vitrine.antigo").exists()
+
+
+def test_base_de_teste_vazia_nao_trava_a_vitrine(tmp_path, monkeypatch):
+    """Computador que nunca rodou o modo de teste: a base de teste "encolheu", mas é descartável."""
+    monkeypatch.setattr(config, "DIR_DATA", tmp_path / "data")
+    monkeypatch.setattr(simulacao, "calcular", lambda d: {"estado": "sem_dados", "ativos": []})
+    destino = tmp_path / "vitrine"
+    destino.mkdir()
+    (destino / "meta.json").write_text(json.dumps({"bases": {"teste": {"noticias": 3, "operacoes": 2}}}))
+    exportar.exportar(destino)  # não levanta VitrineEncolheu
+    assert json.loads((destino / "meta.json").read_text(encoding="utf-8"))["bases"]["teste"]["noticias"] == 0

@@ -1,0 +1,83 @@
+# QUANT na nuvem: coleta notícias, analisa as novas com o LLM, decide pela regra,
+# atualiza a carteira simulada e a vitrine online, a cada 30 minutos, 24 h por dia,
+# sem depender de nenhum computador ligado.
+#
+# Os dados ficam no ramo "dados" deste repositório (cada coleta é um commit:
+# histórico auditável e backup). O site online lê a vitrine desse ramo.
+#
+# Configuração (uma vez, em Settings do repositório no GitHub):
+#   Secrets and variables > Actions > New repository secret
+#     LLM_API_KEY = sua chave da OpenAI (sem ela, o QUANT só coleta e não analisa)
+#   Variáveis opcionais (aba "Variables"): LLM_PROVEDOR (padrão openai),
+#     LLM_MODELO (padrão gpt-4.1-2025-04-14, o modelo do projeto).
+name: QUANT (coleta e análise automáticas)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # em UTC; o GitHub pode atrasar alguns minutos em horários de pico
+  workflow_dispatch: {}        # botão "Run workflow" na aba Actions
+
+permissions:
+  contents: write              # para gravar no ramo "dados"
+
+concurrency:
+  group: quant-pipeline        # nunca duas execuções ao mesmo tempo
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      QUANT_DATA_DIR: ${{ github.workspace }}/_dados
+      QUANT_VITRINE_DIR: ${{ github.workspace }}/_dados/vitrine
+      QUANT_BACKUP_DIR: ${{ runner.temp }}/backup   # o ramo "dados" já é o backup
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      LLM_PROVEDOR: ${{ vars.LLM_PROVEDOR || 'openai' }}
+      LLM_MODELO: ${{ vars.LLM_MODELO || 'gpt-4.1-2025-04-14' }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Código (ramo main)
+        uses: actions/checkout@v4
+
+      - name: Dados (ramo dados)
+        uses: actions/checkout@v4
+        with:
+          ref: dados
+          path: _dados
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dependências
+        run: pip install --disable-pip-version-check -q -r requirements.txt
+
+      - name: Coletar, analisar, decidir e registrar
+        run: python -m src.agendado pipeline
+
+      - name: Vitrine (site online)
+        # A simulação usa preços do Yahoo e o CDI do Banco Central: se uma fonte
+        # falhar, a vitrine sai sem aquele número, mas a coleta já foi salva.
+        continue-on-error: true
+        run: python -m src.agendado vitrine
+
+      - name: Log desta execução
+        if: always()
+        run: tail -n 40 _dados/agendamento.log || true
+
+      - name: Salvar no ramo dados
+        if: always()
+        working-directory: _dados
+        run: |
+          git config user.name "quant-bot"
+          git config user.email "quant-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nada novo para salvar."
+          else
+            git commit -q -m "Coleta $(TZ=America/Sao_Paulo date '+%Y-%m-%d %H:%M')"
+            git push -q origin HEAD:dados
+          fi

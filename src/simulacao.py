@@ -23,10 +23,10 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-from src import auditoria, backtest, cdi, config
+from src import auditoria, backtest, cdi, config, extract
 from src.baselines import sinais_baseline_1
 from src.estatistica import teste_t_uma_amostra
-from src.strategy import COMPRA
+from src.strategy import COMPRA, VERSAO_REGRA
 
 logger = logging.getLogger(__name__)
 
@@ -48,28 +48,41 @@ def _ler(caminho: Path, padrao):
 
 
 def eventos_classificados(dir_data: Path) -> list[dict]:
-    """Todos os eventos extraídos e classificados nas execuções gravadas."""
+    """Eventos extraídos e classificados com o prompt vigente.
+
+    Eventos de prompts anteriores ficam de fora: o baseline 1 precisa usar os
+    mesmos eventos que a regra vigente vê (com a V1, eram só resumos de cotação).
+    """
     eventos = []
     for pasta in sorted(p for p in (dir_data / "execucoes").glob("*") if p.is_dir()):
         classificacoes = _ler(pasta / "04_classificacao.json", {})
         for lista in _ler(pasta / "03_extracao.json", {}).values():
             for evento in lista:
-                eventos.append({**evento, "classificacao": classificacoes.get(evento["id"])})
+                if evento.get("versao_prompt") == extract.VERSAO_PROMPT_EXTRACAO:
+                    eventos.append({**evento, "classificacao": classificacoes.get(evento["id"])})
     return eventos
 
 
-def _meta(evento: dict, motivo: str | None = None, explicacao: str | None = None) -> dict:
+def _meta(evento: dict, motivo: str | None = None, explicacao: str | None = None,
+          criterios: list | None = None) -> dict:
     origem = evento.get("origem") or {}
     return {"resumo": evento.get("resumo"), "trecho_fonte": evento.get("trecho_fonte"),
             "url": origem.get("url"), "fonte": origem.get("fonte"),
             "publicado": origem.get("timestamp_publicacao"), "motivo": motivo,
-            "explicacao": explicacao}
+            "explicacao": explicacao, "criterios": criterios or [],
+            "tipo_evento": evento.get("tipo_evento")}
 
 
 def sinais_do_log(dir_data: Path) -> list[dict]:
-    """Compras e vendas do log de auditoria, como sinais para o simulador."""
+    """Compras e vendas da regra vigente no log de auditoria, como sinais para o simulador.
+
+    Decisões de regras anteriores continuam no log (ele nunca é apagado), mas não
+    guiam a carteira: misturar versões tornaria o resultado impossível de interpretar.
+    """
     sinais = []
     for op in auditoria.ler_operacoes(dir_data / "operacoes.jsonl"):
+        if auditoria.versao_regra(op) != VERSAO_REGRA:
+            continue
         evento = op["evento"]
         sinais.append({
             "ticker": op["ticker"],
@@ -77,13 +90,15 @@ def sinais_do_log(dir_data: Path) -> list[dict]:
             "fracao_alvo": config.MAX_POSICAO_PCT if op["decisao"] == COMPRA else 0.0,
             "instante": backtest.instante_do_evento(evento),
             "tipo_fonte": backtest.tipo_fonte_do_evento(evento),
-            "meta": _meta(evento, op.get("motivo"), op.get("explicacao")),
+            "meta": _meta(evento, op.get("motivo"), op.get("explicacao"), op.get("criterios")),
         })
     return sinais
 
 
 def _inicio(dir_data: Path, sinais: list[dict]) -> date | None:
-    dias = [p.name for p in (dir_data / "execucoes").glob("*") if p.is_dir()]
+    """Primeiro dia em que a regra vigente rodou (a carteira começa ali)."""
+    dias = [p.name for p in (dir_data / "execucoes").glob("*")
+            if p.is_dir() and _ler(p / "resumo.json", {}).get("versao_regra") == VERSAO_REGRA]
     dias += [backtest.data_local(s["instante"]).date().isoformat() for s in sinais if s.get("instante")]
     return date.fromisoformat(min(dias)) if dias else None
 
@@ -276,6 +291,11 @@ def calcular(dir_data: Path | None = None, agora: datetime | None = None,
                   + ("Regra congelada: resultado prospectivo válido."
                      if config.DATA_CONGELAMENTO else
                      "A regra ainda não foi congelada: resultado exploratório, não substitui o período de teste.")),
+        "regra_vigente": VERSAO_REGRA,
+        # Decisões de versões anteriores da regra: ficam no log, fora da carteira.
+        "decisoes_regras_anteriores": sum(
+            auditoria.versao_regra(op) != VERSAO_REGRA
+            for op in auditoria.ler_operacoes(dir_data / "operacoes.jsonl")),
         "custo_por_operacao": backtest.custo_total(),
         "parametros": {"max_posicao_pct": config.MAX_POSICAO_PCT,
                        "limiar_probabilidade": config.LIMIAR_PROBABILIDADE,

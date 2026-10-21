@@ -134,7 +134,7 @@ export default function GraficoPatrimonio({ serie, capital }) {
           </linearGradient>
         </defs>
         {/* A estratégia é desenhada por último, por cima das referências, com área em degradê. */}
-        {[...series].reverse().map((s) => {
+        {[...series].reverse().map((s, ordem) => {
           const pontos = serie.map((p, i) => (p[s.chave] == null ? null : [x(i), y(p[s.chave])])).filter(Boolean);
           if (pontos.length === 1) return <circle key={s.chave} cx={pontos[0][0]} cy={pontos[0][1]} r="4" fill={s.cor} />;
           if (pontos.length < 2) return null;
@@ -143,9 +143,10 @@ export default function GraficoPatrimonio({ serie, capital }) {
             <g key={s.chave}>
               {s.chave === "estrategia" && (
                 <path d={`${linha} L${pontos[pontos.length - 1][0]},${altura - M.base} L${pontos[0][0]},${altura - M.base} Z`}
-                  fill="url(#area-estrategia)" />
+                  fill="url(#area-estrategia)" className="area-surge" />
               )}
               <path d={linha} fill="none" stroke={s.cor} strokeWidth={s.chave === "estrategia" ? 2.5 : 2}
+                pathLength="1" className="linha-desenha" style={{ animationDelay: `${ordem * 120}ms` }}
                 strokeLinejoin="round" strokeLinecap="round" />
             </g>
           );

@@ -191,3 +191,19 @@ def test_sensibilidade_a_custos_na_carteira(dados):
     for s in sens:
         assert s["retorno_acumulado"] == pytest.approx((80_000 + 26_000 * (1 - s["custo"])) / 100_000 - 1)
     assert r["carteiras"]["estrategia"]["retorno_acumulado"] == pytest.approx(0.06)  # sem custo, inalterado
+
+
+def test_carteira_segue_so_a_regra_vigente(dados):
+    """Decisões da REGRA_V1 ficam no log, mas não entram na carteira da V2."""
+    import json
+
+    log = dados / "operacoes.jsonl"
+    linhas = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines()]
+    antiga = {k: v for k, v in linhas[0].items() if k not in ("versao_regra", "criterios")}
+    log.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in [antiga] + linhas[1:]) + "\n",
+                   encoding="utf-8")
+    r = simulacao.calcular(dados, agora=datetime(2026, 10, 9, 20, 0, tzinfo=SP), baixar=baixar,
+                           capital=100_000.0)
+    assert r["regra_vigente"] == "REGRA_V2" and r["decisoes_regras_anteriores"] == 1
+    tickers = {o["ticker"] for o in r["posicoes_abertas"]} | {o["ticker"] for o in r["ordens_ignoradas"]}
+    assert antiga["ticker"] not in tickers

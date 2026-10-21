@@ -5,6 +5,8 @@
 #   powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -IntervaloMinutos 60   # a cada hora
 #   powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -SoColeta    # so coleta (sem LLM, sem custo)
 #   powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Publicar    # ... e a vitrine tambem faz git push
+#   powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Sincronizar # coleta fica na NUVEM (GitHub Actions):
+#                                         este PC so traz os dados de la para data\ (recomendado com a nuvem ligada)
 #   powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Remover     # desfaz o agendamento
 #
 # Duas tarefas:
@@ -19,6 +21,7 @@ param(
   [int]$IntervaloMinutos = 30,
   [string]$HorarioVitrine = "20:00",
   [switch]$SoColeta,
+  [switch]$Sincronizar,
   [switch]$Publicar,
   [switch]$Remover
 )
@@ -47,7 +50,8 @@ $log = "data\agendamento.log"
 function Acao($tarefa) {
   New-ScheduledTaskAction -Execute $pythonw -Argument "-m src.agendado $tarefa" -WorkingDirectory $raiz
 }
-$acoesHora = @(Acao $(if ($SoColeta) { "coleta" } else { "pipeline" }))
+$tarefaHora = if ($Sincronizar) { "sincronizar" } elseif ($SoColeta) { "coleta" } else { "pipeline" }
+$acoesHora = @(Acao $tarefaHora)
 $acoesVitrine = @(Acao "vitrine")
 if ($Publicar) {
   # Acoes seguidas: commit sem mudancas falha sem efeito, e o push nao tem o que enviar.
@@ -68,11 +72,15 @@ $gatilhoHora = New-ScheduledTaskTrigger -Once -At $inicio -RepetitionInterval (N
 Register-ScheduledTask -TaskName $nomeHora -Action $acoesHora -Trigger $gatilhoHora -Settings $opcoes `
   -Description "QUANT: coleta noticias e analisa as novas a cada $IntervaloMinutos minutos." | Out-Null
 
-$gatilhoVitrine = New-ScheduledTaskTrigger -Daily -At $HorarioVitrine
-Register-ScheduledTask -TaskName $nomeVitrine -Action $acoesVitrine -Trigger $gatilhoVitrine -Settings $opcoes `
-  -Description "QUANT: gera a vitrine online (somente leitura) uma vez por dia." | Out-Null
-
-$oque = if ($SoColeta) { "coleta (sem LLM)" } else { "pipeline completo (coleta + LLM nas noticias novas)" }
+$oque = @{ sincronizar = "sincroniza com a coleta da nuvem"; coleta = "coleta (sem LLM)"; pipeline = "pipeline completo (coleta + LLM nas noticias novas)" }[$tarefaHora]
 Write-Host "Agendado: '$nomeHora' - $oque a cada $IntervaloMinutos min, a partir de $($inicio.ToString('HH:mm'))."
-Write-Host "Agendado: '$nomeVitrine' - todo dia as $HorarioVitrine$(if ($Publicar) { ', com git push' })."
+if ($Sincronizar) {
+  # A nuvem ja gera a vitrine a cada execucao: aqui nao precisa.
+  Write-Host "A vitrine e gerada pela nuvem a cada coleta (nada agendado para ela neste PC)."
+} else {
+  $gatilhoVitrine = New-ScheduledTaskTrigger -Daily -At $HorarioVitrine
+  Register-ScheduledTask -TaskName $nomeVitrine -Action $acoesVitrine -Trigger $gatilhoVitrine -Settings $opcoes `
+    -Description "QUANT: gera a vitrine online (somente leitura) uma vez por dia." | Out-Null
+  Write-Host "Agendado: '$nomeVitrine' - todo dia as $HorarioVitrine$(if ($Publicar) { ', com git push' })."
+}
 Write-Host "Log em $log. Para desfazer: powershell -ExecutionPolicy Bypass -File scripts\agendar-windows.ps1 -Remover"

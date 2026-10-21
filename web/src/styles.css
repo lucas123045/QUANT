@@ -265,6 +265,32 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
 .ultima-coleta { margin: -6px 0 12px; font-size: 12.5px; color: var(--texto-2); }
 .ultima-coleta.atrasada { color: var(--acento); font-weight: 500; }
 
+/* Justificativa passo a passo (critérios da regra) */
+.criterios { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.criterios li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; align-items: start; font-size: 13px; }
+.criterios li small { display: block; color: var(--texto-2); font-size: 12px; }
+.criterios-marca { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+.criterios li.ok .criterios-marca { background: var(--positivo-fundo); color: var(--positivo); }
+.criterios li.falhou .criterios-marca { background: var(--negativo-fundo); color: var(--negativo); }
+.criterios li.na .criterios-marca { background: var(--painel-3); color: var(--texto-3); }
+.criterios li.na { color: var(--texto-3); }
+.criterios-vazio { margin: 0; font-size: 12.5px; color: var(--texto-3); }
+.porque { display: flex; flex-direction: column; gap: 12px; padding: 12px 14px; margin: 4px 0 6px; border-radius: 12px; background: var(--painel-2); }
+.porque h4 { margin: 0; font-size: 13px; }
+.porque p { margin: 0; font-size: 13px; color: var(--texto-2); line-height: 1.55; }
+.porque-execucao { color: var(--texto) !important; }
+.criterios-detalhe { margin-top: 8px; }
+.criterios-detalhe summary { cursor: pointer; color: var(--acento); font-size: 12px; margin-bottom: 6px; }
+.f-lista li.expansivel { display: block; }
+.f-lista-linha {
+  width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 14px; align-items: center;
+  border: 0; background: none; color: inherit; text-align: left; padding: 0; cursor: pointer; font: inherit;
+}
+.f-lista-linha > div { display: flex; flex-direction: column; line-height: 1.35; min-width: 0; }
+.f-lista-linha small { color: var(--texto-2); font-size: 12px; }
+.f-lista-linha:hover strong { color: var(--acento); }
+.f-lista li.expansivel .porque { margin-top: 10px; }
+
 /* ----------------------------------------------- execuções / operações / ações */
 .lista-dias { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .lista-dias button { width: 100%; text-align: left; border: 0; background: none; padding: 10px 12px; border-radius: 10px; display: flex; flex-direction: column; }
@@ -735,4 +761,118 @@ td.motivo { color: var(--texto-2); max-width: 340px; }
   .f-lista li { grid-template-columns: auto 1fr auto; }
   .f-lista li > .sutil { display: none; }
   .f-numeros dd { font-size: 18px; }
+}
+
+/* ======================================================= movimento e detalhes
+   Discreto e rápido, na estética de terminal de mercado (grafite + âmbar).
+   Quem pede menos movimento no sistema vê tudo estático (bloco no fim). */
+
+@keyframes entra-subindo { from { opacity: 0; transform: translateY(12px); } }
+@keyframes entra-lado { from { opacity: 0; transform: translateX(-8px); } }
+@keyframes desenhar { to { stroke-dashoffset: 0; } }
+@keyframes surgir { from { opacity: 0; } }
+@keyframes crescer { from { transform: scaleX(0); } }
+@keyframes rosca-entra { from { opacity: 0; transform: rotate(-110deg) scale(.86); } }
+@keyframes carimbo { 0% { transform: scale(0); } 65% { transform: scale(1.3); } 100% { transform: scale(1); } }
+@keyframes brilho { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@keyframes piscar-verde { 0% { background: var(--positivo-fundo); box-shadow: 0 0 0 4px var(--positivo-fundo); } 100% { background: transparent; box-shadow: 0 0 0 4px transparent; } }
+@keyframes piscar-vermelho { 0% { background: var(--negativo-fundo); box-shadow: 0 0 0 4px var(--negativo-fundo); } 100% { background: transparent; box-shadow: 0 0 0 4px transparent; } }
+@keyframes pulsar { 0% { box-shadow: 0 0 0 0 rgb(70 177 123 / .55); } 70% { box-shadow: 0 0 0 7px rgb(70 177 123 / 0); } 100% { box-shadow: 0 0 0 0 rgb(70 177 123 / 0); } }
+@keyframes rolar { to { transform: translateX(-50%); } }
+@keyframes respirar { 50% { transform: scale(1.18); opacity: .7; } }
+@keyframes tracar-logo { from { stroke-dashoffset: 60; } }
+
+/* Entrada da página: os blocos sobem em cascata. */
+.pagina-entra { animation: surgir .25s ease-out both; }
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > * {
+  animation: entra-subindo .5s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > :nth-child(2) { animation-delay: 50ms; }
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > :nth-child(3) { animation-delay: 100ms; }
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > :nth-child(4) { animation-delay: 150ms; }
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > :nth-child(5) { animation-delay: 200ms; }
+.pagina-entra :is(.f-pagina, .grade, .pilha, .estudos, .acoes, .indicadores, .f-produtos, .f-ativos, .estudos-calculadoras, .estudos-glossario, .mestre-detalhe) > :nth-child(n+6) { animation-delay: 250ms; }
+.lista-noticias > li, .lista-operacoes > li, .estudos-lista > li { animation: entra-subindo .4s cubic-bezier(.2, .7, .2, 1) backwards; }
+
+/* Gráficos que se desenham. */
+.linha-desenha { stroke-dasharray: 1; stroke-dashoffset: 1; animation: desenhar 1.3s cubic-bezier(.4, 0, .2, 1) forwards; }
+.area-surge { animation: surgir 1.2s .35s ease-out both; }
+.rosca-gira { animation: rosca-entra .9s cubic-bezier(.2, .8, .2, 1) both; }
+.f-progresso div, .funil-barra, .estudo-barra div { transform-origin: left center; animation: crescer 1s .25s cubic-bezier(.2, .8, .2, 1) both; }
+.barras-rend rect[rx] { animation: surgir .6s .2s ease-out both; }
+
+/* Justificativa: critérios aparecem um a um e o ✓ "carimba". */
+.criterios li { animation: entra-lado .35s calc(var(--ordem, 0) * 70ms) cubic-bezier(.2, .7, .2, 1) both; }
+.criterios li .criterios-marca { animation: carimbo .45s calc(var(--ordem, 0) * 70ms + 140ms) cubic-bezier(.3, 1.4, .5, 1) both; }
+.porque { animation: entra-subindo .35s cubic-bezier(.2, .7, .2, 1) both; }
+
+/* Números que contam e piscam ao mudar. */
+.numero-animado { border-radius: 6px; font-variant-numeric: tabular-nums; }
+.numero-animado.piscar-sobe { animation: piscar-verde 1.4s ease-out; }
+.numero-animado.piscar-desce { animation: piscar-vermelho 1.4s ease-out; }
+
+/* Carregando: esqueleto brilhante. */
+.esqueleto { display: flex; flex-direction: column; gap: 11px; padding: 16px 0; }
+.esqueleto span {
+  height: 12px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--painel-2) 0%, var(--painel-3) 50%, var(--painel-2) 100%);
+  background-size: 200% 100%; animation: brilho 1.4s linear infinite;
+}
+
+/* Relógio: ponto "ao vivo" do pregão. */
+.ponto-vivo { width: 8px; height: 8px; border-radius: 50%; background: var(--texto-3); flex-shrink: 0; }
+.ponto-vivo.aberto { background: var(--positivo); animation: pulsar 2s ease-out infinite; }
+.relogio-pregao { color: var(--texto-3); font-size: 12px; padding-left: 8px; border-left: 1px solid var(--linha-forte); }
+
+/* Fita de cotações. */
+.fita {
+  margin: 12px 32px 0; overflow: hidden; border: 1px solid var(--linha); border-radius: 999px; background: var(--painel);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  animation: surgir .6s ease-out both;
+}
+.fita-trilho { display: flex; width: max-content; animation: rolar 45s linear infinite; }
+.fita:hover .fita-trilho { animation-play-state: paused; }
+.fita-grupo { display: flex; gap: 30px; padding: 7px 30px 7px 0; }
+.fita-item { display: inline-flex; align-items: baseline; gap: 8px; font: 500 12.5px var(--mono); white-space: nowrap; color: var(--texto-2); }
+.fita-item strong { color: var(--texto); font-weight: 600; letter-spacing: .02em; }
+.fita-item .sobe { color: var(--positivo); }
+.fita-item .desce { color: var(--negativo); }
+
+/* Saldo: brilho âmbar que respira devagar. */
+.f-saldo::after { animation: respirar 7s ease-in-out infinite; }
+/* Logo: a seta da marca se traça ao abrir. */
+.marca-logo path, .topo-logo path { stroke-dasharray: 60; animation: tracar-logo .9s .2s ease-out both; }
+
+/* Toque e foco: resposta tátil sutil. */
+.botao, .nav-item, .nav-inferior button, .f-atalhos button span, .segmentado button, .f-segmentado button, .estudos-abas button {
+  transition: transform .12s ease, background-color .2s, color .2s;
+}
+.botao:active, .nav-item:active, .nav-inferior button:active, .f-atalhos button:active span, .estudos-abas button:active { transform: scale(.96); }
+.nav-item.ativo { box-shadow: inset 3px 0 0 var(--acento); }
+
+/* Cartões que "levantam" ao passar o mouse (só em telas com mouse). */
+@media (hover: hover) {
+  .f-produto, .f-ativo, .indicador, .f-estat, .estudos-glossario div, .acoes .cartao {
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .f-produto:hover, .f-ativo:hover, .indicador:hover, .f-estat:hover, .estudos-glossario div:hover, .acoes .cartao:hover {
+    transform: translateY(-3px); border-color: var(--linha-forte); box-shadow: 0 14px 32px -20px rgb(0 0 0 / .55);
+  }
+  .f-produto.principal:hover { box-shadow: 0 0 0 1px var(--acento-fundo), 0 16px 36px -18px rgb(227 163 54 / .35); }
+}
+
+@media (max-width: 820px) {
+  .fita { margin: 8px 16px 0; }
+  .fita-grupo { gap: 22px; padding-right: 22px; }
+  .relogio-pregao { display: none; }
+}
+
+/* Menos movimento: tudo pronto, sem animar (as linhas já aparecem desenhadas). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+  }
+  .fita-trilho, .esqueleto span, .ponto-vivo.aberto, .f-saldo::after { animation: none !important; }
 }

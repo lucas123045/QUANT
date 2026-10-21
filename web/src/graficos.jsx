@@ -18,7 +18,7 @@ export function Rosca({ fatias, tamanho = 168, espessura = 22, centro, formatar 
 
   return (
     <div className="rosca">
-      <svg width={tamanho} height={tamanho} viewBox={`0 0 ${tamanho} ${tamanho}`} role="img"
+      <svg width={tamanho} height={tamanho} viewBox={`0 0 ${tamanho} ${tamanho}`} role="img" className="rosca-gira"
         aria-label="Alocação do patrimônio">
         <g transform={`rotate(-90 ${tamanho / 2} ${tamanho / 2})`}>
           <circle cx={tamanho / 2} cy={tamanho / 2} r={raio} fill="none" stroke="var(--painel-2)" strokeWidth={espessura} />
@@ -128,8 +128,8 @@ export function Minigrafico({ pontos, largura = 140, altura = 40 }) {
   return (
     <svg className="minigrafico" width={largura} height={altura} role="img"
       aria-label={`Preço nos últimos ${pontos.length} pregões: ${subiu ? "alta" : "queda"}`}>
-      <polygon points={`${x(0)},${altura} ${linha} ${x(pontos.length - 1)},${altura}`} fill={cor} opacity="0.12" />
-      <polyline points={linha} fill="none" stroke={cor} strokeWidth="1.5" strokeLinejoin="round" />
+      <polygon points={`${x(0)},${altura} ${linha} ${x(pontos.length - 1)},${altura}`} fill={cor} opacity="0.12" className="area-surge" />
+      <polyline points={linha} fill="none" stroke={cor} strokeWidth="1.5" strokeLinejoin="round" pathLength="1" className="linha-desenha" />
       <circle cx={x(pontos.length - 1)} cy={y(valores[valores.length - 1])} r="2.5" fill={cor} />
     </svg>
   );

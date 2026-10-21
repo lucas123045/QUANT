@@ -15,25 +15,36 @@ from src.matching import normalizar
 
 logger = logging.getLogger(__name__)
 
-VERSAO_PROMPT_EXTRACAO = "PROMPT_EXTRACAO_V1"
+VERSAO_PROMPT_EXTRACAO = "PROMPT_EXTRACAO_V2"
 TEMPERATURA_EXTRACAO = 0.0  # pedida; o efetivamente aplicado vai em cada evento
 MAX_PALAVRAS_RESUMO = 30
+# Só o começo do texto vai ao LLM (algumas matérias passam de 25 mil caracteres):
+# o fato principal está no início, e o custo cresce com o tamanho. O trecho_fonte
+# continua sendo conferido contra o texto completo.
+MAX_CARACTERES_TEXTO = 8000
 
 TIPOS_EVENTO = {
     "dividendo", "resultado", "guidance", "troca_executivo",
     "investigacao", "fusao_aquisicao", "outro",
+    # V2: produção, vendas, contratos; decisões de governo e agências reguladoras
+    # (na primeira execução real, o LLM usou "producao", fora da lista, e o fato
+    # da produção trimestral da Petrobras foi descartado).
+    "operacional", "regulatorio",
+    "cotacao",  # V2: a notícia só relata a variação do preço (a regra não opera)
 }
 IMPACTOS = {"positivo", "negativo", "neutro"}
 CAMPOS = ("ticker", "tipo_evento", "resumo", "impacto_declarado", "confirmado", "trecho_fonte")
 
-PROMPT_EXTRACAO_V1 = """[PROMPT_EXTRACAO_V1]
+# V1 → V2: com a V1, todos os eventos dos primeiros dias reais foram resumos de
+# fechamento ("ações da Petrobras sobem 3%"); a V2 os separa como "cotacao".
+PROMPT_EXTRACAO_V2 = """[PROMPT_EXTRACAO_V2]
 Você é um extrator de eventos corporativos. Leia o texto abaixo e liste os
 eventos que afetam diretamente as empresas destes tickers: {tickers}.
 
 Responda APENAS com JSON válido, sem comentários, no formato:
 {{"eventos": [
   {{"ticker": "<um dos tickers acima>",
-    "tipo_evento": "<dividendo|resultado|guidance|troca_executivo|investigacao|fusao_aquisicao|outro>",
+    "tipo_evento": "<dividendo|resultado|guidance|troca_executivo|investigacao|fusao_aquisicao|operacional|regulatorio|outro|cotacao>",
     "resumo": "<até 30 palavras, em português>",
     "impacto_declarado": "<positivo|negativo|neutro>",
     "confirmado": <true se o texto afirma que o evento ocorreu ou foi oficialmente anunciado; false se é rumor, expectativa ou especulação>,
@@ -41,6 +52,20 @@ Responda APENAS com JSON válido, sem comentários, no formato:
 ]}}
 
 Regras:
+- Um evento é um FATO sobre a empresa: resultado, dividendo, projeção da própria
+  empresa (guidance), troca de executivos, investigação, fusão ou aquisição.
+  Produção, vendas, contratos e preços de produtos: "operacional". Decisões de
+  governo, agências ou tribunais sobre a empresa: "regulatorio". Use só os tipos
+  da lista; se nenhum servir, "outro".
+- A simples variação da cotação da ação ("PETR4 sobe 3%", "Vale cai 1,4%",
+  "ações fecham em alta") NÃO é um fato novo sobre a empresa. Se o texto, para
+  uma empresa, só relata o movimento do preço da ação ou do índice, use
+  "tipo_evento": "cotacao". Se o texto cita um fato que explica o movimento
+  (ex.: "sobe após anunciar dividendos"), extraia o fato, com o tipo dele.
+- Prévias e projeções sobre algo que ainda não aconteceu ("o que esperar do
+  balanço", "analistas esperam lucro maior", "resultado sai dia 29") são
+  expectativa: "confirmado": false. Só é confirmado o que o texto diz que já
+  aconteceu ou foi anunciado oficialmente pela empresa.
 - "impacto_declarado" é o impacto que o próprio texto atribui ao evento; não opine.
 - Não invente eventos. Se não houver evento, responda {{"eventos": []}}.
 - "trecho_fonte" deve ser cópia exata de uma parte do texto, sem paráfrase.
@@ -57,7 +82,7 @@ class EventoInvalido(ValueError):
 
 def montar_prompt(texto: str, tickers: list[str] | None = None) -> str:
     tickers = config.CARTEIRA if tickers is None else tickers
-    return PROMPT_EXTRACAO_V1.format(tickers=", ".join(tickers), texto=texto)
+    return PROMPT_EXTRACAO_V2.format(tickers=", ".join(tickers), texto=texto[:MAX_CARACTERES_TEXTO])
 
 
 def trecho_existe(trecho: str, texto: str) -> bool:

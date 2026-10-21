@@ -66,33 +66,40 @@ def coletar_noticias(
     janela = timedelta(hours=config.JANELA_COLETA_HORAS if janela_horas is None else janela_horas)
 
     itens = []
+    vistas: set[str] = set()  # a mesma notícia aparece no feed geral e no da empresa
     for fonte in fontes:
+        rotulo = f"{fonte['nome']} ({fonte['feed']})" if fonte.get("feed") else fonte["nome"]
         try:
             feed = feedparser.parse(baixar(fonte["url"]))
         except Exception as erro:  # rede, timeout, HTTP: registra e segue
-            logger.error("Falha ao coletar %s (%s): %s", fonte["nome"], fonte["url"], erro)
+            logger.error("Falha ao coletar %s (%s): %s", rotulo, fonte["url"], erro)
             continue
         if feed.get("bozo") and not feed.get("entries"):
-            logger.error("Feed inválido em %s: %s", fonte["nome"], feed.get("bozo_exception"))
+            logger.error("Feed inválido em %s: %s", rotulo, feed.get("bozo_exception"))
             continue
 
+        antes = len(itens)
         for entrada in feed.entries:
             publicado = _data_publicacao(entrada)
             if publicado is None:
-                logger.warning("Item sem data descartado (%s): %s", fonte["nome"], entrada.get("link"))
+                logger.warning("Item sem data descartado (%s): %s", rotulo, entrada.get("link"))
                 continue
             if not (agora - janela <= publicado <= agora + timedelta(minutes=5)):
                 continue
+            url = entrada.get("link", "")
+            if url and url in vistas:
+                continue
+            vistas.add(url)
             itens.append({
                 "tipo_fonte": "noticia",
                 "fonte": fonte["nome"],
-                "url": entrada.get("link", ""),
+                "url": url,
                 "titulo": limpar_html(entrada.get("title", "")),
                 "texto": _texto(entrada),
                 "timestamp_publicacao": publicado.isoformat(),
                 "timestamp_coleta": agora.isoformat(),
             })
-        logger.info("%s: %d itens na janela", fonte["nome"], sum(i["fonte"] == fonte["nome"] for i in itens))
+        logger.info("%s: %d itens novos na janela", rotulo, len(itens) - antes)
     return itens
 
 

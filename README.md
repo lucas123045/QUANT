@@ -65,8 +65,8 @@ Antes de olhar qualquer resultado do período de teste, a regra é congelada. A 
 - `LIMIAR_PROBABILIDADE` (hoje 0,7)
 - `MAX_POSICAO_PCT` (hoje 0,20)
 - `JANELA_EVENTO_RECENTE_DIAS` (hoje 5), usado pela lógica de `decidir`
-- lógica da função `decidir` (`src/strategy.py`, `REGRA_V1`)
-- prompt de extração (`PROMPT_EXTRACAO_V1`, `src/extract.py`)
+- lógica da função `decidir` (`src/strategy.py`, `REGRA_V2`)
+- prompt de extração (`PROMPT_EXTRACAO_V2`, `src/extract.py`)
 - prompt de classificação (`PROMPT_CLASSIFICACAO_V1`, `src/classify.py`)
 - versão do modelo de LLM usado (`LLM_PROVEDOR` e `LLM_MODELO`) e sua data de corte de conhecimento (`DATA_CORTE_CONHECIMENTO_MODELO`)
 - esforço do modelo (`ESFORCO = "medium"`, `src/provedores.py`)
@@ -195,13 +195,13 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 |---|---|
 | `src/config.py` | Carteira, parâmetros da regra, custos, períodos, fontes |
 | `src/matching.py` | Decide se um texto menciona uma empresa da carteira. Usa o ticker com fronteira de palavra, o nome e os aliases; "vale" isolado nunca casa; casas de análise como "Itaú BBA" são excluídas |
-| `src/news.py` | Coleta RSS (InfoMoney e Money Times) das últimas 24 h, tolerando falhas por fonte. A CVM está bloqueada |
+| `src/news.py` | Coleta RSS das últimas 24 h: feeds gerais e por empresa (tag) do InfoMoney e do Money Times, sem repetir a mesma notícia, tolerando falhas por fonte. A CVM está bloqueada |
 | `src/archive.py` | Arquivo append-only em `data/arquivo/AAAA-MM-DD.jsonl` (data da coleta), com deduplicação por URL |
 | `src/llm.py` | Adaptador único do LLM. Chave vem de `LLM_API_KEY`, provedor configurável e modo de teste com provedor falso. Registra o modelo que respondeu e a temperatura efetiva |
 | `src/provedores.py` | Provedores reais pelos SDKs oficiais. `openai`: Chat Completions, modelo obrigatório em `LLM_MODELO`, temperatura 0 (repete sem ela se o modelo recusar). `anthropic`: `claude-opus-5-5`, esforço `medium`, fallback do servidor. Recusas tratadas nos dois |
-| `src/extract.py` | Extração com `PROMPT_EXTRACAO_V1` (temperatura 0 pedida; null quando o modelo não aceita). Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
+| `src/extract.py` | Extração com `PROMPT_EXTRACAO_V2` (temperatura 0 pedida; null quando o modelo não aceita). Valida o esquema e o `trecho_fonte` literal, com no máximo 1 nova tentativa |
 | `src/classify.py` | Interface única que devolve sentimento e probabilidade. O Jev é `NotImplementedError` e o LLM é o caminho normal |
-| `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo (`REGRA_V1`) |
+| `src/strategy.py` | `decidir`: COMPRA, VENDA ou MANTER, com motivo e critérios conferidos (`REGRA_V2`) |
 | `src/baselines.py` | Baseline 1 (qualquer notícia positiva) e baseline 2 (sorteio com 1000 simulações e semente fixa) |
 | `src/backtest.py` | Execução no próximo pregão, simulação com exposição, preços do yfinance com cache e SHA-256, métricas, `CRITERIO_V2`, aviso de contaminação e travas de período |
 | `src/estatistica.py` | Teste t, teste de Welch (distribuição t sem dependências externas), tabela de calibração e escore de Brier |
@@ -211,13 +211,32 @@ coletar (news.py) → arquivar (archive.py) → extrair + validar trecho (extrac
 | `src/auditoria.py` | Log append-only `data/operacoes.jsonl` |
 | `src/main.py` | Pipeline retomável. Cada etapa grava em `data/execucoes/AAAA-MM-DD/` |
 
-### Regra de decisão (`REGRA_V1`)
+### Regra de decisão (`REGRA_V2`)
 
 | Situação | Decisão |
 |---|---|
-| Evento confirmado, positivo, probabilidade **> 0,7**, sem evento negativo do mesmo ticker nos 5 dias anteriores | COMPRA de até 20% do patrimônio |
-| Evento confirmado, negativo, probabilidade **> 0,7**, sem evento positivo do mesmo ticker nos 5 dias anteriores | VENDA (zera a posição, se houver) |
-| Sem classificação, não confirmado, neutro, probabilidade ≤ 0,7 ou evento oposto recente | MANTER |
+| Fato sobre a empresa (não só a cotação), confirmado, positivo, probabilidade **> 0,7**, sem **fato** negativo confirmado do mesmo ticker nos 5 dias anteriores | COMPRA de até 20% do patrimônio |
+| Fato sobre a empresa, confirmado, negativo, probabilidade **> 0,7**, sem fato positivo confirmado do mesmo ticker nos 5 dias anteriores | VENDA (zera a posição, se houver) |
+| Sem classificação, só a variação da cotação, não confirmado, neutro, probabilidade ≤ 0,7 ou fato oposto recente | MANTER |
+
+Cada decisão grava a lista de critérios conferidos (`criterios`: cada condição com ✓/✗ e o valor que decidiu). É a justificativa passo a passo que aparece na interface (Carteira › Extrato, Decisões, Análises do dia) e no log de auditoria, junto com a explicação da IA (`PROMPT_EXPLICACAO_V2`, que recebe esses critérios e cita o fato da notícia).
+
+**V1 → V2 (20/10/2026, antes do congelamento; nenhum número mudou).** Nos primeiros dias reais, os 6 eventos extraídos e as 3 operações da V1 vieram de resumos de fechamento ("ações da Petrobras sobem 3%"): o sistema comprava porque o preço já tinha subido, o que é seguir tendência e não reagir à notícia, e esvaziava a hipótese do trabalho. Mudanças:
+
+1. **`PROMPT_EXTRACAO_V2`:**
+   - notícia que só relata a variação do preço vira `tipo_evento: "cotacao"`;
+   - prévias e projeções de analistas ("deve lucrar mais", "resultado sai dia 29") saem como `confirmado: false`;
+   - novos tipos `operacional` (produção, vendas, contratos) e `regulatorio`;
+   - o texto enviado ao LLM é limitado a 8.000 caracteres; o trecho continua conferido contra o texto completo.
+2. **`REGRA_V2`:**
+   - evento `cotacao` → MANTER;
+   - o filtro de evento oposto só considera **fatos confirmados**. Na V1, uma prévia de analista bloqueou a venda pelo aumento de capital do Bradesco.
+3. **Carteira e log:**
+   - a carteira simulada segue só as decisões da regra vigente, a partir do primeiro dia em que ela rodou;
+   - as decisões da V1 continuam no log de auditoria, que não é apagado, marcadas como V1;
+   - eventos extraídos com o prompt V1 ficam gravados, mas a regra V2 não decide sobre eles nem os usa como histórico.
+
+Validado com o GPT-4.1 real: os 6 resumos de fechamento saíram como `cotacao`, as prévias de balanço como não confirmadas, e fatos como a produção recorde da Petrobras e o aumento de capital do Bradesco como eventos confirmados.
 
 ### Baselines
 
@@ -281,6 +300,19 @@ Saídas em `data/` (fora do git):
 - `execucoes/AAAA-MM-DD/`: um arquivo JSON por etapa, mais `relatorio.txt` e `resumo.json`;
 - `operacoes.jsonl`: log de auditoria;
 - `precos/`: cache de preços, com `downloads.jsonl` registrando a data e o SHA-256 de cada download.
+
+### Tempo real na nuvem (recomendado)
+
+Um computador pessoal desligado ou dormindo para a coleta: em 16–20/10/2026 houve só 16 coletas em 4 dias, nenhuma em 17 e 18/10. Por isso a coleta oficial roda no **GitHub Actions** (`.github/workflows/quant.yml`), a cada 30 minutos, 24 h por dia, sem nenhum computador ligado:
+
+1. coleta os feeds, arquiva e analisa com o LLM só o que é novo;
+2. decide pela regra, registra no log e atualiza a carteira simulada;
+3. gera a vitrine e grava tudo no ramo **`dados`** do repositório (cada coleta é um commit: histórico auditável e backup);
+4. o site online lê a vitrine desse ramo (`web/.env.production`, `VITE_DADOS_URL`) e se atualiza sem ser republicado.
+
+**Para ligar (uma vez, no GitHub):** Settings › Secrets and variables › Actions › *New repository secret* `LLM_API_KEY` com a chave da OpenAI. Sem o secret, a nuvem coleta, mas não analisa. Para rodar na hora: aba Actions › *QUANT* › *Run workflow*. O GitHub pode atrasar execuções agendadas alguns minutos em horários de pico.
+
+**No computador:** com a nuvem ligada, o PC não deve coletar também, senão haveria dois conjuntos de dados. Rode `agendar.cmd -Sincronizar` (Windows) ou `bash scripts/agendar-unix.sh 30 --sincronizar` (macOS/Linux): o PC passa a só trazer os dados da nuvem para `data/` (`python -m src.sincronizar`), juntando sem perder nada local. O `QUANT.cmd`/`QUANT.sh` também sincroniza ao abrir.
 
 ### Funcionamento automático, agendamento e backup
 

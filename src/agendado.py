@@ -64,7 +64,12 @@ def _vitrine() -> None:
     logger.info("vitrine: %s", json.dumps(resumo["bases"], ensure_ascii=False))
 
 
-TAREFAS = {"pipeline": _pipeline, "coleta": _coleta, "vitrine": _vitrine}
+def _sincronizar() -> None:
+    from src import sincronizar
+    sincronizar.sincronizar()  # o resumo vai para o log
+
+
+TAREFAS = {"pipeline": _pipeline, "coleta": _coleta, "vitrine": _vitrine, "sincronizar": _sincronizar}
 
 
 def main(argv: list[str] | None = None) -> int:

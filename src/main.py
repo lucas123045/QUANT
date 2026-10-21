@@ -25,7 +25,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from src import archive, auditoria, backup, classify, config, explain, extract, llm, news
-from src.strategy import MANTER, Decisao, decidir
+from src.strategy import MANTER, VERSAO_REGRA, Decisao, decidir
 
 logger = logging.getLogger(__name__)
 
@@ -85,9 +85,14 @@ def itens_de_exemplo(agora: datetime) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def _unir_por_url(antigos: list[dict], novos: list[dict]) -> list[dict]:
-    """Acrescenta os itens de URL ainda não vista, preservando os antigos."""
+    """Acrescenta os itens de URL ainda não vista (nem entre os novos), preservando os antigos."""
     vistas = {i.get("url") for i in antigos}
-    return antigos + [i for i in novos if i.get("url") not in vistas]
+    unidos = list(antigos)
+    for item in novos:
+        if item.get("url") not in vistas:
+            vistas.add(item.get("url"))
+            unidos.append(item)
+    return unidos
 
 
 def etapa_coletar(pasta: Path, agora: datetime, teste: bool) -> list[dict]:
@@ -183,15 +188,24 @@ def etapa_classificar(pasta: Path, eventos: list[dict]) -> dict[str, dict | None
     return feitos
 
 
+def do_prompt_vigente(evento: dict) -> bool:
+    """Evento extraído com o prompt atual? Os de prompts anteriores ficam gravados para
+    auditoria, mas a regra vigente não decide sobre eles nem os usa como histórico:
+    com o PROMPT_EXTRACAO_V1, resumos de cotação saíam como "outro" e a REGRA_V2
+    os trataria como fatos."""
+    return evento.get("versao_prompt") == extract.VERSAO_PROMPT_EXTRACAO
+
+
 def carregar_historico(dir_execucoes: Path, data_atual: str) -> list[dict]:
-    """Eventos classificados de execuções ANTERIORES (para o filtro de evento recente)."""
+    """Eventos classificados de execuções ANTERIORES, do prompt vigente (filtro de evento recente)."""
     historico = []
     for pasta in sorted(p for p in dir_execucoes.glob("*") if p.is_dir() and p.name < data_atual):
         extraidos = _ler(pasta / "03_extracao.json", {})
         classificados = _ler(pasta / "04_classificacao.json", {})
         for eventos in extraidos.values():
             for evento in eventos:
-                historico.append({**evento, "classificacao": classificados.get(evento["id"])})
+                if do_prompt_vigente(evento):
+                    historico.append({**evento, "classificacao": classificados.get(evento["id"])})
     return historico
 
 
@@ -258,6 +272,8 @@ def etapa_registrar(pasta: Path, decisoes: list[dict], explicacoes: dict[str, st
             "decisao": d["decisao"],
             "motivo": d["motivo"],
             "explicacao": explicacoes.get(evento["id"], ""),
+            "versao_regra": d["versao_regra"],
+            "criterios": d.get("criterios", []),
         }, arquivo_operacoes)
         registrados.append(evento["id"])
         _gravar(caminho, registrados)
@@ -324,7 +340,8 @@ def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
     novos = etapa_arquivar(pasta, itens, dir_data / "arquivo", agora)
     a_extrair = registros_para_extrair(itens, novos, dir_data / "arquivo", dir_execucoes, data)
     extraidos = etapa_extrair(pasta, a_extrair)
-    eventos = [e for lista in extraidos.values() for e in lista]
+    # Só os eventos do prompt vigente seguem para a classificação e a regra.
+    eventos = [e for lista in extraidos.values() for e in lista if do_prompt_vigente(e)]
     classificacoes = etapa_classificar(pasta, eventos)
     for evento in eventos:
         evento["classificacao"] = classificacoes.get(evento["id"])
@@ -337,6 +354,8 @@ def _rodar(agora: datetime, teste: bool, dir_data: Path) -> dict:
 
     resumo = {
         "data": data,
+        "versao_regra": VERSAO_REGRA,
+        "versao_prompt": extract.VERSAO_PROMPT_EXTRACAO,
         "modo_teste": teste,
         "coletados": len(itens),
         "novos_arquivados": len(novos),
