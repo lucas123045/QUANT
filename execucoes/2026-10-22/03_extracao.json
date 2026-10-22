@@ -375,5 +375,388 @@
       },
       "id": "fb1608146e5c546e-4"
     }
+  ],
+  "28b591b30b5e7d46": [],
+  "e68cff3bbbbc2d51": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "XP avalia que WEG é menos beneficiada pelo atual momento do mercado brasileiro devido à sua exposição exportadora.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "No outro extremo, a XP vê exportadoras como as menos beneficiadas pelo atual momento do mercado brasileiro. A avaliação é que empresas com receitas fortemente dolarizadas tendem a sofrer em um ambiente de valorização do real e de maior otimismo em relação à economia doméstica. Por isso, WEG e Embraer aparecem entre os nomes com menor exposição positiva ao chamado “trade Brasil”.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e68cff3bbbbc2d51",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/como-capturar-tese-brasil-nas-acoes-de-bens-de-capital-xp-aponta-mais-beneficiadas/",
+        "timestamp_publicacao": "2026-10-22T15:30:00-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "e68cff3bbbbc2d51-0"
+    }
+  ],
+  "f9ccdd0f8450476e": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulga balanço do 3T26 hoje, após fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Bradesco ( BBDC4 ), que divulga balanço do 3T26 hoje, após fechamento do mercado, recua 2,03%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f9ccdd0f8450476e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-22102026/",
+        "timestamp_publicacao": "2026-10-22T15:09:36-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "f9ccdd0f8450476e-0"
+    }
+  ],
+  "3cad86019d8e78a3": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "ANM investe R$ 10,38 milhões para modernizar fiscalização e monitoramento de barragens na Bacia do Rio Doce.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Agência Nacional de Mineração (ANM) formalizou seu primeiro compromisso no âmbito do Acordo da Bacia do Rio Doce, com investimento de R$ 10,38 milhões para modernizar a fiscalização mineral, aprimorar o monitoramento de barragens e fortalecer a prevenção de desastres.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cad86019d8e78a3",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/anm-destina-r-1038-milhoes-a-modernizacao-da-fiscalizacao-de-barragens/",
+        "timestamp_publicacao": "2026-10-22T15:06:33-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "3cad86019d8e78a3-0"
+    }
+  ],
+  "8b4afb458da01e9e": [],
+  "cb9cef4b6b7ea8c3": [],
+  "3ca559acf7fdd614": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Goldman Sachs avalia que alta do diesel seria positiva para a Petrobras.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Na avaliação do banco, uma eventual alta do diesel seria claramente positiva para a Petrobras, mas teria efeitos mistos sobre o restante da cadeia de combustíveis",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3ca559acf7fdd614",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/roche-bate-previsoes-com-ajuda-do-ocrevus-e-acelera-busca-por-novos-blockbusters/",
+        "timestamp_publicacao": "2026-10-22T14:40:14-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "3ca559acf7fdd614-0"
+    }
+  ],
+  "68cd60a188e716b6": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras se beneficia da valorização do petróleo Brent, ampliando receita, margem e geração de caixa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Como o Brent é a referência usada para precificar o petróleo que a estatal extrai, cada barril produzido passa a valer mais sem que o custo de extração suba na mesma proporção, o que amplia receita, margem e geração de caixa.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68cd60a188e716b6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-nenhuma-outra-grande-petroleira-do-mundo-se-valorizou-tanto-em-outubro-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-22T16:08:52-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "68cd60a188e716b6-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "Mercado antecipa resultados fortes para a Petrobras no terceiro trimestre de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Além disso, o mercado também vem antecipando resultados fortes para a petroleira no terceiro trimestre de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68cd60a188e716b6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-nenhuma-outra-grande-petroleira-do-mundo-se-valorizou-tanto-em-outubro-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-22T16:08:52-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "68cd60a188e716b6-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Expectativa de dividendos acima do consenso para o terceiro trimestre de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Ontem (21), o BTG Pactual avaliou que as expectativas do consenso para os dividendos do período estão conservadoras, em US$ 3,2 bilhões, e que há risco de surpresa positiva: o banco projeta dividendos entre US$ 3,8 bilhões e US$ 4,2 bilhões",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68cd60a188e716b6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-nenhuma-outra-grande-petroleira-do-mundo-se-valorizou-tanto-em-outubro-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-22T16:08:52-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "68cd60a188e716b6-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "BTG cita forte crescimento de produção e preços firmes no downstream.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o BTG, que cita forte crescimento de produção, preços firmes no downstream e um plano estratégico positivo a ser anunciado em 23 de novembro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68cd60a188e716b6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-nenhuma-outra-grande-petroleira-do-mundo-se-valorizou-tanto-em-outubro-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-22T16:08:52-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "68cd60a188e716b6-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Petrobras anunciará novo plano estratégico em 23 de novembro.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "um plano estratégico positivo a ser anunciado em 23 de novembro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "68cd60a188e716b6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-nenhuma-outra-grande-petroleira-do-mundo-se-valorizou-tanto-em-outubro-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-22T16:08:52-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "68cd60a188e716b6-4"
+    }
+  ],
+  "76ed8aec525c8025": [],
+  "1dbfd599c332efb1": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "operacional",
+      "resumo": "Banco do Brasil já soma R$ 16 bilhões em operações via MP do agro e prevê superar R$ 20 bilhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Banco do Brasil ( BBAS3 ) já contabiliza R$ 16 bilhões em operações na esteira de contratação no âmbito da Medida Provisória (MP) 1.376/2026 , voltada à renegociação de dívidas rurais de produtores e cooperativas afetados por perdas de renda decorrentes de eventos climáticos ou de condições de mercado. A instituição espera superar R$ 20 bilhões em operações até o fim da vigência da medida, em 12 de novembro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1dbfd599c332efb1",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/mp-do-agro-banco-do-brasil-bbas3-ja-soma-r-16-bilhoes-e-preve-superar-r-20-bilhoes-pads/",
+        "timestamp_publicacao": "2026-10-22T15:10:10-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "1dbfd599c332efb1-0"
+    }
+  ],
+  "cd08afa0c1edb690": [],
+  "4270c45469f75679": [
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "operacional",
+      "resumo": "Goldman Sachs avalia que distribuidoras como Vibra podem ser prejudicadas por possível alta do diesel da Petrobras.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Segundo o relatório, distribuidoras como Vibra ( VBBR3 ) e Ultrapar ( UGPA3 ) poderiam ser prejudicadas, já que obtêm uma parcela relevante do diesel diretamente de refinarias locais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4270c45469f75679",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-pode-ter-subir-diesel-ate-cinquenta-porcento-goldman-sachs-quais-impactos-acoes-inflacao/",
+        "timestamp_publicacao": "2026-10-22T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "4270c45469f75679-0"
+    },
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "operacional",
+      "resumo": "Goldman Sachs avalia que distribuidoras como Ultrapar podem ser prejudicadas por possível alta do diesel da Petrobras.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Segundo o relatório, distribuidoras como Vibra ( VBBR3 ) e Ultrapar ( UGPA3 ) poderiam ser prejudicadas, já que obtêm uma parcela relevante do diesel diretamente de refinarias locais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4270c45469f75679",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-pode-ter-subir-diesel-ate-cinquenta-porcento-goldman-sachs-quais-impactos-acoes-inflacao/",
+        "timestamp_publicacao": "2026-10-22T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "4270c45469f75679-1"
+    },
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "operacional",
+      "resumo": "Goldman Sachs cita Rumo como possível beneficiária indireta de alta no preço do diesel.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O relatório também aponta que tarifas de frete rodoviário poderiam subir, beneficiando alternativas ao transporte por caminhões. Nesse contexto, a operadora ferroviária Rumo ( RAIL3 ) é citada como uma possível beneficiária indireta do cenário.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4270c45469f75679",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-pode-ter-subir-diesel-ate-cinquenta-porcento-goldman-sachs-quais-impactos-acoes-inflacao/",
+        "timestamp_publicacao": "2026-10-22T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "4270c45469f75679-2"
+    }
+  ],
+  "8fc51da1c5abc8ce": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Expectativa de lucro de R$ 7 bilhões, ROE de 15% e expansão de crédito de 10% no 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Para Bradesco, o analista tem expectativa que o lucro será de R$ 7 bilhões, ROE (retorno sobre o patrimônio líquido) de 15% e uma expansão de crédito de 10% no período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8fc51da1c5abc8ce",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-bbdc4-bbas3-cenario-para-os-bancoes-no-3t26-e-parecido-avalia-analista-mlem/",
+        "timestamp_publicacao": "2026-10-22T13:04:04-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "8fc51da1c5abc8ce-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Expectativa de lucro de R$ 12,7 bilhões e ROI de 23% no 3T26.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Na visão do analista, o Itaú (ITUB4) deve ser o grande destaque da temporada. A expectativa é sustentada pela resiliência do banco, que deve apresentar lucro de 12,7 bilhões e ROI de 23%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8fc51da1c5abc8ce",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-bbdc4-bbas3-cenario-para-os-bancoes-no-3t26-e-parecido-avalia-analista-mlem/",
+        "timestamp_publicacao": "2026-10-22T13:04:04-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "8fc51da1c5abc8ce-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Expectativa de lucro de R$ 4 bilhões e ROI entre 7% e 7,5% no 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Banco do Brasil (BBAS3) : lucro de R$ 4 bilhões e ROI entre 7% e 7,5%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8fc51da1c5abc8ce",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-bbdc4-bbas3-cenario-para-os-bancoes-no-3t26-e-parecido-avalia-analista-mlem/",
+        "timestamp_publicacao": "2026-10-22T13:04:04-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "8fc51da1c5abc8ce-2"
+    }
+  ],
+  "6c073ef01a7993fa": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradsaúde, ligada ao Bradesco, divulgou lucro líquido de R$ 1,1 bi no 3T26, alta de 14,4%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Lucro líquido do 3T26 R$ 1,1 bilhão , alta de 14,4%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c073ef01a7993fa",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradsaude-brds3-vence-teste-da-sinistralidade-e-mercado-comemora-atlantica-vira-destaque-rnda/",
+        "timestamp_publicacao": "2026-10-22T12:29:16-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "6c073ef01a7993fa-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "dividendo",
+      "resumo": "Bradsaúde anunciou R$ 1 bilhão em dividendos junto com o balanço do trimestre.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Junto com o balanço, a companhia anunciou R$ 1 bilhão em dividendos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c073ef01a7993fa",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradsaude-brds3-vence-teste-da-sinistralidade-e-mercado-comemora-atlantica-vira-destaque-rnda/",
+        "timestamp_publicacao": "2026-10-22T12:29:16-03:00",
+        "timestamp_coleta": "2026-10-22T16:19:11.665199-03:00"
+      },
+      "id": "6c073ef01a7993fa-1"
+    }
   ]
 }
