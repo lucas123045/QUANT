@@ -186,5 +186,194 @@
       },
       "id": "bf9ff1d8c1bb47ce-5"
     }
+  ],
+  "bdf6c0990daab3af": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulga balanço do terceiro trimestre após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "além do balanço do Bradesco ( BBDC4 ), que sai após o fechamento dos mercados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bdf6c0990daab3af",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-cautelas-externa-e-domestica-queda-forte-indice-22102026/",
+        "timestamp_publicacao": "2026-10-22T12:25:01-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "bdf6c0990daab3af-0"
+    }
+  ],
+  "4c312230a0957281": [],
+  "ee5b21a46a92403d": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale venceu lotes de gás natural da União em leilão realizado pela PPSA.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "CSN ( CSNA3 ), Gerdau Aços Longos, Samarco, Ternium Brasil e Vale ( VALE3 ) venceram lotes de gás natural da União ofertados no primeiro leilão do insumo realizado pela Pré-Sal Petróleo (PPSA) nesta quinta-feira",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ee5b21a46a92403d",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/csn-gerdau-vale-e-mais-empresas-arrematam-lotes-em-1o-leilao-de-gas-da-uniao/",
+        "timestamp_publicacao": "2026-10-22T12:04:07-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "ee5b21a46a92403d-0"
+    }
+  ],
+  "9a46f8a8fd250843": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Localiza (RENT3) subiram 26,37% entre 2 e 21 de outubro de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Localiza ( RENT3 ) +26,37% (de R$ 41,48 para R$ 52,42)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9a46f8a8fd250843",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mglu3-sobe-71-rali-pos-primeiro-turno-acoes/",
+        "timestamp_publicacao": "2026-10-22T11:43:51-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "9a46f8a8fd250843-0"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Lojas Renner (LREN3) subiram 25,43% entre 2 e 21 de outubro de 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Lojas Renner ( LREN3 ) +25,43% (de R$ 11,76 para R$ 14,75)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9a46f8a8fd250843",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mglu3-sobe-71-rali-pos-primeiro-turno-acoes/",
+        "timestamp_publicacao": "2026-10-22T11:43:51-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "9a46f8a8fd250843-1"
+    }
+  ],
+  "fb1608146e5c546e": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulgará seu balanço após o fechamento dos mercados.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "o Bradesco ( BBDC4 ) divulgará seu balanço após o fechamento dos mercados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fb1608146e5c546e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bradsaude-raizen-braskem-weg-e-mais-acoes-para-acompanhar-nesta-quinta/",
+        "timestamp_publicacao": "2026-10-22T08:23:09-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "fb1608146e5c546e-0"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "outro",
+      "resumo": "Itaú Unibanco substituirá o Bradesco como instituição financeira depositária das ações escriturais da Ambev.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco substituirá o Bradesco como instituição financeira depositária das ações escriturais da Ambev a partir de 23 de novembro de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fb1608146e5c546e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bradsaude-raizen-braskem-weg-e-mais-acoes-para-acompanhar-nesta-quinta/",
+        "timestamp_publicacao": "2026-10-22T08:23:09-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "fb1608146e5c546e-1"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "WEG anunciou mudanças na vice-presidência de Energia como parte de seu plano de sucessão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A WEG anunciou mudanças na vice-presidência de Energia como parte de seu plano de sucessão. João Paulo Gualberto da Silva deixará o cargo em 31 de dezembro de 2026, após 37 anos na companhia. Paulo Leonardo da Silva Sinoti, atual diretor de Soluções em Energia e Serviços, assumirá a posição em 1º de janeiro de 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fb1608146e5c546e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bradsaude-raizen-braskem-weg-e-mais-acoes-para-acompanhar-nesta-quinta/",
+        "timestamp_publicacao": "2026-10-22T08:23:09-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "fb1608146e5c546e-2"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "outro",
+      "resumo": "Canada Pension Plan Investment Board informou a venda de ações ordinárias da Equatorial, reduzindo participação para menos de 5%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Canada Pension Plan Investment Board informou a venda de ações ordinárias da Equatorial, reduzindo sua participação para menos de 5% do capital social da companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fb1608146e5c546e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bradsaude-raizen-braskem-weg-e-mais-acoes-para-acompanhar-nesta-quinta/",
+        "timestamp_publicacao": "2026-10-22T08:23:09-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "fb1608146e5c546e-3"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "resultado",
+      "resumo": "Suzano divulgará separadamente os resultados de sua divisão de Bens de Consumo a partir do 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Suzano ( SUZB3 ) passará a divulgar separadamente os resultados de sua divisão de Bens de Consumo a partir do balanço do terceiro trimestre de 2026 (3T26).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fb1608146e5c546e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bradsaude-raizen-braskem-weg-e-mais-acoes-para-acompanhar-nesta-quinta/",
+        "timestamp_publicacao": "2026-10-22T08:23:09-03:00",
+        "timestamp_coleta": "2026-10-22T12:25:41.437771-03:00"
+      },
+      "id": "fb1608146e5c546e-4"
+    }
   ]
 }

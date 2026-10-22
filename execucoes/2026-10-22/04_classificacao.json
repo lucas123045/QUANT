@@ -79,5 +79,86 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bdf6c0990daab3af-0": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio da data de divulgação do resultado, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ee5b21a46a92403d-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Aquisição de gás natural em leilão é rotina operacional sem efeito financeiro relevante para o porte da Vale.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "9a46f8a8fd250843-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de cotação passada não altera fundamentos ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "9a46f8a8fd250843-1": {
+    "sentimento": "positivo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de cotação não é fato novo ou evento operacional relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fb1608146e5c546e-0": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fb1608146e5c546e-1": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança de instituição depositária não afeta resultados ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fb1608146e5c546e-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança planejada e gradual na vice-presidência sem impacto financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fb1608146e5c546e-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança de participação acionária sem impacto operacional ou financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fb1608146e5c546e-4": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança apenas na forma de divulgação dos resultados, sem impacto financeiro direto.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }
