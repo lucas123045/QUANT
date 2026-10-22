@@ -704,3 +704,45 @@
 2026-10-22 00:05:13,468 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-10-22 00:05:13,472 INFO agendado: vitrine: {"real": {"noticias": 132, "execucoes": 1, "operacoes": 6, "simulacao": "ok"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-10-22 00:05:13,472 INFO agendado: ==== fim: vitrine (ok)
+2026-10-22 05:06:48,340 INFO agendado: ==== início: pipeline
+2026-10-22 05:06:48,971 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-10-22 05:06:49,284 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-10-22 05:06:50,663 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-10-22 05:06:51,500 INFO src.news: InfoMoney (VALE3): 1 itens novos na janela
+2026-10-22 05:06:51,771 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-10-22 05:06:52,077 INFO src.news: InfoMoney (BBDC4): 3 itens novos na janela
+2026-10-22 05:06:52,742 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-10-22 05:06:53,328 INFO src.news: Money Times (VALE3): 1 itens novos na janela
+2026-10-22 05:06:53,898 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-10-22 05:06:54,443 INFO src.news: Money Times (BBDC4): 1 itens novos na janela
+2026-10-22 05:06:54,799 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-10-22 05:06:55,392 INFO src.cvm: CVM: 0 fato(s) relevante(s) novo(s) da carteira desde 2026-10-12
+2026-10-22 05:06:55,445 INFO src.archive: Arquivados 4 novos de 32 coletados
+2026-10-22 05:06:55,451 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-10-22 05:06:55,527 INFO agendado: resumo: {"coletados": 32, "novos_arquivados": 4, "eventos_validos": 0, "operacoes": 0, "por_fonte": {"InfoMoney": 18, "Money Times": 14}, "backup": "/tmp/quant-backup/quant-dados-2026-10-22_020648.zip"}
+2026-10-22 05:06:55,527 INFO agendado: ==== fim: pipeline (ok)
+2026-10-22 05:06:55,601 INFO agendado: ==== início: vitrine
+2026-10-22 05:06:56,690 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-10-22 05:06:56,694 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-10-22 05:07:07,945 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-10-22 05:07:07,951 INFO httpx2: HTTP Request: GET http://testserver/api/congelamento "HTTP/1.1 200 OK"
+2026-10-22 05:07:15,780 INFO httpx2: HTTP Request: GET http://testserver/api/cdi "HTTP/1.1 503 Service Unavailable"
+2026-10-22 05:07:19,362 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=historico "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,815 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,825 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,837 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,841 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-22?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,846 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:21,851 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:24,073 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 503 Service Unavailable"
+2026-10-22 05:07:26,446 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:27,058 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-10-22 05:07:27,062 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:27,066 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-10-22 05:07:27,070 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:27,073 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:29,757 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:29,763 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:29,766 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-10-22 05:07:29,770 INFO agendado: vitrine: {"real": {"noticias": 136, "execucoes": 2, "operacoes": 6, "simulacao": "erro: Não foi possível montar a simulação: PrecosAlterados: ^BVSP_2026-08-22_2026-10-21.csv: o novo download difere do registrado (ajuste retroativo por proventos?). Os resultados anteriores usaram outros preços."}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-10-22 05:07:29,770 INFO agendado: ==== fim: vitrine (ok)
