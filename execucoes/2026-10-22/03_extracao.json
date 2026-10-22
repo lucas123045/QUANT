@@ -1,0 +1,190 @@
+{
+  "05ccc9f0d9eb8668": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Há expectativa pelo balanço do Bradesco, que pode influenciar o mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "além da expectativa pelo balanço do Bradesco ( BBDC4 ) , deverá indicar se o contrato encontra sustentação ou amplia a realização.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "05ccc9f0d9eb8668",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mini-indice-hoje-futuro-ibovespa-winz26-22102026/",
+        "timestamp_publicacao": "2026-10-22T07:07:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "05ccc9f0d9eb8668-0"
+    }
+  ],
+  "4dd670d8b4a243cd": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulga resultados do 3T26 nesta quinta-feira, com expectativa de lucro líquido estável e evolução operacional.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O Bradesco ( BBDC4 ) divulga seus resultados do terceiro trimestre de 2026 nesta quinta-feira (22), após o fechamento do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4dd670d8b4a243cd",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-divulga-seu-balanco-nesta-5a-a-recuperacao-continuara/",
+        "timestamp_publicacao": "2026-10-22T07:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "4dd670d8b4a243cd-0"
+    }
+  ],
+  "29de067757689ec2": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco publicará resultados do terceiro trimestre (3T26) após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "após o fechamento dos mercados de hoje, o Bradesco publica seus resultados referentes ao terceiro trimestre ( 3T26 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "29de067757689ec2",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/mercado-local-reage-a-balancos-e-nova-pesquisa-datafolha-ibovespa-em-dolar-cai-nesta-quinta-feira-22-rens/",
+        "timestamp_publicacao": "2026-10-22T07:17:43-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "29de067757689ec2-0"
+    }
+  ],
+  "bf9ff1d8c1bb47ce": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras anunciou nova descoberta de petróleo em águas ultraprofundas na costa do Amapá.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No início de outubro, a Petrobras anunciou uma nova descoberta de petróleo em águas ultraprofundas na costa do Amapá, reforçando o potencial da Margem Equatorial após o poço de Morpho e fortalecendo a tese de reposição de reservas para o período posterior ao pico de produção do pré-sal.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras arrematou 21 blocos em leilão da ANP, desembolsando R$ 3,2 bilhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na sequência, participou do leilão de oferta permanente da ANP, arrematando 21 blocos e desembolsando R$ 3,2 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras assinou acordos de equalização das jazidas de Berbigão e Sururu, devendo receber US$ 859 milhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ainda na primeira quinzena, assinou os acordos de equalização das jazidas compartilhadas de Berbigão e Sururu, na Bacia de Santos, pelos quais deverá receber cerca de US$ 859 milhões dos sócios do consórcio BM-S-11A (Shell, TotalEnergies e Petrogal) até novembro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras recebeu novas parcelas do programa federal de subvenção, totalizando R$ 16 bilhões.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A companhia também recebeu novas parcelas do programa federal de subvenção, elevando para R$ 16 bilhões o total já obtido por meio desses programas.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-3"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "UBS BB elevou tom cauteloso sobre próximos resultados operacionais da Vale devido à produção e mercado pressionados.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Além disso, a instituição aponta preocupações com a produção da própria Vale e elevou o tom cauteloso em relação aos próximos resultados operacionais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-4"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "BTG Pactual destaca compressão de resultados da Vale por preços menores do minério e custos elevados.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "O BTG Pactual, por sua vez, tem destacado uma “compressão de resultados” para a companhia, reflexo da combinação de preços menores do minério, custos mais elevados e rentabilidade mais pressionada.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bf9ff1d8c1bb47ce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/por-que-petrobras-petr3-petr4-disparou-e-vale-vale3-ficou-para-tras-em-2026-o-que-esperar-agora/",
+        "timestamp_publicacao": "2026-10-22T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-22T07:21:51.556482-03:00"
+      },
+      "id": "bf9ff1d8c1bb47ce-5"
+    }
+  ]
+}

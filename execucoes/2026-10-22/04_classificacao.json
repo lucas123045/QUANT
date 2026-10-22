@@ -1,0 +1,83 @@
+{
+  "05ccc9f0d9eb8668-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas expectativa pelo balanço, sem divulgação de resultado ou impacto concreto.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "4dd670d8b4a243cd-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultados, sem efeito financeiro mensurável.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "29de067757689ec2-0": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultados, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Descoberta reforça reposição de reservas, mas sem impacto financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Aquisição relevante de ativos, mas sem impacto imediato no resultado ou caixa proporcional ao tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Recebimento de US$ 859 milhões tem efeito financeiro concreto, mas é pequeno em relação ao tamanho da Petrobras.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Recebimento de R$ 16 bilhões impacta significativamente o caixa e o resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-4": {
+    "sentimento": "negativo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sobre resultados futuros, sem confirmação ou novidade concreta.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bf9ff1d8c1bb47ce-5": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Comentário de analista sugere impacto financeiro concreto, mas não é fato novo confirmado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}
