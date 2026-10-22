@@ -672,5 +672,70 @@
       },
       "id": "71e2dce500bfc99a-1"
     }
-  ]
+  ],
+  "f83267f809aa7824": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaú participa do desenvolvimento da função de parcelamento de refeições no Colibri Pay.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O desenvolvimento é feito com o Itaú.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f83267f809aa7824",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/business/startups-colibri-faz-novas-aquisicoes-e-amplia-ecossistema-para-restaurantes/",
+        "timestamp_publicacao": "2026-10-21T19:19:10-03:00",
+        "timestamp_coleta": "2026-10-21T21:04:15.894275-03:00"
+      },
+      "id": "f83267f809aa7824-0"
+    }
+  ],
+  "99c2ff2031a0910f": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Opções de PETR4 apresentam alta volatilidade implícita antes do segundo turno eleitoral.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Nas opções mensais que atravessam a votação, a volatilidade implícita está perto de 44% a 46% para BOVA11 , de 46% a 48% para Petrobras ( PETR4 ) e de 67% a 69% no caso de Banco do Brasil ( BBAS3 ) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "99c2ff2031a0910f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-bbas3-petr4-bova11-risco-segundo-turno/",
+        "timestamp_publicacao": "2026-10-21T19:14:59-03:00",
+        "timestamp_coleta": "2026-10-21T21:04:15.894275-03:00"
+      },
+      "id": "99c2ff2031a0910f-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Opções de BBAS3 têm volatilidade implícita mais alta entre os ativos analisados antes do segundo turno.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Nas opções mensais que atravessam a votação, a volatilidade implícita está perto de 44% a 46% para BOVA11 , de 46% a 48% para Petrobras ( PETR4 ) e de 67% a 69% no caso de Banco do Brasil ( BBAS3 ) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "99c2ff2031a0910f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-bbas3-petr4-bova11-risco-segundo-turno/",
+        "timestamp_publicacao": "2026-10-21T19:14:59-03:00",
+        "timestamp_coleta": "2026-10-21T21:04:15.894275-03:00"
+      },
+      "id": "99c2ff2031a0910f-1"
+    }
+  ],
+  "f28f13430f5a17a1": []
 }
