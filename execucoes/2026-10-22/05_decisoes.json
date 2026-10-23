@@ -4523,5 +4523,245 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto discute volatilidade e movimentos recentes das ações do Banco do Brasil antes das eleições.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Depois da votação, boa parte desse prêmio desapareceu: a volatilidade implícita caiu para cerca de 25%-26% no BOVA11 , 34%-36% em Petrobras e 40%-42% em BBAS3 .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c05eb0ef7a4c75f4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-eleicao-carregar-acoes-ate-segunda/",
+        "timestamp_publicacao": "2026-10-22T19:54:22-03:00",
+        "timestamp_coleta": "2026-10-22T22:04:44.038114-03:00"
+      },
+      "id": "c05eb0ef7a4c75f4-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Discussão sobre volatilidade não altera fundamentos ou resultados da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Discussão sobre volatilidade não altera fundamentos ou resultados da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "B3SA3",
+      "tipo_evento": "cotacao",
+      "resumo": "B3 é citada como uma das ações sensíveis ao cenário eleitoral e à volatilidade do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Essa discussão é particularmente relevante para ações que estiveram no centro do movimento entre os turnos. Banco do Brasil ( BBAS3 ), B3 ( B3SA3 ), Cyrela ( CYRE3 ), varejistas e outras empresas sensíveis aos juros aparecem entre os exemplos citados pelas fontes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c05eb0ef7a4c75f4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-eleicao-carregar-acoes-ate-segunda/",
+        "timestamp_publicacao": "2026-10-22T19:54:22-03:00",
+        "timestamp_coleta": "2026-10-22T22:04:44.038114-03:00"
+      },
+      "id": "c05eb0ef7a4c75f4-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Citação genérica sobre sensibilidade ao cenário, sem fato novo ou impacto financeiro direto.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "B3SA3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Citação genérica sobre sensibilidade ao cenário, sem fato novo ou impacto financeiro direto."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Petrobras é citada em relação à volatilidade das opções antes e depois das eleições.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Antes do primeiro turno, levantamento do InfoMoney mostrou que as opções próximas do preço do ativo carregavam volatilidade implícita — medida da oscilação esperada embutida nos contratos — de aproximadamente 39% no BOVA11 , 47% em Petrobras e 66% em Banco do Brasil .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c05eb0ef7a4c75f4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-eleicao-carregar-acoes-ate-segunda/",
+        "timestamp_publicacao": "2026-10-22T19:54:22-03:00",
+        "timestamp_coleta": "2026-10-22T22:04:44.038114-03:00"
+      },
+      "id": "c05eb0ef7a4c75f4-2",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Citação sobre volatilidade não altera fundamentos ou resultados da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 23/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Citação sobre volatilidade não altera fundamentos ou resultados da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]
