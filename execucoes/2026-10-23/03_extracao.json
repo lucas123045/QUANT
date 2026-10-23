@@ -1,0 +1,232 @@
+{
+  "9b7b38aeb3a7c479": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "S&P reafirma rating BBB da Gerdau e eleva perspectiva de estável para positiva.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau (GGBR4) informou na noite de quinta-feira (22) que a S&P Global Ratings reafirmou as notas de crédito (rating) ‘BBB’ da companhia e revisou a perspectiva de estável para positiva.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9b7b38aeb3a7c479",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-sp-eleva-perspectiva-para-positiva-e-mantem-rating-bbb-veja-o-que-motivou-a-decisao-lmrs/",
+        "timestamp_publicacao": "2026-10-23T08:21:35-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "9b7b38aeb3a7c479-0"
+    }
+  ],
+  "3cacf1c1313a43f0": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Em 2010, megacapitalização da Petrobras aumentou número de ações e valor de mercado subiu 9,6%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "em 2010, ano marcado pela megacapitalização da Petrobras, as ações caíram 23%, mesmo com expansão de 9,6% do valor de mercado da estatal",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cacf1c1313a43f0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/como-a-petrobras-se-comporta-em-anos-eleitorais-veja-desempenho-nas-ultimas-eleicoes/",
+        "timestamp_publicacao": "2026-10-23T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "3cacf1c1313a43f0-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Em 2014, efeitos da Operação Lava Jato e colapso dos preços do petróleo impactaram negativamente a Petrobras.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "em 2014, na reeleição de Dilma, o desempenho foi o pior da série analisada: PETR4 acumulou queda de 37,6%, enquanto o valor de mercado encolheu 40,6%, em meio aos efeitos da Operação Lava Jato e ao colapso dos preços do petróleo, que recuaram 43,7% no período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cacf1c1313a43f0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/como-a-petrobras-se-comporta-em-anos-eleitorais-veja-desempenho-nas-ultimas-eleicoes/",
+        "timestamp_publicacao": "2026-10-23T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "3cacf1c1313a43f0-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Em 2022, mudanças frequentes no comando da Petrobras ocorreram durante o ano eleitoral.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "em 2022, quando Lula retornou à Presidência, PETR4 registrou valorização de 47,2%, embora o valor de mercado tenha recuado 10,8% em um contexto de mudanças frequentes no comando da companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3cacf1c1313a43f0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/como-a-petrobras-se-comporta-em-anos-eleitorais-veja-desempenho-nas-ultimas-eleicoes/",
+        "timestamp_publicacao": "2026-10-23T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "3cacf1c1313a43f0-2"
+    }
+  ],
+  "b5a0ac207f8d32ef": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco reportou lucro recorrente de R$ 7,1 bilhões no 3T26, alta de 15% anual, em linha com expectativas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco ( BBDC4 ) inaugurou a temporada de balanços do terceiro trimestre de 2026 (3T26) dos bancões encerrando o período com lucro recorrente de R$ 7,1 bilhões , alta de cerca de 15% na comparação anual e resultado praticamente em linha com as expectativas do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b5a0ac207f8d32ef",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-11-altas-seguidas-no-lucro-mas-inadimplencia-preocupa-mercado-3t26-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-23T08:37:43-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "b5a0ac207f8d32ef-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Bradesco manteve seu guidance para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O banco também manteve seu guidance para 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b5a0ac207f8d32ef",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-11-altas-seguidas-no-lucro-mas-inadimplencia-preocupa-mercado-3t26-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-23T08:37:43-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "b5a0ac207f8d32ef-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Bradesco avançou em transformação operacional, racionalizando rede física e focando na digitalização.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O banco segue avançando em seu processo de transformação operacional, com racionalização da rede física e foco na digitalização.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b5a0ac207f8d32ef",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-11-altas-seguidas-no-lucro-mas-inadimplencia-preocupa-mercado-3t26-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-23T08:37:43-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "b5a0ac207f8d32ef-2"
+    }
+  ],
+  "74ffaede227c3243": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco lucrou R$ 7,1 bilhões no 3T26, alta de 14,6% anual e em linha com o esperado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco ( BBDC4 ) divulgou seus resultados do terceiro trimestre de 2026 (3T26) com lucro líquido recorrente de R$ 7,1 bilhões no período. O valor ficou 0,8% superior ao observado no último trimestre, subiu 14,6% na comparação anual e em linha com o esperado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "74ffaede227c3243",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-gerdau-enjoei-fleury-americanas-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-23T08:00:02-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "74ffaede227c3243-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco aprovou recompra de até 53,4 milhões de ações ordinárias e 53,1 milhões preferenciais em 18 meses.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O banco anunciou nesta quinta-feira que seu conselho ‌de administração aprovou a recompra de cerca de 3,55% ⁠das ‌ações ordinárias ⁠e aproximadamente 1% dos papeis preferenciais em circulação, em um ​programa que terá duração de ​18 meses. O banco afirmou que vai ‌recomprar ​até 53.413.506 ações ordinárias e até 53.171.375 ⁠papeis ​preferenciais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "74ffaede227c3243",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-gerdau-enjoei-fleury-americanas-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-23T08:00:02-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "74ffaede227c3243-1"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "S&P revisou perspectiva de rating da Gerdau de estável para positiva.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau ( GGBR4 ) informou que a agência internacional de classificação de risco S&P Global Ratings reafirmou os ratings de crédito da companhia e revisou sua perspectiva de estável para positiva.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "74ffaede227c3243",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-gerdau-enjoei-fleury-americanas-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-23T08:00:02-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "74ffaede227c3243-2"
+    }
+  ],
+  "b97ce182ce3a26c9": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Conselho de administração aprovou programa de recompra de ações preferenciais por 18 meses.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "conselho ‌de administração aprovou a recompra de cerca de 3,55% ⁠das ‌ações ordinárias ⁠e aproximadamente 1% dos papeis preferenciais em circulação, em um ​programa que terá duração de ​18 meses, segundo fato relevante.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b97ce182ce3a26c9",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc3-bbdc4-aprova-recompra-de-acoes/",
+        "timestamp_publicacao": "2026-10-23T07:00:37-03:00",
+        "timestamp_coleta": "2026-10-23T08:52:58.389232-03:00"
+      },
+      "id": "b97ce182ce3a26c9-0"
+    }
+  ]
+}
