@@ -2548,5 +2548,575 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Governo pode manter subsídios aos combustíveis em 2027 se petróleo seguir caro.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O governo de Luiz Inácio Lula da Silva (PT) poderá manter os subsídios aos combustíveis em 2027 caso o petróleo continue em patamar elevado e a União registre receitas adicionais com o setor.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c260861d8ffa3dd",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/subsidios-aos-combustiveis-podem-seguir-em-2027-se-petroleo-continuar-caro-diz-durigan-jcav/",
+        "timestamp_publicacao": "2026-10-23T16:04:54-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "6c260861d8ffa3dd-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.9,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Possibilidade futura e incerta, sem decisão tomada ou impacto financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Possibilidade futura e incerta, sem decisão tomada ou impacto financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Governo ampliou medidas de alívio aos combustíveis em outubro, com impacto de R$ 5,2 bilhões em 30 dias.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O pacote teve impacto estimado de R$ 5,2 bilhões em 30 dias, considerando benefícios para gasolina, etanol e diesel importado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c260861d8ffa3dd",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/subsidios-aos-combustiveis-podem-seguir-em-2027-se-petroleo-continuar-caro-diz-durigan-jcav/",
+        "timestamp_publicacao": "2026-10-23T16:04:54-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "6c260861d8ffa3dd-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Medida regulatória com impacto financeiro relevante no setor, mas efeito direto incerto sobre a Petrobras.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Medida regulatória com impacto financeiro relevante no setor, mas efeito direto incerto sobre a Petrobras."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Governo pode manter imposto sobre exportação de petróleo no próximo ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Durigan também não descartou manter o imposto sobre a exportação de petróleo no próximo ano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6c260861d8ffa3dd",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/subsidios-aos-combustiveis-podem-seguir-em-2027-se-petroleo-continuar-caro-diz-durigan-jcav/",
+        "timestamp_publicacao": "2026-10-23T16:04:54-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "6c260861d8ffa3dd-2",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.9,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas possibilidade mencionada, sem confirmação ou efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas possibilidade mencionada, sem confirmação ou efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale concluiu descaracterização da barragem B7A em Nova Lima, não havendo mais barragens em nível de emergência no município.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale (VALE3) informou que não possui mais barragens em nível de emergência em Nova Lima (MG) após a Agência Nacional de Mineração (ANM) encerrar, neste mês de outubro, o nível de emergência da estrutura B7A, na Mina de Águas Claras (MAC). A medida foi tomada após a conclusão das obras de descaracterização da barragem, finalizadas em junho.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b01ed13a0f410cc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-informa-que-nao-tem-mais-barragens-em-nivel-de-emergencia-em-nova-lima-mg-ccgg/",
+        "timestamp_publicacao": "2026-10-23T16:10:32-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "2b01ed13a0f410cc-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.9,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Evento operacional esperado, sem impacto financeiro relevante imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Evento operacional esperado, sem impacto financeiro relevante imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale concluiu descaracterização da barragem 8B e do dique auxiliar da barragem 5 na Mina de Águas Claras.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No conjunto de ações na Mina de Águas Claras, a Vale também concluiu a descaracterização da barragem 8B e do dique auxiliar da barragem 5.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b01ed13a0f410cc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-informa-que-nao-tem-mais-barragens-em-nivel-de-emergencia-em-nova-lima-mg-ccgg/",
+        "timestamp_publicacao": "2026-10-23T16:10:32-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "2b01ed13a0f410cc-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Descaracterização de barragens é positiva para imagem e redução de riscos, mas sem impacto financeiro relevante imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Descaracterização de barragens é positiva para imagem e redução de riscos, mas sem impacto financeiro relevante imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Obras na barragem B6 começaram em 2023, com conclusão prevista para 2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "As obras na barragem B6 começaram neste ano e têm conclusão prevista para o segundo semestre de 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b01ed13a0f410cc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-informa-que-nao-tem-mais-barragens-em-nivel-de-emergencia-em-nova-lima-mg-ccgg/",
+        "timestamp_publicacao": "2026-10-23T16:10:32-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "2b01ed13a0f410cc-2",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Cronograma de obra já conhecido, sem impacto financeiro imediato ou novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Cronograma de obra já conhecido, sem impacto financeiro imediato ou novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale avança no projeto de Uso Futuro da Mina de Águas Claras, com conversão para conservação ambiental e lazer.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em paralelo, a companhia diz avançar no projeto de Uso Futuro da Mina de Águas Claras, com a conversão gradual da área para conservação ambiental e atividades de esporte, lazer, cultura e turismo sustentável.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2b01ed13a0f410cc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-informa-que-nao-tem-mais-barragens-em-nivel-de-emergencia-em-nova-lima-mg-ccgg/",
+        "timestamp_publicacao": "2026-10-23T16:10:32-03:00",
+        "timestamp_coleta": "2026-10-23T17:00:08.571967-03:00"
+      },
+      "id": "2b01ed13a0f410cc-3",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Projeto de uso futuro sem impacto financeiro relevante no curto prazo",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Projeto de uso futuro sem impacto financeiro relevante no curto prazo"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]

@@ -277,5 +277,68 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2b01ed13a0f410cc-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Evento operacional esperado, sem impacto financeiro relevante imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2b01ed13a0f410cc-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Descaracterização de barragens é positiva para imagem e redução de riscos, mas sem impacto financeiro relevante imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2b01ed13a0f410cc-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Cronograma de obra já conhecido, sem impacto financeiro imediato ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2b01ed13a0f410cc-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Projeto de uso futuro sem impacto financeiro relevante no curto prazo",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6c260861d8ffa3dd-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Possibilidade futura e incerta, sem decisão tomada ou impacto financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6c260861d8ffa3dd-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Medida regulatória com impacto financeiro relevante no setor, mas efeito direto incerto sobre a Petrobras.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6c260861d8ffa3dd-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas possibilidade mencionada, sem confirmação ou efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }
