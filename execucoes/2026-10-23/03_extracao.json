@@ -787,5 +787,314 @@
       },
       "id": "6c260861d8ffa3dd-2"
     }
+  ],
+  "6b444e04fb060c35": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale e Accenture elaboram estudo com 15 iniciativas para ampliar produção mineral até 2035.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O documento apresenta 15 iniciativas, distribuídas em quatro agendas estratégicas, com o objetivo de ampliar a produção mineral brasileira de R$ 300 bilhões para R$ 535 bilhões até 2035.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6b444e04fb060c35",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/o-gargalo-do-licenciamento-mineral-e-avaliacao-de-riscos-diz-ex-agu-luis-adams/",
+        "timestamp_publicacao": "2026-10-23T18:03:29-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "6b444e04fb060c35-0"
+    }
+  ],
+  "662a2bcc7f08ab4e": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulgou lucro líquido recorrente de R$ 7,1 bilhões no 3º trimestre, alta de 14,6% ano a ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "com lucro líquido recorrente de R$ 7,1 bilhões no terceiro trimestre, alta de 14,6% em relação ao mesmo período do ano passado, em linha com as previsões no mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação subiu 0,74% após reação negativa inicial ao balanço do terceiro trimestre.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "BRADESCO PN ( BBDC4 ) subiu 0,74%, após uma reação negativa inicial ao balanço do terceiro trimestre",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação subiu 0,63% acompanhando outros bancos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "ITAÚ UNIBANCO PN ( ITUB4 ) subiu 0,63%, acompanhado por BTG PACTUAL UNIT ( BPAC11 ), com elevação de 0,45%, e BANCO DO BRASIL ON ( BBAS3 ), com alta de 3,34%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-2"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação subiu 3,34% acompanhando outros bancos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "BANCO DO BRASIL ON ( BBAS3 ), com alta de 3,34%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras avalia positivamente decisão da ANP de postergar audiência pública sobre Gas Release.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na noite da véspera, a estatal disse que avalia positivamente a decisão da Agência Nacional do Petróleo (ANP) de postergar para 19 de novembro a realização da audiência pública sobre o Programa de Redução da Concentração no Mercado de Gás Natural (Gas Release).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação avançou 1,47% apoiada pelo preço do petróleo no exterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PETROBRAS PN ( PETR4 ) avançou 1,47%, apoiada pelo preço do petróleo no exterior",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-5"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação valorizou 0,67% após queda anterior, apoiada pelo avanço do minério de ferro na China.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "VALE ON ( VALE3 ) valorizou-se 0,67%, após tombo de quase 4% na véspera, em recuperação apoiada pelo avanço dos futuros do minério de ferro na China.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-6"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação recuou 1,02% em dia de alta para outras siderúrgicas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "GERDAU PN ( GGBR4 ) recuou 1,02%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "662a2bcc7f08ab4e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/calmaria-antes-da-turbulencia-por-que-ibovespa-opera-estavel-na-sessao-pre-2o-turno/",
+        "timestamp_publicacao": "2026-10-23T17:55:06-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "662a2bcc7f08ab4e-7"
+    }
+  ],
+  "3375d585d9a75d2d": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "HIX Capital destaca B3SA3 como exceção em cenário de margens pressionadas e resultados operacionais mais fracos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "com exceção de nomes do mercado de capitais como B3 ( B3SA3 ), XP e BTG Pactual ( BPAC11 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3375d585d9a75d2d",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/onde-investir/ressaca-fiscal-deve-cortar-margens-e-exigir-selecao-criteriosa-de-acoes-diz-hix/",
+        "timestamp_publicacao": "2026-10-23T17:49:38-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "3375d585d9a75d2d-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Fusão de frotas de fornecedores da Petrobras gera ganhos de escala devido à escassez mundial de barcos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "movimentos de consolidação no setor de navegação e apoio marítimo geram ganhos de escala para fornecedores da Petrobras ( PETR4 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3375d585d9a75d2d",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/onde-investir/ressaca-fiscal-deve-cortar-margens-e-exigir-selecao-criteriosa-de-acoes-diz-hix/",
+        "timestamp_publicacao": "2026-10-23T17:49:38-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "3375d585d9a75d2d-1"
+    }
+  ],
+  "aa1338752d08ee48": [],
+  "76569d1efc3f6178": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Vale sobe 0,67% acompanhando recuperação do minério de ferro na China.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale ( VALE3 ), que detém 8% de participação no índice, teve alta de 0,67% (R$ 61,90) , acompanhando a recuperação do minério de ferro na China.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76569d1efc3f6178",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T17:37:08-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "76569d1efc3f6178-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Ação do Bradesco sobe após divulgação dos resultados do terceiro trimestre.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No setor, o destaque foi Bradesco (BBDC4), suja ação registrou alta de 0,74% (R$ 20,37) após resultados do terceiro trimestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76569d1efc3f6178",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T17:37:08-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "76569d1efc3f6178-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Petrobras sobe 1,47% com cenário doméstico e alta do petróleo Brent.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "PETR4 subiu 1,47% (R$ 58,68). Petrobras, Vale e bancos correspondem a 50% da carteira do IBOV.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76569d1efc3f6178",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T17:37:08-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "76569d1efc3f6178-2"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Vibra Energia lidera queda do Ibovespa, recuando 3,19%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A ponta negativa do Ibovespa, porém, foi liderada por Vibra Energia (VBBR3) com baixa de 3,19% (R$ 35,82)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "76569d1efc3f6178",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T17:37:08-03:00",
+        "timestamp_coleta": "2026-10-23T19:56:35.644688-03:00"
+      },
+      "id": "76569d1efc3f6178-3"
+    }
   ]
 }
