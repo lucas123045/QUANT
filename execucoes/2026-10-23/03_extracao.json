@@ -228,5 +228,420 @@
       },
       "id": "b97ce182ce3a26c9-0"
     }
+  ],
+  "89e7ba2bd86378df": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "guidance",
+      "resumo": "Bradesco BBI revisa projeções de produção, preço do petróleo e dividendos para Petrobras, com cenários de manutenção ou mudança de política.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Os analistas atualizaram as premissas para refletir preços mais elevados do petróleo, projeções mais otimistas de produção e um câmbio de R$ 4,70 por dólar em um eventual cenário de mudança de políticas para a companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "89e7ba2bd86378df",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr3petr4-acoes-seguem-com-boa-relacao-risco-retorno-mesmo-apos-disparada-diz-bradesco-bbi/",
+        "timestamp_publicacao": "2026-10-23T13:00:00-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "89e7ba2bd86378df-0"
+    }
+  ],
+  "0f7be6d02e8b54cf": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações PETR4 avançam 1,64% no dia, cotadas a R$ 58,78.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO3 1,87 73,99 PETR4 1,64 58,78",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0f7be6d02e8b54cf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-23102026/",
+        "timestamp_publicacao": "2026-10-23T12:54:10-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "0f7be6d02e8b54cf-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações de Petrobras reduzem ganhos; PETR4 avança 1,90%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Ações de Petrobras reduzem ganhos; PETR3 sobe 1,13% e PETR4 avança 1,90%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0f7be6d02e8b54cf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-23102026/",
+        "timestamp_publicacao": "2026-10-23T12:54:10-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "0f7be6d02e8b54cf-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações de Vale (VALE3) sobem 0,52%, a R$ 61,81.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Ações de Vale (VALE3) sobem 0,52%, a R$ 61,81",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0f7be6d02e8b54cf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-23102026/",
+        "timestamp_publicacao": "2026-10-23T12:54:10-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "0f7be6d02e8b54cf-2"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações PRIO3 sobem 1,87% no dia, cotadas a R$ 73,99.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PRIO3 1,87 73,99",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0f7be6d02e8b54cf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-23102026/",
+        "timestamp_publicacao": "2026-10-23T12:54:10-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "0f7be6d02e8b54cf-3"
+    }
+  ],
+  "16b988dd744ba939": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "PETR4 subia 2,46% no pregão antes do segundo turno das eleições.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PETR4 subia 2,46% , PETR3 avançava 1,78% e VALE3 ganhava cerca de 0,55% , enquanto BBDC4 recuava perto de 2% .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "16b988dd744ba939",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-apos-segundo-turno-230-mil-200-mil/",
+        "timestamp_publicacao": "2026-10-23T12:37:06-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "16b988dd744ba939-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "VALE3 ganhava cerca de 0,55% no pregão antes do segundo turno das eleições.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PETR4 subia 2,46% , PETR3 avançava 1,78% e VALE3 ganhava cerca de 0,55% , enquanto BBDC4 recuava perto de 2% .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "16b988dd744ba939",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-apos-segundo-turno-230-mil-200-mil/",
+        "timestamp_publicacao": "2026-10-23T12:37:06-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "16b988dd744ba939-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "BBDC4 recuava perto de 2% no pregão antes do segundo turno das eleições.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "PETR4 subia 2,46% , PETR3 avançava 1,78% e VALE3 ganhava cerca de 0,55% , enquanto BBDC4 recuava perto de 2% .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "16b988dd744ba939",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-apos-segundo-turno-230-mil-200-mil/",
+        "timestamp_publicacao": "2026-10-23T12:37:06-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "16b988dd744ba939-2"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "operacional",
+      "resumo": "Demanda por hedge via opções de venda na B3 cresceu mais de 90% após o primeiro turno.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Na B3, a demanda por hedge via opções de venda também cresceu mais de 90% entre o primeiro pregão após o primeiro turno e 20 de outubro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "16b988dd744ba939",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-apos-segundo-turno-230-mil-200-mil/",
+        "timestamp_publicacao": "2026-10-23T12:37:06-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "16b988dd744ba939-3"
+    }
+  ],
+  "5e0ff42e6a0baf5d": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulgou resultado do 3º trimestre de 2026, com lucro recorrente de R$ 7,1 bilhões e ROE de 15,6%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Divulgado na noite da última quinta-feira (22), o balanço do banco trouxe sinais que acenderam um alerta entre analistas, sobretudo em relação à qualidade do crédito e à sustentabilidade do ritmo de crescimento dos resultados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e0ff42e6a0baf5d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/perdeu-o-folego-bradesco-bbdc4-enfrenta-pressao-da-inadimplencia-e-ve-desafios-no-cenario-macro-ceo-conta-como-quer-driblar-bdap/",
+        "timestamp_publicacao": "2026-10-23T11:20:02-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "5e0ff42e6a0baf5d-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Carteira de crédito do Bradesco cresceu 11,1% em 12 meses, para R$ 1,15 trilhão, com avanço em pessoas jurídicas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A carteira de crédito cresceu 11,1% em 12 meses, para R$ 1,15 trilhão, com o avanço concentrado em pessoas jurídicas — justamente porque a inadimplência segue pressionada entre as pessoas físicas, cujo índice de atrasos acima de 90 dias chegou a 5,8% no trimestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e0ff42e6a0baf5d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/perdeu-o-folego-bradesco-bbdc4-enfrenta-pressao-da-inadimplencia-e-ve-desafios-no-cenario-macro-ceo-conta-como-quer-driblar-bdap/",
+        "timestamp_publicacao": "2026-10-23T11:20:02-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "5e0ff42e6a0baf5d-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Aumento da participação de operações com garantia na carteira de crédito, de 45,1% em 2019 para 61,2% em 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Essa fatia passou de 45,1% em dezembro de 2019 para 61,2% em setembro de 2026 — uma alta de 16,1 pontos percentuais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e0ff42e6a0baf5d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/perdeu-o-folego-bradesco-bbdc4-enfrenta-pressao-da-inadimplencia-e-ve-desafios-no-cenario-macro-ceo-conta-como-quer-driblar-bdap/",
+        "timestamp_publicacao": "2026-10-23T11:20:02-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "5e0ff42e6a0baf5d-2"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Crescimento de 31% no crédito desde o fim de 2023, com custo de crédito estável em termos nominais.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ele afirmou que o crédito cresceu 31% desde o fim de 2023, enquanto o custo permaneceu estável em termos nominais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e0ff42e6a0baf5d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/perdeu-o-folego-bradesco-bbdc4-enfrenta-pressao-da-inadimplencia-e-ve-desafios-no-cenario-macro-ceo-conta-como-quer-driblar-bdap/",
+        "timestamp_publicacao": "2026-10-23T11:20:02-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "5e0ff42e6a0baf5d-3"
+    }
+  ],
+  "fda22ef96c5c7690": [],
+  "d686c2d08e9ae030": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco registrou lucro líquido recorrente de R$ 7,1 bilhões no 3T26, avanço de 14,6% em relação ao ano anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco (BBDC4) registrou um lucro líquido recorrente de R$ 7,1 bilhões no terceiro trimestre de 2026 (3T26), um avanço de 14,6% em relação ao mesmo período do ano passado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d686c2d08e9ae030",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-5-coisas-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T10:15:18-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "d686c2d08e9ae030-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco anunciou renovação do programa de recompra de ações, podendo adquirir até 106,5 milhões de papéis em 18 meses.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O banco também anunciou a renovação do programa de recompra de ações . Com isso, o banco de Osasco poderá adquirir até 106,5 milhões de papéis hoje em circulação na B3, durante os próximos 18 meses.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d686c2d08e9ae030",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-5-coisas-23-10-26-lils/",
+        "timestamp_publicacao": "2026-10-23T10:15:18-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "d686c2d08e9ae030-1"
+    }
+  ],
+  "4b244d822e90a128": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulga lucro líquido recorrente de R$7,1 bilhões no 3T, alta de 14,6% em relação ao ano anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "um dia após a divulgação do balanço do terceiro trimestre, com lucro líquido recorrente de R$7,1 bilhões, alta de 14,6% em relação ao mesmo período do ano passado, em linha com as previsões no mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4b244d822e90a128",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-ve-pressao-em-inadimplencia-mas-esta-seguro-com-credito-diz-ceo/",
+        "timestamp_publicacao": "2026-10-23T10:16:25-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "4b244d822e90a128-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Bradesco registra aumento na inadimplência e custo de crédito, mas CEO afirma segurança na carteira.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Eu vejo um horizonte de maior pressão de crédito, de custo de crédito, de índices de inadimplência um pouco maiores, mas eu tenho a segurança de que a nossa carteira é uma carteira muito mais controlada do que o mercado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4b244d822e90a128",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-ve-pressao-em-inadimplencia-mas-esta-seguro-com-credito-diz-ceo/",
+        "timestamp_publicacao": "2026-10-23T10:16:25-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "4b244d822e90a128-1"
+    }
+  ],
+  "9eaa636e64a04bf9": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco registra lucro líquido recorrente de R$ 7,1 bilhões no 3T26, avanço de 14,6% em relação ao ano anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco (BBDC4) registrou um lucro líquido recorrente de R$ 7,1 bilhões no terceiro trimestre de 2026 (3T26), um avanço de 14,6% em relação ao mesmo período do ano passado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9eaa636e64a04bf9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-csn-csna3-embraer-embj3-sao-alguns-dos-destaques-desta-sexta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-23T09:21:12-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "9eaa636e64a04bf9-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco anuncia renovação do programa de recompra de ações, podendo adquirir até 106,5 milhões de papéis.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco (BBDC4) anunciou nesta quinta-feira (22) a renovação do programa de recompra de ações . Com isso, o banco de Osasco poderá adquirir até 106,5 milhões de papéis hoje em circulação na B3, durante os próximos 18 meses.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9eaa636e64a04bf9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-csn-csna3-embraer-embj3-sao-alguns-dos-destaques-desta-sexta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-23T09:21:12-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "9eaa636e64a04bf9-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Samarco, joint venture da Vale, produziu 4,3 milhões de toneladas de pelotas e finos de minério de ferro no 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora Samarco , joint venture da Vale com a BHP , produziu 4,3 milhões de toneladas de pelotas e finos de minério de ferro no terceiro trimestre deste ano, segundo prévia operacional divulgada nesta quinta-feira (22).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9eaa636e64a04bf9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-csn-csna3-embraer-embj3-sao-alguns-dos-destaques-desta-sexta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-23T09:21:12-03:00",
+        "timestamp_coleta": "2026-10-23T13:03:19.104856-03:00"
+      },
+      "id": "9eaa636e64a04bf9-2"
+    }
   ]
 }
