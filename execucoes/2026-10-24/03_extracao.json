@@ -1,3 +1,147 @@
 {
-  "72478142bf4f6120": []
+  "72478142bf4f6120": [],
+  "d687f46ecee9f416": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Crescimento na produção de cobre é central na tese da Vale, com meta de 700kt anuais até 2035.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O crescimento na produção de cobre se consolida como ponto central da tese da Vale ( VALE3 ), conforme avaliação após o Vale Base Metals Day e o Investor Tour no Canadá. Analistas da XP indicam que as reservas atuais sustentam a meta de atingir 700 quilotoneladas anuais até 2035",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d687f46ecee9f416",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/onde-investir/fiis-e-data-centers-projecoes-do-3t26-e-big-techs-veja-destaques-da-semana/",
+        "timestamp_publicacao": "2026-10-24T07:22:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "d687f46ecee9f416-0"
+    }
+  ],
+  "160e9dde930136d8": [
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "resultado",
+      "resumo": "WEG reportou lucro líquido de R$ 1,66 bi e Ebitda de R$ 2,34 bi no 3T, abaixo do esperado.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A companhia reportou lucro líquido de R$ 1,66 bilhão, um avanço de 0,9% ante o mesmo período no ano anterior. Enquanto isso, o Ebitda (métrica do mercado para avaliar a gestão de caixa de uma empresa) apresentado foi R$ 2,34 bilhões, uma alta de 3,1% na comparação anual. O mercado esperava que o lucro líquido seria R$ 1,71 bilhão e o Ebitda seria R$ 2,40 bilhões no período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-0"
+    },
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Totvs subiram 10,08% na semana, sem fato novo reportado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "TOTS3 Totvs ON 10,08%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-1"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Lojas Renner subiram 8% na semana, sem fato novo reportado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "LREN3 Lojas Renner ON 8,00%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vale caíram 6,51% na semana, sem fato novo reportado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "VALE3 Vale ON -6,51%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-3"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vibra Energia caíram 2,26% na semana, sem fato novo reportado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "VBBR3 VIBRA energia ON -2,26%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-4"
+    },
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Ultrapar caíram 2,16% na semana, sem fato novo reportado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "UGPA3 Ultrapar ON -2,16%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "160e9dde930136d8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-destaques-da-semana-43-lils-2/",
+        "timestamp_publicacao": "2026-10-24T07:20:00-03:00",
+        "timestamp_coleta": "2026-10-24T08:20:52.273870-03:00"
+      },
+      "id": "160e9dde930136d8-5"
+    }
+  ]
 }
