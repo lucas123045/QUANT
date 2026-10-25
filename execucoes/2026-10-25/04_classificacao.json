@@ -1,0 +1,38 @@
+{
+  "5691ddcd27dc87be-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Incorporação de ações altera a estrutura societária, mas não há indicação de impacto financeiro relevante imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5ad99f46f282bc98-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas uma atualização sem detalhes de impacto financeiro ou mudança relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "2fecea6a4d9e43a7-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Renovação de programa de recompra é procedimento recorrente e não implica efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a2828e2a7e7fee9b-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Renúncia de conselheira sem indicação de impacto financeiro ou estratégico relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}

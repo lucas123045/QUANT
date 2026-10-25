@@ -1,0 +1,90 @@
+{
+  "5691ddcd27dc87be": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Sabesp irá incorporar ações da EMAE; acionistas da EMAE receberão ações SBSP3 conforme relação de troca.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em 27 de outubro de 2026 , os acionistas da EMAE que detiverem ações em tal data receberão ações de emissão da SABESP, observada a relação de troca de 1,31950000000 ações ordinárias de emissão da SABESP por cada 1 (uma) ação ordinária ou preferencial de emissão da EMAE, negociadas sob o ticker SBSP3.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5691ddcd27dc87be",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1578859&numSequencia=1103565&numVersao=1",
+        "timestamp_publicacao": "2026-10-20T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-25T11:00:23.376348-03:00"
+      },
+      "id": "5691ddcd27dc87be-0"
+    }
+  ],
+  "5ad99f46f282bc98": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Cosan atualiza sobre transação envolvendo participação na Rumo.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Atualização sobre transação envolvendo participação da Rumo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5ad99f46f282bc98",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1578838&numSequencia=1103544&numVersao=1",
+        "timestamp_publicacao": "2026-10-20T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-25T11:00:23.376348-03:00"
+      },
+      "id": "5ad99f46f282bc98-0"
+    }
+  ],
+  "2fecea6a4d9e43a7": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Bradesco renova programa de recompra de ações de própria emissão.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Renovação do Programa de Recompra de Ações de própria emissão",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2fecea6a4d9e43a7",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1579530&numSequencia=1104236&numVersao=1",
+        "timestamp_publicacao": "2026-10-22T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-25T11:00:23.376348-03:00"
+      },
+      "id": "2fecea6a4d9e43a7-0"
+    }
+  ],
+  "a2828e2a7e7fee9b": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Renúncia de membro do Conselho de Administração e do Comitê de Transações com Partes Relacionadas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Sra. Maria Carolina Ferreira Lacerda apresentou, nesta data, sua renúncia aos cargos de membro do Conselho de Administração e de membro do Comitê de Transações com Partes Relacionadas da Companhia, com efeitos imediatos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a2828e2a7e7fee9b",
+        "tipo_fonte": "fato_relevante",
+        "fonte": "CVM (fato relevante)",
+        "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1579928&numSequencia=1104634&numVersao=1",
+        "timestamp_publicacao": "2026-10-23T23:59:00-03:00",
+        "timestamp_coleta": "2026-10-25T11:00:23.376348-03:00"
+      },
+      "id": "a2828e2a7e7fee9b-0"
+    }
+  ]
+}
