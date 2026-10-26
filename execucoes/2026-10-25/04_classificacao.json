@@ -34,5 +34,32 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8e2be063d9f0fad6-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço dos ADRs reflete impacto direto no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8e2be063d9f0fad6-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço reflete reação de mercado a evento político, sem fato novo operacional ou financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8e2be063d9f0fad6-2": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante na cotação indica impacto significativo no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

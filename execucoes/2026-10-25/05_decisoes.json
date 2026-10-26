@@ -318,5 +318,260 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs equivalentes aos papéis PETR4 caem 10,33% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os papéis PBR-A, equivalentes aos PETR4 , tinham baixa de 10,33%, a US$ 21,10.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.98,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante no preço dos ADRs reflete impacto direto no valor de mercado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante no preço dos ADRs reflete impacto direto no valor de mercado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Vale (VALE3) caem 4,19% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os ADRs da Vale ( VALE3 ; VALE) também caem 4,19%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Movimento de preço reflete reação de mercado a evento político, sem fato novo operacional ou financeiro relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Movimento de preço reflete reação de mercado a evento político, sem fato novo operacional ou financeiro relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs do Itaú (ITUB4) desabam 13,65% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "enquanto Itaú ( ITUB3 ; ITUB4 ; ITUB) desabam 13,65%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-2",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 1.0,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante na cotação indica impacto significativo no valor de mercado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ITUB4",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 26/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante na cotação indica impacto significativo no valor de mercado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 1,00"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
   }
 ]

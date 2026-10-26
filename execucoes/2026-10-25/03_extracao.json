@@ -86,5 +86,67 @@
       },
       "id": "a2828e2a7e7fee9b-0"
     }
+  ],
+  "8e2be063d9f0fad6": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs equivalentes aos papéis PETR4 caem 10,33% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os papéis PBR-A, equivalentes aos PETR4 , tinham baixa de 10,33%, a US$ 21,10.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Vale (VALE3) caem 4,19% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os ADRs da Vale ( VALE3 ; VALE) também caem 4,19%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs do Itaú (ITUB4) desabam 13,65% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "enquanto Itaú ( ITUB3 ; ITUB4 ; ITUB) desabam 13,65%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8e2be063d9f0fad6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-do-brasil-no-exterior-ewz-cai-quase-20-no-aftermarket-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-25T21:20:27-03:00",
+        "timestamp_coleta": "2026-10-25T21:30:38.473558-03:00"
+      },
+      "id": "8e2be063d9f0fad6-2"
+    }
   ]
 }
