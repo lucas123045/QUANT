@@ -600,5 +600,651 @@
       },
       "id": "ed2d8b0bb54d4e2c-2"
     }
+  ],
+  "025c1970541e2d28": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "operacional",
+      "resumo": "B3 acionou mecanismo de circuit breaker após forte queda do Ibovespa com reeleição de Lula.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "B3 acionou mecanismo de circuit breaker pela primeira vez desde março de 2020, durante a pandemia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "025c1970541e2d28",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-170-mil-pontos-e-o-piso-o-que-esperar-para-indice-apos-forte-queda-com-vitoria-de-lula/",
+        "timestamp_publicacao": "2026-10-26T14:32:37-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "025c1970541e2d28-0"
+    }
+  ],
+  "00f49587452aa157": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "Citi inclui Gerdau entre as 10 ações para navegar novo cenário político e econômico.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre as principais apostas do banco estão 10 papéis: BTG Pactual ( BPAC11 ), Caixa Seguridade ( CXSE3 ), Copel ( CPLE3 ), Cury ( CURY3 ), Embraer ( EMBJ3 ), Gerdau ( GGBR4 ), BradSaúde ( SAUD3 ), Ultrapar ( UGPA3 ), WEG ( WEGE3 ) e Axia Energia ( AXIA3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "00f49587452aa157",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/pressao-na-bolsa-eleicoes-deve-continuar-mas-citi-aponta-10-acoes-para-navegar-novo-cenario/",
+        "timestamp_publicacao": "2026-10-26T13:59:37-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "00f49587452aa157-0"
+    },
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "outro",
+      "resumo": "Citi inclui Ultrapar entre as 10 ações para navegar novo cenário político e econômico.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre as principais apostas do banco estão 10 papéis: BTG Pactual ( BPAC11 ), Caixa Seguridade ( CXSE3 ), Copel ( CPLE3 ), Cury ( CURY3 ), Embraer ( EMBJ3 ), Gerdau ( GGBR4 ), BradSaúde ( SAUD3 ), Ultrapar ( UGPA3 ), WEG ( WEGE3 ) e Axia Energia ( AXIA3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "00f49587452aa157",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/pressao-na-bolsa-eleicoes-deve-continuar-mas-citi-aponta-10-acoes-para-navegar-novo-cenario/",
+        "timestamp_publicacao": "2026-10-26T13:59:37-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "00f49587452aa157-1"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "outro",
+      "resumo": "Citi inclui WEG entre as 10 ações para navegar novo cenário político e econômico.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre as principais apostas do banco estão 10 papéis: BTG Pactual ( BPAC11 ), Caixa Seguridade ( CXSE3 ), Copel ( CPLE3 ), Cury ( CURY3 ), Embraer ( EMBJ3 ), Gerdau ( GGBR4 ), BradSaúde ( SAUD3 ), Ultrapar ( UGPA3 ), WEG ( WEGE3 ) e Axia Energia ( AXIA3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "00f49587452aa157",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/pressao-na-bolsa-eleicoes-deve-continuar-mas-citi-aponta-10-acoes-para-navegar-novo-cenario/",
+        "timestamp_publicacao": "2026-10-26T13:59:37-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "00f49587452aa157-2"
+    }
+  ],
+  "e9fdff3db6f4d164": [
+    {
+      "ticker": "RENT3",
+      "tipo_evento": "operacional",
+      "resumo": "Juros elevados podem pressionar resultados e dificultar operações e crescimento da Localiza.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "De outro, juros elevados por mais tempo podem pressionar seus resultados e justificar parte da desvalorização.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e9fdff3db6f4d164",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bolsa-em-liquidacao-no-panico-nao-e-tao-obvio-que-caiu-comprou-avalia-fundador-do-market-makers/",
+        "timestamp_publicacao": "2026-10-26T14:15:17-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e9fdff3db6f4d164-0"
+    }
+  ],
+  "6234894c3295ad34": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras caem cerca de 10% após reeleição de Lula, segundo CEO movimento é especulativo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Petrobras negociadas na B3 caíam cerca de 10% nesta segunda-feira após o presidente Lula derrotar o senador Flávio Bolsonaro no segundo turno das eleições de domingo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6234894c3295ad34",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ceo-da-petrobras-petr4-ve-queda-das-acoes-apos-vitoria-de-lula-como-especulativa/",
+        "timestamp_publicacao": "2026-10-26T12:35:09-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "6234894c3295ad34-0"
+    }
+  ],
+  "1f673c0d591630a8": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras caem 10% após vitória de Lula sobre Flávio Bolsonaro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Petrobras ( PETR3 , PETR4 ) registram forte queda nesta segunda-feira (26), após Luiz Inácio Lula da Silva (PT) vencer Flávio Bolsonaro na disputa do segundo turno presidencial, realizada no domingo (25). Às 11h03 (horário de Brasília), PETR3 tinha queda de 8,75% (R$ 59,53), enquanto a PETR4 perdia 10,31%, a R$ 52,64.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1f673c0d591630a8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-cai-10-apos-vitoria-de-lula-sobre-flavio-bolsonaro/",
+        "timestamp_publicacao": "2026-10-26T11:05:32-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "1f673c0d591630a8-0"
+    }
+  ],
+  "bbda28fa78f91987": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Analistas destacam bom desempenho operacional e produção acima das expectativas na Petrobras.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Mantemos também uma visão positiva para a Petrobras, apoiada pelo bom desempenho operacional, pela produção acima das expectativas e pela possibilidade de spreads de refino mais elevados em 2027 sustentarem novas revisões de resultados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bbda28fa78f91987",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr4-bradesco-bbi-corta-preco-alvo-mas-mantem-compra-para-acoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-26T08:59:06-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "bbda28fa78f91987-0"
+    }
+  ],
+  "347a582b90252673": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Resolução do acordo envolvendo Mariana elimina incerteza relevante para a Vale.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a resolução do acordo envolvendo Mariana eliminou uma das principais incertezas que pesavam sobre a companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "347a582b90252673",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-desempenho-eleicoes-segundo-turno-262102026/",
+        "timestamp_publicacao": "2026-10-26T12:58:22-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "347a582b90252673-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Negócios seguem apoiados por produção consistente e redução de custos, segundo JPMorgan.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "os negócios seguem apoiados por produção consistente e redução de custos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "347a582b90252673",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-desempenho-eleicoes-segundo-turno-262102026/",
+        "timestamp_publicacao": "2026-10-26T12:58:22-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "347a582b90252673-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Preços do minério de ferro recuam para perto de US$ 90 por tonelada devido a desequilíbrio entre oferta e demanda.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "os preços do minério de ferro recuaram para perto de US$ 90 por tonelada em meio ao desequilíbrio entre oferta e demanda",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "347a582b90252673",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-desempenho-eleicoes-segundo-turno-262102026/",
+        "timestamp_publicacao": "2026-10-26T12:58:22-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "347a582b90252673-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Mercado global entra em fase de excesso de oferta, com aumento da produção e demanda fraca por aço.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o mercado global está entrando em uma fase de excesso de oferta, impulsionada pelo aumento da produção de grandes mineradoras e pelo avanço do projeto Simandou, na Guiné, enquanto a demanda global por aço segue fraca",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "347a582b90252673",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-desempenho-eleicoes-segundo-turno-262102026/",
+        "timestamp_publicacao": "2026-10-26T12:58:22-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "347a582b90252673-3"
+    }
+  ],
+  "21e26737cc28a7d2": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Suzano sobem 8,82% após eleições presidenciais e alta do dólar.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Suzano, maior produtora mundial de celulose de eucalipto, liderava os ganhos do índice, com valorização de 8,82%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "21e26737cc28a7d2",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/suzano-embraer-e-mais-quais-acoes-sobem-apos-as-eleicoes-presidenciais-vitoria-lula/",
+        "timestamp_publicacao": "2026-10-26T12:07:31-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "21e26737cc28a7d2-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vale sobem 5,78% após eleições presidenciais e alta do dólar.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Já a gigante da mineração, Vale subia 5,78%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "21e26737cc28a7d2",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/suzano-embraer-e-mais-quais-acoes-sobem-apos-as-eleicoes-presidenciais-vitoria-lula/",
+        "timestamp_publicacao": "2026-10-26T12:07:31-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "21e26737cc28a7d2-1"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da WEG sobem 6,72% após eleições presidenciais e alta do dólar.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Também está no azul a fabricante de motores elétricos WEG ( WEGE3 ), com alta de 6,72%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "21e26737cc28a7d2",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/suzano-embraer-e-mais-quais-acoes-sobem-apos-as-eleicoes-presidenciais-vitoria-lula/",
+        "timestamp_publicacao": "2026-10-26T12:07:31-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "21e26737cc28a7d2-2"
+    }
+  ],
+  "0018cef6eccdb94c": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale concluiu descaracterização da barragem B7A em Nova Lima; não há mais barragens em nível de emergência na cidade.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale ( VALE3 ) não tem mais nenhuma barragem em nível de emergência em Nova Lima (MG). O resultado foi alcançado com o encerramento, pela Agência Nacional de Mineração (ANM), do nível de emergência da B7A, na Mina de Águas Claras (MAC), neste mês de outubro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0018cef6eccdb94c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-nova-lima-nao-tem-mais-barragens-da-mineradora-em-nivel-de-emergencia/",
+        "timestamp_publicacao": "2026-10-26T12:00:00-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "0018cef6eccdb94c-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale avança no projeto de Uso Futuro da Mina de Águas Claras, com foco em conservação ambiental e novos usos sociais.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Paralelamente, a Vale avança no projeto de Uso Futuro da MAC, com a transformação gradual da antiga área minerada em um território voltado à conservação ambiental e a novos usos de interesse da sociedade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0018cef6eccdb94c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-nova-lima-nao-tem-mais-barragens-da-mineradora-em-nivel-de-emergencia/",
+        "timestamp_publicacao": "2026-10-26T12:00:00-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "0018cef6eccdb94c-1"
+    }
+  ],
+  "e8f3f891c6a3bcc8": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Relatórios de bancos destacam Itaú como principal escolha para cenário de juros altos e crescimento lento.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "tanto JPMorgan quanto Morgan Stanley apontam o Itaú Unibanco ( ITUB4 ) como um dos nomes mais bem posicionados para atravessar um ambiente de juros altos e crescimento mais lento.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley vê espaço para desempenho relativamente melhor do Bradesco, destacando recuperação operacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Morgan Stanley também vê espaço para desempenho relativamente melhor de Bradesco ( BBDC4 ) e BTG Pactual ( BPAC11 ). O banco argumenta que o Bradesco segue avançando em seu processo de recuperação operacional, com melhora da eficiência, da composição da carteira de crédito e da rentabilidade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-1"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley aponta B3 como sensível ao cenário de juros elevados e atividade econômica fraca.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O Morgan Stanley aponta XP (XP), Nubank ( ROXO34 ) e B3 ( B3SA3 ) podendo sofrer com a revisão das expectativas para a política monetária e para a atividade econômica.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-2"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca SUZB3 como aposta para superar o mercado brasileiro após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-3"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca VALE3 como aposta para superar o mercado brasileiro após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-4"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca GGBR4 como aposta para superar o mercado brasileiro após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e8f3f891c6a3bcc8",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancoes-viram-porto-seguro-no-setor-apos-eleicao-itau-e-bradesco-ganham-preferencia/",
+        "timestamp_publicacao": "2026-10-26T11:30:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "e8f3f891c6a3bcc8-5"
+    }
+  ],
+  "3962e538ccf3b67b": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Banco do Brasil caem mais de 30% após resultado das eleições presidenciais.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Banco do Brasil ( BBAS3 ) recuava 31,35%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Bradesco caem 24% após resultado das eleições presidenciais.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Bradesco ( BBDC4 ) perdia 24,55%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú Unibanco caem 15% após resultado das eleições presidenciais.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Itaú Unibanco ( ITUB4 ) cedia 15,63%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-2"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca Suzano como exportadora de commodities para superar mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-3"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca Vale como exportadora de commodities para superar mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-4"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca Gerdau como exportadora de commodities para superar mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3962e538ccf3b67b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bancos-desempenho-eleicoes-26102026/",
+        "timestamp_publicacao": "2026-10-26T10:56:23-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "3962e538ccf3b67b-5"
+    }
+  ],
+  "7834e632ac2821e9": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras caem cerca de 10% após vitória de Lula nas eleições.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Petrobras negociadas na B3 caíam cerca de 10% nesta segunda-feira após o presidente Lula derrotar o senador Flávio Bolsonaro no segundo turno das eleições de domingo, contrariando as pesquisas e garantindo um quarto mandato não consecutivo.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7834e632ac2821e9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/a-reacao-de-ceo-da-petrobras-petr4-apos-vitoria-de-lula-a-hora-e-de-comprar-rnda/",
+        "timestamp_publicacao": "2026-10-26T12:47:20-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "7834e632ac2821e9-0"
+    }
+  ],
+  "fac837e1c37ba8bc": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Itaú anunciou aquisição de 100% da NeoSpace, startup de IA, por R$ 2,925 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco (ITUB4) anunciou nesta segunda-feira (26) a aquisição de 100% das ações da startup brasileira de inteligência artificial (IA) NeoSpace , por R$ 2,925 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fac837e1c37ba8bc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-itub4-azul-azul3-smart-fit-smft3-e-outros-destaques-desta-segunda-feira-mlem/",
+        "timestamp_publicacao": "2026-10-26T09:07:57-03:00",
+        "timestamp_coleta": "2026-10-26T14:49:11.104463-03:00"
+      },
+      "id": "fac837e1c37ba8bc-0"
+    }
   ]
 }

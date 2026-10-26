@@ -259,5 +259,284 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "025c1970541e2d28-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Ação operacional padrão sem impacto financeiro direto para a B3.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "00f49587452aa157-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de analista não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "00f49587452aa157-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de terceiros não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "00f49587452aa157-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de terceiros sem efeito financeiro direto",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e9fdff3db6f4d164-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Comentário especulativo sobre cenário macroeconômico, sem confirmação ou efeito financeiro direto e imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6234894c3295ad34-0": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço das ações após evento político impactante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "1f673c0d591630a8-0": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço das ações após resultado eleitoral impacta diretamente o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "bbda28fa78f91987-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Produção acima das expectativas e bom desempenho operacional impactam diretamente lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "347a582b90252673-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Elimina incerteza relevante ligada ao acordo de Mariana, impactando valor e risco da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "347a582b90252673-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Comentário de terceiros sem anúncio de novos resultados ou mudanças operacionais.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "347a582b90252673-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço do minério afeta diretamente receita e lucro da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "347a582b90252673-3": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Excesso de oferta e demanda fraca podem pressionar preços do minério e receitas da Vale.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "21e26737cc28a7d2-0": {
+    "sentimento": "positivo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço reflete reação do mercado, sem anúncio de fato novo relevante pela empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "21e26737cc28a7d2-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço sem fato novo relevante, apenas reação de mercado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "21e26737cc28a7d2-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço sem fato novo relevante sobre a empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "0018cef6eccdb94c-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Evento operacional esperado, sem impacto financeiro relevante imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "0018cef6eccdb94c-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Projeto ambiental e social sem impacto financeiro relevante no curto prazo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analistas sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "e8f3f891c6a3bcc8-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-0": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda superior a 30% no preço da ação indica impacto relevante no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-1": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação após evento macroeconômico impacta diretamente o valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-2": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sem efeito financeiro mensurável ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-4": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3962e538ccf3b67b-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro concreto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "7834e632ac2821e9-0": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda de 10% nas ações reflete impacto relevante no valor de mercado da empresa após evento político significativo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fac837e1c37ba8bc-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aquisição relevante com potencial impacto no caixa e estratégia do banco.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }
