@@ -1246,5 +1246,541 @@
       },
       "id": "fac837e1c37ba8bc-0"
     }
+  ],
+  "54caa6fc7a7d193e": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley aumentou exposição à Vale em sua carteira modelo após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "o banco promoveu uma ampla rotação em sua carteira. O Morgan Stanley aumentou a exposição a empresas exportadoras e mais beneficiadas por um real potencialmente mais fraco, elevando posições em Vale ( VALE3 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-0"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "outro",
+      "resumo": "Suzano foi incluída na carteira modelo do Morgan Stanley após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Suzano foi a principal inclusão do relatório, com a empresa sendo adicionada para ampliar a exposição a companhias que geram caixa em dólar após o resultado inesperado das eleições brasileiras.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley atribui peso relevante a Petrobras em sua carteira latino-americana.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na composição atual da carteira latino-americana, o Morgan Stanley atribui peso relevante a Petrobras ( PETR4 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-2"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley atribui peso relevante ao Itaú Unibanco em sua carteira latino-americana.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na composição atual da carteira latino-americana, o Morgan Stanley atribui peso relevante a Petrobras ( PETR4 ), Itaú Unibanco ( ITUB4 ), Vale ( VALE3 ), Embraer ( EMBJ3 ), Suzano ( SUZB3 ) e JBS (BDR: JBSS32 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-3"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley reduziu posição em B3 devido cenário de juros altos e economia fraca.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os cortes estão B3 ( B3SA3 ), BTG Pactual ( BPAC11 ), XP (XP), Nubank ( ROXO34 ), Mercado Livre ( MELI34 ) e Sabesp ( SBSP3 ). O banco argumenta que um ambiente de juros “mais altos por mais tempo” e de atividade econômica mais fraca tende a dificultar o desempenho dessas companhias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-4"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley reduziu posição em Sabesp devido cenário de juros altos e economia fraca.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os cortes estão B3 ( B3SA3 ), BTG Pactual ( BPAC11 ), XP (XP), Nubank ( ROXO34 ), Mercado Livre ( MELI34 ) e Sabesp ( SBSP3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "54caa6fc7a7d193e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-rebaixa-acoes-do-brasil-apos-eleicao-e-reforca-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-26T18:48:35-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "54caa6fc7a7d193e-5"
+    }
+  ],
+  "d2e67af3d8c2e049": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau reporta lucro líquido ajustado de R$1,52 bi no 3º tri, alta anual de 39,7%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau ( GGBR4 ) anunciou ⁠nesta segunda-feira que teve lucro líquido ‌ajustado de R$1,52 bilhão no terceiro trimestre, salto de 39,7%% sobre o ‌desempenho obtido no mesmo período do ano passado, segundo balanço divulgado ao mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d2e67af3d8c2e049",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/gerdau-ggbr4-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-10-26T18:36:19-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "d2e67af3d8c2e049-0"
+    }
+  ],
+  "2ba494565555e2ae": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca SUZB3 como exportadora de commodities que pode superar o mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2ba494565555e2ae",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-tomba-15-apos-vitoria-de-lula-e-registra-uma-das-maiores-quedas-da-historia/",
+        "timestamp_publicacao": "2026-10-26T18:14:51-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "2ba494565555e2ae-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca VALE3 como exportadora de commodities que pode superar o mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2ba494565555e2ae",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-tomba-15-apos-vitoria-de-lula-e-registra-uma-das-maiores-quedas-da-historia/",
+        "timestamp_publicacao": "2026-10-26T18:14:51-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "2ba494565555e2ae-1"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan destaca GGBR4 como exportadora de commodities que pode superar o mercado após eleição.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "JPMorgan destaca SUZB3, VALE3 e GGBR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2ba494565555e2ae",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-tomba-15-apos-vitoria-de-lula-e-registra-uma-das-maiores-quedas-da-historia/",
+        "timestamp_publicacao": "2026-10-26T18:14:51-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "2ba494565555e2ae-2"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "cotacao",
+      "resumo": "B3 acionou mecanismo de circuit breaker após forte queda do Ibovespa.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "B3 acionou mecanismo de circuit breaker pela primeira vez desde março de 2020, durante a pandemia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2ba494565555e2ae",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-tomba-15-apos-vitoria-de-lula-e-registra-uma-das-maiores-quedas-da-historia/",
+        "timestamp_publicacao": "2026-10-26T18:14:51-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "2ba494565555e2ae-3"
+    }
+  ],
+  "f43e656fb1100178": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "regulatorio",
+      "resumo": "B3 ampliou limite de queda dos contratos futuros do Ibovespa para 20% após eleição.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "B3 amplia limite de queda dos contratos futuros do Ibovespa para 20% após eleição A alteração entrou em vigor às 9h30 e vale exclusivamente para a sessão regular de negociação desta segunda-feira",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f43e656fb1100178",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mglu3-ceab3-azza3-acoes-queda-varejo-eleicao-lula-26102026/",
+        "timestamp_publicacao": "2026-10-26T18:02:23-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "f43e656fb1100178-0"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Lojas Renner recuaram 33,61% após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Lojas Renner ( LREN3 ) recuou 33,61%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f43e656fb1100178",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mglu3-ceab3-azza3-acoes-queda-varejo-eleicao-lula-26102026/",
+        "timestamp_publicacao": "2026-10-26T18:02:23-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "f43e656fb1100178-1"
+    }
+  ],
+  "5e6084e6ddca5c1d": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Gerdau pagará R$ 0,34 por ação em dividendos, com crédito em 10/11/2026 e pagamento a partir de 15/12/2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau (GGBR4) anunciou nesta segunda-feira (26) a aprovação do pagamento de dividendos aos acionistas, no valor de R$ 0,34 por ação , tanto ordinária quanto preferencial.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e6084e6ddca5c1d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vai-pingar-gerdau-ggbr4-anuncia-pagamento-de-dividendos-aos-acionistas-confira-valor-e-data-apsa/",
+        "timestamp_publicacao": "2026-10-26T18:56:44-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "5e6084e6ddca5c1d-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau registrou lucro líquido ajustado de R$ 1,523 bilhão no 3T26, alta de 39,7% em relação ao ano anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "No período, a Gerdau registrou lucro líquido ajustado de R$ 1,523 bilhão, alta de 39,7% em relação ao mesmo período do ano passado e de 3,9% na comparação com o trimestre anterior.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5e6084e6ddca5c1d",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vai-pingar-gerdau-ggbr4-anuncia-pagamento-de-dividendos-aos-acionistas-confira-valor-e-data-apsa/",
+        "timestamp_publicacao": "2026-10-26T18:56:44-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "5e6084e6ddca5c1d-1"
+    }
+  ],
+  "bc57110a661e80cd": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau lucra R$ 1,52 bilhão no 3T26, alta de quase 40% anual.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau (GGBR4) encerrou o terceiro trimestre de 2026 (3T26) com lucro líquido ajustado de R$ 1,523 bilhão, alta de 39,7% em relação ao mesmo período do ano passado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bc57110a661e80cd",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-lucra-r-152-bilhao-no-3t26-avanco-de-quase-40-na-comparacao-anual-apsa/",
+        "timestamp_publicacao": "2026-10-26T18:42:27-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "bc57110a661e80cd-0"
+    }
+  ],
+  "3a47fadb70f0a5ba": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Suzano liderou alta do Ibovespa, subindo 10,08% após eleições.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Suzano (SUZB3) liderou a ponta positiva do IBOV com alta de 10,08% (R$ 47,40)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a47fadb70f0a5ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-26-10-26-lils/",
+        "timestamp_publicacao": "2026-10-26T17:32:48-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "3a47fadb70f0a5ba-0"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da WEG fechou em alta após eleições, entre as poucas altas do Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "apenas as exportadoras tiveram desempenho positivo, impulsionadas pela valorização do dólar. Apenas oito ações fecharam em alta: Suzano (SUZB3) liderou a ponta positiva do IBOV com alta de 10,08% (R$ 47,40), acompanhada de Embraer (EMBJ3), WEG (WEGE3), Vale ( VALE3 ), Klabin (KLBN11), Bradespar (BRAP4), Gerdau (GGBR4) e Metalúrgica Gerdau (GOAU4).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a47fadb70f0a5ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-26-10-26-lils/",
+        "timestamp_publicacao": "2026-10-26T17:32:48-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "3a47fadb70f0a5ba-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Vale fechou em alta após eleições, entre as poucas altas do Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "apenas as exportadoras tiveram desempenho positivo, impulsionadas pela valorização do dólar. Apenas oito ações fecharam em alta: Suzano (SUZB3) liderou a ponta positiva do IBOV com alta de 10,08% (R$ 47,40), acompanhada de Embraer (EMBJ3), WEG (WEGE3), Vale ( VALE3 ), Klabin (KLBN11), Bradespar (BRAP4), Gerdau (GGBR4) e Metalúrgica Gerdau (GOAU4).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a47fadb70f0a5ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-26-10-26-lils/",
+        "timestamp_publicacao": "2026-10-26T17:32:48-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "3a47fadb70f0a5ba-2"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Gerdau fechou em alta após eleições, entre as poucas altas do Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "apenas as exportadoras tiveram desempenho positivo, impulsionadas pela valorização do dólar. Apenas oito ações fecharam em alta: Suzano (SUZB3) liderou a ponta positiva do IBOV com alta de 10,08% (R$ 47,40), acompanhada de Embraer (EMBJ3), WEG (WEGE3), Vale ( VALE3 ), Klabin (KLBN11), Bradespar (BRAP4), Gerdau (GGBR4) e Metalúrgica Gerdau (GOAU4).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a47fadb70f0a5ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-26-10-26-lils/",
+        "timestamp_publicacao": "2026-10-26T17:32:48-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "3a47fadb70f0a5ba-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Petrobras caiu 8,18% após eleições e recuo do petróleo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "PETR3 teve queda de 6,81% (R$ 60,80) e PETR4 recuou 8,18% (R$ 53,88).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3a47fadb70f0a5ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-26-10-26-lils/",
+        "timestamp_publicacao": "2026-10-26T17:32:48-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "3a47fadb70f0a5ba-4"
+    }
+  ],
+  "688242d7b1990223": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da B3SA3 caíram 37,25% após eleições, pressionando opções de venda.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Por volta das 15h25, B3SA3 caía 37,25%, a R$ 14,84",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "688242d7b1990223",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-b3-bradesco-bb-disparam-queda-acoes/",
+        "timestamp_publicacao": "2026-10-26T15:52:01-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "688242d7b1990223-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Banco do Brasil recuaram 28,32% após eleições, impactando opções.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "BBAS3 recuava 28,32%, a R$ 17,72",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "688242d7b1990223",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-b3-bradesco-bb-disparam-queda-acoes/",
+        "timestamp_publicacao": "2026-10-26T15:52:01-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "688242d7b1990223-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Bradesco caíram 22,53% após eleições, elevando valor das puts.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "BBDC4 perdia 22,53%, a R$ 15,78",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "688242d7b1990223",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-b3-bradesco-bb-disparam-queda-acoes/",
+        "timestamp_publicacao": "2026-10-26T15:52:01-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "688242d7b1990223-2"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú Unibanco recuaram 13,85% após eleições.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "ITUB4 recuava 13,85%, a R$ 41,61",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "688242d7b1990223",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-b3-bradesco-bb-disparam-queda-acoes/",
+        "timestamp_publicacao": "2026-10-26T15:52:01-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "688242d7b1990223-3"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vale destoaram e subiram 5,09% após eleições.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "VALE3 destoava e avançava 5,09%, a R$ 65,05",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "688242d7b1990223",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/opcoes-b3-bradesco-bb-disparam-queda-acoes/",
+        "timestamp_publicacao": "2026-10-26T15:52:01-03:00",
+        "timestamp_coleta": "2026-10-26T19:02:14.491875-03:00"
+      },
+      "id": "688242d7b1990223-4"
+    }
   ]
 }
