@@ -1,0 +1,604 @@
+{
+  "533ab22c963ab459": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano deve aumentar produção com entrada em operação do Projeto Cerrado e se beneficiar de preços mais altos da celulose.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "a companhia deve ser beneficiada pela expectativa de preços mais altos da celulose em 2026 e 2027, além do aumento dos volumes de produção decorrente da entrada em operação do Projeto Cerrado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ab22c963ab459",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/commodities-devem-superar-mercado-apos-eleicao-jpmorgan-destaca-suzb3-vale3-e-ggbr4/",
+        "timestamp_publicacao": "2026-10-26T08:41:24-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ab22c963ab459-0"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Redução dos investimentos após conclusão do Projeto Cerrado deve fortalecer geração de caixa livre da Suzano.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "A redução dos investimentos após a conclusão do projeto também deve contribuir para fortalecer a geração de caixa livre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ab22c963ab459",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/commodities-devem-superar-mercado-apos-eleicao-jpmorgan-destaca-suzb3-vale3-e-ggbr4/",
+        "timestamp_publicacao": "2026-10-26T08:41:24-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ab22c963ab459-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Resolução do acordo envolvendo Mariana elimina incertezas para a Vale.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a resolução do acordo envolvendo Mariana eliminou uma das principais incertezas que pesavam sobre a companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ab22c963ab459",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/commodities-devem-superar-mercado-apos-eleicao-jpmorgan-destaca-suzb3-vale3-e-ggbr4/",
+        "timestamp_publicacao": "2026-10-26T08:41:24-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ab22c963ab459-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Negócios da Vale seguem apoiados por produção consistente e redução de custos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "os negócios seguem apoiados por produção consistente e redução de custos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ab22c963ab459",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/commodities-devem-superar-mercado-apos-eleicao-jpmorgan-destaca-suzb3-vale3-e-ggbr4/",
+        "timestamp_publicacao": "2026-10-26T08:41:24-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ab22c963ab459-3"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Operação da Gerdau na América do Norte é beneficiada por tarifas dos EUA e demanda forte.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "medidas protecionistas adotadas nos Estados Unidos, incluindo tarifas sobre o aço importado, têm sustentado preços mais elevados e fortalecido a demanda no mercado norte-americano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ab22c963ab459",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/commodities-devem-superar-mercado-apos-eleicao-jpmorgan-destaca-suzb3-vale3-e-ggbr4/",
+        "timestamp_publicacao": "2026-10-26T08:41:24-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ab22c963ab459-4"
+    }
+  ],
+  "da2b6db77a26cc17": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Itaú Unibanco anunciou compra da totalidade das ações da startup de IA NeoSpace por R$2,925 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O banco Itaú Unibanco anunciou nesta segunda-feira que celebrou contrato de compra da totalidade das ações da startup brasileira de inteligência artificial NeoSpace A.I. Technologies por R$2,925 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "da2b6db77a26cc17",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-26102026/",
+        "timestamp_publicacao": "2026-10-26T08:38:59-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "da2b6db77a26cc17-0"
+    }
+  ],
+  "533ae264eb8270dc": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto relata apenas pressão sobre ações após eleição de Lula, sem fato novo corporativo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Reeleição de Lula pressiona Petrobras (PETR4), Itaú (ITUB4), BB (BBAS3) e Vale (VALE3) e coloca suportes importantes no radar",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ae264eb8270dc",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vitoria-de-lula-graficos-apontam-ibovespa-nos-189-mil-se-perder-os-200-mil/",
+        "timestamp_publicacao": "2026-10-26T08:12:03-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ae264eb8270dc-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto relata apenas pressão sobre ações após eleição de Lula, sem fato novo corporativo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Reeleição de Lula pressiona Petrobras (PETR4), Itaú (ITUB4), BB (BBAS3) e Vale (VALE3) e coloca suportes importantes no radar",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ae264eb8270dc",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vitoria-de-lula-graficos-apontam-ibovespa-nos-189-mil-se-perder-os-200-mil/",
+        "timestamp_publicacao": "2026-10-26T08:12:03-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ae264eb8270dc-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto relata apenas pressão sobre ações após eleição de Lula, sem fato novo corporativo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Reeleição de Lula pressiona Petrobras (PETR4), Itaú (ITUB4), BB (BBAS3) e Vale (VALE3) e coloca suportes importantes no radar",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ae264eb8270dc",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vitoria-de-lula-graficos-apontam-ibovespa-nos-189-mil-se-perder-os-200-mil/",
+        "timestamp_publicacao": "2026-10-26T08:12:03-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ae264eb8270dc-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto relata apenas pressão sobre ações após eleição de Lula, sem fato novo corporativo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Reeleição de Lula pressiona Petrobras (PETR4), Itaú (ITUB4), BB (BBAS3) e Vale (VALE3) e coloca suportes importantes no radar",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "533ae264eb8270dc",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vitoria-de-lula-graficos-apontam-ibovespa-nos-189-mil-se-perder-os-200-mil/",
+        "timestamp_publicacao": "2026-10-26T08:12:03-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "533ae264eb8270dc-3"
+    }
+  ],
+  "2c0c17c8fc4bff54": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Maria Carolina Ferreira Lacerda renunciou ao Conselho de Administração e Comitê da BB Seguridade.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Maria Carolina Ferreira Lacerda renunciou aos cargos de membro do Conselho de Administração e do Comitê de Transações com Partes Relacionadas da BB Seguridade, com efeito imediato. A companhia informou que a decisão ocorreu por motivos pessoais e profissionais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2c0c17c8fc4bff54",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/azul-oncoclinicas-randoncorp-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-26T08:05:17-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "2c0c17c8fc4bff54-0"
+    }
+  ],
+  "661b86b187ede9d6": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Itaú anunciou aquisição de 100% da NeoSpace por R$ 2,925 bilhões, sujeita à aprovação do Cade e Banco Central.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco (ITUB4) anunciou nesta segunda-feira (26) a aquisição de 100% das ações da startup brasileira de inteligência artificial (IA) NeoSpace , por R$ 2,925 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "661b86b187ede9d6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-itub4-fecha-acordo-para-comprar-startup-brasileira-ia-por-29-bilhoes-veja-detalhes-lmrs/",
+        "timestamp_publicacao": "2026-10-26T08:06:12-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "661b86b187ede9d6-0"
+    }
+  ],
+  "81371e31891be5ed": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras recuaram 16% após reeleição de Lula, refletindo frustração do mercado.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras (PETR4) recuava 16%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "81371e31891be5ed",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/reeleicao-de-lula-derruba-ativos-brasileiros-no-exterior-e-sinaliza-volatilidade-rens/",
+        "timestamp_publicacao": "2026-10-26T08:01:05-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "81371e31891be5ed-0"
+    }
+  ],
+  "ec90d63fc18b00af": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulgou seu balanço do 3T26 na última quinta-feira (22).",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Bradesco (BBDC4) divulgou seu balanço na última quinta-feira (22).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec90d63fc18b00af",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-sanb11-bbas3-qual-banco-investir-balancos-do-3t26-mlem/",
+        "timestamp_publicacao": "2026-10-26T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ec90d63fc18b00af-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Resultado do 3T26 do Itaú será divulgado em 4 de novembro, após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O resultado está previsto para o dia 4 de novembro, depois do fechamento do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec90d63fc18b00af",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-sanb11-bbas3-qual-banco-investir-balancos-do-3t26-mlem/",
+        "timestamp_publicacao": "2026-10-26T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ec90d63fc18b00af-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Banco do Brasil divulgará balanço do 3T26 em 11 de novembro, após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O Banco do Brasil divulga o balanço em 11 de novembro, depois do fechamento do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ec90d63fc18b00af",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itub4-sanb11-bbas3-qual-banco-investir-balancos-do-3t26-mlem/",
+        "timestamp_publicacao": "2026-10-26T08:00:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ec90d63fc18b00af-2"
+    }
+  ],
+  "859420f55314ec0c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras despencam 20% na pré-abertura nos EUA após vitória de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Petrobras despencavam 20% na pré-abertura nos EUA.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "859420f55314ec0c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/adrs-de-empresas-brasileiras-despencam-apos-vitoria-de-lula-igdl/",
+        "timestamp_publicacao": "2026-10-26T07:36:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "859420f55314ec0c-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú Unibanco caem 28,5% na pré-abertura nos EUA após vitória de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco caía 28,5%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "859420f55314ec0c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/adrs-de-empresas-brasileiras-despencam-apos-vitoria-de-lula-igdl/",
+        "timestamp_publicacao": "2026-10-26T07:36:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "859420f55314ec0c-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Banco Bradesco caem 26,8% na pré-abertura nos EUA após vitória de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o Banco Bradesco , 26,8%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "859420f55314ec0c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/adrs-de-empresas-brasileiras-despencam-apos-vitoria-de-lula-igdl/",
+        "timestamp_publicacao": "2026-10-26T07:36:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "859420f55314ec0c-2"
+    }
+  ],
+  "7ded026fc42beeec": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Análise técnica aponta risco de correção após reeleição de Lula e queda dos ADRs no exterior.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "As ações da Petrobras ( PETR4 ) chegam ao pregão pós-eleição após uma sequência de valorizações, mas sob risco de correção diante da forte queda dos ADRs no exterior.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7ded026fc42beeec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-de-lula-ate-onde-podem-cair-as-acoes-petr4-itub4-bbas3-e-vale3/",
+        "timestamp_publicacao": "2026-10-26T07:39:29-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "7ded026fc42beeec-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Expectativa de forte pressão vendedora após reeleição de Lula e queda dos ADRs nos EUA.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "As ações do Itaú Unibanco ( ITUB4 ) chegam ao primeiro pregão após o segundo turno sob expectativa de forte pressão vendedora, acompanhando a reação negativa dos ADRs negociados nos Estados Unidos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7ded026fc42beeec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-de-lula-ate-onde-podem-cair-as-acoes-petr4-itub4-bbas3-e-vale3/",
+        "timestamp_publicacao": "2026-10-26T07:39:29-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "7ded026fc42beeec-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Expectativa de forte volatilidade e possível devolução de ganhos após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "As ações do Banco do Brasil ( BBAS3 ) também entram no radar diante da expectativa de forte volatilidade após a reeleição de Lula.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7ded026fc42beeec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-de-lula-ate-onde-podem-cair-as-acoes-petr4-itub4-bbas3-e-vale3/",
+        "timestamp_publicacao": "2026-10-26T07:39:29-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "7ded026fc42beeec-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações em destaque pelo risco de rompimento de suportes após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "O movimento coloca em destaque as ações de Petrobras ( PETR4 ), Itaú Unibanco ( ITUB4 ), Banco do Brasil ( BBAS3 ) e Vale ( VALE3 ), especialmente pelos riscos de rompimento de regiões importantes de suporte.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7ded026fc42beeec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-de-lula-ate-onde-podem-cair-as-acoes-petr4-itub4-bbas3-e-vale3/",
+        "timestamp_publicacao": "2026-10-26T07:39:29-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "7ded026fc42beeec-3"
+    }
+  ],
+  "9fb182c0865a5d29": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras caem cerca de 25,25% em NY após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras PBR (equivalente às ações ordinárias PETR3 ) caía cerca de 25,25%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9fb182c0865a5d29",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-itau-bradesco-e-mais-adrs-desabam-20-em-ny-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-26T07:10:50-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "9fb182c0865a5d29-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú Unibanco caem mais de 27% em NY após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o maior banco privado da América Latina, o Itaú Unibanco ITUB ( ITUB4 ), registrava tombo de mais de 27%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9fb182c0865a5d29",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-itau-bradesco-e-mais-adrs-desabam-20-em-ny-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-26T07:10:50-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "9fb182c0865a5d29-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Bradesco desabam 28,01% em NY após reeleição de Lula.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O banco Bradesco BBD ( BBDC4 ) desabava 28,01%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9fb182c0865a5d29",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-itau-bradesco-e-mais-adrs-desabam-20-em-ny-com-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-10-26T07:10:50-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "9fb182c0865a5d29-2"
+    }
+  ],
+  "ed2d8b0bb54d4e2c": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgará resultado do 3T26 em 29/10/26 após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale VALE3 29/10/26 Após o fechamento 30/10/2026, às 11h",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed2d8b0bb54d4e2c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/3t26-vale-vale3-gerdau-ggbr4-usiminas-usim5-balancos-mlem/",
+        "timestamp_publicacao": "2026-10-26T06:45:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ed2d8b0bb54d4e2c-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau divulgará resultado do 3T26 em 26/10/26 após o fechamento do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Gerdau GGBR4 26/10/26 Após o fechamento 27/10/26, às 12h",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed2d8b0bb54d4e2c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/3t26-vale-vale3-gerdau-ggbr4-usiminas-usim5-balancos-mlem/",
+        "timestamp_publicacao": "2026-10-26T06:45:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ed2d8b0bb54d4e2c-1"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev divulgará resultado do 3T26 em 28/10/26 antes da abertura do mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Ambev ABEV3 28/10/26 Antes da abertura 29/10/26, às 12h30",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed2d8b0bb54d4e2c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/3t26-vale-vale3-gerdau-ggbr4-usiminas-usim5-balancos-mlem/",
+        "timestamp_publicacao": "2026-10-26T06:45:00-03:00",
+        "timestamp_coleta": "2026-10-26T08:46:49.540185-03:00"
+      },
+      "id": "ed2d8b0bb54d4e2c-2"
+    }
+  ]
+}
