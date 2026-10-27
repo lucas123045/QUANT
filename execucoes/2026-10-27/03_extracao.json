@@ -1,0 +1,129 @@
+{
+  "db18e945864703a9": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Gerdau (GGBR4) indicada para venda em day trade, com potencial de ganho de 1,42%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Gerdau GGBR4 25,39 25,03 1,42% 25,59 -0,79%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "db18e945864703a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/day-trade-compre-btg-pactual-bpac11-e-venda-hapvida-hapv3-para-ganhar-ate-14-hoje-27-segundo-a-agora/",
+        "timestamp_publicacao": "2026-10-27T09:39:25-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "db18e945864703a9-0"
+    }
+  ],
+  "96645be7c93cc5af": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau lucra R$ 1,52 bilhão no 3T26, alta de 39,7% anual.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau (GGBR4) encerrou o terceiro trimestre de 2026 (3T26) com lucro líquido ajustado de R$ 1,523 bilhão, alta de 39,7% em relação ao mesmo período do ano passado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "96645be7c93cc5af",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/raizen-raiz4-gerdau-ggbr4-nvidia-e-outros-destaques-desta-terca-feira-mlem/",
+        "timestamp_publicacao": "2026-10-27T09:03:25-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "96645be7c93cc5af-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Gerdau aprova pagamento de dividendos de R$ 0,34 por ação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau (GGBR4) anunciou nesta segunda-feira (26) a aprovação do pagamento de dividendos aos acionistas, no valor de R$ 0,34 por ação",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "96645be7c93cc5af",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/raizen-raiz4-gerdau-ggbr4-nvidia-e-outros-destaques-desta-terca-feira-mlem/",
+        "timestamp_publicacao": "2026-10-27T09:03:25-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "96645be7c93cc5af-1"
+    }
+  ],
+  "6d8d5b41e0592545": [],
+  "1dd6e9c9b95fa90a": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs equivalentes aos papéis PETR4 tinham alta de 0,28% no pré-mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Os papéis PBR-A, equivalentes aos PETR4 , tinham alta de 0,28%, a US$ 19,96.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1dd6e9c9b95fa90a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-brasil-exterior-ewz-recuperacao-tombo-27102026/",
+        "timestamp_publicacao": "2026-10-27T06:54:50-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "1dd6e9c9b95fa90a-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Vale (VALE3) operavam com valorização de 0,58% no pré-mercado.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Os ADRs da Vale ( VALE3 ; VALE) operavam com valorização de 0,58%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1dd6e9c9b95fa90a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-brasil-exterior-ewz-recuperacao-tombo-27102026/",
+        "timestamp_publicacao": "2026-10-27T06:54:50-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "1dd6e9c9b95fa90a-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Itaú (ITUB4) avançava 0,54% no pré-mercado no exterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Itaú ( ITUB3 ; ITUB4 ; ITUB) avançava 0,54%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "1dd6e9c9b95fa90a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/etf-brasil-exterior-ewz-recuperacao-tombo-27102026/",
+        "timestamp_publicacao": "2026-10-27T06:54:50-03:00",
+        "timestamp_coleta": "2026-10-27T09:59:11.008242-03:00"
+      },
+      "id": "1dd6e9c9b95fa90a-2"
+    }
+  ]
+}
