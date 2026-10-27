@@ -705,5 +705,475 @@
       },
       "id": "bd6fd7a2d1ed78a0-3"
     }
+  ],
+  "5a28b09bfbeeaf5e": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau apresentou resultados positivos no 3T26, com desempenho sólido na América do Norte e forte geração de caixa livre.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Gerdau ( GGBR4 ) apresentou resultados positivos no terceiro trimestre de 2026 , com desempenho sólido na América do Norte, números acima do esperado no Brasil e forte geração de caixa livre, na avaliação dos bancos consultados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5a28b09bfbeeaf5e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/gerdau-ggbr4-agrada-no-3t26-com-desempenho-nos-eua-e-geracao-de-caixa-robusta-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-27T18:07:44-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5a28b09bfbeeaf5e-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Gerdau anunciou dividendos de R$ 0,34 por ação, dividend yield anualizado de 5,4%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Além disso, a Gerdau anunciou dividendos de R$ 0,34 por ação, dividend yield anualizado de 5,4%, enquanto avançou com seu programa de recompra.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5a28b09bfbeeaf5e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/gerdau-ggbr4-agrada-no-3t26-com-desempenho-nos-eua-e-geracao-de-caixa-robusta-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-27T18:07:44-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5a28b09bfbeeaf5e-1"
+    }
+  ],
+  "6440067b754257e8": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Gerdau tem 76% do Ebitda gerado na América do Norte, reduzindo dependência do Brasil e exposição ao dólar.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "De acordo com o relatório, aproximadamente 76% do Ebitda da Gerdau é gerado na América do Norte. Essa presença internacional, combinada a um balanço considerado sólido, tende a limitar o impacto direto de uma deterioração das condições econômicas brasileiras sobre os resultados consolidados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6440067b754257e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/necessidade-de-hedge-voltou-gerdau-ggbr4-aparece-entre-as-favoritas-do-btg-para-cenario-desafiador-da-bolsa-apsa/",
+        "timestamp_publicacao": "2026-10-27T18:38:35-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "6440067b754257e8-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Margens de Ebitda da operação doméstica da Gerdau estão próximas de mínimas históricas, em torno de 10%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Segundo o relatório, as margens de Ebitda da operação doméstica já estão próximas de mínimas históricas, em torno de 10%, cenário que, na avaliação da instituição, limita parte do espaço para uma deterioração adicional.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6440067b754257e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/necessidade-de-hedge-voltou-gerdau-ggbr4-aparece-entre-as-favoritas-do-btg-para-cenario-desafiador-da-bolsa-apsa/",
+        "timestamp_publicacao": "2026-10-27T18:38:35-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "6440067b754257e8-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale enfrenta desafios operacionais no Sistema Norte, aumentando incertezas sobre desempenho.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Além disso, os desafios operacionais no Sistema Norte aumentam as incertezas sobre o desempenho da mineradora.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6440067b754257e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/necessidade-de-hedge-voltou-gerdau-ggbr4-aparece-entre-as-favoritas-do-btg-para-cenario-desafiador-da-bolsa-apsa/",
+        "timestamp_publicacao": "2026-10-27T18:38:35-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "6440067b754257e8-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Desvalorização do real pode elevar Ebitda da Vale em 7% a 8%, segundo análise de sensibilidade do BTG.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na análise de sensibilidade apresentada pelo BTG, uma desvalorização de 10% do real elevaria o Ebitda da Vale em aproximadamente 7% a 8%, considerando seu resultado em dólar.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6440067b754257e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/necessidade-de-hedge-voltou-gerdau-ggbr4-aparece-entre-as-favoritas-do-btg-para-cenario-desafiador-da-bolsa-apsa/",
+        "timestamp_publicacao": "2026-10-27T18:38:35-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "6440067b754257e8-3"
+    }
+  ],
+  "19bc4e0f87976de6": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem 2,14% acompanhando recuo do minério de ferro na China.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vale ( VALE3 ), que detém 8% de participação no índice, teve queda de 2,14% (R$ 63,00) , acompanhando o recuo do minério de ferro na China.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações recuam 2,02% com queda dos preços do petróleo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "PETR4 recuou 2,02% (R$ 52,79)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem junto com outros bancos diante de incertezas domésticas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "os bancos caíram em bloco, diante das incertezas domésticas. O Índice Financeiro (IFNC) , que reúne as ações do setor bancário, teve leve baixa de 0,19%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-2"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem junto com outros bancos diante de incertezas domésticas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "os bancos caíram em bloco, diante das incertezas domésticas. O Índice Financeiro (IFNC) , que reúne as ações do setor bancário, teve leve baixa de 0,19%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-3"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem junto com outros bancos diante de incertezas domésticas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "os bancos caíram em bloco, diante das incertezas domésticas. O Índice Financeiro (IFNC) , que reúne as ações do setor bancário, teve leve baixa de 0,19%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-4"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem junto com outros bancos diante de incertezas domésticas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "os bancos caíram em bloco, diante das incertezas domésticas. O Índice Financeiro (IFNC) , que reúne as ações do setor bancário, teve leve baixa de 0,19%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19bc4e0f87976de6",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-27-10-26-lils/",
+        "timestamp_publicacao": "2026-10-27T17:34:05-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "19bc4e0f87976de6-5"
+    }
+  ],
+  "5b6d9530680cdeca": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Setor bancário citado como resiliente e com resultados fortes recorrentes.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "vale a apena acompanhar alguns papéis da Bolsa, entre eles os de bancos, que apresentam mais resiliência e resultados fortes de forma recorrente",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5b6d9530680cdeca",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/estabilidade-do-ibovespa-depende-do-fiscal-e-do-indicado-para-a-fazenda-diz-estrategista-chefe-da-monte-bravo/",
+        "timestamp_publicacao": "2026-10-27T17:33:23-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5b6d9530680cdeca-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Setor bancário citado como resiliente e com resultados fortes recorrentes.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "vale a apena acompanhar alguns papéis da Bolsa, entre eles os de bancos, que apresentam mais resiliência e resultados fortes de forma recorrente",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5b6d9530680cdeca",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/estabilidade-do-ibovespa-depende-do-fiscal-e-do-indicado-para-a-fazenda-diz-estrategista-chefe-da-monte-bravo/",
+        "timestamp_publicacao": "2026-10-27T17:33:23-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5b6d9530680cdeca-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Setor bancário citado como resiliente e com resultados fortes recorrentes.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "vale a apena acompanhar alguns papéis da Bolsa, entre eles os de bancos, que apresentam mais resiliência e resultados fortes de forma recorrente",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5b6d9530680cdeca",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/estabilidade-do-ibovespa-depende-do-fiscal-e-do-indicado-para-a-fazenda-diz-estrategista-chefe-da-monte-bravo/",
+        "timestamp_publicacao": "2026-10-27T17:33:23-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5b6d9530680cdeca-2"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "cotacao",
+      "resumo": "Setor bancário citado como resiliente e com resultados fortes recorrentes.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "vale a apena acompanhar alguns papéis da Bolsa, entre eles os de bancos, que apresentam mais resiliência e resultados fortes de forma recorrente",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5b6d9530680cdeca",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/estabilidade-do-ibovespa-depende-do-fiscal-e-do-indicado-para-a-fazenda-diz-estrategista-chefe-da-monte-bravo/",
+        "timestamp_publicacao": "2026-10-27T17:33:23-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "5b6d9530680cdeca-3"
+    }
+  ],
+  "8783bf3c5af7be42": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação do Banco do Brasil sobe após queda de quase 30%, mercado mantém cautela.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "BBAS3: ação do Banco do Brasil sobe após “tombo” de quase 30%; mercado mantém cautela",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Resultados do Banco do Brasil serão divulgados dia 11 de novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Analistas também ficam de olho nos resultados do banco estatal, a serem divulgados dia 11 de novembro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-1"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixa recomendação de Banco do Brasil para venda, citando riscos políticos e de ativos.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Na direção oposta, o Citi rebaixou Banco do Brasil ( BBAS3 ) para venda, com aumento das preocupações com a qualidade dos ativos, especialmente na carteira ligada ao agronegócio, além de maior exposição a riscos políticos e de eventuais mudanças de política pública.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-2"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixa recomendação de B3 de compra para neutra, reduz preço-alvo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O Citi rebaixou as recomendações de XP (XP), B3 ( B3SA3 ), Bradesco ( BBDC4 ), BR Partners ( BRBI11 ) e PagSeguro para neutra, argumentando que o novo cenário tende a pressionar o apetite por risco, as emissões no mercado de capitais, a atividade de negociação e os fluxos para produtos de investimento.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-3"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "Citi avalia ambiente operacional menos favorável para B3 devido à dependência de volumes de negociação.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o banco avalia que o ambiente operacional se tornou menos favorável para empresas dependentes de volumes de negociação, captações e expansão da base de investidores.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-4"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixa recomendação de Bradesco de compra para neutra, reduz preço-alvo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O relatório também trouxe um rebaixamento para o Bradesco ( BBDC4 ), que passou a ter recomendação neutra.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-5"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Citi mantém Itaú como principal recomendação entre bancos, destacando lucros e posição de capital.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os grandes bancos, o Itaú Unibanco ( ITUB4 ) permaneceu como a principal recomendação do Citi. Os analistas destacam a qualidade dos lucros, a disciplina na concessão de crédito e a robusta posição de capital do banco",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8783bf3c5af7be42",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-agora-e-venda-bbdc4-neutro-e-itub4-preferido-citi-revisa-bancoes-apos-eleicao/",
+        "timestamp_publicacao": "2026-10-27T16:08:25-03:00",
+        "timestamp_coleta": "2026-10-27T19:44:15.911294-03:00"
+      },
+      "id": "8783bf3c5af7be42-6"
+    }
   ]
 }
