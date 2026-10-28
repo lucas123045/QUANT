@@ -1,10 +1,11 @@
 Relatório diário QUANT — 2026-10-28
 As decisões abaixo foram tomadas pela regra determinística (strategy.py). O texto gerado por IA apenas as descreve.
 
-Operações (1):
+Operações (2):
 - PETR4: COMPRA | motivo da regra: evento positivo confirmado (operacional, materialidade alta) com probabilidade 0.80 > 0.70, fato novo e sem evento negativo recente | fonte: "em sua primeira reunião após a eleição, realizada na segunda-feira, o conselho da Petrobras solicitou planos para aumento dos preços dos combustíveis nas refinarias"
+- CSAN3: VENDA | motivo da regra: evento negativo confirmado (regulatorio, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente | fonte: "Do valor total acordado, R$ 16,7 bilhões são de responsabilidade da companhia e R$ 5,7 bilhões são vinculados aos acionistas controladores: Cosan ( CSAN3 ) e Shell."
 
-Eventos avaliados sem operação: 20
+Eventos avaliados sem operação: 29
 
 Resumo (gerado por IA):
-No dia de hoje, as principais decisões para as ações analisadas foram de manutenção das posições, com base em fatos sem materialidade relevante, variações de cotação ou expectativas ainda não confirmadas. O destaque ficou para PETR4, que recebeu recomendação de compra após confirmação de evento positivo relacionado a planos para aumento dos preços dos combustíveis nas refinarias. As demais empresas, como BBDC4, VALE3, SBSP3, BBSE3, ITUB4, BBAS3, WEGE3 e PRIO3, permaneceram com recomendação de manter, pois as notícias não trouxeram fatos novos ou impactos mensuráveis. O cenário geral foi de cautela, com poucas alterações relevantes nas recomendações.
+No dia de hoje, a maioria das decisões para as principais ações do mercado, como PETR4, BBDC4, VALE3, SBSP3, BBSE3, ITUB4, BBAS3, WEGE3, PRIO3, SUZB3 e CSAN3, foi de manutenção das posições, principalmente devido à ausência de fatos novos relevantes ou à divulgação de variações de cotação sem impacto material. Destacou-se uma recomendação de compra para PETR4, motivada por evento positivo confirmado relacionado a planos de aumento de preços dos combustíveis. Por outro lado, CSAN3 recebeu recomendação de venda devido a um evento regulatório negativo de alta materialidade. No geral, o dia foi marcado por estabilidade nas recomendações, com poucas mudanças relevantes nas perspectivas das empresas analisadas.
