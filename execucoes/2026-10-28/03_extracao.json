@@ -1,0 +1,297 @@
+{
+  "26461f20acdc0284": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações de Vale (VALE3) renovam mínima, com -1,95%, a R$ 61,77.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ações de Vale (VALE3) renovam mínima, com -1,95%, a R$ 61,77",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "BBDC4 cai 5,09% em meio a perdas dos grandes bancos.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Grandes bancos ampliam perdas; BBDC4 cai 5,09%, SANB11 recua 4,33%, ITUB4 perde 3,18% e BBAS3 recua 1,84%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-1"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "ITUB4 perde 3,18% em meio a perdas dos grandes bancos.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Grandes bancos ampliam perdas; BBDC4 cai 5,09%, SANB11 recua 4,33%, ITUB4 perde 3,18% e BBAS3 recua 1,84%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-2"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "BBAS3 recua 1,84% em meio a perdas dos grandes bancos.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Grandes bancos ampliam perdas; BBDC4 cai 5,09%, SANB11 recua 4,33%, ITUB4 perde 3,18% e BBAS3 recua 1,84%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-3"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações de Petrobras têm dia de volatilidade; PETR4 avança 0,19%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Ações de Petrobras têm dia de volatilidade; PETR3 sobe 0,37% e PETR4 avança 0,19%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações de Petrobras ampliam perdas; PETR4 cai 0,72%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ações de Petrobras ampliam perdas; PETR3 recua 0,77% e PETR4 cai 0,72%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-5"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "WEGE3 está entre os poucos ativos em alta no Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ibovespa tem apenas 6 ativos em alta: HYPE3, SMTO3, PRIO3, WEGE3, BRAV3 e PSSA3",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-6"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "cotacao",
+      "resumo": "PRIO3 está entre os poucos ativos em alta no Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ibovespa tem apenas 6 ativos em alta: HYPE3, SMTO3, PRIO3, WEGE3, BRAV3 e PSSA3",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "26461f20acdc0284",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-28102026/",
+        "timestamp_publicacao": "2026-10-28T11:35:13-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "26461f20acdc0284-7"
+    }
+  ],
+  "ab935406a32d6988": [],
+  "39cf30296d407e8f": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações preferenciais do Bradesco caíram aproximadamente 24% na semana encerrada em 27 de outubro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Na semana encerrada em 27 de outubro, as units SANB11 recuaram cerca de 7%, enquanto as ações preferenciais do Bradesco (BBDC4) caíram aproximadamente 24%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "39cf30296d407e8f",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/santander-sanb11-cai-mais-de-4-apos-balanco-fraco-veja-o-que-dizem-itau-bba-btg-e-safra-miql/",
+        "timestamp_publicacao": "2026-10-28T11:03:30-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "39cf30296d407e8f-0"
+    }
+  ],
+  "76a1b9963fdd0834": [],
+  "4f9dd987bc907b9b": [
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "cotacao",
+      "resumo": "Recomendação de compra para day trade pela Ágora Investimentos, com potencial de ganho de 1,45%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Sabesp (SBSP3) é uma das recomendações de compra em day trade da Ágora Investimentos para esta quarta-feira (28).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4f9dd987bc907b9b",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/day-trade-compre-sabesp-sbsp3-e-venda-embraer-embj3-para-ganhar-ate-14-hoje-28-segundo-a-agora/",
+        "timestamp_publicacao": "2026-10-28T09:43:22-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "4f9dd987bc907b9b-0"
+    },
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Recomendação de venda para day trade pela Ágora Investimentos, com potencial de ganho de 1,43%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "BB Seguridade BBSE3 42,69 42,08 1,43% 43,00 -0,73%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4f9dd987bc907b9b",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/day-trade-compre-sabesp-sbsp3-e-venda-embraer-embj3-para-ganhar-ate-14-hoje-28-segundo-a-agora/",
+        "timestamp_publicacao": "2026-10-28T09:43:22-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "4f9dd987bc907b9b-1"
+    }
+  ],
+  "ae18c6a5f529f4ea": [],
+  "77bc3834f9f80c85": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras divulga relatório de produção e vendas do 3º trimestre após o fechamento dos mercados.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Já a Petrobras ( PETR3 ; PETR4 ) divulga seu relatório de produção e vendas do 3º trimestre após o fechamento dos mercados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "77bc3834f9f80c85",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-santander-hypera-movida-azzas-e-mais-acoes-para-acompanhar-nesta-quarta/",
+        "timestamp_publicacao": "2026-10-28T08:24:12-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "77bc3834f9f80c85-0"
+    }
+  ],
+  "2603faf7a02506a3": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga resultados do terceiro trimestre de 2026 em 29 de outubro.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A Vale divulga os resultados do terceiro trimestre de 2026 em 29 de outubro , em um ambiente de preços mais pressionados para o minério e expectativas mais cautelosas para o setor de mineração e siderurgia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "2603faf7a02506a3",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-testa-suporte-decisivo-apos-queda-acao-pode-reagir-ou-cair-mais/",
+        "timestamp_publicacao": "2026-10-28T09:58:06-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "2603faf7a02506a3-0"
+    }
+  ],
+  "f75bf5ba81698979": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Bradesco divulgou balanço do 3º trimestre de 2026, com aumento da inadimplência e revisão negativa de projeções para 2027.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A mudança ocorre após o balanço do terceiro trimestre de 2026 e reflete uma visão mais cautelosa para os resultados do banco em um cenário macroeconômico considerado mais desafiador no próximo ano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f75bf5ba81698979",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-rebaixado-perde-recomendacao-de-compra-do-itau-bba-apos-3t-e-piora-do-cenario-em-2027/",
+        "timestamp_publicacao": "2026-10-28T09:08:42-03:00",
+        "timestamp_coleta": "2026-10-28T11:39:39.184207-03:00"
+      },
+      "id": "f75bf5ba81698979-0"
+    }
+  ]
+}
