@@ -293,5 +293,151 @@
       },
       "id": "f75bf5ba81698979-0"
     }
+  ],
+  "90300c9a02cfb07e": [],
+  "7b3bfbcb9ea237a9": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "No 3º tri, Bradesco registrou aumento nas provisões para perdas e redução na cobertura da inadimplência.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "No terceiro trimestre, o Bradesco (BBDC4) já deu sinais de fadiga. O banco voltou a registrar aumento nas provisões para perdas e redução na cobertura da inadimplência.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b3bfbcb9ea237a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-apos-frustracao-eleitoral-itau-bba-corta-acao-veja-novo-preco-alvo/",
+        "timestamp_publicacao": "2026-10-28T16:14:34-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "7b3bfbcb9ea237a9-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "resultado",
+      "resumo": "Inadimplência acima de 90 dias atingiu 4,6% no 3º tri de 2026, alta de 30 pontos-base trimestral.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "inadimplência acima de 90 dias, que atingiu 4,6% no terceiro trimestre de 2026, alta de 30 pontos-base na comparação trimestral.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b3bfbcb9ea237a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-apos-frustracao-eleitoral-itau-bba-corta-acao-veja-novo-preco-alvo/",
+        "timestamp_publicacao": "2026-10-28T16:14:34-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "7b3bfbcb9ea237a9-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Bradesco deve encerrar 2027 com inadimplência de 4,9% e custo de risco de 3,87%, segundo Itaú BBA.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Nas contas do BBA, o Bradesco encerrará 2027 com índice de inadimplência de 4,9% e custo de risco de 3,87%, ante estimativas anteriores de 4,2% e 3,33%, respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b3bfbcb9ea237a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-apos-frustracao-eleitoral-itau-bba-corta-acao-veja-novo-preco-alvo/",
+        "timestamp_publicacao": "2026-10-28T16:14:34-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "7b3bfbcb9ea237a9-2"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Despesas com provisões para 2027 devem subir 16%, para R$ 47,1 bilhões, segundo Itaú BBA.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Com isso, as despesas com provisões para 2027 devem subir 16%, para R$ 47,1 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b3bfbcb9ea237a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-apos-frustracao-eleitoral-itau-bba-corta-acao-veja-novo-preco-alvo/",
+        "timestamp_publicacao": "2026-10-28T16:14:34-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "7b3bfbcb9ea237a9-3"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "guidance",
+      "resumo": "Projeção de lucro para 2026 mantida em R$ 28 bilhões; para 2027, crescimento limitado, lucro líquido de R$ 28,5 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O Itaú BBA também manteve praticamente inalterada sua projeção de lucro para 2026, em R$ 28 bilhões. Para 2027, contudo, a expectativa é de crescimento limitado, com lucro líquido de R$ 28,5 bilhões",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "7b3bfbcb9ea237a9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-apos-frustracao-eleitoral-itau-bba-corta-acao-veja-novo-preco-alvo/",
+        "timestamp_publicacao": "2026-10-28T16:14:34-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "7b3bfbcb9ea237a9-4"
+    }
+  ],
+  "fd2578686f95ae2e": [],
+  "643e779d384e4473": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Prorrogação dos subsídios ao diesel reduz urgência de reajuste de preços pela Petrobras até o fim do ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o governo brasileiro decidiu prorrogar por mais 30 dias os subsídios ao combustível e, desta forma, o Goldman Sachs apontou que a estatal deve manter os preços do diesel vendido a distribuidoras até o fim do ano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "643e779d384e4473",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr4-tera-que-reajustar-diesel-por-que-tema-segue-no-radar-mesmo-com-subsidios/",
+        "timestamp_publicacao": "2026-10-28T13:46:21-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "643e779d384e4473-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Petrobras solicitou planos para aumento dos preços dos combustíveis nas refinarias após a eleição.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "em sua primeira reunião após a eleição, realizada na segunda-feira, o conselho da Petrobras solicitou planos para aumento dos preços dos combustíveis nas refinarias",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "643e779d384e4473",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petr4-tera-que-reajustar-diesel-por-que-tema-segue-no-radar-mesmo-com-subsidios/",
+        "timestamp_publicacao": "2026-10-28T13:46:21-03:00",
+        "timestamp_coleta": "2026-10-28T16:58:46.260817-03:00"
+      },
+      "id": "643e779d384e4473-1"
+    }
   ]
 }
