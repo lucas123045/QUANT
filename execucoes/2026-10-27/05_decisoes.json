@@ -4743,5 +4743,255 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau registrou lucro de R$ 1,52 bilhão no 3º tri, alta anual de 39,7%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Siderúrgica registrou lucro de R$ 1,52 bilhão no 3º tri, alta anual de 39,7%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "feb25bcef247a37a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-hypera-hype3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:14:08-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "feb25bcef247a37a-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Lucro trimestral cresceu 39,7%, impacto relevante no resultado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "GGBR4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 28/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Lucro trimestral cresceu 39,7%, impacto relevante no resultado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação BBAS3 fecha em queda após “tombo” de quase 30%; mercado mantém cautela.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ação BBAS3 fecha em queda após “tombo” de quase 30%; mercado mantém cautela",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "12a8d2e4ba47e20c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-movida-movi3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:43:30-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "12a8d2e4ba47e20c-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda de quase 30% indica evento relevante que afeta diretamente o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 28/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda de quase 30% indica evento relevante que afeta diretamente o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Analistas ficam de olho nos resultados do banco estatal, a serem divulgados dia 11 de novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Analistas também ficam de olho nos resultados do banco estatal, a serem divulgados dia 11 de novembro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "12a8d2e4ba47e20c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-movida-movi3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:43:30-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "12a8d2e4ba47e20c-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 1.0,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas anúncio de data de divulgação de resultados, sem efeito financeiro mensurável.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 28/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas anúncio de data de divulgação de resultados, sem efeito financeiro mensurável."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 1,00"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]

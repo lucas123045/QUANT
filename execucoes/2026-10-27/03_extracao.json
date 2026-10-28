@@ -1175,5 +1175,69 @@
       },
       "id": "8783bf3c5af7be42-6"
     }
+  ],
+  "12a8d2e4ba47e20c": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação BBAS3 fecha em queda após “tombo” de quase 30%; mercado mantém cautela.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ação BBAS3 fecha em queda após “tombo” de quase 30%; mercado mantém cautela",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "12a8d2e4ba47e20c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-movida-movi3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:43:30-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "12a8d2e4ba47e20c-0"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "resultado",
+      "resumo": "Analistas ficam de olho nos resultados do banco estatal, a serem divulgados dia 11 de novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Analistas também ficam de olho nos resultados do banco estatal, a serem divulgados dia 11 de novembro",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "12a8d2e4ba47e20c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-movida-movi3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:43:30-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "12a8d2e4ba47e20c-1"
+    }
+  ],
+  "feb25bcef247a37a": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "resultado",
+      "resumo": "Gerdau registrou lucro de R$ 1,52 bilhão no 3º tri, alta anual de 39,7%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Siderúrgica registrou lucro de R$ 1,52 bilhão no 3º tri, alta anual de 39,7%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "feb25bcef247a37a",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/resultados-hypera-hype3-terceiro-trimestre/",
+        "timestamp_publicacao": "2026-10-27T20:14:08-03:00",
+        "timestamp_coleta": "2026-10-27T22:54:00.134412-03:00"
+      },
+      "id": "feb25bcef247a37a-0"
+    }
   ]
 }
