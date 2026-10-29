@@ -1,0 +1,24 @@
+{
+  "9db2d43a93eb2abe": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano eleva preços da celulose em US$ 50 para Europa e América do Norte a partir de novembro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Procurada, a Suzano ⁠confirmou ​o ​reajuste.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9db2d43a93eb2abe",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/business/suzano-eleva-precos-de-celulose-em-us-50-para-europa-e-america-do-norte/",
+        "timestamp_publicacao": "2026-10-28T22:04:30-03:00",
+        "timestamp_coleta": "2026-10-29T00:18:00.718411-03:00"
+      },
+      "id": "9db2d43a93eb2abe-0"
+    }
+  ]
+}
