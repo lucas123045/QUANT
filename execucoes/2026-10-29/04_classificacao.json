@@ -520,5 +520,86 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5c67ddb6b4822325-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reajuste de taxa é rotina e tem impacto financeiro limitado para o porte do Itaú.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5c67ddb6b4822325-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança de taxa isolada sem indicação de impacto relevante no resultado ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "391fe7b4c05d409d-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro líquido acima do esperado altera projeções e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6616f292b15b2602-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Descoberta já era esperada e comunicada anteriormente, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "18ef736261cb9139-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reação a prévia de resultados já conhecida e sem efeito financeiro mensurável.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3aeaaff978728ebf-0": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3aeaaff978728ebf-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de lucro anual impacta diretamente o resultado e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3aeaaff978728ebf-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Guidance de longo prazo sem efeito imediato nos resultados ou caixa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3aeaaff978728ebf-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.99,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança apenas na forma de divulgação de informações, sem impacto financeiro.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

@@ -1196,5 +1196,195 @@
       },
       "id": "f4dbca5acb6bb29c-2"
     }
+  ],
+  "5c67ddb6b4822325": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaú reajustou a taxa mínima do crédito imobiliário de 11,99% para 12,95% ao ano mais TR.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Também nesta quinta-feira o Itaú reajustou a taxa mínima do crédito imobiliário de 11,99% para 12,95% ao ano mais TR",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c67ddb6b4822325",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/minhas-financas/apos-bradesco-e-itau-santander-tambem-eleva-juros-do-credito-imobiliario/",
+        "timestamp_publicacao": "2026-10-29T18:05:14-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "5c67ddb6b4822325-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Bradesco elevou sua taxa de crédito imobiliário de 11,7% para 15% ao ano mais TR.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "dois dias depois de o Bradesco elevar sua taxa de 11,7% para 15% ao ano mais TR",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5c67ddb6b4822325",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/minhas-financas/apos-bradesco-e-itau-santander-tambem-eleva-juros-do-credito-imobiliario/",
+        "timestamp_publicacao": "2026-10-29T18:05:14-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "5c67ddb6b4822325-1"
+    }
+  ],
+  "391fe7b4c05d409d": [
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev divulga lucro líquido acima do esperado no 3T26, mas desempenho operacional fraco na cerveja Brasil.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Ambev ( ABEV3 ) divulgou nesta quinta-feira os resultados do terceiro trimestre de 2026 (3T26) , com lucro líquido acima das expectativas do mercado, mas desempenho operacional fraco.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "391fe7b4c05d409d",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ambev-abev3-analise-resultados-terceiro-trimestre-2026-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-29T17:50:20-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "391fe7b4c05d409d-0"
+    }
+  ],
+  "6616f292b15b2602": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras confirma terceira descoberta de petróleo em águas ultraprofundas do Amapá.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras (PETR4) identificou mais um intervalo portador de petróleo no poço Morpho , no bloco FZA-M-59, na costa do Amapá . O novo resultado representa a terceira descoberta na área, situada em águas ultraprofundas, em uma lâmina d’água de 2.886 metros. O anúncio feito nesta quinta-feira (29) dá continuidade aos comunicados divulgados pela companhia em agosto e em outubro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6616f292b15b2602",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-confirma-terceira-descoberta-de-petroleo-em-aguas-ultraprofundas-do-amapa-bdap/",
+        "timestamp_publicacao": "2026-10-29T18:30:38-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "6616f292b15b2602-0"
+    }
+  ],
+  "18ef736261cb9139": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Ações reagem aos números da prévia do terceiro trimestre da Petrobras.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "acompanhando a desvalorização dos preços do petróleo e a reação aos números da prévia do terceiro trimestre",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "18ef736261cb9139",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-29-10-26-lils/",
+        "timestamp_publicacao": "2026-10-29T17:25:58-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "18ef736261cb9139-0"
+    }
+  ],
+  "3aeaaff978728ebf": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgará balanço do 3º trimestre de 2026 após o fechamento do mercado em 29/10.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale ( VALE3 ) divulgará seu balanço após o fechamento do mercado nesta quinta-feira (29).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3aeaaff978728ebf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-balanco-3t26/",
+        "timestamp_publicacao": "2026-10-29T15:00:23-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "3aeaaff978728ebf-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "No 2T26, Vale teve lucro líquido de US$ 1,37 bi, queda anual de 35%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE3) tem lucro líquido de US$ 1,37 bi no 2T26, queda anual de 35%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3aeaaff978728ebf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-balanco-3t26/",
+        "timestamp_publicacao": "2026-10-29T15:00:23-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "3aeaaff978728ebf-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale pretende dobrar produção de cobre até 2034, de 380 mil para 700 mil toneladas/ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A companhia afirmou, neste tri, que pretende dobrar a produção de cobre até 2034 Atualmente, a companhia produz cerca de 380 mil toneladas de cobre por ano e pretende alcançar aproximadamente 700 mil toneladas até 2034 , segundo Marcelo Bacci, vice-presidente executivo e CFO da mineradora",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3aeaaff978728ebf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-balanco-3t26/",
+        "timestamp_publicacao": "2026-10-29T15:00:23-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "3aeaaff978728ebf-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale consolidará informações operacionais, de vendas e financeiras no Relatório de Desempenho a partir deste trimestre.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora informou que passará a consolidar suas informações operacionais, de vendas e financeiras no Relatório de Desempenho. Segundo a Vale, as informações anteriormente divulgadas em um Relatório de Produção e Vendas independente passarão a integrar o relatório apresentado com as informações de resultado a partir desse trimestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3aeaaff978728ebf",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-balanco-3t26/",
+        "timestamp_publicacao": "2026-10-29T15:00:23-03:00",
+        "timestamp_coleta": "2026-10-29T18:38:04.700518-03:00"
+      },
+      "id": "3aeaaff978728ebf-3"
+    }
   ]
 }
