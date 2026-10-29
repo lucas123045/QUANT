@@ -7,5 +7,149 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "35c98e6f889d4392-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "35c98e6f889d4392-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Não há fato novo ou impacto financeiro mensurável confirmado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f988b5287b247d8f-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro acima do esperado altera projeções e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f988b5287b247d8f-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Crescimento relevante de receita líquida impacta diretamente o resultado e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f988b5287b247d8f-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Aumento relevante no fluxo de caixa operacional, mas sem indicação de impacto extraordinário no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f988b5287b247d8f-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra de ações pode apoiar o preço e sinaliza confiança, mas o volume é pequeno frente ao total de ações da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "87f0930da4b88516-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Divulgação de resultado trimestral impacta lucro e expectativas do mercado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8b21f5f5a35de94c-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Evento é apenas expectativa de resultado pressionado, sem confirmação ou divulgação dos números.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8b21f5f5a35de94c-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 35% no lucro líquido anual impacta diretamente o resultado e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "9e984be3523c9cbe-0": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação de resultados, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "9e984be3523c9cbe-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança de agenda de divulgação sem efeito financeiro mensurável.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "34c97813952dad4e-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro ajustado cresceu 14%, impacto relevante no resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "34c97813952dad4e-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reiteração de guidance já conhecido, sem novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "34c97813952dad4e-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Hedge cambial é procedimento rotineiro e não altera resultado ou valor da empresa no curto prazo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "34c97813952dad4e-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Recompra de ações reduz o número de ações em circulação e pode beneficiar acionistas, mas o impacto é limitado pelo tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8c1c7daffc8c49ae-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Reajuste relevante de preços pode aumentar receita e lucro de forma significativa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

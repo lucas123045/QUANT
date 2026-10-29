@@ -83,5 +83,1330 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgará balanço do 3º trimestre de 2026 em 29/11; expectativa de resultados pressionados por preços e custos.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "A Vale ( VALE3 ) divulgará seu balanço do terceiro trimestre de 2026 nesta quinta-feira (29). De acordo com analistas, a mineradora deve apresentar resultados pressionados pela queda dos preços das commodities e pelo aumento de custos operacionais.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8b21f5f5a35de94c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-divulga-seu-balanco-do-3o-trimestre-nesta-5a-o-que-esperar/",
+        "timestamp_publicacao": "2026-10-29T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "8b21f5f5a35de94c-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Evento é apenas expectativa de resultado pressionado, sem confirmação ou divulgação dos números.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Evento é apenas expectativa de resultado pressionado, sem confirmação ou divulgação dos números."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "No 2º trimestre de 2026, Vale teve lucro líquido de US$ 1,37 bi, queda de 35% na comparação anual.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "No segundo trimestre de 2026, a Vale registrou lucro líquido de US$ 1,37 bilhão, queda de 35% na comparação anual, em um período marcado por preços mais baixos do minério de ferro e pressão sobre as margens.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8b21f5f5a35de94c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-divulga-seu-balanco-do-3o-trimestre-nesta-5a-o-que-esperar/",
+        "timestamp_publicacao": "2026-10-29T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "8b21f5f5a35de94c-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.98,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de 35% no lucro líquido anual impacta diretamente o resultado e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "negativo, mas houve evento positivo de VALE3 nos últimos 5 dias",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de 35% no lucro líquido anual impacta diretamente o resultado e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Divulgação dos resultados do terceiro trimestre da Vale, com cenário de preços pressionados para o minério.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a agenda de divulgações de balanços do terceiro trimestre destaca o lançamento dos resultados do trimestre da Vale ( VALE3 ), com um plano de fundo de preços mais pressionados para o minério e expectativas mais cautelosas para o setor de mineração e siderurgia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "87f0930da4b88516",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/inflacao-eua-caged-bce-balanco-vale-agenda-29102026/",
+        "timestamp_publicacao": "2026-10-29T06:07:35-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "87f0930da4b88516-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Divulgação de resultado trimestral impacta lucro e expectativas do mercado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "sentimento neutro",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Divulgação de resultado trimestral impacta lucro e expectativas do mercado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano eleva preços da celulose em US$ 50 para Europa e América do Norte a partir de novembro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Procurada, a Suzano confirmou o reajuste.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8c1c7daffc8c49ae",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/suzano-suzb3-eleva-precos-de-celulose-em-us-50-para-europa-e-america-do-norte-fets/",
+        "timestamp_publicacao": "2026-10-29T06:13:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "8c1c7daffc8c49ae-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Reajuste relevante de preços pode aumentar receita e lucro de forma significativa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "SUZB3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Reajuste relevante de preços pode aumentar receita e lucro de forma significativa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev lucra R$ 4,37 bilhões no 3T26, acima do esperado pelo mercado.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Ambev ( ABEV3 ) teve lucro líquido de R$ 4,37 bilhões no terceiro trimestre de 2026 (3T26), o que representa um recuo de 10,2% na comparação com os R$ 4,863 bilhões de um ano antes. O resultado, divulgado na madrugada desta quinta-feira (29), ficou acima da estimativa de R$ 3,9 bilhões dos analistas consultados pela IBES.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f988b5287b247d8f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ambev-abev3-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-10-29T06:23:22-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "f988b5287b247d8f-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Lucro acima do esperado altera projeções e valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "compra",
+      "motivo": "evento positivo confirmado (resultado, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente",
+      "fracao_alvo": 0.2,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Lucro acima do esperado altera projeções e valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "operacional",
+      "resumo": "Receita líquida orgânica da Ambev cresceu 7,6% no 3T26.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Já a receita líquida orgânica cresceu 7,6%, atingindo R$ 21,595 bilhões, impulsionada pelo crescimento de 6,8% da receita líquida por hectolitro (ROL/hl) e pelo desempenho de volume.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f988b5287b247d8f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ambev-abev3-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-10-29T06:23:22-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "f988b5287b247d8f-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Crescimento relevante de receita líquida impacta diretamente o resultado e valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Crescimento relevante de receita líquida impacta diretamente o resultado e valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "operacional",
+      "resumo": "Fluxo de caixa operacional da Ambev aumentou cerca de R$ 759 milhões no 3T26.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O fluxo de caixa das atividades operacionais foi um destaque do trimestre e totalizou aproximadamente R$ 7,7 bilhões, um aumento de cerca de R$ 759 milhões em relação ao mesmo período do ano anterior, principalmente devido ao crescimento do EBITDA Ajustado e à melhora na dinâmica de capital de giro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f988b5287b247d8f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ambev-abev3-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-10-29T06:23:22-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "f988b5287b247d8f-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Aumento relevante no fluxo de caixa operacional, mas sem indicação de impacto extraordinário no valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Aumento relevante no fluxo de caixa operacional, mas sem indicação de impacto extraordinário no valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "outro",
+      "resumo": "Conselho da Ambev aprovou programa de recompra de até 190 milhões de ações.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Conselho de Administração da Ambev aprovou um programa de recompra de ações até o limite de 190 milhões de ações ordinárias, a ser executado nos próximos 18 meses.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f988b5287b247d8f",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ambev-abev3-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-10-29T06:23:22-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "f988b5287b247d8f-3",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra de ações pode apoiar o preço e sinaliza confiança, mas o volume é pequeno frente ao total de ações da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra de ações pode apoiar o preço e sinaliza confiança, mas o volume é pequeno frente ao total de ações da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev teve lucro líquido ajustado de R$ 4,4 bilhões no 3º trimestre, alta de 14%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Ambev ( ABEV3 ) teve lucro líquido de R$ 4,37 bilhões no terceiro trimestre, de R$ 4,86 bilhões um ano antes, refletindo a ausência de efeitos tributários não recorrentes registrados em 2025, além de impactos relacionados ao desinvestimento em Barbados, divulgou a cervejaria nesta quinta-feira (29). Em termos ajustados, o lucro líquido cresceu mais de 14% para R$ 4,4 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "34c97813952dad4e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ambev-abev3-tem-lucro-liquido-ajustado-de-r-44-bilhoes-no-3o-trimestre-fets/",
+        "timestamp_publicacao": "2026-10-29T06:24:47-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "34c97813952dad4e-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Lucro ajustado cresceu 14%, impacto relevante no resultado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Lucro ajustado cresceu 14%, impacto relevante no resultado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "guidance",
+      "resumo": "Ambev reiterou previsão de aumento anual entre 4,5% e 7,5% no CPV/hl em cerveja para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Para 2026, a Ambev reiterou sua previsão de aumento anual entre 4,5% e 7,5% no custo dos produtos vendidos por hectolitro (CPV/hl) em cerveja.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "34c97813952dad4e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ambev-abev3-tem-lucro-liquido-ajustado-de-r-44-bilhoes-no-3o-trimestre-fets/",
+        "timestamp_publicacao": "2026-10-29T06:24:47-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "34c97813952dad4e-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Reiteração de guidance já conhecido, sem novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Reiteração de guidance já conhecido, sem novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "operacional",
+      "resumo": "Ambev realizou hedge de exposição ao real/dólar para todo o ano de 2027.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O grupo destacou que já realizou o hedge de exposição ao real/dólar para todo o ano de 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "34c97813952dad4e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ambev-abev3-tem-lucro-liquido-ajustado-de-r-44-bilhoes-no-3o-trimestre-fets/",
+        "timestamp_publicacao": "2026-10-29T06:24:47-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "34c97813952dad4e-2",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Hedge cambial é procedimento rotineiro e não altera resultado ou valor da empresa no curto prazo.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Hedge cambial é procedimento rotineiro e não altera resultado ou valor da empresa no curto prazo."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "ABEV3",
+      "tipo_evento": "outro",
+      "resumo": "Conselho da Ambev aprovou programa de recompra de até 190 milhões de ações para cancelamento.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O conselho de administração da Ambev também aprovou um programa de recompra de até 190 milhões de ações com o objetivo principal de cancelamento das referidas ações.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "34c97813952dad4e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ambev-abev3-tem-lucro-liquido-ajustado-de-r-44-bilhoes-no-3o-trimestre-fets/",
+        "timestamp_publicacao": "2026-10-29T06:24:47-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "34c97813952dad4e-3",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Recompra de ações reduz o número de ações em circulação e pode beneficiar acionistas, mas o impacto é limitado pelo tamanho da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "ABEV3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Recompra de ações reduz o número de ações em circulação e pode beneficiar acionistas, mas o impacto é limitado pelo tamanho da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgará resultados do 3T26 após o fechamento do mercado em 29/10.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A companhia divulga os resultados do terceiro trimestre (3T26) após o fechamento do mercado nesta quinta-feira (29).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9e984be3523c9cbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/lucro-liquido-da-vale-vale3-deve-cair-quase-50-no-3t26-veja-os-motivos-e-o-que-mais-esperar-do-balanco-bdap/",
+        "timestamp_publicacao": "2026-10-29T07:00:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "9e984be3523c9cbe-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 1.0,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas anúncio de data de divulgação de resultados, sem efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas anúncio de data de divulgação de resultados, sem efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 1,00"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale divulgará relatório de produção do 3T26 junto com o balanço, diferente da prática habitual.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O relatório de produção do trimestre será junto com o balanço, diferente da prática habitual da empresa, que era publicar os dados operacionais alguns dias antes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9e984be3523c9cbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/lucro-liquido-da-vale-vale3-deve-cair-quase-50-no-3t26-veja-os-motivos-e-o-que-mais-esperar-do-balanco-bdap/",
+        "timestamp_publicacao": "2026-10-29T07:00:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "9e984be3523c9cbe-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Mudança de agenda de divulgação sem efeito financeiro mensurável.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Mudança de agenda de divulgação sem efeito financeiro mensurável."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgará balanço após o pregão, podendo influenciar o contrato de mini-índice.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Vale ( VALE3 ) , que divulgará balanço após o pregão, e Petrobras ( PETR3 ; PETR4 ) também deverão influenciar o contrato.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "35c98e6f889d4392",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mini-indice-hoje-futuro-ibovespa-winz26-29102026/",
+        "timestamp_publicacao": "2026-10-29T07:07:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "35c98e6f889d4392-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Apenas anúncio de data de divulgação de resultado, sem efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Petrobras deverá influenciar o contrato de mini-índice após o pregão.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Vale ( VALE3 ) , que divulgará balanço após o pregão, e Petrobras ( PETR3 ; PETR4 ) também deverão influenciar o contrato.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "35c98e6f889d4392",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/mini-indice-hoje-futuro-ibovespa-winz26-29102026/",
+        "timestamp_publicacao": "2026-10-29T07:07:00-03:00",
+        "timestamp_coleta": "2026-10-29T07:15:56.877890-03:00"
+      },
+      "id": "35c98e6f889d4392-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Não há fato novo ou impacto financeiro mensurável confirmado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 30/10 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Não há fato novo ou impacto financeiro mensurável confirmado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
   }
 ]
