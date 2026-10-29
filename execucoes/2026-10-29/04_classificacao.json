@@ -151,5 +151,374 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fd9fb7910180f65c-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Recorde de produção aumenta receita e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "fd9fb7910180f65c-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Expectativa de lucro 41% menor impacta diretamente o resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "24e83d7c8b6a0190-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço causado por opinião de analistas, sem fato novo relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "24e83d7c8b6a0190-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de preço reflete reação do mercado, mas não há fato novo relevante informado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Alta do dólar impacta fortemente EBITDA e fluxo de caixa da Suzano.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Exposição ao dólar e geração de caixa nos EUA trazem benefício financeiro, mas sem mudança estrutural imediata.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de corretora sem efeito financeiro imediato ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A valorização como hedge cambial é relevante, mas não altera imediatamente resultados ou caixa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de corretora não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "245cebdddd912cf4-5": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de corretora não altera fundamentos ou resultados da empresa",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d089e4f39755edbe-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Recorde de produção e exportação impacta diretamente receita e lucro.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d089e4f39755edbe-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio de data de divulgação e expectativa de mercado, sem confirmação de resultado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d089e4f39755edbe-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Projeção de mercado, não confirmação oficial de dividendos.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d089e4f39755edbe-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Possível revisão de guidance ainda não confirmada e impacto futuro incerto.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Exclusão de carteira recomendada não afeta fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Exclusão de carteira recomendada não afeta diretamente resultados ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Exclusão de carteira recomendada não afeta diretamente resultados ou valor da empresa",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Inclusão em carteira recomendada não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Inclusão em carteira recomendada não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d87601b123e47c9c-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Manutenção em carteira recomendada não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a4fb4c403df25e92-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Captação relevante, mas pequena frente ao tamanho do banco",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "a4fb4c403df25e92-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Parceria operacional sem impacto financeiro direto ou mudança relevante para a B3.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8a66dce4fdc6782e-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de margem operacional nos EUA impacta lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8a66dce4fdc6782e-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Compressão de margens afeta resultados, mas impacto é limitado a um trimestre futuro.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8a66dce4fdc6782e-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Adição ao Ebitda relevante, mas abaixo do potencial estimado inicialmente.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8a66dce4fdc6782e-3": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Revisão relevante para baixo na projeção de Ebitda futuro impacta valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "8a66dce4fdc6782e-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.7,
+    "materialidade": "baixa",
+    "motivo_materialidade": "O anúncio do plano é preliminar e ainda não há confirmação ou detalhes concretos sobre impactos financeiros.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b6ae8873ec2a3191-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Produção recorde aumenta receita e pode impactar lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b6ae8873ec2a3191-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "media",
+    "motivo_materialidade": "Projeção de queda relevante no EBITDA, mas ainda não confirmada e baseada em estimativas.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "b6ae8873ec2a3191-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Projeção de analistas, não confirmação oficial nem anúncio de fato novo.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de produção impacta receita e lucro da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro acima do esperado altera projeções e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-2": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio da data de divulgação do balanço, sem efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Mudança relevante de participação acionária, mas sem efeito direto no resultado ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-4": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Troca de executivo sem indicação de impacto financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "84367fdafb978111-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Acordo tributário bilionário pode impactar caixa e resultados da Cosan.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d77ba469c72ec1d9-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Rebaixamento de recomendação e corte de preço-alvo afetam percepção de valor, mas sem impacto direto nos resultados operacionais.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d77ba469c72ec1d9-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f4dbca5acb6bb29c-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Recorde de produção aumenta receita e pode elevar lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f4dbca5acb6bb29c-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro líquido ajustado acima do esperado e crescimento relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f4dbca5acb6bb29c-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento de preços eleva receita e pode impactar lucro de forma relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

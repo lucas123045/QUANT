@@ -354,5 +354,847 @@
       },
       "id": "8c1c7daffc8c49ae-0"
     }
+  ],
+  "fd9fb7910180f65c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras alcançou recorde de produção no 3º trimestre de 2026, com 3,51 milhões de barris/dia.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ontem, a Petrobras informou que alcançou um recorde de produção no terceiro trimestre de 2026, com 3,51 milhões de barris de óleo equivalente por dia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fd9fb7910180f65c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/de-temor-fiscal-a-espera-por-vale-os-fatores-que-fazem-ibovespa-cair-1-nesta-5a/",
+        "timestamp_publicacao": "2026-10-29T13:45:55-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "fd9fb7910180f65c-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga balanço do 3º trimestre após fechamento; expectativa é de lucro 41% menor.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "Após o fechamento da B3, a Vale ( VALE3 ) divulga balanço do terceiro trimestre . Na média das estimativas do Prévias Broadcast, o lucro da mineradora deve somar US$ 1,58 bilhão, resultado 41% menor do que há um ano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "fd9fb7910180f65c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/de-temor-fiscal-a-espera-por-vale-os-fatores-que-fazem-ibovespa-cair-1-nesta-5a/",
+        "timestamp_publicacao": "2026-10-29T13:45:55-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "fd9fb7910180f65c-1"
+    }
+  ],
+  "24e83d7c8b6a0190": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Papéis do Bradesco pressionam negativamente o Ibovespa após relatórios de analistas desfavoráveis.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "com os papéis do Bradesco entre as principais pressões negativas para o índice após relatórios de analistas desfavoráveis ao banco.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "24e83d7c8b6a0190",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-29102026/",
+        "timestamp_publicacao": "2026-10-29T13:42:52-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "24e83d7c8b6a0190-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "cotacao",
+      "resumo": "GGBR4 está entre os maiores ganhos do Ibovespa, com alta de 6,56%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ibovespa tem apenas 15 ativos em alta; maiores ganhos são de GGBR4 (+6,56%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "24e83d7c8b6a0190",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-29102026/",
+        "timestamp_publicacao": "2026-10-29T13:42:52-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "24e83d7c8b6a0190-1"
+    }
+  ],
+  "245cebdddd912cf4": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Analistas destacam Suzano como principal beneficiária da alta do dólar, com forte impacto positivo no EBITDA e fluxo de caixa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Segundo a análise da XP, a Suzano é a principal beneficiária do chamado “fator cambial”, enquanto Gerdau e Vale combinam receitas internacionais com menor exposição aos riscos da economia brasileira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Gerdau é favorecida por exposição ao dólar e geração de caixa nos EUA, funcionando como proteção cambial.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No caso da Gerdau, a preferência continua ligada à forte exposição aos Estados Unidos. A XP destaca que a companhia alia geração de caixa em dólar, boa dinâmica operacional na América do Norte e menor dependência do mercado brasileiro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale é vista como bem posicionada para enfrentar cenário doméstico adverso devido à receita internacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Nesse contexto, a corretora aponta que empresas como Suzano ( SUZB3 ), Gerdau ( GGBR4 ), Aura Minerals ( AURA33 ) e Vale ( VALE3 ) aparecem entre as mais bem posicionadas para enfrentar um ambiente doméstico mais adverso.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-2"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "operacional",
+      "resumo": "WEG ganha atratividade com real mais fraco, sendo considerada hedge cambial natural por exposição internacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Para a XP, a empresa passou a oferecer um perfil ainda mais interessante após a correção recente das ações. Os analistas classificam a companhia como um “hedge cambial natural”, graças à elevada exposição internacional dos negócios e à baixa dependência do ciclo econômico brasileiro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-3"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "operacional",
+      "resumo": "Morgan Stanley incluiu PRIO entre exportadoras preferidas após eleições, favorecida por receitas dolarizadas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A carteira passou a privilegiar companhias com receitas dolarizadas e menor exposição ao ciclo doméstico, como Petrobras ( PETR4 ), Embraer ( EMBJ3 ), Suzano ( SUZB3 ), PRIO ( PRIO3 ), WEG ( WEGE3 ), Vale ( VALE3 ) e JBS",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Morgan Stanley passou a privilegiar Petrobras em carteira de exportadoras após eleições, devido à receita dolarizada.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A carteira passou a privilegiar companhias com receitas dolarizadas e menor exposição ao ciclo doméstico, como Petrobras ( PETR4 ), Embraer ( EMBJ3 ), Suzano ( SUZB3 ), PRIO ( PRIO3 ), WEG ( WEGE3 ), Vale ( VALE3 ) e JBS",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "245cebdddd912cf4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+        "timestamp_publicacao": "2026-10-29T13:15:00-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "245cebdddd912cf4-5"
+    }
+  ],
+  "d089e4f39755edbe": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras bate recordes de produção e exportação de petróleo no trimestre.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Petrobras (PETR4) divulgou na noite de ontem (28) mais um trimestre com o operacional nos trinques e novos recordes de produção",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d089e4f39755edbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vem-dividendo-gordo-ai-petrobras-petr4-entrega-novo-trimestre-de-operacional-nos-trinques-e-bancos-projetam-3t26-forte-bdap/",
+        "timestamp_publicacao": "2026-10-29T13:38:54-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d089e4f39755edbe-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "Petrobras divulgará resultados do 3T26 em 11 de novembro; mercado espera balanço forte.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "A petroleira divulgará os resultados no dia 11 de novembro , após o fechamento dos mercados. Na visão do BTG Pactual , a Petrobras deve distribuir entre US$ 3,6 bilhões em proventos aos acionistas no 3T36, o equivalente a um dividend yield de 2,5%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d089e4f39755edbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vem-dividendo-gordo-ai-petrobras-petr4-entrega-novo-trimestre-de-operacional-nos-trinques-e-bancos-projetam-3t26-forte-bdap/",
+        "timestamp_publicacao": "2026-10-29T13:38:54-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d089e4f39755edbe-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Mercado projeta dividendos entre US$ 3,1 e US$ 4,2 bilhões no 3T36 para acionistas.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "o mercado projeta mais um balanço forte para a estatal no 3T36 e cria expectativas para o que realmente faz o olho do acionista brilhar: os dividendos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d089e4f39755edbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vem-dividendo-gordo-ai-petrobras-petr4-entrega-novo-trimestre-de-operacional-nos-trinques-e-bancos-projetam-3t26-forte-bdap/",
+        "timestamp_publicacao": "2026-10-29T13:38:54-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d089e4f39755edbe-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "guidance",
+      "resumo": "Três novas plataformas FPSO devem entrar em operação em 2027, podendo revisar guidance de produção.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "três novas unidades devem entrar em operação em 2027 — movimento que pode levar a uma revisão para cima do guidance de produção.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d089e4f39755edbe",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vem-dividendo-gordo-ai-petrobras-petr4-entrega-novo-trimestre-de-operacional-nos-trinques-e-bancos-projetam-3t26-forte-bdap/",
+        "timestamp_publicacao": "2026-10-29T13:38:54-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d089e4f39755edbe-3"
+    }
+  ],
+  "d87601b123e47c9c": [
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "outro",
+      "resumo": "Ações da Equatorial foram excluídas da carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "nesta atualização, o banco excluiu as ações da Equatorial (EQTL3)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "outro",
+      "resumo": "Ações do Bradesco foram excluídas da carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "nesta atualização, o banco excluiu as ações da Equatorial (EQTL3) , Bradesco (BBDC4 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-1"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "Ações da Gerdau foram excluídas da carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "nesta atualização, o banco excluiu as ações da Equatorial (EQTL3) , Bradesco (BBDC4 ), Direcional (DIRR3) , BTG Pactual (BPAC11 ) e Gerdau (GGBR4 )",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-2"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "outro",
+      "resumo": "Ações da Sabesp foram incluídas na carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Sabesp (SBSP3) , CPFL Energia (CPFE3 ), Cury (CURY3 ), XP (XPBR31) e WEG (WEGE3) foram os papéis incluídos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-3"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "outro",
+      "resumo": "Ações da WEG foram incluídas na carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Sabesp (SBSP3) , CPFL Energia (CPFE3 ), Cury (CURY3 ), XP (XPBR31) e WEG (WEGE3) foram os papéis incluídos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-4"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Ações da Petrobras foram mantidas na carteira Brazil Buy List do Itaú BBA.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Axia (AXIA3) , Multiplan (MULT3) , Petrobras PN (PETR4) , Embraer (EMBJ3) e Rede d’Or (RDOR3) foram mantidos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d87601b123e47c9c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/apos-derrocada-ibovespa-itau-bba-atualiza-carteira-para-bolsa-escolhe-dez-acoes-para-investir-lils/",
+        "timestamp_publicacao": "2026-10-29T13:32:31-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d87601b123e47c9c-5"
+    }
+  ],
+  "a4fb4c403df25e92": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "operacional",
+      "resumo": "Tesouro Reserva capta R$ 8 bi em cinco meses, exclusivo para clientes do Banco do Brasil.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Tesouro Reserva ultrapassou a marca de R$ 8 bilhões em aplicações pouco mais de cinco meses após seu lançamento, em maio deste ano . Segundo dados do Banco do Brasil compartilhados com o portal Seu Dinheiro, o produto somava R$ 8,01 bilhões investidos até 19 de outubro, distribuídos entre mais de 190 mil clientes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a4fb4c403df25e92",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/tesouro-reserva-supera-r-8-bilhoes-em-captacao-banco-do-brasil-mlim/",
+        "timestamp_publicacao": "2026-10-29T13:10:56-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "a4fb4c403df25e92-0"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "operacional",
+      "resumo": "Parceria entre Tesouro Nacional, B3 e Banco do Brasil mantém Tesouro Reserva exclusivo no BB.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "devido a parceria entre o Tesouro Nacional, a B3 e o banco estatal",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "a4fb4c403df25e92",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/tesouro-reserva-supera-r-8-bilhoes-em-captacao-banco-do-brasil-mlim/",
+        "timestamp_publicacao": "2026-10-29T13:10:56-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "a4fb4c403df25e92-1"
+    }
+  ],
+  "8a66dce4fdc6782e": [
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Gerdau implementou aumentos de preços nos EUA e elevou margem da operação norte-americana para 27,7% no 3º tri, maior nível desde 2022.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a empresa implementou sucessivos aumentos de preços de barras comerciais, perfis estruturais e vergalhões nos Estados Unidos ao longo do terceiro trimestre de 2026 e início do quarto trimestre. Neste cenário, a companhia elevou a margem da operação da América do Norte para 27,7% no terceiro trimestre, o maior nível desde 2022.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8a66dce4fdc6782e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-itau-bba-eleva-recomendacao-para-compra-e-ubs-bb-atualiza-preco-alvo-veja-o-que-esta-no-radar-dos-analistas-lmrs/",
+        "timestamp_publicacao": "2026-10-29T12:31:06-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "8a66dce4fdc6782e-0"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Administração espera compressão de margens no Brasil no 4º tri de 2026 devido à demanda fraca, exportações maiores e pressão sobre preços do aço.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A administração espera compressão de margens no Brasil no quarto trimestre de 2026 devido à demanda sazonalmente mais fraca, maior participação das exportações e pressão sobre os preços do aço",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8a66dce4fdc6782e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-itau-bba-eleva-recomendacao-para-compra-e-ubs-bb-atualiza-preco-alvo-veja-o-que-esta-no-radar-dos-analistas-lmrs/",
+        "timestamp_publicacao": "2026-10-29T12:31:06-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "8a66dce4fdc6782e-1"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "operacional",
+      "resumo": "Projeto da mina de Miguel Burnier deve adicionar R$ 400 milhões ao Ebitda em 2027, abaixo do potencial estimado de R$ 1,1 bilhão.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Miguel Burnier ganhará ritmo durante o período chuvoso e deve adicionar cerca de R$ 400 milhões ao Ebitda (lucro antes de juros, impostos, depreciação e amortização) em 2027, abaixo do potencial total estimado em R$ 1,1 bilhão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8a66dce4fdc6782e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-itau-bba-eleva-recomendacao-para-compra-e-ubs-bb-atualiza-preco-alvo-veja-o-que-esta-no-radar-dos-analistas-lmrs/",
+        "timestamp_publicacao": "2026-10-29T12:31:06-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "8a66dce4fdc6782e-2"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "guidance",
+      "resumo": "Analistas reduziram projeção de margem Ebitda do Brasil em 2027 de 14,4% para 11,7%, queda de 20% na estimativa de Ebitda, para R$ 4 bilhões.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Como resultado, os analistas reduziram a projeção de margem Ebitda do Brasil em 2027 de 14,4% para 11,7%, o que implica uma queda de 20% na estimativa de Ebitda, para R$ 4 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8a66dce4fdc6782e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-itau-bba-eleva-recomendacao-para-compra-e-ubs-bb-atualiza-preco-alvo-veja-o-que-esta-no-radar-dos-analistas-lmrs/",
+        "timestamp_publicacao": "2026-10-29T12:31:06-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "8a66dce4fdc6782e-3"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "Plano de reestruturação será detalhado no Investor Day, com foco em segmentos rentáveis e redução de exportações.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "o plano de reestruturação que será detalhado no Investor Day, espelhando a transformação realizada na América do Norte em 2018, com desinvestimentos, foco em segmentos mais rentáveis e redução estrutural das exportações, além do avanço de medidas de defesa comercial pode gerar revisões positivas para as projeções.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8a66dce4fdc6782e",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/gerdau-ggbr4-itau-bba-eleva-recomendacao-para-compra-e-ubs-bb-atualiza-preco-alvo-veja-o-que-esta-no-radar-dos-analistas-lmrs/",
+        "timestamp_publicacao": "2026-10-29T12:31:06-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "8a66dce4fdc6782e-4"
+    }
+  ],
+  "b6ae8873ec2a3191": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras registrou produção recorde de 3,51 milhões de boe/d no 3T, alta de 5% trimestral e 12% anual.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A estatal informou produção total de óleo, gás natural e líquidos de gás natural de 3,51 milhões de barris de óleo equivalente por dia (boe/d) entre julho e setembro, alta de 5% em relação ao trimestre anterior e de 12% na comparação anual, sendo recorde para a companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b6ae8873ec2a3191",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-producao-recorde-reforca-visao-para-3t-mercado-ve-dividendo-de-us-36-bi/",
+        "timestamp_publicacao": "2026-10-29T09:58:48-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "b6ae8873ec2a3191-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "Projeções de EBITDA para o 3T variam entre US$ 16,6 bi e US$ 18 bi, abaixo do trimestre anterior.",
+      "impacto_declarado": "negativo",
+      "confirmado": false,
+      "trecho_fonte": "A XP Investimentos, o Brent teve preço médio de US$ 96,8 por barril entre julho e setembro, queda de 8% em relação ao trimestre anterior. Como consequência, a casa projeta EBITDA (lucro antes de juros, impostos, depreciações e amortizações) de cerca de US$ 17,3 bilhões, abaixo dos US$ 19 bilhões registrados no segundo trimestre.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b6ae8873ec2a3191",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-producao-recorde-reforca-visao-para-3t-mercado-ve-dividendo-de-us-36-bi/",
+        "timestamp_publicacao": "2026-10-29T09:58:48-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "b6ae8873ec2a3191-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "Mercado projeta dividendos ordinários de US$ 3,6 bilhões para o 3T, yield de 2,6%.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "A XP projeta dividendos ordinários de US$ 3,6 bilhões, o equivalente a um dividend yield (dividendo sobre preço da ação) trimestral de 2,6%, enquanto o Bradesco BBI trabalha com aproximadamente US$ 3,5 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "b6ae8873ec2a3191",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-producao-recorde-reforca-visao-para-3t-mercado-ve-dividendo-de-us-36-bi/",
+        "timestamp_publicacao": "2026-10-29T09:58:48-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "b6ae8873ec2a3191-2"
+    }
+  ],
+  "84367fdafb978111": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras produziu 2,83 milhões de barris por dia no 3º trimestre, alta de 12,4% ano a ano.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras ( PETR3 ; PETR4 ) produziu 2,83 milhões de barris por dia (bpd) de petróleo no Brasil no terceiro trimestre, alta de 12,4% na comparação com o mesmo período do ano passado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-0"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev teve lucro líquido de R$ 4,37 bilhões no 3T26, queda de 10,2% ano a ano, mas acima do esperado.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Ambev ( ABEV3 ) teve lucro líquido de R$ 4,37 bilhões no terceiro trimestre de 2026 (3T26), o que representa um recuo de 10,2% na comparação com os R$ 4,863 bilhões de um ano antes. O resultado, divulgado na madrugada desta quinta-feira (29), ficou acima da estimativa de R$ 3,9 bilhões dos analistas consultados pela IBES.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga seu balanço após o fechamento do mercado nesta quinta-feira.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Já a mineradora Vale ( VALE3 ) divulga seu balanço após o fechamento do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-2"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "outro",
+      "resumo": "ARGA Investment Management passou a deter 5,37% das ações ordinárias da Lojas Renner.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A ARGA Investment Management passou a deter 54,1 milhões de ações ordinárias da Lojas Renner em 27 de outubro, o equivalente a aproximadamente 5,37% do total de papéis desse tipo, segundo comunicado da varejista.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-3"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "troca_executivo",
+      "resumo": "Carla Nesi renunciou ao cargo de vice-presidente de Negócios de Varejo do Banco do Brasil.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Carla Nesi renunciou ao cargo de vice-presidente de Negócios de Varejo do Banco do Brasil, com efeitos a partir desta quinta-feira (29).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-4"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Raízen anunciou acordo tributário de R$ 22,4 bi; R$ 5,7 bi vinculados à Cosan (CSAN3) e Shell.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Do valor total acordado, R$ 16,7 bilhões são de responsabilidade da companhia e R$ 5,7 bilhões são vinculados aos acionistas controladores: Cosan ( CSAN3 ) e Shell.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "84367fdafb978111",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-vale-ambev-oncoclinicas-casas-bahia-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-29T08:18:24-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "84367fdafb978111-5"
+    }
+  ],
+  "d77ba469c72ec1d9": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Bradesco caem após rebaixamento de recomendação e corte de preço-alvo por analistas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações do Bradesco ( BBDC4 ) sofreram um novo golpe por parte dos analistas uma vez que, após o Itaú BBA rebaixar a recomendação do banco de compra para neutra nesta semana, o JPMorgan também cortou sua classificação para neutra abandonando a recomendação overweight (exposição acima da média do mercado, equivalente à compra). Além disso, reduziu o preço-alvo para dezembro de 2027 de R$ 26 para R$ 18, um corte de quase 31%. Às 10h57 (horário de Brasília) desta quinta-feira (29), os papéis BBDC4 caíam 2,04%, a R$ 14,38.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d77ba469c72ec1d9",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-sofre-segundo-rebaixamento-e-jpmorgan-corta-preco-alvo-em-quase-30/",
+        "timestamp_publicacao": "2026-10-29T10:58:17-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d77ba469c72ec1d9-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "JPMorgan afirma preferência por Itaú Unibanco entre grandes bancos brasileiros em cenário macro desafiador.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O banco afirma que sua preferência entre os grandes bancos brasileiros continua sendo o Itaú Unibanco ( ITUB4 ), considerado o nome mais preparado para navegar em um ambiente econômico mais difícil e potencialmente ganhar participação de mercado diante das dificuldades enfrentadas pelos concorrentes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d77ba469c72ec1d9",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-sofre-segundo-rebaixamento-e-jpmorgan-corta-preco-alvo-em-quase-30/",
+        "timestamp_publicacao": "2026-10-29T10:58:17-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "d77ba469c72ec1d9-1"
+    }
+  ],
+  "f4dbca5acb6bb29c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras bate recorde de produção de petróleo e gás no 3T26, alta de 11,7% em um ano.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "a Petrobras (PETR4) entregou mais um trimestre de recordes na produção entre julho e setembro de 2026, segundo o relatório divulgado nesta quarta-feira (28). No período, a produção própria de petróleo, líquidos de gás natural (LGN) e gás natural alcançou 3,512 milhões de barris de óleo equivalente por dia (boed), superando o recorde anterior de 3,336 milhões de boed, registrado no segundo trimestre de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f4dbca5acb6bb29c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-raizen-raiz4-motiva-motv3-e-outros-destaques-desta-quinta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-29T08:41:43-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "f4dbca5acb6bb29c-0"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "resultado",
+      "resumo": "Ambev tem lucro líquido ajustado de R$ 4,4 bilhões no 3º trimestre, alta de mais de 14%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Em termos ajustados, o lucro líquido cresceu mais de 14% para R$ 4,4 bilhões. Estimativas de analistas compiladas pela LSEG apontavam resultado positivo de R$ 3,9 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f4dbca5acb6bb29c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-raizen-raiz4-motiva-motv3-e-outros-destaques-desta-quinta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-29T08:41:43-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "f4dbca5acb6bb29c-1"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "operacional",
+      "resumo": "Suzano eleva preços de celulose em US$ 50 para Europa e América do Norte a partir de novembro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Suzano (SUZB3) está comunicando clientes na Europa e América do Norte sobre novo aumento no preço da celulose da companhia a partir de novembro, segundo fonte do mercado. O reajuste a ser aplicado será de US$ 50 dólares",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f4dbca5acb6bb29c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-raizen-raiz4-motiva-motv3-e-outros-destaques-desta-quinta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-29T08:41:43-03:00",
+        "timestamp_coleta": "2026-10-29T14:00:25.957010-03:00"
+      },
+      "id": "f4dbca5acb6bb29c-2"
+    }
   ]
 }
