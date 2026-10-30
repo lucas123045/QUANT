@@ -1,1 +1,4272 @@
-[]
+[
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixou Banco do Brasil, citando maior incerteza sobre carteira do agronegócio e rentabilidade futura.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Nesse processo, o Citi rebaixou Bradesco ( BBDC4 ) e Banco do Brasil ( BBAS3 ), apontando que o ambiente pós-eleição favorece instituições financeiras com menor exposição ao ciclo econômico e menor sensibilidade a mudanças de juros de longo prazo.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "aeb0b1a62e6e8282",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/itau-favorito-bradesco-perde-forca-a-visao-do-mercado-para-bancoes-apos-a-eleicao/",
+        "timestamp_publicacao": "2026-10-30T05:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "aeb0b1a62e6e8282-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.9,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Rebaixamento de recomendação por analista não altera fundamentos ou resultados da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Rebaixamento de recomendação por analista não altera fundamentos ou resultados da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale reportou lucro líquido de US$ 1,255 bilhão no 3º tri de 2026, queda de 53% em relação ao ano anterior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale ( VALE3 ) reportou seus resultados do 3º trimestre de 2026 nesta quinta-feira (29), após o fechamento do mercado. A mineradora teve lucro de US$ 1,255 bilhão de forma líquida (atribuível aos acionistas) no terceiro trimestre de 2026, queda de 53% frente um ano antes.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5ccb1c709b68be9e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-usiminas-csn-braskem-petrobras-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-30T08:15:30-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5ccb1c709b68be9e-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de 53% no lucro líquido impacta diretamente o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras anunciou terceira descoberta de petróleo em poço na Foz do Amazonas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras ( PETR4 ) informou nesta ‌quinta-feira que identificou mais um intervalo portador ‌de petróleo no poço Morpho, na Bacia da Foz do Amazonas, caracterizando a ⁠terceira ‌descoberta no ⁠bloco localizado em águas ultra profundas da costa do Amapá.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5ccb1c709b68be9e",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-usiminas-csn-braskem-petrobras-e-mais-acoes-para-acompanhar-hoje/",
+        "timestamp_publicacao": "2026-10-30T08:15:30-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5ccb1c709b68be9e-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Conselho da Petrobras discutiu estratégia comercial para combustíveis, mas não houve decisão sobre reajustes de preços.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras ( PETR3 ; PETR4 ) confirmou que seu Conselho de Administração recebeu, em reunião realizada em 26 de outubro, informações das áreas técnicas sobre a execução da estratégia comercial para diesel, gasolina e outros produtos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6d5cff7f2beed8b7",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-confirma-discussao-sobre-precos-dos-combustiveis-mas-descarta-decisao/",
+        "timestamp_publicacao": "2026-10-30T08:47:27-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6d5cff7f2beed8b7-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.98,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Discussão sem decisão sobre preços não altera resultados ou valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Discussão sem decisão sobre preços não altera resultados ou valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras confirma terceira descoberta de petróleo em águas ultraprofundas do Amapá.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras (PETR4) identificou mais um intervalo portador de petróleo no poço Morpho , no bloco FZA-M-59, na costa do Amapá , área que integra a Margem Equatorial brasileira. O novo resultado representa a terceira descoberta na área, situada em águas ultraprofundas, em uma lâmina d’água de 2.886 metros.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c9dbc1cc79235774",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-vale-vale3-csn-csna3-e-outros-destaques-desta-sexta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-30T09:25:24-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "c9dbc1cc79235774-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Lucro líquido da Vale cai 53% no 3T26, para US$ 1,25 bilhão, abaixo das expectativas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora divulgou nesta quinta-feira (29) o balanço do período, que mostrou um lucro líquido de US$ 1,255 bilhão, queda de 53% em relação ao mesmo intervalo do ano passado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c9dbc1cc79235774",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-vale-vale3-csn-csna3-e-outros-destaques-desta-sexta-feira-mlem/",
+        "timestamp_publicacao": "2026-10-30T09:25:24-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "c9dbc1cc79235774-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.98,
+        "materialidade": "alta",
+        "motivo_materialidade": "Lucro caiu 53% e ficou abaixo das expectativas, afetando resultado e valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Lucro caiu 53% e ficou abaixo das expectativas, afetando resultado e valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga resultado do 3T26 com lucro líquido de US$ 1,255 bi, queda de 53% anual, e Ebitda ajustado de US$ 3,5 bi.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale ( VALE3 ) divulgou resultados do terceiro trimestre de 2026 (3T26) na noite de quinta-feira (29) sem grandes surpresas em termos operacionais, mas com alguns sinais positivos que ajudaram a aliviar parte das preocupações do mercado.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5de777f8cba31155",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-forca-do-cobre-compensa-custos-em-ferro-e-niquel-no-3t26-questao-2027-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-30T10:51:44-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5de777f8cba31155-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.85,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de 53% no lucro líquido impacta diretamente o resultado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Produção de minério de ferro caiu 6% no ano, para 88,4 milhões de toneladas, devido à menor disponibilidade em Serra Norte.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A produção somou 88,4 milhões de toneladas, queda de 6% na comparação anual, refletindo principalmente a menor disponibilidade de minério em Serra Norte, ativo considerado um dos mais rentáveis da companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5de777f8cba31155",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-forca-do-cobre-compensa-custos-em-ferro-e-niquel-no-3t26-questao-2027-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-30T10:51:44-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5de777f8cba31155-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de produção em ativo rentável impacta receita e lucro.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de produção em ativo rentável impacta receita e lucro."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Ebitda da divisão de metais básicos cresceu mais de 60% no ano, sustentado pelo cobre.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Ebitda da Vale Base Metals alcançou aproximadamente US$ 1,1 bilhão, crescimento de mais de 60% em relação ao mesmo período do ano anterior. O resultado foi sustentado principalmente pelo cobre, que se beneficiou de preços realizados mais elevados e créditos de subprodutos.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5de777f8cba31155",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-forca-do-cobre-compensa-custos-em-ferro-e-niquel-no-3t26-questao-2027-desempenho-acoes/",
+        "timestamp_publicacao": "2026-10-30T10:51:44-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5de777f8cba31155-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Crescimento relevante em uma divisão, mas impacto limitado no resultado consolidado da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Crescimento relevante em uma divisão, mas impacto limitado no resultado consolidado da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras venceu leilão e adquiriu 1 milhão de barris de petróleo do campo de Búzios.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "além da Petrobras ( PETR4 ), que adquiriram cada uma 1 milhão de barris em disputa com ExxonMobil, Galp, Prio, TotalEnergies e Equinor, informou a estatal.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ad6dbc35cc82ffd3",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ppsa-petrobras-cnooc-e-petrochina-vencem-10o-leilao-spot-de-petroleo-da-uniao/",
+        "timestamp_publicacao": "2026-10-30T11:34:15-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "ad6dbc35cc82ffd3-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Volume adquirido é pequeno frente à produção e receitas da Petrobras",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Volume adquirido é pequeno frente à produção e receitas da Petrobras"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale reporta lucro líquido de US$ 1,25 bi no 3º tri, queda anual de 53%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE3) tem lucro líquido de US$ 1,25 bi no 3º tri, queda anual de 53% Balanço foi apresentado na noite desta quinta (29)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6697ed4c1766e1d6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale3-vale-balanco-3t26-teleconferencia-coletiva/",
+        "timestamp_publicacao": "2026-10-30T12:43:35-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6697ed4c1766e1d6-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Administração reafirma guidance; custos all-in de cobre e capex devem ficar no limite inferior.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Como já presente no relatório que divulgou os resultados na noite desta quinta-feira (29), a administração reafirmou algumas orientações previamente fornecidas (guidance, em inglês). O CFO da companhia, Marcelo Bacci, considera que os custos all-in de cobre podem terminar o ano no limite mais baixo do guidance previsto e que o capex deve seguir mais próximo também do limite inferior.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6697ed4c1766e1d6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale3-vale-balanco-3t26-teleconferencia-coletiva/",
+        "timestamp_publicacao": "2026-10-30T12:43:35-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6697ed4c1766e1d6-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Reafirmação de guidance e custos/capex no limite inferior já eram esperados e não alteram projeções relevantes.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Reafirmação de guidance e custos/capex no limite inferior já eram esperados e não alteram projeções relevantes."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale já cobriu necessidades de frete para o 4º tri e tem 80% dos contratos garantidos para 2027.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O CEO da companhia, Gustavo Pimenta, afirmou que a companhia já cobriu suas necessidades de frete para o quarto trimestre e que já tem mais de 80% de contratos garantidos para 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6697ed4c1766e1d6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale3-vale-balanco-3t26-teleconferencia-coletiva/",
+        "timestamp_publicacao": "2026-10-30T12:43:35-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6697ed4c1766e1d6-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Garantia de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Garantia de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "dividendo",
+      "resumo": "Dividendos extraordinários são improváveis em 2026 devido à dívida líquida expandida.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Apesar de afirmar a possibilidade de recompras, os dividendos extraordinários são vistos como improváveis neste ano, segundo diretores da companhia.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6697ed4c1766e1d6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale3-vale-balanco-3t26-teleconferencia-coletiva/",
+        "timestamp_publicacao": "2026-10-30T12:43:35-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6697ed4c1766e1d6-3",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Redução de dividendos extraordinários afeta retorno ao acionista, mas não altera significativamente o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Redução de dividendos extraordinários afeta retorno ao acionista, mas não altera significativamente o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "Queda expressiva das ações abre oportunidades para recompras, segundo CFO.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A queda “expressiva” que papéis da Vale apresenta neste ano abre mais oportunidades para recomprar, segundo o CFO da mineradora, Marcelo Bacci.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6697ed4c1766e1d6",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale3-vale-balanco-3t26-teleconferencia-coletiva/",
+        "timestamp_publicacao": "2026-10-30T12:43:35-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6697ed4c1766e1d6-4",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Comentário do CFO sobre potencial recompra não implica ação concreta ou efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Comentário do CFO sobre potencial recompra não implica ação concreta ou efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Produção recorde de petróleo alcançou cerca de 2,83 milhões de barris por dia, impulsionando fundamentos operacionais.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "produção recorde de petróleo, que alcançou cerca de 2,83 milhões de barris por dia, e por exportações também recordes",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Recorde de produção impacta diretamente receita e lucro.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Recorde de produção impacta diretamente receita e lucro."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "resultado",
+      "resumo": "BTG Pactual projeta EBITDA próximo de US$ 19 bilhões para o 3º trimestre de 2026, apoiado por produção recorde.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O BTG Pactual projeta EBITDA (lucro antes de juros, impostos, depreciações e amortizações) próximo de US$ 19 bilhões para o terceiro trimestre de 2026, apoiado pela produção recorde de petróleo",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "É apenas uma projeção de terceiros para um período futuro, sem confirmação ou efeito imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: É apenas uma projeção de terceiros para um período futuro, sem confirmação ou efeito imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "dividendo",
+      "resumo": "BTG espera dividendos de aproximadamente US$ 3,6 bilhões referentes ao período.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "A casa espera ainda dividendos de aproximadamente US$ 3,6 bilhões referentes ao período.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-2",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Expectativa de analista, não confirmação oficial nem anúncio pela empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Expectativa de analista, não confirmação oficial nem anúncio pela empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "guidance",
+      "resumo": "Goldman Sachs estima dividend yield próximo de 20% em 2027, beneficiada por expansão da produção e receitas dolarizadas.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O banco estima que a estatal pode entregar yield de fluxo de caixa livre de aproximadamente 15% em 2027 e dividend yield próximo de 20%, beneficiada pela expansão da produção no pré-sal, receitas dolarizadas",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-3",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Estimativa de terceiros sem confirmação ou efeito financeiro imediato",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Estimativa de terceiros sem confirmação ou efeito financeiro imediato"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Crescimento da produção impulsionado pelo ramp-up das plataformas P-78, P-79 e FPSO Alexandre de Gusmão.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "crescimento da produção continua sendo impulsionado pelo ramp-up das plataformas P-78 e P-79 em Búzios e pelo FPSO Alexandre de Gusmão, em Mero",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-4",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.9,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aumento relevante de produção impacta receita e lucro da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aumento relevante de produção impacta receita e lucro da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,90"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "regulatorio",
+      "resumo": "Estatuto e legislação vigente funcionam como barreiras contra interferências diretas na política comercial.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o estatuto da Petrobras e a legislação vigente continuam funcionando como barreiras contra interferências diretas mais profundas na política comercial da estatal",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-5",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Não há mudança concreta nas operações ou resultados da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Não há mudança concreta nas operações ou resultados da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PRIO3",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú BBA avalia FCFE yield próximo de 34% para 2027, com menor exposição a riscos políticos.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Segundo o banco, a empresa oferece FCFE yield próximo de 34% para 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-6",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de terceiro sobre projeção futura, sem confirmação ou novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PRIO3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de terceiro sobre projeção futura, sem confirmação ou novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PRIO3",
+      "tipo_evento": "guidance",
+      "resumo": "Goldman Sachs estima dividend yield próximo de 20% para a empresa em 2027.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O Goldman estima dividend yield próximo de 20% para a empresa em 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-7",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "É apenas uma estimativa de terceiros sem confirmação ou efeito financeiro imediato.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PRIO3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: É apenas uma estimativa de terceiros sem confirmação ou efeito financeiro imediato."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VBBR3",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú BBA avalia que Vibra pode funcionar como alternativa defensiva em ambiente de margens estáveis.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O Itaú BBA avalia que Vibra ( VBBR3 ) e Ultrapar ( UGPA3 ) podem funcionar como alternativas mais defensivas em um ambiente de margens relativamente estáveis",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-8",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou confirmação de mudança relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VBBR3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de analista sem efeito financeiro direto ou confirmação de mudança relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "UGPA3",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú BBA avalia que Ultrapar pode funcionar como alternativa defensiva em ambiente de margens estáveis.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "O Itaú BBA avalia que Vibra ( VBBR3 ) e Ultrapar ( UGPA3 ) podem funcionar como alternativas mais defensivas em um ambiente de margens relativamente estáveis",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "be45f755bc423fce",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/apos-eleicao-o-que-mudou-na-tese-de-petroleiras-petrobras-e-prio-sao-as-preferidas/",
+        "timestamp_publicacao": "2026-10-30T14:00:00-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "be45f755bc423fce-9",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de terceiro sem efeito financeiro mensurável ou novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "UGPA3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de terceiro sem efeito financeiro mensurável ou novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale prevê estabilidade nos custos do minério de ferro no 4T26, após pressão no 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Vale (VALE3) espera estabilidade desses indicadores no quarto trimestre",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "559f091b759f95e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-cfo-preve-tregua-nos-custos-no-4t26-e-revela-estrategia-que-ja-poupou-us-3-bilhoes-bdap/",
+        "timestamp_publicacao": "2026-10-30T14:11:07-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "559f091b759f95e8-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Guidance indica estabilidade sem mudança relevante nos resultados.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Guidance indica estabilidade sem mudança relevante nos resultados."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale revisou para cima o guidance de custos de produção do minério no 2T26.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "No 2T26, a Vale revisou para cima o guidance de custos de produção do minério",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "559f091b759f95e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-cfo-preve-tregua-nos-custos-no-4t26-e-revela-estrategia-que-ja-poupou-us-3-bilhoes-bdap/",
+        "timestamp_publicacao": "2026-10-30T14:11:07-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "559f091b759f95e8-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Aumento de custos de produção impacta diretamente o lucro e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Aumento de custos de produção impacta diretamente o lucro e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale adotou estratégias de hedge e contratos de frete para reduzir custos e exposição ao mercado.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A estratégia da Vale combina contratos de frete de longo prazo (hedge) e vantagens operacionais da frota.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "559f091b759f95e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-cfo-preve-tregua-nos-custos-no-4t26-e-revela-estrategia-que-ja-poupou-us-3-bilhoes-bdap/",
+        "timestamp_publicacao": "2026-10-30T14:11:07-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "559f091b759f95e8-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Redução de custos operacionais tem efeito financeiro concreto, mas limitado frente ao tamanho da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Redução de custos operacionais tem efeito financeiro concreto, mas limitado frente ao tamanho da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Estratégia marítima de longo prazo evitou cerca de US$ 3 bilhões em custos em 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale estima que sua estratégia marítima de longo prazo tenha evitado cerca de US$ 3 bilhões em custos em 2026",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "559f091b759f95e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-cfo-preve-tregua-nos-custos-no-4t26-e-revela-estrategia-que-ja-poupou-us-3-bilhoes-bdap/",
+        "timestamp_publicacao": "2026-10-30T14:11:07-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "559f091b759f95e8-3",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Redução relevante de custos futuros impacta diretamente o lucro e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Redução relevante de custos futuros impacta diretamente o lucro e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Programa de hedge gerou US$ 249 milhões em benefícios de caixa no 3T26.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Segundo a Vale, o programa de hedge gerou US$ 249 milhões em benefícios de caixa no terceiro trimestre",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "559f091b759f95e8",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-cfo-preve-tregua-nos-custos-no-4t26-e-revela-estrategia-que-ja-poupou-us-3-bilhoes-bdap/",
+        "timestamp_publicacao": "2026-10-30T14:11:07-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "559f091b759f95e8-4",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Benefício de caixa relevante, mas pequeno em relação ao tamanho da Vale.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Benefício de caixa relevante, mas pequeno em relação ao tamanho da Vale."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga balanço do 3T26, ação sobe após divulgação.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE3) segue com forte alta, após balanço do 3T26: mais 3,20%, a R$ 61,97",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ccd1c9aae5054e03",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-30102026/",
+        "timestamp_publicacao": "2026-10-30T14:45:36-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "ccd1c9aae5054e03-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Resultado trimestral impactou positivamente o preço da ação, indicando efeito relevante no lucro ou expectativas.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Resultado trimestral impactou positivamente o preço da ação, indicando efeito relevante no lucro ou expectativas."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Vale espera avanços em temas regulatórios estratégicos para mineração com continuidade do governo Lula.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora Vale vê aspectos positivos na continuidade do governo do presidente Luiz Inácio Lula da Silva e espera avanços em temas regulatórios considerados estratégicos para expansão da mineração no Brasil, afirmou o vice-presidente de Finanças e Relações com Investidores da companhia, Marcelo Bacci, nesta sexta-feira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ccd1c9aae5054e03",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-30102026/",
+        "timestamp_publicacao": "2026-10-30T14:45:36-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "ccd1c9aae5054e03-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Expectativa positiva sobre regulação, sem efeito financeiro imediato ou concreto.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: regulatorio"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Expectativa positiva sobre regulação, sem efeito financeiro imediato ou concreto."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ibovespa cai quase 18% após eleição, afetando ações com grande peso como Petrobras.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "é um índice que tem muito peso de Petrobras e Vale, e, às vezes, esse não é o melhor indicativo para acompanharmos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "17a50a04f063eb62",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/mercado-aguarda-definicoes-no-fiscal-e-na-equipe-economica-enquanto-ganha-parado-com-juros-elevados-avalia-zanlorenzi-do-btg-apsa/",
+        "timestamp_publicacao": "2026-10-30T15:32:26-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "17a50a04f063eb62-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ibovespa cai quase 18% após eleição, afetando ações com grande peso como Vale.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "é um índice que tem muito peso de Petrobras e Vale, e, às vezes, esse não é o melhor indicativo para acompanharmos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "17a50a04f063eb62",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/mercado-aguarda-definicoes-no-fiscal-e-na-equipe-economica-enquanto-ganha-parado-com-juros-elevados-avalia-zanlorenzi-do-btg-apsa/",
+        "timestamp_publicacao": "2026-10-30T15:32:26-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "17a50a04f063eb62-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulgou resultado fraco no 3T26, com queda de Ebitda e pressão no minério de ferro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "apesar de a mineradora ter apresentado resultados considerados fracos pelo mercado no terceiro trimestre de 2026 (3T26)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "50ff07c5def96890",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-lidera-ganhos-do-ibovespa-mesmo-apos-balanco-fraco-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-30T15:53:41-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "50ff07c5def96890-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Resultado trimestral fraco com queda de Ebitda e pressão no minério afeta lucro e valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Resultado trimestral fraco com queda de Ebitda e pressão no minério afeta lucro e valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale indicou que produção anual deve ficar próxima do limite inferior da faixa prevista para 2026.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale , por sua vez, indicou que a produção anual deve ficar próxima do limite inferior da faixa prevista para 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "50ff07c5def96890",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-lidera-ganhos-do-ibovespa-mesmo-apos-balanco-fraco-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-30T15:53:41-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "50ff07c5def96890-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Redução de expectativa de produção impacta receita e projeções futuras.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Redução de expectativa de produção impacta receita e projeções futuras."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale enfrentou restrições operacionais no Sistema Norte, afetando produção de minério de ferro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "restrições operacionais no Sistema Norte afetaram a produção da companhia",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "50ff07c5def96890",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-lidera-ganhos-do-ibovespa-mesmo-apos-balanco-fraco-o-que-explica-bdap/",
+        "timestamp_publicacao": "2026-10-30T15:53:41-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "50ff07c5def96890-2",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Afeta produção de minério de ferro, principal produto da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Afeta produção de minério de ferro, principal produto da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "XP destaca WEG como ação defensiva, beneficiada por dólar forte e exposição internacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": false,
+      "trecho_fonte": "Na avaliação da XP, a WEG reúne características que se tornam especialmente relevantes no atual ambiente macroeconômico. Além de funcionar como uma proteção cambial natural, a companhia conta com uma trajetória de crescimento de longo prazo, sustentada por seu ciclo recente de investimentos e por uma exposição menor às tendências da economia brasileira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "9311f7aeb74df8b7",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/dolar-forte-e-juros-elevados-tres-acoes-que-podem-sair-na-frente-no-setor-de-bens-de-capital-segundo-a-xp-apsa/",
+        "timestamp_publicacao": "2026-10-30T16:12:04-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "9311f7aeb74df8b7-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.8,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de analista sem anúncio de fato novo ou impacto financeiro direto.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "WEGE3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de analista sem anúncio de fato novo ou impacto financeiro direto."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,80"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley destaca Petrobras como uma das preferidas entre exportadoras, devido à alta rentabilidade e proteção cambial.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os nomes preferidos do banco aparecem Petrobras ( PETR4 ), PRIO ( PRIO3 ), Nu Holdings (BDR: ROXO34 ), WEG ( WEGE3 ) e Embraer ( EMBJ3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5968305e723d07ff",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-ve-so-2-setores-da-bolsa-superando-custo-de-capital-e-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-30T16:12:34-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5968305e723d07ff-0",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de analista sem efeito financeiro direto ou novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "Morgan Stanley cita PRIO como uma das preferidas entre exportadoras, destacando geração de caixa e proteção cambial.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os nomes preferidos do banco aparecem Petrobras ( PETR4 ), PRIO ( PRIO3 ), Nu Holdings (BDR: ROXO34 ), WEG ( WEGE3 ) e Embraer ( EMBJ3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5968305e723d07ff",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-ve-so-2-setores-da-bolsa-superando-custo-de-capital-e-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-30T16:12:34-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5968305e723d07ff-1",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Opinião de terceiro sem efeito financeiro direto ou novidade relevante.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PRIO3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Opinião de terceiro sem efeito financeiro direto ou novidade relevante."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "WEGE3",
+      "tipo_evento": "outro",
+      "resumo": "WEG é destacada pelo Morgan Stanley entre as preferidas exportadoras, beneficiada por receitas dolarizadas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre os nomes preferidos do banco aparecem Petrobras ( PETR4 ), PRIO ( PRIO3 ), Nu Holdings (BDR: ROXO34 ), WEG ( WEGE3 ) e Embraer ( EMBJ3 ).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "5968305e723d07ff",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/morgan-stanley-ve-so-2-setores-da-bolsa-superando-custo-de-capital-e-aposta-em-exportadoras/",
+        "timestamp_publicacao": "2026-10-30T16:12:34-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "5968305e723d07ff-2",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Recomendação de analista não altera fundamentos ou resultados da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "WEGE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Recomendação de analista não altera fundamentos ou resultados da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": true,
+          "detalhe": "nenhum fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "dividendo",
+      "resumo": "Vale não deve pagar dividendos extraordinários em 2024 devido a incertezas geopolíticas.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale (VALE3) não deve pagar dividendos extraordinários neste ano, diante das incertezas do cenário geopolítico global que tem impactado os preços do petróleo e de seus derivados, afirmou o vice-presidente executivo de Finanças e Relações com Investidores, Marcelo Bacci, nesta sexta-feira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Cancelamento de dividendos extraordinários afeta diretamente o retorno ao acionista e pode impactar o valor da ação.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: dividendo"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Cancelamento de dividendos extraordinários afeta diretamente o retorno ao acionista e pode impactar o valor da ação."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale reportou lucro líquido de US$1,255 bi no 3T23, queda de 53% ante 3T22.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora reportou na quinta-feira lucro líquido de US$1,255 bilhão no terceiro trimestre, queda de 53% em relação ao mesmo período do ano anterior, diante de preços realizados de minério de ferro mais baixos, além de pressões de custo ligadas à valorização do real e ao aumento das despesas com frete e combustível.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-1",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.98,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,98"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Ebitda ajustado da Vale somou US$3,327 bi no 3T23, recuo de 24% ante 3T22.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O lucro antes de juros, impostos, depreciação e amortização (Ebitda) ajustado somou US$3,327 bilhões entre julho e setembro, recuo de 24% ante o mesmo intervalo de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-2",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "alta",
+        "motivo_materialidade": "Queda relevante no Ebitda impacta diretamente o lucro e o valor da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (InfoMoney)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: resultado"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade alta: Queda relevante no Ebitda impacta diretamente o lucro e o valor da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (InfoMoney)"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale está totalmente coberta em necessidades de frete para 4T23 e mais de 80% para 2027.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Para o quarto trimestre, o presidente da Vale, Gustavo Pimenta, disse que a companhia está totalmente coberta em suas necessidades de frete e com mais de 80% de suas necessidades de contratação de frete para 2027 já garantidas.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-3",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Cobertura de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Cobertura de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "67% do consumo esperado de combustível marítimo em 2027 já está protegido por hedge.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Já em relação ao combustível marítimo, Bacci afirmou que 67% do consumo esperado em 2027 já está protegido por operações de hedge.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-4",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Proteção de custos futuros reduz volatilidade, mas impacto financeiro imediato é limitado.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Proteção de custos futuros reduz volatilidade, mas impacto financeiro imediato é limitado."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale deve manter guidance de minério de ferro para 2024 semelhante a 2023.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O executivo evitou adiantar eventuais mudanças no guidance de minério de ferro para o ano que vem, mas adiantou que “a tendência é que a gente não tenha nada substancialmente diferente desse ano”.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-5",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Não há mudança relevante no guidance ou projeções da empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "evento não confirmado (rumor ou expectativa)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: guidance"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": false,
+          "detalhe": "rumor, expectativa ou especulação"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Não há mudança relevante no guidance ou projeções da empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale está no caminho para cumprir guidance de produção em 2023.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Para este ano, a Vale está no caminho para cumprir seu guidance de produção em todo o portfólio",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-6",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Confirmação de guidance já esperado pelo mercado",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "materialidade baixa: o fato não muda o resultado, o caixa ou o valor da empresa de forma mensurável",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Confirmação de guidance já esperado pelo mercado"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Investimentos e custos all-in do cobre devem terminar 2026 próximos ao limite inferior das faixas.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "vê os investimentos e os custos all-in do cobre terminando 2026 próximos ao limite inferior das respectivas faixas de previsão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "d0b2688c0f38f1ba",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/vale-vale3-nao-deve-pagar-dividendos-extraordinarios-neste-ano-diz-cfo/",
+        "timestamp_publicacao": "2026-10-30T16:21:46-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "d0b2688c0f38f1ba-7",
+      "classificacao": {
+        "sentimento": "positivo",
+        "probabilidade": 0.85,
+        "materialidade": "media",
+        "motivo_materialidade": "Redução de custos e investimentos no cobre tem efeito financeiro concreto, mas limitado ao segmento.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "repetição: o mesmo fato já gerou sinal nas 24 h anteriores (Money Times)",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: operacional"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Redução de custos e investimentos no cobre tem efeito financeiro concreto, mas limitado ao segmento."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: positivo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,85"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": false,
+          "detalhe": "repete um fato que já gerou sinal (Money Times)"
+        },
+        {
+          "criterio": "Sem fato negativo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato negativo confirmado recente"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Citação de movimento do preço do petróleo, sem fato novo específico sobre a empresa.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Petróleo fecha em alta e avança 15% no mês com ataques no Oriente Médio",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6a607aea13f319a1",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petroleo-abertura-fechamento-ira-eua-30102026/",
+        "timestamp_publicacao": "2026-10-30T16:23:49-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6a607aea13f319a1-0",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 0.95,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Movimento do preço do petróleo sem fato novo específico sobre a empresa",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "PETR4",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Movimento do preço do petróleo sem fato novo específico sobre a empresa"
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  },
+  {
+    "evento": {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Citação de movimento do preço da ação, sem fato novo específico sobre a empresa.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Leia também Ibovespa Hoje Ao Vivo: Bolsa desce com exterior e fiscal, apesar de VALE3 e PETR4",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6a607aea13f319a1",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petroleo-abertura-fechamento-ira-eua-30102026/",
+        "timestamp_publicacao": "2026-10-30T16:23:49-03:00",
+        "timestamp_coleta": "2026-10-30T16:31:48.327513-03:00"
+      },
+      "id": "6a607aea13f319a1-1",
+      "classificacao": {
+        "sentimento": "neutro",
+        "probabilidade": 1.0,
+        "materialidade": "baixa",
+        "motivo_materialidade": "Movimento de preço sem fato novo relevante sobre a empresa.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "VALE3",
+      "decisao": "manter",
+      "motivo": "a notícia só descreve a variação da cotação: não é um fato novo sobre a empresa",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": false,
+          "detalhe": "tipo de evento: cotacao"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": false,
+          "detalhe": "materialidade baixa: Movimento de preço sem fato novo relevante sobre a empresa."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": false,
+          "detalhe": "sentimento: neutro"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 1,00"
+        },
+        {
+          "criterio": "Sem notícia de sentido oposto nos 5 dias anteriores",
+          "ok": null,
+          "detalhe": "não se aplica a sentimento neutro"
+        }
+      ]
+    }
+  }
+]

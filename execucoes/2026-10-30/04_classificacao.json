@@ -1,0 +1,461 @@
+{
+  "6a607aea13f319a1-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento do preço do petróleo sem fato novo específico sobre a empresa",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6a607aea13f319a1-1": {
+    "sentimento": "neutro",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço sem fato novo relevante sobre a empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5968305e723d07ff-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5968305e723d07ff-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sem efeito financeiro direto ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5968305e723d07ff-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Recomendação de analista não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ccd1c9aae5054e03-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral impactou positivamente o preço da ação, indicando efeito relevante no lucro ou expectativas.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ccd1c9aae5054e03-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Expectativa positiva sobre regulação, sem efeito financeiro imediato ou concreto.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Cancelamento de dividendos extraordinários afeta diretamente o retorno ao acionista e pode impactar o valor da ação.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no Ebitda impacta diretamente o lucro e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Cobertura de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Proteção de custos futuros reduz volatilidade, mas impacto financeiro imediato é limitado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Não há mudança relevante no guidance ou projeções da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-6": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Confirmação de guidance já esperado pelo mercado",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "d0b2688c0f38f1ba-7": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Redução de custos e investimentos no cobre tem efeito financeiro concreto, mas limitado ao segmento.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "9311f7aeb74df8b7-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem anúncio de fato novo ou impacto financeiro direto.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "50ff07c5def96890-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral fraco com queda de Ebitda e pressão no minério afeta lucro e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "50ff07c5def96890-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Redução de expectativa de produção impacta receita e projeções futuras.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "50ff07c5def96890-2": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Afeta produção de minério de ferro, principal produto da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "17a50a04f063eb62-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "17a50a04f063eb62-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Queda relevante do Ibovespa afeta o preço da ação, mas não altera fundamentos da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "559f091b759f95e8-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Guidance indica estabilidade sem mudança relevante nos resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "559f091b759f95e8-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento de custos de produção impacta diretamente o lucro e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "559f091b759f95e8-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Redução de custos operacionais tem efeito financeiro concreto, mas limitado frente ao tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "559f091b759f95e8-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Redução relevante de custos futuros impacta diretamente o lucro e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "559f091b759f95e8-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Benefício de caixa relevante, mas pequeno em relação ao tamanho da Vale.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Recorde de produção impacta diretamente receita e lucro.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "É apenas uma projeção de terceiros para um período futuro, sem confirmação ou efeito imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Expectativa de analista, não confirmação oficial nem anúncio pela empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Estimativa de terceiros sem confirmação ou efeito financeiro imediato",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "alta",
+    "motivo_materialidade": "Aumento relevante de produção impacta receita e lucro da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-5": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Não há mudança concreta nas operações ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-6": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sobre projeção futura, sem confirmação ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-7": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "É apenas uma estimativa de terceiros sem confirmação ou efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-8": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de analista sem efeito financeiro direto ou confirmação de mudança relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "be45f755bc423fce-9": {
+    "sentimento": "neutro",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Opinião de terceiro sem efeito financeiro mensurável ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "ad6dbc35cc82ffd3-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Volume adquirido é pequeno frente à produção e receitas da Petrobras",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6d5cff7f2beed8b7-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Discussão sem decisão sobre preços não altera resultados ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5ccb1c709b68be9e-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5ccb1c709b68be9e-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6697ed4c1766e1d6-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6697ed4c1766e1d6-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance e custos/capex no limite inferior já eram esperados e não alteram projeções relevantes.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6697ed4c1766e1d6-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Garantia de frete reduz riscos operacionais, mas não altera significativamente resultados financeiros.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6697ed4c1766e1d6-3": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Redução de dividendos extraordinários afeta retorno ao acionista, mas não altera significativamente o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6697ed4c1766e1d6-4": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Comentário do CFO sobre potencial recompra não implica ação concreta ou efeito financeiro imediato.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5de777f8cba31155-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.85,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5de777f8cba31155-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de produção em ativo rentável impacta receita e lucro.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "5de777f8cba31155-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "Crescimento relevante em uma divisão, mas impacto limitado no resultado consolidado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "aeb0b1a62e6e8282-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Rebaixamento de recomendação por analista não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c9dbc1cc79235774-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Descoberta pode aumentar reservas, mas impacto financeiro imediato é limitado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c9dbc1cc79235774-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro caiu 53% e ficou abaixo das expectativas, afetando resultado e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  }
+}
