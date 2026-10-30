@@ -457,5 +457,347 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c6afd7b32ddad586-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Resultado trimestral com forte alta no Ebitda do cobre e Ebitda consolidado relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c6afd7b32ddad586-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance já conhecido, sem novidade relevante para o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c6afd7b32ddad586-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "A antecipação aumenta a capacidade de produção e pode impactar receitas e lucros futuros.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c6afd7b32ddad586-3": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Aumento de flexibilidade e potencial de produção futura, mas sem impacto imediato relevante nos resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de cotação reflete reação do mercado, mas não altera fundamentos ou resultados da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-1": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de cotação não altera fundamentos ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação pequena e sem efeito financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação semanal pequena e sem efeito financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-4": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda expressiva do preço da ação impacta diretamente o valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-5": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A notícia apenas relata o desempenho passado da ação, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-6": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda expressiva no preço da ação indica impacto relevante no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-7": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-8": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica mudança significativa no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-9": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda expressiva de 31,52% indica impacto relevante no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-10": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-11": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de cotação não é fato novo ou evento operacional relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-12": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A notícia apenas relata o desempenho passado da ação, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-13": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço já ocorrido, sem novo fato relevante informado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-14": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A notícia apenas relata o desempenho passado da ação, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-15": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Movimento de preço já ocorrido, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-16": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica mudança significativa na percepção de valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-17": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de preço já ocorrida, sem novo fato relevante informado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-18": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Variação de preço já ocorrida, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-19": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor de mercado da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-20": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-21": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante no preço da ação indica impacto significativo no valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "98651636ab8b5184-22": {
+    "sentimento": "negativo",
+    "probabilidade": 1.0,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A notícia apenas relata o desempenho passado da ação, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "df5e7be01c526cb7-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Notícia apenas relata desempenho relativo da ação, sem novo fato relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "df5e7be01c526cb7-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "O evento apenas relata o desempenho da ação no passado, sem impacto financeiro mensurável ou novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "0e3e98451267bf07-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Declaração sobre política de capital sem anúncio concreto de recompra ou dividendos.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3d4daf7ce00abdd4-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "media",
+    "motivo_materialidade": "A transação envolve valor relevante, mas o impacto declarado é neutro e não altera projeções ou resultados imediatamente.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3d4daf7ce00abdd4-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Encerramento de negociação sem efeito financeiro imediato ou mudança relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "3d4daf7ce00abdd4-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.95,
+    "materialidade": "alta",
+    "motivo_materialidade": "Produção recorde impacta diretamente receita e valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "4d0f73d39c9eaf33-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Lançamento de produto com potencial, mas sem impacto financeiro imediato mensurável.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "afcf5894bd7d7d6c-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.9,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Manutenção de alta utilização já conhecida, sem novidade relevante para resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "afcf5894bd7d7d6c-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Ajuste operacional rotineiro para atender demanda sazonal, sem efeito financeiro relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "afcf5894bd7d7d6c-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Parada programada e obras já previstas, sem impacto financeiro imediato ou relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "afcf5894bd7d7d6c-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Apenas anúncio futuro de plano sem detalhes financeiros ou confirmação.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

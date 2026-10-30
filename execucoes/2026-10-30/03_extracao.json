@@ -1053,5 +1053,781 @@
       "id": "c9dbc1cc79235774-1"
     }
   ],
-  "39290af50f0b1a77": []
+  "39290af50f0b1a77": [],
+  "c6afd7b32ddad586": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Vale divulga resultado do 3T26 com alta de 66% no Ebitda do cobre e Ebitda consolidado de US$ 3,5 bi.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale divulgou nesta quinta-feira, 29, o resultado do terceiro trimestre de 2026 (3T26), com destaque para o desempenho robusto do negócio de cobre. A alta dos preços e os custos menores elevaram o Ebitda Proforma do negócio de cobre para US$ 1 bilhão, alta de 66% em relação aos US$ 614 milhões registrados no terceiro trimestre de 2025 (3T25). Já o Ebitda Proforma consolidado da Vale atingiu US$ 3,5 bilhões.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c6afd7b32ddad586",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-tem-alta-de-66-no-resultado-do-cobre-e-avanca-para-cumprir-projecao-de-producao/",
+        "timestamp_publicacao": "2026-10-30T19:48:50-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "c6afd7b32ddad586-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale reafirma projeções de produção para cobre, níquel, minério de ferro e pelotas para 2026.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Vale segue no caminho para atingir, em 2026, a faixa superior de suas projeções de produção de cobre (360 mil a 380 mil toneladas) e de níquel (185 mil a 200 mil toneladas). No acumulado do ano, a produção de cobre e níquel aumentou 4% e 8%, respectivamente, em relação ao mesmo período do ano anterior. A Vale estima que também atingirá as projeções de produção de minério de ferro (335 milhões a 345 milhões de toneladas) e de pelotas (30 milhões a 34 milhões de toneladas).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c6afd7b32ddad586",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-tem-alta-de-66-no-resultado-do-cobre-e-avanca-para-cumprir-projecao-de-producao/",
+        "timestamp_publicacao": "2026-10-30T19:48:50-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "c6afd7b32ddad586-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale antecipa início da operação do projeto CPF de Salobo para 1º semestre de 2028, aumentando capacidade de processamento.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No trimestre, a Vale deu mais um passo para dobrar a produção de cobre até 2035 ao anunciar a antecipação, para o primeiro semestre de 2028, do início da operação do projeto CPF (sigla em inglês para Flotação de Partículas Grossas), no complexo de Salobo – cerca de um ano antes do previsto no cronograma original. O projeto deve acrescentar 6 milhões de toneladas à capacidade anual de processamento de minério da planta de Salobo, que passará a 42 milhões de toneladas por ano.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c6afd7b32ddad586",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-tem-alta-de-66-no-resultado-do-cobre-e-avanca-para-cumprir-projecao-de-producao/",
+        "timestamp_publicacao": "2026-10-30T19:48:50-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "c6afd7b32ddad586-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Vale inicia operações do projeto Britador de Compactos e avança no Serra Sul +20, ampliando flexibilidade operacional.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "No trimestre, a Vale iniciou operações do projeto Britador de Compactos, que junto ao projeto Serra Sul +20 adicionará flexibilidade operacional e contribuirá para a produção de 2027.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c6afd7b32ddad586",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-tem-alta-de-66-no-resultado-do-cobre-e-avanca-para-cumprir-projecao-de-producao/",
+        "timestamp_publicacao": "2026-10-30T19:48:50-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "c6afd7b32ddad586-3"
+    }
+  ],
+  "98651636ab8b5184": [
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Suzano subiu 17,05% na semana pós-eleição, destacando-se entre as maiores altas do Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Suzano ( SUZB3 , +17,05%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-0"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da WEG subiu 13,74% na semana pós-eleição, figurando entre as maiores altas do Ibovespa.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "WEG ( WEGE3 , +13,74%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Vale teve leve alta de 0,24% na semana pós-eleição.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Vale ( VALE3 , +0,24%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-2"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Gerdau teve leve alta de 0,04% na semana pós-eleição.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Gerdau ( GGBR4 , +0,04%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-3"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Cosan caiu 55,19% na semana pós-eleição, entre as maiores quedas do Ibovespa.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Cosan ( CSAN3 , -55,19%)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-4"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da B3 caiu 43,17% na semana pós-eleição, entre as maiores quedas do Ibovespa.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "B3 ON -43,17%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-5"
+    },
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Lojas Renner caiu 38,13% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Lojas Renner ON -38,13%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-6"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Equatorial caiu 33,63% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Equatorial ON -33,63%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-7"
+    },
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação do Banco do Brasil caiu 33,37% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Banco do Brasil ON -33,37%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-8"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação do Bradesco PN caiu 31,52% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Bradesco PN -31,52%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-9"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação do Itaú Unibanco PN caiu 19,69% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Itaú Unibanco PN -19,69%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-10"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Itaúsa PN caiu 18,22% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Itaúsa PN -18,22%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-11"
+    },
+    {
+      "ticker": "UGPA3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Ultrapar caiu 18,11% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ultrapar ON -18,11%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-12"
+    },
+    {
+      "ticker": "VBBR3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Vibra caiu 17,59% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vibra ON -17,59%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-13"
+    },
+    {
+      "ticker": "CMIG4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Cemig PN caiu 13,71% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Cemig PN -13,71%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-14"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Ambev caiu 12,11% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Ambev ON -12,11%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-15"
+    },
+    {
+      "ticker": "SBSP3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Sabesp caiu 22,86% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Sabesp ON -22,86%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-16"
+    },
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da BB Seguridade caiu 5,40% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "BB Seguridade ON -5,40%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-17"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Prio caiu 3,12% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Prio ON -3,12%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-18"
+    },
+    {
+      "ticker": "RAIL3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Rumo caiu 25,99% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Rumo ON -25,99%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-19"
+    },
+    {
+      "ticker": "TOTS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Totvs caiu 27,44% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Totvs ON -27,44%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-20"
+    },
+    {
+      "ticker": "RADL3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da RD Saúde caiu 24,95% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "RD Saúde ON -24,95%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-21"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ação da Petrobras PN caiu 9,73% na semana pós-eleição.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras PN -9,73%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "98651636ab8b5184",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vamo3-mglu3-caem-mais-50-suzb3-embj3-wege3-sobem-10-semana-ibovespa-26-10-2026/",
+        "timestamp_publicacao": "2026-10-30T19:27:10-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "98651636ab8b5184-22"
+    }
+  ],
+  "df5e7be01c526cb7": [
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "cotacao",
+      "resumo": "PRIO foi uma das poucas ações que conseguiram escapar da desvalorização em outubro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vamos foi o grande destaque de baixa, enquanto PRIO e Suzano foram algumas das poucas que conseguiram escapar da desvalorização",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "df5e7be01c526cb7",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-a-159-mil-pontos-trader-projeta-ate-onde-pode-cair-o-ibovespa/",
+        "timestamp_publicacao": "2026-10-30T19:26:38-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "df5e7be01c526cb7-0"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "cotacao",
+      "resumo": "Suzano foi uma das poucas ações que conseguiram escapar da desvalorização em outubro.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Vamos foi o grande destaque de baixa, enquanto PRIO e Suzano foram algumas das poucas que conseguiram escapar da desvalorização",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "df5e7be01c526cb7",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bolsa-a-159-mil-pontos-trader-projeta-ate-onde-pode-cair-o-ibovespa/",
+        "timestamp_publicacao": "2026-10-30T19:26:38-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "df5e7be01c526cb7-1"
+    }
+  ],
+  "8ba3aeff510029ff": [],
+  "0e3e98451267bf07": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "outro",
+      "resumo": "CFO afirma possibilidade de recompras de ações, mas dividendos extraordinários são improváveis neste ano.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Apesar de afirmar a possibilidade de recompras, os dividendos extraordinários são vistos como improváveis neste ano, explicam executivos",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0e3e98451267bf07",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/jp-morgan-vendas-da-braskem-brkm5-crescem-mas-margens-preocupam/",
+        "timestamp_publicacao": "2026-10-30T18:30:30-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "0e3e98451267bf07-0"
+    }
+  ],
+  "3d4daf7ce00abdd4": [
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "regulatorio",
+      "resumo": "Cosan anunciou transação tributária individual com PGFN e Receita Federal, prevendo R$ 3,2 bilhões em contingências tributárias.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Cosan ( CSAN3 ), que anunciou na quinta (28) uma transação tributária individual com a Procuradoria-Geral da Fazenda Nacional (PGFN) e a Receita Federal, no contexto da recuperação extrajudicial da Raízen. A operação prevê R$ 3,2 bilhões em contingências tributárias. A XP vê o a cordo como neutro .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3d4daf7ce00abdd4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/26-acoes-caem-mais-de-20-e-so-11-sobem-os-destaques-ibovespa-outubro-2026/",
+        "timestamp_publicacao": "2026-10-30T18:26:30-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "3d4daf7ce00abdd4-0"
+    },
+    {
+      "ticker": "CSAN3",
+      "tipo_evento": "fusao_aquisicao",
+      "resumo": "Cosan encerrou negociações para venda de fatia da Rumo e segue avaliando alternativas para otimizar estrutura de capital.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Cosan também teve outro fato no noticiário próprio: encerramento de negociações para venda de fatia da Rumo ( RAIL3 ). A companhia afirmou seguir avaliando alternativas para otimizar a estrutura de capital.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3d4daf7ce00abdd4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/26-acoes-caem-mais-de-20-e-so-11-sobem-os-destaques-ibovespa-outubro-2026/",
+        "timestamp_publicacao": "2026-10-30T18:26:30-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "3d4daf7ce00abdd4-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras surpreendeu positivamente com produção recorde no pré-sal, reforçando fundamentos operacionais.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Além disso, a Petrobras voltou a surpreender positivamente com produção recorde no pré-sal, reforçando a percepção de que os fundamentos operacionais voltaram a ocupar o centro da tese de investimento.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "3d4daf7ce00abdd4",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/26-acoes-caem-mais-de-20-e-so-11-sobem-os-destaques-ibovespa-outubro-2026/",
+        "timestamp_publicacao": "2026-10-30T18:26:30-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "3d4daf7ce00abdd4-2"
+    }
+  ],
+  "4d0f73d39c9eaf33": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "operacional",
+      "resumo": "Itaú Unibanco lança o Itaú Pay, nova solução de pagamentos para e-commerce, ampliando atuação no setor.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "O Itaú Unibanco ( ITUB4 ) anunciou nesta sexta-feira (30) o lançamento da ferramenta Itaú Pay , que auxilia na integração do banco com o comércio eletrônico.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "4d0f73d39c9eaf33",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-itub4-lanca-ferramenta-itau-pay-e-compete-com-nubank-roxo34-no-mercado-de-pagamentos-no-varejo-confira-apsa/",
+        "timestamp_publicacao": "2026-10-30T18:25:44-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "4d0f73d39c9eaf33-0"
+    }
+  ],
+  "a40ef53b1663fdce": [],
+  "afcf5894bd7d7d6c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras manteve em outubro nível elevado de utilização das refinarias, com fator de 98%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras ( PETR4 ) manteve em outubro um elevado nível de utilização de suas refinarias, com fator de 98%, próximo dos 99% registrados no terceiro trimestre, buscando reduzir a necessidade de importações, disse à Reuters o diretor de Processos Industriais e Produtos da companhia, William França.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "afcf5894bd7d7d6c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-fecha-outubro-com-nivel-elevado-de-utilizacao-das-refinarias-de-98-diz-diretor/",
+        "timestamp_publicacao": "2026-10-30T17:31:45-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "afcf5894bd7d7d6c-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras alterará mix de refino em dezembro, com maior produção de gasolina e menor oferta de diesel.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "Em dezembro, porém, a estatal deverá alterar o “mix” de refino, com maior produção de gasolina para atender à demanda do verão brasileiro e menor oferta de diesel, diante da redução do consumo do combustível após o fim do plantio de verão.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "afcf5894bd7d7d6c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-fecha-outubro-com-nivel-elevado-de-utilizacao-das-refinarias-de-98-diz-diretor/",
+        "timestamp_publicacao": "2026-10-30T17:31:45-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "afcf5894bd7d7d6c-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Parada programada e obras de ampliação na Replan em 2027 devem reduzir utilização das refinarias para cerca de 96%.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "A perspectiva é que o nível de utilização permaneça alto em novembro e dezembro, mas recue no primeiro semestre de 2027 devido a uma parada programada combinada com obras de ampliação da Replan.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "afcf5894bd7d7d6c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-fecha-outubro-com-nivel-elevado-de-utilizacao-das-refinarias-de-98-diz-diretor/",
+        "timestamp_publicacao": "2026-10-30T17:31:45-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "afcf5894bd7d7d6c-2"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Novo plano de negócios da Petrobras será divulgado em novembro, com investimentos para autossuficiência em diesel até 2030.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O novo plano de negócios da Petrobras, previsto para ser divulgado em novembro, deverá contemplar investimentos destinados a tornar o Brasil autossuficiente em diesel a partir de 2030.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "afcf5894bd7d7d6c",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-fecha-outubro-com-nivel-elevado-de-utilizacao-das-refinarias-de-98-diz-diretor/",
+        "timestamp_publicacao": "2026-10-30T17:31:45-03:00",
+        "timestamp_coleta": "2026-10-30T20:21:54.053644-03:00"
+      },
+      "id": "afcf5894bd7d7d6c-3"
+    }
+  ]
 }
