@@ -1386,5 +1386,233 @@
       },
       "id": "3aeaaff978728ebf-3"
     }
+  ],
+  "c70ace4dcfa11160": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "operacional",
+      "resumo": "Produção de minério de ferro no 3T26 foi 88,4 mi t, queda anual de 6%, mas alta de 5% vs 2T.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale ( VALE3 ) encerrou o terceiro trimestre de 2026 com produção de minério de ferro de 88,4 milhões de toneladas, volume 6% inferior ao registrado no mesmo período do ano passado, refletindo principalmente a menor disponibilidade de minério na operação de Serra Norte. Apesar da queda anual, a produção avançou 5% em relação ao segundo trimestre",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c70ace4dcfa11160",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-produz-884-mi-de-toneladas-de-minerio-de-ferro-no-3o-tri-queda-de-6/",
+        "timestamp_publicacao": "2026-10-29T19:45:50-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "c70ace4dcfa11160-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Lucro líquido do 3T26 foi de US$ 1,25 bi, queda anual de 53%.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE3) tem lucro líquido de US$ 1,25 bi no 3º tri, queda anual de 53% Balanço foi apresentado na noite desta quinta (29)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c70ace4dcfa11160",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-produz-884-mi-de-toneladas-de-minerio-de-ferro-no-3o-tri-queda-de-6/",
+        "timestamp_publicacao": "2026-10-29T19:45:50-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "c70ace4dcfa11160-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale reafirma projeção de produção de minério de ferro para 2026 entre 335 e 345 milhões de toneladas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Vale reafirmou sua projeção de produção de minério de ferro para 2026 entre 335 milhões e 345 milhões de toneladas",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c70ace4dcfa11160",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-produz-884-mi-de-toneladas-de-minerio-de-ferro-no-3o-tri-queda-de-6/",
+        "timestamp_publicacao": "2026-10-29T19:45:50-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "c70ace4dcfa11160-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale mantém expectativa de atingir ponto médio da faixa de produção de pelotas em 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "manteve a expectativa de atingir o ponto médio da faixa de produção de pelotas, entre 30 milhões e 34 milhões de toneladas",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c70ace4dcfa11160",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-produz-884-mi-de-toneladas-de-minerio-de-ferro-no-3o-tri-queda-de-6/",
+        "timestamp_publicacao": "2026-10-29T19:45:50-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "c70ace4dcfa11160-3"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale afirma permanecer no caminho para atingir metade superior das faixas de guidance de cobre e níquel para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A companhia afirmou permanecer no caminho para atingir a metade superior das faixas de guidance de cobre e níquel para 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "c70ace4dcfa11160",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/vale-vale3-produz-884-mi-de-toneladas-de-minerio-de-ferro-no-3o-tri-queda-de-6/",
+        "timestamp_publicacao": "2026-10-29T19:45:50-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "c70ace4dcfa11160-4"
+    }
+  ],
+  "52749f6c11b6fab5": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Lucro líquido da Vale cai 53% no 3T26, para US$ 1,25 bilhão, abaixo das expectativas do mercado.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A mineradora divulgou nesta quinta-feira (29) o balanço do período, que mostrou um lucro líquido de US$ 1,255 bilhão, queda de 53% em relação ao mesmo intervalo do ano passado. O número veio abaixo das expectativas de mercado",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "52749f6c11b6fab5",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/lucro-liquido-da-vale-vale3-cai-54-no-3t26-para-us-125-bilhao-abaixo-das-expectativas-do-mercado-bdap/",
+        "timestamp_publicacao": "2026-10-29T19:24:33-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "52749f6c11b6fab5-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale mantém confiança em atingir o limite inferior da projeção de produção de minério de ferro para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "a Vale mantém a confiança em atingir o limite inferior de sua projeção ( guidance ) de produção de minério de ferro para 2026, de 335 milhões a 345 milhões de toneladas",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "52749f6c11b6fab5",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/lucro-liquido-da-vale-vale3-cai-54-no-3t26-para-us-125-bilhao-abaixo-das-expectativas-do-mercado-bdap/",
+        "timestamp_publicacao": "2026-10-29T19:24:33-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "52749f6c11b6fab5-1"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "guidance",
+      "resumo": "Vale afirma que segue no caminho para atingir a metade superior das faixas de suas projeções de produção de cobre e níquel para 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Vale afirmou que segue no caminho para atingir a metade superior das faixas de suas projeções (guidances) de produção para 2026, tanto para o cobre, entre 360 mil e 380 mil toneladas, quanto para o níquel, entre 185 mil e 200 mil toneladas.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "52749f6c11b6fab5",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/lucro-liquido-da-vale-vale3-cai-54-no-3t26-para-us-125-bilhao-abaixo-das-expectativas-do-mercado-bdap/",
+        "timestamp_publicacao": "2026-10-29T19:24:33-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "52749f6c11b6fab5-2"
+    }
+  ],
+  "f3f4fa7499f4415c": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras anuncia terceira descoberta de petróleo no poço Morpho, na Bacia da Foz do Amazonas.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras ( PETR4 ) informou nesta ‌quinta-feira que identificou mais um intervalo portador ‌de petróleo no poço Morpho, na Bacia da Foz do Amazonas, caracterizando a ⁠terceira ‌descoberta no ⁠bloco localizado em águas ultra profundas da costa do Amapá.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f3f4fa7499f4415c",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-anuncia-terceira-descoberta-de-petroleo-em-poco-na-foz-do-amazonas/",
+        "timestamp_publicacao": "2026-10-29T18:51:34-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "f3f4fa7499f4415c-0"
+    }
+  ],
+  "6cb5774296075a24": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras arrematou 1 milhão de barris de petróleo em leilão da União realizado pela PPSA.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras ( PETR4 ), Petrochina e ‌CNOOC arremataram 1 milhão de barris de petróleo, ‌cada uma delas, em leilão de petróleo da União realizado pela estatal Pré-Sal ⁠Petróleo ‌SA (PPSA), informou a ⁠companhia nesta quinta-feira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6cb5774296075a24",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petrochina-e-cnooc-arrematam-cargas-de-petroleo-da-uniao-em-leilao-da-ppsa/",
+        "timestamp_publicacao": "2026-10-29T18:49:49-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "6cb5774296075a24-0"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "Prio participou do leilão de petróleo da União realizado pela PPSA, mas não arrematou carga.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Além ⁠de Petrochina, CNOOC e Petrobras, participaram ⁠do certame: ExxonMobil, Galp, Prio, TotalEnergies e Equinor.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "6cb5774296075a24",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-petrochina-e-cnooc-arrematam-cargas-de-petroleo-da-uniao-em-leilao-da-ppsa/",
+        "timestamp_publicacao": "2026-10-29T18:49:49-03:00",
+        "timestamp_coleta": "2026-10-29T22:25:27.655685-03:00"
+      },
+      "id": "6cb5774296075a24-1"
+    }
   ]
 }

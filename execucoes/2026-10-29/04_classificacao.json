@@ -601,5 +601,104 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c70ace4dcfa11160-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.8,
+    "materialidade": "media",
+    "motivo_materialidade": "Queda anual relevante na produção pode impactar receita, mas efeito é limitado por alta trimestral.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c70ace4dcfa11160-1": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Queda relevante de 53% no lucro líquido impacta diretamente o resultado e o valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c70ace4dcfa11160-2": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance já conhecido, sem novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c70ace4dcfa11160-3": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance já conhecido, sem novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "c70ace4dcfa11160-4": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance já conhecido, sem novidade relevante.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "52749f6c11b6fab5-0": {
+    "sentimento": "negativo",
+    "probabilidade": 0.98,
+    "materialidade": "alta",
+    "motivo_materialidade": "Lucro caiu 53% e ficou abaixo das expectativas do mercado",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "52749f6c11b6fab5-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Reafirmação de guidance já conhecido, sem mudança nas projeções ou resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "52749f6c11b6fab5-2": {
+    "sentimento": "positivo",
+    "probabilidade": 0.8,
+    "materialidade": "media",
+    "motivo_materialidade": "Projeção de produção maior pode aumentar receita futura, mas impacto imediato é limitado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "f3f4fa7499f4415c-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.85,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Descoberta ainda preliminar sem impacto imediato em produção ou resultados.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6cb5774296075a24-0": {
+    "sentimento": "neutro",
+    "probabilidade": 0.95,
+    "materialidade": "baixa",
+    "motivo_materialidade": "Volume pequeno perto da produção da empresa e sem efeito relevante no resultado.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "6cb5774296075a24-1": {
+    "sentimento": "neutro",
+    "probabilidade": 0.98,
+    "materialidade": "baixa",
+    "motivo_materialidade": "A participação sem arremate não altera resultados ou valor da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }
