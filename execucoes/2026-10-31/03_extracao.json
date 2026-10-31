@@ -208,5 +208,27 @@
       },
       "id": "77e7b440fce013c9-0"
     }
+  ],
+  "0eca8fcd77a34162": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixa recomendação para venda e reduz preço-alvo do Banco do Brasil após eleições.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os analistas rebaixaram a recomendação da estatal para venda e reduziram o preço-alvo de R$ 22,40 para R$ 15, o que implica um potencial de queda de cerca de 20% em relação ao fechamento da última segunda-feira (27). Segundo o banco, pesam sobre a tese de investimento as crescentes preocupações com a qualidade dos ativos, especialmente no agronegócio, além da maior exposição a riscos políticos e regulatórios.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0eca8fcd77a34162",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/da-reacao-do-mercado-apos-vitoria-de-lula-a-recomendacao-de-venda-para-o-banco-do-brasil-confira-as-mais-lidas-da-semana-lmrs/",
+        "timestamp_publicacao": "2026-10-31T12:28:47-03:00",
+        "timestamp_coleta": "2026-10-31T16:24:14.518629-03:00"
+      },
+      "id": "0eca8fcd77a34162-0"
+    }
   ]
 }

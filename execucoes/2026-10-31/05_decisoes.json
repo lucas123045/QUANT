@@ -803,5 +803,90 @@
         }
       ]
     }
+  },
+  {
+    "evento": {
+      "ticker": "BBAS3",
+      "tipo_evento": "outro",
+      "resumo": "Citi rebaixa recomendação para venda e reduz preço-alvo do Banco do Brasil após eleições.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Os analistas rebaixaram a recomendação da estatal para venda e reduziram o preço-alvo de R$ 22,40 para R$ 15, o que implica um potencial de queda de cerca de 20% em relação ao fechamento da última segunda-feira (27). Segundo o banco, pesam sobre a tese de investimento as crescentes preocupações com a qualidade dos ativos, especialmente no agronegócio, além da maior exposição a riscos políticos e regulatórios.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "0eca8fcd77a34162",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/da-reacao-do-mercado-apos-vitoria-de-lula-a-recomendacao-de-venda-para-o-banco-do-brasil-confira-as-mais-lidas-da-semana-lmrs/",
+        "timestamp_publicacao": "2026-10-31T12:28:47-03:00",
+        "timestamp_coleta": "2026-10-31T16:24:14.518629-03:00"
+      },
+      "id": "0eca8fcd77a34162-0",
+      "classificacao": {
+        "sentimento": "negativo",
+        "probabilidade": 0.95,
+        "materialidade": "media",
+        "motivo_materialidade": "Rebaixamento de recomendação e redução de preço-alvo por grande banco pode pressionar o preço no curto prazo, mas não altera fundamentos imediatamente.",
+        "classificador": "llm",
+        "modelo": "openai:gpt-4.1-2025-04-14",
+        "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+      }
+    },
+    "decisao": {
+      "ticker": "BBAS3",
+      "decisao": "manter",
+      "motivo": "negativo, mas houve evento positivo de BBAS3 nos últimos 5 dias",
+      "fracao_alvo": 0.0,
+      "versao_regra": "REGRA_V3",
+      "criterios": [
+        {
+          "criterio": "A IA classificou o evento",
+          "ok": true,
+          "detalhe": "classificação recebida"
+        },
+        {
+          "criterio": "É um fato sobre a empresa, não só a variação da cotação",
+          "ok": true,
+          "detalhe": "tipo de evento: outro"
+        },
+        {
+          "criterio": "O evento está confirmado (não é rumor)",
+          "ok": true,
+          "detalhe": "o texto afirma que aconteceu"
+        },
+        {
+          "criterio": "Fato novo: o mercado ainda não negociou um pregão inteiro com ele",
+          "ok": true,
+          "detalhe": "o QUANT soube a tempo do pregão seguinte (antes de 02/11 16:55)"
+        },
+        {
+          "criterio": "Relevante para o resultado da empresa (materialidade média ou mais)",
+          "ok": true,
+          "detalhe": "materialidade média: Rebaixamento de recomendação e redução de preço-alvo por grande banco pode pressionar o preço no curto prazo, mas não altera fundamentos imediatamente."
+        },
+        {
+          "criterio": "A IA vê efeito positivo ou negativo (não neutro)",
+          "ok": true,
+          "detalhe": "sentimento: negativo"
+        },
+        {
+          "criterio": "Confiança da IA acima de 0,70",
+          "ok": true,
+          "detalhe": "confiança: 0,95"
+        },
+        {
+          "criterio": "Primeira notícia deste fato nas últimas 24 h",
+          "ok": true,
+          "detalhe": "nenhum sinal igual nas horas anteriores"
+        },
+        {
+          "criterio": "Sem fato positivo confirmado da empresa nos 5 dias anteriores",
+          "ok": false,
+          "detalhe": "houve fato positivo confirmado recente"
+        }
+      ]
+    }
   }
 ]
