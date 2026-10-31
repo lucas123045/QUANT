@@ -3,17 +3,17 @@
   "versao_regra": "REGRA_V3",
   "versao_prompt": "PROMPT_EXTRACAO_V2",
   "modo_teste": false,
-  "coletados": 35,
-  "novos_arquivados": 7,
+  "coletados": 56,
+  "novos_arquivados": 28,
   "ja_arquivados_sem_extracao": 0,
-  "eventos_validos": 0,
+  "eventos_validos": 10,
   "operacoes": 0,
   "registrados_no_log": 0,
   "pasta": "/home/runner/work/QUANT/QUANT/_dados/execucoes/2026-10-31",
   "backtest": "não executado: períodos PENDENTES DE APROVAÇÃO em config.py",
   "por_fonte": {
-    "InfoMoney": 19,
-    "Money Times": 16
+    "InfoMoney": 30,
+    "Money Times": 26
   },
   "alertas": {
     "enviados": 0,
@@ -21,5 +21,5 @@
     "canais": []
   },
   "aviso_backup": "O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.",
-  "backup": "/tmp/quant-backup/quant-dados-2026-10-31_060223.zip"
+  "backup": "/tmp/quant-backup/quant-dados-2026-10-31_122505.zip"
 }
