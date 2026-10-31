@@ -1829,5 +1829,27 @@
       },
       "id": "afcf5894bd7d7d6c-3"
     }
+  ],
+  "ffc66bf3a8444157": [
+    {
+      "ticker": "LREN3",
+      "tipo_evento": "dividendo",
+      "resumo": "Conselho aprovou distribuição de R$76 milhões em dividendos e R$245 milhões em JCP referentes ao 3º trimestre de 2026.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Lojas Renner ( LREN3 ) informou que seu Conselho de Administração aprovou a distribuição de R$ R$76 milhões em dividendos e de mais R$ 245 milhões em juros sobre capital próprio (JCP), relativos ao terceiro trimestre de 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ffc66bf3a8444157",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bradespar-brap4-aprova-distribuicao-de-dividendos-e-juros-sobre-capital-proprio/",
+        "timestamp_publicacao": "2026-10-30T21:39:55-03:00",
+        "timestamp_coleta": "2026-10-30T23:34:00.177986-03:00"
+      },
+      "id": "ffc66bf3a8444157-0"
+    }
   ]
 }
