@@ -151,5 +151,14 @@
     "classificador": "llm",
     "modelo": "openai:gpt-4.1-2025-04-14",
     "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
+  },
+  "93b9711591630737-0": {
+    "sentimento": "positivo",
+    "probabilidade": 0.85,
+    "materialidade": "media",
+    "motivo_materialidade": "Aumento de preço melhora receita, mas impacto é pequeno frente ao tamanho da empresa.",
+    "classificador": "llm",
+    "modelo": "openai:gpt-4.1-2025-04-14",
+    "versao_prompt": "PROMPT_CLASSIFICACAO_V2"
   }
 }

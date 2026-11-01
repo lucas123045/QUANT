@@ -352,5 +352,27 @@
       "id": "e6698ea38295ed90-0"
     }
   ],
-  "668a3ce4599eede4": []
+  "668a3ce4599eede4": [],
+  "93b9711591630737": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras anuncia aumento de 7,2% no preço do querosene de aviação a partir de 1º de novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras informou que elevou o querosene de aviação em 7,2%% a partir deste domingo, 1º, resultando em um acréscimo de R$ 0,45 por litro em relação ao mês anterior.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "93b9711591630737",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/petrobras-anuncia-aumento-de-72-no-preco-do-litro-do-querosene-de-aviacao/",
+        "timestamp_publicacao": "2026-11-01T14:48:01-03:00",
+        "timestamp_coleta": "2026-11-01T16:49:55.974285-03:00"
+      },
+      "id": "93b9711591630737-0"
+    }
+  ]
 }
