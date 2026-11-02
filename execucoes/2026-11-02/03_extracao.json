@@ -282,5 +282,89 @@
       },
       "id": "ec318975b92b64b1-9"
     }
+  ],
+  "8bfa51e6f9b981d6": [],
+  "98045cf4cd9a58bb": [],
+  "56ca2cc16881d588": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "JP Morgan e Citi destacam resiliência e qualidade dos lucros do Itaú em cenário adverso.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Na visão dos analistas, o Itaú apresenta risco limitado de deterioração dos lucros mesmo em um ambiente mais complexo para a economia brasileira.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "56ca2cc16881d588",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/enquanto-a-bolsa-sofre-estas-sao-as-acoes-preferidas-para-enfrentar-a-incerteza-fiscal-mlem/",
+        "timestamp_publicacao": "2026-11-02T08:00:00-03:00",
+        "timestamp_coleta": "2026-11-02T17:26:05.785006-03:00"
+      },
+      "id": "56ca2cc16881d588-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "outro",
+      "resumo": "Citi mantém recomendação de compra para Itaú após eleições, destacando posição de capital.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Entre cortes de preços-alvo e revisões de recomendações, apenas um grande banco permaneceu com indicação de compra: o Itaú.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "56ca2cc16881d588",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/enquanto-a-bolsa-sofre-estas-sao-as-acoes-preferidas-para-enfrentar-a-incerteza-fiscal-mlem/",
+        "timestamp_publicacao": "2026-11-02T08:00:00-03:00",
+        "timestamp_coleta": "2026-11-02T17:26:05.785006-03:00"
+      },
+      "id": "56ca2cc16881d588-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "JP Morgan e Daycoval destacam forte geração de caixa e potencial de dividendos da Petrobras.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "As duas apresentam forte geração de caixa, potencial de distribuição de dividendos e menor dependência da atividade doméstica. No caso da estatal, o Daycoval acredita que a empresa é capaz de continuar remunerando os acionistas mesmo em um ambiente mais turbulento.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "56ca2cc16881d588",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/enquanto-a-bolsa-sofre-estas-sao-as-acoes-preferidas-para-enfrentar-a-incerteza-fiscal-mlem/",
+        "timestamp_publicacao": "2026-11-02T08:00:00-03:00",
+        "timestamp_coleta": "2026-11-02T17:26:05.785006-03:00"
+      },
+      "id": "56ca2cc16881d588-2"
+    },
+    {
+      "ticker": "PRIO3",
+      "tipo_evento": "outro",
+      "resumo": "JP Morgan e Citi destacam forte geração de caixa e elevação do preço-alvo da Prio.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Para a Prio, o Citi elevou o preço-alvo da companhia de R$ 67,50 para R$ 82 e manteve a recomendação de compra. O banco acredita que os preços mais altos do petróleo favorecem a tese de investimento e continuam sustentando uma forte geração de caixa.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "56ca2cc16881d588",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/enquanto-a-bolsa-sofre-estas-sao-as-acoes-preferidas-para-enfrentar-a-incerteza-fiscal-mlem/",
+        "timestamp_publicacao": "2026-11-02T08:00:00-03:00",
+        "timestamp_coleta": "2026-11-02T17:26:05.785006-03:00"
+      },
+      "id": "56ca2cc16881d588-3"
+    }
   ]
 }
