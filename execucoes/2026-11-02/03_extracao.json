@@ -366,5 +366,269 @@
       },
       "id": "56ca2cc16881d588-3"
     }
+  ],
+  "8d11a74c060e3ee0": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Petrobras caíram 4,04% em dia de queda do petróleo.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Petrobras (PBR / PETR4 ): -4,04%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d11a74c060e3ee0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-sobe-em-dia-de-queda-de-petroleo-e-altas-em-ny/",
+        "timestamp_publicacao": "2026-11-02T17:31:20-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "8d11a74c060e3ee0-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Vale caíram 0,44% no pregão em NY.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vale (VALE / VALE3 ): -0,44%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d11a74c060e3ee0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-sobe-em-dia-de-queda-de-petroleo-e-altas-em-ny/",
+        "timestamp_publicacao": "2026-11-02T17:31:20-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "8d11a74c060e3ee0-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs do Bradesco subiram 0,39% no pregão em NY.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Bradesco (BBD/ BBDC4 ): +0,39%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d11a74c060e3ee0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-sobe-em-dia-de-queda-de-petroleo-e-altas-em-ny/",
+        "timestamp_publicacao": "2026-11-02T17:31:20-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "8d11a74c060e3ee0-2"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs do Itaú subiram 0,56% no pregão em NY.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Itaú (ITUB / ITUB4 ): +0,56%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d11a74c060e3ee0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-sobe-em-dia-de-queda-de-petroleo-e-altas-em-ny/",
+        "timestamp_publicacao": "2026-11-02T17:31:20-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "8d11a74c060e3ee0-3"
+    },
+    {
+      "ticker": "ABEV3",
+      "tipo_evento": "cotacao",
+      "resumo": "ADRs da Ambev subiram 1,13% no pregão em NY.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Ambev (ABEV / ABEV3 ): +1,13%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "8d11a74c060e3ee0",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-sobe-em-dia-de-queda-de-petroleo-e-altas-em-ny/",
+        "timestamp_publicacao": "2026-11-02T17:31:20-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "8d11a74c060e3ee0-4"
+    }
+  ],
+  "19effbb85d0503fc": [
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "resultado",
+      "resumo": "Safra reduziu peso da Vale após resultados trimestrais, mas mantém visão favorável para produção e custos.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O Safra reduziu o peso da Vale de 10% para 7,5% após os resultados trimestrais. Ainda assim, mantém uma visão favorável para a produção e os custos da mineradora.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-0"
+    },
+    {
+      "ticker": "ITSA4",
+      "tipo_evento": "outro",
+      "resumo": "Itaúsa entra na carteira Top 10 do Safra com maior peso, destacada por resiliência e rentabilidade.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Itaúsa estreia com uma fatia de 15%, a maior da carteira. Além dos dividendos, o Safra destaca o desconto da holding em relação ao seu principal ativo, o Itaú, que aumentou ao longo de outubro.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-1"
+    },
+    {
+      "ticker": "SUZB3",
+      "tipo_evento": "outro",
+      "resumo": "Suzano entra na carteira Top 10 do Safra, favorecida por perspectiva positiva para celulose e exposição ao dólar.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A troca de Gerdau por Suzano combina uma perspectiva mais favorável para a celulose, após anúncios de aumentos de preços, com a exposição da produtora ao dólar.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-2"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "outro",
+      "resumo": "B3 foi retirada da carteira Top 10 do Safra em novembro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Entram Itaúsa (ITSA4) , Suzano (SUZB3) , TIM (TIMS3) e Eneva (ENEV3) , nos lugares de B3 (B3SA3) , Gerdau (GGBR4) , Rede D’Or (RDOR3) e Copel (CPLE3) , respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-3"
+    },
+    {
+      "ticker": "GGBR4",
+      "tipo_evento": "outro",
+      "resumo": "Gerdau foi retirada da carteira Top 10 do Safra em novembro.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Entram Itaúsa (ITSA4) , Suzano (SUZB3) , TIM (TIMS3) e Eneva (ENEV3) , nos lugares de B3 (B3SA3) , Gerdau (GGBR4) , Rede D’Or (RDOR3) e Copel (CPLE3) , respectivamente.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-4"
+    },
+    {
+      "ticker": "WEGE3",
+      "tipo_evento": "outro",
+      "resumo": "WEG permanece na carteira Top 10 do Safra para novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Também permanecem na carteira WEG (WEGE3) , Caixa Seguridade (CXSE3) , Petrobras (PETR4) , Iguatemi (IGTI11 ) e Equatorial (EQTL3) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-5"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "outro",
+      "resumo": "Petrobras permanece na carteira Top 10 do Safra para novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Também permanecem na carteira WEG (WEGE3) , Caixa Seguridade (CXSE3) , Petrobras (PETR4) , Iguatemi (IGTI11 ) e Equatorial (EQTL3) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-6"
+    },
+    {
+      "ticker": "EQTL3",
+      "tipo_evento": "outro",
+      "resumo": "Equatorial permanece na carteira Top 10 do Safra para novembro.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "Também permanecem na carteira WEG (WEGE3) , Caixa Seguridade (CXSE3) , Petrobras (PETR4) , Iguatemi (IGTI11 ) e Equatorial (EQTL3) .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "19effbb85d0503fc",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/safra-ajusta-carteira-apos-queda-de-10-e-aposta-em-acoes-de-dividendos-confira-jcav/",
+        "timestamp_publicacao": "2026-11-02T18:12:04-03:00",
+        "timestamp_coleta": "2026-11-02T23:29:32.063918-03:00"
+      },
+      "id": "19effbb85d0503fc-7"
+    }
   ]
 }
