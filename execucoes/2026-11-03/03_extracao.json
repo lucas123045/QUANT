@@ -1,0 +1,190 @@
+{
+  "676b02e578ee1eec": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Itaú Unibanco divulgará balanço do 3º trimestre de 2026 após o fechamento dos mercados.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o Itaú Unibanco ( ITUB4 ) divulgará seu balanço do terceiro trimestre de 2026 após o fechamento dos mercados.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "676b02e578ee1eec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/midterms-emprego-eua-itau-focus-agenda-03112026/",
+        "timestamp_publicacao": "2026-11-03T06:11:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "676b02e578ee1eec-0"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Petrobras manteve elevado nível de utilização de refinarias em outubro, com fator de 98%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras manteve em outubro um elevado nível de utilização de suas refinarias, com fator de 98%, próximo dos 99% registrados no terceiro trimestre, buscando reduzir a necessidade de importações, disse à Reuters o diretor de Processos Industriais e Produtos da companhia, William França.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "676b02e578ee1eec",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/midterms-emprego-eua-itau-focus-agenda-03112026/",
+        "timestamp_publicacao": "2026-11-03T06:11:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "676b02e578ee1eec-1"
+    }
+  ],
+  "194cff55a3ccd15b": [
+    {
+      "ticker": "BBAS3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Banco do Brasil caíram 33,37% na semana após o segundo turno, aproximando-se das mínimas do ano.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações do Banco do Brasil encerraram a última sessão praticamente estáveis, aos R$ 16,47 , após acumularem queda de 33,37% na semana .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "194cff55a3ccd15b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-itub4-petr4-e-vale3-o-que-esperar-apos-semana-de-perdas-historicas/",
+        "timestamp_publicacao": "2026-11-03T05:30:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "194cff55a3ccd15b-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú Unibanco caíram 19,69% na semana, revertendo trajetória de alta após o segundo turno.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações do Itaú Unibanco encerraram a última sessão em queda de 2,15%, aos R$ 38,69 , acumulando desvalorização de 19,69% na semana .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "194cff55a3ccd15b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-itub4-petr4-e-vale3-o-que-esperar-apos-semana-de-perdas-historicas/",
+        "timestamp_publicacao": "2026-11-03T05:30:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "194cff55a3ccd15b-1"
+    },
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Petrobras caíram 9,73% na semana, mas ainda sobem 48,48% em 2026.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Petrobras encerraram a última sessão em alta de 0,91%, aos R$ 52,71 , após acumularem queda de 9,73% na semana .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "194cff55a3ccd15b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-itub4-petr4-e-vale3-o-que-esperar-apos-semana-de-perdas-historicas/",
+        "timestamp_publicacao": "2026-11-03T05:30:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "194cff55a3ccd15b-2"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações da Vale tiveram leve valorização de 0,24% na semana, mas seguem em tendência de baixa.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "As ações da Vale encerraram a última sessão em alta de 3,28%, aos R$ 62,02 , garantindo leve valorização de 0,24% na semana .",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "194cff55a3ccd15b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-itub4-petr4-e-vale3-o-que-esperar-apos-semana-de-perdas-historicas/",
+        "timestamp_publicacao": "2026-11-03T05:30:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "194cff55a3ccd15b-3"
+    },
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "operacional",
+      "resumo": "B3 amplia horário de funcionamento a partir da próxima terça-feira (3).",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "B3 amplia horário de funcionamento a partir da próxima terça-feira (3); entenda",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "194cff55a3ccd15b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/bbas3-itub4-petr4-e-vale3-o-que-esperar-apos-semana-de-perdas-historicas/",
+        "timestamp_publicacao": "2026-11-03T05:30:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "194cff55a3ccd15b-4"
+    }
+  ],
+  "ed6eff445746d767": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Itaú divulgará balanço do 3º trimestre de 2026 nesta terça-feira, com expectativa de lucro líquido de R$ 12,6 bilhões.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "O Itaú Unibanco ( ITUB4 ) divulgará seu balanço do terceiro trimestre de 2026 nesta terça-feira (3).",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "ed6eff445746d767",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/itau-itub4-divulga-balanco-do-3o-trimestre-nesta-terca-o-que-esperar/",
+        "timestamp_publicacao": "2026-11-03T05:00:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "ed6eff445746d767-0"
+    }
+  ],
+  "040a6060af6114e2": [
+    {
+      "ticker": "B3SA3",
+      "tipo_evento": "cotacao",
+      "resumo": "Texto relata queda do Ibovespa e volatilidade após eleição, sem fato novo específico sobre a empresa.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "O tombo começou na segunda-feira (26), primeiro pregão após o segundo turno, quando o Ibovespa acionou o circuit breaker. O índice emendou cinco sessões de queda e encerrou outubro com o pior desempenho mensal desde junho de 2022.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "040a6060af6114e2",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/economia/o-que-esta-em-jogo-na-primeira-decisao-do-copom-apos-a-reeleicao-de-lula/",
+        "timestamp_publicacao": "2026-11-03T05:00:00-03:00",
+        "timestamp_coleta": "2026-11-03T06:52:31.300920-03:00"
+      },
+      "id": "040a6060af6114e2-0"
+    }
+  ]
+}
