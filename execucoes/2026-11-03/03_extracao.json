@@ -892,5 +892,259 @@
       },
       "id": "4c038d9016b85687-4"
     }
+  ],
+  "e2bf42794384b31b": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Itaú divulga lucro líquido de R$ 12,6 bilhões no 3º tri, alta anual de 6,2%.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Itaú (ITUB4) tem lucro líquido de R$ 12,6 bilhões no 3º tri, alta anual de 6,2% O banco divulgou seus números na noite desta terça-feira (3)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "e2bf42794384b31b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/mercados/marcopolo-pomo4-resultados-terceiro-trimestre-2026/",
+        "timestamp_publicacao": "2026-11-03T19:00:06-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "e2bf42794384b31b-0"
+    }
+  ],
+  "b36adc09a84fadca": [],
+  "8b8d5b67e2285f03": [],
+  "038dc6195ad7e9d3": [
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "resultado",
+      "resumo": "BB Seguridade lucra R$ 2,4 bilhões no 3T26, queda de 5,1% em relação ao 3T25.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A BB Seguridade (BBSE3) registrou lucro líquido gerencial recorrente de R$ 2,432 bilhões no terceiro trimestre de 2026, queda de 5,1% em relação ao mesmo período de 2025.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "038dc6195ad7e9d3",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bb-seguridade-bbse3-lucra-r-24-bilhoes-no-3t26-queda-de-51-no-ano-bdap/",
+        "timestamp_publicacao": "2026-11-03T18:55:14-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "038dc6195ad7e9d3-0"
+    },
+    {
+      "ticker": "BBSE3",
+      "tipo_evento": "guidance",
+      "resumo": "BB Seguridade revisa para baixo projeção de prêmios emitidos da Brasilseg para 2026.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "A companhia revisou para baixo a projeção de prêmios emitidos da Brasilseg: o intervalo passou de crescimento de 2% a queda de 9% para queda de 3% a 15% em 2026.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "038dc6195ad7e9d3",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bb-seguridade-bbse3-lucra-r-24-bilhoes-no-3t26-queda-de-51-no-ano-bdap/",
+        "timestamp_publicacao": "2026-11-03T18:55:14-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "038dc6195ad7e9d3-1"
+    }
+  ],
+  "bc1dbe770bdd8ff9": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Itaú Unibanco teve lucro líquido recorrente de R$ 12,6 bilhões e ROE de 23,6% no 3T26.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "O maior banco privado do país registrou lucro líquido recorrente de R$ 12,6 bilhões , alta de 6,7% na comparação anual e de 2,5% frente ao trimestre anterior.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bc1dbe770bdd8ff9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-itub4-lucro-roe-rentabilidade-banco-balanco-do-3t26-miql/",
+        "timestamp_publicacao": "2026-11-03T18:32:32-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "bc1dbe770bdd8ff9-0"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "guidance",
+      "resumo": "Itaú revisou guidance da alíquota efetiva de IR/CS para 2026 para entre 28,0% e 29,0%.",
+      "impacto_declarado": "neutro",
+      "confirmado": true,
+      "trecho_fonte": "o banco alterou a projeção da alíquota efetiva de IR/CS em 2026 para entre 28,0% e 29,0%, contra uma faixa anterior de 29,5% a 32,5%.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "bc1dbe770bdd8ff9",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-itub4-lucro-roe-rentabilidade-banco-balanco-do-3t26-miql/",
+        "timestamp_publicacao": "2026-11-03T18:32:32-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "bc1dbe770bdd8ff9-1"
+    }
+  ],
+  "eb74db9f20411fd1": [
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "resultado",
+      "resumo": "Mercado aguarda balanço do terceiro trimestre do Itaú.",
+      "impacto_declarado": "neutro",
+      "confirmado": false,
+      "trecho_fonte": "expectativa pelo balanço do terceiro trimestre do Itaú (ITUB4)",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "eb74db9f20411fd1",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-3-11-26-lils/",
+        "timestamp_publicacao": "2026-11-03T18:25:08-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "eb74db9f20411fd1-0"
+    },
+    {
+      "ticker": "VALE3",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações caem 2,85% acompanhando desempenho do minério de ferro na China.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Vale ( VALE3 ), que detém 8% de participação no índice, teve queda de 2,85% (R$ 60,25) , acompanhando o desempenho do minério de ferro na China e a pressão sobre a demanda.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "eb74db9f20411fd1",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/ibovespa-3-11-26-lils/",
+        "timestamp_publicacao": "2026-11-03T18:25:08-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "eb74db9f20411fd1-1"
+    }
+  ],
+  "27ac566266a0add0": [
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Bradesco reduziu sua rede de agências em aproximadamente um terço nos últimos dois anos.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Nos últimos dois anos, o banco reduziu sua rede de agências em aproximadamente um terço",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "27ac566266a0add0",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-derreteu-quase-40-apos-as-eleicoes-mas-morgan-stanley-diz-que-a-conta-nao-fecha-e-mantem-compra-miql/",
+        "timestamp_publicacao": "2026-11-03T17:48:26-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "27ac566266a0add0-0"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "operacional",
+      "resumo": "Bradesco mudou perfil da carteira de crédito, priorizando empréstimos com garantia e clientes de menor risco.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "Os empréstimos com garantia para pessoas físicas — como crédito consignado, financiamento de veículos e imobiliário — passaram a representar 64% da carteira de varejo, ante 62% dois anos antes. Mesmo nas modalidades sem garantia, como cartão de crédito e empréstimo pessoal, a administração tem priorizado clientes de menor risco, segundo o relatório.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "27ac566266a0add0",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-derreteu-quase-40-apos-as-eleicoes-mas-morgan-stanley-diz-que-a-conta-nao-fecha-e-mantem-compra-miql/",
+        "timestamp_publicacao": "2026-11-03T17:48:26-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "27ac566266a0add0-1"
+    },
+    {
+      "ticker": "BBDC4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Bradesco acumulam queda de 37% desde o segundo turno das eleições presidenciais.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "Desde o segundo turno das eleições presidenciais, em 25 de outubro, os papéis do Bradesco acumulam queda de 37%",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "27ac566266a0add0",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-derreteu-quase-40-apos-as-eleicoes-mas-morgan-stanley-diz-que-a-conta-nao-fecha-e-mantem-compra-miql/",
+        "timestamp_publicacao": "2026-11-03T17:48:26-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "27ac566266a0add0-2"
+    },
+    {
+      "ticker": "ITUB4",
+      "tipo_evento": "cotacao",
+      "resumo": "Ações do Itaú registraram baixa de 26% desde o segundo turno das eleições presidenciais.",
+      "impacto_declarado": "negativo",
+      "confirmado": true,
+      "trecho_fonte": "o do Itaú (ITUB4), com baixa de 26% no mesmo período",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "27ac566266a0add0",
+        "tipo_fonte": "noticia",
+        "fonte": "Money Times",
+        "url": "https://www.moneytimes.com.br/bradesco-bbdc4-derreteu-quase-40-apos-as-eleicoes-mas-morgan-stanley-diz-que-a-conta-nao-fecha-e-mantem-compra-miql/",
+        "timestamp_publicacao": "2026-11-03T17:48:26-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "27ac566266a0add0-3"
+    }
+  ],
+  "f6881738de5f0c9b": [
+    {
+      "ticker": "PETR4",
+      "tipo_evento": "operacional",
+      "resumo": "Plataforma P-78 atinge topo de produção de 180 mil barris/dia no campo de Búzios.",
+      "impacto_declarado": "positivo",
+      "confirmado": true,
+      "trecho_fonte": "A Petrobras divulgou nesta terça-feira, 3, que a plataforma P-78, instalada no campo de Búzios atingiu a marca de 180 mil barris de petróleo por dia, correspondente à capacidade nominal da unidade.",
+      "modelo": "openai:gpt-4.1-2025-04-14",
+      "versao_prompt": "PROMPT_EXTRACAO_V2",
+      "temperatura": 0.0,
+      "origem": {
+        "id": "f6881738de5f0c9b",
+        "tipo_fonte": "noticia",
+        "fonte": "InfoMoney",
+        "url": "https://www.infomoney.com.br/business/petrobras-diz-que-plataforma-p-78-atingiu-topo-de-producao-com-180-mil-barris-dia/",
+        "timestamp_publicacao": "2026-11-03T14:56:51-03:00",
+        "timestamp_coleta": "2026-11-03T19:25:17.153940-03:00"
+      },
+      "id": "f6881738de5f0c9b-0"
+    }
   ]
 }

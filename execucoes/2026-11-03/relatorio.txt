@@ -1,10 +1,13 @@
 Relatório diário QUANT — 2026-11-03
 As decisões abaixo foram tomadas pela regra determinística (strategy.py). O texto gerado por IA apenas as descreve.
 
-Operações (1):
+Operações (4):
 - BBDC4: VENDA | motivo da regra: evento negativo confirmado (resultado, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente | fonte: "Enquanto Santander Brasil (SANB11) e Bradesco (BBDC4) enfrentaram um trimestre de pressão sobre a rentabilidade e a qualidade do crédito"
+- PETR4: COMPRA | motivo da regra: evento positivo confirmado (operacional, materialidade média) com probabilidade 0.95 > 0.70, fato novo e sem evento negativo recente | fonte: "A Petrobras divulgou nesta terça-feira, 3, que a plataforma P-78, instalada no campo de Búzios atingiu a marca de 180 mil barris de petróleo por dia, correspondente à capacidade nominal da unidade."
+- ITUB4: COMPRA | motivo da regra: evento positivo confirmado (resultado, materialidade alta) com probabilidade 0.90 > 0.70, fato novo e sem evento negativo recente | fonte: "O maior banco privado do país registrou lucro líquido recorrente de R$ 12,6 bilhões , alta de 6,7% na comparação anual e de 2,5% frente ao trimestre anterior."
+- BBSE3: VENDA | motivo da regra: evento negativo confirmado (resultado, materialidade alta) com probabilidade 0.95 > 0.70, fato novo e sem evento positivo recente | fonte: "A BB Seguridade (BBSE3) registrou lucro líquido gerencial recorrente de R$ 2,432 bilhões no terceiro trimestre de 2026, queda de 5,1% em relação ao mesmo período de 2025."
 
-Eventos avaliados sem operação: 42
+Eventos avaliados sem operação: 51
 
 Resumo (gerado por IA):
-No dia de hoje, as principais empresas do mercado divulgaram variações em suas cotações, mas sem fatos novos relevantes que alterassem seus fundamentos. Resultados trimestrais foram aguardados para Itaú Unibanco, BB Seguridade, Isa Energia, Marcopolo e RD Saúde, enquanto rumores e expectativas sobre lucros e dividendos circularam para algumas companhias. A Petrobras manteve alto nível de utilização de suas refinarias e anunciou produção relevante, mas sem impacto material imediato. A única decisão de venda foi para Bradesco, devido à confirmação de um evento negativo relevante no trimestre.
+No dia de hoje, o destaque foi a divulgação dos resultados do terceiro trimestre por diversas empresas, incluindo Itaú Unibanco, BB Seguridade, Isa Energia, Marcopolo e RD Saúde. O Itaú Unibanco apresentou lucro líquido recorrente de R$ 12,6 bilhões, enquanto a BB Seguridade reportou queda de 5,1% no lucro líquido gerencial recorrente. A Petrobras informou que a plataforma P-78 atingiu sua capacidade nominal de produção, e o Bradesco e BB Seguridade enfrentaram pressão sobre rentabilidade e resultados. As demais notícias envolveram variações de cotação e expectativas de mercado, sem fatos novos relevantes para as empresas.
