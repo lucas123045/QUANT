@@ -10244,3 +10244,93 @@ See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace 
 2026-11-04 02:30:46,084 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-11-04 02:30:46,090 INFO agendado: vitrine: {"real": {"noticias": 1105, "execucoes": 14, "operacoes": 22, "simulacao": "erro: Não foi possível montar a simulação: PrecosAlterados: ITUB4.SA_2026-08-22_2026-11-03.csv: o novo download difere do registrado (ajuste retroativo por proventos?). Os resultados anteriores usaram outros preços."}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-11-04 02:30:46,090 INFO agendado: ==== fim: vitrine (ok)
+2026-11-04 09:40:54,647 INFO agendado: ==== início: pipeline
+2026-11-04 09:40:55,244 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-11-04 09:40:55,316 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-11-04 09:40:56,520 INFO src.news: InfoMoney (PETR4): 4 itens novos na janela
+2026-11-04 09:40:57,569 INFO src.news: InfoMoney (VALE3): 0 itens novos na janela
+2026-11-04 09:40:57,964 INFO src.news: InfoMoney (ITUB4): 1 itens novos na janela
+2026-11-04 09:40:58,548 INFO src.news: InfoMoney (BBDC4): 1 itens novos na janela
+2026-11-04 09:40:58,887 INFO src.news: Money Times (PETR4): 3 itens novos na janela
+2026-11-04 09:40:59,275 INFO src.news: Money Times (VALE3): 0 itens novos na janela
+2026-11-04 09:40:59,650 INFO src.news: Money Times (ITUB4): 5 itens novos na janela
+2026-11-04 09:40:59,730 INFO src.news: Money Times (BBDC4): 0 itens novos na janela
+2026-11-04 09:41:00,186 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-11-04 09:41:00,546 INFO src.cvm: CVM: 0 fato(s) relevante(s) novo(s) da carteira desde 2026-10-25
+2026-11-04 09:41:00,796 INFO src.archive: Arquivados 21 novos de 34 coletados
+2026-11-04 09:41:00,815 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-04 09:41:02,317 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:02,317 INFO openai._base_client: Retrying request in 0.484370 seconds (retry 1 of 2)
+2026-11-04 09:41:02,878 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:02,878 INFO openai._base_client: Retrying request in 0.795715 seconds (retry 2 of 2)
+2026-11-04 09:41:03,742 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:03,743 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/copom-caged-emprego-eua-agenda-04112026/: Error code: 429 - You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+2026-11-04 09:41:03,743 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-04 09:41:04,316 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:04,317 INFO openai._base_client: Retrying request in 0.391993 seconds (retry 1 of 2)
+2026-11-04 09:41:05,037 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:05,037 INFO openai._base_client: Retrying request in 0.876291 seconds (retry 2 of 2)
+2026-11-04 09:41:06,002 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:06,002 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/temporada-balanco-3t26-varejo-moda-ceab3-azza3/: Error code: 429 - You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+2026-11-04 09:41:06,002 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-04 09:41:06,406 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:06,406 INFO openai._base_client: Retrying request in 0.386518 seconds (retry 1 of 2)
+2026-11-04 09:41:07,071 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:07,071 INFO openai._base_client: Retrying request in 0.806050 seconds (retry 2 of 2)
+2026-11-04 09:41:07,955 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:07,955 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/lucro-liquido-ajustado-da-rd-saude-radl3-soma-r-439-mi-no-3o-trimestre-alta-de-92-fets/: Error code: 429 - You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+2026-11-04 09:41:07,956 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-04 09:41:08,139 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:08,139 INFO openai._base_client: Retrying request in 0.389697 seconds (retry 1 of 2)
+2026-11-04 09:41:08,592 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:08,592 INFO openai._base_client: Retrying request in 0.893784 seconds (retry 2 of 2)
+2026-11-04 09:41:09,843 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:09,843 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/fitch-afirma-rating-bb-da-petrobras-petr4-e-mantem-perspectiva-estavel-fets/: Error code: 429 - You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+2026-11-04 09:41:09,844 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-04 09:41:10,159 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:10,159 INFO openai._base_client: Retrying request in 0.408957 seconds (retry 1 of 2)
+2026-11-04 09:41:10,642 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:10,642 INFO openai._base_client: Retrying request in 0.895992 seconds (retry 2 of 2)
+2026-11-04 09:41:11,611 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-04 09:41:11,612 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/fitch-afirma-rating-bb-da-petrobras-e-mantem-perspectiva-estavel/: Error code: 429 - You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+2026-11-04 09:41:11,622 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-11-04 09:41:12,237 INFO agendado: resumo: {"coletados": 34, "novos_arquivados": 21, "eventos_validos": 0, "operacoes": 0, "por_fonte": {"InfoMoney": 16, "Money Times": 18}, "backup": "/tmp/quant-backup/quant-dados-2026-11-04_064054.zip"}
+2026-11-04 09:41:12,237 INFO agendado: ==== fim: pipeline (ok)
+2026-11-04 09:41:12,351 INFO agendado: ==== início: vitrine
+2026-11-04 09:41:12,806 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-11-04 09:41:12,810 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-11-04 09:41:20,704 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-11-04 09:41:20,709 INFO httpx2: HTTP Request: GET http://testserver/api/congelamento "HTTP/1.1 200 OK"
+2026-11-04 09:41:22,057 INFO httpx2: HTTP Request: GET http://testserver/api/cdi "HTTP/1.1 200 OK"
+2026-11-04 09:41:25,004 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=historico "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,236 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,272 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,326 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,329 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-04?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,333 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-03?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,339 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-02?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,343 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-01?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,346 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-31?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,351 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-30?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,359 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-29?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,364 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-28?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,370 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-27?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,376 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-26?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,382 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-25?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,385 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-24?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,389 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-23?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,395 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-22?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,400 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,405 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:37,664 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 503 Service Unavailable"
+2026-11-04 09:41:40,876 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:42,881 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-11-04 09:41:42,886 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:42,888 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-11-04 09:41:42,891 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:42,894 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:44,876 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:44,881 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:44,883 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-11-04 09:41:44,885 INFO agendado: vitrine: {"real": {"noticias": 1126, "execucoes": 15, "operacoes": 22, "simulacao": "erro: Não foi possível montar a simulação: PrecosAlterados: ITUB4.SA_2026-08-22_2026-11-03.csv: o novo download difere do registrado (ajuste retroativo por proventos?). Os resultados anteriores usaram outros preços."}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-11-04 09:41:44,885 INFO agendado: ==== fim: vitrine (ok)
