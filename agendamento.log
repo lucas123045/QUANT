@@ -17044,3 +17044,120 @@ See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace 
 2026-11-20 13:43:54,507 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
 2026-11-20 13:43:54,517 INFO agendado: vitrine: {"real": {"noticias": 2115, "execucoes": 31, "operacoes": 22, "simulacao": "erro: Não foi possível montar a simulação: PrecosAlterados: BBDC4.SA_2026-08-22_2026-11-19.csv: o novo download difere do registrado (ajuste retroativo por proventos?). Os resultados anteriores usaram outros preços."}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
 2026-11-20 13:43:54,517 INFO agendado: ==== fim: vitrine (ok)
+2026-11-20 21:37:26,146 INFO agendado: ==== início: pipeline
+2026-11-20 21:37:26,435 INFO src.news: InfoMoney (geral): 10 itens novos na janela
+2026-11-20 21:37:26,608 INFO src.news: Money Times (geral): 10 itens novos na janela
+2026-11-20 21:37:27,364 INFO src.news: InfoMoney (PETR4): 0 itens novos na janela
+2026-11-20 21:37:28,392 INFO src.news: InfoMoney (VALE3): 0 itens novos na janela
+2026-11-20 21:37:28,741 INFO src.news: InfoMoney (ITUB4): 0 itens novos na janela
+2026-11-20 21:37:29,270 INFO src.news: InfoMoney (BBDC4): 1 itens novos na janela
+2026-11-20 21:37:29,678 INFO src.news: Money Times (PETR4): 2 itens novos na janela
+2026-11-20 21:37:30,063 INFO src.news: Money Times (VALE3): 0 itens novos na janela
+2026-11-20 21:37:30,348 INFO src.news: Money Times (ITUB4): 0 itens novos na janela
+2026-11-20 21:37:30,747 INFO src.news: Money Times (BBDC4): 0 itens novos na janela
+2026-11-20 21:37:31,076 INFO src.news: Money Times (ABEV3): 0 itens novos na janela
+2026-11-20 21:37:31,607 INFO src.cvm: CVM: 0 fato(s) relevante(s) novo(s) da carteira desde 2026-11-10
+2026-11-20 21:37:31,626 INFO src.main: Coleta: 22 itens novos nesta execução (66 no dia)
+2026-11-20 21:37:31,979 INFO src.archive: Arquivados 22 novos de 66 coletados
+2026-11-20 21:37:32,027 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:32,833 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:32,834 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/minerva-beef3-ganha-folego-com-alta-do-dolar-e-natura-natu3-fica-na-lanterna-veja-o-que-rolou-no-ibovespa-davs/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:32,834 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:32,947 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:32,948 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/brava-energia-brav3-assume-polo-de-petroleo-e-gas-antes-operado-pela-petrobras-petr4-igdl/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:32,948 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,021 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,021 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/empresa-queridinha-do-barsi-adia-divulgacao-do-balanco-do-3t26-veja-nova-data-igdl/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,021 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,083 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,083 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/menos-horas-mesma-operacao-como-as-maiores-varejistas-da-bolsa-se-preparam-para-a-chegada-da-escala-5x2-bdap/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,083 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,137 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,138 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/indice-de-adrs-brasileiros-feriado-dia-consciencia-negra-20112026/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,138 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,225 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,226 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/em-queda-livre-ibovespa-em-dolar-ewz-despenca-mais-de-3-e-a-culpa-nao-e-so-do-governo/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,226 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,276 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,276 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/small-caps-safra-coloca-na-carteira-banco-que-pode-disparar-80-e-chegar-a-r-100-na-carteira-confira/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,276 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,323 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,323 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/ceo-do-bradesco-afirma-que-e-hora-de-prudencia-nos-bancos-brasileiros/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,323 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,380 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,380 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/ewz-cai-em-dia-de-feriado-no-brasil-veja-como-operam-as-acoes-brasileiras-no-exterior-igdl/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,380 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,434 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,435 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/corredor-ferroviario-de-minerio-usa-75-mi-de-informacoes-por-ano-na-manutencao/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,435 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,480 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,480 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/e-tarde-demais-para-a-vale-vale3-por-que-o-btg-ainda-nao-rebaixou-a-recomendacao-para-o-papel-bdap/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,480 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,541 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,541 ERROR src.main: Extração falhou para https://www.infomoney.com.br/minhas-financas/ministerio-para-idosos-veja-como-o-mercado-de-seguros-ja-se-adapta-a-longevidade/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,541 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,598 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,599 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/ibovespa-19-11-2026-davs/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,599 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,669 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,669 ERROR src.main: Extração falhou para https://www.infomoney.com.br/mercados/vale-vale3-serra-norte-vira-nova-preocupacao-para-mercado-mas-analistas-mantem-compra-acao/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,669 INFO src.llm: Chamando LLM openai:gpt-4.1-2025-04-14 (temperatura aplicada=0.0)
+2026-11-20 21:37:33,714 INFO httpx2: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-11-20 21:37:33,714 ERROR src.main: Extração falhou para https://www.moneytimes.com.br/bndes-reduz-exposicao-a-petrobras-petr4-para-20-do-patrimonio-liquido-do-banco-pads/: Error code: 401 - Incorrect API key provided: sk-proj-********************************************************************************************************************************************************lUgA. You can find your API key at https://platform.openai.com/account/api-keys.
+2026-11-20 21:37:33,732 WARNING src.backup: O backup está em /tmp/quant-backup, no mesmo volume dos dados (/). Uma falha desse disco pode atingir os dois; configure QUANT_BACKUP_DIR para uma pasta sincronizada ou outro disco.
+2026-11-20 21:37:35,189 INFO agendado: resumo: {"coletados": 66, "novos_arquivados": 49, "eventos_validos": 0, "operacoes": 0, "por_fonte": {"InfoMoney": 33, "Money Times": 33}, "backup": "/tmp/quant-backup/quant-dados-2026-11-20_183726.zip"}
+2026-11-20 21:37:35,190 INFO agendado: ==== fim: pipeline (ok)
+2026-11-20 21:37:35,320 INFO agendado: ==== início: vitrine
+2026-11-20 21:37:35,989 INFO httpx2: HTTP Request: GET http://testserver/api/status "HTTP/1.1 200 OK"
+2026-11-20 21:37:35,994 INFO httpx2: HTTP Request: GET http://testserver/api/config "HTTP/1.1 200 OK"
+2026-11-20 21:37:46,086 INFO httpx2: HTTP Request: GET http://testserver/api/mercado "HTTP/1.1 200 OK"
+2026-11-20 21:37:46,092 INFO httpx2: HTTP Request: GET http://testserver/api/congelamento "HTTP/1.1 200 OK"
+2026-11-20 21:37:46,667 INFO httpx2: HTTP Request: GET http://testserver/api/cdi "HTTP/1.1 200 OK"
+2026-11-20 21:37:50,892 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=historico "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,261 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,342 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=real&limite=5000 "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,472 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,476 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-20?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,480 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-19?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,484 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-18?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,487 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-17?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,490 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-16?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,494 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-15?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,497 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-14?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,502 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-13?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,505 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-12?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,509 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-11?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,512 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-10?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,516 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-09?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,519 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-08?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,522 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-07?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,526 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-06?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,529 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-05?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,533 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-04?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,538 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-03?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,544 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-02?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,549 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-11-01?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,554 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-31?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,560 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-30?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,569 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-29?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,576 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-28?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,582 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-27?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,590 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-26?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,597 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-25?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,601 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-24?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,606 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-23?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,613 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-22?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,620 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes/2026-10-21?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:25,625 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:28,476 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:31,826 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:36,818 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=real "HTTP/1.1 200 OK"
+2026-11-20 21:38:36,824 INFO httpx2: HTTP Request: GET http://testserver/api/funil?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:36,828 INFO httpx2: HTTP Request: GET http://testserver/api/noticias?base=teste&limite=5000 "HTTP/1.1 200 OK"
+2026-11-20 21:38:36,833 INFO httpx2: HTTP Request: GET http://testserver/api/execucoes?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:36,836 INFO httpx2: HTTP Request: GET http://testserver/api/operacoes?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:42,285 INFO httpx2: HTTP Request: GET http://testserver/api/simulacao?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:42,290 INFO httpx2: HTTP Request: GET http://testserver/api/pratica?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:42,294 INFO httpx2: HTTP Request: GET http://testserver/api/evidencias?base=teste "HTTP/1.1 200 OK"
+2026-11-20 21:38:42,301 INFO agendado: vitrine: {"real": {"noticias": 2137, "execucoes": 31, "operacoes": 22, "simulacao": "ok"}, "teste": {"noticias": 0, "execucoes": 0, "operacoes": 0, "simulacao": "sem_dados"}}
+2026-11-20 21:38:42,301 INFO agendado: ==== fim: vitrine (ok)
